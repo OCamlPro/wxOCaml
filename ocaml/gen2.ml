@@ -15,7 +15,9 @@ let module_to_generate = "wxOCaml2"
 let curname = Sys.getcwd ()
 
 let classes = ref []
-
+let basic_types = [
+  "int"; "bool"; "string"; "float"
+]
 let s = String.create 32768
 
 let string_of_channel ic =
@@ -145,7 +147,13 @@ let _ =
      | Some mli ->
        Printf.fprintf oc "  val %s : %s -> %s.t\n" cl.cl_name mli cl.cl_uname
     );
+    Printf.fprintf oc "  val ignore_%s : %s.t -> unit\n"
+      cl.cl_name cl.cl_uname
   ) classes;
+  List.iter (fun t ->
+    Printf.fprintf oc "  val ignore_%s : %s -> unit\n" t t
+  ) basic_types;
+
 
     Printf.fprintf oc "%s\n" (maybe_file classes_dirname "impl.mli");
 
@@ -232,8 +240,12 @@ let _ =
      | Some mli ->
        Printf.fprintf oc "  let %s = %s.create\n" cl.cl_name cl.cl_uname
     );
+    Printf.fprintf oc "  let ignore_%s _ = ()\n"
+      cl.cl_name;
   ) classes;
-
+  List.iter (fun t ->
+    Printf.fprintf oc "  let ignore_%s _ = ()\n" t
+  ) basic_types;
   Printf.fprintf oc "%s\n" (maybe_file classes_dirname "impl.ml");
 
   close_out oc

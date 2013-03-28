@@ -787,14 +787,34 @@ to_t (wxStaticText_Create (WxWindow.of_t w) (WxID.of_t id) s x y dx dy style))
 
 end
 
+  let ignore_wxObject _ = ()
   let wxID = WxID.create
+  let ignore_wxID _ = ()
+  let ignore_wxEvtHandler _ = ()
+  let ignore_wxSizer _ = ()
+  let ignore_wxEvent _ = ()
   let wxBoxSizer = WxBoxSizer.create
+  let ignore_wxBoxSizer _ = ()
+  let ignore_wxApp _ = ()
   let wxMenu = WxMenu.create
+  let ignore_wxMenu _ = ()
+  let ignore_wxWindow _ = ()
   let wxMenuBar = WxMenuBar.create
+  let ignore_wxMenuBar _ = ()
   let wxFrame = WxFrame.create
+  let ignore_wxFrame _ = ()
+  let ignore_wxControl _ = ()
   let wxPanel = WxPanel.create
+  let ignore_wxPanel _ = ()
+  let ignore_wxStatusBar _ = ()
   let wxButton = WxButton.create
+  let ignore_wxButton _ = ()
   let wxStaticText = WxStaticText.create
+  let ignore_wxStaticText _ = ()
+  let ignore_int _ = ()
+  let ignore_bool _ = ()
+  let ignore_string _ = ()
+  let ignore_float _ = ()
 (*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/impl.ml"*)
 
 let wxMessageBox message caption style parent x y =

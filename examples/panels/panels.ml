@@ -68,7 +68,7 @@ let _ =
     WxFrame.centre frame wxBOTH;
 
 
-    let (_:bool) = WxFrame.show frame in
+    ignore_bool ( WxFrame.show frame );
     WxApp.setTopWindow (WxFrame.wxWindow frame)
 
   in

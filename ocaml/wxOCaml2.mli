@@ -337,33 +337,53 @@ WxWindow.t -> WxID.t -> string ->
     int -> int -> int -> int -> int
  -> t
 end
+  val ignore_wxObject : WxObject.t -> unit
   val wxID : (*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxID/create.mli"*)
 unit
  -> WxID.t
+  val ignore_wxID : WxID.t -> unit
+  val ignore_wxEvtHandler : WxEvtHandler.t -> unit
+  val ignore_wxSizer : WxSizer.t -> unit
+  val ignore_wxEvent : WxEvent.t -> unit
   val wxBoxSizer : (*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxSizer/wxBoxSizer/create.mli"*)
 int
  -> WxBoxSizer.t
+  val ignore_wxBoxSizer : WxBoxSizer.t -> unit
+  val ignore_wxApp : WxApp.t -> unit
   val wxMenu : (*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxMenu/create.mli"*)
 string -> int
  -> WxMenu.t
+  val ignore_wxMenu : WxMenu.t -> unit
+  val ignore_wxWindow : WxWindow.t -> unit
   val wxMenuBar : (*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxMenuBar/create.mli"*)
 int
  -> WxMenuBar.t
+  val ignore_wxMenuBar : WxMenuBar.t -> unit
   val wxFrame : (*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/wxFrame/create.mli"*)
 WxWindow.t -> WxID.t -> string ->
     int -> int -> int -> int -> int
  -> WxFrame.t
+  val ignore_wxFrame : WxFrame.t -> unit
+  val ignore_wxControl : WxControl.t -> unit
   val wxPanel : (*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/wxPanel/create.mli"*)
  WxWindow.t -> WxID.t -> int -> int -> int -> int -> int
  -> WxPanel.t
+  val ignore_wxPanel : WxPanel.t -> unit
+  val ignore_wxStatusBar : WxStatusBar.t -> unit
   val wxButton : (*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/wxControl/wxButton/create.mli"*)
 WxWindow.t -> WxID.t -> string ->
     int -> int -> int -> int -> int
  -> WxButton.t
+  val ignore_wxButton : WxButton.t -> unit
   val wxStaticText : (*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/wxControl/wxStaticText/create.mli"*)
 WxWindow.t -> WxID.t -> string ->
     int -> int -> int -> int -> int
  -> WxStaticText.t
+  val ignore_wxStaticText : WxStaticText.t -> unit
+  val ignore_int : int -> unit
+  val ignore_bool : bool -> unit
+  val ignore_string : string -> unit
+  val ignore_float : float -> unit
 (*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/impl.mli"*)
 
 val wxMessageBox : string -> string -> int -> WxWindow.t -> int -> int -> int

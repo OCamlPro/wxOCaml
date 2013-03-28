@@ -30,12 +30,11 @@ let _ =
     WxMenu.append  menuFile quit_id
       "E&xit" "Exit from the application" checkable;
 
-    let (_:int) =
-        WxMenuBar.append menuBar menuFile "&File" in
+    ignore_int (WxMenuBar.append menuBar menuFile "&File");
 
     WxFrame.setMenuBar frame menuBar;
 
-    let (_:WxStatusBar.t) = WxFrame.createStatusBar frame 1 0 in
+    ignore_wxStatusBar (WxFrame.createStatusBar frame 1 0);
 
     WxFrame.setStatusText frame  "Welcome to wxWidgets!" 0;
 
@@ -50,17 +49,17 @@ let _ =
       about_id
       Wxdefs.wxEVT_COMMAND_MENU_SELECTED
       (fun _ -> Printf.eprintf "ABOUT ???\n%!";
-        let (_:int) =
+        ignore_int (
           wxMessageBox           "wxWidgets Hello World example."
-        "About Hello World"
+            "About Hello World"
             (Wxdefs.wxOK lor Wxdefs.wxICON_INFORMATION)
             (WxFrame.wxWindow frame)
             Wxdefs.wxDefaultCoord
             Wxdefs.wxDefaultCoord
-        in
-        ());
+        )
+        );
 
-    let (_:bool) = WxFrame.show frame in
+    ignore_bool ( WxFrame.show frame );
     WxApp.setTopWindow (WxFrame.wxWindow frame)
 
   in
