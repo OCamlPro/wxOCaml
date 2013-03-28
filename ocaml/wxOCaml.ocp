@@ -1,0 +1,9 @@
+binannot = false
+
+begin library "wxOCaml"
+  requires = [ "wxOCaml_elj" "wxOCaml_idl" "wxOCaml_defs" ]
+  files = [
+    "wxOCaml.ml"
+    "wxo_start_c.c"
+  ]
+end

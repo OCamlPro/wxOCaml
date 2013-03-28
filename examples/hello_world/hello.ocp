@@ -1,0 +1,7 @@
+binannot = false
+
+
+begin program "hello_world"
+  requires = [ "wxOCaml" ]
+  files = [    "hello.ml"  ]
+end
