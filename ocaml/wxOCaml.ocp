@@ -4,6 +4,7 @@ begin library "wxOCaml"
   requires = [ "wxOCaml_elj" "wxOCaml_idl" "wxOCaml_defs" ]
   files = [
     "wxOCaml.ml"
+    "wxOCaml2.ml"
     "wxo_start_c.c"
   ]
 end

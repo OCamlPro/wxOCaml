@@ -30,9 +30,12 @@ A binding to wxWidgets
 
 ## How to use
 
-  The module WxOCaml contains a sub-module IDL, exporting all the
- stubs available, and some useful functions. A lot of useful constants
- are in Wxdefs.
+* The module WxOCaml2 defines a set of modules (one module = one WX class).
+  It is only partial, but all types are verified.
+* A lot of useful constants are in Wxdefs.
+* The module WxOCaml contains a sub-module IDL, exporting all the
+   stubs available, and some useful functions. Types are not correctly
+   verified, so using directly these functions can be dangerous.
 
 ## How is it done ?
 
