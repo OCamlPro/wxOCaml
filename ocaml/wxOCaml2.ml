@@ -252,7 +252,7 @@ unit
  -> t
 
   (* Cast functions *)
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxID/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxID/impl.mli"*)
   val any : t
 
 end = struct
@@ -271,7 +271,7 @@ module WxEvtHandler : sig
 
   (* Cast functions *)
   val wxObject : t -> WxObject.t
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/impl.mli"*)
   val connect : t -> WxID.t -> int -> (WxEvent.t -> unit) -> unit
 
 
@@ -294,7 +294,7 @@ module WxSizer : sig
 
   (* Cast functions *)
   val wxObject : t -> WxObject.t
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxSizer/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxSizer/impl.mli"*)
   val addWindow : t -> WxWindow.t -> int -> int -> int -> WxObject.t -> unit
 
 
@@ -339,7 +339,7 @@ int
   val wxSizer : t -> WxSizer.t
   val wxObject : t -> WxObject.t
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxSizer/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxSizer/impl.mli"*)
   val addWindow : t -> WxWindow.t -> int -> int -> int -> WxObject.t -> unit
 
 
@@ -367,11 +367,11 @@ module WxApp : sig
   (* Cast functions *)
   val wxEvtHandler : t -> WxEvtHandler.t
   val wxObject : t -> WxObject.t
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxApp/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxApp/impl.mli"*)
   val setTopWindow : WxWindow.t -> unit
   val start : (WxEvent.t -> unit) -> unit
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/impl.mli"*)
   val connect : t -> WxID.t -> int -> (WxEvent.t -> unit) -> unit
 
 
@@ -406,11 +406,11 @@ string -> int
   (* Cast functions *)
   val wxEvtHandler : t -> WxEvtHandler.t
   val wxObject : t -> WxObject.t
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxMenu/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxMenu/impl.mli"*)
   val append : t -> WxID.t -> string -> string -> bool -> unit
   val appendSeparator : t -> unit
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/impl.mli"*)
   val connect : t -> WxID.t -> int -> (WxEvent.t -> unit) -> unit
 
 
@@ -442,12 +442,12 @@ module WxWindow : sig
   (* Cast functions *)
   val wxEvtHandler : t -> WxEvtHandler.t
   val wxObject : t -> WxObject.t
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/impl.mli"*)
   val show : t -> bool
   val setLabel : t -> string -> unit
   val setSizer : t -> WxSizer.t -> unit
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/impl.mli"*)
   val connect : t -> WxID.t -> int -> (WxEvent.t -> unit) -> unit
 
 
@@ -482,10 +482,10 @@ int
   (* Cast functions *)
   val wxEvtHandler : t -> WxEvtHandler.t
   val wxObject : t -> WxObject.t
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxMenuBar/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxMenuBar/impl.mli"*)
   val append : t -> WxMenu.t -> string -> int
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/impl.mli"*)
   val connect : t -> WxID.t -> int -> (WxEvent.t -> unit) -> unit
 
 
@@ -520,18 +520,18 @@ WxWindow.t -> WxID.t -> string ->
   val wxWindow : t -> WxWindow.t
   val wxEvtHandler : t -> WxEvtHandler.t
   val wxObject : t -> WxObject.t
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/wxFrame/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/wxFrame/impl.mli"*)
   val setMenuBar : t -> WxMenuBar.t -> unit
   val  createStatusBar : t -> (* nfields *) int -> (* style *) int -> WxStatusBar.t
   val setStatusText : t -> string -> int -> unit
   val centre : t -> int -> unit
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/impl.mli"*)
   val show : t -> bool
   val setLabel : t -> string -> unit
   val setSizer : t -> WxSizer.t -> unit
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/impl.mli"*)
   val connect : t -> WxID.t -> int -> (WxEvent.t -> unit) -> unit
 
 
@@ -578,12 +578,12 @@ module WxControl : sig
   val wxEvtHandler : t -> WxEvtHandler.t
   val wxObject : t -> WxObject.t
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/impl.mli"*)
   val show : t -> bool
   val setLabel : t -> string -> unit
   val setSizer : t -> WxSizer.t -> unit
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/impl.mli"*)
   val connect : t -> WxID.t -> int -> (WxEvent.t -> unit) -> unit
 
 
@@ -619,12 +619,12 @@ module WxPanel : sig
   val wxEvtHandler : t -> WxEvtHandler.t
   val wxObject : t -> WxObject.t
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/impl.mli"*)
   val show : t -> bool
   val setLabel : t -> string -> unit
   val setSizer : t -> WxSizer.t -> unit
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/impl.mli"*)
   val connect : t -> WxID.t -> int -> (WxEvent.t -> unit) -> unit
 
 
@@ -660,12 +660,12 @@ module WxStatusBar : sig
   val wxEvtHandler : t -> WxEvtHandler.t
   val wxObject : t -> WxObject.t
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/impl.mli"*)
   val show : t -> bool
   val setLabel : t -> string -> unit
   val setSizer : t -> WxSizer.t -> unit
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/impl.mli"*)
   val connect : t -> WxID.t -> int -> (WxEvent.t -> unit) -> unit
 
 
@@ -704,12 +704,12 @@ WxWindow.t -> WxID.t -> string ->
   val wxObject : t -> WxObject.t
 
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/impl.mli"*)
   val show : t -> bool
   val setLabel : t -> string -> unit
   val setSizer : t -> WxSizer.t -> unit
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/impl.mli"*)
   val connect : t -> WxID.t -> int -> (WxEvent.t -> unit) -> unit
 
 
@@ -754,12 +754,12 @@ WxWindow.t -> WxID.t -> string ->
   val wxObject : t -> WxObject.t
 
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/wxWindow/impl.mli"*)
   val show : t -> bool
   val setLabel : t -> string -> unit
   val setSizer : t -> WxSizer.t -> unit
 
-(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/intf.ml"*)
+(*# 1 "/home/lefessan/GIT/OCamlPro/PUBLIC/wxOCaml/ocaml/Classes/wxObject/wxEvtHandler/impl.mli"*)
   val connect : t -> WxID.t -> int -> (WxEvent.t -> unit) -> unit
 
 

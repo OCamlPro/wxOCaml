@@ -51,7 +51,7 @@ let maybe_file dirname name =
 
 let new_class cl_name cl_parents cl_dirname =
   let cl_uname = String.capitalize cl_name in
-  let cl_interface = maybe_file cl_dirname "intf.ml" in
+  let cl_interface = maybe_file cl_dirname "impl.mli" in
   let cl_implementation = maybe_file cl_dirname "impl.ml" in
   let cl_inherit = maybe_file cl_dirname "inher.ml" in
   let cl_create =
