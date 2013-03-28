@@ -4398,7 +4398,7 @@ TClass(wxSize) wxSizeEvent_GetSize( TSelf(wxSizeEvent) _obj );
 TClassDefExtend(wxSizer,wxObject)
 void       wxSizer_Add( TSelf(wxSizer) _obj, TSize(width,height), int option, int flag, int border, voidptr userData );
 void       wxSizer_AddSizer( TSelf(wxSizer) _obj, TClass(wxSizer) sizer, int option, int flag, int border, voidptr userData );
-void       wxSizer_AddWindow( TSelf(wxSizer) _obj, TClass(wxWindow) window, int option, int flag, int border, voidptr userData );
+void       wxSizer_AddWindow( TSelf(wxSizer) _obj, TClass(wxWindow) window, int option, int flag, int border, TClass(wxObject) userData );
 TClass(wxSize) wxSizer_CalcMin( TSelf(wxSizer) _obj );
 void       wxSizer_Fit( TSelf(wxSizer) _obj, TClass(wxWindow) window );
 int        wxSizer_GetChildren( TSelf(wxSizer) _obj, voidptr _result, int _cnt );

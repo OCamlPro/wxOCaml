@@ -1,1 +1,1 @@
-link = [ "-cclib" "-lwxc @LIBS@ -lcamlidl" ]
+link = [ "-cclib" "-lwxOCaml_elj @LIBS@ -lcamlidl" ]

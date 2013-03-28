@@ -15,7 +15,7 @@ IDL_FILE=wxc_idl
 
 all: $(IDL_FILE).ml
 
-$(IDL_FILE).ml: $(IDL_FILE).idl  $(HEADERS)
+$(IDL_FILE).ml: $(IDL_FILE).idl  $(HEADERS) $(IDL_HEADERS)
 	camlidl -header $(IDL_FILE).idl
 
 clean:

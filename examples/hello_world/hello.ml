@@ -26,7 +26,7 @@ let _ =
     let menuBar_obj = wxMenuBar_Create  menuBar_id in
 
     let menuFile_id = uniq_id () in
-    let menuFile_obj = with_wxString "&System" (fun s_title ->
+    let menuFile_obj = with_wxString "" (fun s_title ->
         wxMenu_Create s_title menuFile_id) in
 
     let checkable = false in
@@ -53,16 +53,23 @@ let _ =
       Wxdefs.wxEVT_COMMAND_MENU_SELECTED
       (fun _ -> Printf.eprintf "QUIT !!\n%!"; exit 0);
 
-(*
     register_callback
       frame_obj
       about_id
       Wxdefs.wxEVT_COMMAND_MENU_SELECTED
       (fun _ -> Printf.eprintf "ABOUT ???\n%!";
-        wxMessageBox( _("wxWidgets Hello World example."),
-                  _("About Hello World"),
-                  wxOK|wxICON_INFORMATION, this );exit 0);
-*)
+        let (_:int) = with_wxString2
+          "wxWidgets Hello World example."
+        "About Hello World" (fun s_message s_caption ->
+          wxcMessageBox s_message s_caption
+            (Wxdefs.wxOK lor Wxdefs.wxICON_INFORMATION)
+            frame_obj
+            Wxdefs.wxDefaultCoord
+            Wxdefs.wxDefaultCoord
+          )
+
+        in
+        ());
 
     let (_:bool) = wxWindow_Show frame_obj in
     eLJApp_SetTopWindow frame_obj

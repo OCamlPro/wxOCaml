@@ -1,1 +1,6 @@
 wxObject null_object (void);
+int wxcMessageBox(TClass(wxString) message,
+		      TClass(wxString) caption,
+		      long style,
+		      TClass(wxWindow) parent,
+		      int x, int y);

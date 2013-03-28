@@ -23,6 +23,11 @@ A binding to wxWidgets
     ./configure
     make
 
+ To run examples:
+
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:`pwd`/elj
+    ./_obuild/hello_world/hello_world.asm
+
 ## How to use
 
   The module WxOCaml contains a sub-module IDL, exporting all the

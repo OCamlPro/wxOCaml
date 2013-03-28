@@ -89,6 +89,7 @@ SOURCES= \
     eljvalidator.cpp \
     eljwindow.cpp \
     eljwizard.cpp \
+    \
     ewxw_main.cpp \
     extra.cpp \
     glcanvas.cpp \
@@ -107,7 +108,10 @@ SOURCES= \
     textstream.cpp \
     treectrl.cpp \
     defs.cpp \
-    wrapper.cpp 
+    wrapper.cpp \
+    \
+    wxc_more.cpp
+
 
 #    stc_gen.cpp ?
 
@@ -115,10 +119,12 @@ OBJECTS=$(SOURCES:.cpp=.o)
 
 include ../Makefile.config
 
-all: liblwc.so
+NAME=wxOCaml_elj
 
-liblwc.so: $(OBJECTS)
-	$(CXX) $(CXXFLAGS)  -g -Wl,--hash-size=31 -Wl,--reduce-memory-overheads -shared -Wl,-soname,libwxc.so -o libwxc.so $(OBJECTS) $(LIBS)
+all: lib$(NAME).so
+
+lib$(NAME).so: $(OBJECTS)
+	$(CXX) $(CXXFLAGS)  -g -Wl,--hash-size=31 -Wl,--reduce-memory-overheads -shared -Wl,-soname,lib$(NAME).so -o lib$(NAME).so $(OBJECTS) $(LIBS)
 
 .cpp.o:
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -Wl,--hash-size=31 -Wl,--reduce-memory-overheads -DwxcREFUSE_MEDIACTRL -fPIC -c $< -o $@

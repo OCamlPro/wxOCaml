@@ -23,4 +23,7 @@ let with_wxString str f =
     wxString_Delete wx_str;
     raise e
 
-let with_wxString2 s1 s2 f = with_wxString s1 (fun wxs1 -> with_wxString s2 (fun wxs2 -> f wxs1 wxs2))
+let with_wxString2 s1 s2 f =
+  with_wxString s1 (fun wxs1 -> with_wxString s2 (fun wxs2 -> f wxs1 wxs2))
+
+let ptrNULL = null_object ()
