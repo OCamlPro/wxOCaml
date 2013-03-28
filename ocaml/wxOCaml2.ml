@@ -312,3 +312,9 @@ let wxMessageBox message caption style parent x y =
     wxcMessageBox message caption style
       (WxWindow.of_t parent) x y)
 
+let wxFrame = WxFrame.create
+let wxPanel = WxPanel.create
+let wxButton = WxButton.create
+let wxBoxSizer = WxBoxSizer.create
+let wxStaticText = WxStaticText.create
+let wxID = WxID.create

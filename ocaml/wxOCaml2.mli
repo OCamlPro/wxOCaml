@@ -122,3 +122,17 @@ module WxApp : sig
 end
 
 val wxMessageBox : string -> string -> int -> WxWindow.t -> int -> int -> int
+
+val wxID : unit -> WxID.t
+val wxStaticText : WxWindow.t -> WxID.t -> string ->
+    int -> int -> int -> int -> int -> WxStaticText.t
+val wxFrame :
+  WxWindow.t ->
+  WxID.t -> string -> int -> int -> int -> int -> int -> WxFrame.t
+val wxPanel :
+  WxWindow.t ->
+  WxID.t -> int -> int -> int -> int -> int -> WxPanel.t
+
+val wxBoxSizer : int -> WxBoxSizer.t
+val wxButton : WxWindow.t -> WxID.t -> string ->
+    int -> int -> int -> int -> int -> WxButton.t
