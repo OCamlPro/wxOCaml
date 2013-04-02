@@ -112,7 +112,7 @@ let setString _obj s =
 
 let getString _obj =
   let wxres = getString _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 external null_object : unit -> wxWindowDestroyEvent
    = "camlidl_wxc_idl_null_object"

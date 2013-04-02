@@ -109,19 +109,19 @@ let setFaceName _obj faceName =
 
 let getWeightString _obj =
   let wxres = getWeightString _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getStyleString _obj =
   let wxres = getStyleString _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getFamilyString _obj =
   let wxres = getFamilyString _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getFaceName _obj =
   let wxres = getFaceName _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 external null_object : unit -> wxFont
    = "camlidl_wxc_idl_null_object"

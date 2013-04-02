@@ -214,31 +214,31 @@ let setAppName name =
 
 let getVendorName () =
   let wxres = getVendorName ()  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getUserName () =
   let wxres = getUserName ()  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getUserId () =
   let wxres = getUserId ()  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getUserHome _usr =
   let wxres = getUserHome _usr  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getOsDescription () =
   let wxres = getOsDescription ()  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getClassName () =
   let wxres = getClassName ()  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getAppName () =
   let wxres = getAppName ()  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let findWindowByName _lbl _prt =
   let _lbl = WxString.createUTF8 _lbl in

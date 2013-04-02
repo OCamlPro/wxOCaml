@@ -14,7 +14,8 @@ TClass(wxIcon) Null_Icon(  );
 TClass(wxPalette) Null_Palette(  );
 TClass(wxPen) Null_Pen(  );
 
-/* Events */
+/* Events 
+
 int expEVT_COMMAND_AUITOOLBAR_TOOL_DROPDOWN();
 int expEVT_COMMAND_AUITOOLBAR_OVERFLOW_CLICK();
 int expEVT_COMMAND_AUITOOLBAR_RIGHT_CLICK();
@@ -196,7 +197,7 @@ int expEVT_HELP();
 int expEVT_DETAILED_HELP();
 int expEVT_COMMAND_TOOL_CLICKED();
 
-/* eljfindrepldlg.h */
+// eljfindrepldlg.h
 int expEVT_COMMAND_FIND();
 int expEVT_COMMAND_FIND_NEXT();
 int expEVT_COMMAND_FIND_REPLACE();
@@ -328,7 +329,7 @@ int expEVT_COMMAND_SPLITTER_UNSPLIT();
 int expEVT_COMMAND_SEARCHCTRL_CANCEL_BTN();
 int expEVT_COMMAND_SEARCHCTRL_SEARCH_BTN();
 
-/* taskbaricon.cpp */
+// taskbaricon.cpp
 int expEVT_TASKBAR_MOVE();
 int expEVT_TASKBAR_LEFT_DOWN();
 int expEVT_TASKBAR_LEFT_UP();
@@ -386,7 +387,7 @@ int expEVT_HTML_SET_TITLE();
 int expEVT_INPUT_SINK();
 int expEVT_SORT();
 
-/* Keys */
+// Keys 
 int        expK_BACK(  );
 int        expK_TAB(  );
 int        expK_RETURN(  );
@@ -486,7 +487,7 @@ int        expK_NUMPAD_SEPARATOR(  );
 int        expK_NUMPAD_SUBTRACT(  );
 int        expK_NUMPAD_DECIMAL(  );
 int        expK_NUMPAD_DIVIDE(  );
-
+*/
 
 /* Misc. */
 int        ELJSysErrorCode(  );
@@ -1812,7 +1813,7 @@ void       wxDateTime_AddTime( TSelf(wxDateTime) _obj, voidptr diff, TClassRef(w
 void       wxDateTime_AddTimeValues( TSelf(wxDateTime) _obj, int _hrs, int _min, int _sec, int _mls );
 int        wxDateTime_ConvertYearToBC( int year );
 TClass(wxDateTime) wxDateTime_Create( );
-TClass(wxString) wxDateTime_Format( TSelf(wxDateTime) _obj, voidptr format, int tz );
+TClass(wxString) wxDateTime_Format( TSelf(wxDateTime) _obj, voidptr _format, int tz );
 TClass(wxString) wxDateTime_FormatDate( TSelf(wxDateTime) _obj );
 TClass(wxString) wxDateTime_FormatISODate( TSelf(wxDateTime) _obj );
 TClass(wxString) wxDateTime_FormatISOTime( TSelf(wxDateTime) _obj );

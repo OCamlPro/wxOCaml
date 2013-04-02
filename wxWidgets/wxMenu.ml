@@ -252,15 +252,15 @@ let insert _obj pos id text help isCheckable =
 
 let getTitle _obj =
   let wxres = getTitle _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLabel _obj id =
   let wxres = getLabel _obj id  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getHelpString _obj id =
   let wxres = getHelpString _obj id  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let findItemByLabel _obj itemString =
   let itemString = WxString.createUTF8 itemString in

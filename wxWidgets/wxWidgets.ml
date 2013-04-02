@@ -2,6 +2,9 @@ open WxClasses
 external wxFileConfig : wxInputStream -> wxFileConfig
 	= "camlidl_wxc_idl_wxFileConfig_Create"
 
+external wxTextAttr : wxColour -> wxColour -> wxFont -> wxTextAttr
+	= "camlidl_wxc_idl_wxTextAttr_Create"
+
 external wxLogWindow : wxWindow -> string -> bool -> bool -> wxLogWindow
 	= "camlidl_wxc_idl_wxLogWindow_Create"
 
@@ -57,7 +60,10 @@ external wxString : string -> wxString
 
 let wxString buffer =
   let wxres = wxString buffer  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
+
+external wxClosure : voidptr -> voidptr -> wxClosure
+	= "camlidl_wxc_idl_wxClosure_Create"
 
 external wxStyledTextCtrl : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxStyledTextCtrl
 	= "camlidl_wxc_idl_wxStyledTextCtrl_Create_bytecode" "camlidl_wxc_idl_wxStyledTextCtrl_Create"
@@ -66,6 +72,18 @@ let wxStyledTextCtrl _prt _id _txt _lft _top _wdt _hgt style =
   let _txt = WxString.createUTF8 _txt in
   let wxres = wxStyledTextCtrl _prt _id _txt _lft _top _wdt _hgt style  in
   WxString.delete _txt;
+  wxres
+
+external wxTextOutputStream : wxOutputStream -> int -> wxTextOutputStream
+	= "camlidl_wxc_idl_wxTextOutputStream_Create"
+
+external wxTextInputStream : wxInputStream -> wxString -> wxTextInputStream
+	= "camlidl_wxc_idl_wxTextInputStream_Create"
+
+let wxTextInputStream inputStream sep =
+  let sep = WxString.createUTF8 sep in
+  let wxres = wxTextInputStream inputStream sep  in
+  WxString.delete sep;
   wxres
 
 external wxcPrintout : wxString -> wxcPrintout
@@ -249,6 +267,9 @@ external wxWindow : wxWindow -> int -> int -> int -> int -> int -> int -> wxWind
 external wxValidator : unit -> wxValidator
 	= "camlidl_wxc_idl_wxValidator_Create"
 
+external wxTreeItemId : unit -> wxTreeItemId
+	= "camlidl_wxc_idl_wxTreeItemId_Create"
+
 external wxTreeCtrl : voidptr -> voidptr -> wxWindow -> int -> int -> int -> int -> int -> int -> wxTreeCtrl
 	= "camlidl_wxc_idl_wxTreeCtrl_Create_bytecode" "camlidl_wxc_idl_wxTreeCtrl_Create"
 
@@ -281,6 +302,9 @@ let wxTextCtrl _prt _id _txt _lft _top _wdt _hgt _stl =
 
 external wxTaskBarIcon : unit -> wxTaskBarIcon
 	= "camlidl_wxc_idl_wxTaskBarIcon_Create"
+
+external wxStopWatch : unit -> wxStopWatch
+	= "camlidl_wxc_idl_wxStopWatch_Create"
 
 external wxStatusBar : wxWindow -> int -> int -> int -> int -> int -> int -> wxStatusBar
 	= "camlidl_wxc_idl_wxStatusBar_Create_bytecode" "camlidl_wxc_idl_wxStatusBar_Create"
@@ -332,6 +356,20 @@ external wxSlider : wxWindow -> int -> int -> int -> int -> int -> int -> int ->
 
 external wxSizerItem : int -> int -> int -> int -> int -> voidptr -> wxSizerItem
 	= "camlidl_wxc_idl_wxSizerItem_Create_bytecode" "camlidl_wxc_idl_wxSizerItem_Create"
+
+external wxSize : int -> int -> wxSize
+	= "camlidl_wxc_idl_wxSize_Create"
+
+external wxSingleInstanceChecker : voidptr -> wxString -> wxString -> bool
+	= "camlidl_wxc_idl_wxSingleInstanceChecker_Create"
+
+let wxSingleInstanceChecker _obj name path =
+  let name = WxString.createUTF8 name in
+  let path = WxString.createUTF8 path in
+  let wxres = wxSingleInstanceChecker _obj name path  in
+  WxString.delete name;
+  WxString.delete path;
+  wxres
 
 external wxSimpleHelpProvider : unit -> wxSimpleHelpProvider
 	= "camlidl_wxc_idl_wxSimpleHelpProvider_Create"
@@ -408,6 +446,9 @@ external wxPreviewCanvas : wxPrintPreview -> wxWindow -> int -> int -> int -> in
 external wxPostScriptDC : wxPrintData -> wxPostScriptDC
 	= "camlidl_wxc_idl_wxPostScriptDC_Create"
 
+external wxPoint : int -> int -> wxPoint
+	= "camlidl_wxc_idl_wxPoint_Create"
+
 external wxPanel : wxWindow -> int -> int -> int -> int -> int -> int -> wxPanel
 	= "camlidl_wxc_idl_wxPanel_Create_bytecode" "camlidl_wxc_idl_wxPanel_Create"
 
@@ -434,6 +475,9 @@ let wxMiniFrame _prt _id _txt _lft _top _wdt _hgt _stl =
   let wxres = wxMiniFrame _prt _id _txt _lft _top _wdt _hgt _stl  in
   WxString.delete _txt;
   wxres
+
+external wxMimeTypesManager : unit -> wxMimeTypesManager
+	= "camlidl_wxc_idl_wxMimeTypesManager_Create"
 
 external wxMetafileDC : wxString -> wxMetafileDC
 	= "camlidl_wxc_idl_wxMetafileDC_Create"
@@ -536,6 +580,9 @@ external wxHelpControllerHelpProvider : wxHelpControllerBase -> wxHelpController
 external wxGridSizer : int -> int -> int -> int -> wxGridSizer
 	= "camlidl_wxc_idl_wxGridSizer_Create"
 
+external wxGridCellCoordsArray : unit -> wxGridCellCoordsArray
+	= "camlidl_wxc_idl_wxGridCellCoordsArray_Create"
+
 external wxGrid : wxWindow -> int -> int -> int -> int -> int -> int -> wxGrid
 	= "camlidl_wxc_idl_wxGrid_Create_bytecode" "camlidl_wxc_idl_wxGrid_Create"
 
@@ -550,6 +597,12 @@ let wxFrame _prt _id _txt _lft _top _wdt _hgt _stl =
   let wxres = wxFrame _prt _id _txt _lft _top _wdt _hgt _stl  in
   WxString.delete _txt;
   wxres
+
+external wxFontMapper : unit -> wxFontMapper
+	= "camlidl_wxc_idl_wxFontMapper_Create"
+
+external wxFontEnumerator : voidptr -> voidptr -> wxFontEnumerator
+	= "camlidl_wxc_idl_wxFontEnumerator_Create"
 
 external wxFontDialog : wxWindow -> wxFontData -> wxFontDialog
 	= "camlidl_wxc_idl_wxFontDialog_Create"
@@ -631,6 +684,9 @@ let wxDialog _prt _id _txt _lft _top _wdt _hgt _stl =
   WxString.delete _txt;
   wxres
 
+external wxDateTime : unit -> wxDateTime
+	= "camlidl_wxc_idl_wxDateTime_Create"
+
 external wxDataObjectComposite : unit -> wxDataObjectComposite
 	= "camlidl_wxc_idl_wxDataObjectComposite_Create"
 
@@ -682,6 +738,12 @@ let wxCheckBox _prt _id _txt _lft _top _wdt _hgt _stl =
   WxString.delete _txt;
   wxres
 
+external wxCaret : wxWindow -> int -> int -> wxCaret
+	= "camlidl_wxc_idl_wxCaret_Create"
+
+external wxCalendarDateAttr : voidptr -> voidptr -> voidptr -> voidptr -> int -> wxCalendarDateAttr
+	= "camlidl_wxc_idl_wxCalendarDateAttr_Create"
+
 external wxCalendarCtrl : wxWindow -> int -> wxDateTime -> int -> int -> int -> int -> int -> wxCalendarCtrl
 	= "camlidl_wxc_idl_wxCalendarCtrl_Create_bytecode" "camlidl_wxc_idl_wxCalendarCtrl_Create"
 
@@ -697,6 +759,18 @@ let wxButton _prt _id _txt _lft _top _wdt _hgt _stl =
   WxString.delete _txt;
   wxres
 
+external wxBusyInfo : wxString -> wxBusyInfo
+	= "camlidl_wxc_idl_wxBusyInfo_Create"
+
+let wxBusyInfo _txt =
+  let _txt = WxString.createUTF8 _txt in
+  let wxres = wxBusyInfo _txt  in
+  WxString.delete _txt;
+  wxres
+
+external wxBusyCursor : unit -> wxBusyCursor
+	= "camlidl_wxc_idl_wxBusyCursor_Create"
+
 external wxBufferedPaintDC : wxWindow -> int -> wxBufferedPaintDC
 	= "camlidl_wxc_idl_wxBufferedPaintDC_Create"
 
@@ -711,6 +785,12 @@ external wxBitmap : voidptr -> int -> int -> int -> int -> wxBitmap
 
 external wxAutoBufferedPaintDC : wxWindow -> wxAutoBufferedPaintDC
 	= "camlidl_wxc_idl_wxAutoBufferedPaintDC_Create"
+
+external wxAcceleratorTable : int -> voidptr -> wxAcceleratorTable
+	= "camlidl_wxc_idl_wxAcceleratorTable_Create"
+
+external wxAcceleratorEntry : int -> int -> int -> wxAcceleratorEntry
+	= "camlidl_wxc_idl_wxAcceleratorEntry_Create"
 
 external eLJTextValidator : voidptr -> voidptr -> string -> int -> eLJTextValidator
 	= "camlidl_wxc_idl_ELJTextValidator_Create"
@@ -736,6 +816,15 @@ external eLJFileDropTarget : voidptr -> voidptr -> eLJFileDropTarget
 external eLJDropTarget : voidptr -> eLJDropTarget
 	= "camlidl_wxc_idl_ELJDropTarget_Create"
 
+external eLJDragDataObject : voidptr -> wxString -> voidptr -> voidptr -> voidptr -> eLJDragDataObject
+	= "camlidl_wxc_idl_ELJDragDataObject_Create"
+
+let eLJDragDataObject _obj _fmt _func1 _func2 _func3 =
+  let _fmt = WxString.createUTF8 _fmt in
+  let wxres = eLJDragDataObject _obj _fmt _func1 _func2 _func3  in
+  WxString.delete _fmt;
+  wxres
+
 external eLJArtProv : voidptr -> voidptr -> eLJArtProv
 	= "camlidl_wxc_idl_ELJArtProv_Create"
 
@@ -744,6 +833,7 @@ external ignore_eLJArtProv : eLJArtProv -> unit = "%ignore"
 external ignore_eLJClient : eLJClient -> unit = "%ignore"
 external ignore_eLJCommand : eLJCommand -> unit = "%ignore"
 external ignore_eLJConnection : eLJConnection -> unit = "%ignore"
+external ignore_eLJDragDataObject : eLJDragDataObject -> unit = "%ignore"
 external ignore_eLJDropTarget : eLJDropTarget -> unit = "%ignore"
 external ignore_eLJFileDropTarget : eLJFileDropTarget -> unit = "%ignore"
 external ignore_eLJGridTable : eLJGridTable -> unit = "%ignore"
@@ -755,6 +845,8 @@ external ignore_eLJPreviewFrame : eLJPreviewFrame -> unit = "%ignore"
 external ignore_eLJPrintout : eLJPrintout -> unit = "%ignore"
 external ignore_eLJTextDropTarget : eLJTextDropTarget -> unit = "%ignore"
 external ignore_eLJTextValidator : eLJTextValidator -> unit = "%ignore"
+external ignore_wxAcceleratorEntry : wxAcceleratorEntry -> unit = "%ignore"
+external ignore_wxAcceleratorTable : wxAcceleratorTable -> unit = "%ignore"
 external ignore_wxActivateEvent : wxActivateEvent -> unit = "%ignore"
 external ignore_wxApp : wxApp -> unit = "%ignore"
 external ignore_wxArray : wxArray -> unit = "%ignore"
@@ -774,20 +866,26 @@ external ignore_wxBufferedDC : wxBufferedDC -> unit = "%ignore"
 external ignore_wxBufferedInputStream : wxBufferedInputStream -> unit = "%ignore"
 external ignore_wxBufferedOutputStream : wxBufferedOutputStream -> unit = "%ignore"
 external ignore_wxBufferedPaintDC : wxBufferedPaintDC -> unit = "%ignore"
+external ignore_wxBusyCursor : wxBusyCursor -> unit = "%ignore"
+external ignore_wxBusyInfo : wxBusyInfo -> unit = "%ignore"
 external ignore_wxButton : wxButton -> unit = "%ignore"
 external ignore_wxCSConv : wxCSConv -> unit = "%ignore"
 external ignore_wxCalculateLayoutEvent : wxCalculateLayoutEvent -> unit = "%ignore"
 external ignore_wxCalendarCtrl : wxCalendarCtrl -> unit = "%ignore"
+external ignore_wxCalendarDateAttr : wxCalendarDateAttr -> unit = "%ignore"
 external ignore_wxCalendarEvent : wxCalendarEvent -> unit = "%ignore"
+external ignore_wxCaret : wxCaret -> unit = "%ignore"
 external ignore_wxCheckBox : wxCheckBox -> unit = "%ignore"
 external ignore_wxCheckListBox : wxCheckListBox -> unit = "%ignore"
 external ignore_wxChoice : wxChoice -> unit = "%ignore"
+external ignore_wxClassInfo : wxClassInfo -> unit = "%ignore"
 external ignore_wxClient : wxClient -> unit = "%ignore"
 external ignore_wxClientBase : wxClientBase -> unit = "%ignore"
 external ignore_wxClientDC : wxClientDC -> unit = "%ignore"
 external ignore_wxClientData : wxClientData -> unit = "%ignore"
 external ignore_wxClipboard : wxClipboard -> unit = "%ignore"
 external ignore_wxCloseEvent : wxCloseEvent -> unit = "%ignore"
+external ignore_wxClosure : wxClosure -> unit = "%ignore"
 external ignore_wxColour : wxColour -> unit = "%ignore"
 external ignore_wxColourData : wxColourData -> unit = "%ignore"
 external ignore_wxColourDatabase : wxColourDatabase -> unit = "%ignore"
@@ -809,11 +907,13 @@ external ignore_wxDC : wxDC -> unit = "%ignore"
 external ignore_wxDDEClient : wxDDEClient -> unit = "%ignore"
 external ignore_wxDDEConnection : wxDDEConnection -> unit = "%ignore"
 external ignore_wxDDEServer : wxDDEServer -> unit = "%ignore"
+external ignore_wxDataFormat : wxDataFormat -> unit = "%ignore"
 external ignore_wxDataObject : wxDataObject -> unit = "%ignore"
 external ignore_wxDataObjectComposite : wxDataObjectComposite -> unit = "%ignore"
 external ignore_wxDataObjectSimple : wxDataObjectSimple -> unit = "%ignore"
 external ignore_wxDatabase : wxDatabase -> unit = "%ignore"
 external ignore_wxDateProperty : wxDateProperty -> unit = "%ignore"
+external ignore_wxDateTime : wxDateTime -> unit = "%ignore"
 external ignore_wxDialUpEvent : wxDialUpEvent -> unit = "%ignore"
 external ignore_wxDialog : wxDialog -> unit = "%ignore"
 external ignore_wxDirDialog : wxDirDialog -> unit = "%ignore"
@@ -852,6 +952,7 @@ external ignore_wxFileOutputStream : wxFileOutputStream -> unit = "%ignore"
 external ignore_wxFileProperty : wxFileProperty -> unit = "%ignore"
 external ignore_wxFileSystem : wxFileSystem -> unit = "%ignore"
 external ignore_wxFileSystemHandler : wxFileSystemHandler -> unit = "%ignore"
+external ignore_wxFileType : wxFileType -> unit = "%ignore"
 external ignore_wxFilterInputStream : wxFilterInputStream -> unit = "%ignore"
 external ignore_wxFilterOutputStream : wxFilterOutputStream -> unit = "%ignore"
 external ignore_wxFindDialogEvent : wxFindDialogEvent -> unit = "%ignore"
@@ -863,7 +964,9 @@ external ignore_wxFocusEvent : wxFocusEvent -> unit = "%ignore"
 external ignore_wxFont : wxFont -> unit = "%ignore"
 external ignore_wxFontData : wxFontData -> unit = "%ignore"
 external ignore_wxFontDialog : wxFontDialog -> unit = "%ignore"
+external ignore_wxFontEnumerator : wxFontEnumerator -> unit = "%ignore"
 external ignore_wxFontList : wxFontList -> unit = "%ignore"
+external ignore_wxFontMapper : wxFontMapper -> unit = "%ignore"
 external ignore_wxFrame : wxFrame -> unit = "%ignore"
 external ignore_wxFrameLayout : wxFrameLayout -> unit = "%ignore"
 external ignore_wxGDIObject : wxGDIObject -> unit = "%ignore"
@@ -884,10 +987,12 @@ external ignore_wxGraphicsPath : wxGraphicsPath -> unit = "%ignore"
 external ignore_wxGraphicsPen : wxGraphicsPen -> unit = "%ignore"
 external ignore_wxGraphicsRenderer : wxGraphicsRenderer -> unit = "%ignore"
 external ignore_wxGrid : wxGrid -> unit = "%ignore"
+external ignore_wxGridCellAttr : wxGridCellAttr -> unit = "%ignore"
 external ignore_wxGridCellAutoWrapStringRenderer : wxGridCellAutoWrapStringRenderer -> unit = "%ignore"
 external ignore_wxGridCellBoolEditor : wxGridCellBoolEditor -> unit = "%ignore"
 external ignore_wxGridCellBoolRenderer : wxGridCellBoolRenderer -> unit = "%ignore"
 external ignore_wxGridCellChoiceEditor : wxGridCellChoiceEditor -> unit = "%ignore"
+external ignore_wxGridCellCoordsArray : wxGridCellCoordsArray -> unit = "%ignore"
 external ignore_wxGridCellEditor : wxGridCellEditor -> unit = "%ignore"
 external ignore_wxGridCellFloatEditor : wxGridCellFloatEditor -> unit = "%ignore"
 external ignore_wxGridCellFloatRenderer : wxGridCellFloatRenderer -> unit = "%ignore"
@@ -931,6 +1036,7 @@ external ignore_wxHtmlWinTagHandler : wxHtmlWinTagHandler -> unit = "%ignore"
 external ignore_wxHtmlWindow : wxHtmlWindow -> unit = "%ignore"
 external ignore_wxIPV4address : wxIPV4address -> unit = "%ignore"
 external ignore_wxIcon : wxIcon -> unit = "%ignore"
+external ignore_wxIconBundle : wxIconBundle -> unit = "%ignore"
 external ignore_wxIconizeEvent : wxIconizeEvent -> unit = "%ignore"
 external ignore_wxIdleEvent : wxIdleEvent -> unit = "%ignore"
 external ignore_wxImage : wxImage -> unit = "%ignore"
@@ -970,6 +1076,7 @@ external ignore_wxMBConvUTF8 : wxMBConvUTF8 -> unit = "%ignore"
 external ignore_wxMDIChildFrame : wxMDIChildFrame -> unit = "%ignore"
 external ignore_wxMDIClientWindow : wxMDIClientWindow -> unit = "%ignore"
 external ignore_wxMDIParentFrame : wxMDIParentFrame -> unit = "%ignore"
+external ignore_wxManagedPtr : wxManagedPtr -> unit = "%ignore"
 external ignore_wxMask : wxMask -> unit = "%ignore"
 external ignore_wxMaximizeEvent : wxMaximizeEvent -> unit = "%ignore"
 external ignore_wxMediaCtrl : wxMediaCtrl -> unit = "%ignore"
@@ -985,6 +1092,7 @@ external ignore_wxMenuItem : wxMenuItem -> unit = "%ignore"
 external ignore_wxMessageDialog : wxMessageDialog -> unit = "%ignore"
 external ignore_wxMetafile : wxMetafile -> unit = "%ignore"
 external ignore_wxMetafileDC : wxMetafileDC -> unit = "%ignore"
+external ignore_wxMimeTypesManager : wxMimeTypesManager -> unit = "%ignore"
 external ignore_wxMiniFrame : wxMiniFrame -> unit = "%ignore"
 external ignore_wxMirrorDC : wxMirrorDC -> unit = "%ignore"
 external ignore_wxModule : wxModule -> unit = "%ignore"
@@ -1017,6 +1125,7 @@ external ignore_wxPlotCurve : wxPlotCurve -> unit = "%ignore"
 external ignore_wxPlotEvent : wxPlotEvent -> unit = "%ignore"
 external ignore_wxPlotOnOffCurve : wxPlotOnOffCurve -> unit = "%ignore"
 external ignore_wxPlotWindow : wxPlotWindow -> unit = "%ignore"
+external ignore_wxPoint : wxPoint -> unit = "%ignore"
 external ignore_wxPopupTransientWindow : wxPopupTransientWindow -> unit = "%ignore"
 external ignore_wxPopupWindow : wxPopupWindow -> unit = "%ignore"
 external ignore_wxPostScriptDC : wxPostScriptDC -> unit = "%ignore"
@@ -1065,6 +1174,8 @@ external ignore_wxSetCursorEvent : wxSetCursorEvent -> unit = "%ignore"
 external ignore_wxShowEvent : wxShowEvent -> unit = "%ignore"
 external ignore_wxSimpleHelpProvider : wxSimpleHelpProvider -> unit = "%ignore"
 external ignore_wxSingleChoiceDialog : wxSingleChoiceDialog -> unit = "%ignore"
+external ignore_wxSingleInstanceChecker : wxSingleInstanceChecker -> unit = "%ignore"
+external ignore_wxSize : wxSize -> unit = "%ignore"
 external ignore_wxSizeEvent : wxSizeEvent -> unit = "%ignore"
 external ignore_wxSizer : wxSizer -> unit = "%ignore"
 external ignore_wxSizerItem : wxSizerItem -> unit = "%ignore"
@@ -1092,6 +1203,7 @@ external ignore_wxStaticBoxSizer : wxStaticBoxSizer -> unit = "%ignore"
 external ignore_wxStaticLine : wxStaticLine -> unit = "%ignore"
 external ignore_wxStaticText : wxStaticText -> unit = "%ignore"
 external ignore_wxStatusBar : wxStatusBar -> unit = "%ignore"
+external ignore_wxStopWatch : wxStopWatch -> unit = "%ignore"
 external ignore_wxStreamBase : wxStreamBase -> unit = "%ignore"
 external ignore_wxString : wxString -> unit = "%ignore"
 external ignore_wxStringClientData : wxStringClientData -> unit = "%ignore"
@@ -1107,10 +1219,13 @@ external ignore_wxTabCtrl : wxTabCtrl -> unit = "%ignore"
 external ignore_wxTabEvent : wxTabEvent -> unit = "%ignore"
 external ignore_wxTablesInUse : wxTablesInUse -> unit = "%ignore"
 external ignore_wxTaskBarIcon : wxTaskBarIcon -> unit = "%ignore"
+external ignore_wxTextAttr : wxTextAttr -> unit = "%ignore"
 external ignore_wxTextCtrl : wxTextCtrl -> unit = "%ignore"
 external ignore_wxTextDataObject : wxTextDataObject -> unit = "%ignore"
 external ignore_wxTextDropTarget : wxTextDropTarget -> unit = "%ignore"
 external ignore_wxTextEntryDialog : wxTextEntryDialog -> unit = "%ignore"
+external ignore_wxTextInputStream : wxTextInputStream -> unit = "%ignore"
+external ignore_wxTextOutputStream : wxTextOutputStream -> unit = "%ignore"
 external ignore_wxTextValidator : wxTextValidator -> unit = "%ignore"
 external ignore_wxThinSplitterWindow : wxThinSplitterWindow -> unit = "%ignore"
 external ignore_wxThread : wxThread -> unit = "%ignore"
@@ -1131,6 +1246,7 @@ external ignore_wxTreeCompanionWindow : wxTreeCompanionWindow -> unit = "%ignore
 external ignore_wxTreeCtrl : wxTreeCtrl -> unit = "%ignore"
 external ignore_wxTreeEvent : wxTreeEvent -> unit = "%ignore"
 external ignore_wxTreeItemData : wxTreeItemData -> unit = "%ignore"
+external ignore_wxTreeItemId : wxTreeItemId -> unit = "%ignore"
 external ignore_wxTreeLayout : wxTreeLayout -> unit = "%ignore"
 external ignore_wxTreeLayoutStored : wxTreeLayoutStored -> unit = "%ignore"
 external ignore_wxURL : wxURL -> unit = "%ignore"

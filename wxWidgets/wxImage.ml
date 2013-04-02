@@ -206,7 +206,7 @@ let getOption _obj name =
   let name = WxString.createUTF8 name in
   let wxres = getOption _obj name  in
   WxString.delete name;
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let createFromFile name =
   let name = WxString.createUTF8 name in

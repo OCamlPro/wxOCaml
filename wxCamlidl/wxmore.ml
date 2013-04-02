@@ -173,7 +173,49 @@ let main intf =
   (*                                                            *)
   (**************************************************************)
 
-  let (cl : classe) = new_class "wxString" None in
+  let add_new_class cl_name =
+    let (cl : classe) = new_class cl_name None in
+    ()
+  in
+  List.iter add_new_class [
+    "wxString";
+
+(* TODO: VERIFY THAT THESE CLASSES ARE MEANINGFULL *)
+    "wxTextAttr";
+    "wxClassInfo";
+    "wxTreeItemId";
+    "wxDateTime";
+    "wxClosure";
+    "wxTextOutputStream";
+    "wxTextInputStream";
+    "wxManagedPtr";
+    "wxTreeItemId";
+(*    "textDataObject"; *)
+    "wxStopWatch";
+      "wxSize";
+    "wxSingleInstanceChecker";
+    "wxPoint";
+    "wxMimeTypesManager";
+    "wxIconBundle";
+    "wxGridCellCoordsArray";
+    "wxGridCellAttr";
+    "wxFontMapper";
+    "wxFontEnumerator";
+    "wxFileType";
+    (* "fileDataObject" *)
+    (* "dropSource" *)
+    "wxDateTime";
+    "wxDataFormat";
+    "wxClassInfo";
+    "wxCaret";
+  "wxCalendarDateAttr";
+    "wxBusyInfo";
+    "wxBusyCursor";
+    (* "bitmapDataObject" *)
+    "wxAcceleratorTable";
+    "wxAcceleratorEntry";
+    "eLJDragDataObject";
+  ];
 
   let intf = List.map (fun comp ->
       match comp with
@@ -425,12 +467,13 @@ let main intf =
             if is_wxString typ then
               Printf.fprintf oc "  WxString.delete %s;\n" name
           ) ins;
+          Printf.fprintf oc "  ";
           begin match outs with
             [ _, typ ] when is_wxString typ ->
               Printf.fprintf oc "WxString.getUtf8 "
             | _ -> ()
           end;
-          Printf.fprintf oc "  wxres\n\n";
+          Printf.fprintf oc "wxres\n\n";
           ()
         end;
 

@@ -61,11 +61,11 @@ let setFindString _obj str =
 
 let getReplaceString _obj =
   let wxres = getReplaceString _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getFindString _obj =
   let wxres = getFindString _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 external null_object : unit -> wxFindReplaceData
    = "camlidl_wxc_idl_null_object"

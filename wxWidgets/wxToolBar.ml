@@ -594,15 +594,15 @@ let insertTool _obj pos id bmp1 bmp2 isToggle data shelp lhelp =
 
 let getToolTip _obj =
   let wxres = getToolTip _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getToolShortHelp _obj id =
   let wxres = getToolShortHelp _obj id  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getToolLongHelp _obj id =
   let wxres = getToolLongHelp _obj id  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getTextExtent _obj string x y descent externalLeading theFont =
   let string = WxString.createUTF8 string in
@@ -612,11 +612,11 @@ let getTextExtent _obj string x y descent externalLeading theFont =
 
 let getName _obj =
   let wxres = getName _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLabel _obj =
   let wxres = getLabel _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let findWindow _obj name =
   let name = WxString.createUTF8 name in

@@ -97,7 +97,7 @@ let setText _obj text =
 
 let getText _obj =
   let wxres = getText _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 external null_object : unit -> wxUpdateUIEvent
    = "camlidl_wxc_idl_null_object"

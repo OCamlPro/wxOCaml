@@ -59,19 +59,19 @@ let setHelpString _obj helpString =
 
 let getValueType _obj =
   let wxres = getValueType _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getValueAsString _obj =
   let wxres = getValueAsString _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getName _obj =
   let wxres = getName _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLabel _obj =
   let wxres = getLabel _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 external null_object : unit -> wxStringProperty
    = "camlidl_wxc_idl_null_object"

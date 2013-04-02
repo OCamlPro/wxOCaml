@@ -139,15 +139,15 @@ let setLink _obj link =
 
 let getTarget _obj =
   let wxres = getTarget _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getString _obj =
   let wxres = getString _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLink _obj =
   let wxres = getLink _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 external null_object : unit -> wxHelpEvent
    = "camlidl_wxc_idl_null_object"

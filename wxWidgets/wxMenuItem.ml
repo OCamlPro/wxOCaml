@@ -103,19 +103,19 @@ let setHelp _obj str =
 
 let getText _obj =
   let wxres = getText _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLabelFromText text =
   let wxres = getLabelFromText text  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLabel _obj =
   let wxres = getLabel _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getHelp _obj =
   let wxres = getHelp _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let createEx id label help itemkind submenu =
   let label = WxString.createUTF8 label in

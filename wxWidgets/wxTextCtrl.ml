@@ -655,11 +655,11 @@ let loadFile _obj file =
 
 let getValue _obj =
   let wxres = getValue _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getToolTip _obj =
   let wxres = getToolTip _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getTextExtent _obj string x y descent externalLeading theFont =
   let string = WxString.createUTF8 string in
@@ -669,23 +669,23 @@ let getTextExtent _obj string x y descent externalLeading theFont =
 
 let getStringSelection _obj =
   let wxres = getStringSelection _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getRange _obj from _to =
   let wxres = getRange _obj from _to  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getName _obj =
   let wxres = getName _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLineText _obj lineNo =
   let wxres = getLineText _obj lineNo  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLabel _obj =
   let wxres = getLabel _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let findWindow _obj name =
   let name = WxString.createUTF8 name in

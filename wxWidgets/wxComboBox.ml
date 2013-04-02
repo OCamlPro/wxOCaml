@@ -568,11 +568,11 @@ let replace _obj from _to v =
 
 let getValue _obj =
   let wxres = getValue _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getToolTip _obj =
   let wxres = getToolTip _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getTextExtent _obj string x y descent externalLeading theFont =
   let string = WxString.createUTF8 string in
@@ -582,19 +582,19 @@ let getTextExtent _obj string x y descent externalLeading theFont =
 
 let getStringSelection _obj =
   let wxres = getStringSelection _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getString _obj n =
   let wxres = getString _obj n  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getName _obj =
   let wxres = getName _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLabel _obj =
   let wxres = getLabel _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let findWindow _obj name =
   let name = WxString.createUTF8 name in

@@ -28,7 +28,7 @@ external addCatalog : eLJLocale -> voidptr -> int
 
 let getName _obj =
   let wxres = getName _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 
   (* Cast functions *)

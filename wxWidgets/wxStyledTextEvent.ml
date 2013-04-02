@@ -253,15 +253,15 @@ let setDragText _obj _val =
 
 let getText _obj =
   let wxres = getText _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getString _obj =
   let wxres = getString _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getDragText _obj =
   let wxres = getDragText _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 external null_object : unit -> wxStyledTextEvent
    = "camlidl_wxc_idl_null_object"

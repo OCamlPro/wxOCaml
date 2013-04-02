@@ -61,7 +61,7 @@ external addFileToHistory : wxFileHistory -> wxString -> unit
 
 let getHistoryFile _obj i =
   let wxres = getHistoryFile _obj i  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let addFileToHistory _obj file =
   let file = WxString.createUTF8 file in

@@ -1084,7 +1084,7 @@ let registerDataType _obj typeName renderer editor =
 
 let getToolTip _obj =
   let wxres = getToolTip _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getTextExtent _obj string x y descent externalLeading theFont =
   let string = WxString.createUTF8 string in
@@ -1094,15 +1094,15 @@ let getTextExtent _obj string x y descent externalLeading theFont =
 
 let getRowLabelValue _obj row =
   let wxres = getRowLabelValue _obj row  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getName _obj =
   let wxres = getName _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLabel _obj =
   let wxres = getLabel _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getDefaultRendererForType _obj typeName =
   let typeName = WxString.createUTF8 typeName in
@@ -1118,11 +1118,11 @@ let getDefaultEditorForType _obj typeName =
 
 let getColLabelValue _obj col =
   let wxres = getColLabelValue _obj col  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getCellValue _obj row col =
   let wxres = getCellValue _obj row col  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let findWindow _obj name =
   let name = WxString.createUTF8 name in

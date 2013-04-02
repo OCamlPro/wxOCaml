@@ -157,15 +157,15 @@ let setString _obj s =
 
 let getText _obj =
   let wxres = getText _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getString _obj =
   let wxres = getString _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLabel _obj =
   let wxres = getLabel _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 external null_object : unit -> wxListEvent
    = "camlidl_wxc_idl_null_object"

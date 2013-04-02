@@ -76,7 +76,7 @@ let wxnew title =
 
 let getTitle _obj =
   let wxres = getTitle _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 external null_object : unit -> wxcPrintout
    = "camlidl_wxc_idl_null_object"

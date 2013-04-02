@@ -1602,11 +1602,11 @@ let insertText _obj pos text =
 
 let getToolTip _obj =
   let wxres = getToolTip _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getTextRange _obj startPos endPos =
   let wxres = getTextRange _obj startPos endPos  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getTextExtent _obj string x y descent externalLeading theFont =
   let string = WxString.createUTF8 string in
@@ -1616,23 +1616,23 @@ let getTextExtent _obj string x y descent externalLeading theFont =
 
 let getText _obj =
   let wxres = getText _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getSelectedText _obj =
   let wxres = getSelectedText _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getName _obj =
   let wxres = getName _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLine _obj line =
   let wxres = getLine _obj line  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLabel _obj =
   let wxres = getLabel _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let findWindow _obj name =
   let name = WxString.createUTF8 name in

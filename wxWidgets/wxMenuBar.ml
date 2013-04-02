@@ -172,15 +172,15 @@ let insert _obj pos menu title =
 
 let getLabelTop _obj pos =
   let wxres = getLabelTop _obj pos  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getLabel _obj id =
   let wxres = getLabel _obj id  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getHelpString _obj id =
   let wxres = getHelpString _obj id  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let findMenuItem _obj menuString itemString =
   let menuString = WxString.createUTF8 menuString in

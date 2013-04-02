@@ -175,27 +175,27 @@ let setFilename _obj filename =
 
 let getPrinterOptions _obj =
   let wxres = getPrinterOptions _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getPrinterName _obj =
   let wxres = getPrinterName _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getPrinterCommand _obj =
   let wxres = getPrinterCommand _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getPreviewCommand _obj =
   let wxres = getPreviewCommand _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getFontMetricPath _obj =
   let wxres = getFontMetricPath _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getFilename _obj =
   let wxres = getFilename _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 external null_object : unit -> wxPrintData
    = "camlidl_wxc_idl_null_object"

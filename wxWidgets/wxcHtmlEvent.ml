@@ -127,19 +127,19 @@ let setString _obj s =
 
 let getTarget self =
   let wxres = getTarget self  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getString _obj =
   let wxres = getString _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getHtmlCellId self =
   let wxres = getHtmlCellId self  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getHref self =
   let wxres = getHref self  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 external null_object : unit -> wxcHtmlEvent
    = "camlidl_wxc_idl_null_object"

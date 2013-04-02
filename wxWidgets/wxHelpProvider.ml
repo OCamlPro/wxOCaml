@@ -28,7 +28,7 @@ external addHelp : wxHelpProvider -> wxWindow -> wxString -> unit
 
 let getHelp _obj window =
   let wxres = getHelp _obj window  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let addHelpById _obj id text =
   let text = WxString.createUTF8 text in

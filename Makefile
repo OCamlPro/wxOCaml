@@ -11,6 +11,15 @@ boot:
 	(cd generators; $(MAKE))
 	ocp-build
 
+byte:
+	ocp-build -byte
+
+opt:
+	ocp-build -asm
+
+partialclean:
+	ocp-build -clean
+
 clean:
 	rm -f *~ ocaml/*~ idl/*~ examples/*/*~
 	(cd elj; $(MAKE) clean)

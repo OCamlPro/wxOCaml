@@ -481,7 +481,7 @@ let getFlexGridSizer _obj str_id =
 
 let getDomain _obj =
   let wxres = getDomain _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getComboBox _obj str_id =
   let str_id = WxString.createUTF8 str_id in

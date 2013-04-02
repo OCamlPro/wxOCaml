@@ -200,7 +200,7 @@ let readString _obj key defVal =
   let wxres = readString _obj key defVal  in
   WxString.delete key;
   WxString.delete defVal;
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let readInteger _obj key defVal =
   let key = WxString.createUTF8 key in
@@ -234,27 +234,27 @@ let hasEntry _obj strName =
 
 let getVendorName _obj =
   let wxres = getVendorName _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getPath _obj =
   let wxres = getPath _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getNextGroup _obj lIndex =
   let wxres = getNextGroup _obj lIndex  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getNextEntry _obj lIndex =
   let wxres = getNextEntry _obj lIndex  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getFirstGroup _obj lIndex =
   let wxres = getFirstGroup _obj lIndex  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getFirstEntry _obj lIndex =
   let wxres = getFirstEntry _obj lIndex  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let getEntryType _obj name =
   let name = WxString.createUTF8 name in
@@ -264,13 +264,13 @@ let getEntryType _obj name =
 
 let getAppName _obj =
   let wxres = getAppName _obj  in
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let expandEnvVars _obj str =
   let str = WxString.createUTF8 str in
   let wxres = expandEnvVars _obj str  in
   WxString.delete str;
-WxString.getUtf8   wxres
+  WxString.getUtf8 wxres
 
 let exists _obj strName =
   let strName = WxString.createUTF8 strName in
