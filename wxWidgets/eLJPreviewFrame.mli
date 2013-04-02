@@ -95,14 +95,26 @@ external setNextHandler : eLJPreviewFrame -> wxEvtHandler -> unit
 external setName : eLJPreviewFrame -> wxString -> unit
 	= "camlidl_wxc_idl_wxWindow_SetName"
 
+external setMinSize : eLJPreviewFrame -> int -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetMinSize"
+
 external setMenuBar : eLJPreviewFrame -> wxMenuBar -> unit
 	= "camlidl_wxc_idl_wxFrame_SetMenuBar"
+
+external setMaxSize : eLJPreviewFrame -> int -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetMaxSize"
 
 external setLabel : eLJPreviewFrame -> wxString -> unit
 	= "camlidl_wxc_idl_wxWindow_SetLabel"
 
 external setId : eLJPreviewFrame -> int -> unit
 	= "camlidl_wxc_idl_wxWindow_SetId"
+
+external setIcons : eLJPreviewFrame -> voidptr -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetIcons"
+
+external setIcon : eLJPreviewFrame -> wxIcon -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetIcon"
 
 external setForegroundColour : eLJPreviewFrame -> wxColour -> int
 	= "camlidl_wxc_idl_wxWindow_SetForegroundColour"
@@ -121,6 +133,12 @@ external setEvtHandlerEnabled : eLJPreviewFrame -> bool -> unit
 
 external setDropTarget : eLJPreviewFrame -> wxDropTarget -> unit
 	= "camlidl_wxc_idl_wxWindow_SetDropTarget"
+
+external setDefaultItem : eLJPreviewFrame -> wxWindow -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetDefaultItem"
+
+external setDefaultButton : eLJPreviewFrame -> wxButton -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetDefaultButton"
 
 external setCursor : eLJPreviewFrame -> wxCursor -> int
 	= "camlidl_wxc_idl_wxWindow_SetCursor"
@@ -179,6 +197,9 @@ external restore : eLJPreviewFrame -> unit
 external resetConstraints : eLJPreviewFrame -> unit
 	= "camlidl_wxc_idl_wxWindow_ResetConstraints"
 
+external requestUserAttention : eLJPreviewFrame -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_RequestUserAttention"
+
 external reparent : eLJPreviewFrame -> wxWindow -> int
 	= "camlidl_wxc_idl_wxWindow_Reparent"
 
@@ -224,6 +245,9 @@ external moveConstraint : eLJPreviewFrame -> int -> int -> unit
 external move : eLJPreviewFrame -> int -> int -> unit
 	= "camlidl_wxc_idl_wxWindow_Move"
 
+external maximize : eLJPreviewFrame -> bool -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_Maximize"
+
 external makeModal : eLJPreviewFrame -> bool -> unit
 	= "camlidl_wxc_idl_wxWindow_MakeModal"
 
@@ -248,8 +272,14 @@ external isShown : eLJPreviewFrame -> bool
 external isScrolledWindow : eLJPreviewFrame -> bool
 	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
 
+external isMaximized : eLJPreviewFrame -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsMaximized"
+
 external isKindOf : eLJPreviewFrame -> wxClassInfo -> bool
 	= "camlidl_wxc_idl_wxObject_IsKindOf"
+
+external isIconized : eLJPreviewFrame -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsIconized"
 
 external isFullScreen : eLJPreviewFrame -> bool
 	= "camlidl_wxc_idl_wxFrame_IsFullScreen"
@@ -263,11 +293,17 @@ external isEnabled : eLJPreviewFrame -> bool
 external isBeingDeleted : eLJPreviewFrame -> bool
 	= "camlidl_wxc_idl_wxWindow_IsBeingDeleted"
 
+external isActive : eLJPreviewFrame -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsActive"
+
 external initialize : eLJPreviewFrame -> unit
 	= "camlidl_wxc_idl_ELJPreviewFrame_Initialize"
 
 external initDialog : eLJPreviewFrame -> unit
 	= "camlidl_wxc_idl_wxWindow_InitDialog"
+
+external iconize : eLJPreviewFrame -> bool -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_Iconize"
 
 external hide : eLJPreviewFrame -> bool
 	= "camlidl_wxc_idl_wxWindow_Hide"
@@ -371,6 +407,9 @@ external getLabel : eLJPreviewFrame -> wxString
 external getId : eLJPreviewFrame -> int
 	= "camlidl_wxc_idl_wxWindow_GetId"
 
+external getIcon : eLJPreviewFrame -> wxIcon
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetIcon"
+
 external getHandle : eLJPreviewFrame -> voidptr
 	= "camlidl_wxc_idl_wxWindow_GetHandle"
 
@@ -391,6 +430,12 @@ external getEffectiveMinSize : eLJPreviewFrame -> wxSize
 
 external getDropTarget : eLJPreviewFrame -> wxDropTarget
 	= "camlidl_wxc_idl_wxWindow_GetDropTarget"
+
+external getDefaultItem : eLJPreviewFrame -> wxWindow
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetDefaultItem"
+
+external getDefaultButton : eLJPreviewFrame -> wxButton
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetDefaultButton"
 
 external getCursor : eLJPreviewFrame -> wxCursor
 	= "camlidl_wxc_idl_wxWindow_GetCursor"
@@ -463,6 +508,9 @@ external findWindow : eLJPreviewFrame -> wxString -> wxWindow
 
 external findFocus : eLJPreviewFrame -> wxWindow
 	= "camlidl_wxc_idl_wxWindow_FindFocus"
+
+external enableCloseButton : eLJPreviewFrame -> bool -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_EnableCloseButton"
 
 external enable : eLJPreviewFrame -> bool
 	= "camlidl_wxc_idl_wxWindow_Enable"
@@ -555,6 +603,7 @@ val findWindow : eLJPreviewFrame -> string -> wxWindow
   (* Cast functions *)
   external wxPreviewFrame : eLJPreviewFrame -> wxPreviewFrame = "%identity"
   external wxFrame : eLJPreviewFrame -> wxFrame = "%identity"
+  external wxTopLevelWindow : eLJPreviewFrame -> wxTopLevelWindow = "%identity"
   external wxWindow : eLJPreviewFrame -> wxWindow = "%identity"
   external wxEvtHandler : eLJPreviewFrame -> wxEvtHandler = "%identity"
   external wxObject : eLJPreviewFrame -> wxObject = "%identity"

@@ -86,14 +86,26 @@ external setNextHandler : wxHtmlHelpFrame -> wxEvtHandler -> unit
 external setName : wxHtmlHelpFrame -> wxString -> unit
 	= "camlidl_wxc_idl_wxWindow_SetName"
 
+external setMinSize : wxHtmlHelpFrame -> int -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetMinSize"
+
 external setMenuBar : wxHtmlHelpFrame -> wxMenuBar -> unit
 	= "camlidl_wxc_idl_wxFrame_SetMenuBar"
+
+external setMaxSize : wxHtmlHelpFrame -> int -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetMaxSize"
 
 external setLabel : wxHtmlHelpFrame -> wxString -> unit
 	= "camlidl_wxc_idl_wxWindow_SetLabel"
 
 external setId : wxHtmlHelpFrame -> int -> unit
 	= "camlidl_wxc_idl_wxWindow_SetId"
+
+external setIcons : wxHtmlHelpFrame -> voidptr -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetIcons"
+
+external setIcon : wxHtmlHelpFrame -> wxIcon -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetIcon"
 
 external setForegroundColour : wxHtmlHelpFrame -> wxColour -> int
 	= "camlidl_wxc_idl_wxWindow_SetForegroundColour"
@@ -112,6 +124,12 @@ external setEvtHandlerEnabled : wxHtmlHelpFrame -> bool -> unit
 
 external setDropTarget : wxHtmlHelpFrame -> wxDropTarget -> unit
 	= "camlidl_wxc_idl_wxWindow_SetDropTarget"
+
+external setDefaultItem : wxHtmlHelpFrame -> wxWindow -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetDefaultItem"
+
+external setDefaultButton : wxHtmlHelpFrame -> wxButton -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetDefaultButton"
 
 external setCursor : wxHtmlHelpFrame -> wxCursor -> int
 	= "camlidl_wxc_idl_wxWindow_SetCursor"
@@ -167,6 +185,9 @@ external restore : wxHtmlHelpFrame -> unit
 external resetConstraints : wxHtmlHelpFrame -> unit
 	= "camlidl_wxc_idl_wxWindow_ResetConstraints"
 
+external requestUserAttention : wxHtmlHelpFrame -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_RequestUserAttention"
+
 external reparent : wxHtmlHelpFrame -> wxWindow -> int
 	= "camlidl_wxc_idl_wxWindow_Reparent"
 
@@ -212,6 +233,9 @@ external moveConstraint : wxHtmlHelpFrame -> int -> int -> unit
 external move : wxHtmlHelpFrame -> int -> int -> unit
 	= "camlidl_wxc_idl_wxWindow_Move"
 
+external maximize : wxHtmlHelpFrame -> bool -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_Maximize"
+
 external makeModal : wxHtmlHelpFrame -> bool -> unit
 	= "camlidl_wxc_idl_wxWindow_MakeModal"
 
@@ -236,8 +260,14 @@ external isShown : wxHtmlHelpFrame -> bool
 external isScrolledWindow : wxHtmlHelpFrame -> bool
 	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
 
+external isMaximized : wxHtmlHelpFrame -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsMaximized"
+
 external isKindOf : wxHtmlHelpFrame -> wxClassInfo -> bool
 	= "camlidl_wxc_idl_wxObject_IsKindOf"
+
+external isIconized : wxHtmlHelpFrame -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsIconized"
 
 external isFullScreen : wxHtmlHelpFrame -> bool
 	= "camlidl_wxc_idl_wxFrame_IsFullScreen"
@@ -251,8 +281,14 @@ external isEnabled : wxHtmlHelpFrame -> bool
 external isBeingDeleted : wxHtmlHelpFrame -> bool
 	= "camlidl_wxc_idl_wxWindow_IsBeingDeleted"
 
+external isActive : wxHtmlHelpFrame -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsActive"
+
 external initDialog : wxHtmlHelpFrame -> unit
 	= "camlidl_wxc_idl_wxWindow_InitDialog"
+
+external iconize : wxHtmlHelpFrame -> bool -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_Iconize"
 
 external hide : wxHtmlHelpFrame -> bool
 	= "camlidl_wxc_idl_wxWindow_Hide"
@@ -350,6 +386,9 @@ external getLabel : wxHtmlHelpFrame -> wxString
 external getId : wxHtmlHelpFrame -> int
 	= "camlidl_wxc_idl_wxWindow_GetId"
 
+external getIcon : wxHtmlHelpFrame -> wxIcon
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetIcon"
+
 external getHandle : wxHtmlHelpFrame -> voidptr
 	= "camlidl_wxc_idl_wxWindow_GetHandle"
 
@@ -370,6 +409,12 @@ external getEffectiveMinSize : wxHtmlHelpFrame -> wxSize
 
 external getDropTarget : wxHtmlHelpFrame -> wxDropTarget
 	= "camlidl_wxc_idl_wxWindow_GetDropTarget"
+
+external getDefaultItem : wxHtmlHelpFrame -> wxWindow
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetDefaultItem"
+
+external getDefaultButton : wxHtmlHelpFrame -> wxButton
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetDefaultButton"
 
 external getCursor : wxHtmlHelpFrame -> wxCursor
 	= "camlidl_wxc_idl_wxWindow_GetCursor"
@@ -439,6 +484,9 @@ external findWindow : wxHtmlHelpFrame -> wxString -> wxWindow
 
 external findFocus : wxHtmlHelpFrame -> wxWindow
 	= "camlidl_wxc_idl_wxWindow_FindFocus"
+
+external enableCloseButton : wxHtmlHelpFrame -> bool -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_EnableCloseButton"
 
 external enable : wxHtmlHelpFrame -> bool
 	= "camlidl_wxc_idl_wxWindow_Enable"
@@ -579,6 +627,7 @@ external null_object : unit -> wxHtmlHelpFrame
 
   (* Cast functions *)
   external wxFrame : wxHtmlHelpFrame -> wxFrame = "%identity"
+  external wxTopLevelWindow : wxHtmlHelpFrame -> wxTopLevelWindow = "%identity"
   external wxWindow : wxHtmlHelpFrame -> wxWindow = "%identity"
   external wxEvtHandler : wxHtmlHelpFrame -> wxEvtHandler = "%identity"
   external wxObject : wxHtmlHelpFrame -> wxObject = "%identity"

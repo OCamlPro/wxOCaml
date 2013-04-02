@@ -86,14 +86,26 @@ external setNextHandler : wxSplashScreen -> wxEvtHandler -> unit
 external setName : wxSplashScreen -> wxString -> unit
 	= "camlidl_wxc_idl_wxWindow_SetName"
 
+external setMinSize : wxSplashScreen -> int -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetMinSize"
+
 external setMenuBar : wxSplashScreen -> wxMenuBar -> unit
 	= "camlidl_wxc_idl_wxFrame_SetMenuBar"
+
+external setMaxSize : wxSplashScreen -> int -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetMaxSize"
 
 external setLabel : wxSplashScreen -> wxString -> unit
 	= "camlidl_wxc_idl_wxWindow_SetLabel"
 
 external setId : wxSplashScreen -> int -> unit
 	= "camlidl_wxc_idl_wxWindow_SetId"
+
+external setIcons : wxSplashScreen -> voidptr -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetIcons"
+
+external setIcon : wxSplashScreen -> wxIcon -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetIcon"
 
 external setForegroundColour : wxSplashScreen -> wxColour -> int
 	= "camlidl_wxc_idl_wxWindow_SetForegroundColour"
@@ -112,6 +124,12 @@ external setEvtHandlerEnabled : wxSplashScreen -> bool -> unit
 
 external setDropTarget : wxSplashScreen -> wxDropTarget -> unit
 	= "camlidl_wxc_idl_wxWindow_SetDropTarget"
+
+external setDefaultItem : wxSplashScreen -> wxWindow -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetDefaultItem"
+
+external setDefaultButton : wxSplashScreen -> wxButton -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetDefaultButton"
 
 external setCursor : wxSplashScreen -> wxCursor -> int
 	= "camlidl_wxc_idl_wxWindow_SetCursor"
@@ -167,6 +185,9 @@ external restore : wxSplashScreen -> unit
 external resetConstraints : wxSplashScreen -> unit
 	= "camlidl_wxc_idl_wxWindow_ResetConstraints"
 
+external requestUserAttention : wxSplashScreen -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_RequestUserAttention"
+
 external reparent : wxSplashScreen -> wxWindow -> int
 	= "camlidl_wxc_idl_wxWindow_Reparent"
 
@@ -212,6 +233,9 @@ external moveConstraint : wxSplashScreen -> int -> int -> unit
 external move : wxSplashScreen -> int -> int -> unit
 	= "camlidl_wxc_idl_wxWindow_Move"
 
+external maximize : wxSplashScreen -> bool -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_Maximize"
+
 external makeModal : wxSplashScreen -> bool -> unit
 	= "camlidl_wxc_idl_wxWindow_MakeModal"
 
@@ -236,8 +260,14 @@ external isShown : wxSplashScreen -> bool
 external isScrolledWindow : wxSplashScreen -> bool
 	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
 
+external isMaximized : wxSplashScreen -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsMaximized"
+
 external isKindOf : wxSplashScreen -> wxClassInfo -> bool
 	= "camlidl_wxc_idl_wxObject_IsKindOf"
+
+external isIconized : wxSplashScreen -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsIconized"
 
 external isFullScreen : wxSplashScreen -> bool
 	= "camlidl_wxc_idl_wxFrame_IsFullScreen"
@@ -251,8 +281,14 @@ external isEnabled : wxSplashScreen -> bool
 external isBeingDeleted : wxSplashScreen -> bool
 	= "camlidl_wxc_idl_wxWindow_IsBeingDeleted"
 
+external isActive : wxSplashScreen -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsActive"
+
 external initDialog : wxSplashScreen -> unit
 	= "camlidl_wxc_idl_wxWindow_InitDialog"
+
+external iconize : wxSplashScreen -> bool -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_Iconize"
 
 external hide : wxSplashScreen -> bool
 	= "camlidl_wxc_idl_wxWindow_Hide"
@@ -350,6 +386,9 @@ external getLabel : wxSplashScreen -> wxString
 external getId : wxSplashScreen -> int
 	= "camlidl_wxc_idl_wxWindow_GetId"
 
+external getIcon : wxSplashScreen -> wxIcon
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetIcon"
+
 external getHandle : wxSplashScreen -> voidptr
 	= "camlidl_wxc_idl_wxWindow_GetHandle"
 
@@ -370,6 +409,12 @@ external getEffectiveMinSize : wxSplashScreen -> wxSize
 
 external getDropTarget : wxSplashScreen -> wxDropTarget
 	= "camlidl_wxc_idl_wxWindow_GetDropTarget"
+
+external getDefaultItem : wxSplashScreen -> wxWindow
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetDefaultItem"
+
+external getDefaultButton : wxSplashScreen -> wxButton
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetDefaultButton"
 
 external getCursor : wxSplashScreen -> wxCursor
 	= "camlidl_wxc_idl_wxWindow_GetCursor"
@@ -439,6 +484,9 @@ external findWindow : wxSplashScreen -> wxString -> wxWindow
 
 external findFocus : wxSplashScreen -> wxWindow
 	= "camlidl_wxc_idl_wxWindow_FindFocus"
+
+external enableCloseButton : wxSplashScreen -> bool -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_EnableCloseButton"
 
 external enable : wxSplashScreen -> bool
 	= "camlidl_wxc_idl_wxWindow_Enable"
@@ -579,6 +627,7 @@ external null_object : unit -> wxSplashScreen
 
   (* Cast functions *)
   external wxFrame : wxSplashScreen -> wxFrame = "%identity"
+  external wxTopLevelWindow : wxSplashScreen -> wxTopLevelWindow = "%identity"
   external wxWindow : wxSplashScreen -> wxWindow = "%identity"
   external wxEvtHandler : wxSplashScreen -> wxEvtHandler = "%identity"
   external wxObject : wxSplashScreen -> wxObject = "%identity"

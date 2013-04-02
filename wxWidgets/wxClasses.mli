@@ -329,7 +329,6 @@ and wxControl
 and wxDialog
 and wxDrawWindow
 and wxDynamicSashWindow
-and wxFrame
 and wxMDIClientWindow
 and wxPanel
 and wxPopupWindow
@@ -338,6 +337,7 @@ and wxSplitterWindow
 and wxStatusBar
 and wxTreeCompanionWindow
 and wxTopLevelWindow
+and wxFrame
 and wxButton
 and wxCalendarCtrl
 and wxCheckBox

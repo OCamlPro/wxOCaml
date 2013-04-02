@@ -53,21 +53,6 @@ let _ =
       counter := !counter + n;
       WxStaticText.setLabel m_text (string_of_int !counter)
     in
-(* In wxEvtHandler.ml:
-  let connect w id ev f =
-    register_callback (of_t w) (WxID.of_t id) ev
-      (fun ev -> f (WxEvent.to_t ev))
-
-  val connect : t -> WxID.t -> int -> (WxEvent.t -> unit) -> unit
-
-
-external connect : wxEvtHandler -> int -> int -> int -> voidptr -> int
-        = "camlidl_wxc_idl_wxEvtHandler_Connect"
-
-
-*)
-
-
     WxPanel.connect
       m_lp plus_id wxEVT_COMMAND_BUTTON_CLICKED (add 1);
     WxPanel.connect

@@ -675,8 +675,6 @@ typedef wxWindow wxDrawWindow;
 
 typedef wxWindow wxDynamicSashWindow;
 
-typedef wxWindow wxFrame;
-
 typedef wxWindow wxMDIClientWindow;
 
 typedef wxWindow wxPanel;
@@ -692,6 +690,8 @@ typedef wxWindow wxStatusBar;
 typedef wxWindow wxTreeCompanionWindow;
 
 typedef wxWindow wxTopLevelWindow;
+
+typedef wxTopLevelWindow wxFrame;
 
 typedef wxControl wxButton;
 
@@ -8892,9 +8892,6 @@ extern value camlidl_c2ml_wxc_idl_wxDrawWindow(wxDrawWindow *, camlidl_ctx _ctx)
 extern void camlidl_ml2c_wxc_idl_wxDynamicSashWindow(value, wxDynamicSashWindow *, camlidl_ctx _ctx);
 extern value camlidl_c2ml_wxc_idl_wxDynamicSashWindow(wxDynamicSashWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFrame(value, wxFrame *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFrame(wxFrame *, camlidl_ctx _ctx);
-
 extern void camlidl_ml2c_wxc_idl_wxMDIClientWindow(value, wxMDIClientWindow *, camlidl_ctx _ctx);
 extern value camlidl_c2ml_wxc_idl_wxMDIClientWindow(wxMDIClientWindow *, camlidl_ctx _ctx);
 
@@ -8918,6 +8915,9 @@ extern value camlidl_c2ml_wxc_idl_wxTreeCompanionWindow(wxTreeCompanionWindow *,
 
 extern void camlidl_ml2c_wxc_idl_wxTopLevelWindow(value, wxTopLevelWindow *, camlidl_ctx _ctx);
 extern value camlidl_c2ml_wxc_idl_wxTopLevelWindow(wxTopLevelWindow *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_idl_wxFrame(value, wxFrame *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_idl_wxFrame(wxFrame *, camlidl_ctx _ctx);
 
 extern void camlidl_ml2c_wxc_idl_wxButton(value, wxButton *, camlidl_ctx _ctx);
 extern value camlidl_c2ml_wxc_idl_wxButton(wxButton *, camlidl_ctx _ctx);

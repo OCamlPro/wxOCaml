@@ -89,14 +89,26 @@ external setNextHandler : wxMiniFrame -> wxEvtHandler -> unit
 external setName : wxMiniFrame -> wxString -> unit
 	= "camlidl_wxc_idl_wxWindow_SetName"
 
+external setMinSize : wxMiniFrame -> int -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetMinSize"
+
 external setMenuBar : wxMiniFrame -> wxMenuBar -> unit
 	= "camlidl_wxc_idl_wxFrame_SetMenuBar"
+
+external setMaxSize : wxMiniFrame -> int -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetMaxSize"
 
 external setLabel : wxMiniFrame -> wxString -> unit
 	= "camlidl_wxc_idl_wxWindow_SetLabel"
 
 external setId : wxMiniFrame -> int -> unit
 	= "camlidl_wxc_idl_wxWindow_SetId"
+
+external setIcons : wxMiniFrame -> voidptr -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetIcons"
+
+external setIcon : wxMiniFrame -> wxIcon -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetIcon"
 
 external setForegroundColour : wxMiniFrame -> wxColour -> int
 	= "camlidl_wxc_idl_wxWindow_SetForegroundColour"
@@ -115,6 +127,12 @@ external setEvtHandlerEnabled : wxMiniFrame -> bool -> unit
 
 external setDropTarget : wxMiniFrame -> wxDropTarget -> unit
 	= "camlidl_wxc_idl_wxWindow_SetDropTarget"
+
+external setDefaultItem : wxMiniFrame -> wxWindow -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetDefaultItem"
+
+external setDefaultButton : wxMiniFrame -> wxButton -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetDefaultButton"
 
 external setCursor : wxMiniFrame -> wxCursor -> int
 	= "camlidl_wxc_idl_wxWindow_SetCursor"
@@ -170,6 +188,9 @@ external restore : wxMiniFrame -> unit
 external resetConstraints : wxMiniFrame -> unit
 	= "camlidl_wxc_idl_wxWindow_ResetConstraints"
 
+external requestUserAttention : wxMiniFrame -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_RequestUserAttention"
+
 external reparent : wxMiniFrame -> wxWindow -> int
 	= "camlidl_wxc_idl_wxWindow_Reparent"
 
@@ -215,6 +236,9 @@ external moveConstraint : wxMiniFrame -> int -> int -> unit
 external move : wxMiniFrame -> int -> int -> unit
 	= "camlidl_wxc_idl_wxWindow_Move"
 
+external maximize : wxMiniFrame -> bool -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_Maximize"
+
 external makeModal : wxMiniFrame -> bool -> unit
 	= "camlidl_wxc_idl_wxWindow_MakeModal"
 
@@ -239,8 +263,14 @@ external isShown : wxMiniFrame -> bool
 external isScrolledWindow : wxMiniFrame -> bool
 	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
 
+external isMaximized : wxMiniFrame -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsMaximized"
+
 external isKindOf : wxMiniFrame -> wxClassInfo -> bool
 	= "camlidl_wxc_idl_wxObject_IsKindOf"
+
+external isIconized : wxMiniFrame -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsIconized"
 
 external isFullScreen : wxMiniFrame -> bool
 	= "camlidl_wxc_idl_wxFrame_IsFullScreen"
@@ -254,8 +284,14 @@ external isEnabled : wxMiniFrame -> bool
 external isBeingDeleted : wxMiniFrame -> bool
 	= "camlidl_wxc_idl_wxWindow_IsBeingDeleted"
 
+external isActive : wxMiniFrame -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsActive"
+
 external initDialog : wxMiniFrame -> unit
 	= "camlidl_wxc_idl_wxWindow_InitDialog"
+
+external iconize : wxMiniFrame -> bool -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_Iconize"
 
 external hide : wxMiniFrame -> bool
 	= "camlidl_wxc_idl_wxWindow_Hide"
@@ -353,6 +389,9 @@ external getLabel : wxMiniFrame -> wxString
 external getId : wxMiniFrame -> int
 	= "camlidl_wxc_idl_wxWindow_GetId"
 
+external getIcon : wxMiniFrame -> wxIcon
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetIcon"
+
 external getHandle : wxMiniFrame -> voidptr
 	= "camlidl_wxc_idl_wxWindow_GetHandle"
 
@@ -373,6 +412,12 @@ external getEffectiveMinSize : wxMiniFrame -> wxSize
 
 external getDropTarget : wxMiniFrame -> wxDropTarget
 	= "camlidl_wxc_idl_wxWindow_GetDropTarget"
+
+external getDefaultItem : wxMiniFrame -> wxWindow
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetDefaultItem"
+
+external getDefaultButton : wxMiniFrame -> wxButton
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetDefaultButton"
 
 external getCursor : wxMiniFrame -> wxCursor
 	= "camlidl_wxc_idl_wxWindow_GetCursor"
@@ -442,6 +487,9 @@ external findWindow : wxMiniFrame -> wxString -> wxWindow
 
 external findFocus : wxMiniFrame -> wxWindow
 	= "camlidl_wxc_idl_wxWindow_FindFocus"
+
+external enableCloseButton : wxMiniFrame -> bool -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_EnableCloseButton"
 
 external enable : wxMiniFrame -> bool
 	= "camlidl_wxc_idl_wxWindow_Enable"
@@ -534,6 +582,7 @@ val findWindow : wxMiniFrame -> string -> wxWindow
 
   (* Cast functions *)
   external wxFrame : wxMiniFrame -> wxFrame = "%identity"
+  external wxTopLevelWindow : wxMiniFrame -> wxTopLevelWindow = "%identity"
   external wxWindow : wxMiniFrame -> wxWindow = "%identity"
   external wxEvtHandler : wxMiniFrame -> wxEvtHandler = "%identity"
   external wxObject : wxMiniFrame -> wxObject = "%identity"

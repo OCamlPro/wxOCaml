@@ -95,14 +95,26 @@ external setNextHandler : wxProgressDialog -> wxEvtHandler -> unit
 external setName : wxProgressDialog -> wxString -> unit
 	= "camlidl_wxc_idl_wxWindow_SetName"
 
+external setMinSize : wxProgressDialog -> int -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetMinSize"
+
 external setMenuBar : wxProgressDialog -> wxMenuBar -> unit
 	= "camlidl_wxc_idl_wxFrame_SetMenuBar"
+
+external setMaxSize : wxProgressDialog -> int -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetMaxSize"
 
 external setLabel : wxProgressDialog -> wxString -> unit
 	= "camlidl_wxc_idl_wxWindow_SetLabel"
 
 external setId : wxProgressDialog -> int -> unit
 	= "camlidl_wxc_idl_wxWindow_SetId"
+
+external setIcons : wxProgressDialog -> voidptr -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetIcons"
+
+external setIcon : wxProgressDialog -> wxIcon -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetIcon"
 
 external setForegroundColour : wxProgressDialog -> wxColour -> int
 	= "camlidl_wxc_idl_wxWindow_SetForegroundColour"
@@ -121,6 +133,12 @@ external setEvtHandlerEnabled : wxProgressDialog -> bool -> unit
 
 external setDropTarget : wxProgressDialog -> wxDropTarget -> unit
 	= "camlidl_wxc_idl_wxWindow_SetDropTarget"
+
+external setDefaultItem : wxProgressDialog -> wxWindow -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetDefaultItem"
+
+external setDefaultButton : wxProgressDialog -> wxButton -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_SetDefaultButton"
 
 external setCursor : wxProgressDialog -> wxCursor -> int
 	= "camlidl_wxc_idl_wxWindow_SetCursor"
@@ -179,6 +197,9 @@ external restore : wxProgressDialog -> unit
 external resetConstraints : wxProgressDialog -> unit
 	= "camlidl_wxc_idl_wxWindow_ResetConstraints"
 
+external requestUserAttention : wxProgressDialog -> int -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_RequestUserAttention"
+
 external reparent : wxProgressDialog -> wxWindow -> int
 	= "camlidl_wxc_idl_wxWindow_Reparent"
 
@@ -224,6 +245,9 @@ external moveConstraint : wxProgressDialog -> int -> int -> unit
 external move : wxProgressDialog -> int -> int -> unit
 	= "camlidl_wxc_idl_wxWindow_Move"
 
+external maximize : wxProgressDialog -> bool -> unit
+	= "camlidl_wxc_idl_wxTopLevelWindow_Maximize"
+
 external makeModal : wxProgressDialog -> bool -> unit
 	= "camlidl_wxc_idl_wxWindow_MakeModal"
 
@@ -248,8 +272,14 @@ external isShown : wxProgressDialog -> bool
 external isScrolledWindow : wxProgressDialog -> bool
 	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
 
+external isMaximized : wxProgressDialog -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsMaximized"
+
 external isKindOf : wxProgressDialog -> wxClassInfo -> bool
 	= "camlidl_wxc_idl_wxObject_IsKindOf"
+
+external isIconized : wxProgressDialog -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsIconized"
 
 external isFullScreen : wxProgressDialog -> bool
 	= "camlidl_wxc_idl_wxFrame_IsFullScreen"
@@ -263,8 +293,14 @@ external isEnabled : wxProgressDialog -> bool
 external isBeingDeleted : wxProgressDialog -> bool
 	= "camlidl_wxc_idl_wxWindow_IsBeingDeleted"
 
+external isActive : wxProgressDialog -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_IsActive"
+
 external initDialog : wxProgressDialog -> unit
 	= "camlidl_wxc_idl_wxWindow_InitDialog"
+
+external iconize : wxProgressDialog -> bool -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_Iconize"
 
 external hide : wxProgressDialog -> bool
 	= "camlidl_wxc_idl_wxWindow_Hide"
@@ -362,6 +398,9 @@ external getLabel : wxProgressDialog -> wxString
 external getId : wxProgressDialog -> int
 	= "camlidl_wxc_idl_wxWindow_GetId"
 
+external getIcon : wxProgressDialog -> wxIcon
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetIcon"
+
 external getHandle : wxProgressDialog -> voidptr
 	= "camlidl_wxc_idl_wxWindow_GetHandle"
 
@@ -382,6 +421,12 @@ external getEffectiveMinSize : wxProgressDialog -> wxSize
 
 external getDropTarget : wxProgressDialog -> wxDropTarget
 	= "camlidl_wxc_idl_wxWindow_GetDropTarget"
+
+external getDefaultItem : wxProgressDialog -> wxWindow
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetDefaultItem"
+
+external getDefaultButton : wxProgressDialog -> wxButton
+	= "camlidl_wxc_idl_wxTopLevelWindow_GetDefaultButton"
 
 external getCursor : wxProgressDialog -> wxCursor
 	= "camlidl_wxc_idl_wxWindow_GetCursor"
@@ -451,6 +496,9 @@ external findWindow : wxProgressDialog -> wxString -> wxWindow
 
 external findFocus : wxProgressDialog -> wxWindow
 	= "camlidl_wxc_idl_wxWindow_FindFocus"
+
+external enableCloseButton : wxProgressDialog -> bool -> bool
+	= "camlidl_wxc_idl_wxTopLevelWindow_EnableCloseButton"
 
 external enable : wxProgressDialog -> bool
 	= "camlidl_wxc_idl_wxWindow_Enable"
@@ -544,6 +592,7 @@ val findWindow : wxProgressDialog -> string -> wxWindow
 
   (* Cast functions *)
   external wxFrame : wxProgressDialog -> wxFrame = "%identity"
+  external wxTopLevelWindow : wxProgressDialog -> wxTopLevelWindow = "%identity"
   external wxWindow : wxProgressDialog -> wxWindow = "%identity"
   external wxEvtHandler : wxProgressDialog -> wxEvtHandler = "%identity"
   external wxObject : wxProgressDialog -> wxObject = "%identity"
