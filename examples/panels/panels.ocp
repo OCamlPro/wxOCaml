@@ -1,7 +1,0 @@
-binannot = false
-
-
-begin program "two_panels"
-  requires = [ "wxOCaml" ]
-  files = [    "panels.ml"  ]
-end

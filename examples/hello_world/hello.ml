@@ -1,4 +1,4 @@
-open WxOCaml2
+open WxWidgets
 
 let _ =
   let onInit event =
@@ -50,7 +50,7 @@ let _ =
       Wxdefs.wxEVT_COMMAND_MENU_SELECTED
       (fun _ -> Printf.eprintf "ABOUT ???\n%!";
         ignore_int (
-          wxMessageBox           "wxWidgets Hello World example."
+          WxMisc.wxcMessageBox           "wxWidgets Hello World example."
             "About Hello World"
             (Wxdefs.wxOK lor Wxdefs.wxICON_INFORMATION)
             (WxFrame.wxWindow frame)
@@ -60,8 +60,8 @@ let _ =
         );
 
     ignore_bool ( WxFrame.show frame );
-    WxApp.setTopWindow (WxFrame.wxWindow frame)
+    ELJApp.setTopWindow (WxFrame.wxWindow frame)
 
   in
-  WxApp.start onInit
+  WxMain.main onInit
 

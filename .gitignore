@@ -26,3 +26,4 @@ ocp-build.root.old
 ocp-build.root.old.old
 *~
 elj/libwxOCaml_elj.so
+wxCamlidl/config.ml

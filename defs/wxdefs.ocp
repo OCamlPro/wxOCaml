@@ -1,5 +1,0 @@
-binannot = false
-
-begin library "wxOCaml_defs"
-  files = [ "wxdefs.ml" ]
-end

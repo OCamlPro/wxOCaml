@@ -2,15 +2,20 @@ NJOBS=-j 10
 
 all:
 	(cd elj; $(MAKE) $(NJOBS))
+	ocp-build
+
+boot:
+	ocp-build wxCamlidl gen2
+	(cd elj; $(MAKE) $(NJOBS))
 	(cd idl; $(MAKE))
-	(cd defs; $(MAKE))
+	(cd generators; $(MAKE))
 	ocp-build
 
 clean:
 	rm -f *~ ocaml/*~ idl/*~ examples/*/*~
 	(cd elj; $(MAKE) clean)
 	(cd idl; $(MAKE) clean)
-	(cd defs; $(MAKE) clean)
+	(cd generators; $(MAKE) clean)
 	ocp-build -clean
 
 distclean: clean

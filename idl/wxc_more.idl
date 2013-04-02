@@ -4,3 +4,6 @@ int wxcMessageBox(TClass(wxString) message,
 		      long style,
 		      TClass(wxWindow) parent,
 		      int x, int y);
+
+
+[string]char* wxString_GetUtf8(wxString s);

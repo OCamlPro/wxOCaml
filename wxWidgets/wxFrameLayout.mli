@@ -1,0 +1,66 @@
+open WxClasses
+(* File generated from wxc_idl.idl *)
+
+
+external setPreviousHandler : wxFrameLayout -> wxEvtHandler -> unit
+	= "camlidl_wxc_idl_wxEvtHandler_SetPreviousHandler"
+
+external setNextHandler : wxFrameLayout -> wxEvtHandler -> unit
+	= "camlidl_wxc_idl_wxEvtHandler_SetNextHandler"
+
+external setEvtHandlerEnabled : wxFrameLayout -> bool -> unit
+	= "camlidl_wxc_idl_wxEvtHandler_SetEvtHandlerEnabled"
+
+external setClientClosure : wxFrameLayout -> wxClosure -> unit
+	= "camlidl_wxc_idl_wxEvtHandler_SetClientClosure"
+
+external safeDelete : wxFrameLayout -> unit
+	= "camlidl_wxc_idl_wxObject_SafeDelete"
+
+external processPendingEvents : wxFrameLayout -> unit
+	= "camlidl_wxc_idl_wxEvtHandler_ProcessPendingEvents"
+
+external processEvent : wxFrameLayout -> wxEvent -> bool
+	= "camlidl_wxc_idl_wxEvtHandler_ProcessEvent"
+
+external isScrolledWindow : wxFrameLayout -> bool
+	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+
+external isKindOf : wxFrameLayout -> wxClassInfo -> bool
+	= "camlidl_wxc_idl_wxObject_IsKindOf"
+
+external getPreviousHandler : wxFrameLayout -> wxEvtHandler
+	= "camlidl_wxc_idl_wxEvtHandler_GetPreviousHandler"
+
+external getNextHandler : wxFrameLayout -> wxEvtHandler
+	= "camlidl_wxc_idl_wxEvtHandler_GetNextHandler"
+
+external getEvtHandlerEnabled : wxFrameLayout -> bool
+	= "camlidl_wxc_idl_wxEvtHandler_GetEvtHandlerEnabled"
+
+external getClosure : wxFrameLayout -> int -> int -> wxClosure
+	= "camlidl_wxc_idl_wxEvtHandler_GetClosure"
+
+external getClientClosure : wxFrameLayout -> wxClosure
+	= "camlidl_wxc_idl_wxEvtHandler_GetClientClosure"
+
+external getClassInfo : wxFrameLayout -> wxClassInfo
+	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+
+external disconnect : wxFrameLayout -> int -> int -> int -> int -> int
+	= "camlidl_wxc_idl_wxEvtHandler_Disconnect"
+
+external delete : wxFrameLayout -> unit
+	= "camlidl_wxc_idl_wxEvtHandler_Delete"
+
+external connect : wxFrameLayout -> int -> int -> (wxEvent -> unit) -> unit
+	= "camlidl_wxc_idl_wxo_wxEvtHandler_Connect"
+
+external addPendingEvent : wxFrameLayout -> wxEvent -> unit
+	= "camlidl_wxc_idl_wxEvtHandler_AddPendingEvent"
+
+  val ptrNULL : wxFrameLayout
+
+  (* Cast functions *)
+  external wxEvtHandler : wxFrameLayout -> wxEvtHandler = "%identity"
+  external wxObject : wxFrameLayout -> wxObject = "%identity"

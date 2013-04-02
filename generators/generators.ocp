@@ -1,0 +1,8 @@
+binannot = false
+
+(* Used to generate wxOCaml2.ml from Classes/
+  cd ocaml; ./../_obuild/gen2/gen2.asm
+*)
+begin program "gen2"
+  files = [ "gen2.ml" ]
+end

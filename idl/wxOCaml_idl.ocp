@@ -1,3 +1,4 @@
+(*
 binannot=false
 
 begin library "wxOCaml_idl"
@@ -7,3 +8,4 @@ begin library "wxOCaml_idl"
   ]
   requires = [ "camlidl" ]
 end
+*)

@@ -7,6 +7,7 @@ AC_CONFIG_MACRO_DIR([m4])
 AC_SUBST(CONFIGURE_ARGS)
 
 
+AC_PROG_CPP
 AC_PROG_CC
 AC_PROG_CXX
 
@@ -74,8 +75,9 @@ AC_SUBST(CXXFLAGS)
 AC_CONFIG_FILES(
   Makefile.config \
   config.ocp \
-  idl/00-config.ocp \
-  ocaml/00-config.ocp \
+  wxWidgets/00-config.ocp \
+  wxOCaml/00-config.ocp \
+  wxCamlidl/config.ml \
 )
 AC_OUTPUT
 

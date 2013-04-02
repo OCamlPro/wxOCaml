@@ -2,6 +2,6 @@ binannot = false
 
 
 begin program "hello_world"
-  requires = [ "wxOCaml" ]
+  requires = [ "wxWidgets" ]
   files = [    "hello.ml"  ]
 end

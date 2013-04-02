@@ -1,0 +1,7 @@
+binannot = false
+
+
+begin program "two_panels"
+  requires = [ "wxWidgets" ]
+  files = [    "two_panels.ml"  ]
+end

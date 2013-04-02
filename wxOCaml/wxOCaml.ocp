@@ -1,0 +1,19 @@
+
+begin library "wxOCaml_wxo"
+  requires = [ "wxOCaml_elj" ]
+  files = [ "wxo_start_c.c" "wxOCaml.ml" ]
+end
+
+
+enabled = false
+binannot = false
+
+begin library "wxOCaml"
+  requires = [ "wxOCaml_elj" "wxOCaml_idl" ]
+  files = [
+    "wxdefs.ml"
+    "wxOCaml.ml"
+    "wxOCaml2.ml"
+    "wxo_start_c.c"
+]
+end

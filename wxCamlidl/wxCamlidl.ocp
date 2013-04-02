@@ -1,0 +1,17 @@
+begin program "wxCamlidl"
+  files = [
+  pack Camlidl [
+  "idltypes.mli"
+  "config.ml" "utils.ml" "clflags.ml"
+  "prefix.ml" "lexpr.ml" "cvttyp.ml" "variables.ml"
+  "array.ml" "struct.ml" "enum.ml" "union.ml" "cvtval.ml"
+  "structdecl.ml" "enumdecl.ml" "uniondecl.ml"
+  "typedef.ml" "funct.ml" "constdecl.ml" "intf.ml"
+  "file.ml" "predef.ml"
+  "linenum.mll" "parse_aux.ml" "parser_midl.mly" "lexer_midl.mll" "parse.ml"
+  "fixlabels.ml" "normalize.ml"
+  "wxmore.ml"
+  "main.ml"
+  ]]
+  requires = [ "unix" ]
+end

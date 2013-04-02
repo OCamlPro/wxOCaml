@@ -96,8 +96,8 @@ IDLTypeDef(wxTipProvider);
 IDLTypeDef(wxTreeItemId);
 IDLTypeDef(wxWindowDisabler);
 
-typedef [ptr, mltype("WxClosure.t")] void* wxClosure;
-// IDLTypeDef(wxClosure);
+// typedef [ptr, mltype("WxClosure.t")] void* wxClosure;
+IDLTypeDef(wxClosure);
 
 // for managed.h
 IDLTypeDef(wxManagedPtr); 
@@ -105,5 +105,6 @@ IDLTypeDef(wxManagedPtr);
 // for stc.h
 IDLTypeDef(wxSTCDoc);
 IDLTypeDef(wxMemoryBuffer);
+
 
  
