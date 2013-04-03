@@ -1,15 +1,3 @@
-(***********************************************************************)
-(*                                                                     *)
-(*                              wxCamlIDL                              *)
-(*                                                                     *)
-(*     Fabrice Le Fessant, projet Gallium, INRIA Paris-Rocquencourt    *)
-(*                                                                     *)
-(*  Copyright 2013 Institut National de Recherche en Informatique et   *)
-(*  en Automatique.  All rights reserved.  This file is distributed    *)
-(*  under the terms of the BSD License.                                *)
-(*                                                                     *)
-(***********************************************************************)
-
 open WxWidgets
 
 let _ =
@@ -28,6 +16,10 @@ let _ =
         450 350
         Wxdefs.wxDEFAULT_FRAME_STYLE
     in
+
+    if Sys.file_exists "sample.xpm" then
+      WxFrame.setIcon frame (WxIcon.createLoad "sample.xpm"
+          Wxdefs.wxBITMAP_TYPE_XPM 32 32);
 
     let menuBar = wxMenuBar 0 in
 

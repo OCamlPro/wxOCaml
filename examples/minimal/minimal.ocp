@@ -1,0 +1,6 @@
+binannot = false
+
+begin program "minimal"
+  requires = [ "wxWidgets" ]
+  files = [    "minimal.ml"  ]
+end

@@ -27,3 +27,7 @@ ocp-build.root.old.old
 *~
 elj/libwxOCaml_elj.so
 wxCamlidl/config.ml
+autom4te.cache/
+generators/gen
+wxOCaml/00-config.ocp
+wxOCaml/wxdefs.ml
