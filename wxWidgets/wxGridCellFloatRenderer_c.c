@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGridCellFloatRenderer(value _v1, wxGridCellFloatRenderer * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGridCellFloatRenderer(value _v1, wxGridCellFloatRenderer * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGridCellFloatRenderer *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGridCellFloatRenderer(wxGridCellFloatRenderer * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGridCellFloatRenderer(wxGridCellFloatRenderer * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGridCellFloatRenderer) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

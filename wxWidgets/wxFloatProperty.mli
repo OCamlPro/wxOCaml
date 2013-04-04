@@ -1,45 +1,45 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : wxString -> wxString -> float -> wxFloatProperty
-	= "camlidl_wxc_idl_wxFloatProperty_Create"
+	= "camlidl_wxc_wxFloatProperty_Create"
 
 external setHelpString : wxFloatProperty -> wxString -> unit
-	= "camlidl_wxc_idl_wxPGProperty_SetHelpString"
+	= "camlidl_wxc_wxPGProperty_SetHelpString"
 
 external setClientClosure : wxFloatProperty -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxFloatProperty -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external isScrolledWindow : wxFloatProperty -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxFloatProperty -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external getValueType : wxFloatProperty -> wxString
-	= "camlidl_wxc_idl_wxPGProperty_GetValueType"
+	= "camlidl_wxc_wxPGProperty_GetValueType"
 
 external getValueAsString : wxFloatProperty -> wxString
-	= "camlidl_wxc_idl_wxPGProperty_GetValueAsString"
+	= "camlidl_wxc_wxPGProperty_GetValueAsString"
 
 external getName : wxFloatProperty -> wxString
-	= "camlidl_wxc_idl_wxPGProperty_GetName"
+	= "camlidl_wxc_wxPGProperty_GetName"
 
 external getLabel : wxFloatProperty -> wxString
-	= "camlidl_wxc_idl_wxPGProperty_GetLabel"
+	= "camlidl_wxc_wxPGProperty_GetLabel"
 
 external getClientClosure : wxFloatProperty -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxFloatProperty -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxFloatProperty -> unit
-	= "camlidl_wxc_idl_wxObject_Delete"
+	= "camlidl_wxc_wxObject_Delete"
 
 val wxnew : string -> string -> float -> wxFloatProperty
 val setHelpString : wxFloatProperty -> string -> unit

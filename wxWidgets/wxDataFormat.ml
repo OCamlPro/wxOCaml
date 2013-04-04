@@ -1,30 +1,30 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external setType : wxDataFormat -> int -> unit
-	= "camlidl_wxc_idl_wxDataFormat_SetType"
+	= "camlidl_wxc_wxDataFormat_SetType"
 
 external setId : wxDataFormat -> voidptr -> unit
-	= "camlidl_wxc_idl_wxDataFormat_SetId"
+	= "camlidl_wxc_wxDataFormat_SetId"
 
 external isEqual : wxDataFormat -> voidptr -> bool
-	= "camlidl_wxc_idl_wxDataFormat_IsEqual"
+	= "camlidl_wxc_wxDataFormat_IsEqual"
 
 external getType : wxDataFormat -> int
-	= "camlidl_wxc_idl_wxDataFormat_GetType"
+	= "camlidl_wxc_wxDataFormat_GetType"
 
 external getId : wxDataFormat -> wxString
-	= "camlidl_wxc_idl_wxDataFormat_GetId"
+	= "camlidl_wxc_wxDataFormat_GetId"
 
 external delete : wxDataFormat -> unit
-	= "camlidl_wxc_idl_wxDataFormat_Delete"
+	= "camlidl_wxc_wxDataFormat_Delete"
 
 external createFromType : int -> wxDataFormat
-	= "camlidl_wxc_idl_wxDataFormat_CreateFromType"
+	= "camlidl_wxc_wxDataFormat_CreateFromType"
 
 external createFromId : wxString -> wxDataFormat
-	= "camlidl_wxc_idl_wxDataFormat_CreateFromId"
+	= "camlidl_wxc_wxDataFormat_CreateFromId"
 
 let getId _obj =
   let wxres = getId _obj  in

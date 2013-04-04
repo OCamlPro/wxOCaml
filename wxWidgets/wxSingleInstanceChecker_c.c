@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxSingleInstanceChecker(value _v1, wxSingleInstanceChecker * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxSingleInstanceChecker(value _v1, wxSingleInstanceChecker * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxSingleInstanceChecker *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxSingleInstanceChecker(wxSingleInstanceChecker * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxSingleInstanceChecker(wxSingleInstanceChecker * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxSingleInstanceChecker) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxSingleInstanceChecker_Create(
+value camlidl_wxc_wxSingleInstanceChecker_Create(
 	value _v__obj,
 	value _v_name,
 	value _v_path)
@@ -42,16 +42,16 @@ value camlidl_wxc_idl_wxSingleInstanceChecker_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_voidptr(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_path, &path, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_path, &path, _ctx);
   _res = wxSingleInstanceChecker_Create(_obj, name, path);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSingleInstanceChecker_CreateDefault(value _unit)
+value camlidl_wxc_wxSingleInstanceChecker_CreateDefault(value _unit)
 {
   wxSingleInstanceChecker _res;
   value _vres;
@@ -59,24 +59,24 @@ value camlidl_wxc_idl_wxSingleInstanceChecker_CreateDefault(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxSingleInstanceChecker_CreateDefault();
-  _vres = camlidl_c2ml_wxc_idl_wxSingleInstanceChecker(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxSingleInstanceChecker(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSingleInstanceChecker_Delete(
+value camlidl_wxc_wxSingleInstanceChecker_Delete(
 	value _v__obj)
 {
   wxSingleInstanceChecker _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSingleInstanceChecker(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSingleInstanceChecker(_v__obj, &_obj, _ctx);
   wxSingleInstanceChecker_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSingleInstanceChecker_IsAnotherRunning(
+value camlidl_wxc_wxSingleInstanceChecker_IsAnotherRunning(
 	value _v__obj)
 {
   wxSingleInstanceChecker _obj; /*in*/
@@ -85,7 +85,7 @@ value camlidl_wxc_idl_wxSingleInstanceChecker_IsAnotherRunning(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSingleInstanceChecker(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSingleInstanceChecker(_v__obj, &_obj, _ctx);
   _res = wxSingleInstanceChecker_IsAnotherRunning(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

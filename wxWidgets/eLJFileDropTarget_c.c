@@ -16,7 +16,7 @@
 
 #include "wxWidgets_c.h"
 
-value camlidl_wxc_idl_ELJFileDropTarget_Create(
+value camlidl_wxc_ELJFileDropTarget_Create(
 	value _v__obj,
 	value _v__func)
 {
@@ -27,27 +27,27 @@ value camlidl_wxc_idl_ELJFileDropTarget_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_voidptr(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__func, &_func, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__func, &_func, _ctx);
   _res = ELJFileDropTarget_Create(_obj, _func);
-  _vres = camlidl_c2ml_wxc_idl_ELJFileDropTarget(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_ELJFileDropTarget(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_ELJFileDropTarget_Delete(
+value camlidl_wxc_ELJFileDropTarget_Delete(
 	value _v__obj)
 {
   ELJFileDropTarget _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJFileDropTarget(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_ELJFileDropTarget(_v__obj, &_obj, _ctx);
   ELJFileDropTarget_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_ELJFileDropTarget_SetOnData(
+value camlidl_wxc_ELJFileDropTarget_SetOnData(
 	value _v__obj,
 	value _v__func)
 {
@@ -55,14 +55,14 @@ value camlidl_wxc_idl_ELJFileDropTarget_SetOnData(
   voidptr _func; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJFileDropTarget(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__func, &_func, _ctx);
+  camlidl_ml2c_wxc_ELJFileDropTarget(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__func, &_func, _ctx);
   ELJFileDropTarget_SetOnData(_obj, _func);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_ELJFileDropTarget_SetOnDragOver(
+value camlidl_wxc_ELJFileDropTarget_SetOnDragOver(
 	value _v__obj,
 	value _v__func)
 {
@@ -70,14 +70,14 @@ value camlidl_wxc_idl_ELJFileDropTarget_SetOnDragOver(
   voidptr _func; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJFileDropTarget(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__func, &_func, _ctx);
+  camlidl_ml2c_wxc_ELJFileDropTarget(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__func, &_func, _ctx);
   ELJFileDropTarget_SetOnDragOver(_obj, _func);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_ELJFileDropTarget_SetOnDrop(
+value camlidl_wxc_ELJFileDropTarget_SetOnDrop(
 	value _v__obj,
 	value _v__func)
 {
@@ -85,14 +85,14 @@ value camlidl_wxc_idl_ELJFileDropTarget_SetOnDrop(
   voidptr _func; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJFileDropTarget(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__func, &_func, _ctx);
+  camlidl_ml2c_wxc_ELJFileDropTarget(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__func, &_func, _ctx);
   ELJFileDropTarget_SetOnDrop(_obj, _func);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_ELJFileDropTarget_SetOnEnter(
+value camlidl_wxc_ELJFileDropTarget_SetOnEnter(
 	value _v__obj,
 	value _v__func)
 {
@@ -100,14 +100,14 @@ value camlidl_wxc_idl_ELJFileDropTarget_SetOnEnter(
   voidptr _func; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJFileDropTarget(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__func, &_func, _ctx);
+  camlidl_ml2c_wxc_ELJFileDropTarget(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__func, &_func, _ctx);
   ELJFileDropTarget_SetOnEnter(_obj, _func);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_ELJFileDropTarget_SetOnLeave(
+value camlidl_wxc_ELJFileDropTarget_SetOnLeave(
 	value _v__obj,
 	value _v__func)
 {
@@ -115,8 +115,8 @@ value camlidl_wxc_idl_ELJFileDropTarget_SetOnLeave(
   voidptr _func; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJFileDropTarget(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__func, &_func, _ctx);
+  camlidl_ml2c_wxc_ELJFileDropTarget(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__func, &_func, _ctx);
   ELJFileDropTarget_SetOnLeave(_obj, _func);
   camlidl_free(_ctx);
   return Val_unit;

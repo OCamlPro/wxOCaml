@@ -1,33 +1,33 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : unit -> wxPostScriptPrintNativeData
-	= "camlidl_wxc_idl_wxPostScriptPrintNativeData_Create"
+	= "camlidl_wxc_wxPostScriptPrintNativeData_Create"
 
 external setClientClosure : wxPostScriptPrintNativeData -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxPostScriptPrintNativeData -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external isScrolledWindow : wxPostScriptPrintNativeData -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxPostScriptPrintNativeData -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external getClientClosure : wxPostScriptPrintNativeData -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxPostScriptPrintNativeData -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxPostScriptPrintNativeData -> unit
-	= "camlidl_wxc_idl_wxPostScriptPrintNativeData_Delete"
+	= "camlidl_wxc_wxPostScriptPrintNativeData_Delete"
 
 external null_object : unit -> wxPostScriptPrintNativeData
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

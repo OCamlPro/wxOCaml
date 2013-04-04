@@ -1,135 +1,135 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : unit -> wxPageSetupDialogData
-	= "camlidl_wxc_idl_wxPageSetupDialogData_Create"
+	= "camlidl_wxc_wxPageSetupDialogData_Create"
 
 external setPrintData : wxPageSetupDialogData -> wxPrintData -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_SetPrintData"
+	= "camlidl_wxc_wxPageSetupDialogData_SetPrintData"
 
 external setPaperSizeId : wxPageSetupDialogData -> int -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_SetPaperSizeId"
+	= "camlidl_wxc_wxPageSetupDialogData_SetPaperSizeId"
 
 external setPaperSize : wxPageSetupDialogData -> int -> int -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_SetPaperSize"
+	= "camlidl_wxc_wxPageSetupDialogData_SetPaperSize"
 
 external setPaperId : wxPageSetupDialogData -> voidptr -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_SetPaperId"
+	= "camlidl_wxc_wxPageSetupDialogData_SetPaperId"
 
 external setMinMarginTopLeft : wxPageSetupDialogData -> int -> int -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_SetMinMarginTopLeft"
+	= "camlidl_wxc_wxPageSetupDialogData_SetMinMarginTopLeft"
 
 external setMinMarginBottomRight : wxPageSetupDialogData -> int -> int -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_SetMinMarginBottomRight"
+	= "camlidl_wxc_wxPageSetupDialogData_SetMinMarginBottomRight"
 
 external setMarginTopLeft : wxPageSetupDialogData -> int -> int -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_SetMarginTopLeft"
+	= "camlidl_wxc_wxPageSetupDialogData_SetMarginTopLeft"
 
 external setMarginBottomRight : wxPageSetupDialogData -> int -> int -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_SetMarginBottomRight"
+	= "camlidl_wxc_wxPageSetupDialogData_SetMarginBottomRight"
 
 external setDefaultMinMargins : wxPageSetupDialogData -> int -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_SetDefaultMinMargins"
+	= "camlidl_wxc_wxPageSetupDialogData_SetDefaultMinMargins"
 
 external setDefaultInfo : wxPageSetupDialogData -> bool -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_SetDefaultInfo"
+	= "camlidl_wxc_wxPageSetupDialogData_SetDefaultInfo"
 
 external setClientClosure : wxPageSetupDialogData -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxPageSetupDialogData -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external isScrolledWindow : wxPageSetupDialogData -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxPageSetupDialogData -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external getPrintData : wxPageSetupDialogData -> wxPrintData -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetPrintData"
+	= "camlidl_wxc_wxPageSetupDialogData_GetPrintData"
 
 external getPaperSize : wxPageSetupDialogData -> wxSize
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetPaperSize"
+	= "camlidl_wxc_wxPageSetupDialogData_GetPaperSize"
 
 external getPaperId : wxPageSetupDialogData -> int
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetPaperId"
+	= "camlidl_wxc_wxPageSetupDialogData_GetPaperId"
 
 external getMinMarginTopLeft : wxPageSetupDialogData -> wxPoint
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetMinMarginTopLeft"
+	= "camlidl_wxc_wxPageSetupDialogData_GetMinMarginTopLeft"
 
 external getMinMarginBottomRight : wxPageSetupDialogData -> wxPoint
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetMinMarginBottomRight"
+	= "camlidl_wxc_wxPageSetupDialogData_GetMinMarginBottomRight"
 
 external getMarginTopLeft : wxPageSetupDialogData -> wxPoint
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetMarginTopLeft"
+	= "camlidl_wxc_wxPageSetupDialogData_GetMarginTopLeft"
 
 external getMarginBottomRight : wxPageSetupDialogData -> wxPoint
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetMarginBottomRight"
+	= "camlidl_wxc_wxPageSetupDialogData_GetMarginBottomRight"
 
 external getEnablePrinter : wxPageSetupDialogData -> bool
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetEnablePrinter"
+	= "camlidl_wxc_wxPageSetupDialogData_GetEnablePrinter"
 
 external getEnablePaper : wxPageSetupDialogData -> bool
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetEnablePaper"
+	= "camlidl_wxc_wxPageSetupDialogData_GetEnablePaper"
 
 external getEnableOrientation : wxPageSetupDialogData -> bool
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetEnableOrientation"
+	= "camlidl_wxc_wxPageSetupDialogData_GetEnableOrientation"
 
 external getEnableMargins : wxPageSetupDialogData -> bool
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetEnableMargins"
+	= "camlidl_wxc_wxPageSetupDialogData_GetEnableMargins"
 
 external getEnableHelp : wxPageSetupDialogData -> bool
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetEnableHelp"
+	= "camlidl_wxc_wxPageSetupDialogData_GetEnableHelp"
 
 external getDefaultMinMargins : wxPageSetupDialogData -> bool
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetDefaultMinMargins"
+	= "camlidl_wxc_wxPageSetupDialogData_GetDefaultMinMargins"
 
 external getDefaultInfo : wxPageSetupDialogData -> bool
-	= "camlidl_wxc_idl_wxPageSetupDialogData_GetDefaultInfo"
+	= "camlidl_wxc_wxPageSetupDialogData_GetDefaultInfo"
 
 external getClientClosure : wxPageSetupDialogData -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxPageSetupDialogData -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external enablePrinter : wxPageSetupDialogData -> bool -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_EnablePrinter"
+	= "camlidl_wxc_wxPageSetupDialogData_EnablePrinter"
 
 external enablePaper : wxPageSetupDialogData -> bool -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_EnablePaper"
+	= "camlidl_wxc_wxPageSetupDialogData_EnablePaper"
 
 external enableOrientation : wxPageSetupDialogData -> bool -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_EnableOrientation"
+	= "camlidl_wxc_wxPageSetupDialogData_EnableOrientation"
 
 external enableMargins : wxPageSetupDialogData -> bool -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_EnableMargins"
+	= "camlidl_wxc_wxPageSetupDialogData_EnableMargins"
 
 external enableHelp : wxPageSetupDialogData -> bool -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_EnableHelp"
+	= "camlidl_wxc_wxPageSetupDialogData_EnableHelp"
 
 external delete : wxPageSetupDialogData -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_Delete"
+	= "camlidl_wxc_wxPageSetupDialogData_Delete"
 
 external createFromData : wxPrintData -> wxPageSetupDialogData
-	= "camlidl_wxc_idl_wxPageSetupDialogData_CreateFromData"
+	= "camlidl_wxc_wxPageSetupDialogData_CreateFromData"
 
 external calculatePaperSizeFromId : wxPageSetupDialogData -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_CalculatePaperSizeFromId"
+	= "camlidl_wxc_wxPageSetupDialogData_CalculatePaperSizeFromId"
 
 external calculateIdFromPaperSize : wxPageSetupDialogData -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_CalculateIdFromPaperSize"
+	= "camlidl_wxc_wxPageSetupDialogData_CalculateIdFromPaperSize"
 
 external assignData : wxPageSetupDialogData -> wxPrintData -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_AssignData"
+	= "camlidl_wxc_wxPageSetupDialogData_AssignData"
 
 external assign : wxPageSetupDialogData -> wxPageSetupDialogData -> unit
-	= "camlidl_wxc_idl_wxPageSetupDialogData_Assign"
+	= "camlidl_wxc_wxPageSetupDialogData_Assign"
 
 external null_object : unit -> wxPageSetupDialogData
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

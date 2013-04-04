@@ -1,93 +1,93 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : int -> wxHtmlHelpController
-	= "camlidl_wxc_idl_wxHtmlHelpController_Create"
+	= "camlidl_wxc_wxHtmlHelpController_Create"
 
 external writeCustomization : wxHtmlHelpController -> wxConfigBase -> wxString -> unit
-	= "camlidl_wxc_idl_wxHtmlHelpController_WriteCustomization"
+	= "camlidl_wxc_wxHtmlHelpController_WriteCustomization"
 
 external useConfig : wxHtmlHelpController -> wxConfigBase -> wxString -> unit
-	= "camlidl_wxc_idl_wxHtmlHelpController_UseConfig"
+	= "camlidl_wxc_wxHtmlHelpController_UseConfig"
 
 external setViewer : wxHtmlHelpController -> wxString -> int -> unit
-	= "camlidl_wxc_idl_wxHtmlHelpController_SetViewer"
+	= "camlidl_wxc_wxHtmlHelpController_SetViewer"
 
 external setTitleFormat : wxHtmlHelpController -> voidptr -> unit
-	= "camlidl_wxc_idl_wxHtmlHelpController_SetTitleFormat"
+	= "camlidl_wxc_wxHtmlHelpController_SetTitleFormat"
 
 external setTempDir : wxHtmlHelpController -> wxString -> unit
-	= "camlidl_wxc_idl_wxHtmlHelpController_SetTempDir"
+	= "camlidl_wxc_wxHtmlHelpController_SetTempDir"
 
 external setFrameParameters : wxHtmlHelpController -> voidptr -> int -> int -> int -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxHtmlHelpController_SetFrameParameters_bytecode" "camlidl_wxc_idl_wxHtmlHelpController_SetFrameParameters"
+	= "camlidl_wxc_wxHtmlHelpController_SetFrameParameters_bytecode" "camlidl_wxc_wxHtmlHelpController_SetFrameParameters"
 
 external setClientClosure : wxHtmlHelpController -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxHtmlHelpController -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external readCustomization : wxHtmlHelpController -> wxConfigBase -> wxString -> unit
-	= "camlidl_wxc_idl_wxHtmlHelpController_ReadCustomization"
+	= "camlidl_wxc_wxHtmlHelpController_ReadCustomization"
 
 external quit : wxHtmlHelpController -> bool
-	= "camlidl_wxc_idl_wxHtmlHelpController_Quit"
+	= "camlidl_wxc_wxHtmlHelpController_Quit"
 
 external loadFile : wxHtmlHelpController -> wxString -> bool
-	= "camlidl_wxc_idl_wxHtmlHelpController_LoadFile"
+	= "camlidl_wxc_wxHtmlHelpController_LoadFile"
 
 external keywordSearch : wxHtmlHelpController -> wxString -> bool
-	= "camlidl_wxc_idl_wxHtmlHelpController_KeywordSearch"
+	= "camlidl_wxc_wxHtmlHelpController_KeywordSearch"
 
 external isScrolledWindow : wxHtmlHelpController -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxHtmlHelpController -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external initialize : wxHtmlHelpController -> wxString -> bool
-	= "camlidl_wxc_idl_wxHtmlHelpController_Initialize"
+	= "camlidl_wxc_wxHtmlHelpController_Initialize"
 
 external getFrameParameters : wxHtmlHelpController -> voidptr -> int option -> int option -> int option -> int option -> int option -> voidptr
-	= "camlidl_wxc_idl_wxHtmlHelpController_GetFrameParameters_bytecode" "camlidl_wxc_idl_wxHtmlHelpController_GetFrameParameters"
+	= "camlidl_wxc_wxHtmlHelpController_GetFrameParameters_bytecode" "camlidl_wxc_wxHtmlHelpController_GetFrameParameters"
 
 external getFrame : wxHtmlHelpController -> wxFrame
-	= "camlidl_wxc_idl_wxHtmlHelpController_GetFrame"
+	= "camlidl_wxc_wxHtmlHelpController_GetFrame"
 
 external getClientClosure : wxHtmlHelpController -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxHtmlHelpController -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external displaySectionNumber : wxHtmlHelpController -> int -> bool
-	= "camlidl_wxc_idl_wxHtmlHelpController_DisplaySectionNumber"
+	= "camlidl_wxc_wxHtmlHelpController_DisplaySectionNumber"
 
 external displaySection : wxHtmlHelpController -> wxString -> bool
-	= "camlidl_wxc_idl_wxHtmlHelpController_DisplaySection"
+	= "camlidl_wxc_wxHtmlHelpController_DisplaySection"
 
 external displayNumber : wxHtmlHelpController -> int -> int
-	= "camlidl_wxc_idl_wxHtmlHelpController_DisplayNumber"
+	= "camlidl_wxc_wxHtmlHelpController_DisplayNumber"
 
 external displayIndex : wxHtmlHelpController -> int
-	= "camlidl_wxc_idl_wxHtmlHelpController_DisplayIndex"
+	= "camlidl_wxc_wxHtmlHelpController_DisplayIndex"
 
 external displayContents : wxHtmlHelpController -> int
-	= "camlidl_wxc_idl_wxHtmlHelpController_DisplayContents"
+	= "camlidl_wxc_wxHtmlHelpController_DisplayContents"
 
 external displayBlock : wxHtmlHelpController -> int -> bool
-	= "camlidl_wxc_idl_wxHtmlHelpController_DisplayBlock"
+	= "camlidl_wxc_wxHtmlHelpController_DisplayBlock"
 
 external display : wxHtmlHelpController -> voidptr -> int
-	= "camlidl_wxc_idl_wxHtmlHelpController_Display"
+	= "camlidl_wxc_wxHtmlHelpController_Display"
 
 external delete : wxHtmlHelpController -> unit
-	= "camlidl_wxc_idl_wxHtmlHelpController_Delete"
+	= "camlidl_wxc_wxHtmlHelpController_Delete"
 
 external addBook : wxHtmlHelpController -> voidptr -> int -> bool
-	= "camlidl_wxc_idl_wxHtmlHelpController_AddBook"
+	= "camlidl_wxc_wxHtmlHelpController_AddBook"
 
 val writeCustomization : wxHtmlHelpController -> wxConfigBase -> string -> unit
 val useConfig : wxHtmlHelpController -> wxConfigBase -> string -> unit

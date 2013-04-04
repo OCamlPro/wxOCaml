@@ -1,51 +1,51 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : unit -> wxTimerEx
-	= "camlidl_wxc_idl_wxTimerEx_Create"
+	= "camlidl_wxc_wxTimerEx_Create"
 
 external stop : wxTimerEx -> unit
-	= "camlidl_wxc_idl_wxTimer_Stop"
+	= "camlidl_wxc_wxTimer_Stop"
 
 external start : wxTimerEx -> int -> bool -> bool
-	= "camlidl_wxc_idl_wxTimer_Start"
+	= "camlidl_wxc_wxTimer_Start"
 
 external setClientClosure : wxTimerEx -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxTimerEx -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external isScrolledWindow : wxTimerEx -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isRuning : wxTimerEx -> bool
-	= "camlidl_wxc_idl_wxTimer_IsRuning"
+	= "camlidl_wxc_wxTimer_IsRuning"
 
 external isOneShot : wxTimerEx -> bool
-	= "camlidl_wxc_idl_wxTimer_IsOneShot"
+	= "camlidl_wxc_wxTimer_IsOneShot"
 
 external isKindOf : wxTimerEx -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external getInterval : wxTimerEx -> int
-	= "camlidl_wxc_idl_wxTimer_GetInterval"
+	= "camlidl_wxc_wxTimer_GetInterval"
 
 external getClosure : wxTimerEx -> wxClosure
-	= "camlidl_wxc_idl_wxTimerEx_GetClosure"
+	= "camlidl_wxc_wxTimerEx_GetClosure"
 
 external getClientClosure : wxTimerEx -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxTimerEx -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxTimerEx -> unit
-	= "camlidl_wxc_idl_wxTimer_Delete"
+	= "camlidl_wxc_wxTimer_Delete"
 
 external connect : wxEvtHandler -> wxClosure -> wxClosure -> (wxEvent -> unit) -> unit
-	= "camlidl_wxc_idl_wxo_wxEvtHandler_Connect"
+	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
   val ptrNULL : wxTimerEx
 

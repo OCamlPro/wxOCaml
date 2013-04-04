@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGraphicsMatrix(value _v1, wxGraphicsMatrix * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGraphicsMatrix(value _v1, wxGraphicsMatrix * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGraphicsMatrix *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGraphicsMatrix(wxGraphicsMatrix * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGraphicsMatrix(wxGraphicsMatrix * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGraphicsMatrix) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_Create(value _unit)
+value camlidl_wxc_wxGraphicsMatrix_Create(value _unit)
 {
   wxGraphicsMatrix _res;
   value _vres;
@@ -37,24 +37,24 @@ value camlidl_wxc_idl_wxGraphicsMatrix_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxGraphicsMatrix_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxGraphicsMatrix(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGraphicsMatrix(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_Delete(
+value camlidl_wxc_wxGraphicsMatrix_Delete(
 	value _v_self)
 {
   wxGraphicsMatrix self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_self, &self, _ctx);
   wxGraphicsMatrix_Delete(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_Concat(
+value camlidl_wxc_wxGraphicsMatrix_Concat(
 	value _v_self,
 	value _v_t)
 {
@@ -62,14 +62,14 @@ value camlidl_wxc_idl_wxGraphicsMatrix_Concat(
   wxGraphicsMatrix t; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_t, &t, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_t, &t, _ctx);
   wxGraphicsMatrix_Concat(self, t);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_Get(
+value camlidl_wxc_wxGraphicsMatrix_Get(
 	value _v_self,
 	value _v_a,
 	value _v_b,
@@ -99,7 +99,7 @@ value camlidl_wxc_idl_wxGraphicsMatrix_Get(
   double _c12;
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_self, &self, _ctx);
   if (_v_a == Val_int(0)) {
     a = NULL;
   } else {
@@ -147,12 +147,12 @@ value camlidl_wxc_idl_wxGraphicsMatrix_Get(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_Get_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGraphicsMatrix_Get_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGraphicsMatrix_Get(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxGraphicsMatrix_Get(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_GetNativeMatrix(
+value camlidl_wxc_wxGraphicsMatrix_GetNativeMatrix(
 	value _v_self)
 {
   wxGraphicsMatrix self; /*in*/
@@ -161,26 +161,26 @@ value camlidl_wxc_idl_wxGraphicsMatrix_GetNativeMatrix(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_self, &self, _ctx);
   _res = wxGraphicsMatrix_GetNativeMatrix(self);
-  _vres = camlidl_c2ml_wxc_idl_voidptr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_voidptr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_Invert(
+value camlidl_wxc_wxGraphicsMatrix_Invert(
 	value _v_self)
 {
   wxGraphicsMatrix self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_self, &self, _ctx);
   wxGraphicsMatrix_Invert(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_IsEqual(
+value camlidl_wxc_wxGraphicsMatrix_IsEqual(
 	value _v_self,
 	value _v_t)
 {
@@ -191,15 +191,15 @@ value camlidl_wxc_idl_wxGraphicsMatrix_IsEqual(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_t, &t, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_t, &t, _ctx);
   _res = wxGraphicsMatrix_IsEqual(self, t);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_IsIdentity(
+value camlidl_wxc_wxGraphicsMatrix_IsIdentity(
 	value _v_self)
 {
   wxGraphicsMatrix self; /*in*/
@@ -208,14 +208,14 @@ value camlidl_wxc_idl_wxGraphicsMatrix_IsIdentity(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_self, &self, _ctx);
   _res = wxGraphicsMatrix_IsIdentity(self);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_Rotate(
+value camlidl_wxc_wxGraphicsMatrix_Rotate(
 	value _v_self,
 	value _v_angle)
 {
@@ -223,14 +223,14 @@ value camlidl_wxc_idl_wxGraphicsMatrix_Rotate(
   double angle; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_self, &self, _ctx);
   angle = Double_val(_v_angle);
   wxGraphicsMatrix_Rotate(self, angle);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_Scale(
+value camlidl_wxc_wxGraphicsMatrix_Scale(
 	value _v_self,
 	value _v_x,
 	value _v_y)
@@ -240,7 +240,7 @@ value camlidl_wxc_idl_wxGraphicsMatrix_Scale(
   double y; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   wxGraphicsMatrix_Scale(self, x, y);
@@ -248,7 +248,7 @@ value camlidl_wxc_idl_wxGraphicsMatrix_Scale(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_Set(
+value camlidl_wxc_wxGraphicsMatrix_Set(
 	value _v_self,
 	value _v_a,
 	value _v_b,
@@ -266,7 +266,7 @@ value camlidl_wxc_idl_wxGraphicsMatrix_Set(
   double ty; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_self, &self, _ctx);
   a = Double_val(_v_a);
   b = Double_val(_v_b);
   c = Double_val(_v_c);
@@ -278,12 +278,12 @@ value camlidl_wxc_idl_wxGraphicsMatrix_Set(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_Set_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGraphicsMatrix_Set_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGraphicsMatrix_Set(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxGraphicsMatrix_Set(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_Translate(
+value camlidl_wxc_wxGraphicsMatrix_Translate(
 	value _v_self,
 	value _v_dx,
 	value _v_dy)
@@ -293,7 +293,7 @@ value camlidl_wxc_idl_wxGraphicsMatrix_Translate(
   double dy; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_self, &self, _ctx);
   dx = Double_val(_v_dx);
   dy = Double_val(_v_dy);
   wxGraphicsMatrix_Translate(self, dx, dy);
@@ -301,7 +301,7 @@ value camlidl_wxc_idl_wxGraphicsMatrix_Translate(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_TransformPoint(
+value camlidl_wxc_wxGraphicsMatrix_TransformPoint(
 	value _v_self,
 	value _v_x,
 	value _v_y)
@@ -315,7 +315,7 @@ value camlidl_wxc_idl_wxGraphicsMatrix_TransformPoint(
   double _c4;
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_self, &self, _ctx);
   if (_v_x == Val_int(0)) {
     x = NULL;
   } else {
@@ -335,7 +335,7 @@ value camlidl_wxc_idl_wxGraphicsMatrix_TransformPoint(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsMatrix_TransformDistance(
+value camlidl_wxc_wxGraphicsMatrix_TransformDistance(
 	value _v_self,
 	value _v_dx,
 	value _v_dy)
@@ -349,7 +349,7 @@ value camlidl_wxc_idl_wxGraphicsMatrix_TransformDistance(
   double _c4;
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_self, &self, _ctx);
   if (_v_dx == Val_int(0)) {
     dx = NULL;
   } else {

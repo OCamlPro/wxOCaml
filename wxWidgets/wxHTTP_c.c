@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxHTTP(value _v1, wxHTTP * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxHTTP(value _v1, wxHTTP * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxHTTP *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxHTTP(wxHTTP * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxHTTP(wxHTTP * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxHTTP) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxRegionIterator(value _v1, wxRegionIterator * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxRegionIterator(value _v1, wxRegionIterator * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxRegionIterator *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxRegionIterator(wxRegionIterator * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxRegionIterator(wxRegionIterator * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxRegionIterator) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxRegionIterator_Create(value _unit)
+value camlidl_wxc_wxRegionIterator_Create(value _unit)
 {
   wxRegionIterator _res;
   value _vres;
@@ -37,12 +37,12 @@ value camlidl_wxc_idl_wxRegionIterator_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxRegionIterator_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxRegionIterator(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxRegionIterator(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxRegionIterator_CreateFromRegion(
+value camlidl_wxc_wxRegionIterator_CreateFromRegion(
 	value _v_region)
 {
   wxRegion region; /*in*/
@@ -51,26 +51,26 @@ value camlidl_wxc_idl_wxRegionIterator_CreateFromRegion(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxRegion(_v_region, &region, _ctx);
+  camlidl_ml2c_wxc_wxRegion(_v_region, &region, _ctx);
   _res = wxRegionIterator_CreateFromRegion(region);
-  _vres = camlidl_c2ml_wxc_idl_wxRegionIterator(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxRegionIterator(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxRegionIterator_Delete(
+value camlidl_wxc_wxRegionIterator_Delete(
 	value _v__obj)
 {
   wxRegionIterator _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxRegionIterator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxRegionIterator(_v__obj, &_obj, _ctx);
   wxRegionIterator_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxRegionIterator_GetHeight(
+value camlidl_wxc_wxRegionIterator_GetHeight(
 	value _v__obj)
 {
   wxRegionIterator _obj; /*in*/
@@ -79,14 +79,14 @@ value camlidl_wxc_idl_wxRegionIterator_GetHeight(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxRegionIterator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxRegionIterator(_v__obj, &_obj, _ctx);
   _res = wxRegionIterator_GetHeight(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxRegionIterator_GetWidth(
+value camlidl_wxc_wxRegionIterator_GetWidth(
 	value _v__obj)
 {
   wxRegionIterator _obj; /*in*/
@@ -95,14 +95,14 @@ value camlidl_wxc_idl_wxRegionIterator_GetWidth(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxRegionIterator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxRegionIterator(_v__obj, &_obj, _ctx);
   _res = wxRegionIterator_GetWidth(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxRegionIterator_GetX(
+value camlidl_wxc_wxRegionIterator_GetX(
 	value _v__obj)
 {
   wxRegionIterator _obj; /*in*/
@@ -111,14 +111,14 @@ value camlidl_wxc_idl_wxRegionIterator_GetX(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxRegionIterator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxRegionIterator(_v__obj, &_obj, _ctx);
   _res = wxRegionIterator_GetX(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxRegionIterator_GetY(
+value camlidl_wxc_wxRegionIterator_GetY(
 	value _v__obj)
 {
   wxRegionIterator _obj; /*in*/
@@ -127,14 +127,14 @@ value camlidl_wxc_idl_wxRegionIterator_GetY(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxRegionIterator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxRegionIterator(_v__obj, &_obj, _ctx);
   _res = wxRegionIterator_GetY(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxRegionIterator_HaveRects(
+value camlidl_wxc_wxRegionIterator_HaveRects(
 	value _v__obj)
 {
   wxRegionIterator _obj; /*in*/
@@ -143,38 +143,38 @@ value camlidl_wxc_idl_wxRegionIterator_HaveRects(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxRegionIterator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxRegionIterator(_v__obj, &_obj, _ctx);
   _res = wxRegionIterator_HaveRects(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxRegionIterator_Next(
+value camlidl_wxc_wxRegionIterator_Next(
 	value _v__obj)
 {
   wxRegionIterator _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxRegionIterator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxRegionIterator(_v__obj, &_obj, _ctx);
   wxRegionIterator_Next(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxRegionIterator_Reset(
+value camlidl_wxc_wxRegionIterator_Reset(
 	value _v__obj)
 {
   wxRegionIterator _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxRegionIterator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxRegionIterator(_v__obj, &_obj, _ctx);
   wxRegionIterator_Reset(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxRegionIterator_ResetToRegion(
+value camlidl_wxc_wxRegionIterator_ResetToRegion(
 	value _v__obj,
 	value _v_region)
 {
@@ -182,8 +182,8 @@ value camlidl_wxc_idl_wxRegionIterator_ResetToRegion(
   wxRegion region; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxRegionIterator(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxRegion(_v_region, &region, _ctx);
+  camlidl_ml2c_wxc_wxRegionIterator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxRegion(_v_region, &region, _ctx);
   wxRegionIterator_ResetToRegion(_obj, region);
   camlidl_free(_ctx);
   return Val_unit;

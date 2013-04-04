@@ -55,6 +55,8 @@
 #undef TArrayObjectOutVoid
 #undef TColorRGB
 
+typedef void* voidptr;
+
 /* Class definitions */
 #define TClassDef(tp)     
 #define TClassDefExtend(tp,parent)

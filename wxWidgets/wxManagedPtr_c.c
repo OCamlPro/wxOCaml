@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxManagedPtr(value _v1, wxManagedPtr * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxManagedPtr(value _v1, wxManagedPtr * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxManagedPtr *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxManagedPtr(wxManagedPtr * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxManagedPtr(wxManagedPtr * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxManagedPtr) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_GetPtr(
+value camlidl_wxc_wxManagedPtr_GetPtr(
 	value _v_self)
 {
   wxManagedPtr self; /*in*/
@@ -38,50 +38,50 @@ value camlidl_wxc_idl_wxManagedPtr_GetPtr(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxManagedPtr(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxManagedPtr(_v_self, &self, _ctx);
   _res = wxManagedPtr_GetPtr(self);
-  _vres = camlidl_c2ml_wxc_idl_voidptr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_voidptr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_NoFinalize(
+value camlidl_wxc_wxManagedPtr_NoFinalize(
 	value _v_self)
 {
   wxManagedPtr self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxManagedPtr(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxManagedPtr(_v_self, &self, _ctx);
   wxManagedPtr_NoFinalize(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_Finalize(
+value camlidl_wxc_wxManagedPtr_Finalize(
 	value _v_self)
 {
   wxManagedPtr self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxManagedPtr(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxManagedPtr(_v_self, &self, _ctx);
   wxManagedPtr_Finalize(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_Delete(
+value camlidl_wxc_wxManagedPtr_Delete(
 	value _v_self)
 {
   wxManagedPtr self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxManagedPtr(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxManagedPtr(_v_self, &self, _ctx);
   wxManagedPtr_Delete(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_GetDeleteFunction(value _unit)
+value camlidl_wxc_wxManagedPtr_GetDeleteFunction(value _unit)
 {
   voidptr _res;
   value _vres;
@@ -89,12 +89,12 @@ value camlidl_wxc_idl_wxManagedPtr_GetDeleteFunction(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxManagedPtr_GetDeleteFunction();
-  _vres = camlidl_c2ml_wxc_idl_voidptr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_voidptr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_CreateFromObject(
+value camlidl_wxc_wxManagedPtr_CreateFromObject(
 	value _v_obj)
 {
   wxObject obj; /*in*/
@@ -103,14 +103,14 @@ value camlidl_wxc_idl_wxManagedPtr_CreateFromObject(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxObject(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxObject(_v_obj, &obj, _ctx);
   _res = wxManagedPtr_CreateFromObject(obj);
-  _vres = camlidl_c2ml_wxc_idl_wxManagedPtr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxManagedPtr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_CreateFromDateTime(
+value camlidl_wxc_wxManagedPtr_CreateFromDateTime(
 	value _v_obj)
 {
   wxDateTime obj; /*in*/
@@ -119,14 +119,14 @@ value camlidl_wxc_idl_wxManagedPtr_CreateFromDateTime(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxDateTime(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxDateTime(_v_obj, &obj, _ctx);
   _res = wxManagedPtr_CreateFromDateTime(obj);
-  _vres = camlidl_c2ml_wxc_idl_wxManagedPtr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxManagedPtr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_CreateFromGridCellCoordsArray(
+value camlidl_wxc_wxManagedPtr_CreateFromGridCellCoordsArray(
 	value _v_obj)
 {
   wxGridCellCoordsArray obj; /*in*/
@@ -135,14 +135,14 @@ value camlidl_wxc_idl_wxManagedPtr_CreateFromGridCellCoordsArray(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellCoordsArray(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxGridCellCoordsArray(_v_obj, &obj, _ctx);
   _res = wxManagedPtr_CreateFromGridCellCoordsArray(obj);
-  _vres = camlidl_c2ml_wxc_idl_wxManagedPtr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxManagedPtr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_CreateFromBitmap(
+value camlidl_wxc_wxManagedPtr_CreateFromBitmap(
 	value _v_obj)
 {
   wxBitmap obj; /*in*/
@@ -151,14 +151,14 @@ value camlidl_wxc_idl_wxManagedPtr_CreateFromBitmap(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_obj, &obj, _ctx);
   _res = wxManagedPtr_CreateFromBitmap(obj);
-  _vres = camlidl_c2ml_wxc_idl_wxManagedPtr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxManagedPtr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_CreateFromIcon(
+value camlidl_wxc_wxManagedPtr_CreateFromIcon(
 	value _v_obj)
 {
   wxIcon obj; /*in*/
@@ -167,14 +167,14 @@ value camlidl_wxc_idl_wxManagedPtr_CreateFromIcon(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIcon(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxIcon(_v_obj, &obj, _ctx);
   _res = wxManagedPtr_CreateFromIcon(obj);
-  _vres = camlidl_c2ml_wxc_idl_wxManagedPtr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxManagedPtr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_CreateFromBrush(
+value camlidl_wxc_wxManagedPtr_CreateFromBrush(
 	value _v_obj)
 {
   wxBrush obj; /*in*/
@@ -183,14 +183,14 @@ value camlidl_wxc_idl_wxManagedPtr_CreateFromBrush(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v_obj, &obj, _ctx);
   _res = wxManagedPtr_CreateFromBrush(obj);
-  _vres = camlidl_c2ml_wxc_idl_wxManagedPtr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxManagedPtr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_CreateFromColour(
+value camlidl_wxc_wxManagedPtr_CreateFromColour(
 	value _v_obj)
 {
   wxColour obj; /*in*/
@@ -199,14 +199,14 @@ value camlidl_wxc_idl_wxManagedPtr_CreateFromColour(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxColour(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_obj, &obj, _ctx);
   _res = wxManagedPtr_CreateFromColour(obj);
-  _vres = camlidl_c2ml_wxc_idl_wxManagedPtr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxManagedPtr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_CreateFromCursor(
+value camlidl_wxc_wxManagedPtr_CreateFromCursor(
 	value _v_obj)
 {
   wxCursor obj; /*in*/
@@ -215,14 +215,14 @@ value camlidl_wxc_idl_wxManagedPtr_CreateFromCursor(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCursor(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxCursor(_v_obj, &obj, _ctx);
   _res = wxManagedPtr_CreateFromCursor(obj);
-  _vres = camlidl_c2ml_wxc_idl_wxManagedPtr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxManagedPtr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_CreateFromFont(
+value camlidl_wxc_wxManagedPtr_CreateFromFont(
 	value _v_obj)
 {
   wxFont obj; /*in*/
@@ -231,14 +231,14 @@ value camlidl_wxc_idl_wxManagedPtr_CreateFromFont(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFont(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxFont(_v_obj, &obj, _ctx);
   _res = wxManagedPtr_CreateFromFont(obj);
-  _vres = camlidl_c2ml_wxc_idl_wxManagedPtr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxManagedPtr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxManagedPtr_CreateFromPen(
+value camlidl_wxc_wxManagedPtr_CreateFromPen(
 	value _v_obj)
 {
   wxPen obj; /*in*/
@@ -247,9 +247,9 @@ value camlidl_wxc_idl_wxManagedPtr_CreateFromPen(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPen(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxPen(_v_obj, &obj, _ctx);
   _res = wxManagedPtr_CreateFromPen(obj);
-  _vres = camlidl_c2ml_wxc_idl_wxManagedPtr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxManagedPtr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

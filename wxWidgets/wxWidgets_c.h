@@ -1,7 +1,7 @@
-/* File generated from wxc_idl.idl */
+/* File generated from wxc.idl */
 
-#ifndef _CAMLIDL_WXC_IDL_H
-#define _CAMLIDL_WXC_IDL_H
+#ifndef _CAMLIDL_WXC_H
+#define _CAMLIDL_WXC_H
 
 #ifdef __cplusplus
 #define _CAMLIDL_EXTERN_C extern "C"
@@ -12,6 +12,8 @@
 #ifdef _WIN32
 #pragma pack(push,8) /* necessary for COM interfaces */
 #endif
+
+typedef void *voidptr;
 
 typedef void *ELJDragDataObject;
 
@@ -1023,13 +1025,13 @@ typedef wxGridCellTextEditor wxGridCellTextEnterEditor;
 
 typedef wxConfigBase wxFileConfig;
 
-typedef void *voidptr;
-
 _CAMLIDL_EXTERN_C wxObject null_object(void);
 
 _CAMLIDL_EXTERN_C int wxcMessageBox(/*in*/ wxString message, /*in*/ wxString caption, /*in*/ long style, /*in*/ wxWindow parent, /*in*/ int x, /*in*/ int y);
 
 _CAMLIDL_EXTERN_C char *wxString_GetUtf8(/*in*/ wxString s);
+
+_CAMLIDL_EXTERN_C wxString wxString_CreateUTF8(/*in*/ char *buffer);
 
 _CAMLIDL_EXTERN_C wxAcceleratorTable Null_AcceleratorTable(void);
 
@@ -1048,6 +1050,926 @@ _CAMLIDL_EXTERN_C wxIcon Null_Icon(void);
 _CAMLIDL_EXTERN_C wxPalette Null_Palette(void);
 
 _CAMLIDL_EXTERN_C wxPen Null_Pen(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUITOOLBAR_TOOL_DROPDOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUITOOLBAR_OVERFLOW_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUITOOLBAR_RIGHT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUITOOLBAR_MIDDLE_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUITOOLBAR_BEGIN_DRAG(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_PAGE_CLOSE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_PAGE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_PAGE_CHANGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_PAGE_CLOSED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_BUTTON(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_BEGIN_DRAG(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_END_DRAG(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_DRAG_MOTION(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_ALLOW_DND(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_TAB_MIDDLE_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_TAB_MIDDLE_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_TAB_RIGHT_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_TAB_RIGHT_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_DRAG_DONE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_AUINOTEBOOK_BG_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_AUI_PANE_BUTTON(void);
+
+_CAMLIDL_EXTERN_C int expEVT_AUI_PANE_CLOSE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_AUI_PANE_MAXIMIZE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_AUI_PANE_RESTORE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_AUI_RENDER(void);
+
+_CAMLIDL_EXTERN_C int expEVT_AUI_FIND_MANAGER(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CALENDAR_SEL_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CALENDAR_PAGE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CALENDAR_DOUBLECLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CALENDAR_WEEKDAY_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CALENDAR_WEEK_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CALENDAR_DAY_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CALENDAR_MONTH_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CALENDAR_YEAR_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_CHOICEBOOK_PAGE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_CHOICEBOOK_PAGE_CHANGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CLIPBOARD_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_COLOURPICKER_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_COLLPANE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_SELECTION_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_ITEM_ACTIVATED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_ITEM_COLLAPSED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_ITEM_EXPANDED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_ITEM_COLLAPSING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_ITEM_EXPANDING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_ITEM_START_EDITING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_ITEM_EDITING_STARTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_ITEM_EDITING_DONE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_ITEM_VALUE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_ITEM_CONTEXT_MENU(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_COLUMN_HEADER_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_COLUMN_SORTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_COLUMN_REORDERED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_CACHE_HINT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_ITEM_BEGIN_DRAG(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_ITEM_DROP_POSSIBLE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DATAVIEW_ITEM_DROP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_DATE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_WINDOW_MODAL_DIALOG_CLOSED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_BUTTON_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_CHECKBOX_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_CHOICE_SELECTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LISTBOX_SELECTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LISTBOX_DOUBLECLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_CHECKLISTBOX_TOGGLED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_MENU_SELECTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_SLIDER_UPDATED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RADIOBOX_SELECTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RADIOBUTTON_SELECTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_VLBOX_SELECTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_COMBOBOX_SELECTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TOOL_RCLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TOOL_DROPDOWN_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TOOL_ENTER(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_COMBOBOX_DROPDOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_COMBOBOX_CLOSEUP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_THREAD(void);
+
+_CAMLIDL_EXTERN_C int expEVT_LEFT_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_LEFT_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MIDDLE_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MIDDLE_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_RIGHT_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_RIGHT_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MOTION(void);
+
+_CAMLIDL_EXTERN_C int expEVT_ENTER_WINDOW(void);
+
+_CAMLIDL_EXTERN_C int expEVT_LEAVE_WINDOW(void);
+
+_CAMLIDL_EXTERN_C int expEVT_LEFT_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MIDDLE_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_RIGHT_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SET_FOCUS(void);
+
+_CAMLIDL_EXTERN_C int expEVT_KILL_FOCUS(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CHILD_FOCUS(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MOUSEWHEEL(void);
+
+_CAMLIDL_EXTERN_C int expEVT_AUX1_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_AUX1_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_AUX1_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_AUX2_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_AUX2_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_AUX2_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CHAR(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CHAR_HOOK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_NAVIGATION_KEY(void);
+
+_CAMLIDL_EXTERN_C int expEVT_KEY_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_KEY_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_HOTKEY(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SET_CURSOR(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLL_TOP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLL_BOTTOM(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLL_LINEUP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLL_LINEDOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLL_PAGEUP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLL_PAGEDOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLL_THUMBTRACK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLL_THUMBRELEASE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLL_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SPIN_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SPIN_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SPIN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLLWIN_TOP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLLWIN_BOTTOM(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLLWIN_LINEUP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLLWIN_LINEDOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLLWIN_PAGEUP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLLWIN_PAGEDOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLLWIN_THUMBTRACK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SCROLLWIN_THUMBRELEASE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SIZE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MOVE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CLOSE_WINDOW(void);
+
+_CAMLIDL_EXTERN_C int expEVT_END_SESSION(void);
+
+_CAMLIDL_EXTERN_C int expEVT_QUERY_END_SESSION(void);
+
+_CAMLIDL_EXTERN_C int expEVT_ACTIVATE_APP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_ACTIVATE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CREATE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_DESTROY(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SHOW(void);
+
+_CAMLIDL_EXTERN_C int expEVT_ICONIZE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MAXIMIZE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MOUSE_CAPTURE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MOUSE_CAPTURE_LOST(void);
+
+_CAMLIDL_EXTERN_C int expEVT_PAINT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_ERASE_BACKGROUND(void);
+
+_CAMLIDL_EXTERN_C int expEVT_NC_PAINT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MENU_OPEN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MENU_CLOSE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MENU_HIGHLIGHT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CONTEXT_MENU(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SYS_COLOUR_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_DISPLAY_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_QUERY_NEW_PALETTE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_PALETTE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_JOY_BUTTON_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_JOY_BUTTON_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_JOY_MOVE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_JOY_ZMOVE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_DROP_FILES(void);
+
+_CAMLIDL_EXTERN_C int expEVT_INIT_DIALOG(void);
+
+_CAMLIDL_EXTERN_C int expEVT_IDLE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_UPDATE_UI(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SIZING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MOVING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MOVE_START(void);
+
+_CAMLIDL_EXTERN_C int expEVT_MOVE_END(void);
+
+_CAMLIDL_EXTERN_C int expEVT_HIBERNATE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TEXT_COPY(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TEXT_CUT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TEXT_PASTE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LEFT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LEFT_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIGHT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIGHT_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_SET_FOCUS(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_KILL_FOCUS(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_ENTER(void);
+
+_CAMLIDL_EXTERN_C int expEVT_HELP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_DETAILED_HELP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TOOL_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_FIND(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_FIND_NEXT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_FIND_REPLACE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_FIND_REPLACE_ALL(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_FIND_CLOSE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_FILECTRL_SELECTIONCHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_FILECTRL_FILEACTIVATED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_FILECTRL_FOLDERCHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_FILECTRL_FILTERCHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_FILEPICKER_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_DIRPICKER_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_FONTPICKER_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_FSWATCHER(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_CELL_LEFT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_CELL_RIGHT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_CELL_LEFT_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_CELL_RIGHT_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_LABEL_LEFT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_LABEL_RIGHT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_LABEL_LEFT_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_LABEL_RIGHT_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_ROW_SIZE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_COL_SIZE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_RANGE_SELECT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_CELL_CHANGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_CELL_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_SELECT_CELL(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_EDITOR_SHOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_EDITOR_HIDDEN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_EDITOR_CREATED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_CELL_BEGIN_DRAG(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_COL_MOVE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_GRID_COL_SORT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_QUERY_LAYOUT_INFO(void);
+
+_CAMLIDL_EXTERN_C int expEVT_CALCULATE_LAYOUT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SASH_DRAGGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HEADER_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HEADER_RIGHT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HEADER_MIDDLE_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HEADER_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HEADER_RIGHT_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HEADER_MIDDLE_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HEADER_SEPARATOR_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HEADER_BEGIN_RESIZE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HEADER_RESIZING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HEADER_END_RESIZE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HEADER_BEGIN_REORDER(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HEADER_END_REORDER(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HEADER_DRAGGING_CANCELLED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HTML_CELL_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HTML_CELL_HOVER(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HTML_LINK_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_HYPERLINK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_BEGIN_DRAG(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_BEGIN_RDRAG(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_BEGIN_LABEL_EDIT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_END_LABEL_EDIT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_DELETE_ITEM(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_DELETE_ALL_ITEMS(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_ITEM_SELECTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_ITEM_DESELECTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_KEY_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_INSERT_ITEM(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_COL_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_ITEM_RIGHT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_ITEM_MIDDLE_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_ITEM_ACTIVATED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_CACHE_HINT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_COL_RIGHT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_COL_BEGIN_DRAG(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_COL_DRAGGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_COL_END_DRAG(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LIST_ITEM_FOCUSED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LISTBOOK_PAGE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_LISTBOOK_PAGE_CHANGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_NOTEBOOK_PAGE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_NOTEBOOK_PAGE_CHANGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_POWER_SUSPENDING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_POWER_SUSPENDED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_POWER_SUSPEND_CANCEL(void);
+
+_CAMLIDL_EXTERN_C int expEVT_POWER_RESUME(void);
+
+_CAMLIDL_EXTERN_C int expEVT_END_PROCESS(void);
+
+_CAMLIDL_EXTERN_C int expEVT_PG_SELECTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_PG_CHANGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_PG_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_PG_HIGHLIGHTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_PG_RIGHT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_PG_PAGE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_PG_ITEM_COLLAPSED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_PG_ITEM_EXPANDED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_PG_DOUBLE_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIBBONBAR_PAGE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIBBONBAR_PAGE_CHANGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIBBONBAR_TAB_MIDDLE_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIBBONBAR_TAB_MIDDLE_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIBBONBAR_TAB_RIGHT_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIBBONBAR_TAB_RIGHT_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIBBONBUTTON_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIBBONBUTTON_DROPDOWN_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIBBONGALLERY_HOVER_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIBBONGALLERY_SELECTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIBBONTOOL_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RIBBONTOOL_DROPDOWN_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_LEFT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_RIGHT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_MIDDLE_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_LEFT_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_RETURN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_CHARACTER(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_DELETE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_STYLESHEET_CHANGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_STYLESHEET_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_STYLESHEET_REPLACING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_STYLESHEET_REPLACED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_CONTENT_INSERTED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_CONTENT_DELETED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_STYLE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_SELECTION_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_RICHTEXT_BUFFER_RESET(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SOCKET(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_SPINCTRL_UPDATED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_SPINCTRLDOUBLE_UPDATED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_SPLITTER_SASH_POS_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_SPLITTER_SASH_POS_CHANGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_SPLITTER_DOUBLECLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_SPLITTER_UNSPLIT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_SEARCHCTRL_CANCEL_BTN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_SEARCHCTRL_SEARCH_BTN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_TASKBAR_MOVE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_TASKBAR_LEFT_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_TASKBAR_LEFT_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_TASKBAR_RIGHT_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_TASKBAR_RIGHT_UP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_TASKBAR_LEFT_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_TASKBAR_RIGHT_DCLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_TASKBAR_BALLOON_TIMEOUT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_TASKBAR_BALLOON_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TEXT_UPDATED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TEXT_ENTER(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TEXT_URL(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TEXT_MAXLEN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TOGGLEBUTTON_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_TIMER(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TOOLBOOK_PAGE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TOOLBOOK_PAGE_CHANGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_BEGIN_DRAG(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_BEGIN_RDRAG(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_BEGIN_LABEL_EDIT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_END_LABEL_EDIT(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_DELETE_ITEM(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_GET_INFO(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_SET_INFO(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_ITEM_EXPANDED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_ITEM_EXPANDING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_ITEM_COLLAPSED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_ITEM_COLLAPSING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_SEL_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_SEL_CHANGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_KEY_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_ITEM_ACTIVATED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_ITEM_RIGHT_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_ITEM_MIDDLE_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_END_DRAG(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_STATE_IMAGE_CLICK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_ITEM_GETTOOLTIP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREE_ITEM_MENU(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREEBOOK_PAGE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREEBOOK_PAGE_CHANGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREEBOOK_NODE_COLLAPSED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_COMMAND_TREEBOOK_NODE_EXPANDED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_WIZARD_PAGE_CHANGED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_WIZARD_PAGE_CHANGING(void);
+
+_CAMLIDL_EXTERN_C int expEVT_WIZARD_CANCEL(void);
+
+_CAMLIDL_EXTERN_C int expEVT_WIZARD_HELP(void);
+
+_CAMLIDL_EXTERN_C int expEVT_WIZARD_FINISHED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_WIZARD_PAGE_SHOWN(void);
+
+_CAMLIDL_EXTERN_C int expEVT_DELETE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_HTML_CELL_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_HTML_CELL_MOUSE_HOVER(void);
+
+_CAMLIDL_EXTERN_C int expEVT_HTML_LINK_CLICKED(void);
+
+_CAMLIDL_EXTERN_C int expEVT_HTML_SET_TITLE(void);
+
+_CAMLIDL_EXTERN_C int expEVT_INPUT_SINK(void);
+
+_CAMLIDL_EXTERN_C int expEVT_SORT(void);
+
+_CAMLIDL_EXTERN_C int expK_BACK(void);
+
+_CAMLIDL_EXTERN_C int expK_TAB(void);
+
+_CAMLIDL_EXTERN_C int expK_RETURN(void);
+
+_CAMLIDL_EXTERN_C int expK_ESCAPE(void);
+
+_CAMLIDL_EXTERN_C int expK_SPACE(void);
+
+_CAMLIDL_EXTERN_C int expK_DELETE(void);
+
+_CAMLIDL_EXTERN_C int expK_START(void);
+
+_CAMLIDL_EXTERN_C int expK_LBUTTON(void);
+
+_CAMLIDL_EXTERN_C int expK_RBUTTON(void);
+
+_CAMLIDL_EXTERN_C int expK_CANCEL(void);
+
+_CAMLIDL_EXTERN_C int expK_MBUTTON(void);
+
+_CAMLIDL_EXTERN_C int expK_CLEAR(void);
+
+_CAMLIDL_EXTERN_C int expK_SHIFT(void);
+
+_CAMLIDL_EXTERN_C int expK_ALT(void);
+
+_CAMLIDL_EXTERN_C int expK_CONTROL(void);
+
+_CAMLIDL_EXTERN_C int expK_MENU(void);
+
+_CAMLIDL_EXTERN_C int expK_PAUSE(void);
+
+_CAMLIDL_EXTERN_C int expK_CAPITAL(void);
+
+_CAMLIDL_EXTERN_C int expK_END(void);
+
+_CAMLIDL_EXTERN_C int expK_HOME(void);
+
+_CAMLIDL_EXTERN_C int expK_LEFT(void);
+
+_CAMLIDL_EXTERN_C int expK_UP(void);
+
+_CAMLIDL_EXTERN_C int expK_RIGHT(void);
+
+_CAMLIDL_EXTERN_C int expK_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expK_SELECT(void);
+
+_CAMLIDL_EXTERN_C int expK_PRINT(void);
+
+_CAMLIDL_EXTERN_C int expK_EXECUTE(void);
+
+_CAMLIDL_EXTERN_C int expK_SNAPSHOT(void);
+
+_CAMLIDL_EXTERN_C int expK_INSERT(void);
+
+_CAMLIDL_EXTERN_C int expK_HELP(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD0(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD1(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD2(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD3(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD4(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD5(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD6(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD7(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD8(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD9(void);
+
+_CAMLIDL_EXTERN_C int expK_MULTIPLY(void);
+
+_CAMLIDL_EXTERN_C int expK_ADD(void);
+
+_CAMLIDL_EXTERN_C int expK_SEPARATOR(void);
+
+_CAMLIDL_EXTERN_C int expK_SUBTRACT(void);
+
+_CAMLIDL_EXTERN_C int expK_DECIMAL(void);
+
+_CAMLIDL_EXTERN_C int expK_DIVIDE(void);
+
+_CAMLIDL_EXTERN_C int expK_F1(void);
+
+_CAMLIDL_EXTERN_C int expK_F2(void);
+
+_CAMLIDL_EXTERN_C int expK_F3(void);
+
+_CAMLIDL_EXTERN_C int expK_F4(void);
+
+_CAMLIDL_EXTERN_C int expK_F5(void);
+
+_CAMLIDL_EXTERN_C int expK_F6(void);
+
+_CAMLIDL_EXTERN_C int expK_F7(void);
+
+_CAMLIDL_EXTERN_C int expK_F8(void);
+
+_CAMLIDL_EXTERN_C int expK_F9(void);
+
+_CAMLIDL_EXTERN_C int expK_F10(void);
+
+_CAMLIDL_EXTERN_C int expK_F11(void);
+
+_CAMLIDL_EXTERN_C int expK_F12(void);
+
+_CAMLIDL_EXTERN_C int expK_F13(void);
+
+_CAMLIDL_EXTERN_C int expK_F14(void);
+
+_CAMLIDL_EXTERN_C int expK_F15(void);
+
+_CAMLIDL_EXTERN_C int expK_F16(void);
+
+_CAMLIDL_EXTERN_C int expK_F17(void);
+
+_CAMLIDL_EXTERN_C int expK_F18(void);
+
+_CAMLIDL_EXTERN_C int expK_F19(void);
+
+_CAMLIDL_EXTERN_C int expK_F20(void);
+
+_CAMLIDL_EXTERN_C int expK_F21(void);
+
+_CAMLIDL_EXTERN_C int expK_F22(void);
+
+_CAMLIDL_EXTERN_C int expK_F23(void);
+
+_CAMLIDL_EXTERN_C int expK_F24(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMLOCK(void);
+
+_CAMLIDL_EXTERN_C int expK_SCROLL(void);
+
+_CAMLIDL_EXTERN_C int expK_PAGEUP(void);
+
+_CAMLIDL_EXTERN_C int expK_PAGEDOWN(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_SPACE(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_TAB(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_ENTER(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_F1(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_F2(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_F3(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_F4(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_HOME(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_LEFT(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_UP(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_RIGHT(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_DOWN(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_PAGEUP(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_PAGEDOWN(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_END(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_BEGIN(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_INSERT(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_DELETE(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_EQUAL(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_MULTIPLY(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_ADD(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_SEPARATOR(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_SUBTRACT(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_DECIMAL(void);
+
+_CAMLIDL_EXTERN_C int expK_NUMPAD_DIVIDE(void);
 
 _CAMLIDL_EXTERN_C int ELJSysErrorCode(void);
 
@@ -1581,7 +2503,7 @@ _CAMLIDL_EXTERN_C void wxCheckBox_Delete(/*in*/ wxCheckBox _obj);
 
 _CAMLIDL_EXTERN_C int wxCheckBox_GetValue(/*in*/ wxCheckBox _obj);
 
-_CAMLIDL_EXTERN_C void wxCheckBox_SetValue(/*in*/ wxCheckBox _obj, /*in*/ int v);
+_CAMLIDL_EXTERN_C void wxCheckBox_SetValue(/*in*/ wxCheckBox _obj, /*in*/ int value);
 
 _CAMLIDL_EXTERN_C void wxCheckListBox_Check(/*in*/ wxCheckListBox _obj, /*in*/ int item, /*in*/ int check);
 
@@ -1743,7 +2665,7 @@ _CAMLIDL_EXTERN_C void wxComboBox_Paste(/*in*/ wxComboBox _obj);
 
 _CAMLIDL_EXTERN_C void wxComboBox_Remove(/*in*/ wxComboBox _obj, /*in*/ int from, /*in*/ int to);
 
-_CAMLIDL_EXTERN_C void wxComboBox_Replace(/*in*/ wxComboBox _obj, /*in*/ int from, /*in*/ int to, /*in*/ wxString v);
+_CAMLIDL_EXTERN_C void wxComboBox_Replace(/*in*/ wxComboBox _obj, /*in*/ int from, /*in*/ int to, /*in*/ wxString value);
 
 _CAMLIDL_EXTERN_C void wxComboBox_SetClientData(/*in*/ wxComboBox _obj, /*in*/ int n, /*in*/ wxClientData clientData);
 
@@ -1788,6 +2710,34 @@ _CAMLIDL_EXTERN_C void wxCommandEvent_SetExtraLong(/*in*/ wxCommandEvent _obj, /
 _CAMLIDL_EXTERN_C void wxCommandEvent_SetInt(/*in*/ wxCommandEvent _obj, /*in*/ int i);
 
 _CAMLIDL_EXTERN_C void wxCommandEvent_SetString(/*in*/ wxCommandEvent _obj, /*in*/ wxString s);
+
+_CAMLIDL_EXTERN_C int wxCommandProcessor_CanRedo(/*in*/ wxCommandProcessor _obj);
+
+_CAMLIDL_EXTERN_C int wxCommandProcessor_CanUndo(/*in*/ wxCommandProcessor _obj);
+
+_CAMLIDL_EXTERN_C void wxCommandProcessor_ClearCommands(/*in*/ wxCommandProcessor _obj);
+
+_CAMLIDL_EXTERN_C void wxCommandProcessor_Delete(/*in*/ wxCommandProcessor _obj);
+
+_CAMLIDL_EXTERN_C int wxCommandProcessor_GetCommands(/*in*/ wxCommandProcessor _obj, /*in*/ voidptr _ref);
+
+_CAMLIDL_EXTERN_C voidptr wxCommandProcessor_GetEditMenu(/*in*/ wxCommandProcessor _obj);
+
+_CAMLIDL_EXTERN_C int wxCommandProcessor_GetMaxCommands(/*in*/ wxCommandProcessor _obj);
+
+_CAMLIDL_EXTERN_C void wxCommandProcessor_Initialize(/*in*/ wxCommandProcessor _obj);
+
+_CAMLIDL_EXTERN_C int wxCommandProcessor_Redo(/*in*/ wxCommandProcessor _obj);
+
+_CAMLIDL_EXTERN_C void wxCommandProcessor_SetEditMenu(/*in*/ wxCommandProcessor _obj, /*in*/ wxMenu menu);
+
+_CAMLIDL_EXTERN_C void wxCommandProcessor_SetMenuStrings(/*in*/ wxCommandProcessor _obj);
+
+_CAMLIDL_EXTERN_C int wxCommandProcessor_Submit(/*in*/ wxCommandProcessor _obj, /*in*/ wxCommand command, /*in*/ int storeIt);
+
+_CAMLIDL_EXTERN_C int wxCommandProcessor_Undo(/*in*/ wxCommandProcessor _obj);
+
+_CAMLIDL_EXTERN_C voidptr wxCommandProcessor_wxCommandProcessor(/*in*/ int maxCommands);
 
 _CAMLIDL_EXTERN_C wxConfigBase wxConfigBase_Create(void);
 
@@ -1859,15 +2809,15 @@ _CAMLIDL_EXTERN_C void wxConfigBase_SetStyle(/*in*/ wxConfigBase _obj, /*in*/ in
 
 _CAMLIDL_EXTERN_C void wxConfigBase_SetVendorName(/*in*/ wxConfigBase _obj, /*in*/ wxString vendorName);
 
-_CAMLIDL_EXTERN_C int wxConfigBase_WriteBool(/*in*/ wxConfigBase _obj, /*in*/ wxString key, /*in*/ int v);
+_CAMLIDL_EXTERN_C int wxConfigBase_WriteBool(/*in*/ wxConfigBase _obj, /*in*/ wxString key, /*in*/ int value);
 
-_CAMLIDL_EXTERN_C int wxConfigBase_WriteDouble(/*in*/ wxConfigBase _obj, /*in*/ wxString key, /*in*/ double v);
+_CAMLIDL_EXTERN_C int wxConfigBase_WriteDouble(/*in*/ wxConfigBase _obj, /*in*/ wxString key, /*in*/ double value);
 
-_CAMLIDL_EXTERN_C int wxConfigBase_WriteInteger(/*in*/ wxConfigBase _obj, /*in*/ wxString key, /*in*/ int v);
+_CAMLIDL_EXTERN_C int wxConfigBase_WriteInteger(/*in*/ wxConfigBase _obj, /*in*/ wxString key, /*in*/ int value);
 
-_CAMLIDL_EXTERN_C int wxConfigBase_WriteLong(/*in*/ wxConfigBase _obj, /*in*/ wxString key, /*in*/ long v);
+_CAMLIDL_EXTERN_C int wxConfigBase_WriteLong(/*in*/ wxConfigBase _obj, /*in*/ wxString key, /*in*/ long value);
 
-_CAMLIDL_EXTERN_C int wxConfigBase_WriteString(/*in*/ wxConfigBase _obj, /*in*/ wxString key, /*in*/ wxString v);
+_CAMLIDL_EXTERN_C int wxConfigBase_WriteString(/*in*/ wxConfigBase _obj, /*in*/ wxString key, /*in*/ wxString value);
 
 _CAMLIDL_EXTERN_C int wxContextHelp_BeginContextHelp(/*in*/ wxContextHelp _obj, /*in*/ wxWindow win);
 
@@ -2304,6 +3254,12 @@ _CAMLIDL_EXTERN_C int DropSource_DoDragDrop(/*in*/ wxDropSource _obj, /*in*/ int
 _CAMLIDL_EXTERN_C void wxDropTarget_GetData(/*in*/ wxDropTarget _obj);
 
 _CAMLIDL_EXTERN_C void wxDropTarget_SetDataObject(/*in*/ wxDropTarget _obj, /*in*/ wxDataObject _dat);
+
+_CAMLIDL_EXTERN_C int wxDynToolInfo_Index(/*in*/ wxDynToolInfo _obj);
+
+_CAMLIDL_EXTERN_C void wxDynToolInfo_RealSize(/*in*/ wxDynToolInfo _obj, /*out*/ int *_w, /*out*/ int *_h);
+
+_CAMLIDL_EXTERN_C voidptr wxDynToolInfo_pToolWnd(/*in*/ wxDynToolInfo _obj);
 
 _CAMLIDL_EXTERN_C void wxEncodingConverter_Convert(/*in*/ wxEncodingConverter _obj, /*in*/ voidptr input, /*in*/ voidptr output);
 
@@ -2965,7 +3921,7 @@ _CAMLIDL_EXTERN_C int wxGrid_SetTable(/*in*/ wxGrid _obj, /*in*/ wxGridTableBase
 
 _CAMLIDL_EXTERN_C void wxGrid_ShowCellEditControl(/*in*/ wxGrid _obj);
 
-_CAMLIDL_EXTERN_C int wxGrid_StringToLines(/*in*/ wxGrid _obj, /*in*/ wxString v, /*in*/ voidptr lines);
+_CAMLIDL_EXTERN_C int wxGrid_StringToLines(/*in*/ wxGrid _obj, /*in*/ wxString value, /*in*/ voidptr lines);
 
 _CAMLIDL_EXTERN_C int wxGrid_XToCol(/*in*/ wxGrid _obj, /*in*/ int x);
 
@@ -3067,7 +4023,7 @@ _CAMLIDL_EXTERN_C int wxGridCellEditor_IsAcceptedKey(/*in*/ wxGridCellEditor _ob
 
 _CAMLIDL_EXTERN_C int wxGridCellEditor_IsCreated(/*in*/ wxGridCellEditor _obj);
 
-_CAMLIDL_EXTERN_C void wxGridCellEditor_PaintBackground(/*in*/ wxGridCellEditor _obj, /*in*/ wxDC dc, /*in*/ int x, /*in*/ int y, /*in*/ int w, /*in*/ int h, /*in*/ wxGridCellAttr attr);
+_CAMLIDL_EXTERN_C void wxGridCellEditor_PaintBackground(/*in*/ wxGridCellEditor _obj, /*in*/ int x, /*in*/ int y, /*in*/ int w, /*in*/ int h, /*in*/ wxGridCellAttr attr);
 
 _CAMLIDL_EXTERN_C void wxGridCellEditor_Reset(/*in*/ wxGridCellEditor _obj);
 
@@ -3397,9 +4353,9 @@ _CAMLIDL_EXTERN_C void wxImage_SetMask(/*in*/ wxImage _obj, /*in*/ int mask);
 
 _CAMLIDL_EXTERN_C void wxImage_SetMaskColour(/*in*/ wxImage _obj, /*in*/ int r, /*in*/ int g, /*in*/ int b);
 
-_CAMLIDL_EXTERN_C void wxImage_SetOption(/*in*/ wxImage _obj, /*in*/ wxString name, /*in*/ wxString v);
+_CAMLIDL_EXTERN_C void wxImage_SetOption(/*in*/ wxImage _obj, /*in*/ wxString name, /*in*/ wxString value);
 
-_CAMLIDL_EXTERN_C void wxImage_SetOptionInt(/*in*/ wxImage _obj, /*in*/ wxString name, /*in*/ int v);
+_CAMLIDL_EXTERN_C void wxImage_SetOptionInt(/*in*/ wxImage _obj, /*in*/ wxString name, /*in*/ int value);
 
 _CAMLIDL_EXTERN_C void wxImage_SetRGB(/*in*/ wxImage _obj, /*in*/ int x, /*in*/ int y, /*in*/ int r, /*in*/ int g, /*in*/ int b);
 
@@ -4431,15 +5387,15 @@ _CAMLIDL_EXTERN_C void wxPen_SetStyle(/*in*/ wxPen _obj, /*in*/ int style);
 
 _CAMLIDL_EXTERN_C void wxPen_SetWidth(/*in*/ wxPen _obj, /*in*/ int width);
 
-_CAMLIDL_EXTERN_C wxPoint wxPoint_Create(/*in*/ int xx, /*in*/ int yy);
+_CAMLIDL_EXTERN_C voidptr wxPlotEvent_GetCurve(/*in*/ wxPlotEvent _obj);
 
-_CAMLIDL_EXTERN_C int wxPoint_GetX(/*in*/ wxPoint _obj);
+_CAMLIDL_EXTERN_C int wxPlotEvent_GetPosition(/*in*/ wxPlotEvent _obj);
 
-_CAMLIDL_EXTERN_C int wxPoint_GetY(/*in*/ wxPoint _obj);
+_CAMLIDL_EXTERN_C double wxPlotEvent_GetZoom(/*in*/ wxPlotEvent _obj);
 
-_CAMLIDL_EXTERN_C void wxPoint_SetX(/*in*/ wxPoint _obj, /*in*/ int w);
+_CAMLIDL_EXTERN_C void wxPlotEvent_SetPosition(/*in*/ wxPlotEvent _obj, /*in*/ int pos);
 
-_CAMLIDL_EXTERN_C void wxPoint_SetY(/*in*/ wxPoint _obj, /*in*/ int h);
+_CAMLIDL_EXTERN_C void wxPlotEvent_SetZoom(/*in*/ wxPlotEvent _obj, /*in*/ double zoom);
 
 _CAMLIDL_EXTERN_C wxPostScriptDC wxPostScriptDC_Create(/*in*/ wxPrintData data);
 
@@ -4773,7 +5729,7 @@ _CAMLIDL_EXTERN_C wxRadioButton wxRadioButton_Create(/*in*/ wxWindow _prt, /*in*
 
 _CAMLIDL_EXTERN_C int wxRadioButton_GetValue(/*in*/ wxRadioButton _obj);
 
-_CAMLIDL_EXTERN_C void wxRadioButton_SetValue(/*in*/ wxRadioButton _obj, /*in*/ int v);
+_CAMLIDL_EXTERN_C void wxRadioButton_SetValue(/*in*/ wxRadioButton _obj, /*in*/ int value);
 
 _CAMLIDL_EXTERN_C void wxRegion_Assign(/*in*/ wxRegion _obj, /*in*/ wxRegion region);
 
@@ -5029,7 +5985,7 @@ _CAMLIDL_EXTERN_C wxSize wxSizer_CalcMin(/*in*/ wxSizer _obj);
 
 _CAMLIDL_EXTERN_C void wxSizer_Fit(/*in*/ wxSizer _obj, /*in*/ wxWindow window);
 
-_CAMLIDL_EXTERN_C int wxSizer_GetChildren(/*in*/ wxSizer _obj, /*in*/ voidptr _result, /*in*/ int _cnt);
+_CAMLIDL_EXTERN_C int wxSizer_GetChildren(/*in*/ wxSizer _obj, /*in*/ voidptr _res, /*in*/ int _cnt);
 
 _CAMLIDL_EXTERN_C wxSize wxSizer_GetMinSize(/*in*/ wxSizer _obj);
 
@@ -5227,7 +6183,7 @@ _CAMLIDL_EXTERN_C void wxSlider_SetTick(/*in*/ wxSlider _obj, /*in*/ int tickPos
 
 _CAMLIDL_EXTERN_C void wxSlider_SetTickFreq(/*in*/ wxSlider _obj, /*in*/ int n, /*in*/ int pos);
 
-_CAMLIDL_EXTERN_C void wxSlider_SetValue(/*in*/ wxSlider _obj, /*in*/ int v);
+_CAMLIDL_EXTERN_C void wxSlider_SetValue(/*in*/ wxSlider _obj, /*in*/ int value);
 
 _CAMLIDL_EXTERN_C wxSpinButton wxSpinButton_Create(/*in*/ wxWindow _prt, /*in*/ int _id, /*in*/ int _lft, /*in*/ int _top, /*in*/ int _wdt, /*in*/ int _hgt, /*in*/ long _stl);
 
@@ -5439,7 +6395,7 @@ _CAMLIDL_EXTERN_C void wxTextCtrl_Redo(/*in*/ wxTextCtrl _obj);
 
 _CAMLIDL_EXTERN_C void wxTextCtrl_Remove(/*in*/ wxTextCtrl _obj, /*in*/ long from, /*in*/ long to);
 
-_CAMLIDL_EXTERN_C void wxTextCtrl_Replace(/*in*/ wxTextCtrl _obj, /*in*/ long from, /*in*/ long to, /*in*/ wxString v);
+_CAMLIDL_EXTERN_C void wxTextCtrl_Replace(/*in*/ wxTextCtrl _obj, /*in*/ long from, /*in*/ long to, /*in*/ wxString value);
 
 _CAMLIDL_EXTERN_C int wxTextCtrl_SaveFile(/*in*/ wxTextCtrl _obj, /*in*/ wxString file);
 
@@ -5451,7 +6407,7 @@ _CAMLIDL_EXTERN_C void wxTextCtrl_SetInsertionPointEnd(/*in*/ wxTextCtrl _obj);
 
 _CAMLIDL_EXTERN_C void wxTextCtrl_SetSelection(/*in*/ wxTextCtrl _obj, /*in*/ long from, /*in*/ long to);
 
-_CAMLIDL_EXTERN_C void wxTextCtrl_SetValue(/*in*/ wxTextCtrl _obj, /*in*/ wxString v);
+_CAMLIDL_EXTERN_C void wxTextCtrl_SetValue(/*in*/ wxTextCtrl _obj, /*in*/ wxString value);
 
 _CAMLIDL_EXTERN_C void wxTextCtrl_ShowPosition(/*in*/ wxTextCtrl _obj, /*in*/ long pos);
 
@@ -5578,6 +6534,10 @@ _CAMLIDL_EXTERN_C void wxToolBar_SetToolSeparation(/*in*/ wxToolBar _obj, /*in*/
 _CAMLIDL_EXTERN_C void wxToolBar_SetToolShortHelp(/*in*/ wxToolBar _obj, /*in*/ int id, /*in*/ wxString str);
 
 _CAMLIDL_EXTERN_C void wxToolBar_ToggleTool(/*in*/ wxToolBar _obj, /*in*/ int id, /*in*/ int toggle);
+
+_CAMLIDL_EXTERN_C int wxToolLayoutItem_IsSeparator(/*in*/ wxToolLayoutItem _obj);
+
+_CAMLIDL_EXTERN_C void wxToolLayoutItem_Rect(/*in*/ wxToolLayoutItem _obj, /*out*/ int *_x, /*out*/ int *_y, /*out*/ int *_w, /*out*/ int *_h);
 
 _CAMLIDL_EXTERN_C int wxTopLevelWindow_EnableCloseButton(/*in*/ wxTopLevelWindow _obj, /*in*/ int enable);
 
@@ -5853,7 +6813,7 @@ _CAMLIDL_EXTERN_C int wxWindow_GetCharHeight(/*in*/ wxWindow _obj);
 
 _CAMLIDL_EXTERN_C int wxWindow_GetCharWidth(/*in*/ wxWindow _obj);
 
-_CAMLIDL_EXTERN_C int wxWindow_GetChildren(/*in*/ wxWindow _obj, /*in*/ voidptr _result, /*in*/ int _cnt);
+_CAMLIDL_EXTERN_C int wxWindow_GetChildren(/*in*/ wxWindow _obj, /*in*/ voidptr _res, /*in*/ int _cnt);
 
 _CAMLIDL_EXTERN_C wxClientData wxWindow_GetClientData(/*in*/ wxWindow _obj);
 
@@ -6241,17 +7201,17 @@ _CAMLIDL_EXTERN_C wxString wxPGProperty_GetValueType(/*in*/ wxPGProperty _obj);
 
 _CAMLIDL_EXTERN_C void wxPGProperty_SetHelpString(/*in*/ wxPGProperty _obj, /*in*/ wxString helpString);
 
-_CAMLIDL_EXTERN_C wxStringProperty wxStringProperty_Create(/*in*/ wxString label, /*in*/ wxString name, /*in*/ wxString v);
+_CAMLIDL_EXTERN_C wxStringProperty wxStringProperty_Create(/*in*/ wxString label, /*in*/ wxString name, /*in*/ wxString value);
 
-_CAMLIDL_EXTERN_C wxIntProperty wxIntProperty_Create(/*in*/ wxString label, /*in*/ wxString name, /*in*/ int v);
+_CAMLIDL_EXTERN_C wxIntProperty wxIntProperty_Create(/*in*/ wxString label, /*in*/ wxString name, /*in*/ int value);
 
-_CAMLIDL_EXTERN_C wxBoolProperty wxBoolProperty_Create(/*in*/ wxString label, /*in*/ wxString name, /*in*/ int v);
+_CAMLIDL_EXTERN_C wxBoolProperty wxBoolProperty_Create(/*in*/ wxString label, /*in*/ wxString name, /*in*/ int value);
 
-_CAMLIDL_EXTERN_C wxFloatProperty wxFloatProperty_Create(/*in*/ wxString label, /*in*/ wxString name, /*in*/ float v);
+_CAMLIDL_EXTERN_C wxFloatProperty wxFloatProperty_Create(/*in*/ wxString label, /*in*/ wxString name, /*in*/ float value);
 
-_CAMLIDL_EXTERN_C wxDateProperty wxDateProperty_Create(/*in*/ wxString label, /*in*/ wxString name, /*in*/ wxDateTime v);
+_CAMLIDL_EXTERN_C wxDateProperty wxDateProperty_Create(/*in*/ wxString label, /*in*/ wxString name, /*in*/ wxDateTime value);
 
-_CAMLIDL_EXTERN_C wxFileProperty wxFileProperty_Create(/*in*/ wxString label, /*in*/ wxString name, /*in*/ wxString v);
+_CAMLIDL_EXTERN_C wxFileProperty wxFileProperty_Create(/*in*/ wxString label, /*in*/ wxString name, /*in*/ wxString value);
 
 _CAMLIDL_EXTERN_C wxPropertyCategory wxPropertyCategory_Create(/*in*/ wxString label);
 
@@ -7521,8 +8481,6 @@ _CAMLIDL_EXTERN_C wxString wxString_Create(/*in*/ char *buffer);
 
 _CAMLIDL_EXTERN_C wxString wxString_CreateLen(/*in*/ char *buffer, /*in*/ int len);
 
-_CAMLIDL_EXTERN_C wxString wxString_CreateUTF8(/*in*/ char *buffer);
-
 _CAMLIDL_EXTERN_C void wxString_Delete(/*in*/ wxString s);
 
 _CAMLIDL_EXTERN_C int wxString_GetString(/*in*/ wxString s, /*in*/ char *buffer);
@@ -7555,7 +8513,7 @@ _CAMLIDL_EXTERN_C void wxcTreeItemData_SetClientClosure(/*in*/ wxcTreeItemData s
 
 _CAMLIDL_EXTERN_C wxTreeItemId wxTreeItemId_Clone(/*in*/ wxTreeItemId _obj);
 
-_CAMLIDL_EXTERN_C wxTreeItemId wxTreeItemId_CreateFromValue(/*in*/ int *v);
+_CAMLIDL_EXTERN_C wxTreeItemId wxTreeItemId_CreateFromValue(/*in*/ int *value);
 
 _CAMLIDL_EXTERN_C int *wxTreeItemId_GetValue(/*in*/ wxTreeItemId _obj);
 
@@ -7619,9 +8577,9 @@ _CAMLIDL_EXTERN_C void wxToolBar_AddTool2(/*in*/ wxToolBar _obj, /*in*/ int tool
 
 _CAMLIDL_EXTERN_C wxProgressDialog wxProgressDialog_Create(/*in*/ wxString title, /*in*/ wxString message, /*in*/ int max, /*in*/ wxWindow parent, /*in*/ int style);
 
-_CAMLIDL_EXTERN_C int wxProgressDialog_Update(/*in*/ wxProgressDialog obj, /*in*/ int v);
+_CAMLIDL_EXTERN_C int wxProgressDialog_Update(/*in*/ wxProgressDialog obj, /*in*/ int value);
 
-_CAMLIDL_EXTERN_C int wxProgressDialog_UpdateWithMessage(/*in*/ wxProgressDialog obj, /*in*/ int v, /*in*/ wxString message);
+_CAMLIDL_EXTERN_C int wxProgressDialog_UpdateWithMessage(/*in*/ wxProgressDialog obj, /*in*/ int value, /*in*/ wxString message);
 
 _CAMLIDL_EXTERN_C void wxProgressDialog_Resume(/*in*/ wxProgressDialog obj);
 
@@ -7785,7 +8743,7 @@ _CAMLIDL_EXTERN_C int wxGetPasswordFromUser(/*in*/ char *message, /*in*/ char *c
 
 _CAMLIDL_EXTERN_C int wxGetTextFromUser(/*in*/ char *message, /*in*/ char *caption, /*in*/ char *defaultText, /*in*/ wxWindow parent, /*in*/ int x, /*in*/ int y, /*in*/ int center, /*in*/ char *_buf);
 
-_CAMLIDL_EXTERN_C long wxGetNumberFromUser(/*in*/ wxString message, /*in*/ wxString prompt, /*in*/ wxString caption, /*in*/ long v, /*in*/ long min, /*in*/ long max, /*in*/ wxWindow parent, /*in*/ int x, /*in*/ int y);
+_CAMLIDL_EXTERN_C long wxGetNumberFromUser(/*in*/ wxString message, /*in*/ wxString prompt, /*in*/ wxString caption, /*in*/ long value, /*in*/ long min, /*in*/ long max, /*in*/ wxWindow parent, /*in*/ int x, /*in*/ int y);
 
 _CAMLIDL_EXTERN_C void wxcBell(void);
 
@@ -7898,1522 +8856,1522 @@ _CAMLIDL_EXTERN_C void ELJApp_SetIdleInterval(/*in*/ int interval);
 #endif
 
 
-#endif /* !_CAMLIDL_WXC_IDL_H */
-extern void camlidl_ml2c_wxc_idl_ELJDragDataObject(value, ELJDragDataObject *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJDragDataObject(ELJDragDataObject *, camlidl_ctx _ctx);
+#endif /* !_CAMLIDL_WXC_H */
+extern void camlidl_ml2c_wxc_voidptr(value, voidptr *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_voidptr(voidptr *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJMessageParameters(value, ELJMessageParameters *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJMessageParameters(ELJMessageParameters *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJDragDataObject(value, ELJDragDataObject *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJDragDataObject(ELJDragDataObject *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_HENV(value, HENV *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_HENV(HENV *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJMessageParameters(value, ELJMessageParameters *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJMessageParameters(ELJMessageParameters *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_TextDataObject(value, TextDataObject *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_TextDataObject(TextDataObject *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_HENV(value, HENV *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_HENV(HENV *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxAcceleratorEntry(value, wxAcceleratorEntry *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxAcceleratorEntry(wxAcceleratorEntry *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_TextDataObject(value, TextDataObject *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_TextDataObject(TextDataObject *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxAcceleratorTable(value, wxAcceleratorTable *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxAcceleratorTable(wxAcceleratorTable *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxAcceleratorEntry(value, wxAcceleratorEntry *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxAcceleratorEntry(wxAcceleratorEntry *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxArray(value, wxArray *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxArray(wxArray *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxAcceleratorTable(value, wxAcceleratorTable *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxAcceleratorTable(wxAcceleratorTable *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBusyCursor(value, wxBusyCursor *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBusyCursor(wxBusyCursor *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxArray(value, wxArray *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxArray(wxArray *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBusyInfo(value, wxBusyInfo *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBusyInfo(wxBusyInfo *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBusyCursor(value, wxBusyCursor *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBusyCursor(wxBusyCursor *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCalendarDateAttr(value, wxCalendarDateAttr *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCalendarDateAttr(wxCalendarDateAttr *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBusyInfo(value, wxBusyInfo *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBusyInfo(wxBusyInfo *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCaret(value, wxCaret *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCaret(wxCaret *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCalendarDateAttr(value, wxCalendarDateAttr *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCalendarDateAttr(wxCalendarDateAttr *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxClassInfo(value, wxClassInfo *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxClassInfo(wxClassInfo *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCaret(value, wxCaret *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCaret(wxCaret *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxClientData(value, wxClientData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxClientData(wxClientData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxClassInfo(value, wxClassInfo *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxClassInfo(wxClassInfo *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxClientDataContainer(value, wxClientDataContainer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxClientDataContainer(wxClientDataContainer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxClientData(value, wxClientData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxClientData(wxClientData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCommandLineParser(value, wxCommandLineParser *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCommandLineParser(wxCommandLineParser *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxClientDataContainer(value, wxClientDataContainer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxClientDataContainer(wxClientDataContainer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCondition(value, wxCondition *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCondition(wxCondition *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCommandLineParser(value, wxCommandLineParser *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCommandLineParser(wxCommandLineParser *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxConfigBase(value, wxConfigBase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxConfigBase(wxConfigBase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCondition(value, wxCondition *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCondition(wxCondition *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCriticalSection(value, wxCriticalSection *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCriticalSection(wxCriticalSection *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxConfigBase(value, wxConfigBase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxConfigBase(wxConfigBase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCriticalSectionLocker(value, wxCriticalSectionLocker *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCriticalSectionLocker(wxCriticalSectionLocker *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCriticalSection(value, wxCriticalSection *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCriticalSection(wxCriticalSection *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDCClipper(value, wxDCClipper *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDCClipper(wxDCClipper *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCriticalSectionLocker(value, wxCriticalSectionLocker *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCriticalSectionLocker(wxCriticalSectionLocker *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDataFormat(value, wxDataFormat *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDataFormat(wxDataFormat *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDCClipper(value, wxDCClipper *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDCClipper(wxDCClipper *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDataInputStream(value, wxDataInputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDataInputStream(wxDataInputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDataFormat(value, wxDataFormat *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDataFormat(wxDataFormat *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDataObject(value, wxDataObject *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDataObject(wxDataObject *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDataInputStream(value, wxDataInputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDataInputStream(wxDataInputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDataOutputStream(value, wxDataOutputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDataOutputStream(wxDataOutputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDataObject(value, wxDataObject *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDataObject(wxDataObject *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDateTime(value, wxDateTime *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDateTime(wxDateTime *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDataOutputStream(value, wxDataOutputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDataOutputStream(wxDataOutputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDb(value, wxDb *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDb(wxDb *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDateTime(value, wxDateTime *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDateTime(wxDateTime *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDbColDef(value, wxDbColDef *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDbColDef(wxDbColDef *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDb(value, wxDb *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDb(wxDb *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDbColFor(value, wxDbColFor *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDbColFor(wxDbColFor *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDbColDef(value, wxDbColDef *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDbColDef(wxDbColDef *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDbColInf(value, wxDbColInf *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDbColInf(wxDbColInf *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDbColFor(value, wxDbColFor *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDbColFor(wxDbColFor *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDbColInfArray(value, wxDbColInfArray *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDbColInfArray(wxDbColInfArray *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDbColInf(value, wxDbColInf *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDbColInf(wxDbColInf *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDbConnectInf(value, wxDbConnectInf *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDbConnectInf(wxDbConnectInf *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDbColInfArray(value, wxDbColInfArray *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDbColInfArray(wxDbColInfArray *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDbInf(value, wxDbInf *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDbInf(wxDbInf *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDbConnectInf(value, wxDbConnectInf *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDbConnectInf(wxDbConnectInf *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDbSqlTypeInfo(value, wxDbSqlTypeInfo *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDbSqlTypeInfo(wxDbSqlTypeInfo *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDbInf(value, wxDbInf *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDbInf(wxDbInf *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDbTable(value, wxDbTable *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDbTable(wxDbTable *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDbSqlTypeInfo(value, wxDbSqlTypeInfo *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDbSqlTypeInfo(wxDbSqlTypeInfo *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDbTableInf(value, wxDbTableInf *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDbTableInf(wxDbTableInf *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDbTable(value, wxDbTable *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDbTable(wxDbTable *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDbTableInfo(value, wxDbTableInfo *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDbTableInfo(wxDbTableInfo *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDbTableInf(value, wxDbTableInf *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDbTableInf(wxDbTableInf *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDebugContext(value, wxDebugContext *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDebugContext(wxDebugContext *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDbTableInfo(value, wxDbTableInfo *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDbTableInfo(wxDbTableInfo *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDialUpManager(value, wxDialUpManager *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDialUpManager(wxDialUpManager *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDebugContext(value, wxDebugContext *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDebugContext(wxDebugContext *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDirTraverser(value, wxDirTraverser *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDirTraverser(wxDirTraverser *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDialUpManager(value, wxDialUpManager *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDialUpManager(wxDialUpManager *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDllLoader(value, wxDllLoader *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDllLoader(wxDllLoader *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDirTraverser(value, wxDirTraverser *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDirTraverser(wxDirTraverser *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDropSource(value, wxDropSource *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDropSource(wxDropSource *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDllLoader(value, wxDllLoader *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDllLoader(wxDllLoader *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDropTarget(value, wxDropTarget *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDropTarget(wxDropTarget *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDropSource(value, wxDropSource *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDropSource(wxDropSource *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDynamicLibrary(value, wxDynamicLibrary *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDynamicLibrary(wxDynamicLibrary *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDropTarget(value, wxDropTarget *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDropTarget(wxDropTarget *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxExpr(value, wxExpr *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxExpr(wxExpr *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDynamicLibrary(value, wxDynamicLibrary *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDynamicLibrary(wxDynamicLibrary *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFFile(value, wxFFile *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFFile(wxFFile *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxExpr(value, wxExpr *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxExpr(wxExpr *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFileName(value, wxFileName *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFileName(wxFileName *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFFile(value, wxFFile *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFFile(wxFFile *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFileType(value, wxFileType *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFileType(wxFileType *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFileName(value, wxFileName *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileName(wxFileName *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFontEnumerator(value, wxFontEnumerator *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFontEnumerator(wxFontEnumerator *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFileType(value, wxFileType *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileType(wxFileType *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFontMapper(value, wxFontMapper *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFontMapper(wxFontMapper *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFontEnumerator(value, wxFontEnumerator *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFontEnumerator(wxFontEnumerator *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellAttr(value, wxGridCellAttr *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellAttr(wxGridCellAttr *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFontMapper(value, wxFontMapper *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFontMapper(wxFontMapper *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellCoordsArray(value, wxGridCellCoordsArray *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellCoordsArray(wxGridCellCoordsArray *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellAttr(value, wxGridCellAttr *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellAttr(wxGridCellAttr *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellWorker(value, wxGridCellWorker *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellWorker(wxGridCellWorker *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellCoordsArray(value, wxGridCellCoordsArray *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellCoordsArray(wxGridCellCoordsArray *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHDBC(value, wxHDBC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHDBC(wxHDBC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellWorker(value, wxGridCellWorker *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellWorker(wxGridCellWorker *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHENV(value, wxHENV *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHENV(wxHENV *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHDBC(value, wxHDBC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHDBC(wxHDBC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHSTMT(value, wxHSTMT *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHSTMT(wxHSTMT *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHENV(value, wxHENV *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHENV(wxHENV *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHashMap(value, wxHashMap *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHashMap(wxHashMap *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHSTMT(value, wxHSTMT *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHSTMT(wxHSTMT *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHelpProvider(value, wxHelpProvider *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHelpProvider(wxHelpProvider *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHashMap(value, wxHashMap *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHashMap(wxHashMap *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxIconBundle(value, wxIconBundle *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxIconBundle(wxIconBundle *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHelpProvider(value, wxHelpProvider *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHelpProvider(wxHelpProvider *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLocale(value, wxLocale *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLocale(wxLocale *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxIconBundle(value, wxIconBundle *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxIconBundle(wxIconBundle *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLog(value, wxLog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLog(wxLog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLocale(value, wxLocale *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLocale(wxLocale *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLongLong(value, wxLongLong *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLongLong(wxLongLong *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLog(value, wxLog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLog(wxLog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMBConv(value, wxMBConv *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMBConv(wxMBConv *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLongLong(value, wxLongLong *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLongLong(wxLongLong *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMimeTypesManager(value, wxMimeTypesManager *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMimeTypesManager(wxMimeTypesManager *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMBConv(value, wxMBConv *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMBConv(wxMBConv *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMutex(value, wxMutex *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMutex(wxMutex *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMimeTypesManager(value, wxMimeTypesManager *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMimeTypesManager(wxMimeTypesManager *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMutexLocker(value, wxMutexLocker *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMutexLocker(wxMutexLocker *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMutex(value, wxMutex *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMutex(wxMutex *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxNodeBase(value, wxNodeBase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxNodeBase(wxNodeBase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMutexLocker(value, wxMutexLocker *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMutexLocker(wxMutexLocker *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxObject(value, wxObject *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxObject(wxObject *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxNodeBase(value, wxNodeBase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxNodeBase(wxNodeBase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxObjectRefData(value, wxObjectRefData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxObjectRefData(wxObjectRefData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxObject(value, wxObject *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxObject(wxObject *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPoint(value, wxPoint *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPoint(wxPoint *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxObjectRefData(value, wxObjectRefData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxObjectRefData(wxObjectRefData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxRealPoint(value, wxRealPoint *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxRealPoint(wxRealPoint *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPoint(value, wxPoint *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPoint(wxPoint *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxRect(value, wxRect *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxRect(wxRect *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxRealPoint(value, wxRealPoint *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxRealPoint(wxRealPoint *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxRegEx(value, wxRegEx *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxRegEx(wxRegEx *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxRect(value, wxRect *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxRect(wxRect *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxScintilla(value, wxScintilla *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxScintilla(wxScintilla *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxRegEx(value, wxRegEx *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxRegEx(wxRegEx *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxScopedArray(value, wxScopedArray *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxScopedArray(wxScopedArray *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxScintilla(value, wxScintilla *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxScintilla(wxScintilla *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxScopedPtr(value, wxScopedPtr *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxScopedPtr(wxScopedPtr *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxScopedArray(value, wxScopedArray *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxScopedArray(wxScopedArray *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSemaphore(value, wxSemaphore *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSemaphore(wxSemaphore *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxScopedPtr(value, wxScopedPtr *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxScopedPtr(wxScopedPtr *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSingleInstanceChecker(value, wxSingleInstanceChecker *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSingleInstanceChecker(wxSingleInstanceChecker *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSemaphore(value, wxSemaphore *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSemaphore(wxSemaphore *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSize(value, wxSize *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSize(wxSize *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSingleInstanceChecker(value, wxSingleInstanceChecker *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSingleInstanceChecker(wxSingleInstanceChecker *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStopWatch(value, wxStopWatch *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStopWatch(wxStopWatch *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSize(value, wxSize *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSize(wxSize *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStreamBase(value, wxStreamBase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStreamBase(wxStreamBase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStopWatch(value, wxStopWatch *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStopWatch(wxStopWatch *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStreamBuffer(value, wxStreamBuffer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStreamBuffer(wxStreamBuffer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStreamBase(value, wxStreamBase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStreamBase(wxStreamBase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStreamToTextRedirector(value, wxStreamToTextRedirector *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStreamToTextRedirector(wxStreamToTextRedirector *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStreamBuffer(value, wxStreamBuffer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStreamBuffer(wxStreamBuffer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxString(value, wxString *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxString(wxString *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStreamToTextRedirector(value, wxStreamToTextRedirector *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStreamToTextRedirector(wxStreamToTextRedirector *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStringBuffer(value, wxStringBuffer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStringBuffer(wxStringBuffer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxString(value, wxString *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxString(wxString *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTempFile(value, wxTempFile *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTempFile(wxTempFile *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStringBuffer(value, wxStringBuffer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStringBuffer(wxStringBuffer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTextAttr(value, wxTextAttr *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTextAttr(wxTextAttr *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTempFile(value, wxTempFile *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTempFile(wxTempFile *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTextFile(value, wxTextFile *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTextFile(wxTextFile *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTextAttr(value, wxTextAttr *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTextAttr(wxTextAttr *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTextInputStream(value, wxTextInputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTextInputStream(wxTextInputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTextFile(value, wxTextFile *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTextFile(wxTextFile *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTextOutputStream(value, wxTextOutputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTextOutputStream(wxTextOutputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTextInputStream(value, wxTextInputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTextInputStream(wxTextInputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxThread(value, wxThread *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxThread(wxThread *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTextOutputStream(value, wxTextOutputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTextOutputStream(wxTextOutputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTimeSpan(value, wxTimeSpan *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTimeSpan(wxTimeSpan *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxThread(value, wxThread *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxThread(wxThread *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTimerRunner(value, wxTimerRunner *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTimerRunner(wxTimerRunner *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTimeSpan(value, wxTimeSpan *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTimeSpan(wxTimeSpan *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTipProvider(value, wxTipProvider *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTipProvider(wxTipProvider *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTimerRunner(value, wxTimerRunner *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTimerRunner(wxTimerRunner *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTreeItemId(value, wxTreeItemId *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTreeItemId(wxTreeItemId *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTipProvider(value, wxTipProvider *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTipProvider(wxTipProvider *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxWindowDisabler(value, wxWindowDisabler *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxWindowDisabler(wxWindowDisabler *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTreeItemId(value, wxTreeItemId *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTreeItemId(wxTreeItemId *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxClosure(value, wxClosure *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxClosure(wxClosure *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxWindowDisabler(value, wxWindowDisabler *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxWindowDisabler(wxWindowDisabler *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxManagedPtr(value, wxManagedPtr *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxManagedPtr(wxManagedPtr *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxClosure(value, wxClosure *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxClosure(wxClosure *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSTCDoc(value, wxSTCDoc *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSTCDoc(wxSTCDoc *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxManagedPtr(value, wxManagedPtr *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxManagedPtr(wxManagedPtr *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMemoryBuffer(value, wxMemoryBuffer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMemoryBuffer(wxMemoryBuffer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSTCDoc(value, wxSTCDoc *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSTCDoc(wxSTCDoc *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxArrayString(value, wxArrayString *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxArrayString(wxArrayString *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMemoryBuffer(value, wxMemoryBuffer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMemoryBuffer(wxMemoryBuffer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStringClientData(value, wxStringClientData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStringClientData(wxStringClientData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxArrayString(value, wxArrayString *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxArrayString(wxArrayString *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTreeItemData(value, wxTreeItemData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTreeItemData(wxTreeItemData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStringClientData(value, wxStringClientData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStringClientData(wxStringClientData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxcTreeItemData(value, wxcTreeItemData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxcTreeItemData(wxcTreeItemData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTreeItemData(value, wxTreeItemData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTreeItemData(wxTreeItemData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDataObjectComposite(value, wxDataObjectComposite *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDataObjectComposite(wxDataObjectComposite *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxcTreeItemData(value, wxcTreeItemData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxcTreeItemData(wxcTreeItemData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDataObjectSimple(value, wxDataObjectSimple *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDataObjectSimple(wxDataObjectSimple *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDataObjectComposite(value, wxDataObjectComposite *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDataObjectComposite(wxDataObjectComposite *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBitmapDataObject(value, wxBitmapDataObject *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBitmapDataObject(wxBitmapDataObject *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDataObjectSimple(value, wxDataObjectSimple *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDataObjectSimple(wxDataObjectSimple *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCustomDataObject(value, wxCustomDataObject *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCustomDataObject(wxCustomDataObject *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBitmapDataObject(value, wxBitmapDataObject *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBitmapDataObject(wxBitmapDataObject *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFileDataObject(value, wxFileDataObject *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFileDataObject(wxFileDataObject *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCustomDataObject(value, wxCustomDataObject *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCustomDataObject(wxCustomDataObject *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTextDataObject(value, wxTextDataObject *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTextDataObject(wxTextDataObject *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFileDataObject(value, wxFileDataObject *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileDataObject(wxFileDataObject *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJDropTarget(value, ELJDropTarget *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJDropTarget(ELJDropTarget *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTextDataObject(value, wxTextDataObject *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTextDataObject(wxTextDataObject *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFileDropTarget(value, wxFileDropTarget *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFileDropTarget(wxFileDropTarget *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJDropTarget(value, ELJDropTarget *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJDropTarget(ELJDropTarget *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPrivateDropTarget(value, wxPrivateDropTarget *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPrivateDropTarget(wxPrivateDropTarget *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFileDropTarget(value, wxFileDropTarget *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileDropTarget(wxFileDropTarget *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTextDropTarget(value, wxTextDropTarget *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTextDropTarget(wxTextDropTarget *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPrivateDropTarget(value, wxPrivateDropTarget *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPrivateDropTarget(wxPrivateDropTarget *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJFileDropTarget(value, ELJFileDropTarget *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJFileDropTarget(ELJFileDropTarget *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTextDropTarget(value, wxTextDropTarget *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTextDropTarget(wxTextDropTarget *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJTextDropTarget(value, ELJTextDropTarget *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJTextDropTarget(ELJTextDropTarget *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJFileDropTarget(value, ELJFileDropTarget *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJFileDropTarget(ELJFileDropTarget *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellEditor(value, wxGridCellEditor *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellEditor(wxGridCellEditor *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJTextDropTarget(value, ELJTextDropTarget *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJTextDropTarget(ELJTextDropTarget *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellRenderer(value, wxGridCellRenderer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellRenderer(wxGridCellRenderer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellEditor(value, wxGridCellEditor *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellEditor(wxGridCellEditor *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellBoolEditor(value, wxGridCellBoolEditor *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellBoolEditor(wxGridCellBoolEditor *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellRenderer(value, wxGridCellRenderer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellRenderer(wxGridCellRenderer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellChoiceEditor(value, wxGridCellChoiceEditor *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellChoiceEditor(wxGridCellChoiceEditor *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellBoolEditor(value, wxGridCellBoolEditor *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellBoolEditor(wxGridCellBoolEditor *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellTextEditor(value, wxGridCellTextEditor *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellTextEditor(wxGridCellTextEditor *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellChoiceEditor(value, wxGridCellChoiceEditor *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellChoiceEditor(wxGridCellChoiceEditor *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellFloatEditor(value, wxGridCellFloatEditor *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellFloatEditor(wxGridCellFloatEditor *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellTextEditor(value, wxGridCellTextEditor *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellTextEditor(wxGridCellTextEditor *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellNumberEditor(value, wxGridCellNumberEditor *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellNumberEditor(wxGridCellNumberEditor *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellFloatEditor(value, wxGridCellFloatEditor *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellFloatEditor(wxGridCellFloatEditor *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellBoolRenderer(value, wxGridCellBoolRenderer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellBoolRenderer(wxGridCellBoolRenderer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellNumberEditor(value, wxGridCellNumberEditor *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellNumberEditor(wxGridCellNumberEditor *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellStringRenderer(value, wxGridCellStringRenderer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellStringRenderer(wxGridCellStringRenderer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellBoolRenderer(value, wxGridCellBoolRenderer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellBoolRenderer(wxGridCellBoolRenderer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellFloatRenderer(value, wxGridCellFloatRenderer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellFloatRenderer(wxGridCellFloatRenderer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellStringRenderer(value, wxGridCellStringRenderer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellStringRenderer(wxGridCellStringRenderer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellNumberRenderer(value, wxGridCellNumberRenderer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellNumberRenderer(wxGridCellNumberRenderer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellFloatRenderer(value, wxGridCellFloatRenderer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellFloatRenderer(wxGridCellFloatRenderer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellAutoWrapStringRenderer(value, wxGridCellAutoWrapStringRenderer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellAutoWrapStringRenderer(wxGridCellAutoWrapStringRenderer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellNumberRenderer(value, wxGridCellNumberRenderer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellNumberRenderer(wxGridCellNumberRenderer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSimpleHelpProvider(value, wxSimpleHelpProvider *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSimpleHelpProvider(wxSimpleHelpProvider *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellAutoWrapStringRenderer(value, wxGridCellAutoWrapStringRenderer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellAutoWrapStringRenderer(wxGridCellAutoWrapStringRenderer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHelpControllerHelpProvider(value, wxHelpControllerHelpProvider *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHelpControllerHelpProvider(wxHelpControllerHelpProvider *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSimpleHelpProvider(value, wxSimpleHelpProvider *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSimpleHelpProvider(wxSimpleHelpProvider *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJLocale(value, ELJLocale *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJLocale(ELJLocale *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHelpControllerHelpProvider(value, wxHelpControllerHelpProvider *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHelpControllerHelpProvider(wxHelpControllerHelpProvider *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJLog(value, ELJLog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJLog(ELJLog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJLocale(value, ELJLocale *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJLocale(ELJLocale *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLogChain(value, wxLogChain *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLogChain(wxLogChain *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJLog(value, ELJLog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJLog(ELJLog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLogGUI(value, wxLogGUI *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLogGUI(wxLogGUI *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLogChain(value, wxLogChain *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLogChain(wxLogChain *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLogNull(value, wxLogNull *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLogNull(wxLogNull *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLogGUI(value, wxLogGUI *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLogGUI(wxLogGUI *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLogStderr(value, wxLogStderr *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLogStderr(wxLogStderr *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLogNull(value, wxLogNull *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLogNull(wxLogNull *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLogStream(value, wxLogStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLogStream(wxLogStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLogStderr(value, wxLogStderr *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLogStderr(wxLogStderr *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLogTextCtrl(value, wxLogTextCtrl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLogTextCtrl(wxLogTextCtrl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLogStream(value, wxLogStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLogStream(wxLogStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLogPassThrough(value, wxLogPassThrough *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLogPassThrough(wxLogPassThrough *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLogTextCtrl(value, wxLogTextCtrl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLogTextCtrl(wxLogTextCtrl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLogWindow(value, wxLogWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLogWindow(wxLogWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLogPassThrough(value, wxLogPassThrough *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLogPassThrough(wxLogPassThrough *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCSConv(value, wxCSConv *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCSConv(wxCSConv *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLogWindow(value, wxLogWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLogWindow(wxLogWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMBConvFile(value, wxMBConvFile *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMBConvFile(wxMBConvFile *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCSConv(value, wxCSConv *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCSConv(wxCSConv *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMBConvUTF7(value, wxMBConvUTF7 *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMBConvUTF7(wxMBConvUTF7 *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMBConvFile(value, wxMBConvFile *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMBConvFile(wxMBConvFile *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMBConvUTF8(value, wxMBConvUTF8 *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMBConvUTF8(wxMBConvUTF8 *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMBConvUTF7(value, wxMBConvUTF7 *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMBConvUTF7(wxMBConvUTF7 *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxArtProvider(value, wxArtProvider *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxArtProvider(wxArtProvider *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMBConvUTF8(value, wxMBConvUTF8 *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMBConvUTF8(wxMBConvUTF8 *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxAutomationObject(value, wxAutomationObject *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxAutomationObject(wxAutomationObject *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxArtProvider(value, wxArtProvider *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxArtProvider(wxArtProvider *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBitmapHandler(value, wxBitmapHandler *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBitmapHandler(wxBitmapHandler *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxAutomationObject(value, wxAutomationObject *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxAutomationObject(wxAutomationObject *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxClientBase(value, wxClientBase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxClientBase(wxClientBase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBitmapHandler(value, wxBitmapHandler *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBitmapHandler(wxBitmapHandler *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxClipboard(value, wxClipboard *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxClipboard(wxClipboard *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxClientBase(value, wxClientBase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxClientBase(wxClientBase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxColour(value, wxColour *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxColour(wxColour *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxClipboard(value, wxClipboard *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxClipboard(wxClipboard *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxColourData(value, wxColourData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxColourData(wxColourData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxColour(value, wxColour *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxColour(wxColour *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCommand(value, wxCommand *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCommand(wxCommand *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxColourData(value, wxColourData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxColourData(wxColourData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCommandProcessor(value, wxCommandProcessor *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCommandProcessor(wxCommandProcessor *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCommand(value, wxCommand *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCommand(wxCommand *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxConnectionBase(value, wxConnectionBase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxConnectionBase(wxConnectionBase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCommandProcessor(value, wxCommandProcessor *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCommandProcessor(wxCommandProcessor *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxContextHelp(value, wxContextHelp *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxContextHelp(wxContextHelp *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxConnectionBase(value, wxConnectionBase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxConnectionBase(wxConnectionBase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDC(value, wxDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDC(wxDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxContextHelp(value, wxContextHelp *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxContextHelp(wxContextHelp *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDatabase(value, wxDatabase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDatabase(wxDatabase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDC(value, wxDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDC(wxDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDocTemplate(value, wxDocTemplate *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDocTemplate(wxDocTemplate *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDatabase(value, wxDatabase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDatabase(wxDatabase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDragImage(value, wxDragImage *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDragImage(wxDragImage *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDocTemplate(value, wxDocTemplate *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDocTemplate(wxDocTemplate *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxEncodingConverter(value, wxEncodingConverter *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxEncodingConverter(wxEncodingConverter *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDragImage(value, wxDragImage *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDragImage(wxDragImage *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxEvent(value, wxEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxEvent(wxEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxEncodingConverter(value, wxEncodingConverter *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxEncodingConverter(wxEncodingConverter *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxEvtHandler(value, wxEvtHandler *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxEvtHandler(wxEvtHandler *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxEvent(value, wxEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxEvent(wxEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFSFile(value, wxFSFile *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFSFile(wxFSFile *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxEvtHandler(value, wxEvtHandler *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxEvtHandler(wxEvtHandler *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFileHistory(value, wxFileHistory *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFileHistory(wxFileHistory *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFSFile(value, wxFSFile *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFSFile(wxFSFile *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFileSystem(value, wxFileSystem *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFileSystem(wxFileSystem *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFileHistory(value, wxFileHistory *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileHistory(wxFileHistory *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFileSystemHandler(value, wxFileSystemHandler *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFileSystemHandler(wxFileSystemHandler *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFileSystem(value, wxFileSystem *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileSystem(wxFileSystem *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFindReplaceData(value, wxFindReplaceData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFindReplaceData(wxFindReplaceData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFileSystemHandler(value, wxFileSystemHandler *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileSystemHandler(wxFileSystemHandler *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFontData(value, wxFontData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFontData(wxFontData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFindReplaceData(value, wxFindReplaceData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFindReplaceData(wxFindReplaceData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGDIObject(value, wxGDIObject *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGDIObject(wxGDIObject *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFontData(value, wxFontData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFontData(wxFontData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridTableBase(value, wxGridTableBase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridTableBase(wxGridTableBase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGDIObject(value, wxGDIObject *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGDIObject(wxGDIObject *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHelpControllerBase(value, wxHelpControllerBase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHelpControllerBase(wxHelpControllerBase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridTableBase(value, wxGridTableBase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridTableBase(wxGridTableBase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlCell(value, wxHtmlCell *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlCell(wxHtmlCell *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHelpControllerBase(value, wxHelpControllerBase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHelpControllerBase(wxHelpControllerBase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlDCRenderer(value, wxHtmlDCRenderer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlDCRenderer(wxHtmlDCRenderer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlCell(value, wxHtmlCell *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlCell(wxHtmlCell *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlEasyPrinting(value, wxHtmlEasyPrinting *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlEasyPrinting(wxHtmlEasyPrinting *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlDCRenderer(value, wxHtmlDCRenderer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlDCRenderer(wxHtmlDCRenderer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlFilter(value, wxHtmlFilter *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlFilter(wxHtmlFilter *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlEasyPrinting(value, wxHtmlEasyPrinting *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlEasyPrinting(wxHtmlEasyPrinting *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlHelpData(value, wxHtmlHelpData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlHelpData(wxHtmlHelpData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlFilter(value, wxHtmlFilter *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlFilter(wxHtmlFilter *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlLinkInfo(value, wxHtmlLinkInfo *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlLinkInfo(wxHtmlLinkInfo *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlHelpData(value, wxHtmlHelpData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlHelpData(wxHtmlHelpData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlParser(value, wxHtmlParser *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlParser(wxHtmlParser *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlLinkInfo(value, wxHtmlLinkInfo *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlLinkInfo(wxHtmlLinkInfo *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlTag(value, wxHtmlTag *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlTag(wxHtmlTag *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlParser(value, wxHtmlParser *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlParser(wxHtmlParser *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlTagHandler(value, wxHtmlTagHandler *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlTagHandler(wxHtmlTagHandler *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlTag(value, wxHtmlTag *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlTag(wxHtmlTag *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxImage(value, wxImage *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxImage(wxImage *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlTagHandler(value, wxHtmlTagHandler *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlTagHandler(wxHtmlTagHandler *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxImageHandler(value, wxImageHandler *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxImageHandler(wxImageHandler *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxImage(value, wxImage *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxImage(wxImage *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxImageList(value, wxImageList *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxImageList(wxImageList *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxImageHandler(value, wxImageHandler *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxImageHandler(wxImageHandler *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(value, wxIndividualLayoutConstraint *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxIndividualLayoutConstraint(wxIndividualLayoutConstraint *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxImageList(value, wxImageList *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxImageList(wxImageList *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxJoystick(value, wxJoystick *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxJoystick(wxJoystick *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxIndividualLayoutConstraint(value, wxIndividualLayoutConstraint *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxIndividualLayoutConstraint(wxIndividualLayoutConstraint *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLayoutAlgorithm(value, wxLayoutAlgorithm *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLayoutAlgorithm(wxLayoutAlgorithm *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxJoystick(value, wxJoystick *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxJoystick(wxJoystick *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLayoutConstraints(value, wxLayoutConstraints *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLayoutConstraints(wxLayoutConstraints *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLayoutAlgorithm(value, wxLayoutAlgorithm *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLayoutAlgorithm(wxLayoutAlgorithm *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxList(value, wxList *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxList(wxList *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLayoutConstraints(value, wxLayoutConstraints *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLayoutConstraints(wxLayoutConstraints *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxListItem(value, wxListItem *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxListItem(wxListItem *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxList(value, wxList *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxList(wxList *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMask(value, wxMask *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMask(wxMask *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxListItem(value, wxListItem *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxListItem(wxListItem *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMenuItem(value, wxMenuItem *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMenuItem(wxMenuItem *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMask(value, wxMask *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMask(wxMask *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMetafile(value, wxMetafile *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMetafile(wxMetafile *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMenuItem(value, wxMenuItem *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMenuItem(wxMenuItem *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxModule(value, wxModule *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxModule(wxModule *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMetafile(value, wxMetafile *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMetafile(wxMetafile *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMultiCellItemHandle(value, wxMultiCellItemHandle *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMultiCellItemHandle(wxMultiCellItemHandle *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxModule(value, wxModule *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxModule(wxModule *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPageSetupDialogData(value, wxPageSetupDialogData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPageSetupDialogData(wxPageSetupDialogData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMultiCellItemHandle(value, wxMultiCellItemHandle *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMultiCellItemHandle(wxMultiCellItemHandle *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPlotCurve(value, wxPlotCurve *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPlotCurve(wxPlotCurve *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPageSetupDialogData(value, wxPageSetupDialogData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPageSetupDialogData(wxPageSetupDialogData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPlotOnOffCurve(value, wxPlotOnOffCurve *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPlotOnOffCurve(wxPlotOnOffCurve *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPlotCurve(value, wxPlotCurve *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPlotCurve(wxPlotCurve *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPrintData(value, wxPrintData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPrintData(wxPrintData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPlotOnOffCurve(value, wxPlotOnOffCurve *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPlotOnOffCurve(wxPlotOnOffCurve *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPrintDialogData(value, wxPrintDialogData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPrintDialogData(wxPrintDialogData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPrintData(value, wxPrintData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPrintData(wxPrintData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPrintPreview(value, wxPrintPreview *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPrintPreview(wxPrintPreview *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPrintDialogData(value, wxPrintDialogData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPrintDialogData(wxPrintDialogData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPrinter(value, wxPrinter *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPrinter(wxPrinter *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPrintPreview(value, wxPrintPreview *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPrintPreview(wxPrintPreview *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPrintout(value, wxPrintout *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPrintout(wxPrintout *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPrinter(value, wxPrinter *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPrinter(wxPrinter *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxQuantize(value, wxQuantize *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxQuantize(wxQuantize *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPrintout(value, wxPrintout *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPrintout(wxPrintout *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxQueryCol(value, wxQueryCol *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxQueryCol(wxQueryCol *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxQuantize(value, wxQuantize *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxQuantize(wxQuantize *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxQueryField(value, wxQueryField *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxQueryField(wxQueryField *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxQueryCol(value, wxQueryCol *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxQueryCol(wxQueryCol *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxRecordSet(value, wxRecordSet *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxRecordSet(wxRecordSet *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxQueryField(value, wxQueryField *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxQueryField(wxQueryField *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxRegionIterator(value, wxRegionIterator *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxRegionIterator(wxRegionIterator *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxRecordSet(value, wxRecordSet *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxRecordSet(wxRecordSet *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxServerBase(value, wxServerBase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxServerBase(wxServerBase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxRegionIterator(value, wxRegionIterator *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxRegionIterator(wxRegionIterator *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSizer(value, wxSizer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSizer(wxSizer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxServerBase(value, wxServerBase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxServerBase(wxServerBase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSizerItem(value, wxSizerItem *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSizerItem(wxSizerItem *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSizer(value, wxSizer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSizer(wxSizer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSockAddress(value, wxSockAddress *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSockAddress(wxSockAddress *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSizerItem(value, wxSizerItem *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSizerItem(wxSizerItem *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSocketBase(value, wxSocketBase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSocketBase(wxSocketBase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSockAddress(value, wxSockAddress *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSockAddress(wxSockAddress *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStringTokenizer(value, wxStringTokenizer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStringTokenizer(wxStringTokenizer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSocketBase(value, wxSocketBase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSocketBase(wxSocketBase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSystemOptions(value, wxSystemOptions *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSystemOptions(wxSystemOptions *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStringTokenizer(value, wxStringTokenizer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStringTokenizer(wxStringTokenizer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSystemSettings(value, wxSystemSettings *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSystemSettings(wxSystemSettings *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSystemOptions(value, wxSystemOptions *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSystemOptions(wxSystemOptions *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTablesInUse(value, wxTablesInUse *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTablesInUse(wxTablesInUse *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSystemSettings(value, wxSystemSettings *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSystemSettings(wxSystemSettings *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTime(value, wxTime *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTime(wxTime *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTablesInUse(value, wxTablesInUse *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTablesInUse(wxTablesInUse *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTimer(value, wxTimer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTimer(wxTimer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTime(value, wxTime *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTime(wxTime *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTimerBase(value, wxTimerBase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTimerBase(wxTimerBase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTimer(value, wxTimer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTimer(wxTimer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxToolLayoutItem(value, wxToolLayoutItem *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxToolLayoutItem(wxToolLayoutItem *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTimerBase(value, wxTimerBase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTimerBase(wxTimerBase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxToolTip(value, wxToolTip *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxToolTip(wxToolTip *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxToolLayoutItem(value, wxToolLayoutItem *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxToolLayoutItem(wxToolLayoutItem *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTreeLayout(value, wxTreeLayout *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTreeLayout(wxTreeLayout *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxToolTip(value, wxToolTip *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxToolTip(wxToolTip *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxURL(value, wxURL *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxURL(wxURL *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTreeLayout(value, wxTreeLayout *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTreeLayout(wxTreeLayout *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxVariant(value, wxVariant *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxVariant(wxVariant *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxURL(value, wxURL *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxURL(wxURL *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxVariantData(value, wxVariantData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxVariantData(wxVariantData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxVariant(value, wxVariant *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxVariant(wxVariant *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxXmlResource(value, wxXmlResource *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxXmlResource(wxXmlResource *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxVariantData(value, wxVariantData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxVariantData(wxVariantData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxXmlResourceHandler(value, wxXmlResourceHandler *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxXmlResourceHandler(wxXmlResourceHandler *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxXmlResource(value, wxXmlResource *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxXmlResource(wxXmlResource *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPostScriptPrintNativeData(value, wxPostScriptPrintNativeData *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPostScriptPrintNativeData(wxPostScriptPrintNativeData *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxXmlResourceHandler(value, wxXmlResourceHandler *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxXmlResourceHandler(wxXmlResourceHandler *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPGProperty(value, wxPGProperty *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPGProperty(wxPGProperty *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPostScriptPrintNativeData(value, wxPostScriptPrintNativeData *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPostScriptPrintNativeData(wxPostScriptPrintNativeData *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStringProperty(value, wxStringProperty *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStringProperty(wxStringProperty *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPGProperty(value, wxPGProperty *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPGProperty(wxPGProperty *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxIntProperty(value, wxIntProperty *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxIntProperty(wxIntProperty *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStringProperty(value, wxStringProperty *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStringProperty(wxStringProperty *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBoolProperty(value, wxBoolProperty *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBoolProperty(wxBoolProperty *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxIntProperty(value, wxIntProperty *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxIntProperty(wxIntProperty *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFloatProperty(value, wxFloatProperty *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFloatProperty(wxFloatProperty *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBoolProperty(value, wxBoolProperty *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBoolProperty(wxBoolProperty *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDateProperty(value, wxDateProperty *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDateProperty(wxDateProperty *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFloatProperty(value, wxFloatProperty *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFloatProperty(wxFloatProperty *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFileProperty(value, wxFileProperty *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFileProperty(wxFileProperty *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDateProperty(value, wxDateProperty *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDateProperty(wxDateProperty *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPropertyCategory(value, wxPropertyCategory *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPropertyCategory(wxPropertyCategory *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFileProperty(value, wxFileProperty *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileProperty(wxFileProperty *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJArtProv(value, ELJArtProv *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJArtProv(ELJArtProv *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPropertyCategory(value, wxPropertyCategory *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPropertyCategory(wxPropertyCategory *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxClient(value, wxClient *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxClient(wxClient *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJArtProv(value, ELJArtProv *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJArtProv(ELJArtProv *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDDEClient(value, wxDDEClient *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDDEClient(wxDDEClient *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxClient(value, wxClient *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxClient(wxClient *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJClient(value, ELJClient *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJClient(ELJClient *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDDEClient(value, wxDDEClient *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDDEClient(wxDDEClient *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJCommand(value, ELJCommand *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJCommand(ELJCommand *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJClient(value, ELJClient *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJClient(ELJClient *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxConnection(value, wxConnection *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxConnection(wxConnection *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJCommand(value, ELJCommand *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJCommand(ELJCommand *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDDEConnection(value, wxDDEConnection *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDDEConnection(wxDDEConnection *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxConnection(value, wxConnection *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxConnection(wxConnection *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJConnection(value, ELJConnection *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJConnection(ELJConnection *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDDEConnection(value, wxDDEConnection *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDDEConnection(wxDDEConnection *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMemoryDC(value, wxMemoryDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMemoryDC(wxMemoryDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJConnection(value, ELJConnection *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJConnection(ELJConnection *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMetafileDC(value, wxMetafileDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMetafileDC(wxMetafileDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMemoryDC(value, wxMemoryDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMemoryDC(wxMemoryDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPostScriptDC(value, wxPostScriptDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPostScriptDC(wxPostScriptDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMetafileDC(value, wxMetafileDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMetafileDC(wxMetafileDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPrinterDC(value, wxPrinterDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPrinterDC(wxPrinterDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPostScriptDC(value, wxPostScriptDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPostScriptDC(wxPostScriptDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSVGFileDC(value, wxSVGFileDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSVGFileDC(wxSVGFileDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPrinterDC(value, wxPrinterDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPrinterDC(wxPrinterDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxScreenDC(value, wxScreenDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxScreenDC(wxScreenDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSVGFileDC(value, wxSVGFileDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSVGFileDC(wxSVGFileDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxWindowDC(value, wxWindowDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxWindowDC(wxWindowDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxScreenDC(value, wxScreenDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxScreenDC(wxScreenDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxAutoBufferedPaintDC(value, wxAutoBufferedPaintDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxAutoBufferedPaintDC(wxAutoBufferedPaintDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxWindowDC(value, wxWindowDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxWindowDC(wxWindowDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBufferedDC(value, wxBufferedDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBufferedDC(wxBufferedDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxAutoBufferedPaintDC(value, wxAutoBufferedPaintDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxAutoBufferedPaintDC(wxAutoBufferedPaintDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBufferedPaintDC(value, wxBufferedPaintDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBufferedPaintDC(wxBufferedPaintDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBufferedDC(value, wxBufferedDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBufferedDC(wxBufferedDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMirrorDC(value, wxMirrorDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMirrorDC(wxMirrorDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBufferedPaintDC(value, wxBufferedPaintDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBufferedPaintDC(wxBufferedPaintDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxClientDC(value, wxClientDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxClientDC(wxClientDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMirrorDC(value, wxMirrorDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMirrorDC(wxMirrorDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPaintDC(value, wxPaintDC *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPaintDC(wxPaintDC *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxClientDC(value, wxClientDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxClientDC(wxClientDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxActivateEvent(value, wxActivateEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxActivateEvent(wxActivateEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPaintDC(value, wxPaintDC *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPaintDC(wxPaintDC *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCalculateLayoutEvent(value, wxCalculateLayoutEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCalculateLayoutEvent(wxCalculateLayoutEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxActivateEvent(value, wxActivateEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxActivateEvent(wxActivateEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCloseEvent(value, wxCloseEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCloseEvent(wxCloseEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCalculateLayoutEvent(value, wxCalculateLayoutEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCalculateLayoutEvent(wxCalculateLayoutEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCommandEvent(value, wxCommandEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCommandEvent(wxCommandEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCloseEvent(value, wxCloseEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCloseEvent(wxCloseEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDialUpEvent(value, wxDialUpEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDialUpEvent(wxDialUpEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCommandEvent(value, wxCommandEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCommandEvent(wxCommandEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDropFilesEvent(value, wxDropFilesEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDropFilesEvent(wxDropFilesEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDialUpEvent(value, wxDialUpEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDialUpEvent(wxDialUpEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxEraseEvent(value, wxEraseEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxEraseEvent(wxEraseEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDropFilesEvent(value, wxDropFilesEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDropFilesEvent(wxDropFilesEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFocusEvent(value, wxFocusEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFocusEvent(wxFocusEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxEraseEvent(value, wxEraseEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxEraseEvent(wxEraseEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxIconizeEvent(value, wxIconizeEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxIconizeEvent(wxIconizeEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFocusEvent(value, wxFocusEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFocusEvent(wxFocusEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxIdleEvent(value, wxIdleEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxIdleEvent(wxIdleEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxIconizeEvent(value, wxIconizeEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxIconizeEvent(wxIconizeEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxInitDialogEvent(value, wxInitDialogEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxInitDialogEvent(wxInitDialogEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxIdleEvent(value, wxIdleEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxIdleEvent(wxIdleEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxInputSinkEvent(value, wxInputSinkEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxInputSinkEvent(wxInputSinkEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxInitDialogEvent(value, wxInitDialogEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxInitDialogEvent(wxInitDialogEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxJoystickEvent(value, wxJoystickEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxJoystickEvent(wxJoystickEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxInputSinkEvent(value, wxInputSinkEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxInputSinkEvent(wxInputSinkEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxKeyEvent(value, wxKeyEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxKeyEvent(wxKeyEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxJoystickEvent(value, wxJoystickEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxJoystickEvent(wxJoystickEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMaximizeEvent(value, wxMaximizeEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMaximizeEvent(wxMaximizeEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxKeyEvent(value, wxKeyEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxKeyEvent(wxKeyEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMenuEvent(value, wxMenuEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMenuEvent(wxMenuEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMaximizeEvent(value, wxMaximizeEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMaximizeEvent(wxMaximizeEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMouseCaptureChangedEvent(value, wxMouseCaptureChangedEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMouseCaptureChangedEvent(wxMouseCaptureChangedEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMenuEvent(value, wxMenuEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMenuEvent(wxMenuEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMouseEvent(value, wxMouseEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMouseEvent(wxMouseEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMouseCaptureChangedEvent(value, wxMouseCaptureChangedEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMouseCaptureChangedEvent(wxMouseCaptureChangedEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMoveEvent(value, wxMoveEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMoveEvent(wxMoveEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMouseEvent(value, wxMouseEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMouseEvent(wxMouseEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxNavigationKeyEvent(value, wxNavigationKeyEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxNavigationKeyEvent(wxNavigationKeyEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMoveEvent(value, wxMoveEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMoveEvent(wxMoveEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPaintEvent(value, wxPaintEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPaintEvent(wxPaintEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxNavigationKeyEvent(value, wxNavigationKeyEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxNavigationKeyEvent(wxNavigationKeyEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPaletteChangedEvent(value, wxPaletteChangedEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPaletteChangedEvent(wxPaletteChangedEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPaintEvent(value, wxPaintEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPaintEvent(wxPaintEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxProcessEvent(value, wxProcessEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxProcessEvent(wxProcessEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPaletteChangedEvent(value, wxPaletteChangedEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPaletteChangedEvent(wxPaletteChangedEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxQueryLayoutInfoEvent(value, wxQueryLayoutInfoEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxQueryLayoutInfoEvent(wxQueryLayoutInfoEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxProcessEvent(value, wxProcessEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxProcessEvent(wxProcessEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxQueryNewPaletteEvent(value, wxQueryNewPaletteEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxQueryNewPaletteEvent(wxQueryNewPaletteEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxQueryLayoutInfoEvent(value, wxQueryLayoutInfoEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxQueryLayoutInfoEvent(wxQueryLayoutInfoEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSashEvent(value, wxSashEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSashEvent(wxSashEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxQueryNewPaletteEvent(value, wxQueryNewPaletteEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxQueryNewPaletteEvent(wxQueryNewPaletteEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxScrollEvent(value, wxScrollEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxScrollEvent(wxScrollEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSashEvent(value, wxSashEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSashEvent(wxSashEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxScrollWinEvent(value, wxScrollWinEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxScrollWinEvent(wxScrollWinEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxScrollEvent(value, wxScrollEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxScrollEvent(wxScrollEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSetCursorEvent(value, wxSetCursorEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSetCursorEvent(wxSetCursorEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxScrollWinEvent(value, wxScrollWinEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxScrollWinEvent(wxScrollWinEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxShowEvent(value, wxShowEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxShowEvent(wxShowEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSetCursorEvent(value, wxSetCursorEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSetCursorEvent(wxSetCursorEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSizeEvent(value, wxSizeEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSizeEvent(wxSizeEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxShowEvent(value, wxShowEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxShowEvent(wxShowEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSocketEvent(value, wxSocketEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSocketEvent(wxSocketEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSizeEvent(value, wxSizeEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSizeEvent(wxSizeEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSysColourChangedEvent(value, wxSysColourChangedEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSysColourChangedEvent(wxSysColourChangedEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSocketEvent(value, wxSocketEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSocketEvent(wxSocketEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTimerEvent(value, wxTimerEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTimerEvent(wxTimerEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSysColourChangedEvent(value, wxSysColourChangedEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSysColourChangedEvent(wxSysColourChangedEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxUpdateUIEvent(value, wxUpdateUIEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxUpdateUIEvent(wxUpdateUIEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTimerEvent(value, wxTimerEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTimerEvent(wxTimerEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCalendarEvent(value, wxCalendarEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCalendarEvent(wxCalendarEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxUpdateUIEvent(value, wxUpdateUIEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxUpdateUIEvent(wxUpdateUIEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFindDialogEvent(value, wxFindDialogEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFindDialogEvent(wxFindDialogEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCalendarEvent(value, wxCalendarEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCalendarEvent(wxCalendarEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridEditorCreatedEvent(value, wxGridEditorCreatedEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridEditorCreatedEvent(wxGridEditorCreatedEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFindDialogEvent(value, wxFindDialogEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFindDialogEvent(wxFindDialogEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHelpEvent(value, wxHelpEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHelpEvent(wxHelpEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridEditorCreatedEvent(value, wxGridEditorCreatedEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridEditorCreatedEvent(wxGridEditorCreatedEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxNotifyEvent(value, wxNotifyEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxNotifyEvent(wxNotifyEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHelpEvent(value, wxHelpEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHelpEvent(wxHelpEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTabEvent(value, wxTabEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTabEvent(wxTabEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxNotifyEvent(value, wxNotifyEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxNotifyEvent(wxNotifyEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxWindowCreateEvent(value, wxWindowCreateEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxWindowCreateEvent(wxWindowCreateEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTabEvent(value, wxTabEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTabEvent(wxTabEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxWindowDestroyEvent(value, wxWindowDestroyEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxWindowDestroyEvent(wxWindowDestroyEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxWindowCreateEvent(value, wxWindowCreateEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxWindowCreateEvent(wxWindowCreateEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxcHtmlEvent(value, wxcHtmlEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxcHtmlEvent(wxcHtmlEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxWindowDestroyEvent(value, wxWindowDestroyEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxWindowDestroyEvent(wxWindowDestroyEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridEvent(value, wxGridEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridEvent(wxGridEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxcHtmlEvent(value, wxcHtmlEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxcHtmlEvent(wxcHtmlEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridRangeSelectEvent(value, wxGridRangeSelectEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridRangeSelectEvent(wxGridRangeSelectEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridEvent(value, wxGridEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridEvent(wxGridEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridSizeEvent(value, wxGridSizeEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridSizeEvent(wxGridSizeEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridRangeSelectEvent(value, wxGridRangeSelectEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridRangeSelectEvent(wxGridRangeSelectEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxListEvent(value, wxListEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxListEvent(wxListEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridSizeEvent(value, wxGridSizeEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridSizeEvent(wxGridSizeEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxNotebookEvent(value, wxNotebookEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxNotebookEvent(wxNotebookEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxListEvent(value, wxListEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxListEvent(wxListEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPlotEvent(value, wxPlotEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPlotEvent(wxPlotEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxNotebookEvent(value, wxNotebookEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxNotebookEvent(wxNotebookEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSpinEvent(value, wxSpinEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSpinEvent(wxSpinEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPlotEvent(value, wxPlotEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPlotEvent(wxPlotEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSplitterEvent(value, wxSplitterEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSplitterEvent(wxSplitterEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSpinEvent(value, wxSpinEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSpinEvent(wxSpinEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTreeEvent(value, wxTreeEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTreeEvent(wxTreeEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSplitterEvent(value, wxSplitterEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSplitterEvent(wxSplitterEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxWizardEvent(value, wxWizardEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxWizardEvent(wxWizardEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTreeEvent(value, wxTreeEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTreeEvent(wxTreeEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPropertyGridEvent(value, wxPropertyGridEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPropertyGridEvent(wxPropertyGridEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxWizardEvent(value, wxWizardEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxWizardEvent(wxWizardEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxApp(value, wxApp *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxApp(wxApp *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPropertyGridEvent(value, wxPropertyGridEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPropertyGridEvent(wxPropertyGridEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDocManager(value, wxDocManager *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDocManager(wxDocManager *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxApp(value, wxApp *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxApp(wxApp *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDocument(value, wxDocument *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDocument(wxDocument *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDocManager(value, wxDocManager *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDocManager(wxDocManager *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFrameLayout(value, wxFrameLayout *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFrameLayout(wxFrameLayout *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDocument(value, wxDocument *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDocument(wxDocument *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMenu(value, wxMenu *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMenu(wxMenu *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFrameLayout(value, wxFrameLayout *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFrameLayout(wxFrameLayout *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMenuBar(value, wxMenuBar *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMenuBar(wxMenuBar *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMenu(value, wxMenu *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMenu(wxMenu *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxProcess(value, wxProcess *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxProcess(wxProcess *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMenuBar(value, wxMenuBar *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMenuBar(wxMenuBar *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTaskBarIcon(value, wxTaskBarIcon *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTaskBarIcon(wxTaskBarIcon *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxProcess(value, wxProcess *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxProcess(wxProcess *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxValidator(value, wxValidator *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxValidator(wxValidator *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTaskBarIcon(value, wxTaskBarIcon *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTaskBarIcon(wxTaskBarIcon *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxView(value, wxView *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxView(wxView *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxValidator(value, wxValidator *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxValidator(wxValidator *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxWave(value, wxWave *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxWave(wxWave *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxView(value, wxView *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxView(wxView *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxWindow(value, wxWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxWindow(wxWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxWave(value, wxWave *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxWave(wxWave *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJApp(value, ELJApp *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJApp(ELJApp *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxWindow(value, wxWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxWindow(wxWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGenericValidator(value, wxGenericValidator *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGenericValidator(wxGenericValidator *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJApp(value, ELJApp *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJApp(ELJApp *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTextValidator(value, wxTextValidator *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTextValidator(wxTextValidator *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGenericValidator(value, wxGenericValidator *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGenericValidator(wxGenericValidator *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJTextValidator(value, ELJTextValidator *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJTextValidator(ELJTextValidator *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTextValidator(value, wxTextValidator *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTextValidator(wxTextValidator *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxControl(value, wxControl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxControl(wxControl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJTextValidator(value, ELJTextValidator *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJTextValidator(ELJTextValidator *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDialog(value, wxDialog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDialog(wxDialog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxControl(value, wxControl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxControl(wxControl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDrawWindow(value, wxDrawWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDrawWindow(wxDrawWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDialog(value, wxDialog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDialog(wxDialog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDynamicSashWindow(value, wxDynamicSashWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDynamicSashWindow(wxDynamicSashWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDrawWindow(value, wxDrawWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDrawWindow(wxDrawWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMDIClientWindow(value, wxMDIClientWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMDIClientWindow(wxMDIClientWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDynamicSashWindow(value, wxDynamicSashWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDynamicSashWindow(wxDynamicSashWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPanel(value, wxPanel *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPanel(wxPanel *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMDIClientWindow(value, wxMDIClientWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMDIClientWindow(wxMDIClientWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPopupWindow(value, wxPopupWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPopupWindow(wxPopupWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPanel(value, wxPanel *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPanel(wxPanel *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSashWindow(value, wxSashWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSashWindow(wxSashWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPopupWindow(value, wxPopupWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPopupWindow(wxPopupWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSplitterWindow(value, wxSplitterWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSplitterWindow(wxSplitterWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSashWindow(value, wxSashWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSashWindow(wxSashWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStatusBar(value, wxStatusBar *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStatusBar(wxStatusBar *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSplitterWindow(value, wxSplitterWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSplitterWindow(wxSplitterWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTreeCompanionWindow(value, wxTreeCompanionWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTreeCompanionWindow(wxTreeCompanionWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStatusBar(value, wxStatusBar *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStatusBar(wxStatusBar *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTopLevelWindow(value, wxTopLevelWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTopLevelWindow(wxTopLevelWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTreeCompanionWindow(value, wxTreeCompanionWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTreeCompanionWindow(wxTreeCompanionWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFrame(value, wxFrame *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFrame(wxFrame *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTopLevelWindow(value, wxTopLevelWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTopLevelWindow(wxTopLevelWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxButton(value, wxButton *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxButton(wxButton *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFrame(value, wxFrame *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFrame(wxFrame *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCalendarCtrl(value, wxCalendarCtrl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCalendarCtrl(wxCalendarCtrl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxButton(value, wxButton *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxButton(wxButton *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCheckBox(value, wxCheckBox *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCheckBox(wxCheckBox *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCalendarCtrl(value, wxCalendarCtrl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCalendarCtrl(wxCalendarCtrl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxChoice(value, wxChoice *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxChoice(wxChoice *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCheckBox(value, wxCheckBox *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCheckBox(wxCheckBox *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDrawControl(value, wxDrawControl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDrawControl(wxDrawControl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxChoice(value, wxChoice *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxChoice(wxChoice *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGauge(value, wxGauge *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGauge(wxGauge *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDrawControl(value, wxDrawControl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDrawControl(wxDrawControl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGenericDirCtrl(value, wxGenericDirCtrl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGenericDirCtrl(wxGenericDirCtrl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGauge(value, wxGauge *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGauge(wxGauge *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxLEDNumberCtrl(value, wxLEDNumberCtrl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxLEDNumberCtrl(wxLEDNumberCtrl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGenericDirCtrl(value, wxGenericDirCtrl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGenericDirCtrl(wxGenericDirCtrl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxListBox(value, wxListBox *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxListBox(wxListBox *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxLEDNumberCtrl(value, wxLEDNumberCtrl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxLEDNumberCtrl(wxLEDNumberCtrl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxListCtrl(value, wxListCtrl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxListCtrl(wxListCtrl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxListBox(value, wxListBox *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxListBox(wxListBox *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxNotebook(value, wxNotebook *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxNotebook(wxNotebook *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxListCtrl(value, wxListCtrl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxListCtrl(wxListCtrl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxRadioBox(value, wxRadioBox *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxRadioBox(wxRadioBox *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxNotebook(value, wxNotebook *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxNotebook(wxNotebook *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxRadioButton(value, wxRadioButton *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxRadioButton(wxRadioButton *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxRadioBox(value, wxRadioBox *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxRadioBox(wxRadioBox *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxScrollBar(value, wxScrollBar *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxScrollBar(wxScrollBar *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxRadioButton(value, wxRadioButton *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxRadioButton(wxRadioButton *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSlider(value, wxSlider *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSlider(wxSlider *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxScrollBar(value, wxScrollBar *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxScrollBar(wxScrollBar *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSpinButton(value, wxSpinButton *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSpinButton(wxSpinButton *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSlider(value, wxSlider *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSlider(wxSlider *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSpinCtrl(value, wxSpinCtrl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSpinCtrl(wxSpinCtrl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSpinButton(value, wxSpinButton *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSpinButton(wxSpinButton *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStaticBitmap(value, wxStaticBitmap *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStaticBitmap(wxStaticBitmap *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSpinCtrl(value, wxSpinCtrl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSpinCtrl(wxSpinCtrl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStaticBox(value, wxStaticBox *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStaticBox(wxStaticBox *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStaticBitmap(value, wxStaticBitmap *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStaticBitmap(wxStaticBitmap *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStaticLine(value, wxStaticLine *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStaticLine(wxStaticLine *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStaticBox(value, wxStaticBox *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStaticBox(wxStaticBox *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStaticText(value, wxStaticText *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStaticText(wxStaticText *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStaticLine(value, wxStaticLine *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStaticLine(wxStaticLine *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTabCtrl(value, wxTabCtrl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTabCtrl(wxTabCtrl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStaticText(value, wxStaticText *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStaticText(wxStaticText *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTextCtrl(value, wxTextCtrl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTextCtrl(wxTextCtrl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTabCtrl(value, wxTabCtrl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTabCtrl(wxTabCtrl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxToggleButton(value, wxToggleButton *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxToggleButton(wxToggleButton *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTextCtrl(value, wxTextCtrl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTextCtrl(wxTextCtrl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxToolBarBase(value, wxToolBarBase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxToolBarBase(wxToolBarBase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxToggleButton(value, wxToggleButton *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxToggleButton(wxToggleButton *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTreeCtrl(value, wxTreeCtrl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTreeCtrl(wxTreeCtrl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxToolBarBase(value, wxToolBarBase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxToolBarBase(wxToolBarBase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPropertyGrid(value, wxPropertyGrid *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPropertyGrid(wxPropertyGrid *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTreeCtrl(value, wxTreeCtrl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTreeCtrl(wxTreeCtrl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBitmapButton(value, wxBitmapButton *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBitmapButton(wxBitmapButton *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPropertyGrid(value, wxPropertyGrid *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPropertyGrid(wxPropertyGrid *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxContextHelpButton(value, wxContextHelpButton *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxContextHelpButton(wxContextHelpButton *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBitmapButton(value, wxBitmapButton *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBitmapButton(wxBitmapButton *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxComboBox(value, wxComboBox *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxComboBox(wxComboBox *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxContextHelpButton(value, wxContextHelpButton *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxContextHelpButton(wxContextHelpButton *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGauge95(value, wxGauge95 *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGauge95(wxGauge95 *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxComboBox(value, wxComboBox *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxComboBox(wxComboBox *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGaugeMSW(value, wxGaugeMSW *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGaugeMSW(wxGaugeMSW *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGauge95(value, wxGauge95 *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGauge95(wxGauge95 *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCheckListBox(value, wxCheckListBox *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCheckListBox(wxCheckListBox *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGaugeMSW(value, wxGaugeMSW *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGaugeMSW(wxGaugeMSW *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSlider95(value, wxSlider95 *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSlider95(wxSlider95 *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCheckListBox(value, wxCheckListBox *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCheckListBox(wxCheckListBox *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSliderMSW(value, wxSliderMSW *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSliderMSW(wxSliderMSW *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSlider95(value, wxSlider95 *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSlider95(wxSlider95 *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDynamicToolBar(value, wxDynamicToolBar *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDynamicToolBar(wxDynamicToolBar *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSliderMSW(value, wxSliderMSW *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSliderMSW(wxSliderMSW *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxToolBar(value, wxToolBar *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxToolBar(wxToolBar *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDynamicToolBar(value, wxDynamicToolBar *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDynamicToolBar(wxDynamicToolBar *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxRemotelyScrolledTreeCtrl(value, wxRemotelyScrolledTreeCtrl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxRemotelyScrolledTreeCtrl(wxRemotelyScrolledTreeCtrl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxToolBar(value, wxToolBar *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxToolBar(wxToolBar *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxColourDialog(value, wxColourDialog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxColourDialog(wxColourDialog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxRemotelyScrolledTreeCtrl(value, wxRemotelyScrolledTreeCtrl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxRemotelyScrolledTreeCtrl(wxRemotelyScrolledTreeCtrl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDirDialog(value, wxDirDialog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDirDialog(wxDirDialog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxColourDialog(value, wxColourDialog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxColourDialog(wxColourDialog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFileDialog(value, wxFileDialog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFileDialog(wxFileDialog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDirDialog(value, wxDirDialog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDirDialog(wxDirDialog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFindReplaceDialog(value, wxFindReplaceDialog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFindReplaceDialog(wxFindReplaceDialog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFileDialog(value, wxFileDialog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileDialog(wxFileDialog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFontDialog(value, wxFontDialog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFontDialog(wxFontDialog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFindReplaceDialog(value, wxFindReplaceDialog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFindReplaceDialog(wxFindReplaceDialog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMessageDialog(value, wxMessageDialog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMessageDialog(wxMessageDialog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFontDialog(value, wxFontDialog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFontDialog(wxFontDialog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPageSetupDialog(value, wxPageSetupDialog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPageSetupDialog(wxPageSetupDialog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMessageDialog(value, wxMessageDialog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMessageDialog(wxMessageDialog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPrintDialog(value, wxPrintDialog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPrintDialog(wxPrintDialog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPageSetupDialog(value, wxPageSetupDialog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPageSetupDialog(wxPageSetupDialog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSingleChoiceDialog(value, wxSingleChoiceDialog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSingleChoiceDialog(wxSingleChoiceDialog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPrintDialog(value, wxPrintDialog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPrintDialog(wxPrintDialog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTextEntryDialog(value, wxTextEntryDialog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTextEntryDialog(wxTextEntryDialog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSingleChoiceDialog(value, wxSingleChoiceDialog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSingleChoiceDialog(wxSingleChoiceDialog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxWizard(value, wxWizard *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxWizard(wxWizard *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTextEntryDialog(value, wxTextEntryDialog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTextEntryDialog(wxTextEntryDialog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDocChildFrame(value, wxDocChildFrame *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDocChildFrame(wxDocChildFrame *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxWizard(value, wxWizard *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxWizard(wxWizard *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDocParentFrame(value, wxDocParentFrame *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDocParentFrame(wxDocParentFrame *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDocChildFrame(value, wxDocChildFrame *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDocChildFrame(wxDocChildFrame *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlHelpFrame(value, wxHtmlHelpFrame *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlHelpFrame(wxHtmlHelpFrame *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDocParentFrame(value, wxDocParentFrame *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDocParentFrame(wxDocParentFrame *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMDIChildFrame(value, wxMDIChildFrame *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMDIChildFrame(wxMDIChildFrame *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlHelpFrame(value, wxHtmlHelpFrame *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlHelpFrame(wxHtmlHelpFrame *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMDIParentFrame(value, wxMDIParentFrame *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMDIParentFrame(wxMDIParentFrame *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMDIChildFrame(value, wxMDIChildFrame *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMDIChildFrame(wxMDIChildFrame *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMiniFrame(value, wxMiniFrame *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMiniFrame(wxMiniFrame *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMDIParentFrame(value, wxMDIParentFrame *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMDIParentFrame(wxMDIParentFrame *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPreviewFrame(value, wxPreviewFrame *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPreviewFrame(wxPreviewFrame *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMiniFrame(value, wxMiniFrame *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMiniFrame(wxMiniFrame *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxProgressDialog(value, wxProgressDialog *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxProgressDialog(wxProgressDialog *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPreviewFrame(value, wxPreviewFrame *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPreviewFrame(wxPreviewFrame *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSplashScreen(value, wxSplashScreen *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSplashScreen(wxSplashScreen *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxProgressDialog(value, wxProgressDialog *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxProgressDialog(wxProgressDialog *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxToolWindow(value, wxToolWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxToolWindow(wxToolWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSplashScreen(value, wxSplashScreen *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSplashScreen(wxSplashScreen *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDocMDIChildFrame(value, wxDocMDIChildFrame *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDocMDIChildFrame(wxDocMDIChildFrame *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxToolWindow(value, wxToolWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxToolWindow(wxToolWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDocMDIParentFrame(value, wxDocMDIParentFrame *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDocMDIParentFrame(wxDocMDIParentFrame *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDocMDIChildFrame(value, wxDocMDIChildFrame *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDocMDIChildFrame(wxDocMDIChildFrame *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJPreviewFrame(value, ELJPreviewFrame *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJPreviewFrame(ELJPreviewFrame *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDocMDIParentFrame(value, wxDocMDIParentFrame *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDocMDIParentFrame(wxDocMDIParentFrame *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxEditableListBox(value, wxEditableListBox *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxEditableListBox(wxEditableListBox *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJPreviewFrame(value, ELJPreviewFrame *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJPreviewFrame(ELJPreviewFrame *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxNewBitmapButton(value, wxNewBitmapButton *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxNewBitmapButton(wxNewBitmapButton *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxEditableListBox(value, wxEditableListBox *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxEditableListBox(wxEditableListBox *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPreviewControlBar(value, wxPreviewControlBar *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPreviewControlBar(wxPreviewControlBar *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxNewBitmapButton(value, wxNewBitmapButton *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxNewBitmapButton(wxNewBitmapButton *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxScrolledWindow(value, wxScrolledWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxScrolledWindow(wxScrolledWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPreviewControlBar(value, wxPreviewControlBar *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPreviewControlBar(wxPreviewControlBar *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxWizardPage(value, wxWizardPage *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxWizardPage(wxWizardPage *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxScrolledWindow(value, wxScrolledWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxScrolledWindow(wxScrolledWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJPreviewControlBar(value, ELJPreviewControlBar *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJPreviewControlBar(ELJPreviewControlBar *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxWizardPage(value, wxWizardPage *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxWizardPage(wxWizardPage *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGLCanvas(value, wxGLCanvas *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGLCanvas(wxGLCanvas *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJPreviewControlBar(value, ELJPreviewControlBar *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJPreviewControlBar(ELJPreviewControlBar *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGrid(value, wxGrid *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGrid(wxGrid *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGLCanvas(value, wxGLCanvas *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGLCanvas(wxGLCanvas *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlWindow(value, wxHtmlWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlWindow(wxHtmlWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGrid(value, wxGrid *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGrid(wxGrid *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPlotWindow(value, wxPlotWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPlotWindow(wxPlotWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlWindow(value, wxHtmlWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlWindow(wxHtmlWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPreviewCanvas(value, wxPreviewCanvas *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPreviewCanvas(wxPreviewCanvas *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPlotWindow(value, wxPlotWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPlotWindow(wxPlotWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSplitterScrolledWindow(value, wxSplitterScrolledWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSplitterScrolledWindow(wxSplitterScrolledWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPreviewCanvas(value, wxPreviewCanvas *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPreviewCanvas(wxPreviewCanvas *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxcHtmlWindow(value, wxcHtmlWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxcHtmlWindow(wxcHtmlWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSplitterScrolledWindow(value, wxSplitterScrolledWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSplitterScrolledWindow(wxSplitterScrolledWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxWizardPageSimple(value, wxWizardPageSimple *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxWizardPageSimple(wxWizardPageSimple *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxcHtmlWindow(value, wxcHtmlWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxcHtmlWindow(wxcHtmlWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPopupTransientWindow(value, wxPopupTransientWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPopupTransientWindow(wxPopupTransientWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxWizardPageSimple(value, wxWizardPageSimple *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxWizardPageSimple(wxWizardPageSimple *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTipWindow(value, wxTipWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTipWindow(wxTipWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPopupTransientWindow(value, wxPopupTransientWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPopupTransientWindow(wxPopupTransientWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSashLayoutWindow(value, wxSashLayoutWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSashLayoutWindow(wxSashLayoutWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTipWindow(value, wxTipWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTipWindow(wxTipWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxThinSplitterWindow(value, wxThinSplitterWindow *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxThinSplitterWindow(wxThinSplitterWindow *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSashLayoutWindow(value, wxSashLayoutWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSashLayoutWindow(wxSashLayoutWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMemoryFSHandler(value, wxMemoryFSHandler *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMemoryFSHandler(wxMemoryFSHandler *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxThinSplitterWindow(value, wxThinSplitterWindow *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxThinSplitterWindow(wxThinSplitterWindow *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBitmap(value, wxBitmap *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBitmap(wxBitmap *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMemoryFSHandler(value, wxMemoryFSHandler *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMemoryFSHandler(wxMemoryFSHandler *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBrush(value, wxBrush *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBrush(wxBrush *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBitmap(value, wxBitmap *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBitmap(wxBitmap *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFont(value, wxFont *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFont(wxFont *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBrush(value, wxBrush *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBrush(wxBrush *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPalette(value, wxPalette *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPalette(wxPalette *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFont(value, wxFont *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFont(wxFont *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPen(value, wxPen *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPen(wxPen *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPalette(value, wxPalette *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPalette(wxPalette *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxRegion(value, wxRegion *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxRegion(wxRegion *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPen(value, wxPen *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPen(wxPen *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCursor(value, wxCursor *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCursor(wxCursor *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxRegion(value, wxRegion *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxRegion(wxRegion *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxIcon(value, wxIcon *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxIcon(wxIcon *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCursor(value, wxCursor *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCursor(wxCursor *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJGridTable(value, ELJGridTable *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJGridTable(ELJGridTable *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxIcon(value, wxIcon *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxIcon(wxIcon *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHelpController(value, wxHelpController *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHelpController(wxHelpController *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJGridTable(value, ELJGridTable *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJGridTable(ELJGridTable *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlHelpController(value, wxHtmlHelpController *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlHelpController(wxHtmlHelpController *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHelpController(value, wxHelpController *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHelpController(wxHelpController *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlColourCell(value, wxHtmlColourCell *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlColourCell(wxHtmlColourCell *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlHelpController(value, wxHtmlHelpController *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlHelpController(wxHtmlHelpController *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlContainerCell(value, wxHtmlContainerCell *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlContainerCell(wxHtmlContainerCell *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlColourCell(value, wxHtmlColourCell *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlColourCell(wxHtmlColourCell *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlWidgetCell(value, wxHtmlWidgetCell *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlWidgetCell(wxHtmlWidgetCell *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlContainerCell(value, wxHtmlContainerCell *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlContainerCell(wxHtmlContainerCell *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlWinParser(value, wxHtmlWinParser *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlWinParser(wxHtmlWinParser *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlWidgetCell(value, wxHtmlWidgetCell *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlWidgetCell(wxHtmlWidgetCell *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlWinTagHandler(value, wxHtmlWinTagHandler *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlWinTagHandler(wxHtmlWinTagHandler *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlWinParser(value, wxHtmlWinParser *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlWinParser(wxHtmlWinParser *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBrushList(value, wxBrushList *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBrushList(wxBrushList *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlWinTagHandler(value, wxHtmlWinTagHandler *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlWinTagHandler(wxHtmlWinTagHandler *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxColourDatabase(value, wxColourDatabase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxColourDatabase(wxColourDatabase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBrushList(value, wxBrushList *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBrushList(wxBrushList *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxExprDatabase(value, wxExprDatabase *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxExprDatabase(wxExprDatabase *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxColourDatabase(value, wxColourDatabase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxColourDatabase(wxColourDatabase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFontList(value, wxFontList *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFontList(wxFontList *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxExprDatabase(value, wxExprDatabase *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxExprDatabase(wxExprDatabase *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPathList(value, wxPathList *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPathList(wxPathList *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFontList(value, wxFontList *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFontList(wxFontList *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxPenList(value, wxPenList *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxPenList(wxPenList *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPathList(value, wxPathList *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPathList(wxPathList *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStringList(value, wxStringList *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStringList(wxStringList *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxPenList(value, wxPenList *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPenList(wxPenList *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlTagsModule(value, wxHtmlTagsModule *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlTagsModule(wxHtmlTagsModule *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStringList(value, wxStringList *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStringList(wxStringList *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJPlotCurve(value, ELJPlotCurve *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJPlotCurve(ELJPlotCurve *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlTagsModule(value, wxHtmlTagsModule *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlTagsModule(wxHtmlTagsModule *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_ELJPrintout(value, ELJPrintout *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_ELJPrintout(ELJPrintout *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJPlotCurve(value, ELJPlotCurve *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJPlotCurve(ELJPlotCurve *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHtmlPrintout(value, wxHtmlPrintout *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHtmlPrintout(wxHtmlPrintout *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_ELJPrintout(value, ELJPrintout *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_ELJPrintout(ELJPrintout *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDDEServer(value, wxDDEServer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDDEServer(wxDDEServer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHtmlPrintout(value, wxHtmlPrintout *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHtmlPrintout(wxHtmlPrintout *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxServer(value, wxServer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxServer(wxServer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDDEServer(value, wxDDEServer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDDEServer(wxDDEServer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBoxSizer(value, wxBoxSizer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBoxSizer(wxBoxSizer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxServer(value, wxServer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxServer(wxServer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridSizer(value, wxGridSizer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridSizer(wxGridSizer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBoxSizer(value, wxBoxSizer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBoxSizer(wxBoxSizer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMultiCellSizer(value, wxMultiCellSizer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMultiCellSizer(wxMultiCellSizer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridSizer(value, wxGridSizer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridSizer(wxGridSizer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxNotebookSizer(value, wxNotebookSizer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxNotebookSizer(wxNotebookSizer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMultiCellSizer(value, wxMultiCellSizer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMultiCellSizer(wxMultiCellSizer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStaticBoxSizer(value, wxStaticBoxSizer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStaticBoxSizer(wxStaticBoxSizer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxNotebookSizer(value, wxNotebookSizer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxNotebookSizer(wxNotebookSizer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFlexGridSizer(value, wxFlexGridSizer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFlexGridSizer(wxFlexGridSizer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStaticBoxSizer(value, wxStaticBoxSizer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStaticBoxSizer(wxStaticBoxSizer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMultiCellCanvas(value, wxMultiCellCanvas *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMultiCellCanvas(wxMultiCellCanvas *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFlexGridSizer(value, wxFlexGridSizer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFlexGridSizer(wxFlexGridSizer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxIPV4address(value, wxIPV4address *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxIPV4address(wxIPV4address *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMultiCellCanvas(value, wxMultiCellCanvas *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMultiCellCanvas(wxMultiCellCanvas *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSocketClient(value, wxSocketClient *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSocketClient(wxSocketClient *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxIPV4address(value, wxIPV4address *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxIPV4address(wxIPV4address *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSocketServer(value, wxSocketServer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSocketServer(wxSocketServer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSocketClient(value, wxSocketClient *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSocketClient(wxSocketClient *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxProtocol(value, wxProtocol *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxProtocol(wxProtocol *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSocketServer(value, wxSocketServer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSocketServer(wxSocketServer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFTP(value, wxFTP *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFTP(wxFTP *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxProtocol(value, wxProtocol *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxProtocol(wxProtocol *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxHTTP(value, wxHTTP *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxHTTP(wxHTTP *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFTP(value, wxFTP *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFTP(wxFTP *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTimerEx(value, wxTimerEx *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTimerEx(wxTimerEx *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxHTTP(value, wxHTTP *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHTTP(wxHTTP *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxDynToolInfo(value, wxDynToolInfo *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxDynToolInfo(wxDynToolInfo *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTimerEx(value, wxTimerEx *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTimerEx(wxTimerEx *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxTreeLayoutStored(value, wxTreeLayoutStored *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxTreeLayoutStored(wxTreeLayoutStored *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxDynToolInfo(value, wxDynToolInfo *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDynToolInfo(wxDynToolInfo *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxInputStream(value, wxInputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxInputStream(wxInputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxTreeLayoutStored(value, wxTreeLayoutStored *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTreeLayoutStored(wxTreeLayoutStored *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxOutputStream(value, wxOutputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxOutputStream(wxOutputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxInputStream(value, wxInputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxInputStream(wxInputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFFileInputStream(value, wxFFileInputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFFileInputStream(wxFFileInputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxOutputStream(value, wxOutputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxOutputStream(wxOutputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFileInputStream(value, wxFileInputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFileInputStream(wxFileInputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFFileInputStream(value, wxFFileInputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFFileInputStream(wxFFileInputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFilterInputStream(value, wxFilterInputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFilterInputStream(wxFilterInputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFileInputStream(value, wxFileInputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileInputStream(wxFileInputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMemoryInputStream(value, wxMemoryInputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMemoryInputStream(wxMemoryInputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFilterInputStream(value, wxFilterInputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFilterInputStream(wxFilterInputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSocketInputStream(value, wxSocketInputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSocketInputStream(wxSocketInputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMemoryInputStream(value, wxMemoryInputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMemoryInputStream(wxMemoryInputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxZipInputStream(value, wxZipInputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxZipInputStream(wxZipInputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSocketInputStream(value, wxSocketInputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSocketInputStream(wxSocketInputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBufferedInputStream(value, wxBufferedInputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBufferedInputStream(wxBufferedInputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxZipInputStream(value, wxZipInputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxZipInputStream(wxZipInputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxZlibInputStream(value, wxZlibInputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxZlibInputStream(wxZlibInputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBufferedInputStream(value, wxBufferedInputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBufferedInputStream(wxBufferedInputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxCountingOutputStream(value, wxCountingOutputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxCountingOutputStream(wxCountingOutputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxZlibInputStream(value, wxZlibInputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxZlibInputStream(wxZlibInputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFFileOutputStream(value, wxFFileOutputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFFileOutputStream(wxFFileOutputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxCountingOutputStream(value, wxCountingOutputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCountingOutputStream(wxCountingOutputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFileOutputStream(value, wxFileOutputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFileOutputStream(wxFileOutputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFFileOutputStream(value, wxFFileOutputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFFileOutputStream(wxFFileOutputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFilterOutputStream(value, wxFilterOutputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFilterOutputStream(wxFilterOutputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFileOutputStream(value, wxFileOutputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileOutputStream(wxFileOutputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMemoryOutputStream(value, wxMemoryOutputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMemoryOutputStream(wxMemoryOutputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFilterOutputStream(value, wxFilterOutputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFilterOutputStream(wxFilterOutputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSocketOutputStream(value, wxSocketOutputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSocketOutputStream(wxSocketOutputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMemoryOutputStream(value, wxMemoryOutputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMemoryOutputStream(wxMemoryOutputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxBufferedOutputStream(value, wxBufferedOutputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxBufferedOutputStream(wxBufferedOutputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSocketOutputStream(value, wxSocketOutputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSocketOutputStream(wxSocketOutputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxZlibOutputStream(value, wxZlibOutputStream *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxZlibOutputStream(wxZlibOutputStream *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxBufferedOutputStream(value, wxBufferedOutputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxBufferedOutputStream(wxBufferedOutputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxInputSink(value, wxInputSink *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxInputSink(wxInputSink *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxZlibOutputStream(value, wxZlibOutputStream *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxZlibOutputStream(wxZlibOutputStream *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGenericDragImage(value, wxGenericDragImage *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGenericDragImage(wxGenericDragImage *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxInputSink(value, wxInputSink *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxInputSink(wxInputSink *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGraphicsObject(value, wxGraphicsObject *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGraphicsObject(wxGraphicsObject *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGenericDragImage(value, wxGenericDragImage *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGenericDragImage(wxGenericDragImage *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGraphicsBrush(value, wxGraphicsBrush *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGraphicsBrush(wxGraphicsBrush *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGraphicsObject(value, wxGraphicsObject *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGraphicsObject(wxGraphicsObject *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGraphicsContext(value, wxGraphicsContext *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGraphicsContext(wxGraphicsContext *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGraphicsBrush(value, wxGraphicsBrush *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGraphicsBrush(wxGraphicsBrush *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGraphicsFont(value, wxGraphicsFont *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGraphicsFont(wxGraphicsFont *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGraphicsContext(value, wxGraphicsContext *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGraphicsContext(wxGraphicsContext *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGraphicsMatrix(value, wxGraphicsMatrix *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGraphicsMatrix(wxGraphicsMatrix *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGraphicsFont(value, wxGraphicsFont *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGraphicsFont(wxGraphicsFont *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGraphicsPath(value, wxGraphicsPath *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGraphicsPath(wxGraphicsPath *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGraphicsMatrix(value, wxGraphicsMatrix *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGraphicsMatrix(wxGraphicsMatrix *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGraphicsPen(value, wxGraphicsPen *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGraphicsPen(wxGraphicsPen *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGraphicsPath(value, wxGraphicsPath *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGraphicsPath(wxGraphicsPath *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGraphicsRenderer(value, wxGraphicsRenderer *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGraphicsRenderer(wxGraphicsRenderer *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGraphicsPen(value, wxGraphicsPen *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGraphicsPen(wxGraphicsPen *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGLContext(value, wxGLContext *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGLContext(wxGLContext *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGraphicsRenderer(value, wxGraphicsRenderer *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGraphicsRenderer(wxGraphicsRenderer *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxSound(value, wxSound *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxSound(wxSound *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGLContext(value, wxGLContext *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGLContext(wxGLContext *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMediaCtrl(value, wxMediaCtrl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMediaCtrl(wxMediaCtrl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxSound(value, wxSound *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSound(wxSound *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxMediaEvent(value, wxMediaEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxMediaEvent(wxMediaEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMediaCtrl(value, wxMediaCtrl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMediaCtrl(wxMediaCtrl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxcPrintout(value, wxcPrintout *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxcPrintout(wxcPrintout *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxMediaEvent(value, wxMediaEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMediaEvent(wxMediaEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxcPrintEvent(value, wxcPrintEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxcPrintEvent(wxcPrintEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxcPrintout(value, wxcPrintout *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxcPrintout(wxcPrintout *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxcPrintoutHandler(value, wxcPrintoutHandler *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxcPrintoutHandler(wxcPrintoutHandler *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxcPrintEvent(value, wxcPrintEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxcPrintEvent(wxcPrintEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStyledTextCtrl(value, wxStyledTextCtrl *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStyledTextCtrl(wxStyledTextCtrl *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxcPrintoutHandler(value, wxcPrintoutHandler *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxcPrintoutHandler(wxcPrintoutHandler *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxStyledTextEvent(value, wxStyledTextEvent *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxStyledTextEvent(wxStyledTextEvent *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStyledTextCtrl(value, wxStyledTextCtrl *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStyledTextCtrl(wxStyledTextCtrl *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxGridCellTextEnterEditor(value, wxGridCellTextEnterEditor *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxGridCellTextEnterEditor(wxGridCellTextEnterEditor *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxStyledTextEvent(value, wxStyledTextEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxStyledTextEvent(wxStyledTextEvent *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_wxFileConfig(value, wxFileConfig *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_wxFileConfig(wxFileConfig *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxGridCellTextEnterEditor(value, wxGridCellTextEnterEditor *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxGridCellTextEnterEditor(wxGridCellTextEnterEditor *, camlidl_ctx _ctx);
 
-extern void camlidl_ml2c_wxc_idl_voidptr(value, voidptr *, camlidl_ctx _ctx);
-extern value camlidl_c2ml_wxc_idl_voidptr(voidptr *, camlidl_ctx _ctx);
+extern void camlidl_ml2c_wxc_wxFileConfig(value, wxFileConfig *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileConfig(wxFileConfig *, camlidl_ctx _ctx);
 

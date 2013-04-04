@@ -1,597 +1,597 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external warpPointer : wxDocMDIParentFrame -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_WarpPointer"
+	= "camlidl_wxc_wxWindow_WarpPointer"
 
 external validate : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxWindow_Validate"
+	= "camlidl_wxc_wxWindow_Validate"
 
 external updateWindowUI : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_UpdateWindowUI"
+	= "camlidl_wxc_wxWindow_UpdateWindowUI"
 
 external unsetConstraints : wxDocMDIParentFrame -> voidptr -> unit
-	= "camlidl_wxc_idl_wxWindow_UnsetConstraints"
+	= "camlidl_wxc_wxWindow_UnsetConstraints"
 
 external transferDataToWindow : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxWindow_TransferDataToWindow"
+	= "camlidl_wxc_wxWindow_TransferDataToWindow"
 
 external transferDataFromWindow : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxWindow_TransferDataFromWindow"
+	= "camlidl_wxc_wxWindow_TransferDataFromWindow"
 
 external tile : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxMDIParentFrame_Tile"
+	= "camlidl_wxc_wxMDIParentFrame_Tile"
 
 external thaw : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_Thaw"
+	= "camlidl_wxc_wxWindow_Thaw"
 
 external showFullScreen : wxDocMDIParentFrame -> bool -> int -> bool
-	= "camlidl_wxc_idl_wxFrame_ShowFullScreen"
+	= "camlidl_wxc_wxFrame_ShowFullScreen"
 
 external show : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxWindow_Show"
+	= "camlidl_wxc_wxWindow_Show"
 
 external setWindowStyleFlag : wxDocMDIParentFrame -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetWindowStyleFlag"
+	= "camlidl_wxc_wxWindow_SetWindowStyleFlag"
 
 external setWindowMenu : wxDocMDIParentFrame -> wxMenu -> unit
-	= "camlidl_wxc_idl_wxMDIParentFrame_SetWindowMenu"
+	= "camlidl_wxc_wxMDIParentFrame_SetWindowMenu"
 
 external setVirtualSize : wxDocMDIParentFrame -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetVirtualSize"
+	= "camlidl_wxc_wxWindow_SetVirtualSize"
 
 external setValidator : wxDocMDIParentFrame -> wxValidator -> unit
-	= "camlidl_wxc_idl_wxWindow_SetValidator"
+	= "camlidl_wxc_wxWindow_SetValidator"
 
 external setToolTip : wxDocMDIParentFrame -> wxString -> unit
-	= "camlidl_wxc_idl_wxWindow_SetToolTip"
+	= "camlidl_wxc_wxWindow_SetToolTip"
 
 external setToolBar : wxDocMDIParentFrame -> wxToolBar -> unit
-	= "camlidl_wxc_idl_wxFrame_SetToolBar"
+	= "camlidl_wxc_wxFrame_SetToolBar"
 
 external setTitle : wxDocMDIParentFrame -> wxString -> unit
-	= "camlidl_wxc_idl_wxFrame_SetTitle"
+	= "camlidl_wxc_wxFrame_SetTitle"
 
 external setStatusWidths : wxDocMDIParentFrame -> int -> voidptr -> unit
-	= "camlidl_wxc_idl_wxFrame_SetStatusWidths"
+	= "camlidl_wxc_wxFrame_SetStatusWidths"
 
 external setStatusText : wxDocMDIParentFrame -> wxString -> int -> unit
-	= "camlidl_wxc_idl_wxFrame_SetStatusText"
+	= "camlidl_wxc_wxFrame_SetStatusText"
 
 external setStatusBar : wxDocMDIParentFrame -> wxStatusBar -> unit
-	= "camlidl_wxc_idl_wxFrame_SetStatusBar"
+	= "camlidl_wxc_wxFrame_SetStatusBar"
 
 external setSizer : wxDocMDIParentFrame -> wxSizer -> unit
-	= "camlidl_wxc_idl_wxWindow_SetSizer"
+	= "camlidl_wxc_wxWindow_SetSizer"
 
 external setSizeHints : wxDocMDIParentFrame -> int -> int -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetSizeHints_bytecode" "camlidl_wxc_idl_wxWindow_SetSizeHints"
+	= "camlidl_wxc_wxWindow_SetSizeHints_bytecode" "camlidl_wxc_wxWindow_SetSizeHints"
 
 external setSizeConstraint : wxDocMDIParentFrame -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetSizeConstraint"
+	= "camlidl_wxc_wxWindow_SetSizeConstraint"
 
 external setSize : wxDocMDIParentFrame -> int -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetSize_bytecode" "camlidl_wxc_idl_wxWindow_SetSize"
+	= "camlidl_wxc_wxWindow_SetSize_bytecode" "camlidl_wxc_wxWindow_SetSize"
 
 external setShape : wxDocMDIParentFrame -> wxRegion -> bool
-	= "camlidl_wxc_idl_wxFrame_SetShape"
+	= "camlidl_wxc_wxFrame_SetShape"
 
 external setScrollbar : wxDocMDIParentFrame -> int -> int -> int -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_SetScrollbar_bytecode" "camlidl_wxc_idl_wxWindow_SetScrollbar"
+	= "camlidl_wxc_wxWindow_SetScrollbar_bytecode" "camlidl_wxc_wxWindow_SetScrollbar"
 
 external setScrollPos : wxDocMDIParentFrame -> int -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_SetScrollPos"
+	= "camlidl_wxc_wxWindow_SetScrollPos"
 
 external setPreviousHandler : wxDocMDIParentFrame -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetPreviousHandler"
+	= "camlidl_wxc_wxEvtHandler_SetPreviousHandler"
 
 external setNextHandler : wxDocMDIParentFrame -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetNextHandler"
+	= "camlidl_wxc_wxEvtHandler_SetNextHandler"
 
 external setName : wxDocMDIParentFrame -> wxString -> unit
-	= "camlidl_wxc_idl_wxWindow_SetName"
+	= "camlidl_wxc_wxWindow_SetName"
 
 external setMinSize : wxDocMDIParentFrame -> int -> int -> unit
-	= "camlidl_wxc_idl_wxTopLevelWindow_SetMinSize"
+	= "camlidl_wxc_wxTopLevelWindow_SetMinSize"
 
 external setMenuBar : wxDocMDIParentFrame -> wxMenuBar -> unit
-	= "camlidl_wxc_idl_wxFrame_SetMenuBar"
+	= "camlidl_wxc_wxFrame_SetMenuBar"
 
 external setMaxSize : wxDocMDIParentFrame -> int -> int -> unit
-	= "camlidl_wxc_idl_wxTopLevelWindow_SetMaxSize"
+	= "camlidl_wxc_wxTopLevelWindow_SetMaxSize"
 
 external setLabel : wxDocMDIParentFrame -> wxString -> unit
-	= "camlidl_wxc_idl_wxWindow_SetLabel"
+	= "camlidl_wxc_wxWindow_SetLabel"
 
 external setId : wxDocMDIParentFrame -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetId"
+	= "camlidl_wxc_wxWindow_SetId"
 
 external setIcons : wxDocMDIParentFrame -> voidptr -> unit
-	= "camlidl_wxc_idl_wxTopLevelWindow_SetIcons"
+	= "camlidl_wxc_wxTopLevelWindow_SetIcons"
 
 external setIcon : wxDocMDIParentFrame -> wxIcon -> unit
-	= "camlidl_wxc_idl_wxTopLevelWindow_SetIcon"
+	= "camlidl_wxc_wxTopLevelWindow_SetIcon"
 
 external setForegroundColour : wxDocMDIParentFrame -> wxColour -> int
-	= "camlidl_wxc_idl_wxWindow_SetForegroundColour"
+	= "camlidl_wxc_wxWindow_SetForegroundColour"
 
 external setFont : wxDocMDIParentFrame -> wxFont -> int
-	= "camlidl_wxc_idl_wxWindow_SetFont"
+	= "camlidl_wxc_wxWindow_SetFont"
 
 external setFocus : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_SetFocus"
+	= "camlidl_wxc_wxWindow_SetFocus"
 
 external setExtraStyle : wxDocMDIParentFrame -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetExtraStyle"
+	= "camlidl_wxc_wxWindow_SetExtraStyle"
 
 external setEvtHandlerEnabled : wxDocMDIParentFrame -> bool -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetEvtHandlerEnabled"
+	= "camlidl_wxc_wxEvtHandler_SetEvtHandlerEnabled"
 
 external setDropTarget : wxDocMDIParentFrame -> wxDropTarget -> unit
-	= "camlidl_wxc_idl_wxWindow_SetDropTarget"
+	= "camlidl_wxc_wxWindow_SetDropTarget"
 
 external setDefaultItem : wxDocMDIParentFrame -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxTopLevelWindow_SetDefaultItem"
+	= "camlidl_wxc_wxTopLevelWindow_SetDefaultItem"
 
 external setDefaultButton : wxDocMDIParentFrame -> wxButton -> unit
-	= "camlidl_wxc_idl_wxTopLevelWindow_SetDefaultButton"
+	= "camlidl_wxc_wxTopLevelWindow_SetDefaultButton"
 
 external setCursor : wxDocMDIParentFrame -> wxCursor -> int
-	= "camlidl_wxc_idl_wxWindow_SetCursor"
+	= "camlidl_wxc_wxWindow_SetCursor"
 
 external setConstraints : wxDocMDIParentFrame -> wxLayoutConstraints -> unit
-	= "camlidl_wxc_idl_wxWindow_SetConstraints"
+	= "camlidl_wxc_wxWindow_SetConstraints"
 
 external setConstraintSizes : wxDocMDIParentFrame -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetConstraintSizes"
+	= "camlidl_wxc_wxWindow_SetConstraintSizes"
 
 external setClientSize : wxDocMDIParentFrame -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetClientSize"
+	= "camlidl_wxc_wxWindow_SetClientSize"
 
 external setClientObject : wxDocMDIParentFrame -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxWindow_SetClientObject"
+	= "camlidl_wxc_wxWindow_SetClientObject"
 
 external setClientData : wxDocMDIParentFrame -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxWindow_SetClientData"
+	= "camlidl_wxc_wxWindow_SetClientData"
 
 external setClientClosure : wxDocMDIParentFrame -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetClientClosure"
+	= "camlidl_wxc_wxEvtHandler_SetClientClosure"
 
 external setCaret : wxDocMDIParentFrame -> wxCaret -> unit
-	= "camlidl_wxc_idl_wxWindow_SetCaret"
+	= "camlidl_wxc_wxWindow_SetCaret"
 
 external setBackgroundColour : wxDocMDIParentFrame -> wxColour -> int
-	= "camlidl_wxc_idl_wxWindow_SetBackgroundColour"
+	= "camlidl_wxc_wxWindow_SetBackgroundColour"
 
 external setAutoLayout : wxDocMDIParentFrame -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_SetAutoLayout"
+	= "camlidl_wxc_wxWindow_SetAutoLayout"
 
 external setAcceleratorTable : wxDocMDIParentFrame -> wxAcceleratorTable -> unit
-	= "camlidl_wxc_idl_wxWindow_SetAcceleratorTable"
+	= "camlidl_wxc_wxWindow_SetAcceleratorTable"
 
 external scrollWindowRect : wxDocMDIParentFrame -> int -> int -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_ScrollWindowRect_bytecode" "camlidl_wxc_idl_wxWindow_ScrollWindowRect"
+	= "camlidl_wxc_wxWindow_ScrollWindowRect_bytecode" "camlidl_wxc_wxWindow_ScrollWindowRect"
 
 external scrollWindow : wxDocMDIParentFrame -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_ScrollWindow"
+	= "camlidl_wxc_wxWindow_ScrollWindow"
 
 external screenToClient2 : wxDocMDIParentFrame -> int -> int -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ScreenToClient2"
+	= "camlidl_wxc_wxWindow_ScreenToClient2"
 
 external screenToClient : wxDocMDIParentFrame -> int -> int -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ScreenToClient"
+	= "camlidl_wxc_wxWindow_ScreenToClient"
 
 external safeDelete : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external restore : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxFrame_Restore"
+	= "camlidl_wxc_wxFrame_Restore"
 
 external resetConstraints : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_ResetConstraints"
+	= "camlidl_wxc_wxWindow_ResetConstraints"
 
 external requestUserAttention : wxDocMDIParentFrame -> int -> unit
-	= "camlidl_wxc_idl_wxTopLevelWindow_RequestUserAttention"
+	= "camlidl_wxc_wxTopLevelWindow_RequestUserAttention"
 
 external reparent : wxDocMDIParentFrame -> wxWindow -> int
-	= "camlidl_wxc_idl_wxWindow_Reparent"
+	= "camlidl_wxc_wxWindow_Reparent"
 
 external removeConstraintReference : wxDocMDIParentFrame -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxWindow_RemoveConstraintReference"
+	= "camlidl_wxc_wxWindow_RemoveConstraintReference"
 
 external removeChild : wxDocMDIParentFrame -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxWindow_RemoveChild"
+	= "camlidl_wxc_wxWindow_RemoveChild"
 
 external releaseMouse : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_ReleaseMouse"
+	= "camlidl_wxc_wxWindow_ReleaseMouse"
 
 external refreshRect : wxDocMDIParentFrame -> bool -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_RefreshRect_bytecode" "camlidl_wxc_idl_wxWindow_RefreshRect"
+	= "camlidl_wxc_wxWindow_RefreshRect_bytecode" "camlidl_wxc_wxWindow_RefreshRect"
 
 external refresh : wxDocMDIParentFrame -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_Refresh"
+	= "camlidl_wxc_wxWindow_Refresh"
 
 external raise : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_Raise"
+	= "camlidl_wxc_wxWindow_Raise"
 
 external pushEventHandler : wxDocMDIParentFrame -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxWindow_PushEventHandler"
+	= "camlidl_wxc_wxWindow_PushEventHandler"
 
 external processPendingEvents : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_ProcessPendingEvents"
+	= "camlidl_wxc_wxEvtHandler_ProcessPendingEvents"
 
 external processEvent : wxDocMDIParentFrame -> wxEvent -> bool
-	= "camlidl_wxc_idl_wxEvtHandler_ProcessEvent"
+	= "camlidl_wxc_wxEvtHandler_ProcessEvent"
 
 external prepareDC : wxDocMDIParentFrame -> wxDC -> unit
-	= "camlidl_wxc_idl_wxWindow_PrepareDC"
+	= "camlidl_wxc_wxWindow_PrepareDC"
 
 external popupMenu : wxDocMDIParentFrame -> wxMenu -> int -> int -> int
-	= "camlidl_wxc_idl_wxWindow_PopupMenu"
+	= "camlidl_wxc_wxWindow_PopupMenu"
 
 external popEventHandler : wxDocMDIParentFrame -> bool -> voidptr
-	= "camlidl_wxc_idl_wxWindow_PopEventHandler"
+	= "camlidl_wxc_wxWindow_PopEventHandler"
 
 external onCreateClient : wxDocMDIParentFrame -> wxMDIClientWindow
-	= "camlidl_wxc_idl_wxMDIParentFrame_OnCreateClient"
+	= "camlidl_wxc_wxMDIParentFrame_OnCreateClient"
 
 external moveConstraint : wxDocMDIParentFrame -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_MoveConstraint"
+	= "camlidl_wxc_wxWindow_MoveConstraint"
 
 external move : wxDocMDIParentFrame -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_Move"
+	= "camlidl_wxc_wxWindow_Move"
 
 external maximize : wxDocMDIParentFrame -> bool -> unit
-	= "camlidl_wxc_idl_wxTopLevelWindow_Maximize"
+	= "camlidl_wxc_wxTopLevelWindow_Maximize"
 
 external makeModal : wxDocMDIParentFrame -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_MakeModal"
+	= "camlidl_wxc_wxWindow_MakeModal"
 
 external lower : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_Lower"
+	= "camlidl_wxc_wxWindow_Lower"
 
 external layoutPhase2 : wxDocMDIParentFrame -> int option -> int
-	= "camlidl_wxc_idl_wxWindow_LayoutPhase2"
+	= "camlidl_wxc_wxWindow_LayoutPhase2"
 
 external layoutPhase1 : wxDocMDIParentFrame -> int option -> int
-	= "camlidl_wxc_idl_wxWindow_LayoutPhase1"
+	= "camlidl_wxc_wxWindow_LayoutPhase1"
 
 external layout : wxDocMDIParentFrame -> int
-	= "camlidl_wxc_idl_wxWindow_Layout"
+	= "camlidl_wxc_wxWindow_Layout"
 
 external isTopLevel : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxWindow_IsTopLevel"
+	= "camlidl_wxc_wxWindow_IsTopLevel"
 
 external isShown : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxWindow_IsShown"
+	= "camlidl_wxc_wxWindow_IsShown"
 
 external isScrolledWindow : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isMaximized : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxTopLevelWindow_IsMaximized"
+	= "camlidl_wxc_wxTopLevelWindow_IsMaximized"
 
 external isKindOf : wxDocMDIParentFrame -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isIconized : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxTopLevelWindow_IsIconized"
+	= "camlidl_wxc_wxTopLevelWindow_IsIconized"
 
 external isFullScreen : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxFrame_IsFullScreen"
+	= "camlidl_wxc_wxFrame_IsFullScreen"
 
 external isExposed : wxDocMDIParentFrame -> int -> int -> int -> int -> bool
-	= "camlidl_wxc_idl_wxWindow_IsExposed"
+	= "camlidl_wxc_wxWindow_IsExposed"
 
 external isEnabled : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxWindow_IsEnabled"
+	= "camlidl_wxc_wxWindow_IsEnabled"
 
 external isBeingDeleted : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxWindow_IsBeingDeleted"
+	= "camlidl_wxc_wxWindow_IsBeingDeleted"
 
 external isActive : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxTopLevelWindow_IsActive"
+	= "camlidl_wxc_wxTopLevelWindow_IsActive"
 
 external initDialog : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_InitDialog"
+	= "camlidl_wxc_wxWindow_InitDialog"
 
 external iconize : wxDocMDIParentFrame -> bool -> bool
-	= "camlidl_wxc_idl_wxTopLevelWindow_Iconize"
+	= "camlidl_wxc_wxTopLevelWindow_Iconize"
 
 external hide : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxWindow_Hide"
+	= "camlidl_wxc_wxWindow_Hide"
 
 external hasFlag : wxDocMDIParentFrame -> int -> bool
-	= "camlidl_wxc_idl_wxWindow_HasFlag"
+	= "camlidl_wxc_wxWindow_HasFlag"
 
 external getWindowStyleFlag : wxDocMDIParentFrame -> int
-	= "camlidl_wxc_idl_wxWindow_GetWindowStyleFlag"
+	= "camlidl_wxc_wxWindow_GetWindowStyleFlag"
 
 external getWindowMenu : wxDocMDIParentFrame -> wxMenu
-	= "camlidl_wxc_idl_wxMDIParentFrame_GetWindowMenu"
+	= "camlidl_wxc_wxMDIParentFrame_GetWindowMenu"
 
 external getVirtualSize : wxDocMDIParentFrame -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetVirtualSize"
+	= "camlidl_wxc_wxWindow_GetVirtualSize"
 
 external getValidator : wxDocMDIParentFrame -> wxValidator
-	= "camlidl_wxc_idl_wxWindow_GetValidator"
+	= "camlidl_wxc_wxWindow_GetValidator"
 
 external getUpdateRegion : wxDocMDIParentFrame -> wxRegion
-	= "camlidl_wxc_idl_wxWindow_GetUpdateRegion"
+	= "camlidl_wxc_wxWindow_GetUpdateRegion"
 
 external getToolTip : wxDocMDIParentFrame -> wxString
-	= "camlidl_wxc_idl_wxWindow_GetToolTip"
+	= "camlidl_wxc_wxWindow_GetToolTip"
 
 external getToolBar : wxDocMDIParentFrame -> wxToolBar
-	= "camlidl_wxc_idl_wxFrame_GetToolBar"
+	= "camlidl_wxc_wxFrame_GetToolBar"
 
 external getTitle : wxDocMDIParentFrame -> wxString
-	= "camlidl_wxc_idl_wxFrame_GetTitle"
+	= "camlidl_wxc_wxFrame_GetTitle"
 
 external getTextExtent : wxDocMDIParentFrame -> wxString -> int option -> int option -> int option -> int option -> wxFont -> unit
-	= "camlidl_wxc_idl_wxWindow_GetTextExtent_bytecode" "camlidl_wxc_idl_wxWindow_GetTextExtent"
+	= "camlidl_wxc_wxWindow_GetTextExtent_bytecode" "camlidl_wxc_wxWindow_GetTextExtent"
 
 external getStatusBar : wxDocMDIParentFrame -> wxStatusBar
-	= "camlidl_wxc_idl_wxFrame_GetStatusBar"
+	= "camlidl_wxc_wxFrame_GetStatusBar"
 
 external getSizer : wxDocMDIParentFrame -> wxSizer
-	= "camlidl_wxc_idl_wxWindow_GetSizer"
+	= "camlidl_wxc_wxWindow_GetSizer"
 
 external getSizeConstraint : wxDocMDIParentFrame -> int * int
-	= "camlidl_wxc_idl_wxWindow_GetSizeConstraint"
+	= "camlidl_wxc_wxWindow_GetSizeConstraint"
 
 external getSize : wxDocMDIParentFrame -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetSize"
+	= "camlidl_wxc_wxWindow_GetSize"
 
 external getScrollThumb : wxDocMDIParentFrame -> int -> int
-	= "camlidl_wxc_idl_wxWindow_GetScrollThumb"
+	= "camlidl_wxc_wxWindow_GetScrollThumb"
 
 external getScrollRange : wxDocMDIParentFrame -> int -> int
-	= "camlidl_wxc_idl_wxWindow_GetScrollRange"
+	= "camlidl_wxc_wxWindow_GetScrollRange"
 
 external getScrollPos : wxDocMDIParentFrame -> int -> int
-	= "camlidl_wxc_idl_wxWindow_GetScrollPos"
+	= "camlidl_wxc_wxWindow_GetScrollPos"
 
 external getRect : wxDocMDIParentFrame -> wxRect
-	= "camlidl_wxc_idl_wxWindow_GetRect"
+	= "camlidl_wxc_wxWindow_GetRect"
 
 external getPreviousHandler : wxDocMDIParentFrame -> wxEvtHandler
-	= "camlidl_wxc_idl_wxEvtHandler_GetPreviousHandler"
+	= "camlidl_wxc_wxEvtHandler_GetPreviousHandler"
 
 external getPositionConstraint : wxDocMDIParentFrame -> int * int
-	= "camlidl_wxc_idl_wxWindow_GetPositionConstraint"
+	= "camlidl_wxc_wxWindow_GetPositionConstraint"
 
 external getPosition : wxDocMDIParentFrame -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_GetPosition"
+	= "camlidl_wxc_wxWindow_GetPosition"
 
 external getParent : wxDocMDIParentFrame -> wxWindow
-	= "camlidl_wxc_idl_wxWindow_GetParent"
+	= "camlidl_wxc_wxWindow_GetParent"
 
 external getNextHandler : wxDocMDIParentFrame -> wxEvtHandler
-	= "camlidl_wxc_idl_wxEvtHandler_GetNextHandler"
+	= "camlidl_wxc_wxEvtHandler_GetNextHandler"
 
 external getName : wxDocMDIParentFrame -> wxString
-	= "camlidl_wxc_idl_wxWindow_GetName"
+	= "camlidl_wxc_wxWindow_GetName"
 
 external getMinWidth : wxDocMDIParentFrame -> int
-	= "camlidl_wxc_idl_wxWindow_GetMinWidth"
+	= "camlidl_wxc_wxWindow_GetMinWidth"
 
 external getMinHeight : wxDocMDIParentFrame -> int
-	= "camlidl_wxc_idl_wxWindow_GetMinHeight"
+	= "camlidl_wxc_wxWindow_GetMinHeight"
 
 external getMenuBar : wxDocMDIParentFrame -> wxMenuBar
-	= "camlidl_wxc_idl_wxFrame_GetMenuBar"
+	= "camlidl_wxc_wxFrame_GetMenuBar"
 
 external getMaxWidth : wxDocMDIParentFrame -> int
-	= "camlidl_wxc_idl_wxWindow_GetMaxWidth"
+	= "camlidl_wxc_wxWindow_GetMaxWidth"
 
 external getMaxHeight : wxDocMDIParentFrame -> int
-	= "camlidl_wxc_idl_wxWindow_GetMaxHeight"
+	= "camlidl_wxc_wxWindow_GetMaxHeight"
 
 external getLabelEmpty : wxDocMDIParentFrame -> int
-	= "camlidl_wxc_idl_wxWindow_GetLabelEmpty"
+	= "camlidl_wxc_wxWindow_GetLabelEmpty"
 
 external getLabel : wxDocMDIParentFrame -> wxString
-	= "camlidl_wxc_idl_wxWindow_GetLabel"
+	= "camlidl_wxc_wxWindow_GetLabel"
 
 external getId : wxDocMDIParentFrame -> int
-	= "camlidl_wxc_idl_wxWindow_GetId"
+	= "camlidl_wxc_wxWindow_GetId"
 
 external getIcon : wxDocMDIParentFrame -> wxIcon
-	= "camlidl_wxc_idl_wxTopLevelWindow_GetIcon"
+	= "camlidl_wxc_wxTopLevelWindow_GetIcon"
 
 external getHandle : wxDocMDIParentFrame -> voidptr
-	= "camlidl_wxc_idl_wxWindow_GetHandle"
+	= "camlidl_wxc_wxWindow_GetHandle"
 
 external getForegroundColour : wxDocMDIParentFrame -> wxColour -> unit
-	= "camlidl_wxc_idl_wxWindow_GetForegroundColour"
+	= "camlidl_wxc_wxWindow_GetForegroundColour"
 
 external getFont : wxDocMDIParentFrame -> wxFont -> unit
-	= "camlidl_wxc_idl_wxWindow_GetFont"
+	= "camlidl_wxc_wxWindow_GetFont"
 
 external getEvtHandlerEnabled : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxEvtHandler_GetEvtHandlerEnabled"
+	= "camlidl_wxc_wxEvtHandler_GetEvtHandlerEnabled"
 
 external getEventHandler : wxDocMDIParentFrame -> wxEvtHandler
-	= "camlidl_wxc_idl_wxWindow_GetEventHandler"
+	= "camlidl_wxc_wxWindow_GetEventHandler"
 
 external getEffectiveMinSize : wxDocMDIParentFrame -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetEffectiveMinSize"
+	= "camlidl_wxc_wxWindow_GetEffectiveMinSize"
 
 external getDropTarget : wxDocMDIParentFrame -> wxDropTarget
-	= "camlidl_wxc_idl_wxWindow_GetDropTarget"
+	= "camlidl_wxc_wxWindow_GetDropTarget"
 
 external getDefaultItem : wxDocMDIParentFrame -> wxWindow
-	= "camlidl_wxc_idl_wxTopLevelWindow_GetDefaultItem"
+	= "camlidl_wxc_wxTopLevelWindow_GetDefaultItem"
 
 external getDefaultButton : wxDocMDIParentFrame -> wxButton
-	= "camlidl_wxc_idl_wxTopLevelWindow_GetDefaultButton"
+	= "camlidl_wxc_wxTopLevelWindow_GetDefaultButton"
 
 external getCursor : wxDocMDIParentFrame -> wxCursor
-	= "camlidl_wxc_idl_wxWindow_GetCursor"
+	= "camlidl_wxc_wxWindow_GetCursor"
 
 external getConstraintsInvolvedIn : wxDocMDIParentFrame -> voidptr
-	= "camlidl_wxc_idl_wxWindow_GetConstraintsInvolvedIn"
+	= "camlidl_wxc_wxWindow_GetConstraintsInvolvedIn"
 
 external getConstraints : wxDocMDIParentFrame -> wxLayoutConstraints
-	= "camlidl_wxc_idl_wxWindow_GetConstraints"
+	= "camlidl_wxc_wxWindow_GetConstraints"
 
 external getClosure : wxDocMDIParentFrame -> int -> int -> wxClosure
-	= "camlidl_wxc_idl_wxEvtHandler_GetClosure"
+	= "camlidl_wxc_wxEvtHandler_GetClosure"
 
 external getClientWindow : wxDocMDIParentFrame -> wxMDIClientWindow
-	= "camlidl_wxc_idl_wxMDIParentFrame_GetClientWindow"
+	= "camlidl_wxc_wxMDIParentFrame_GetClientWindow"
 
 external getClientSizeConstraint : wxDocMDIParentFrame -> int * int
-	= "camlidl_wxc_idl_wxWindow_GetClientSizeConstraint"
+	= "camlidl_wxc_wxWindow_GetClientSizeConstraint"
 
 external getClientSize : wxDocMDIParentFrame -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetClientSize"
+	= "camlidl_wxc_wxWindow_GetClientSize"
 
 external getClientData : wxDocMDIParentFrame -> wxClientData
-	= "camlidl_wxc_idl_wxWindow_GetClientData"
+	= "camlidl_wxc_wxWindow_GetClientData"
 
 external getClientClosure : wxDocMDIParentFrame -> wxClosure
-	= "camlidl_wxc_idl_wxEvtHandler_GetClientClosure"
+	= "camlidl_wxc_wxEvtHandler_GetClientClosure"
 
 external getClientAreaOrigin_top : wxDocMDIParentFrame -> int
-	= "camlidl_wxc_idl_wxFrame_GetClientAreaOrigin_top"
+	= "camlidl_wxc_wxFrame_GetClientAreaOrigin_top"
 
 external getClientAreaOrigin_left : wxDocMDIParentFrame -> int
-	= "camlidl_wxc_idl_wxFrame_GetClientAreaOrigin_left"
+	= "camlidl_wxc_wxFrame_GetClientAreaOrigin_left"
 
 external getClassInfo : wxDocMDIParentFrame -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external getChildren : wxDocMDIParentFrame -> voidptr -> int -> int
-	= "camlidl_wxc_idl_wxWindow_GetChildren"
+	= "camlidl_wxc_wxWindow_GetChildren"
 
 external getCharWidth : wxDocMDIParentFrame -> int
-	= "camlidl_wxc_idl_wxWindow_GetCharWidth"
+	= "camlidl_wxc_wxWindow_GetCharWidth"
 
 external getCharHeight : wxDocMDIParentFrame -> int
-	= "camlidl_wxc_idl_wxWindow_GetCharHeight"
+	= "camlidl_wxc_wxWindow_GetCharHeight"
 
 external getCaret : wxDocMDIParentFrame -> wxCaret
-	= "camlidl_wxc_idl_wxWindow_GetCaret"
+	= "camlidl_wxc_wxWindow_GetCaret"
 
 external getBestSize : wxDocMDIParentFrame -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetBestSize"
+	= "camlidl_wxc_wxWindow_GetBestSize"
 
 external getBackgroundColour : wxDocMDIParentFrame -> wxColour -> unit
-	= "camlidl_wxc_idl_wxWindow_GetBackgroundColour"
+	= "camlidl_wxc_wxWindow_GetBackgroundColour"
 
 external getAutoLayout : wxDocMDIParentFrame -> int
-	= "camlidl_wxc_idl_wxWindow_GetAutoLayout"
+	= "camlidl_wxc_wxWindow_GetAutoLayout"
 
 external getActiveChild : wxDocMDIParentFrame -> wxMDIChildFrame
-	= "camlidl_wxc_idl_wxMDIParentFrame_GetActiveChild"
+	= "camlidl_wxc_wxMDIParentFrame_GetActiveChild"
 
 external freeze : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_Freeze"
+	= "camlidl_wxc_wxWindow_Freeze"
 
 external fitInside : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_FitInside"
+	= "camlidl_wxc_wxWindow_FitInside"
 
 external fit : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_Fit"
+	= "camlidl_wxc_wxWindow_Fit"
 
 external findWindow : wxDocMDIParentFrame -> wxString -> wxWindow
-	= "camlidl_wxc_idl_wxWindow_FindWindow"
+	= "camlidl_wxc_wxWindow_FindWindow"
 
 external findFocus : wxDocMDIParentFrame -> wxWindow
-	= "camlidl_wxc_idl_wxWindow_FindFocus"
+	= "camlidl_wxc_wxWindow_FindFocus"
 
 external enableCloseButton : wxDocMDIParentFrame -> bool -> bool
-	= "camlidl_wxc_idl_wxTopLevelWindow_EnableCloseButton"
+	= "camlidl_wxc_wxTopLevelWindow_EnableCloseButton"
 
 external enable : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxWindow_Enable"
+	= "camlidl_wxc_wxWindow_Enable"
 
 external doPhase : wxDocMDIParentFrame -> int -> int
-	= "camlidl_wxc_idl_wxWindow_DoPhase"
+	= "camlidl_wxc_wxWindow_DoPhase"
 
 external disconnect : wxDocMDIParentFrame -> int -> int -> int -> int -> int
-	= "camlidl_wxc_idl_wxEvtHandler_Disconnect"
+	= "camlidl_wxc_wxEvtHandler_Disconnect"
 
 external disable : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxWindow_Disable"
+	= "camlidl_wxc_wxWindow_Disable"
 
 external destroyChildren : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxWindow_DestroyChildren"
+	= "camlidl_wxc_wxWindow_DestroyChildren"
 
 external destroy : wxDocMDIParentFrame -> bool
-	= "camlidl_wxc_idl_wxWindow_Destroy"
+	= "camlidl_wxc_wxWindow_Destroy"
 
 external deleteRelatedConstraints : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_DeleteRelatedConstraints"
+	= "camlidl_wxc_wxWindow_DeleteRelatedConstraints"
 
 external delete : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_Delete"
+	= "camlidl_wxc_wxEvtHandler_Delete"
 
 external createToolBar : wxDocMDIParentFrame -> int -> wxToolBar
-	= "camlidl_wxc_idl_wxFrame_CreateToolBar"
+	= "camlidl_wxc_wxFrame_CreateToolBar"
 
 external createStatusBar : wxDocMDIParentFrame -> int -> int -> wxStatusBar
-	= "camlidl_wxc_idl_wxFrame_CreateStatusBar"
+	= "camlidl_wxc_wxFrame_CreateStatusBar"
 
 external convertPixelsToDialogEx : wxDocMDIParentFrame -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ConvertPixelsToDialogEx"
+	= "camlidl_wxc_wxWindow_ConvertPixelsToDialogEx"
 
 external convertPixelsToDialog : wxDocMDIParentFrame -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ConvertPixelsToDialog"
+	= "camlidl_wxc_wxWindow_ConvertPixelsToDialog"
 
 external convertDialogToPixelsEx : wxDocMDIParentFrame -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ConvertDialogToPixelsEx"
+	= "camlidl_wxc_wxWindow_ConvertDialogToPixelsEx"
 
 external convertDialogToPixels : wxDocMDIParentFrame -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ConvertDialogToPixels"
+	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
 external connect : wxDocMDIParentFrame -> int -> int -> (wxEvent -> unit) -> unit
-	= "camlidl_wxc_idl_wxo_wxEvtHandler_Connect"
+	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external close : wxDocMDIParentFrame -> bool -> bool
-	= "camlidl_wxc_idl_wxWindow_Close"
+	= "camlidl_wxc_wxWindow_Close"
 
 external clientToScreen : wxDocMDIParentFrame -> int -> int -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ClientToScreen"
+	= "camlidl_wxc_wxWindow_ClientToScreen"
 
 external clearBackground : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_ClearBackground"
+	= "camlidl_wxc_wxWindow_ClearBackground"
 
 external centre : wxDocMDIParentFrame -> int -> unit
-	= "camlidl_wxc_idl_wxFrame_Centre"
+	= "camlidl_wxc_wxFrame_Centre"
 
 external centerOnParent : wxDocMDIParentFrame -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_CenterOnParent"
+	= "camlidl_wxc_wxWindow_CenterOnParent"
 
 external center : wxDocMDIParentFrame -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_Center"
+	= "camlidl_wxc_wxWindow_Center"
 
 external cascade : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxMDIParentFrame_Cascade"
+	= "camlidl_wxc_wxMDIParentFrame_Cascade"
 
 external captureMouse : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxWindow_CaptureMouse"
+	= "camlidl_wxc_wxWindow_CaptureMouse"
 
 external arrangeIcons : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxMDIParentFrame_ArrangeIcons"
+	= "camlidl_wxc_wxMDIParentFrame_ArrangeIcons"
 
 external addPendingEvent : wxDocMDIParentFrame -> wxEvent -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_AddPendingEvent"
+	= "camlidl_wxc_wxEvtHandler_AddPendingEvent"
 
 external addConstraintReference : wxDocMDIParentFrame -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxWindow_AddConstraintReference"
+	= "camlidl_wxc_wxWindow_AddConstraintReference"
 
 external addChild : wxDocMDIParentFrame -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxWindow_AddChild"
+	= "camlidl_wxc_wxWindow_AddChild"
 
 external activatePrevious : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxMDIParentFrame_ActivatePrevious"
+	= "camlidl_wxc_wxMDIParentFrame_ActivatePrevious"
 
 external activateNext : wxDocMDIParentFrame -> unit
-	= "camlidl_wxc_idl_wxMDIParentFrame_ActivateNext"
+	= "camlidl_wxc_wxMDIParentFrame_ActivateNext"
 
 val setToolTip : wxDocMDIParentFrame -> string -> unit
 val setTitle : wxDocMDIParentFrame -> string -> unit

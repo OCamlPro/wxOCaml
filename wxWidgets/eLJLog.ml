@@ -1,72 +1,72 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : voidptr -> voidptr -> eLJLog
-	= "camlidl_wxc_idl_ELJLog_Create"
+	= "camlidl_wxc_ELJLog_Create"
 
 external suspend : eLJLog -> unit
-	= "camlidl_wxc_idl_ELJLog_Suspend"
+	= "camlidl_wxc_ELJLog_Suspend"
 
 external setVerbose : eLJLog -> int -> unit
-	= "camlidl_wxc_idl_ELJLog_SetVerbose"
+	= "camlidl_wxc_ELJLog_SetVerbose"
 
 external setTraceMask : eLJLog -> int -> unit
-	= "camlidl_wxc_idl_ELJLog_SetTraceMask"
+	= "camlidl_wxc_ELJLog_SetTraceMask"
 
 external setTimestamp : eLJLog -> voidptr -> unit
-	= "camlidl_wxc_idl_ELJLog_SetTimestamp"
+	= "camlidl_wxc_ELJLog_SetTimestamp"
 
 external setActiveTarget : eLJLog -> voidptr
-	= "camlidl_wxc_idl_ELJLog_SetActiveTarget"
+	= "camlidl_wxc_ELJLog_SetActiveTarget"
 
 external resume : eLJLog -> unit
-	= "camlidl_wxc_idl_ELJLog_Resume"
+	= "camlidl_wxc_ELJLog_Resume"
 
 external removeTraceMask : eLJLog -> string -> unit
-	= "camlidl_wxc_idl_ELJLog_RemoveTraceMask"
+	= "camlidl_wxc_ELJLog_RemoveTraceMask"
 
 external onLog : eLJLog -> int -> voidptr -> int -> unit
-	= "camlidl_wxc_idl_ELJLog_OnLog"
+	= "camlidl_wxc_ELJLog_OnLog"
 
 external isEnabled : eLJLog -> bool
-	= "camlidl_wxc_idl_ELJLog_IsEnabled"
+	= "camlidl_wxc_ELJLog_IsEnabled"
 
 external isAllowedTraceMask : eLJLog -> wxMask -> bool
-	= "camlidl_wxc_idl_ELJLog_IsAllowedTraceMask"
+	= "camlidl_wxc_ELJLog_IsAllowedTraceMask"
 
 external hasPendingMessages : eLJLog -> bool
-	= "camlidl_wxc_idl_ELJLog_HasPendingMessages"
+	= "camlidl_wxc_ELJLog_HasPendingMessages"
 
 external getVerbose : eLJLog -> int
-	= "camlidl_wxc_idl_ELJLog_GetVerbose"
+	= "camlidl_wxc_ELJLog_GetVerbose"
 
 external getTraceMask : eLJLog -> int
-	= "camlidl_wxc_idl_ELJLog_GetTraceMask"
+	= "camlidl_wxc_ELJLog_GetTraceMask"
 
 external getTimestamp : eLJLog -> voidptr
-	= "camlidl_wxc_idl_ELJLog_GetTimestamp"
+	= "camlidl_wxc_ELJLog_GetTimestamp"
 
 external getActiveTarget : unit -> voidptr
-	= "camlidl_wxc_idl_ELJLog_GetActiveTarget"
+	= "camlidl_wxc_ELJLog_GetActiveTarget"
 
 external flushActive : eLJLog -> unit
-	= "camlidl_wxc_idl_ELJLog_FlushActive"
+	= "camlidl_wxc_ELJLog_FlushActive"
 
 external flush : eLJLog -> unit
-	= "camlidl_wxc_idl_ELJLog_Flush"
+	= "camlidl_wxc_ELJLog_Flush"
 
 external enableLogging : eLJLog -> bool -> int
-	= "camlidl_wxc_idl_ELJLog_EnableLogging"
+	= "camlidl_wxc_ELJLog_EnableLogging"
 
 external dontCreateOnDemand : eLJLog -> unit
-	= "camlidl_wxc_idl_ELJLog_DontCreateOnDemand"
+	= "camlidl_wxc_ELJLog_DontCreateOnDemand"
 
 external delete : eLJLog -> unit
-	= "camlidl_wxc_idl_ELJLog_Delete"
+	= "camlidl_wxc_ELJLog_Delete"
 
 external addTraceMask : eLJLog -> string -> unit
-	= "camlidl_wxc_idl_ELJLog_AddTraceMask"
+	= "camlidl_wxc_ELJLog_AddTraceMask"
 
 
   (* Cast functions *)

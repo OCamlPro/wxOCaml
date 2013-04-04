@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxListBox(value _v1, wxListBox * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxListBox(value _v1, wxListBox * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxListBox *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxListBox(wxListBox * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxListBox(wxListBox * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxListBox) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxListBox_Append(
+value camlidl_wxc_wxListBox_Append(
 	value _v__obj,
 	value _v_item)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxListBox_Append(
   wxString item; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_item, &item, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_item, &item, _ctx);
   wxListBox_Append(_obj, item);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxListBox_AppendData(
+value camlidl_wxc_wxListBox_AppendData(
 	value _v__obj,
 	value _v_item,
 	value _v_data)
@@ -54,27 +54,27 @@ value camlidl_wxc_idl_wxListBox_AppendData(
   voidptr data; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_item, &item, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_data, &data, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_item, &item, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_data, &data, _ctx);
   wxListBox_AppendData(_obj, item, data);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxListBox_Clear(
+value camlidl_wxc_wxListBox_Clear(
 	value _v__obj)
 {
   wxListBox _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
   wxListBox_Clear(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxListBox_Create(
+value camlidl_wxc_wxListBox_Create(
 	value _v__prt,
 	value _v__id,
 	value _v__lft,
@@ -95,39 +95,39 @@ value camlidl_wxc_idl_wxListBox_Create(
   char **str; /*in*/
   int _stl; /*in*/
   wxListBox _res;
-  value _v1;
-  char *_c2;
+  mlsize_t _c1;
+  mlsize_t _c2;
+  value _v3;
   value _vres;
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
   _id = Int_val(_v__id);
   _lft = Int_val(_v__lft);
   _top = Int_val(_v__top);
   _wdt = Int_val(_v__wdt);
   _hgt = Int_val(_v__hgt);
   n = Int_val(_v_n);
-  if (_v_str == Val_int(0)) {
-    str = NULL;
-  } else {
-    _v1 = Field(_v_str, 0);
-    str = &_c2;
-    _c2 = String_val(_v1);
+  _c1 = Wosize_val(_v_str);
+  str = camlidl_malloc(_c1 * sizeof(char *), _ctx);
+  for (_c2 = 0; _c2 < _c1; _c2++) {
+    _v3 = Field(_v_str, _c2);
+    str[_c2] = String_val(_v3);
   }
   _stl = Int_val(_v__stl);
   _res = wxListBox_Create(_prt, _id, _lft, _top, _wdt, _hgt, n, str, _stl);
-  _vres = camlidl_c2ml_wxc_idl_wxListBox(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxListBox(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListBox_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxListBox_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxListBox_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+  return camlidl_wxc_wxListBox_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
 }
 
-value camlidl_wxc_idl_wxListBox_Delete(
+value camlidl_wxc_wxListBox_Delete(
 	value _v__obj,
 	value _v_n)
 {
@@ -135,14 +135,14 @@ value camlidl_wxc_idl_wxListBox_Delete(
   int n; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
   n = Int_val(_v_n);
   wxListBox_Delete(_obj, n);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxListBox_FindString(
+value camlidl_wxc_wxListBox_FindString(
 	value _v__obj,
 	value _v_s)
 {
@@ -153,15 +153,15 @@ value camlidl_wxc_idl_wxListBox_FindString(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_s, &s, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_s, &s, _ctx);
   _res = wxListBox_FindString(_obj, s);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListBox_GetClientData(
+value camlidl_wxc_wxListBox_GetClientData(
 	value _v__obj,
 	value _v_n)
 {
@@ -172,15 +172,15 @@ value camlidl_wxc_idl_wxListBox_GetClientData(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
   n = Int_val(_v_n);
   _res = wxListBox_GetClientData(_obj, n);
-  _vres = camlidl_c2ml_wxc_idl_wxClientData(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxClientData(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListBox_GetCount(
+value camlidl_wxc_wxListBox_GetCount(
 	value _v__obj)
 {
   wxListBox _obj; /*in*/
@@ -189,14 +189,14 @@ value camlidl_wxc_idl_wxListBox_GetCount(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
   _res = wxListBox_GetCount(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListBox_GetSelection(
+value camlidl_wxc_wxListBox_GetSelection(
 	value _v__obj)
 {
   wxListBox _obj; /*in*/
@@ -205,14 +205,14 @@ value camlidl_wxc_idl_wxListBox_GetSelection(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
   _res = wxListBox_GetSelection(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListBox_GetSelections(
+value camlidl_wxc_wxListBox_GetSelections(
 	value _v__obj,
 	value _v_aSelections,
 	value _v_allocated)
@@ -227,7 +227,7 @@ value camlidl_wxc_idl_wxListBox_GetSelections(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
   if (_v_aSelections == Val_int(0)) {
     aSelections = NULL;
   } else {
@@ -242,7 +242,7 @@ value camlidl_wxc_idl_wxListBox_GetSelections(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListBox_GetString(
+value camlidl_wxc_wxListBox_GetString(
 	value _v__obj,
 	value _v_n)
 {
@@ -253,15 +253,15 @@ value camlidl_wxc_idl_wxListBox_GetString(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
   n = Int_val(_v_n);
   _res = wxListBox_GetString(_obj, n);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListBox_InsertItems(
+value camlidl_wxc_wxListBox_InsertItems(
 	value _v__obj,
 	value _v_items,
 	value _v_pos,
@@ -273,8 +273,8 @@ value camlidl_wxc_idl_wxListBox_InsertItems(
   int count; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_items, &items, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_items, &items, _ctx);
   pos = Int_val(_v_pos);
   count = Int_val(_v_count);
   wxListBox_InsertItems(_obj, items, pos, count);
@@ -282,7 +282,7 @@ value camlidl_wxc_idl_wxListBox_InsertItems(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxListBox_IsSelected(
+value camlidl_wxc_wxListBox_IsSelected(
 	value _v__obj,
 	value _v_n)
 {
@@ -293,7 +293,7 @@ value camlidl_wxc_idl_wxListBox_IsSelected(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
   n = Int_val(_v_n);
   _res = wxListBox_IsSelected(_obj, n);
   _vres = Val_int(_res);
@@ -301,7 +301,7 @@ value camlidl_wxc_idl_wxListBox_IsSelected(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListBox_SetClientData(
+value camlidl_wxc_wxListBox_SetClientData(
 	value _v__obj,
 	value _v_n,
 	value _v_clientData)
@@ -311,15 +311,15 @@ value camlidl_wxc_idl_wxListBox_SetClientData(
   wxClientData clientData; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
   n = Int_val(_v_n);
-  camlidl_ml2c_wxc_idl_wxClientData(_v_clientData, &clientData, _ctx);
+  camlidl_ml2c_wxc_wxClientData(_v_clientData, &clientData, _ctx);
   wxListBox_SetClientData(_obj, n, clientData);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxListBox_SetFirstItem(
+value camlidl_wxc_wxListBox_SetFirstItem(
 	value _v__obj,
 	value _v_n)
 {
@@ -327,14 +327,14 @@ value camlidl_wxc_idl_wxListBox_SetFirstItem(
   int n; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
   n = Int_val(_v_n);
   wxListBox_SetFirstItem(_obj, n);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxListBox_SetSelection(
+value camlidl_wxc_wxListBox_SetSelection(
 	value _v__obj,
 	value _v_n,
 	value _v_select)
@@ -344,7 +344,7 @@ value camlidl_wxc_idl_wxListBox_SetSelection(
   int select; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
   n = Int_val(_v_n);
   select = Int_val(_v_select);
   wxListBox_SetSelection(_obj, n, select);
@@ -352,7 +352,7 @@ value camlidl_wxc_idl_wxListBox_SetSelection(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxListBox_SetString(
+value camlidl_wxc_wxListBox_SetString(
 	value _v__obj,
 	value _v_n,
 	value _v_s)
@@ -362,15 +362,15 @@ value camlidl_wxc_idl_wxListBox_SetString(
   wxString s; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
   n = Int_val(_v_n);
-  camlidl_ml2c_wxc_idl_wxString(_v_s, &s, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_s, &s, _ctx);
   wxListBox_SetString(_obj, n, s);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxListBox_SetStringSelection(
+value camlidl_wxc_wxListBox_SetStringSelection(
 	value _v__obj,
 	value _v_str,
 	value _v_sel)
@@ -380,8 +380,8 @@ value camlidl_wxc_idl_wxListBox_SetStringSelection(
   int sel; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListBox(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str, &str, _ctx);
+  camlidl_ml2c_wxc_wxListBox(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str, &str, _ctx);
   sel = Int_val(_v_sel);
   wxListBox_SetStringSelection(_obj, str, sel);
   camlidl_free(_ctx);

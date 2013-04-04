@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxMask(value _v1, wxMask * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxMask(value _v1, wxMask * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxMask *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxMask(wxMask * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxMask(wxMask * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxMask) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxMask_Create(
+value camlidl_wxc_wxMask_Create(
 	value _v_bitmap)
 {
   wxBitmap bitmap; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxMask_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_bitmap, &bitmap, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_bitmap, &bitmap, _ctx);
   _res = wxMask_Create(bitmap);
-  _vres = camlidl_c2ml_wxc_idl_wxMask(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMask(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMask_CreateColoured(
+value camlidl_wxc_wxMask_CreateColoured(
 	value _v_bitmap,
 	value _v_colour)
 {
@@ -56,10 +56,10 @@ value camlidl_wxc_idl_wxMask_CreateColoured(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_bitmap, &bitmap, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v_colour, &colour, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_bitmap, &bitmap, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_colour, &colour, _ctx);
   _res = wxMask_CreateColoured(bitmap, colour);
-  _vres = camlidl_c2ml_wxc_idl_voidptr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_voidptr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

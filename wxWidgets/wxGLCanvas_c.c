@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGLCanvas(value _v1, wxGLCanvas * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGLCanvas(value _v1, wxGLCanvas * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGLCanvas *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGLCanvas(wxGLCanvas * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGLCanvas(wxGLCanvas * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGLCanvas) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGLCanvas_Create(
+value camlidl_wxc_wxGLCanvas_Create(
 	value _v_parent,
 	value _v_windowID,
 	value _v_attributes,
@@ -52,40 +52,40 @@ value camlidl_wxc_idl_wxGLCanvas_Create(
   wxString title; /*in*/
   wxPalette palette; /*in*/
   wxGLCanvas _res;
-  mlsize_t _c1;
-  mlsize_t _c2;
-  value _v3;
+  value _v1;
+  int _c2;
   value _vres;
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
   windowID = Int_val(_v_windowID);
-  _c1 = Wosize_val(_v_attributes);
-  attributes = camlidl_malloc(_c1 * sizeof(int ), _ctx);
-  for (_c2 = 0; _c2 < _c1; _c2++) {
-    _v3 = Field(_v_attributes, _c2);
-    attributes[_c2] = Int_val(_v3);
+  if (_v_attributes == Val_int(0)) {
+    attributes = NULL;
+  } else {
+    _v1 = Field(_v_attributes, 0);
+    attributes = &_c2;
+    _c2 = Int_val(_v1);
   }
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   w = Int_val(_v_w);
   h = Int_val(_v_h);
   style = Int_val(_v_style);
-  camlidl_ml2c_wxc_idl_wxString(_v_title, &title, _ctx);
-  camlidl_ml2c_wxc_idl_wxPalette(_v_palette, &palette, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_title, &title, _ctx);
+  camlidl_ml2c_wxc_wxPalette(_v_palette, &palette, _ctx);
   _res = wxGLCanvas_Create(parent, windowID, attributes, x, y, w, h, style, title, palette);
-  _vres = camlidl_c2ml_wxc_idl_wxGLCanvas(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGLCanvas(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGLCanvas_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGLCanvas_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGLCanvas_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9]);
+  return camlidl_wxc_wxGLCanvas_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9]);
 }
 
-value camlidl_wxc_idl_wxGLCanvas_SetColour(
+value camlidl_wxc_wxGLCanvas_SetColour(
 	value _v_self,
 	value _v_colour)
 {
@@ -96,15 +96,15 @@ value camlidl_wxc_idl_wxGLCanvas_SetColour(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGLCanvas(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v_colour, &colour, _ctx);
+  camlidl_ml2c_wxc_wxGLCanvas(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_colour, &colour, _ctx);
   _res = wxGLCanvas_SetColour(self, colour);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGLCanvas_SetCurrent(
+value camlidl_wxc_wxGLCanvas_SetCurrent(
 	value _v_self,
 	value _v_ctxt)
 {
@@ -115,15 +115,15 @@ value camlidl_wxc_idl_wxGLCanvas_SetCurrent(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGLCanvas(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxGLContext(_v_ctxt, &ctxt, _ctx);
+  camlidl_ml2c_wxc_wxGLCanvas(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGLContext(_v_ctxt, &ctxt, _ctx);
   _res = wxGLCanvas_SetCurrent(self, ctxt);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGLCanvas_SwapBuffers(
+value camlidl_wxc_wxGLCanvas_SwapBuffers(
 	value _v_self)
 {
   wxGLCanvas self; /*in*/
@@ -132,14 +132,14 @@ value camlidl_wxc_idl_wxGLCanvas_SwapBuffers(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGLCanvas(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGLCanvas(_v_self, &self, _ctx);
   _res = wxGLCanvas_SwapBuffers(self);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGLCanvas_IsDisplaySupported(
+value camlidl_wxc_wxGLCanvas_IsDisplaySupported(
 	value _v_attributes)
 {
   int *attributes; /*in*/
@@ -160,7 +160,7 @@ value camlidl_wxc_idl_wxGLCanvas_IsDisplaySupported(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGLCanvas_IsExtensionSupported(
+value camlidl_wxc_wxGLCanvas_IsExtensionSupported(
 	value _v_extension)
 {
   wxString extension; /*in*/
@@ -169,7 +169,7 @@ value camlidl_wxc_idl_wxGLCanvas_IsExtensionSupported(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxString(_v_extension, &extension, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_extension, &extension, _ctx);
   _res = wxGLCanvas_IsExtensionSupported(extension);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

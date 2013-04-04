@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxMouseEvent(value _v1, wxMouseEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxMouseEvent(value _v1, wxMouseEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxMouseEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxMouseEvent(wxMouseEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxMouseEvent(wxMouseEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxMouseEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_AltDown(
+value camlidl_wxc_wxMouseEvent_AltDown(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxMouseEvent_AltDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_AltDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_Button(
+value camlidl_wxc_wxMouseEvent_Button(
 	value _v__obj,
 	value _v_but)
 {
@@ -56,7 +56,7 @@ value camlidl_wxc_idl_wxMouseEvent_Button(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   but = Int_val(_v_but);
   _res = wxMouseEvent_Button(_obj, but);
   _vres = Val_int(_res);
@@ -64,7 +64,7 @@ value camlidl_wxc_idl_wxMouseEvent_Button(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_ButtonDClick(
+value camlidl_wxc_wxMouseEvent_ButtonDClick(
 	value _v__obj,
 	value _v_but)
 {
@@ -75,7 +75,7 @@ value camlidl_wxc_idl_wxMouseEvent_ButtonDClick(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   but = Int_val(_v_but);
   _res = wxMouseEvent_ButtonDClick(_obj, but);
   _vres = Val_int(_res);
@@ -83,7 +83,7 @@ value camlidl_wxc_idl_wxMouseEvent_ButtonDClick(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_ButtonDown(
+value camlidl_wxc_wxMouseEvent_ButtonDown(
 	value _v__obj,
 	value _v_but)
 {
@@ -94,7 +94,7 @@ value camlidl_wxc_idl_wxMouseEvent_ButtonDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   but = Int_val(_v_but);
   _res = wxMouseEvent_ButtonDown(_obj, but);
   _vres = Val_int(_res);
@@ -102,7 +102,7 @@ value camlidl_wxc_idl_wxMouseEvent_ButtonDown(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_ButtonIsDown(
+value camlidl_wxc_wxMouseEvent_ButtonIsDown(
 	value _v__obj,
 	value _v_but)
 {
@@ -113,7 +113,7 @@ value camlidl_wxc_idl_wxMouseEvent_ButtonIsDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   but = Int_val(_v_but);
   _res = wxMouseEvent_ButtonIsDown(_obj, but);
   _vres = Val_int(_res);
@@ -121,7 +121,7 @@ value camlidl_wxc_idl_wxMouseEvent_ButtonIsDown(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_ButtonUp(
+value camlidl_wxc_wxMouseEvent_ButtonUp(
 	value _v__obj,
 	value _v_but)
 {
@@ -132,7 +132,7 @@ value camlidl_wxc_idl_wxMouseEvent_ButtonUp(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   but = Int_val(_v_but);
   _res = wxMouseEvent_ButtonUp(_obj, but);
   _vres = Val_int(_res);
@@ -140,7 +140,7 @@ value camlidl_wxc_idl_wxMouseEvent_ButtonUp(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_ControlDown(
+value camlidl_wxc_wxMouseEvent_ControlDown(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -149,14 +149,14 @@ value camlidl_wxc_idl_wxMouseEvent_ControlDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_ControlDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_CopyObject(
+value camlidl_wxc_wxMouseEvent_CopyObject(
 	value _v__obj,
 	value _v_object_dest)
 {
@@ -164,14 +164,14 @@ value camlidl_wxc_idl_wxMouseEvent_CopyObject(
   voidptr object_dest; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_object_dest, &object_dest, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_object_dest, &object_dest, _ctx);
   wxMouseEvent_CopyObject(_obj, object_dest);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_Dragging(
+value camlidl_wxc_wxMouseEvent_Dragging(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -180,14 +180,14 @@ value camlidl_wxc_idl_wxMouseEvent_Dragging(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_Dragging(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_Entering(
+value camlidl_wxc_wxMouseEvent_Entering(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -196,14 +196,14 @@ value camlidl_wxc_idl_wxMouseEvent_Entering(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_Entering(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_GetLogicalPosition(
+value camlidl_wxc_wxMouseEvent_GetLogicalPosition(
 	value _v__obj,
 	value _v_dc)
 {
@@ -214,15 +214,15 @@ value camlidl_wxc_idl_wxMouseEvent_GetLogicalPosition(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxDC(_v_dc, &dc, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxDC(_v_dc, &dc, _ctx);
   _res = wxMouseEvent_GetLogicalPosition(_obj, dc);
-  _vres = camlidl_c2ml_wxc_idl_wxPoint(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPoint(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_GetPosition(
+value camlidl_wxc_wxMouseEvent_GetPosition(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -231,14 +231,14 @@ value camlidl_wxc_idl_wxMouseEvent_GetPosition(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_GetPosition(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxPoint(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPoint(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_GetX(
+value camlidl_wxc_wxMouseEvent_GetX(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -247,14 +247,14 @@ value camlidl_wxc_idl_wxMouseEvent_GetX(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_GetX(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_GetY(
+value camlidl_wxc_wxMouseEvent_GetY(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -263,14 +263,14 @@ value camlidl_wxc_idl_wxMouseEvent_GetY(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_GetY(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_IsButton(
+value camlidl_wxc_wxMouseEvent_IsButton(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -279,14 +279,14 @@ value camlidl_wxc_idl_wxMouseEvent_IsButton(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_IsButton(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_Leaving(
+value camlidl_wxc_wxMouseEvent_Leaving(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -295,14 +295,14 @@ value camlidl_wxc_idl_wxMouseEvent_Leaving(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_Leaving(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_LeftDClick(
+value camlidl_wxc_wxMouseEvent_LeftDClick(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -311,14 +311,14 @@ value camlidl_wxc_idl_wxMouseEvent_LeftDClick(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_LeftDClick(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_LeftDown(
+value camlidl_wxc_wxMouseEvent_LeftDown(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -327,14 +327,14 @@ value camlidl_wxc_idl_wxMouseEvent_LeftDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_LeftDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_LeftIsDown(
+value camlidl_wxc_wxMouseEvent_LeftIsDown(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -343,14 +343,14 @@ value camlidl_wxc_idl_wxMouseEvent_LeftIsDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_LeftIsDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_LeftUp(
+value camlidl_wxc_wxMouseEvent_LeftUp(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -359,14 +359,14 @@ value camlidl_wxc_idl_wxMouseEvent_LeftUp(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_LeftUp(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_MetaDown(
+value camlidl_wxc_wxMouseEvent_MetaDown(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -375,14 +375,14 @@ value camlidl_wxc_idl_wxMouseEvent_MetaDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_MetaDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_MiddleDClick(
+value camlidl_wxc_wxMouseEvent_MiddleDClick(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -391,14 +391,14 @@ value camlidl_wxc_idl_wxMouseEvent_MiddleDClick(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_MiddleDClick(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_MiddleDown(
+value camlidl_wxc_wxMouseEvent_MiddleDown(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -407,14 +407,14 @@ value camlidl_wxc_idl_wxMouseEvent_MiddleDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_MiddleDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_MiddleIsDown(
+value camlidl_wxc_wxMouseEvent_MiddleIsDown(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -423,14 +423,14 @@ value camlidl_wxc_idl_wxMouseEvent_MiddleIsDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_MiddleIsDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_MiddleUp(
+value camlidl_wxc_wxMouseEvent_MiddleUp(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -439,14 +439,14 @@ value camlidl_wxc_idl_wxMouseEvent_MiddleUp(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_MiddleUp(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_Moving(
+value camlidl_wxc_wxMouseEvent_Moving(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -455,14 +455,14 @@ value camlidl_wxc_idl_wxMouseEvent_Moving(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_Moving(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_RightDClick(
+value camlidl_wxc_wxMouseEvent_RightDClick(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -471,14 +471,14 @@ value camlidl_wxc_idl_wxMouseEvent_RightDClick(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_RightDClick(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_RightDown(
+value camlidl_wxc_wxMouseEvent_RightDown(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -487,14 +487,14 @@ value camlidl_wxc_idl_wxMouseEvent_RightDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_RightDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_RightIsDown(
+value camlidl_wxc_wxMouseEvent_RightIsDown(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -503,14 +503,14 @@ value camlidl_wxc_idl_wxMouseEvent_RightIsDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_RightIsDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_RightUp(
+value camlidl_wxc_wxMouseEvent_RightUp(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -519,14 +519,14 @@ value camlidl_wxc_idl_wxMouseEvent_RightUp(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_RightUp(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_ShiftDown(
+value camlidl_wxc_wxMouseEvent_ShiftDown(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -535,14 +535,14 @@ value camlidl_wxc_idl_wxMouseEvent_ShiftDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_ShiftDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_GetWheelDelta(
+value camlidl_wxc_wxMouseEvent_GetWheelDelta(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -551,14 +551,14 @@ value camlidl_wxc_idl_wxMouseEvent_GetWheelDelta(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_GetWheelDelta(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_GetWheelRotation(
+value camlidl_wxc_wxMouseEvent_GetWheelRotation(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -567,14 +567,14 @@ value camlidl_wxc_idl_wxMouseEvent_GetWheelRotation(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_GetWheelRotation(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMouseEvent_GetButton(
+value camlidl_wxc_wxMouseEvent_GetButton(
 	value _v__obj)
 {
   wxMouseEvent _obj; /*in*/
@@ -583,7 +583,7 @@ value camlidl_wxc_idl_wxMouseEvent_GetButton(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMouseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMouseEvent(_v__obj, &_obj, _ctx);
   _res = wxMouseEvent_GetButton(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

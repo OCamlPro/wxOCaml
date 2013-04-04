@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxObject(value _v1, wxObject * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxObject(value _v1, wxObject * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxObject *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxObject(wxObject * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxObject(wxObject * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxObject) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,19 +29,19 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxObject_SafeDelete(
+value camlidl_wxc_wxObject_SafeDelete(
 	value _v_self)
 {
   wxObject self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxObject(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxObject(_v_self, &self, _ctx);
   wxObject_SafeDelete(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxObject_GetClientClosure(
+value camlidl_wxc_wxObject_GetClientClosure(
 	value _v__obj)
 {
   wxObject _obj; /*in*/
@@ -50,14 +50,14 @@ value camlidl_wxc_idl_wxObject_GetClientClosure(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxObject(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxObject(_v__obj, &_obj, _ctx);
   _res = wxObject_GetClientClosure(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxClosure(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxClosure(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxObject_SetClientClosure(
+value camlidl_wxc_wxObject_SetClientClosure(
 	value _v__obj,
 	value _v_closure)
 {
@@ -65,26 +65,26 @@ value camlidl_wxc_idl_wxObject_SetClientClosure(
   wxClosure closure; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxObject(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxClosure(_v_closure, &closure, _ctx);
+  camlidl_ml2c_wxc_wxObject(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxClosure(_v_closure, &closure, _ctx);
   wxObject_SetClientClosure(_obj, closure);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxObject_Delete(
+value camlidl_wxc_wxObject_Delete(
 	value _v_obj)
 {
   wxObject obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxObject(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxObject(_v_obj, &obj, _ctx);
   wxObject_Delete(obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxObject_GetClassInfo(
+value camlidl_wxc_wxObject_GetClassInfo(
 	value _v__obj)
 {
   wxObject _obj; /*in*/
@@ -93,14 +93,14 @@ value camlidl_wxc_idl_wxObject_GetClassInfo(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxObject(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxObject(_v__obj, &_obj, _ctx);
   _res = wxObject_GetClassInfo(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxClassInfo(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxClassInfo(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxObject_IsKindOf(
+value camlidl_wxc_wxObject_IsKindOf(
 	value _v__obj,
 	value _v_classInfo)
 {
@@ -111,15 +111,15 @@ value camlidl_wxc_idl_wxObject_IsKindOf(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxObject(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxClassInfo(_v_classInfo, &classInfo, _ctx);
+  camlidl_ml2c_wxc_wxObject(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxClassInfo(_v_classInfo, &classInfo, _ctx);
   _res = wxObject_IsKindOf(_obj, classInfo);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxObject_IsScrolledWindow(
+value camlidl_wxc_wxObject_IsScrolledWindow(
 	value _v__obj)
 {
   wxObject _obj; /*in*/
@@ -128,7 +128,7 @@ value camlidl_wxc_idl_wxObject_IsScrolledWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxObject(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxObject(_v__obj, &_obj, _ctx);
   _res = wxObject_IsScrolledWindow(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

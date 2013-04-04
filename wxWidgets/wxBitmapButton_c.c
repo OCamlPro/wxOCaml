@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxBitmapButton(value _v1, wxBitmapButton * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxBitmapButton(value _v1, wxBitmapButton * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxBitmapButton *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxBitmapButton(wxBitmapButton * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxBitmapButton(wxBitmapButton * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxBitmapButton) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxBitmapButton_Create(
+value camlidl_wxc_wxBitmapButton_Create(
 	value _v__prt,
 	value _v__id,
 	value _v__bmp,
@@ -52,26 +52,26 @@ value camlidl_wxc_idl_wxBitmapButton_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
   _id = Int_val(_v__id);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v__bmp, &_bmp, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v__bmp, &_bmp, _ctx);
   _lft = Int_val(_v__lft);
   _top = Int_val(_v__top);
   _wdt = Int_val(_v__wdt);
   _hgt = Int_val(_v__hgt);
   _stl = Int_val(_v__stl);
   _res = wxBitmapButton_Create(_prt, _id, _bmp, _lft, _top, _wdt, _hgt, _stl);
-  _vres = camlidl_c2ml_wxc_idl_wxBitmapButton(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxBitmapButton(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBitmapButton_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxBitmapButton_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxBitmapButton_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
+  return camlidl_wxc_wxBitmapButton_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
 }
 
-value camlidl_wxc_idl_wxBitmapButton_GetBitmapDisabled(
+value camlidl_wxc_wxBitmapButton_GetBitmapDisabled(
 	value _v__obj,
 	value _v__ref)
 {
@@ -79,14 +79,14 @@ value camlidl_wxc_idl_wxBitmapButton_GetBitmapDisabled(
   wxBitmap _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmapButton(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxBitmapButton(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v__ref, &_ref, _ctx);
   wxBitmapButton_GetBitmapDisabled(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBitmapButton_GetBitmapFocus(
+value camlidl_wxc_wxBitmapButton_GetBitmapFocus(
 	value _v__obj,
 	value _v__ref)
 {
@@ -94,14 +94,14 @@ value camlidl_wxc_idl_wxBitmapButton_GetBitmapFocus(
   wxBitmap _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmapButton(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxBitmapButton(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v__ref, &_ref, _ctx);
   wxBitmapButton_GetBitmapFocus(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBitmapButton_GetBitmapLabel(
+value camlidl_wxc_wxBitmapButton_GetBitmapLabel(
 	value _v__obj,
 	value _v__ref)
 {
@@ -109,14 +109,14 @@ value camlidl_wxc_idl_wxBitmapButton_GetBitmapLabel(
   wxBitmap _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmapButton(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxBitmapButton(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v__ref, &_ref, _ctx);
   wxBitmapButton_GetBitmapLabel(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBitmapButton_GetBitmapSelected(
+value camlidl_wxc_wxBitmapButton_GetBitmapSelected(
 	value _v__obj,
 	value _v__ref)
 {
@@ -124,14 +124,14 @@ value camlidl_wxc_idl_wxBitmapButton_GetBitmapSelected(
   wxBitmap _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmapButton(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxBitmapButton(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v__ref, &_ref, _ctx);
   wxBitmapButton_GetBitmapSelected(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBitmapButton_GetMarginX(
+value camlidl_wxc_wxBitmapButton_GetMarginX(
 	value _v__obj)
 {
   wxBitmapButton _obj; /*in*/
@@ -140,14 +140,14 @@ value camlidl_wxc_idl_wxBitmapButton_GetMarginX(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmapButton(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmapButton(_v__obj, &_obj, _ctx);
   _res = wxBitmapButton_GetMarginX(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBitmapButton_GetMarginY(
+value camlidl_wxc_wxBitmapButton_GetMarginY(
 	value _v__obj)
 {
   wxBitmapButton _obj; /*in*/
@@ -156,14 +156,14 @@ value camlidl_wxc_idl_wxBitmapButton_GetMarginY(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmapButton(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmapButton(_v__obj, &_obj, _ctx);
   _res = wxBitmapButton_GetMarginY(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBitmapButton_SetBitmapDisabled(
+value camlidl_wxc_wxBitmapButton_SetBitmapDisabled(
 	value _v__obj,
 	value _v_disabled)
 {
@@ -171,14 +171,14 @@ value camlidl_wxc_idl_wxBitmapButton_SetBitmapDisabled(
   wxBitmap disabled; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmapButton(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_disabled, &disabled, _ctx);
+  camlidl_ml2c_wxc_wxBitmapButton(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_disabled, &disabled, _ctx);
   wxBitmapButton_SetBitmapDisabled(_obj, disabled);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBitmapButton_SetBitmapFocus(
+value camlidl_wxc_wxBitmapButton_SetBitmapFocus(
 	value _v__obj,
 	value _v_focus)
 {
@@ -186,14 +186,14 @@ value camlidl_wxc_idl_wxBitmapButton_SetBitmapFocus(
   wxBitmap focus; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmapButton(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_focus, &focus, _ctx);
+  camlidl_ml2c_wxc_wxBitmapButton(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_focus, &focus, _ctx);
   wxBitmapButton_SetBitmapFocus(_obj, focus);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBitmapButton_SetBitmapLabel(
+value camlidl_wxc_wxBitmapButton_SetBitmapLabel(
 	value _v__obj,
 	value _v_bitmap)
 {
@@ -201,14 +201,14 @@ value camlidl_wxc_idl_wxBitmapButton_SetBitmapLabel(
   wxBitmap bitmap; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmapButton(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_bitmap, &bitmap, _ctx);
+  camlidl_ml2c_wxc_wxBitmapButton(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_bitmap, &bitmap, _ctx);
   wxBitmapButton_SetBitmapLabel(_obj, bitmap);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBitmapButton_SetBitmapSelected(
+value camlidl_wxc_wxBitmapButton_SetBitmapSelected(
 	value _v__obj,
 	value _v_sel)
 {
@@ -216,14 +216,14 @@ value camlidl_wxc_idl_wxBitmapButton_SetBitmapSelected(
   wxBitmap sel; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmapButton(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_sel, &sel, _ctx);
+  camlidl_ml2c_wxc_wxBitmapButton(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_sel, &sel, _ctx);
   wxBitmapButton_SetBitmapSelected(_obj, sel);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBitmapButton_SetMargins(
+value camlidl_wxc_wxBitmapButton_SetMargins(
 	value _v__obj,
 	value _v_x,
 	value _v_y)
@@ -233,7 +233,7 @@ value camlidl_wxc_idl_wxBitmapButton_SetMargins(
   int y; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmapButton(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmapButton(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   wxBitmapButton_SetMargins(_obj, x, y);

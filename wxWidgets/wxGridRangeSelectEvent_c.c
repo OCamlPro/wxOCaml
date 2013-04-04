@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGridRangeSelectEvent(value _v1, wxGridRangeSelectEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGridRangeSelectEvent(value _v1, wxGridRangeSelectEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGridRangeSelectEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGridRangeSelectEvent(wxGridRangeSelectEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGridRangeSelectEvent(wxGridRangeSelectEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGridRangeSelectEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGridRangeSelectEvent_GetTopLeftCoords(
+value camlidl_wxc_wxGridRangeSelectEvent_GetTopLeftCoords(
 	value _v__obj)
 {
   wxGridRangeSelectEvent _obj; /*in*/
@@ -42,7 +42,7 @@ value camlidl_wxc_idl_wxGridRangeSelectEvent_GetTopLeftCoords(
   value _vresult;
   value _vres[2] = { 0, 0, };
 
-  camlidl_ml2c_wxc_idl_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
   col = &_c1;
   row = &_c2;
   wxGridRangeSelectEvent_GetTopLeftCoords(_obj, col, row);
@@ -57,7 +57,7 @@ value camlidl_wxc_idl_wxGridRangeSelectEvent_GetTopLeftCoords(
   return _vresult;
 }
 
-value camlidl_wxc_idl_wxGridRangeSelectEvent_GetBottomRightCoords(
+value camlidl_wxc_wxGridRangeSelectEvent_GetBottomRightCoords(
 	value _v__obj)
 {
   wxGridRangeSelectEvent _obj; /*in*/
@@ -70,7 +70,7 @@ value camlidl_wxc_idl_wxGridRangeSelectEvent_GetBottomRightCoords(
   value _vresult;
   value _vres[2] = { 0, 0, };
 
-  camlidl_ml2c_wxc_idl_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
   col = &_c1;
   row = &_c2;
   wxGridRangeSelectEvent_GetBottomRightCoords(_obj, col, row);
@@ -85,7 +85,7 @@ value camlidl_wxc_idl_wxGridRangeSelectEvent_GetBottomRightCoords(
   return _vresult;
 }
 
-value camlidl_wxc_idl_wxGridRangeSelectEvent_GetTopRow(
+value camlidl_wxc_wxGridRangeSelectEvent_GetTopRow(
 	value _v__obj)
 {
   wxGridRangeSelectEvent _obj; /*in*/
@@ -94,14 +94,14 @@ value camlidl_wxc_idl_wxGridRangeSelectEvent_GetTopRow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
   _res = wxGridRangeSelectEvent_GetTopRow(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridRangeSelectEvent_GetBottomRow(
+value camlidl_wxc_wxGridRangeSelectEvent_GetBottomRow(
 	value _v__obj)
 {
   wxGridRangeSelectEvent _obj; /*in*/
@@ -110,14 +110,14 @@ value camlidl_wxc_idl_wxGridRangeSelectEvent_GetBottomRow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
   _res = wxGridRangeSelectEvent_GetBottomRow(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridRangeSelectEvent_GetLeftCol(
+value camlidl_wxc_wxGridRangeSelectEvent_GetLeftCol(
 	value _v__obj)
 {
   wxGridRangeSelectEvent _obj; /*in*/
@@ -126,14 +126,14 @@ value camlidl_wxc_idl_wxGridRangeSelectEvent_GetLeftCol(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
   _res = wxGridRangeSelectEvent_GetLeftCol(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridRangeSelectEvent_GetRightCol(
+value camlidl_wxc_wxGridRangeSelectEvent_GetRightCol(
 	value _v__obj)
 {
   wxGridRangeSelectEvent _obj; /*in*/
@@ -142,14 +142,14 @@ value camlidl_wxc_idl_wxGridRangeSelectEvent_GetRightCol(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
   _res = wxGridRangeSelectEvent_GetRightCol(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridRangeSelectEvent_Selecting(
+value camlidl_wxc_wxGridRangeSelectEvent_Selecting(
 	value _v__obj)
 {
   wxGridRangeSelectEvent _obj; /*in*/
@@ -158,14 +158,14 @@ value camlidl_wxc_idl_wxGridRangeSelectEvent_Selecting(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
   _res = wxGridRangeSelectEvent_Selecting(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridRangeSelectEvent_ControlDown(
+value camlidl_wxc_wxGridRangeSelectEvent_ControlDown(
 	value _v__obj)
 {
   wxGridRangeSelectEvent _obj; /*in*/
@@ -174,14 +174,14 @@ value camlidl_wxc_idl_wxGridRangeSelectEvent_ControlDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
   _res = wxGridRangeSelectEvent_ControlDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridRangeSelectEvent_MetaDown(
+value camlidl_wxc_wxGridRangeSelectEvent_MetaDown(
 	value _v__obj)
 {
   wxGridRangeSelectEvent _obj; /*in*/
@@ -190,14 +190,14 @@ value camlidl_wxc_idl_wxGridRangeSelectEvent_MetaDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
   _res = wxGridRangeSelectEvent_MetaDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridRangeSelectEvent_ShiftDown(
+value camlidl_wxc_wxGridRangeSelectEvent_ShiftDown(
 	value _v__obj)
 {
   wxGridRangeSelectEvent _obj; /*in*/
@@ -206,14 +206,14 @@ value camlidl_wxc_idl_wxGridRangeSelectEvent_ShiftDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
   _res = wxGridRangeSelectEvent_ShiftDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridRangeSelectEvent_AltDown(
+value camlidl_wxc_wxGridRangeSelectEvent_AltDown(
 	value _v__obj)
 {
   wxGridRangeSelectEvent _obj; /*in*/
@@ -222,7 +222,7 @@ value camlidl_wxc_idl_wxGridRangeSelectEvent_AltDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridRangeSelectEvent(_v__obj, &_obj, _ctx);
   _res = wxGridRangeSelectEvent_AltDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxNavigationKeyEvent(value _v1, wxNavigationKeyEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxNavigationKeyEvent(value _v1, wxNavigationKeyEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxNavigationKeyEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxNavigationKeyEvent(wxNavigationKeyEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxNavigationKeyEvent(wxNavigationKeyEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxNavigationKeyEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxNavigationKeyEvent_GetCurrentFocus(
+value camlidl_wxc_wxNavigationKeyEvent_GetCurrentFocus(
 	value _v__obj)
 {
   wxNavigationKeyEvent _obj; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxNavigationKeyEvent_GetCurrentFocus(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
   _res = wxNavigationKeyEvent_GetCurrentFocus(_obj);
-  _vres = camlidl_c2ml_wxc_idl_voidptr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_voidptr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNavigationKeyEvent_GetDirection(
+value camlidl_wxc_wxNavigationKeyEvent_GetDirection(
 	value _v__obj)
 {
   wxNavigationKeyEvent _obj; /*in*/
@@ -54,14 +54,14 @@ value camlidl_wxc_idl_wxNavigationKeyEvent_GetDirection(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
   _res = wxNavigationKeyEvent_GetDirection(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNavigationKeyEvent_IsWindowChange(
+value camlidl_wxc_wxNavigationKeyEvent_IsWindowChange(
 	value _v__obj)
 {
   wxNavigationKeyEvent _obj; /*in*/
@@ -70,14 +70,14 @@ value camlidl_wxc_idl_wxNavigationKeyEvent_IsWindowChange(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
   _res = wxNavigationKeyEvent_IsWindowChange(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNavigationKeyEvent_SetCurrentFocus(
+value camlidl_wxc_wxNavigationKeyEvent_SetCurrentFocus(
 	value _v__obj,
 	value _v_win)
 {
@@ -85,14 +85,14 @@ value camlidl_wxc_idl_wxNavigationKeyEvent_SetCurrentFocus(
   wxWindow win; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_win, &win, _ctx);
+  camlidl_ml2c_wxc_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_win, &win, _ctx);
   wxNavigationKeyEvent_SetCurrentFocus(_obj, win);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxNavigationKeyEvent_SetDirection(
+value camlidl_wxc_wxNavigationKeyEvent_SetDirection(
 	value _v__obj,
 	value _v_bForward)
 {
@@ -100,14 +100,14 @@ value camlidl_wxc_idl_wxNavigationKeyEvent_SetDirection(
   int bForward; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
   bForward = Int_val(_v_bForward);
   wxNavigationKeyEvent_SetDirection(_obj, bForward);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxNavigationKeyEvent_SetWindowChange(
+value camlidl_wxc_wxNavigationKeyEvent_SetWindowChange(
 	value _v__obj,
 	value _v_bIs)
 {
@@ -115,14 +115,14 @@ value camlidl_wxc_idl_wxNavigationKeyEvent_SetWindowChange(
   int bIs; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
   bIs = Int_val(_v_bIs);
   wxNavigationKeyEvent_SetWindowChange(_obj, bIs);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxNavigationKeyEvent_ShouldPropagate(
+value camlidl_wxc_wxNavigationKeyEvent_ShouldPropagate(
 	value _v__obj)
 {
   wxNavigationKeyEvent _obj; /*in*/
@@ -131,7 +131,7 @@ value camlidl_wxc_idl_wxNavigationKeyEvent_ShouldPropagate(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNavigationKeyEvent(_v__obj, &_obj, _ctx);
   _res = wxNavigationKeyEvent_ShouldPropagate(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

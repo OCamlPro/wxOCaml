@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxControl(value _v1, wxControl * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxControl(value _v1, wxControl * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxControl *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxControl(wxControl * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxControl(wxControl * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxControl) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxControl_Command(
+value camlidl_wxc_wxControl_Command(
 	value _v__obj,
 	value _v_event)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxControl_Command(
   wxEvent event; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxControl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxEvent(_v_event, &event, _ctx);
+  camlidl_ml2c_wxc_wxControl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxEvent(_v_event, &event, _ctx);
   wxControl_Command(_obj, event);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxControl_GetLabel(
+value camlidl_wxc_wxControl_GetLabel(
 	value _v__obj)
 {
   wxControl _obj; /*in*/
@@ -53,14 +53,14 @@ value camlidl_wxc_idl_wxControl_GetLabel(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxControl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxControl(_v__obj, &_obj, _ctx);
   _res = wxControl_GetLabel(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxControl_SetLabel(
+value camlidl_wxc_wxControl_SetLabel(
 	value _v__obj,
 	value _v_text)
 {
@@ -68,8 +68,8 @@ value camlidl_wxc_idl_wxControl_SetLabel(
   wxString text; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxControl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxControl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_text, &text, _ctx);
   wxControl_SetLabel(_obj, text);
   camlidl_free(_ctx);
   return Val_unit;

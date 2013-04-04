@@ -1,15 +1,15 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : wxInputStream -> wxString -> wxTextInputStream
-	= "camlidl_wxc_idl_wxTextInputStream_Create"
+	= "camlidl_wxc_wxTextInputStream_Create"
 
 external readLine : wxTextInputStream -> wxString
-	= "camlidl_wxc_idl_wxTextInputStream_ReadLine"
+	= "camlidl_wxc_wxTextInputStream_ReadLine"
 
 external delete : wxTextInputStream -> unit
-	= "camlidl_wxc_idl_wxTextInputStream_Delete"
+	= "camlidl_wxc_wxTextInputStream_Delete"
 
 let wxnew inputStream sep =
   let sep = WxString.createUTF8 sep in

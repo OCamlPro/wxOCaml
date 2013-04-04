@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxTopLevelWindow(value _v1, wxTopLevelWindow * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxTopLevelWindow(value _v1, wxTopLevelWindow * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxTopLevelWindow *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxTopLevelWindow(wxTopLevelWindow * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxTopLevelWindow(wxTopLevelWindow * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxTopLevelWindow) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_EnableCloseButton(
+value camlidl_wxc_wxTopLevelWindow_EnableCloseButton(
 	value _v__obj,
 	value _v_enable)
 {
@@ -40,7 +40,7 @@ value camlidl_wxc_idl_wxTopLevelWindow_EnableCloseButton(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
   enable = Int_val(_v_enable);
   _res = wxTopLevelWindow_EnableCloseButton(_obj, enable);
   _vres = Val_int(_res);
@@ -48,7 +48,7 @@ value camlidl_wxc_idl_wxTopLevelWindow_EnableCloseButton(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_GetDefaultButton(
+value camlidl_wxc_wxTopLevelWindow_GetDefaultButton(
 	value _v__obj)
 {
   wxTopLevelWindow _obj; /*in*/
@@ -57,14 +57,14 @@ value camlidl_wxc_idl_wxTopLevelWindow_GetDefaultButton(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
   _res = wxTopLevelWindow_GetDefaultButton(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxButton(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxButton(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_GetDefaultItem(
+value camlidl_wxc_wxTopLevelWindow_GetDefaultItem(
 	value _v__obj)
 {
   wxTopLevelWindow _obj; /*in*/
@@ -73,14 +73,14 @@ value camlidl_wxc_idl_wxTopLevelWindow_GetDefaultItem(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
   _res = wxTopLevelWindow_GetDefaultItem(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxWindow(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxWindow(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_GetIcon(
+value camlidl_wxc_wxTopLevelWindow_GetIcon(
 	value _v__obj)
 {
   wxTopLevelWindow _obj; /*in*/
@@ -89,14 +89,14 @@ value camlidl_wxc_idl_wxTopLevelWindow_GetIcon(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
   _res = wxTopLevelWindow_GetIcon(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxIcon(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxIcon(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_GetTitle(
+value camlidl_wxc_wxTopLevelWindow_GetTitle(
 	value _v__obj)
 {
   wxTopLevelWindow _obj; /*in*/
@@ -105,14 +105,14 @@ value camlidl_wxc_idl_wxTopLevelWindow_GetTitle(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
   _res = wxTopLevelWindow_GetTitle(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_Iconize(
+value camlidl_wxc_wxTopLevelWindow_Iconize(
 	value _v__obj,
 	value _v_iconize)
 {
@@ -123,7 +123,7 @@ value camlidl_wxc_idl_wxTopLevelWindow_Iconize(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
   iconize = Int_val(_v_iconize);
   _res = wxTopLevelWindow_Iconize(_obj, iconize);
   _vres = Val_int(_res);
@@ -131,7 +131,7 @@ value camlidl_wxc_idl_wxTopLevelWindow_Iconize(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_IsActive(
+value camlidl_wxc_wxTopLevelWindow_IsActive(
 	value _v__obj)
 {
   wxTopLevelWindow _obj; /*in*/
@@ -140,14 +140,14 @@ value camlidl_wxc_idl_wxTopLevelWindow_IsActive(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
   _res = wxTopLevelWindow_IsActive(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_IsIconized(
+value camlidl_wxc_wxTopLevelWindow_IsIconized(
 	value _v__obj)
 {
   wxTopLevelWindow _obj; /*in*/
@@ -156,14 +156,14 @@ value camlidl_wxc_idl_wxTopLevelWindow_IsIconized(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
   _res = wxTopLevelWindow_IsIconized(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_IsMaximized(
+value camlidl_wxc_wxTopLevelWindow_IsMaximized(
 	value _v__obj)
 {
   wxTopLevelWindow _obj; /*in*/
@@ -172,14 +172,14 @@ value camlidl_wxc_idl_wxTopLevelWindow_IsMaximized(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
   _res = wxTopLevelWindow_IsMaximized(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_Maximize(
+value camlidl_wxc_wxTopLevelWindow_Maximize(
 	value _v__obj,
 	value _v_maximize)
 {
@@ -187,14 +187,14 @@ value camlidl_wxc_idl_wxTopLevelWindow_Maximize(
   int maximize; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
   maximize = Int_val(_v_maximize);
   wxTopLevelWindow_Maximize(_obj, maximize);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_RequestUserAttention(
+value camlidl_wxc_wxTopLevelWindow_RequestUserAttention(
 	value _v__obj,
 	value _v_flags)
 {
@@ -202,14 +202,14 @@ value camlidl_wxc_idl_wxTopLevelWindow_RequestUserAttention(
   int flags; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
   flags = Int_val(_v_flags);
   wxTopLevelWindow_RequestUserAttention(_obj, flags);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_SetDefaultButton(
+value camlidl_wxc_wxTopLevelWindow_SetDefaultButton(
 	value _v__obj,
 	value _v_pBut)
 {
@@ -217,14 +217,14 @@ value camlidl_wxc_idl_wxTopLevelWindow_SetDefaultButton(
   wxButton pBut; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxButton(_v_pBut, &pBut, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxButton(_v_pBut, &pBut, _ctx);
   wxTopLevelWindow_SetDefaultButton(_obj, pBut);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_SetDefaultItem(
+value camlidl_wxc_wxTopLevelWindow_SetDefaultItem(
 	value _v__obj,
 	value _v_pBut)
 {
@@ -232,14 +232,14 @@ value camlidl_wxc_idl_wxTopLevelWindow_SetDefaultItem(
   wxWindow pBut; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_pBut, &pBut, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_pBut, &pBut, _ctx);
   wxTopLevelWindow_SetDefaultItem(_obj, pBut);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_SetIcon(
+value camlidl_wxc_wxTopLevelWindow_SetIcon(
 	value _v__obj,
 	value _v_pIcon)
 {
@@ -247,14 +247,14 @@ value camlidl_wxc_idl_wxTopLevelWindow_SetIcon(
   wxIcon pIcon; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxIcon(_v_pIcon, &pIcon, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIcon(_v_pIcon, &pIcon, _ctx);
   wxTopLevelWindow_SetIcon(_obj, pIcon);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_SetIcons(
+value camlidl_wxc_wxTopLevelWindow_SetIcons(
 	value _v__obj,
 	value _v__icons)
 {
@@ -262,14 +262,14 @@ value camlidl_wxc_idl_wxTopLevelWindow_SetIcons(
   voidptr _icons; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__icons, &_icons, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__icons, &_icons, _ctx);
   wxTopLevelWindow_SetIcons(_obj, _icons);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_SetMaxSize(
+value camlidl_wxc_wxTopLevelWindow_SetMaxSize(
 	value _v__obj,
 	value _v_w,
 	value _v_h)
@@ -279,7 +279,7 @@ value camlidl_wxc_idl_wxTopLevelWindow_SetMaxSize(
   int h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
   w = Int_val(_v_w);
   h = Int_val(_v_h);
   wxTopLevelWindow_SetMaxSize(_obj, w, h);
@@ -287,7 +287,7 @@ value camlidl_wxc_idl_wxTopLevelWindow_SetMaxSize(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_SetMinSize(
+value camlidl_wxc_wxTopLevelWindow_SetMinSize(
 	value _v__obj,
 	value _v_w,
 	value _v_h)
@@ -297,7 +297,7 @@ value camlidl_wxc_idl_wxTopLevelWindow_SetMinSize(
   int h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
   w = Int_val(_v_w);
   h = Int_val(_v_h);
   wxTopLevelWindow_SetMinSize(_obj, w, h);
@@ -305,7 +305,7 @@ value camlidl_wxc_idl_wxTopLevelWindow_SetMinSize(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTopLevelWindow_SetTitle(
+value camlidl_wxc_wxTopLevelWindow_SetTitle(
 	value _v__obj,
 	value _v_pString)
 {
@@ -313,8 +313,8 @@ value camlidl_wxc_idl_wxTopLevelWindow_SetTitle(
   wxString pString; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTopLevelWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_pString, &pString, _ctx);
+  camlidl_ml2c_wxc_wxTopLevelWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_pString, &pString, _ctx);
   wxTopLevelWindow_SetTitle(_obj, pString);
   camlidl_free(_ctx);
   return Val_unit;

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxAutoBufferedPaintDC(value _v1, wxAutoBufferedPaintDC * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxAutoBufferedPaintDC(value _v1, wxAutoBufferedPaintDC * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxAutoBufferedPaintDC *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxAutoBufferedPaintDC(wxAutoBufferedPaintDC * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxAutoBufferedPaintDC(wxAutoBufferedPaintDC * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxAutoBufferedPaintDC) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxAutoBufferedPaintDC_Create(
+value camlidl_wxc_wxAutoBufferedPaintDC_Create(
 	value _v_window)
 {
   wxWindow window; /*in*/
@@ -38,20 +38,20 @@ value camlidl_wxc_idl_wxAutoBufferedPaintDC_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v_window, &window, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_window, &window, _ctx);
   _res = wxAutoBufferedPaintDC_Create(window);
-  _vres = camlidl_c2ml_wxc_idl_wxAutoBufferedPaintDC(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxAutoBufferedPaintDC(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxAutoBufferedPaintDC_Delete(
+value camlidl_wxc_wxAutoBufferedPaintDC_Delete(
 	value _v_self)
 {
   wxAutoBufferedPaintDC self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxAutoBufferedPaintDC(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxAutoBufferedPaintDC(_v_self, &self, _ctx);
   wxAutoBufferedPaintDC_Delete(self);
   camlidl_free(_ctx);
   return Val_unit;

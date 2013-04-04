@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxTextAttr(value _v1, wxTextAttr * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxTextAttr(value _v1, wxTextAttr * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxTextAttr *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxTextAttr(wxTextAttr * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxTextAttr(wxTextAttr * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxTextAttr) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxTextAttr_Create(
+value camlidl_wxc_wxTextAttr_Create(
 	value _v_colText,
 	value _v_colBack,
 	value _v_font)
@@ -42,16 +42,16 @@ value camlidl_wxc_idl_wxTextAttr_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxColour(_v_colText, &colText, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v_colBack, &colBack, _ctx);
-  camlidl_ml2c_wxc_idl_wxFont(_v_font, &font, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_colText, &colText, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_colBack, &colBack, _ctx);
+  camlidl_ml2c_wxc_wxFont(_v_font, &font, _ctx);
   _res = wxTextAttr_Create(colText, colBack, font);
-  _vres = camlidl_c2ml_wxc_idl_wxTextAttr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxTextAttr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextAttr_CreateDefault(value _unit)
+value camlidl_wxc_wxTextAttr_CreateDefault(value _unit)
 {
   wxTextAttr _res;
   value _vres;
@@ -59,24 +59,24 @@ value camlidl_wxc_idl_wxTextAttr_CreateDefault(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxTextAttr_CreateDefault();
-  _vres = camlidl_c2ml_wxc_idl_wxTextAttr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxTextAttr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextAttr_Delete(
+value camlidl_wxc_wxTextAttr_Delete(
 	value _v__obj)
 {
   wxTextAttr _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextAttr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextAttr(_v__obj, &_obj, _ctx);
   wxTextAttr_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextAttr_GetBackgroundColour(
+value camlidl_wxc_wxTextAttr_GetBackgroundColour(
 	value _v__obj,
 	value _v_colour)
 {
@@ -84,14 +84,14 @@ value camlidl_wxc_idl_wxTextAttr_GetBackgroundColour(
   wxColour colour; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextAttr(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v_colour, &colour, _ctx);
+  camlidl_ml2c_wxc_wxTextAttr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_colour, &colour, _ctx);
   wxTextAttr_GetBackgroundColour(_obj, colour);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextAttr_GetFont(
+value camlidl_wxc_wxTextAttr_GetFont(
 	value _v__obj,
 	value _v_font)
 {
@@ -99,14 +99,14 @@ value camlidl_wxc_idl_wxTextAttr_GetFont(
   wxFont font; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextAttr(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxFont(_v_font, &font, _ctx);
+  camlidl_ml2c_wxc_wxTextAttr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFont(_v_font, &font, _ctx);
   wxTextAttr_GetFont(_obj, font);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextAttr_GetTextColour(
+value camlidl_wxc_wxTextAttr_GetTextColour(
 	value _v__obj,
 	value _v_colour)
 {
@@ -114,14 +114,14 @@ value camlidl_wxc_idl_wxTextAttr_GetTextColour(
   wxColour colour; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextAttr(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v_colour, &colour, _ctx);
+  camlidl_ml2c_wxc_wxTextAttr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_colour, &colour, _ctx);
   wxTextAttr_GetTextColour(_obj, colour);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextAttr_HasBackgroundColour(
+value camlidl_wxc_wxTextAttr_HasBackgroundColour(
 	value _v__obj)
 {
   wxTextAttr _obj; /*in*/
@@ -130,14 +130,14 @@ value camlidl_wxc_idl_wxTextAttr_HasBackgroundColour(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextAttr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextAttr(_v__obj, &_obj, _ctx);
   _res = wxTextAttr_HasBackgroundColour(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextAttr_HasFont(
+value camlidl_wxc_wxTextAttr_HasFont(
 	value _v__obj)
 {
   wxTextAttr _obj; /*in*/
@@ -146,14 +146,14 @@ value camlidl_wxc_idl_wxTextAttr_HasFont(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextAttr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextAttr(_v__obj, &_obj, _ctx);
   _res = wxTextAttr_HasFont(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextAttr_HasTextColour(
+value camlidl_wxc_wxTextAttr_HasTextColour(
 	value _v__obj)
 {
   wxTextAttr _obj; /*in*/
@@ -162,14 +162,14 @@ value camlidl_wxc_idl_wxTextAttr_HasTextColour(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextAttr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextAttr(_v__obj, &_obj, _ctx);
   _res = wxTextAttr_HasTextColour(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextAttr_IsDefault(
+value camlidl_wxc_wxTextAttr_IsDefault(
 	value _v__obj)
 {
   wxTextAttr _obj; /*in*/
@@ -178,14 +178,14 @@ value camlidl_wxc_idl_wxTextAttr_IsDefault(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextAttr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextAttr(_v__obj, &_obj, _ctx);
   _res = wxTextAttr_IsDefault(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextAttr_SetTextColour(
+value camlidl_wxc_wxTextAttr_SetTextColour(
 	value _v__obj,
 	value _v_colour)
 {
@@ -193,14 +193,14 @@ value camlidl_wxc_idl_wxTextAttr_SetTextColour(
   wxColour colour; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextAttr(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v_colour, &colour, _ctx);
+  camlidl_ml2c_wxc_wxTextAttr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_colour, &colour, _ctx);
   wxTextAttr_SetTextColour(_obj, colour);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextAttr_SetBackgroundColour(
+value camlidl_wxc_wxTextAttr_SetBackgroundColour(
 	value _v__obj,
 	value _v_colour)
 {
@@ -208,14 +208,14 @@ value camlidl_wxc_idl_wxTextAttr_SetBackgroundColour(
   wxColour colour; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextAttr(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v_colour, &colour, _ctx);
+  camlidl_ml2c_wxc_wxTextAttr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_colour, &colour, _ctx);
   wxTextAttr_SetBackgroundColour(_obj, colour);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextAttr_SetFont(
+value camlidl_wxc_wxTextAttr_SetFont(
 	value _v__obj,
 	value _v_font)
 {
@@ -223,8 +223,8 @@ value camlidl_wxc_idl_wxTextAttr_SetFont(
   wxFont font; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextAttr(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxFont(_v_font, &font, _ctx);
+  camlidl_ml2c_wxc_wxTextAttr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFont(_v_font, &font, _ctx);
   wxTextAttr_SetFont(_obj, font);
   camlidl_free(_ctx);
   return Val_unit;

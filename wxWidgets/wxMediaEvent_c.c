@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxMediaEvent(value _v1, wxMediaEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxMediaEvent(value _v1, wxMediaEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxMediaEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxMediaEvent(wxMediaEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxMediaEvent(wxMediaEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxMediaEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(value _v1, wxIndividualLayoutConstraint * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxIndividualLayoutConstraint(value _v1, wxIndividualLayoutConstraint * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxIndividualLayoutConstraint *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxIndividualLayoutConstraint(wxIndividualLayoutConstraint * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxIndividualLayoutConstraint(wxIndividualLayoutConstraint * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxIndividualLayoutConstraint) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_Above(
+value camlidl_wxc_wxIndividualLayoutConstraint_Above(
 	value _v__obj,
 	value _v_sibling,
 	value _v_marg)
@@ -39,15 +39,15 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_Above(
   int marg; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_sibling, &sibling, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_sibling, &sibling, _ctx);
   marg = Int_val(_v_marg);
   wxIndividualLayoutConstraint_Above(_obj, sibling, marg);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_Absolute(
+value camlidl_wxc_wxIndividualLayoutConstraint_Absolute(
 	value _v__obj,
 	value _v__val)
 {
@@ -55,26 +55,26 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_Absolute(
   int _val; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   _val = Int_val(_v__val);
   wxIndividualLayoutConstraint_Absolute(_obj, _val);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_AsIs(
+value camlidl_wxc_wxIndividualLayoutConstraint_AsIs(
 	value _v__obj)
 {
   wxIndividualLayoutConstraint _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   wxIndividualLayoutConstraint_AsIs(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_Below(
+value camlidl_wxc_wxIndividualLayoutConstraint_Below(
 	value _v__obj,
 	value _v_sibling,
 	value _v_marg)
@@ -84,15 +84,15 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_Below(
   int marg; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_sibling, &sibling, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_sibling, &sibling, _ctx);
   marg = Int_val(_v_marg);
   wxIndividualLayoutConstraint_Below(_obj, sibling, marg);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetDone(
+value camlidl_wxc_wxIndividualLayoutConstraint_GetDone(
 	value _v__obj)
 {
   wxIndividualLayoutConstraint _obj; /*in*/
@@ -101,14 +101,14 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetDone(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   _res = wxIndividualLayoutConstraint_GetDone(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetEdge(
+value camlidl_wxc_wxIndividualLayoutConstraint_GetEdge(
 	value _v__obj,
 	value _v_which,
 	value _v_thisWin,
@@ -123,17 +123,17 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetEdge(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   which = Int_val(_v_which);
-  camlidl_ml2c_wxc_idl_voidptr(_v_thisWin, &thisWin, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_other, &other, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_thisWin, &thisWin, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_other, &other, _ctx);
   _res = wxIndividualLayoutConstraint_GetEdge(_obj, which, thisWin, other);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetMargin(
+value camlidl_wxc_wxIndividualLayoutConstraint_GetMargin(
 	value _v__obj)
 {
   wxIndividualLayoutConstraint _obj; /*in*/
@@ -142,14 +142,14 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetMargin(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   _res = wxIndividualLayoutConstraint_GetMargin(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetMyEdge(
+value camlidl_wxc_wxIndividualLayoutConstraint_GetMyEdge(
 	value _v__obj)
 {
   wxIndividualLayoutConstraint _obj; /*in*/
@@ -158,14 +158,14 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetMyEdge(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   _res = wxIndividualLayoutConstraint_GetMyEdge(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetOtherEdge(
+value camlidl_wxc_wxIndividualLayoutConstraint_GetOtherEdge(
 	value _v__obj)
 {
   wxIndividualLayoutConstraint _obj; /*in*/
@@ -174,14 +174,14 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetOtherEdge(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   _res = wxIndividualLayoutConstraint_GetOtherEdge(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetOtherWindow(
+value camlidl_wxc_wxIndividualLayoutConstraint_GetOtherWindow(
 	value _v__obj)
 {
   wxIndividualLayoutConstraint _obj; /*in*/
@@ -190,14 +190,14 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetOtherWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   _res = wxIndividualLayoutConstraint_GetOtherWindow(_obj);
-  _vres = camlidl_c2ml_wxc_idl_voidptr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_voidptr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetPercent(
+value camlidl_wxc_wxIndividualLayoutConstraint_GetPercent(
 	value _v__obj)
 {
   wxIndividualLayoutConstraint _obj; /*in*/
@@ -206,14 +206,14 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetPercent(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   _res = wxIndividualLayoutConstraint_GetPercent(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetRelationship(
+value camlidl_wxc_wxIndividualLayoutConstraint_GetRelationship(
 	value _v__obj)
 {
   wxIndividualLayoutConstraint _obj; /*in*/
@@ -222,14 +222,14 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetRelationship(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   _res = wxIndividualLayoutConstraint_GetRelationship(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetValue(
+value camlidl_wxc_wxIndividualLayoutConstraint_GetValue(
 	value _v__obj)
 {
   wxIndividualLayoutConstraint _obj; /*in*/
@@ -238,14 +238,14 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_GetValue(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   _res = wxIndividualLayoutConstraint_GetValue(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_LeftOf(
+value camlidl_wxc_wxIndividualLayoutConstraint_LeftOf(
 	value _v__obj,
 	value _v_sibling,
 	value _v_marg)
@@ -255,15 +255,15 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_LeftOf(
   int marg; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_sibling, &sibling, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_sibling, &sibling, _ctx);
   marg = Int_val(_v_marg);
   wxIndividualLayoutConstraint_LeftOf(_obj, sibling, marg);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_PercentOf(
+value camlidl_wxc_wxIndividualLayoutConstraint_PercentOf(
 	value _v__obj,
 	value _v_otherW,
 	value _v_wh,
@@ -275,8 +275,8 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_PercentOf(
   int per; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_otherW, &otherW, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_otherW, &otherW, _ctx);
   wh = Int_val(_v_wh);
   per = Int_val(_v_per);
   wxIndividualLayoutConstraint_PercentOf(_obj, otherW, wh, per);
@@ -284,7 +284,7 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_PercentOf(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_ResetIfWin(
+value camlidl_wxc_wxIndividualLayoutConstraint_ResetIfWin(
 	value _v__obj,
 	value _v_otherW)
 {
@@ -295,15 +295,15 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_ResetIfWin(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_otherW, &otherW, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_otherW, &otherW, _ctx);
   _res = wxIndividualLayoutConstraint_ResetIfWin(_obj, otherW);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_RightOf(
+value camlidl_wxc_wxIndividualLayoutConstraint_RightOf(
 	value _v__obj,
 	value _v_sibling,
 	value _v_marg)
@@ -313,15 +313,15 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_RightOf(
   int marg; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_sibling, &sibling, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_sibling, &sibling, _ctx);
   marg = Int_val(_v_marg);
   wxIndividualLayoutConstraint_RightOf(_obj, sibling, marg);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_SameAs(
+value camlidl_wxc_wxIndividualLayoutConstraint_SameAs(
 	value _v__obj,
 	value _v_otherW,
 	value _v_edge,
@@ -333,8 +333,8 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_SameAs(
   int marg; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_otherW, &otherW, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_otherW, &otherW, _ctx);
   edge = Int_val(_v_edge);
   marg = Int_val(_v_marg);
   wxIndividualLayoutConstraint_SameAs(_obj, otherW, edge, marg);
@@ -342,7 +342,7 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_SameAs(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_SatisfyConstraint(
+value camlidl_wxc_wxIndividualLayoutConstraint_SatisfyConstraint(
 	value _v__obj,
 	value _v_constraints,
 	value _v_win)
@@ -355,16 +355,16 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_SatisfyConstraint(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_constraints, &constraints, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_win, &win, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_constraints, &constraints, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_win, &win, _ctx);
   _res = wxIndividualLayoutConstraint_SatisfyConstraint(_obj, constraints, win);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_Set(
+value camlidl_wxc_wxIndividualLayoutConstraint_Set(
 	value _v__obj,
 	value _v_rel,
 	value _v_otherW,
@@ -380,9 +380,9 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_Set(
   int marg; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   rel = Int_val(_v_rel);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_otherW, &otherW, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_otherW, &otherW, _ctx);
   otherE = Int_val(_v_otherE);
   _val = Int_val(_v__val);
   marg = Int_val(_v_marg);
@@ -391,12 +391,12 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_Set(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_Set_bytecode(value * argv, int argn)
+value camlidl_wxc_wxIndividualLayoutConstraint_Set_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxIndividualLayoutConstraint_Set(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
+  return camlidl_wxc_wxIndividualLayoutConstraint_Set(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_SetDone(
+value camlidl_wxc_wxIndividualLayoutConstraint_SetDone(
 	value _v__obj,
 	value _v_d)
 {
@@ -404,14 +404,14 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_SetDone(
   int d; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   d = Int_val(_v_d);
   wxIndividualLayoutConstraint_SetDone(_obj, d);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_SetEdge(
+value camlidl_wxc_wxIndividualLayoutConstraint_SetEdge(
 	value _v__obj,
 	value _v_which)
 {
@@ -419,14 +419,14 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_SetEdge(
   int which; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   which = Int_val(_v_which);
   wxIndividualLayoutConstraint_SetEdge(_obj, which);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_SetMargin(
+value camlidl_wxc_wxIndividualLayoutConstraint_SetMargin(
 	value _v__obj,
 	value _v_m)
 {
@@ -434,14 +434,14 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_SetMargin(
   int m; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   m = Int_val(_v_m);
   wxIndividualLayoutConstraint_SetMargin(_obj, m);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_SetRelationship(
+value camlidl_wxc_wxIndividualLayoutConstraint_SetRelationship(
 	value _v__obj,
 	value _v_r)
 {
@@ -449,14 +449,14 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_SetRelationship(
   int r; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   r = Int_val(_v_r);
   wxIndividualLayoutConstraint_SetRelationship(_obj, r);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_SetValue(
+value camlidl_wxc_wxIndividualLayoutConstraint_SetValue(
 	value _v__obj,
 	value _v_v)
 {
@@ -464,20 +464,20 @@ value camlidl_wxc_idl_wxIndividualLayoutConstraint_SetValue(
   int v; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   v = Int_val(_v_v);
   wxIndividualLayoutConstraint_SetValue(_obj, v);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIndividualLayoutConstraint_Unconstrained(
+value camlidl_wxc_wxIndividualLayoutConstraint_Unconstrained(
 	value _v__obj)
 {
   wxIndividualLayoutConstraint _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIndividualLayoutConstraint(_v__obj, &_obj, _ctx);
   wxIndividualLayoutConstraint_Unconstrained(_obj);
   camlidl_free(_ctx);
   return Val_unit;

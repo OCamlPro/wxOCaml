@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxSlider(value _v1, wxSlider * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxSlider(value _v1, wxSlider * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxSlider *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxSlider(wxSlider * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxSlider(wxSlider * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxSlider) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,31 +29,31 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxSlider_ClearSel(
+value camlidl_wxc_wxSlider_ClearSel(
 	value _v__obj)
 {
   wxSlider _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   wxSlider_ClearSel(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSlider_ClearTicks(
+value camlidl_wxc_wxSlider_ClearTicks(
 	value _v__obj)
 {
   wxSlider _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   wxSlider_ClearTicks(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSlider_Create(
+value camlidl_wxc_wxSlider_Create(
 	value _v__prt,
 	value _v__id,
 	value _v__init,
@@ -80,7 +80,7 @@ value camlidl_wxc_idl_wxSlider_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
   _id = Int_val(_v__id);
   _init = Int_val(_v__init);
   _min = Int_val(_v__min);
@@ -91,17 +91,17 @@ value camlidl_wxc_idl_wxSlider_Create(
   _hgt = Int_val(_v__hgt);
   _stl = Long_val(_v__stl);
   _res = wxSlider_Create(_prt, _id, _init, _min, _max, _lft, _top, _wdt, _hgt, _stl);
-  _vres = camlidl_c2ml_wxc_idl_wxSlider(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxSlider(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSlider_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxSlider_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxSlider_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9]);
+  return camlidl_wxc_wxSlider_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9]);
 }
 
-value camlidl_wxc_idl_wxSlider_GetLineSize(
+value camlidl_wxc_wxSlider_GetLineSize(
 	value _v__obj)
 {
   wxSlider _obj; /*in*/
@@ -110,14 +110,14 @@ value camlidl_wxc_idl_wxSlider_GetLineSize(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   _res = wxSlider_GetLineSize(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSlider_GetMax(
+value camlidl_wxc_wxSlider_GetMax(
 	value _v__obj)
 {
   wxSlider _obj; /*in*/
@@ -126,14 +126,14 @@ value camlidl_wxc_idl_wxSlider_GetMax(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   _res = wxSlider_GetMax(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSlider_GetMin(
+value camlidl_wxc_wxSlider_GetMin(
 	value _v__obj)
 {
   wxSlider _obj; /*in*/
@@ -142,14 +142,14 @@ value camlidl_wxc_idl_wxSlider_GetMin(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   _res = wxSlider_GetMin(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSlider_GetPageSize(
+value camlidl_wxc_wxSlider_GetPageSize(
 	value _v__obj)
 {
   wxSlider _obj; /*in*/
@@ -158,14 +158,14 @@ value camlidl_wxc_idl_wxSlider_GetPageSize(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   _res = wxSlider_GetPageSize(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSlider_GetSelEnd(
+value camlidl_wxc_wxSlider_GetSelEnd(
 	value _v__obj)
 {
   wxSlider _obj; /*in*/
@@ -174,14 +174,14 @@ value camlidl_wxc_idl_wxSlider_GetSelEnd(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   _res = wxSlider_GetSelEnd(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSlider_GetSelStart(
+value camlidl_wxc_wxSlider_GetSelStart(
 	value _v__obj)
 {
   wxSlider _obj; /*in*/
@@ -190,14 +190,14 @@ value camlidl_wxc_idl_wxSlider_GetSelStart(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   _res = wxSlider_GetSelStart(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSlider_GetThumbLength(
+value camlidl_wxc_wxSlider_GetThumbLength(
 	value _v__obj)
 {
   wxSlider _obj; /*in*/
@@ -206,14 +206,14 @@ value camlidl_wxc_idl_wxSlider_GetThumbLength(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   _res = wxSlider_GetThumbLength(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSlider_GetTickFreq(
+value camlidl_wxc_wxSlider_GetTickFreq(
 	value _v__obj)
 {
   wxSlider _obj; /*in*/
@@ -222,14 +222,14 @@ value camlidl_wxc_idl_wxSlider_GetTickFreq(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   _res = wxSlider_GetTickFreq(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSlider_GetValue(
+value camlidl_wxc_wxSlider_GetValue(
 	value _v__obj)
 {
   wxSlider _obj; /*in*/
@@ -238,14 +238,14 @@ value camlidl_wxc_idl_wxSlider_GetValue(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   _res = wxSlider_GetValue(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSlider_SetLineSize(
+value camlidl_wxc_wxSlider_SetLineSize(
 	value _v__obj,
 	value _v_lineSize)
 {
@@ -253,14 +253,14 @@ value camlidl_wxc_idl_wxSlider_SetLineSize(
   int lineSize; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   lineSize = Int_val(_v_lineSize);
   wxSlider_SetLineSize(_obj, lineSize);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSlider_SetPageSize(
+value camlidl_wxc_wxSlider_SetPageSize(
 	value _v__obj,
 	value _v_pageSize)
 {
@@ -268,14 +268,14 @@ value camlidl_wxc_idl_wxSlider_SetPageSize(
   int pageSize; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   pageSize = Int_val(_v_pageSize);
   wxSlider_SetPageSize(_obj, pageSize);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSlider_SetRange(
+value camlidl_wxc_wxSlider_SetRange(
 	value _v__obj,
 	value _v_minValue,
 	value _v_maxValue)
@@ -285,7 +285,7 @@ value camlidl_wxc_idl_wxSlider_SetRange(
   int maxValue; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   minValue = Int_val(_v_minValue);
   maxValue = Int_val(_v_maxValue);
   wxSlider_SetRange(_obj, minValue, maxValue);
@@ -293,7 +293,7 @@ value camlidl_wxc_idl_wxSlider_SetRange(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSlider_SetSelection(
+value camlidl_wxc_wxSlider_SetSelection(
 	value _v__obj,
 	value _v_minPos,
 	value _v_maxPos)
@@ -303,7 +303,7 @@ value camlidl_wxc_idl_wxSlider_SetSelection(
   int maxPos; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   minPos = Int_val(_v_minPos);
   maxPos = Int_val(_v_maxPos);
   wxSlider_SetSelection(_obj, minPos, maxPos);
@@ -311,7 +311,7 @@ value camlidl_wxc_idl_wxSlider_SetSelection(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSlider_SetThumbLength(
+value camlidl_wxc_wxSlider_SetThumbLength(
 	value _v__obj,
 	value _v_len)
 {
@@ -319,14 +319,14 @@ value camlidl_wxc_idl_wxSlider_SetThumbLength(
   int len; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   len = Int_val(_v_len);
   wxSlider_SetThumbLength(_obj, len);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSlider_SetTick(
+value camlidl_wxc_wxSlider_SetTick(
 	value _v__obj,
 	value _v_tickPos)
 {
@@ -334,14 +334,14 @@ value camlidl_wxc_idl_wxSlider_SetTick(
   int tickPos; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   tickPos = Int_val(_v_tickPos);
   wxSlider_SetTick(_obj, tickPos);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSlider_SetTickFreq(
+value camlidl_wxc_wxSlider_SetTickFreq(
 	value _v__obj,
 	value _v_n,
 	value _v_pos)
@@ -351,7 +351,7 @@ value camlidl_wxc_idl_wxSlider_SetTickFreq(
   int pos; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
   n = Int_val(_v_n);
   pos = Int_val(_v_pos);
   wxSlider_SetTickFreq(_obj, n, pos);
@@ -359,17 +359,17 @@ value camlidl_wxc_idl_wxSlider_SetTickFreq(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSlider_SetValue(
+value camlidl_wxc_wxSlider_SetValue(
 	value _v__obj,
-	value _v_v)
+	value _v__value)
 {
   wxSlider _obj; /*in*/
-  int v; /*in*/
+  int _value; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSlider(_v__obj, &_obj, _ctx);
-  v = Int_val(_v_v);
-  wxSlider_SetValue(_obj, v);
+  camlidl_ml2c_wxc_wxSlider(_v__obj, &_obj, _ctx);
+  _value = Int_val(_v__value);
+  wxSlider_SetValue(_obj, _value);
   camlidl_free(_ctx);
   return Val_unit;
 }

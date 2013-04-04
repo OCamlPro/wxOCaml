@@ -1,90 +1,90 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : int -> int -> wxSashEvent
-	= "camlidl_wxc_idl_wxSashEvent_Create"
+	= "camlidl_wxc_wxSashEvent_Create"
 
 external skip : wxSashEvent -> unit
-	= "camlidl_wxc_idl_wxEvent_Skip"
+	= "camlidl_wxc_wxEvent_Skip"
 
 external setTimestamp : wxSashEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetTimestamp"
+	= "camlidl_wxc_wxEvent_SetTimestamp"
 
 external setId : wxSashEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetId"
+	= "camlidl_wxc_wxEvent_SetId"
 
 external setEventType : wxSashEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventType"
+	= "camlidl_wxc_wxEvent_SetEventType"
 
 external setEventObject : wxSashEvent -> wxObject -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventObject"
+	= "camlidl_wxc_wxEvent_SetEventObject"
 
 external setEdge : wxSashEvent -> int -> unit
-	= "camlidl_wxc_idl_wxSashEvent_SetEdge"
+	= "camlidl_wxc_wxSashEvent_SetEdge"
 
 external setDragStatus : wxSashEvent -> int -> unit
-	= "camlidl_wxc_idl_wxSashEvent_SetDragStatus"
+	= "camlidl_wxc_wxSashEvent_SetDragStatus"
 
 external setDragRect : wxSashEvent -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxSashEvent_SetDragRect"
+	= "camlidl_wxc_wxSashEvent_SetDragRect"
 
 external setClientClosure : wxSashEvent -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxSashEvent -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external newEventType : unit -> int
-	= "camlidl_wxc_idl_wxEvent_NewEventType"
+	= "camlidl_wxc_wxEvent_NewEventType"
 
 external isScrolledWindow : wxSashEvent -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxSashEvent -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isCommandEvent : wxSashEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_IsCommandEvent"
+	= "camlidl_wxc_wxEvent_IsCommandEvent"
 
 external getTimestamp : wxSashEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetTimestamp"
+	= "camlidl_wxc_wxEvent_GetTimestamp"
 
 external getSkipped : wxSashEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_GetSkipped"
+	= "camlidl_wxc_wxEvent_GetSkipped"
 
 external getId : wxSashEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetId"
+	= "camlidl_wxc_wxEvent_GetId"
 
 external getEventType : wxSashEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetEventType"
+	= "camlidl_wxc_wxEvent_GetEventType"
 
 external getEventObject : wxSashEvent -> wxObject
-	= "camlidl_wxc_idl_wxEvent_GetEventObject"
+	= "camlidl_wxc_wxEvent_GetEventObject"
 
 external getEdge : wxSashEvent -> int
-	= "camlidl_wxc_idl_wxSashEvent_GetEdge"
+	= "camlidl_wxc_wxSashEvent_GetEdge"
 
 external getDragStatus : wxSashEvent -> int
-	= "camlidl_wxc_idl_wxSashEvent_GetDragStatus"
+	= "camlidl_wxc_wxSashEvent_GetDragStatus"
 
 external getDragRect : wxSashEvent -> wxRect
-	= "camlidl_wxc_idl_wxSashEvent_GetDragRect"
+	= "camlidl_wxc_wxSashEvent_GetDragRect"
 
 external getClientClosure : wxSashEvent -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxSashEvent -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxSashEvent -> unit
-	= "camlidl_wxc_idl_wxObject_Delete"
+	= "camlidl_wxc_wxObject_Delete"
 
 external copyObject : wxSashEvent -> voidptr -> unit
-	= "camlidl_wxc_idl_wxEvent_CopyObject"
+	= "camlidl_wxc_wxEvent_CopyObject"
 
 external null_object : unit -> wxSashEvent
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

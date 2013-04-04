@@ -1,15 +1,15 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : unit -> wxDataObjectComposite
-	= "camlidl_wxc_idl_wxDataObjectComposite_Create"
+	= "camlidl_wxc_wxDataObjectComposite_Create"
 
 external delete : wxDataObjectComposite -> unit
-	= "camlidl_wxc_idl_wxDataObjectComposite_Delete"
+	= "camlidl_wxc_wxDataObjectComposite_Delete"
 
 external add : wxDataObjectComposite -> voidptr -> int -> unit
-	= "camlidl_wxc_idl_wxDataObjectComposite_Add"
+	= "camlidl_wxc_wxDataObjectComposite_Add"
 
 
   (* Cast functions *)

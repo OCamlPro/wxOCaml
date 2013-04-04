@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxHelpController(value _v1, wxHelpController * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxHelpController(value _v1, wxHelpController * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxHelpController *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxHelpController(wxHelpController * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxHelpController(wxHelpController * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxHelpController) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

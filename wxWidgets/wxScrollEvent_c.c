@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxScrollEvent(value _v1, wxScrollEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxScrollEvent(value _v1, wxScrollEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxScrollEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxScrollEvent(wxScrollEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxScrollEvent(wxScrollEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxScrollEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxScrollEvent_GetOrientation(
+value camlidl_wxc_wxScrollEvent_GetOrientation(
 	value _v__obj)
 {
   wxScrollEvent _obj; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxScrollEvent_GetOrientation(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrollEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrollEvent(_v__obj, &_obj, _ctx);
   _res = wxScrollEvent_GetOrientation(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScrollEvent_GetPosition(
+value camlidl_wxc_wxScrollEvent_GetPosition(
 	value _v__obj)
 {
   wxScrollEvent _obj; /*in*/
@@ -54,7 +54,7 @@ value camlidl_wxc_idl_wxScrollEvent_GetPosition(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrollEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrollEvent(_v__obj, &_obj, _ctx);
   _res = wxScrollEvent_GetPosition(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

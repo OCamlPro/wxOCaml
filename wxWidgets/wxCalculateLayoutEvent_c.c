@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxCalculateLayoutEvent(value _v1, wxCalculateLayoutEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxCalculateLayoutEvent(value _v1, wxCalculateLayoutEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxCalculateLayoutEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxCalculateLayoutEvent(wxCalculateLayoutEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxCalculateLayoutEvent(wxCalculateLayoutEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxCalculateLayoutEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxCalculateLayoutEvent_Create(
+value camlidl_wxc_wxCalculateLayoutEvent_Create(
 	value _v_id)
 {
   int id; /*in*/
@@ -40,12 +40,12 @@ value camlidl_wxc_idl_wxCalculateLayoutEvent_Create(
   camlidl_ctx _ctx = &_ctxs;
   id = Int_val(_v_id);
   _res = wxCalculateLayoutEvent_Create(id);
-  _vres = camlidl_c2ml_wxc_idl_wxCalculateLayoutEvent(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxCalculateLayoutEvent(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxCalculateLayoutEvent_GetFlags(
+value camlidl_wxc_wxCalculateLayoutEvent_GetFlags(
 	value _v__obj)
 {
   wxCalculateLayoutEvent _obj; /*in*/
@@ -54,14 +54,14 @@ value camlidl_wxc_idl_wxCalculateLayoutEvent_GetFlags(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalculateLayoutEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCalculateLayoutEvent(_v__obj, &_obj, _ctx);
   _res = wxCalculateLayoutEvent_GetFlags(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxCalculateLayoutEvent_GetRect(
+value camlidl_wxc_wxCalculateLayoutEvent_GetRect(
 	value _v__obj)
 {
   wxCalculateLayoutEvent _obj; /*in*/
@@ -70,14 +70,14 @@ value camlidl_wxc_idl_wxCalculateLayoutEvent_GetRect(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalculateLayoutEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCalculateLayoutEvent(_v__obj, &_obj, _ctx);
   _res = wxCalculateLayoutEvent_GetRect(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxRect(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxRect(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxCalculateLayoutEvent_SetFlags(
+value camlidl_wxc_wxCalculateLayoutEvent_SetFlags(
 	value _v__obj,
 	value _v_flags)
 {
@@ -85,14 +85,14 @@ value camlidl_wxc_idl_wxCalculateLayoutEvent_SetFlags(
   int flags; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalculateLayoutEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCalculateLayoutEvent(_v__obj, &_obj, _ctx);
   flags = Int_val(_v_flags);
   wxCalculateLayoutEvent_SetFlags(_obj, flags);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalculateLayoutEvent_SetRect(
+value camlidl_wxc_wxCalculateLayoutEvent_SetRect(
 	value _v__obj,
 	value _v_x,
 	value _v_y,
@@ -106,7 +106,7 @@ value camlidl_wxc_idl_wxCalculateLayoutEvent_SetRect(
   int h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalculateLayoutEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCalculateLayoutEvent(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   w = Int_val(_v_w);

@@ -1,279 +1,279 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : unit -> wxDateTime
-	= "camlidl_wxc_idl_wxDateTime_Create"
+	= "camlidl_wxc_wxDateTime_Create"
 
 external wxDateTime : int -> int -> voidptr
-	= "camlidl_wxc_idl_wxDateTime_wxDateTime"
+	= "camlidl_wxc_wxDateTime_wxDateTime"
 
 external uNow : wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_UNow"
+	= "camlidl_wxc_wxDateTime_UNow"
 
 external today : wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_Today"
+	= "camlidl_wxc_wxDateTime_Today"
 
 external toTimezone : wxDateTime -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_ToTimezone"
+	= "camlidl_wxc_wxDateTime_ToTimezone"
 
 external toGMT : wxDateTime -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_ToGMT"
+	= "camlidl_wxc_wxDateTime_ToGMT"
 
 external subtractTime : wxDateTime -> voidptr -> wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_SubtractTime"
+	= "camlidl_wxc_wxDateTime_SubtractTime"
 
 external subtractDate : wxDateTime -> voidptr -> wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_SubtractDate"
+	= "camlidl_wxc_wxDateTime_SubtractDate"
 
 external setYear : wxDateTime -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetYear"
+	= "camlidl_wxc_wxDateTime_SetYear"
 
 external setToWeekDayInSameWeek : wxDateTime -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetToWeekDayInSameWeek"
+	= "camlidl_wxc_wxDateTime_SetToWeekDayInSameWeek"
 
 external setToWeekDay : wxDateTime -> int -> int -> int -> int -> bool
-	= "camlidl_wxc_idl_wxDateTime_SetToWeekDay"
+	= "camlidl_wxc_wxDateTime_SetToWeekDay"
 
 external setToPrevWeekDay : wxDateTime -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetToPrevWeekDay"
+	= "camlidl_wxc_wxDateTime_SetToPrevWeekDay"
 
 external setToNextWeekDay : wxDateTime -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetToNextWeekDay"
+	= "camlidl_wxc_wxDateTime_SetToNextWeekDay"
 
 external setToLastWeekDay : wxDateTime -> int -> int -> int -> bool
-	= "camlidl_wxc_idl_wxDateTime_SetToLastWeekDay"
+	= "camlidl_wxc_wxDateTime_SetToLastWeekDay"
 
 external setToLastMonthDay : wxDateTime -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetToLastMonthDay"
+	= "camlidl_wxc_wxDateTime_SetToLastMonthDay"
 
 external setToCurrent : wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetToCurrent"
+	= "camlidl_wxc_wxDateTime_SetToCurrent"
 
 external setTime : wxDateTime -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetTime"
+	= "camlidl_wxc_wxDateTime_SetTime"
 
 external setSecond : wxDateTime -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetSecond"
+	= "camlidl_wxc_wxDateTime_SetSecond"
 
 external setMonth : wxDateTime -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetMonth"
+	= "camlidl_wxc_wxDateTime_SetMonth"
 
 external setMinute : wxDateTime -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetMinute"
+	= "camlidl_wxc_wxDateTime_SetMinute"
 
 external setMillisecond : wxDateTime -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetMillisecond"
+	= "camlidl_wxc_wxDateTime_SetMillisecond"
 
 external setHour : wxDateTime -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetHour"
+	= "camlidl_wxc_wxDateTime_SetHour"
 
 external setDay : wxDateTime -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetDay"
+	= "camlidl_wxc_wxDateTime_SetDay"
 
 external setCountry : int -> unit
-	= "camlidl_wxc_idl_wxDateTime_SetCountry"
+	= "camlidl_wxc_wxDateTime_SetCountry"
 
 external set : wxDateTime -> int -> int -> int -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_Set_bytecode" "camlidl_wxc_idl_wxDateTime_Set"
+	= "camlidl_wxc_wxDateTime_Set_bytecode" "camlidl_wxc_wxDateTime_Set"
 
 external resetTime : wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_ResetTime"
+	= "camlidl_wxc_wxDateTime_ResetTime"
 
 external parseTime : wxDateTime -> wxTime -> voidptr
-	= "camlidl_wxc_idl_wxDateTime_ParseTime"
+	= "camlidl_wxc_wxDateTime_ParseTime"
 
 external parseRfc822Date : wxDateTime -> voidptr -> voidptr
-	= "camlidl_wxc_idl_wxDateTime_ParseRfc822Date"
+	= "camlidl_wxc_wxDateTime_ParseRfc822Date"
 
 external parseFormat : wxDateTime -> voidptr -> voidptr -> voidptr -> voidptr
-	= "camlidl_wxc_idl_wxDateTime_ParseFormat"
+	= "camlidl_wxc_wxDateTime_ParseFormat"
 
 external parseDateTime : wxDateTime -> voidptr -> voidptr
-	= "camlidl_wxc_idl_wxDateTime_ParseDateTime"
+	= "camlidl_wxc_wxDateTime_ParseDateTime"
 
 external parseDate : wxDateTime -> voidptr -> voidptr
-	= "camlidl_wxc_idl_wxDateTime_ParseDate"
+	= "camlidl_wxc_wxDateTime_ParseDate"
 
 external now : wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_Now"
+	= "camlidl_wxc_wxDateTime_Now"
 
 external makeTimezone : wxDateTime -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_MakeTimezone"
+	= "camlidl_wxc_wxDateTime_MakeTimezone"
 
 external makeGMT : wxDateTime -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_MakeGMT"
+	= "camlidl_wxc_wxDateTime_MakeGMT"
 
 external isWorkDay : wxDateTime -> int -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsWorkDay"
+	= "camlidl_wxc_wxDateTime_IsWorkDay"
 
 external isWestEuropeanCountry : int -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsWestEuropeanCountry"
+	= "camlidl_wxc_wxDateTime_IsWestEuropeanCountry"
 
 external isValid : wxDateTime -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsValid"
+	= "camlidl_wxc_wxDateTime_IsValid"
 
 external isStrictlyBetween : wxDateTime -> wxDateTime -> wxDateTime -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsStrictlyBetween"
+	= "camlidl_wxc_wxDateTime_IsStrictlyBetween"
 
 external isSameTime : wxDateTime -> wxDateTime -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsSameTime"
+	= "camlidl_wxc_wxDateTime_IsSameTime"
 
 external isSameDate : wxDateTime -> wxDateTime -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsSameDate"
+	= "camlidl_wxc_wxDateTime_IsSameDate"
 
 external isLeapYear : int -> int -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsLeapYear"
+	= "camlidl_wxc_wxDateTime_IsLeapYear"
 
 external isLaterThan : wxDateTime -> voidptr -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsLaterThan"
+	= "camlidl_wxc_wxDateTime_IsLaterThan"
 
 external isEqualUpTo : wxDateTime -> wxDateTime -> voidptr -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsEqualUpTo"
+	= "camlidl_wxc_wxDateTime_IsEqualUpTo"
 
 external isEqualTo : wxDateTime -> voidptr -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsEqualTo"
+	= "camlidl_wxc_wxDateTime_IsEqualTo"
 
 external isEarlierThan : wxDateTime -> voidptr -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsEarlierThan"
+	= "camlidl_wxc_wxDateTime_IsEarlierThan"
 
 external isDSTApplicable : int -> int -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsDSTApplicable"
+	= "camlidl_wxc_wxDateTime_IsDSTApplicable"
 
 external isDST : wxDateTime -> int -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsDST"
+	= "camlidl_wxc_wxDateTime_IsDST"
 
 external isBetween : wxDateTime -> wxDateTime -> wxDateTime -> bool
-	= "camlidl_wxc_idl_wxDateTime_IsBetween"
+	= "camlidl_wxc_wxDateTime_IsBetween"
 
 external getYear : wxDateTime -> int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetYear"
+	= "camlidl_wxc_wxDateTime_GetYear"
 
 external getWeekOfYear : wxDateTime -> int -> int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetWeekOfYear"
+	= "camlidl_wxc_wxDateTime_GetWeekOfYear"
 
 external getWeekOfMonth : wxDateTime -> int -> int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetWeekOfMonth"
+	= "camlidl_wxc_wxDateTime_GetWeekOfMonth"
 
 external getWeekDayTZ : wxDateTime -> int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetWeekDayTZ"
+	= "camlidl_wxc_wxDateTime_GetWeekDayTZ"
 
 external getWeekDayName : int -> int -> wxString
-	= "camlidl_wxc_idl_wxDateTime_GetWeekDayName"
+	= "camlidl_wxc_wxDateTime_GetWeekDayName"
 
 external getWeekDayInSameWeek : wxDateTime -> int -> wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_GetWeekDayInSameWeek"
+	= "camlidl_wxc_wxDateTime_GetWeekDayInSameWeek"
 
 external getWeekDay : wxDateTime -> int -> int -> int -> int -> wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_GetWeekDay_bytecode" "camlidl_wxc_idl_wxDateTime_GetWeekDay"
+	= "camlidl_wxc_wxDateTime_GetWeekDay_bytecode" "camlidl_wxc_wxDateTime_GetWeekDay"
 
 external getValue : wxDateTime -> voidptr -> voidptr -> unit
-	= "camlidl_wxc_idl_wxDateTime_GetValue"
+	= "camlidl_wxc_wxDateTime_GetValue"
 
 external getTimeNow : unit -> int
-	= "camlidl_wxc_idl_wxDateTime_GetTimeNow"
+	= "camlidl_wxc_wxDateTime_GetTimeNow"
 
 external getTicks : wxDateTime -> int
-	= "camlidl_wxc_idl_wxDateTime_GetTicks"
+	= "camlidl_wxc_wxDateTime_GetTicks"
 
 external getSecond : wxDateTime -> int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetSecond"
+	= "camlidl_wxc_wxDateTime_GetSecond"
 
 external getPrevWeekDay : wxDateTime -> int -> wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_GetPrevWeekDay"
+	= "camlidl_wxc_wxDateTime_GetPrevWeekDay"
 
 external getPmString : unit -> wxString
-	= "camlidl_wxc_idl_wxDateTime_GetPmString"
+	= "camlidl_wxc_wxDateTime_GetPmString"
 
 external getNumberOfDaysMonth : int -> int -> int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetNumberOfDaysMonth"
+	= "camlidl_wxc_wxDateTime_GetNumberOfDaysMonth"
 
 external getNumberOfDays : int -> int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetNumberOfDays"
+	= "camlidl_wxc_wxDateTime_GetNumberOfDays"
 
 external getNextWeekDay : wxDateTime -> int -> wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_GetNextWeekDay"
+	= "camlidl_wxc_wxDateTime_GetNextWeekDay"
 
 external getMonthName : int -> int -> wxString
-	= "camlidl_wxc_idl_wxDateTime_GetMonthName"
+	= "camlidl_wxc_wxDateTime_GetMonthName"
 
 external getMonth : wxDateTime -> int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetMonth"
+	= "camlidl_wxc_wxDateTime_GetMonth"
 
 external getMinute : wxDateTime -> int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetMinute"
+	= "camlidl_wxc_wxDateTime_GetMinute"
 
 external getMillisecond : wxDateTime -> int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetMillisecond"
+	= "camlidl_wxc_wxDateTime_GetMillisecond"
 
 external getLastWeekDay : wxDateTime -> int -> int -> int -> wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_GetLastWeekDay"
+	= "camlidl_wxc_wxDateTime_GetLastWeekDay"
 
 external getLastMonthDay : wxDateTime -> int -> int -> wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_GetLastMonthDay"
+	= "camlidl_wxc_wxDateTime_GetLastMonthDay"
 
 external getHour : wxDateTime -> int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetHour"
+	= "camlidl_wxc_wxDateTime_GetHour"
 
 external getEndDST : int -> int -> wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_GetEndDST"
+	= "camlidl_wxc_wxDateTime_GetEndDST"
 
 external getDayOfYear : wxDateTime -> int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetDayOfYear"
+	= "camlidl_wxc_wxDateTime_GetDayOfYear"
 
 external getDay : wxDateTime -> int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetDay"
+	= "camlidl_wxc_wxDateTime_GetDay"
 
 external getCurrentYear : int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetCurrentYear"
+	= "camlidl_wxc_wxDateTime_GetCurrentYear"
 
 external getCurrentMonth : int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetCurrentMonth"
+	= "camlidl_wxc_wxDateTime_GetCurrentMonth"
 
 external getCountry : unit -> int
-	= "camlidl_wxc_idl_wxDateTime_GetCountry"
+	= "camlidl_wxc_wxDateTime_GetCountry"
 
 external getCentury : int -> int
-	= "camlidl_wxc_idl_wxDateTime_GetCentury"
+	= "camlidl_wxc_wxDateTime_GetCentury"
 
 external getBeginDST : int -> int -> wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_GetBeginDST"
+	= "camlidl_wxc_wxDateTime_GetBeginDST"
 
 external getAmString : unit -> wxString
-	= "camlidl_wxc_idl_wxDateTime_GetAmString"
+	= "camlidl_wxc_wxDateTime_GetAmString"
 
 external formatTime : wxDateTime -> wxString
-	= "camlidl_wxc_idl_wxDateTime_FormatTime"
+	= "camlidl_wxc_wxDateTime_FormatTime"
 
 external formatISOTime : wxDateTime -> wxString
-	= "camlidl_wxc_idl_wxDateTime_FormatISOTime"
+	= "camlidl_wxc_wxDateTime_FormatISOTime"
 
 external formatISODate : wxDateTime -> wxString
-	= "camlidl_wxc_idl_wxDateTime_FormatISODate"
+	= "camlidl_wxc_wxDateTime_FormatISODate"
 
 external formatDate : wxDateTime -> wxString
-	= "camlidl_wxc_idl_wxDateTime_FormatDate"
+	= "camlidl_wxc_wxDateTime_FormatDate"
 
 external format : wxDateTime -> voidptr -> int -> wxString
-	= "camlidl_wxc_idl_wxDateTime_Format"
+	= "camlidl_wxc_wxDateTime_Format"
 
 external delete : wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_Delete"
+	= "camlidl_wxc_wxDateTime_Delete"
 
 external convertYearToBC : int -> int
-	= "camlidl_wxc_idl_wxDateTime_ConvertYearToBC"
+	= "camlidl_wxc_wxDateTime_ConvertYearToBC"
 
 external addTimeValues : wxDateTime -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_AddTimeValues"
+	= "camlidl_wxc_wxDateTime_AddTimeValues"
 
 external addTime : wxDateTime -> voidptr -> wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_AddTime"
+	= "camlidl_wxc_wxDateTime_AddTime"
 
 external addDateValues : wxDateTime -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDateTime_AddDateValues"
+	= "camlidl_wxc_wxDateTime_AddDateValues"
 
 external addDate : wxDateTime -> voidptr -> wxDateTime -> unit
-	= "camlidl_wxc_idl_wxDateTime_AddDate"
+	= "camlidl_wxc_wxDateTime_AddDate"
 
 val getWeekDayName : int -> int -> string
 val getPmString : unit -> string

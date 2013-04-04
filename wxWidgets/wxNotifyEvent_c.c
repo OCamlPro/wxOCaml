@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxNotifyEvent(value _v1, wxNotifyEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxNotifyEvent(value _v1, wxNotifyEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxNotifyEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxNotifyEvent(wxNotifyEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxNotifyEvent(wxNotifyEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxNotifyEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,19 +29,19 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxNotifyEvent_Allow(
+value camlidl_wxc_wxNotifyEvent_Allow(
 	value _v__obj)
 {
   wxNotifyEvent _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotifyEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotifyEvent(_v__obj, &_obj, _ctx);
   wxNotifyEvent_Allow(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxNotifyEvent_CopyObject(
+value camlidl_wxc_wxNotifyEvent_CopyObject(
 	value _v__obj,
 	value _v_object_dest)
 {
@@ -49,14 +49,14 @@ value camlidl_wxc_idl_wxNotifyEvent_CopyObject(
   voidptr object_dest; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotifyEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_object_dest, &object_dest, _ctx);
+  camlidl_ml2c_wxc_wxNotifyEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_object_dest, &object_dest, _ctx);
   wxNotifyEvent_CopyObject(_obj, object_dest);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxNotifyEvent_IsAllowed(
+value camlidl_wxc_wxNotifyEvent_IsAllowed(
 	value _v__obj)
 {
   wxNotifyEvent _obj; /*in*/
@@ -65,20 +65,20 @@ value camlidl_wxc_idl_wxNotifyEvent_IsAllowed(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotifyEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotifyEvent(_v__obj, &_obj, _ctx);
   _res = wxNotifyEvent_IsAllowed(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotifyEvent_Veto(
+value camlidl_wxc_wxNotifyEvent_Veto(
 	value _v__obj)
 {
   wxNotifyEvent _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotifyEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotifyEvent(_v__obj, &_obj, _ctx);
   wxNotifyEvent_Veto(_obj);
   camlidl_free(_ctx);
   return Val_unit;

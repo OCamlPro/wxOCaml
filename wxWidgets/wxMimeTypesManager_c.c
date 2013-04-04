@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxMimeTypesManager(value _v1, wxMimeTypesManager * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxMimeTypesManager(value _v1, wxMimeTypesManager * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxMimeTypesManager *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxMimeTypesManager(wxMimeTypesManager * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxMimeTypesManager(wxMimeTypesManager * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxMimeTypesManager) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxMimeTypesManager_AddFallbacks(
+value camlidl_wxc_wxMimeTypesManager_AddFallbacks(
 	value _v__obj,
 	value _v__types)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxMimeTypesManager_AddFallbacks(
   voidptr _types; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMimeTypesManager(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__types, &_types, _ctx);
+  camlidl_ml2c_wxc_wxMimeTypesManager(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__types, &_types, _ctx);
   wxMimeTypesManager_AddFallbacks(_obj, _types);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxMimeTypesManager_Create(value _unit)
+value camlidl_wxc_wxMimeTypesManager_Create(value _unit)
 {
   wxMimeTypesManager _res;
   value _vres;
@@ -52,12 +52,12 @@ value camlidl_wxc_idl_wxMimeTypesManager_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxMimeTypesManager_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxMimeTypesManager(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMimeTypesManager(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMimeTypesManager_EnumAllFileTypes(
+value camlidl_wxc_wxMimeTypesManager_EnumAllFileTypes(
 	value _v__obj,
 	value _v__lst)
 {
@@ -68,15 +68,15 @@ value camlidl_wxc_idl_wxMimeTypesManager_EnumAllFileTypes(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMimeTypesManager(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxList(_v__lst, &_lst, _ctx);
+  camlidl_ml2c_wxc_wxMimeTypesManager(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxList(_v__lst, &_lst, _ctx);
   _res = wxMimeTypesManager_EnumAllFileTypes(_obj, _lst);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMimeTypesManager_GetFileTypeFromExtension(
+value camlidl_wxc_wxMimeTypesManager_GetFileTypeFromExtension(
 	value _v__obj,
 	value _v__ext)
 {
@@ -87,15 +87,15 @@ value camlidl_wxc_idl_wxMimeTypesManager_GetFileTypeFromExtension(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMimeTypesManager(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v__ext, &_ext, _ctx);
+  camlidl_ml2c_wxc_wxMimeTypesManager(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__ext, &_ext, _ctx);
   _res = wxMimeTypesManager_GetFileTypeFromExtension(_obj, _ext);
-  _vres = camlidl_c2ml_wxc_idl_wxFileType(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxFileType(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMimeTypesManager_GetFileTypeFromMimeType(
+value camlidl_wxc_wxMimeTypesManager_GetFileTypeFromMimeType(
 	value _v__obj,
 	value _v__name)
 {
@@ -106,15 +106,15 @@ value camlidl_wxc_idl_wxMimeTypesManager_GetFileTypeFromMimeType(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMimeTypesManager(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v__name, &_name, _ctx);
+  camlidl_ml2c_wxc_wxMimeTypesManager(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__name, &_name, _ctx);
   _res = wxMimeTypesManager_GetFileTypeFromMimeType(_obj, _name);
-  _vres = camlidl_c2ml_wxc_idl_wxFileType(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxFileType(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMimeTypesManager_IsOfType(
+value camlidl_wxc_wxMimeTypesManager_IsOfType(
 	value _v__obj,
 	value _v__type,
 	value _v__wildcard)
@@ -127,9 +127,9 @@ value camlidl_wxc_idl_wxMimeTypesManager_IsOfType(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMimeTypesManager(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v__type, &_type, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v__wildcard, &_wildcard, _ctx);
+  camlidl_ml2c_wxc_wxMimeTypesManager(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__type, &_type, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__wildcard, &_wildcard, _ctx);
   _res = wxMimeTypesManager_IsOfType(_obj, _type, _wildcard);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

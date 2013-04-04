@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGraphicsPath(value _v1, wxGraphicsPath * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGraphicsPath(value _v1, wxGraphicsPath * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGraphicsPath *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGraphicsPath(wxGraphicsPath * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGraphicsPath(wxGraphicsPath * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGraphicsPath) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_Create(value _unit)
+value camlidl_wxc_wxGraphicsPath_Create(value _unit)
 {
   wxGraphicsPath _res;
   value _vres;
@@ -37,24 +37,24 @@ value camlidl_wxc_idl_wxGraphicsPath_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxGraphicsPath_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxGraphicsPath(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGraphicsPath(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_Delete(
+value camlidl_wxc_wxGraphicsPath_Delete(
 	value _v_self)
 {
   wxGraphicsPath self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   wxGraphicsPath_Delete(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_MoveToPoint(
+value camlidl_wxc_wxGraphicsPath_MoveToPoint(
 	value _v_self,
 	value _v_x,
 	value _v_y)
@@ -64,7 +64,7 @@ value camlidl_wxc_idl_wxGraphicsPath_MoveToPoint(
   double y; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   wxGraphicsPath_MoveToPoint(self, x, y);
@@ -72,7 +72,7 @@ value camlidl_wxc_idl_wxGraphicsPath_MoveToPoint(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddArc(
+value camlidl_wxc_wxGraphicsPath_AddArc(
 	value _v_self,
 	value _v_x,
 	value _v_y,
@@ -90,7 +90,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddArc(
   int clockwise; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   r = Double_val(_v_r);
@@ -102,12 +102,12 @@ value camlidl_wxc_idl_wxGraphicsPath_AddArc(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddArc_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGraphicsPath_AddArc_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGraphicsPath_AddArc(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxGraphicsPath_AddArc(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddArcToPoint(
+value camlidl_wxc_wxGraphicsPath_AddArcToPoint(
 	value _v_self,
 	value _v_x1,
 	value _v_y1,
@@ -123,7 +123,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddArcToPoint(
   double r; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   x1 = Double_val(_v_x1);
   y1 = Double_val(_v_y1);
   x2 = Double_val(_v_x2);
@@ -134,12 +134,12 @@ value camlidl_wxc_idl_wxGraphicsPath_AddArcToPoint(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddArcToPoint_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGraphicsPath_AddArcToPoint_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGraphicsPath_AddArcToPoint(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
+  return camlidl_wxc_wxGraphicsPath_AddArcToPoint(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddCircle(
+value camlidl_wxc_wxGraphicsPath_AddCircle(
 	value _v_self,
 	value _v_x,
 	value _v_y,
@@ -151,7 +151,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddCircle(
   double r; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   r = Double_val(_v_r);
@@ -160,7 +160,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddCircle(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddCurveToPoint(
+value camlidl_wxc_wxGraphicsPath_AddCurveToPoint(
 	value _v_self,
 	value _v_cx1,
 	value _v_cy1,
@@ -178,7 +178,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddCurveToPoint(
   double y; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   cx1 = Double_val(_v_cx1);
   cy1 = Double_val(_v_cy1);
   cx2 = Double_val(_v_cx2);
@@ -190,12 +190,12 @@ value camlidl_wxc_idl_wxGraphicsPath_AddCurveToPoint(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddCurveToPoint_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGraphicsPath_AddCurveToPoint_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGraphicsPath_AddCurveToPoint(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxGraphicsPath_AddCurveToPoint(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddEllipse(
+value camlidl_wxc_wxGraphicsPath_AddEllipse(
 	value _v_self,
 	value _v_x,
 	value _v_y,
@@ -209,7 +209,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddEllipse(
   double h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   w = Double_val(_v_w);
@@ -219,7 +219,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddEllipse(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddLineToPoint(
+value camlidl_wxc_wxGraphicsPath_AddLineToPoint(
 	value _v_self,
 	value _v_x,
 	value _v_y)
@@ -229,7 +229,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddLineToPoint(
   double y; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   wxGraphicsPath_AddLineToPoint(self, x, y);
@@ -237,7 +237,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddLineToPoint(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddPath(
+value camlidl_wxc_wxGraphicsPath_AddPath(
 	value _v_self,
 	value _v_x,
 	value _v_y,
@@ -249,16 +249,16 @@ value camlidl_wxc_idl_wxGraphicsPath_AddPath(
   wxGraphicsPath path; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_path, &path, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_path, &path, _ctx);
   wxGraphicsPath_AddPath(self, x, y, path);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddQuadCurveToPoint(
+value camlidl_wxc_wxGraphicsPath_AddQuadCurveToPoint(
 	value _v_self,
 	value _v_cx,
 	value _v_cy,
@@ -272,7 +272,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddQuadCurveToPoint(
   double y; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   cx = Double_val(_v_cx);
   cy = Double_val(_v_cy);
   x = Double_val(_v_x);
@@ -282,7 +282,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddQuadCurveToPoint(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddRectangle(
+value camlidl_wxc_wxGraphicsPath_AddRectangle(
 	value _v_self,
 	value _v_x,
 	value _v_y,
@@ -296,7 +296,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddRectangle(
   double h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   w = Double_val(_v_w);
@@ -306,7 +306,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddRectangle(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddRoundedRectangle(
+value camlidl_wxc_wxGraphicsPath_AddRoundedRectangle(
 	value _v_self,
 	value _v_x,
 	value _v_y,
@@ -322,7 +322,7 @@ value camlidl_wxc_idl_wxGraphicsPath_AddRoundedRectangle(
   double radius; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   w = Double_val(_v_w);
@@ -333,24 +333,24 @@ value camlidl_wxc_idl_wxGraphicsPath_AddRoundedRectangle(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_AddRoundedRectangle_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGraphicsPath_AddRoundedRectangle_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGraphicsPath_AddRoundedRectangle(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
+  return camlidl_wxc_wxGraphicsPath_AddRoundedRectangle(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_CloseSubpath(
+value camlidl_wxc_wxGraphicsPath_CloseSubpath(
 	value _v_self)
 {
   wxGraphicsPath self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   wxGraphicsPath_CloseSubpath(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_Contains(
+value camlidl_wxc_wxGraphicsPath_Contains(
 	value _v_self,
 	value _v_x,
 	value _v_y,
@@ -362,7 +362,7 @@ value camlidl_wxc_idl_wxGraphicsPath_Contains(
   int style; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   style = Int_val(_v_style);
@@ -371,7 +371,7 @@ value camlidl_wxc_idl_wxGraphicsPath_Contains(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_GetBox(
+value camlidl_wxc_wxGraphicsPath_GetBox(
 	value _v_self,
 	value _v_x,
 	value _v_y,
@@ -393,7 +393,7 @@ value camlidl_wxc_idl_wxGraphicsPath_GetBox(
   double _c8;
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   if (_v_x == Val_int(0)) {
     x = NULL;
   } else {
@@ -427,7 +427,7 @@ value camlidl_wxc_idl_wxGraphicsPath_GetBox(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_GetCurrentPoint(
+value camlidl_wxc_wxGraphicsPath_GetCurrentPoint(
 	value _v_self,
 	value _v_x,
 	value _v_y)
@@ -441,7 +441,7 @@ value camlidl_wxc_idl_wxGraphicsPath_GetCurrentPoint(
   double _c4;
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   if (_v_x == Val_int(0)) {
     x = NULL;
   } else {
@@ -461,7 +461,7 @@ value camlidl_wxc_idl_wxGraphicsPath_GetCurrentPoint(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_Transform(
+value camlidl_wxc_wxGraphicsPath_Transform(
 	value _v_self,
 	value _v_matrix)
 {
@@ -469,14 +469,14 @@ value camlidl_wxc_idl_wxGraphicsPath_Transform(
   wxGraphicsMatrix matrix; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_matrix, &matrix, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_matrix, &matrix, _ctx);
   wxGraphicsPath_Transform(self, matrix);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_GetNativePath(
+value camlidl_wxc_wxGraphicsPath_GetNativePath(
 	value _v_self)
 {
   wxGraphicsPath self; /*in*/
@@ -485,20 +485,20 @@ value camlidl_wxc_idl_wxGraphicsPath_GetNativePath(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_self, &self, _ctx);
   _res = wxGraphicsPath_GetNativePath(self);
-  _vres = camlidl_c2ml_wxc_idl_voidptr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_voidptr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsPath_UnGetNativePath(
+value camlidl_wxc_wxGraphicsPath_UnGetNativePath(
 	value _v_p)
 {
   voidptr p; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_voidptr(_v_p, &p, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_p, &p, _ctx);
   wxGraphicsPath_UnGetNativePath(p);
   camlidl_free(_ctx);
   return Val_unit;

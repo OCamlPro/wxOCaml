@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGridCellEditor(value _v1, wxGridCellEditor * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGridCellEditor(value _v1, wxGridCellEditor * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGridCellEditor *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGridCellEditor(wxGridCellEditor * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGridCellEditor(wxGridCellEditor * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGridCellEditor) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_BeginEdit(
+value camlidl_wxc_wxGridCellEditor_BeginEdit(
 	value _v__obj,
 	value _v_row,
 	value _v_col,
@@ -41,16 +41,16 @@ value camlidl_wxc_idl_wxGridCellEditor_BeginEdit(
   wxGrid grid; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
   row = Int_val(_v_row);
   col = Int_val(_v_col);
-  camlidl_ml2c_wxc_idl_wxGrid(_v_grid, &grid, _ctx);
+  camlidl_ml2c_wxc_wxGrid(_v_grid, &grid, _ctx);
   wxGridCellEditor_BeginEdit(_obj, row, col, grid);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_Create(
+value camlidl_wxc_wxGridCellEditor_Create(
 	value _v__obj,
 	value _v_parent,
 	value _v_id,
@@ -62,28 +62,28 @@ value camlidl_wxc_idl_wxGridCellEditor_Create(
   wxEvtHandler evtHandler; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
   id = Int_val(_v_id);
-  camlidl_ml2c_wxc_idl_wxEvtHandler(_v_evtHandler, &evtHandler, _ctx);
+  camlidl_ml2c_wxc_wxEvtHandler(_v_evtHandler, &evtHandler, _ctx);
   wxGridCellEditor_Create(_obj, parent, id, evtHandler);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_Destroy(
+value camlidl_wxc_wxGridCellEditor_Destroy(
 	value _v__obj)
 {
   wxGridCellEditor _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
   wxGridCellEditor_Destroy(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_EndEdit(
+value camlidl_wxc_wxGridCellEditor_EndEdit(
 	value _v__obj,
 	value _v_row,
 	value _v_col,
@@ -102,24 +102,24 @@ value camlidl_wxc_idl_wxGridCellEditor_EndEdit(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
   row = Int_val(_v_row);
   col = Int_val(_v_col);
-  camlidl_ml2c_wxc_idl_wxGrid(_v_grid, &grid, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_oldStr, &oldStr, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_newStr, &newStr, _ctx);
+  camlidl_ml2c_wxc_wxGrid(_v_grid, &grid, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_oldStr, &oldStr, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_newStr, &newStr, _ctx);
   _res = wxGridCellEditor_EndEdit(_obj, row, col, grid, oldStr, newStr);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_EndEdit_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGridCellEditor_EndEdit_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGridCellEditor_EndEdit(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
+  return camlidl_wxc_wxGridCellEditor_EndEdit(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_GetControl(
+value camlidl_wxc_wxGridCellEditor_GetControl(
 	value _v__obj)
 {
   wxGridCellEditor _obj; /*in*/
@@ -128,14 +128,14 @@ value camlidl_wxc_idl_wxGridCellEditor_GetControl(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
   _res = wxGridCellEditor_GetControl(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxControl(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxControl(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_HandleReturn(
+value camlidl_wxc_wxGridCellEditor_HandleReturn(
 	value _v__obj,
 	value _v_event)
 {
@@ -143,14 +143,14 @@ value camlidl_wxc_idl_wxGridCellEditor_HandleReturn(
   wxEvent event; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxEvent(_v_event, &event, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxEvent(_v_event, &event, _ctx);
   wxGridCellEditor_HandleReturn(_obj, event);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_IsAcceptedKey(
+value camlidl_wxc_wxGridCellEditor_IsAcceptedKey(
 	value _v__obj,
 	value _v_event)
 {
@@ -161,15 +161,15 @@ value camlidl_wxc_idl_wxGridCellEditor_IsAcceptedKey(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxEvent(_v_event, &event, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxEvent(_v_event, &event, _ctx);
   _res = wxGridCellEditor_IsAcceptedKey(_obj, event);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_IsCreated(
+value camlidl_wxc_wxGridCellEditor_IsCreated(
 	value _v__obj)
 {
   wxGridCellEditor _obj; /*in*/
@@ -178,16 +178,15 @@ value camlidl_wxc_idl_wxGridCellEditor_IsCreated(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
   _res = wxGridCellEditor_IsCreated(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_PaintBackground(
+value camlidl_wxc_wxGridCellEditor_PaintBackground(
 	value _v__obj,
-	value _v_dc,
 	value _v_x,
 	value _v_y,
 	value _v_w,
@@ -195,7 +194,6 @@ value camlidl_wxc_idl_wxGridCellEditor_PaintBackground(
 	value _v_attr)
 {
   wxGridCellEditor _obj; /*in*/
-  wxDC dc; /*in*/
   int x; /*in*/
   int y; /*in*/
   int w; /*in*/
@@ -203,36 +201,35 @@ value camlidl_wxc_idl_wxGridCellEditor_PaintBackground(
   wxGridCellAttr attr; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxDC(_v_dc, &dc, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   w = Int_val(_v_w);
   h = Int_val(_v_h);
-  camlidl_ml2c_wxc_idl_wxGridCellAttr(_v_attr, &attr, _ctx);
-  wxGridCellEditor_PaintBackground(_obj, dc, x, y, w, h, attr);
+  camlidl_ml2c_wxc_wxGridCellAttr(_v_attr, &attr, _ctx);
+  wxGridCellEditor_PaintBackground(_obj, x, y, w, h, attr);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_PaintBackground_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGridCellEditor_PaintBackground_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGridCellEditor_PaintBackground(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxGridCellEditor_PaintBackground(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_Reset(
+value camlidl_wxc_wxGridCellEditor_Reset(
 	value _v__obj)
 {
   wxGridCellEditor _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
   wxGridCellEditor_Reset(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_SetControl(
+value camlidl_wxc_wxGridCellEditor_SetControl(
 	value _v__obj,
 	value _v_control)
 {
@@ -240,14 +237,14 @@ value camlidl_wxc_idl_wxGridCellEditor_SetControl(
   wxControl control; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxControl(_v_control, &control, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxControl(_v_control, &control, _ctx);
   wxGridCellEditor_SetControl(_obj, control);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_SetParameters(
+value camlidl_wxc_wxGridCellEditor_SetParameters(
 	value _v__obj,
 	value _v_params)
 {
@@ -255,14 +252,14 @@ value camlidl_wxc_idl_wxGridCellEditor_SetParameters(
   wxString params; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_params, &params, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_params, &params, _ctx);
   wxGridCellEditor_SetParameters(_obj, params);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_SetSize(
+value camlidl_wxc_wxGridCellEditor_SetSize(
 	value _v__obj,
 	value _v_x,
 	value _v_y,
@@ -276,7 +273,7 @@ value camlidl_wxc_idl_wxGridCellEditor_SetSize(
   int h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   w = Int_val(_v_w);
@@ -286,7 +283,7 @@ value camlidl_wxc_idl_wxGridCellEditor_SetSize(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_Show(
+value camlidl_wxc_wxGridCellEditor_Show(
 	value _v__obj,
 	value _v_show,
 	value _v_attr)
@@ -296,27 +293,27 @@ value camlidl_wxc_idl_wxGridCellEditor_Show(
   wxGridCellAttr attr; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
   show = Int_val(_v_show);
-  camlidl_ml2c_wxc_idl_wxGridCellAttr(_v_attr, &attr, _ctx);
+  camlidl_ml2c_wxc_wxGridCellAttr(_v_attr, &attr, _ctx);
   wxGridCellEditor_Show(_obj, show, attr);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_StartingClick(
+value camlidl_wxc_wxGridCellEditor_StartingClick(
 	value _v__obj)
 {
   wxGridCellEditor _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
   wxGridCellEditor_StartingClick(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridCellEditor_StartingKey(
+value camlidl_wxc_wxGridCellEditor_StartingKey(
 	value _v__obj,
 	value _v_event)
 {
@@ -324,8 +321,8 @@ value camlidl_wxc_idl_wxGridCellEditor_StartingKey(
   wxEvent event; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridCellEditor(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxEvent(_v_event, &event, _ctx);
+  camlidl_ml2c_wxc_wxGridCellEditor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxEvent(_v_event, &event, _ctx);
   wxGridCellEditor_StartingKey(_obj, event);
   camlidl_free(_ctx);
   return Val_unit;

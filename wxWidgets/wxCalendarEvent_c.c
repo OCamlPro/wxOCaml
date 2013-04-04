@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxCalendarEvent(value _v1, wxCalendarEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxCalendarEvent(value _v1, wxCalendarEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxCalendarEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxCalendarEvent(wxCalendarEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxCalendarEvent(wxCalendarEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxCalendarEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxCalendarEvent_GetDate(
+value camlidl_wxc_wxCalendarEvent_GetDate(
 	value _v__obj,
 	value _v__dte)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxCalendarEvent_GetDate(
   voidptr _dte; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__dte, &_dte, _ctx);
+  camlidl_ml2c_wxc_wxCalendarEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__dte, &_dte, _ctx);
   wxCalendarEvent_GetDate(_obj, _dte);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarEvent_GetWeekDay(
+value camlidl_wxc_wxCalendarEvent_GetWeekDay(
 	value _v__obj)
 {
   wxCalendarEvent _obj; /*in*/
@@ -53,7 +53,7 @@ value camlidl_wxc_idl_wxCalendarEvent_GetWeekDay(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCalendarEvent(_v__obj, &_obj, _ctx);
   _res = wxCalendarEvent_GetWeekDay(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

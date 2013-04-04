@@ -1,48 +1,48 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external ungetch : wxZipInputStream -> char -> int
-	= "camlidl_wxc_idl_wxInputStream_Ungetch"
+	= "camlidl_wxc_wxInputStream_Ungetch"
 
 external ungetBuffer : wxZipInputStream -> voidptr -> int -> int
-	= "camlidl_wxc_idl_wxInputStream_UngetBuffer"
+	= "camlidl_wxc_wxInputStream_UngetBuffer"
 
 external tell : wxZipInputStream -> int
-	= "camlidl_wxc_idl_wxInputStream_Tell"
+	= "camlidl_wxc_wxInputStream_Tell"
 
 external seekI : wxZipInputStream -> int -> int -> int
-	= "camlidl_wxc_idl_wxInputStream_SeekI"
+	= "camlidl_wxc_wxInputStream_SeekI"
 
 external read : wxZipInputStream -> voidptr -> int -> unit
-	= "camlidl_wxc_idl_wxInputStream_Read"
+	= "camlidl_wxc_wxInputStream_Read"
 
 external peek : wxZipInputStream -> char
-	= "camlidl_wxc_idl_wxInputStream_Peek"
+	= "camlidl_wxc_wxInputStream_Peek"
 
 external lastRead : wxZipInputStream -> int
-	= "camlidl_wxc_idl_wxInputStream_LastRead"
+	= "camlidl_wxc_wxInputStream_LastRead"
 
 external isOk : wxZipInputStream -> bool
-	= "camlidl_wxc_idl_wxStreamBase_IsOk"
+	= "camlidl_wxc_wxStreamBase_IsOk"
 
 external getSize : wxZipInputStream -> int
-	= "camlidl_wxc_idl_wxStreamBase_GetSize"
+	= "camlidl_wxc_wxStreamBase_GetSize"
 
 external getLastError : wxZipInputStream -> int
-	= "camlidl_wxc_idl_wxStreamBase_GetLastError"
+	= "camlidl_wxc_wxStreamBase_GetLastError"
 
 external getC : wxZipInputStream -> char
-	= "camlidl_wxc_idl_wxInputStream_GetC"
+	= "camlidl_wxc_wxInputStream_GetC"
 
 external eof : wxZipInputStream -> bool
-	= "camlidl_wxc_idl_wxInputStream_Eof"
+	= "camlidl_wxc_wxInputStream_Eof"
 
 external delete : wxZipInputStream -> unit
-	= "camlidl_wxc_idl_wxInputStream_Delete"
+	= "camlidl_wxc_wxInputStream_Delete"
 
 external canRead : wxZipInputStream -> bool
-	= "camlidl_wxc_idl_wxInputStream_CanRead"
+	= "camlidl_wxc_wxInputStream_CanRead"
 
 
   (* Cast functions *)

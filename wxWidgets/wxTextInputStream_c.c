@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxTextInputStream(value _v1, wxTextInputStream * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxTextInputStream(value _v1, wxTextInputStream * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxTextInputStream *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxTextInputStream(wxTextInputStream * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxTextInputStream(wxTextInputStream * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxTextInputStream) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxTextInputStream_Create(
+value camlidl_wxc_wxTextInputStream_Create(
 	value _v_inputStream,
 	value _v_sep)
 {
@@ -40,27 +40,27 @@ value camlidl_wxc_idl_wxTextInputStream_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputStream(_v_inputStream, &inputStream, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_sep, &sep, _ctx);
+  camlidl_ml2c_wxc_wxInputStream(_v_inputStream, &inputStream, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_sep, &sep, _ctx);
   _res = wxTextInputStream_Create(inputStream, sep);
-  _vres = camlidl_c2ml_wxc_idl_wxTextInputStream(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxTextInputStream(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextInputStream_Delete(
+value camlidl_wxc_wxTextInputStream_Delete(
 	value _v_self)
 {
   wxTextInputStream self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextInputStream(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxTextInputStream(_v_self, &self, _ctx);
   wxTextInputStream_Delete(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextInputStream_ReadLine(
+value camlidl_wxc_wxTextInputStream_ReadLine(
 	value _v_self)
 {
   wxTextInputStream self; /*in*/
@@ -69,9 +69,9 @@ value camlidl_wxc_idl_wxTextInputStream_ReadLine(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextInputStream(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxTextInputStream(_v_self, &self, _ctx);
   _res = wxTextInputStream_ReadLine(self);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

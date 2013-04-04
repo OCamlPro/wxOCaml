@@ -1,48 +1,48 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external ungetch : wxBufferedInputStream -> char -> int
-	= "camlidl_wxc_idl_wxInputStream_Ungetch"
+	= "camlidl_wxc_wxInputStream_Ungetch"
 
 external ungetBuffer : wxBufferedInputStream -> voidptr -> int -> int
-	= "camlidl_wxc_idl_wxInputStream_UngetBuffer"
+	= "camlidl_wxc_wxInputStream_UngetBuffer"
 
 external tell : wxBufferedInputStream -> int
-	= "camlidl_wxc_idl_wxInputStream_Tell"
+	= "camlidl_wxc_wxInputStream_Tell"
 
 external seekI : wxBufferedInputStream -> int -> int -> int
-	= "camlidl_wxc_idl_wxInputStream_SeekI"
+	= "camlidl_wxc_wxInputStream_SeekI"
 
 external read : wxBufferedInputStream -> voidptr -> int -> unit
-	= "camlidl_wxc_idl_wxInputStream_Read"
+	= "camlidl_wxc_wxInputStream_Read"
 
 external peek : wxBufferedInputStream -> char
-	= "camlidl_wxc_idl_wxInputStream_Peek"
+	= "camlidl_wxc_wxInputStream_Peek"
 
 external lastRead : wxBufferedInputStream -> int
-	= "camlidl_wxc_idl_wxInputStream_LastRead"
+	= "camlidl_wxc_wxInputStream_LastRead"
 
 external isOk : wxBufferedInputStream -> bool
-	= "camlidl_wxc_idl_wxStreamBase_IsOk"
+	= "camlidl_wxc_wxStreamBase_IsOk"
 
 external getSize : wxBufferedInputStream -> int
-	= "camlidl_wxc_idl_wxStreamBase_GetSize"
+	= "camlidl_wxc_wxStreamBase_GetSize"
 
 external getLastError : wxBufferedInputStream -> int
-	= "camlidl_wxc_idl_wxStreamBase_GetLastError"
+	= "camlidl_wxc_wxStreamBase_GetLastError"
 
 external getC : wxBufferedInputStream -> char
-	= "camlidl_wxc_idl_wxInputStream_GetC"
+	= "camlidl_wxc_wxInputStream_GetC"
 
 external eof : wxBufferedInputStream -> bool
-	= "camlidl_wxc_idl_wxInputStream_Eof"
+	= "camlidl_wxc_wxInputStream_Eof"
 
 external delete : wxBufferedInputStream -> unit
-	= "camlidl_wxc_idl_wxInputStream_Delete"
+	= "camlidl_wxc_wxInputStream_Delete"
 
 external canRead : wxBufferedInputStream -> bool
-	= "camlidl_wxc_idl_wxInputStream_CanRead"
+	= "camlidl_wxc_wxInputStream_CanRead"
 
 
   (* Cast functions *)

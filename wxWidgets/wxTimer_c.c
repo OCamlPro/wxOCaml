@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxTimer(value _v1, wxTimer * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxTimer(value _v1, wxTimer * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxTimer *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxTimer(wxTimer * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxTimer(wxTimer * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxTimer) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxTimer_Create(
+value camlidl_wxc_wxTimer_Create(
 	value _v__prt,
 	value _v__id)
 {
@@ -40,27 +40,27 @@ value camlidl_wxc_idl_wxTimer_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
   _id = Int_val(_v__id);
   _res = wxTimer_Create(_prt, _id);
-  _vres = camlidl_c2ml_wxc_idl_wxTimer(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxTimer(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTimer_Delete(
+value camlidl_wxc_wxTimer_Delete(
 	value _v__obj)
 {
   wxTimer _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTimer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTimer(_v__obj, &_obj, _ctx);
   wxTimer_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTimer_GetInterval(
+value camlidl_wxc_wxTimer_GetInterval(
 	value _v__obj)
 {
   wxTimer _obj; /*in*/
@@ -69,14 +69,14 @@ value camlidl_wxc_idl_wxTimer_GetInterval(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTimer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTimer(_v__obj, &_obj, _ctx);
   _res = wxTimer_GetInterval(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTimer_IsOneShot(
+value camlidl_wxc_wxTimer_IsOneShot(
 	value _v__obj)
 {
   wxTimer _obj; /*in*/
@@ -85,14 +85,14 @@ value camlidl_wxc_idl_wxTimer_IsOneShot(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTimer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTimer(_v__obj, &_obj, _ctx);
   _res = wxTimer_IsOneShot(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTimer_IsRuning(
+value camlidl_wxc_wxTimer_IsRuning(
 	value _v__obj)
 {
   wxTimer _obj; /*in*/
@@ -101,14 +101,14 @@ value camlidl_wxc_idl_wxTimer_IsRuning(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTimer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTimer(_v__obj, &_obj, _ctx);
   _res = wxTimer_IsRuning(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTimer_Start(
+value camlidl_wxc_wxTimer_Start(
 	value _v__obj,
 	value _v__int,
 	value _v__one)
@@ -121,7 +121,7 @@ value camlidl_wxc_idl_wxTimer_Start(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTimer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTimer(_v__obj, &_obj, _ctx);
   _int = Int_val(_v__int);
   _one = Int_val(_v__one);
   _res = wxTimer_Start(_obj, _int, _one);
@@ -130,13 +130,13 @@ value camlidl_wxc_idl_wxTimer_Start(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTimer_Stop(
+value camlidl_wxc_wxTimer_Stop(
 	value _v__obj)
 {
   wxTimer _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTimer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTimer(_v__obj, &_obj, _ctx);
   wxTimer_Stop(_obj);
   camlidl_free(_ctx);
   return Val_unit;

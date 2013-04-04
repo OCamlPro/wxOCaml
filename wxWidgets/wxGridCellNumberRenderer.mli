@@ -1,9 +1,9 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external ctor : unit -> wxGridCellNumberRenderer
-	= "camlidl_wxc_idl_wxGridCellNumberRenderer_Ctor"
+	= "camlidl_wxc_wxGridCellNumberRenderer_Ctor"
 
 
   (* Cast functions *)

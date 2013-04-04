@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxWizardPage(value _v1, wxWizardPage * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxWizardPage(value _v1, wxWizardPage * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxWizardPage *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxWizardPage(wxWizardPage * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxWizardPage(wxWizardPage * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxWizardPage) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

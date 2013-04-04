@@ -1,63 +1,63 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external suspend : wxLog -> unit
-	= "camlidl_wxc_idl_wxLog_Suspend"
+	= "camlidl_wxc_wxLog_Suspend"
 
 external setVerbose : wxLog -> int -> unit
-	= "camlidl_wxc_idl_wxLog_SetVerbose"
+	= "camlidl_wxc_wxLog_SetVerbose"
 
 external setTraceMask : wxLog -> int -> unit
-	= "camlidl_wxc_idl_wxLog_SetTraceMask"
+	= "camlidl_wxc_wxLog_SetTraceMask"
 
 external setTimestamp : wxLog -> string -> unit
-	= "camlidl_wxc_idl_wxLog_SetTimestamp"
+	= "camlidl_wxc_wxLog_SetTimestamp"
 
 external setActiveTarget : wxLog -> wxLog
-	= "camlidl_wxc_idl_wxLog_SetActiveTarget"
+	= "camlidl_wxc_wxLog_SetActiveTarget"
 
 external resume : wxLog -> unit
-	= "camlidl_wxc_idl_wxLog_Resume"
+	= "camlidl_wxc_wxLog_Resume"
 
 external removeTraceMask : wxLog -> wxString -> unit
-	= "camlidl_wxc_idl_wxLog_RemoveTraceMask"
+	= "camlidl_wxc_wxLog_RemoveTraceMask"
 
 external onLog : wxLog -> int -> string -> int -> unit
-	= "camlidl_wxc_idl_wxLog_OnLog"
+	= "camlidl_wxc_wxLog_OnLog"
 
 external isAllowedTraceMask : wxLog -> wxMask -> bool
-	= "camlidl_wxc_idl_wxLog_IsAllowedTraceMask"
+	= "camlidl_wxc_wxLog_IsAllowedTraceMask"
 
 external hasPendingMessages : wxLog -> bool
-	= "camlidl_wxc_idl_wxLog_HasPendingMessages"
+	= "camlidl_wxc_wxLog_HasPendingMessages"
 
 external getVerbose : wxLog -> int
-	= "camlidl_wxc_idl_wxLog_GetVerbose"
+	= "camlidl_wxc_wxLog_GetVerbose"
 
 external getTraceMask : wxLog -> int
-	= "camlidl_wxc_idl_wxLog_GetTraceMask"
+	= "camlidl_wxc_wxLog_GetTraceMask"
 
 external getTimestamp : wxLog -> char option
-	= "camlidl_wxc_idl_wxLog_GetTimestamp"
+	= "camlidl_wxc_wxLog_GetTimestamp"
 
 external getActiveTarget : unit -> wxLog
-	= "camlidl_wxc_idl_wxLog_GetActiveTarget"
+	= "camlidl_wxc_wxLog_GetActiveTarget"
 
 external flushActive : wxLog -> unit
-	= "camlidl_wxc_idl_wxLog_FlushActive"
+	= "camlidl_wxc_wxLog_FlushActive"
 
 external flush : wxLog -> unit
-	= "camlidl_wxc_idl_wxLog_Flush"
+	= "camlidl_wxc_wxLog_Flush"
 
 external dontCreateOnDemand : wxLog -> unit
-	= "camlidl_wxc_idl_wxLog_DontCreateOnDemand"
+	= "camlidl_wxc_wxLog_DontCreateOnDemand"
 
 external delete : wxLog -> unit
-	= "camlidl_wxc_idl_wxLog_Delete"
+	= "camlidl_wxc_wxLog_Delete"
 
 external addTraceMask : wxLog -> wxString -> unit
-	= "camlidl_wxc_idl_wxLog_AddTraceMask"
+	= "camlidl_wxc_wxLog_AddTraceMask"
 
 let removeTraceMask _obj str =
   let str = WxString.createUTF8 str in

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxLog(value _v1, wxLog * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxLog(value _v1, wxLog * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxLog *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxLog(wxLog * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxLog(wxLog * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxLog) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxLog_AddTraceMask(
+value camlidl_wxc_wxLog_AddTraceMask(
 	value _v__obj,
 	value _v_str)
 {
@@ -37,62 +37,62 @@ value camlidl_wxc_idl_wxLog_AddTraceMask(
   wxString str; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str, &str, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str, &str, _ctx);
   wxLog_AddTraceMask(_obj, str);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxLog_Delete(
+value camlidl_wxc_wxLog_Delete(
 	value _v__obj)
 {
   wxLog _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   wxLog_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxLog_DontCreateOnDemand(
+value camlidl_wxc_wxLog_DontCreateOnDemand(
 	value _v__obj)
 {
   wxLog _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   wxLog_DontCreateOnDemand(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxLog_Flush(
+value camlidl_wxc_wxLog_Flush(
 	value _v__obj)
 {
   wxLog _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   wxLog_Flush(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxLog_FlushActive(
+value camlidl_wxc_wxLog_FlushActive(
 	value _v__obj)
 {
   wxLog _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   wxLog_FlushActive(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxLog_GetActiveTarget(value _unit)
+value camlidl_wxc_wxLog_GetActiveTarget(value _unit)
 {
   wxLog _res;
   value _vres;
@@ -100,12 +100,12 @@ value camlidl_wxc_idl_wxLog_GetActiveTarget(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxLog_GetActiveTarget();
-  _vres = camlidl_c2ml_wxc_idl_wxLog(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxLog(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxLog_GetTimestamp(
+value camlidl_wxc_wxLog_GetTimestamp(
 	value _v__obj)
 {
   wxLog _obj; /*in*/
@@ -115,7 +115,7 @@ value camlidl_wxc_idl_wxLog_GetTimestamp(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   _res = wxLog_GetTimestamp(_obj);
   if (_res == NULL) {
     _vres = Val_int(0);
@@ -130,7 +130,7 @@ value camlidl_wxc_idl_wxLog_GetTimestamp(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxLog_GetTraceMask(
+value camlidl_wxc_wxLog_GetTraceMask(
 	value _v__obj)
 {
   wxLog _obj; /*in*/
@@ -139,14 +139,14 @@ value camlidl_wxc_idl_wxLog_GetTraceMask(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   _res = wxLog_GetTraceMask(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxLog_GetVerbose(
+value camlidl_wxc_wxLog_GetVerbose(
 	value _v__obj)
 {
   wxLog _obj; /*in*/
@@ -155,14 +155,14 @@ value camlidl_wxc_idl_wxLog_GetVerbose(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   _res = wxLog_GetVerbose(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxLog_HasPendingMessages(
+value camlidl_wxc_wxLog_HasPendingMessages(
 	value _v__obj)
 {
   wxLog _obj; /*in*/
@@ -171,14 +171,14 @@ value camlidl_wxc_idl_wxLog_HasPendingMessages(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   _res = wxLog_HasPendingMessages(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxLog_IsAllowedTraceMask(
+value camlidl_wxc_wxLog_IsAllowedTraceMask(
 	value _v__obj,
 	value _v_mask)
 {
@@ -189,15 +189,15 @@ value camlidl_wxc_idl_wxLog_IsAllowedTraceMask(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxMask(_v_mask, &mask, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMask(_v_mask, &mask, _ctx);
   _res = wxLog_IsAllowedTraceMask(_obj, mask);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxLog_OnLog(
+value camlidl_wxc_wxLog_OnLog(
 	value _v__obj,
 	value _v_level,
 	value _v_szString,
@@ -209,7 +209,7 @@ value camlidl_wxc_idl_wxLog_OnLog(
   int t; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   level = Int_val(_v_level);
   szString = String_val(_v_szString);
   t = Int_val(_v_t);
@@ -218,7 +218,7 @@ value camlidl_wxc_idl_wxLog_OnLog(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxLog_RemoveTraceMask(
+value camlidl_wxc_wxLog_RemoveTraceMask(
 	value _v__obj,
 	value _v_str)
 {
@@ -226,26 +226,26 @@ value camlidl_wxc_idl_wxLog_RemoveTraceMask(
   wxString str; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str, &str, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str, &str, _ctx);
   wxLog_RemoveTraceMask(_obj, str);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxLog_Resume(
+value camlidl_wxc_wxLog_Resume(
 	value _v__obj)
 {
   wxLog _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   wxLog_Resume(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxLog_SetActiveTarget(
+value camlidl_wxc_wxLog_SetActiveTarget(
 	value _v_pLogger)
 {
   wxLog pLogger; /*in*/
@@ -254,14 +254,14 @@ value camlidl_wxc_idl_wxLog_SetActiveTarget(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v_pLogger, &pLogger, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v_pLogger, &pLogger, _ctx);
   _res = wxLog_SetActiveTarget(pLogger);
-  _vres = camlidl_c2ml_wxc_idl_wxLog(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxLog(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxLog_SetTimestamp(
+value camlidl_wxc_wxLog_SetTimestamp(
 	value _v__obj,
 	value _v_ts)
 {
@@ -269,14 +269,14 @@ value camlidl_wxc_idl_wxLog_SetTimestamp(
   char *ts; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   ts = String_val(_v_ts);
   wxLog_SetTimestamp(_obj, ts);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxLog_SetTraceMask(
+value camlidl_wxc_wxLog_SetTraceMask(
 	value _v__obj,
 	value _v_ulMask)
 {
@@ -284,14 +284,14 @@ value camlidl_wxc_idl_wxLog_SetTraceMask(
   int ulMask; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   ulMask = Int_val(_v_ulMask);
   wxLog_SetTraceMask(_obj, ulMask);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxLog_SetVerbose(
+value camlidl_wxc_wxLog_SetVerbose(
 	value _v__obj,
 	value _v_bVerbose)
 {
@@ -299,20 +299,20 @@ value camlidl_wxc_idl_wxLog_SetVerbose(
   int bVerbose; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   bVerbose = Int_val(_v_bVerbose);
   wxLog_SetVerbose(_obj, bVerbose);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxLog_Suspend(
+value camlidl_wxc_wxLog_Suspend(
 	value _v__obj)
 {
   wxLog _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v__obj, &_obj, _ctx);
   wxLog_Suspend(_obj);
   camlidl_free(_ctx);
   return Val_unit;

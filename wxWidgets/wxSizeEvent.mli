@@ -1,69 +1,69 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external skip : wxSizeEvent -> unit
-	= "camlidl_wxc_idl_wxEvent_Skip"
+	= "camlidl_wxc_wxEvent_Skip"
 
 external setTimestamp : wxSizeEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetTimestamp"
+	= "camlidl_wxc_wxEvent_SetTimestamp"
 
 external setId : wxSizeEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetId"
+	= "camlidl_wxc_wxEvent_SetId"
 
 external setEventType : wxSizeEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventType"
+	= "camlidl_wxc_wxEvent_SetEventType"
 
 external setEventObject : wxSizeEvent -> wxObject -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventObject"
+	= "camlidl_wxc_wxEvent_SetEventObject"
 
 external setClientClosure : wxSizeEvent -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxSizeEvent -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external newEventType : unit -> int
-	= "camlidl_wxc_idl_wxEvent_NewEventType"
+	= "camlidl_wxc_wxEvent_NewEventType"
 
 external isScrolledWindow : wxSizeEvent -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxSizeEvent -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isCommandEvent : wxSizeEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_IsCommandEvent"
+	= "camlidl_wxc_wxEvent_IsCommandEvent"
 
 external getTimestamp : wxSizeEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetTimestamp"
+	= "camlidl_wxc_wxEvent_GetTimestamp"
 
 external getSkipped : wxSizeEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_GetSkipped"
+	= "camlidl_wxc_wxEvent_GetSkipped"
 
 external getSize : wxSizeEvent -> wxSize
-	= "camlidl_wxc_idl_wxSizeEvent_GetSize"
+	= "camlidl_wxc_wxSizeEvent_GetSize"
 
 external getId : wxSizeEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetId"
+	= "camlidl_wxc_wxEvent_GetId"
 
 external getEventType : wxSizeEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetEventType"
+	= "camlidl_wxc_wxEvent_GetEventType"
 
 external getEventObject : wxSizeEvent -> wxObject
-	= "camlidl_wxc_idl_wxEvent_GetEventObject"
+	= "camlidl_wxc_wxEvent_GetEventObject"
 
 external getClientClosure : wxSizeEvent -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxSizeEvent -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxSizeEvent -> unit
-	= "camlidl_wxc_idl_wxObject_Delete"
+	= "camlidl_wxc_wxObject_Delete"
 
 external copyObject : wxSizeEvent -> voidptr -> unit
-	= "camlidl_wxc_idl_wxSizeEvent_CopyObject"
+	= "camlidl_wxc_wxSizeEvent_CopyObject"
 
   val ptrNULL : wxSizeEvent
 

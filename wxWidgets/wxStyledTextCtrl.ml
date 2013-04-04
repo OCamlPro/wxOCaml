@@ -1,1464 +1,1464 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxStyledTextCtrl
-	= "camlidl_wxc_idl_wxStyledTextCtrl_Create_bytecode" "camlidl_wxc_idl_wxStyledTextCtrl_Create"
+	= "camlidl_wxc_wxStyledTextCtrl_Create_bytecode" "camlidl_wxc_wxStyledTextCtrl_Create"
 
 external wordStartPosition : wxStyledTextCtrl -> int -> bool -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_WordStartPosition"
+	= "camlidl_wxc_wxStyledTextCtrl_WordStartPosition"
 
 external wordPartRightExtend : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_WordPartRightExtend"
+	= "camlidl_wxc_wxStyledTextCtrl_WordPartRightExtend"
 
 external wordPartRight : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_WordPartRight"
+	= "camlidl_wxc_wxStyledTextCtrl_WordPartRight"
 
 external wordPartLeftExtend : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_WordPartLeftExtend"
+	= "camlidl_wxc_wxStyledTextCtrl_WordPartLeftExtend"
 
 external wordPartLeft : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_WordPartLeft"
+	= "camlidl_wxc_wxStyledTextCtrl_WordPartLeft"
 
 external wordEndPosition : wxStyledTextCtrl -> int -> bool -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_WordEndPosition"
+	= "camlidl_wxc_wxStyledTextCtrl_WordEndPosition"
 
 external warpPointer : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_WarpPointer"
+	= "camlidl_wxc_wxWindow_WarpPointer"
 
 external visibleFromDocLine : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_VisibleFromDocLine"
+	= "camlidl_wxc_wxStyledTextCtrl_VisibleFromDocLine"
 
 external validate : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_Validate"
+	= "camlidl_wxc_wxWindow_Validate"
 
 external userListShow : wxStyledTextCtrl -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_UserListShow"
+	= "camlidl_wxc_wxStyledTextCtrl_UserListShow"
 
 external usePopUp : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_UsePopUp"
+	= "camlidl_wxc_wxStyledTextCtrl_UsePopUp"
 
 external updateWindowUI : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_UpdateWindowUI"
+	= "camlidl_wxc_wxWindow_UpdateWindowUI"
 
 external unsetConstraints : wxStyledTextCtrl -> voidptr -> unit
-	= "camlidl_wxc_idl_wxWindow_UnsetConstraints"
+	= "camlidl_wxc_wxWindow_UnsetConstraints"
 
 external undo : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_Undo"
+	= "camlidl_wxc_wxStyledTextCtrl_Undo"
 
 external transferDataToWindow : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_TransferDataToWindow"
+	= "camlidl_wxc_wxWindow_TransferDataToWindow"
 
 external transferDataFromWindow : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_TransferDataFromWindow"
+	= "camlidl_wxc_wxWindow_TransferDataFromWindow"
 
 external toggleFold : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_ToggleFold"
+	= "camlidl_wxc_wxStyledTextCtrl_ToggleFold"
 
 external thaw : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_Thaw"
+	= "camlidl_wxc_wxWindow_Thaw"
 
 external textWidth : wxStyledTextCtrl -> int -> wxString -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_TextWidth"
+	= "camlidl_wxc_wxStyledTextCtrl_TextWidth"
 
 external textHeight : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_TextHeight"
+	= "camlidl_wxc_wxStyledTextCtrl_TextHeight"
 
 external targetFromSelection : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_TargetFromSelection"
+	= "camlidl_wxc_wxStyledTextCtrl_TargetFromSelection"
 
 external styleSetVisible : wxStyledTextCtrl -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetVisible"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetVisible"
 
 external styleSetUnderline : wxStyledTextCtrl -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetUnderline"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetUnderline"
 
 external styleSetSpec : wxStyledTextCtrl -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetSpec"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetSpec"
 
 external styleSetSize : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetSize"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetSize"
 
 external styleSetItalic : wxStyledTextCtrl -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetItalic"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetItalic"
 
 external styleSetHotSpot : wxStyledTextCtrl -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetHotSpot"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetHotSpot"
 
 external styleSetForeground : wxStyledTextCtrl -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetForeground"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetForeground"
 
 external styleSetFontAttr : wxStyledTextCtrl -> int -> int -> wxString -> bool -> bool -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetFontAttr_bytecode" "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetFontAttr"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetFontAttr_bytecode" "camlidl_wxc_wxStyledTextCtrl_StyleSetFontAttr"
 
 external styleSetFont : wxStyledTextCtrl -> int -> wxFont -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetFont"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetFont"
 
 external styleSetFaceName : wxStyledTextCtrl -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetFaceName"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetFaceName"
 
 external styleSetEOLFilled : wxStyledTextCtrl -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetEOLFilled"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetEOLFilled"
 
 external styleSetCharacterSet : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetCharacterSet"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetCharacterSet"
 
 external styleSetChangeable : wxStyledTextCtrl -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetChangeable"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetChangeable"
 
 external styleSetCase : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetCase"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetCase"
 
 external styleSetBold : wxStyledTextCtrl -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetBold"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetBold"
 
 external styleSetBackground : wxStyledTextCtrl -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleSetBackground"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleSetBackground"
 
 external styleResetDefault : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleResetDefault"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleResetDefault"
 
 external styleClearAll : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StyleClearAll"
+	= "camlidl_wxc_wxStyledTextCtrl_StyleClearAll"
 
 external stopRecord : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StopRecord"
+	= "camlidl_wxc_wxStyledTextCtrl_StopRecord"
 
 external startStyling : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StartStyling"
+	= "camlidl_wxc_wxStyledTextCtrl_StartStyling"
 
 external startRecord : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_StartRecord"
+	= "camlidl_wxc_wxStyledTextCtrl_StartRecord"
 
 external showLines : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_ShowLines"
+	= "camlidl_wxc_wxStyledTextCtrl_ShowLines"
 
 external show : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_Show"
+	= "camlidl_wxc_wxWindow_Show"
 
 external setZoom : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetZoom"
+	= "camlidl_wxc_wxStyledTextCtrl_SetZoom"
 
 external setYCaretPolicy : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetYCaretPolicy"
+	= "camlidl_wxc_wxStyledTextCtrl_SetYCaretPolicy"
 
 external setXOffset : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetXOffset"
+	= "camlidl_wxc_wxStyledTextCtrl_SetXOffset"
 
 external setXCaretPolicy : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetXCaretPolicy"
+	= "camlidl_wxc_wxStyledTextCtrl_SetXCaretPolicy"
 
 external setWrapMode : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetWrapMode"
+	= "camlidl_wxc_wxStyledTextCtrl_SetWrapMode"
 
 external setWordChars : wxStyledTextCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetWordChars"
+	= "camlidl_wxc_wxStyledTextCtrl_SetWordChars"
 
 external setWindowStyleFlag : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetWindowStyleFlag"
+	= "camlidl_wxc_wxWindow_SetWindowStyleFlag"
 
 external setWhitespaceForeground : wxStyledTextCtrl -> bool -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetWhitespaceForeground"
+	= "camlidl_wxc_wxStyledTextCtrl_SetWhitespaceForeground"
 
 external setWhitespaceBackground : wxStyledTextCtrl -> bool -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetWhitespaceBackground"
+	= "camlidl_wxc_wxStyledTextCtrl_SetWhitespaceBackground"
 
 external setVisiblePolicy : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetVisiblePolicy"
+	= "camlidl_wxc_wxStyledTextCtrl_SetVisiblePolicy"
 
 external setVirtualSize : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetVirtualSize"
+	= "camlidl_wxc_wxWindow_SetVirtualSize"
 
 external setViewWhiteSpace : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetViewWhiteSpace"
+	= "camlidl_wxc_wxStyledTextCtrl_SetViewWhiteSpace"
 
 external setViewEOL : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetViewEOL"
+	= "camlidl_wxc_wxStyledTextCtrl_SetViewEOL"
 
 external setValidator : wxStyledTextCtrl -> wxValidator -> unit
-	= "camlidl_wxc_idl_wxWindow_SetValidator"
+	= "camlidl_wxc_wxWindow_SetValidator"
 
 external setVScrollBar : wxStyledTextCtrl -> wxScrollBar -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetVScrollBar"
+	= "camlidl_wxc_wxStyledTextCtrl_SetVScrollBar"
 
 external setUseVerticalScrollBar : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetUseVerticalScrollBar"
+	= "camlidl_wxc_wxStyledTextCtrl_SetUseVerticalScrollBar"
 
 external setUseTabs : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetUseTabs"
+	= "camlidl_wxc_wxStyledTextCtrl_SetUseTabs"
 
 external setUseHorizontalScrollBar : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetUseHorizontalScrollBar"
+	= "camlidl_wxc_wxStyledTextCtrl_SetUseHorizontalScrollBar"
 
 external setUndoCollection : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetUndoCollection"
+	= "camlidl_wxc_wxStyledTextCtrl_SetUndoCollection"
 
 external setTwoPhaseDraw : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetTwoPhaseDraw"
+	= "camlidl_wxc_wxStyledTextCtrl_SetTwoPhaseDraw"
 
 external setToolTip : wxStyledTextCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxWindow_SetToolTip"
+	= "camlidl_wxc_wxWindow_SetToolTip"
 
 external setText : wxStyledTextCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetText"
+	= "camlidl_wxc_wxStyledTextCtrl_SetText"
 
 external setTargetStart : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetTargetStart"
+	= "camlidl_wxc_wxStyledTextCtrl_SetTargetStart"
 
 external setTargetEnd : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetTargetEnd"
+	= "camlidl_wxc_wxStyledTextCtrl_SetTargetEnd"
 
 external setTabWidth : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetTabWidth"
+	= "camlidl_wxc_wxStyledTextCtrl_SetTabWidth"
 
 external setTabIndents : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetTabIndents"
+	= "camlidl_wxc_wxStyledTextCtrl_SetTabIndents"
 
 external setStyling : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetStyling"
+	= "camlidl_wxc_wxStyledTextCtrl_SetStyling"
 
 external setStyleBytes : wxStyledTextCtrl -> int -> char option -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetStyleBytes"
+	= "camlidl_wxc_wxStyledTextCtrl_SetStyleBytes"
 
 external setStyleBits : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetStyleBits"
+	= "camlidl_wxc_wxStyledTextCtrl_SetStyleBits"
 
 external setStatus : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetStatus"
+	= "camlidl_wxc_wxStyledTextCtrl_SetStatus"
 
 external setSizer : wxStyledTextCtrl -> wxSizer -> unit
-	= "camlidl_wxc_idl_wxWindow_SetSizer"
+	= "camlidl_wxc_wxWindow_SetSizer"
 
 external setSizeHints : wxStyledTextCtrl -> int -> int -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetSizeHints_bytecode" "camlidl_wxc_idl_wxWindow_SetSizeHints"
+	= "camlidl_wxc_wxWindow_SetSizeHints_bytecode" "camlidl_wxc_wxWindow_SetSizeHints"
 
 external setSizeConstraint : wxStyledTextCtrl -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetSizeConstraint"
+	= "camlidl_wxc_wxWindow_SetSizeConstraint"
 
 external setSize : wxStyledTextCtrl -> int -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetSize_bytecode" "camlidl_wxc_idl_wxWindow_SetSize"
+	= "camlidl_wxc_wxWindow_SetSize_bytecode" "camlidl_wxc_wxWindow_SetSize"
 
 external setSelectionStart : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetSelectionStart"
+	= "camlidl_wxc_wxStyledTextCtrl_SetSelectionStart"
 
 external setSelectionEnd : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetSelectionEnd"
+	= "camlidl_wxc_wxStyledTextCtrl_SetSelectionEnd"
 
 external setSelection : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetSelection"
+	= "camlidl_wxc_wxStyledTextCtrl_SetSelection"
 
 external setSelForeground : wxStyledTextCtrl -> bool -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetSelForeground"
+	= "camlidl_wxc_wxStyledTextCtrl_SetSelForeground"
 
 external setSelBackground : wxStyledTextCtrl -> bool -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetSelBackground"
+	= "camlidl_wxc_wxStyledTextCtrl_SetSelBackground"
 
 external setSearchFlags : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetSearchFlags"
+	= "camlidl_wxc_wxStyledTextCtrl_SetSearchFlags"
 
 external setScrollbar : wxStyledTextCtrl -> int -> int -> int -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_SetScrollbar_bytecode" "camlidl_wxc_idl_wxWindow_SetScrollbar"
+	= "camlidl_wxc_wxWindow_SetScrollbar_bytecode" "camlidl_wxc_wxWindow_SetScrollbar"
 
 external setScrollWidth : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetScrollWidth"
+	= "camlidl_wxc_wxStyledTextCtrl_SetScrollWidth"
 
 external setScrollPos : wxStyledTextCtrl -> int -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_SetScrollPos"
+	= "camlidl_wxc_wxWindow_SetScrollPos"
 
 external setSavePoint : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetSavePoint"
+	= "camlidl_wxc_wxStyledTextCtrl_SetSavePoint"
 
 external setSTCFocus : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetSTCFocus"
+	= "camlidl_wxc_wxStyledTextCtrl_SetSTCFocus"
 
 external setSTCCursor : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetSTCCursor"
+	= "camlidl_wxc_wxStyledTextCtrl_SetSTCCursor"
 
 external setReadOnly : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetReadOnly"
+	= "camlidl_wxc_wxStyledTextCtrl_SetReadOnly"
 
 external setProperty : wxStyledTextCtrl -> wxString -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetProperty"
+	= "camlidl_wxc_wxStyledTextCtrl_SetProperty"
 
 external setPrintWrapMode : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetPrintWrapMode"
+	= "camlidl_wxc_wxStyledTextCtrl_SetPrintWrapMode"
 
 external setPrintMagnification : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetPrintMagnification"
+	= "camlidl_wxc_wxStyledTextCtrl_SetPrintMagnification"
 
 external setPrintColourMode : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetPrintColourMode"
+	= "camlidl_wxc_wxStyledTextCtrl_SetPrintColourMode"
 
 external setPreviousHandler : wxStyledTextCtrl -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetPreviousHandler"
+	= "camlidl_wxc_wxEvtHandler_SetPreviousHandler"
 
 external setOvertype : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetOvertype"
+	= "camlidl_wxc_wxStyledTextCtrl_SetOvertype"
 
 external setNextHandler : wxStyledTextCtrl -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetNextHandler"
+	= "camlidl_wxc_wxEvtHandler_SetNextHandler"
 
 external setName : wxStyledTextCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxWindow_SetName"
+	= "camlidl_wxc_wxWindow_SetName"
 
 external setMouseDwellTime : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetMouseDwellTime"
+	= "camlidl_wxc_wxStyledTextCtrl_SetMouseDwellTime"
 
 external setMouseDownCaptures : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetMouseDownCaptures"
+	= "camlidl_wxc_wxStyledTextCtrl_SetMouseDownCaptures"
 
 external setModEventMask : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetModEventMask"
+	= "camlidl_wxc_wxStyledTextCtrl_SetModEventMask"
 
 external setMargins : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetMargins"
+	= "camlidl_wxc_wxStyledTextCtrl_SetMargins"
 
 external setMarginWidth : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetMarginWidth"
+	= "camlidl_wxc_wxStyledTextCtrl_SetMarginWidth"
 
 external setMarginType : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetMarginType"
+	= "camlidl_wxc_wxStyledTextCtrl_SetMarginType"
 
 external setMarginSensitive : wxStyledTextCtrl -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetMarginSensitive"
+	= "camlidl_wxc_wxStyledTextCtrl_SetMarginSensitive"
 
 external setMarginRight : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetMarginRight"
+	= "camlidl_wxc_wxStyledTextCtrl_SetMarginRight"
 
 external setMarginMask : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetMarginMask"
+	= "camlidl_wxc_wxStyledTextCtrl_SetMarginMask"
 
 external setMarginLeft : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetMarginLeft"
+	= "camlidl_wxc_wxStyledTextCtrl_SetMarginLeft"
 
 external setLineState : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetLineState"
+	= "camlidl_wxc_wxStyledTextCtrl_SetLineState"
 
 external setLineIndentation : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetLineIndentation"
+	= "camlidl_wxc_wxStyledTextCtrl_SetLineIndentation"
 
 external setLexerLanguage : wxStyledTextCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetLexerLanguage"
+	= "camlidl_wxc_wxStyledTextCtrl_SetLexerLanguage"
 
 external setLexer : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetLexer"
+	= "camlidl_wxc_wxStyledTextCtrl_SetLexer"
 
 external setLayoutCache : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetLayoutCache"
+	= "camlidl_wxc_wxStyledTextCtrl_SetLayoutCache"
 
 external setLastKeydownProcessed : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetLastKeydownProcessed"
+	= "camlidl_wxc_wxStyledTextCtrl_SetLastKeydownProcessed"
 
 external setLabel : wxStyledTextCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxControl_SetLabel"
+	= "camlidl_wxc_wxControl_SetLabel"
 
 external setKeyWords : wxStyledTextCtrl -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetKeyWords"
+	= "camlidl_wxc_wxStyledTextCtrl_SetKeyWords"
 
 external setIndentationGuides : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetIndentationGuides"
+	= "camlidl_wxc_wxStyledTextCtrl_SetIndentationGuides"
 
 external setIndent : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetIndent"
+	= "camlidl_wxc_wxStyledTextCtrl_SetIndent"
 
 external setId : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetId"
+	= "camlidl_wxc_wxWindow_SetId"
 
 external setHotspotActiveUnderline : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetHotspotActiveUnderline"
+	= "camlidl_wxc_wxStyledTextCtrl_SetHotspotActiveUnderline"
 
 external setHotspotActiveForeground : wxStyledTextCtrl -> bool -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetHotspotActiveForeground"
+	= "camlidl_wxc_wxStyledTextCtrl_SetHotspotActiveForeground"
 
 external setHotspotActiveBackground : wxStyledTextCtrl -> bool -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetHotspotActiveBackground"
+	= "camlidl_wxc_wxStyledTextCtrl_SetHotspotActiveBackground"
 
 external setHighlightGuide : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetHighlightGuide"
+	= "camlidl_wxc_wxStyledTextCtrl_SetHighlightGuide"
 
 external setHScrollBar : wxStyledTextCtrl -> wxScrollBar -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetHScrollBar"
+	= "camlidl_wxc_wxStyledTextCtrl_SetHScrollBar"
 
 external setForegroundColour : wxStyledTextCtrl -> wxColour -> int
-	= "camlidl_wxc_idl_wxWindow_SetForegroundColour"
+	= "camlidl_wxc_wxWindow_SetForegroundColour"
 
 external setFont : wxStyledTextCtrl -> wxFont -> int
-	= "camlidl_wxc_idl_wxWindow_SetFont"
+	= "camlidl_wxc_wxWindow_SetFont"
 
 external setFoldMarginHiColour : wxStyledTextCtrl -> bool -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetFoldMarginHiColour"
+	= "camlidl_wxc_wxStyledTextCtrl_SetFoldMarginHiColour"
 
 external setFoldMarginColour : wxStyledTextCtrl -> bool -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetFoldMarginColour"
+	= "camlidl_wxc_wxStyledTextCtrl_SetFoldMarginColour"
 
 external setFoldLevel : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetFoldLevel"
+	= "camlidl_wxc_wxStyledTextCtrl_SetFoldLevel"
 
 external setFoldFlags : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetFoldFlags"
+	= "camlidl_wxc_wxStyledTextCtrl_SetFoldFlags"
 
 external setFoldExpanded : wxStyledTextCtrl -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetFoldExpanded"
+	= "camlidl_wxc_wxStyledTextCtrl_SetFoldExpanded"
 
 external setFocus : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_SetFocus"
+	= "camlidl_wxc_wxWindow_SetFocus"
 
 external setExtraStyle : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetExtraStyle"
+	= "camlidl_wxc_wxWindow_SetExtraStyle"
 
 external setEvtHandlerEnabled : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetEvtHandlerEnabled"
+	= "camlidl_wxc_wxEvtHandler_SetEvtHandlerEnabled"
 
 external setEndAtLastLine : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetEndAtLastLine"
+	= "camlidl_wxc_wxStyledTextCtrl_SetEndAtLastLine"
 
 external setEdgeMode : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetEdgeMode"
+	= "camlidl_wxc_wxStyledTextCtrl_SetEdgeMode"
 
 external setEdgeColumn : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetEdgeColumn"
+	= "camlidl_wxc_wxStyledTextCtrl_SetEdgeColumn"
 
 external setEdgeColour : wxStyledTextCtrl -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetEdgeColour"
+	= "camlidl_wxc_wxStyledTextCtrl_SetEdgeColour"
 
 external setEOLMode : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetEOLMode"
+	= "camlidl_wxc_wxStyledTextCtrl_SetEOLMode"
 
 external setDropTarget : wxStyledTextCtrl -> wxDropTarget -> unit
-	= "camlidl_wxc_idl_wxWindow_SetDropTarget"
+	= "camlidl_wxc_wxWindow_SetDropTarget"
 
 external setDocPointer : wxStyledTextCtrl -> wxSTCDoc -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetDocPointer"
+	= "camlidl_wxc_wxStyledTextCtrl_SetDocPointer"
 
 external setCursor : wxStyledTextCtrl -> wxCursor -> int
-	= "camlidl_wxc_idl_wxWindow_SetCursor"
+	= "camlidl_wxc_wxWindow_SetCursor"
 
 external setCurrentPos : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetCurrentPos"
+	= "camlidl_wxc_wxStyledTextCtrl_SetCurrentPos"
 
 external setControlCharSymbol : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetControlCharSymbol"
+	= "camlidl_wxc_wxStyledTextCtrl_SetControlCharSymbol"
 
 external setConstraints : wxStyledTextCtrl -> wxLayoutConstraints -> unit
-	= "camlidl_wxc_idl_wxWindow_SetConstraints"
+	= "camlidl_wxc_wxWindow_SetConstraints"
 
 external setConstraintSizes : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetConstraintSizes"
+	= "camlidl_wxc_wxWindow_SetConstraintSizes"
 
 external setCodePage : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetCodePage"
+	= "camlidl_wxc_wxStyledTextCtrl_SetCodePage"
 
 external setClientSize : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetClientSize"
+	= "camlidl_wxc_wxWindow_SetClientSize"
 
 external setClientObject : wxStyledTextCtrl -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxWindow_SetClientObject"
+	= "camlidl_wxc_wxWindow_SetClientObject"
 
 external setClientData : wxStyledTextCtrl -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxWindow_SetClientData"
+	= "camlidl_wxc_wxWindow_SetClientData"
 
 external setClientClosure : wxStyledTextCtrl -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetClientClosure"
+	= "camlidl_wxc_wxEvtHandler_SetClientClosure"
 
 external setCaretWidth : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetCaretWidth"
+	= "camlidl_wxc_wxStyledTextCtrl_SetCaretWidth"
 
 external setCaretPeriod : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetCaretPeriod"
+	= "camlidl_wxc_wxStyledTextCtrl_SetCaretPeriod"
 
 external setCaretLineVisible : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetCaretLineVisible"
+	= "camlidl_wxc_wxStyledTextCtrl_SetCaretLineVisible"
 
 external setCaretLineBackground : wxStyledTextCtrl -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetCaretLineBackground"
+	= "camlidl_wxc_wxStyledTextCtrl_SetCaretLineBackground"
 
 external setCaretForeground : wxStyledTextCtrl -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetCaretForeground"
+	= "camlidl_wxc_wxStyledTextCtrl_SetCaretForeground"
 
 external setCaret : wxStyledTextCtrl -> wxCaret -> unit
-	= "camlidl_wxc_idl_wxWindow_SetCaret"
+	= "camlidl_wxc_wxWindow_SetCaret"
 
 external setBufferedDraw : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetBufferedDraw"
+	= "camlidl_wxc_wxStyledTextCtrl_SetBufferedDraw"
 
 external setBackgroundColour : wxStyledTextCtrl -> wxColour -> int
-	= "camlidl_wxc_idl_wxWindow_SetBackgroundColour"
+	= "camlidl_wxc_wxWindow_SetBackgroundColour"
 
 external setBackSpaceUnIndents : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetBackSpaceUnIndents"
+	= "camlidl_wxc_wxStyledTextCtrl_SetBackSpaceUnIndents"
 
 external setAutoLayout : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_SetAutoLayout"
+	= "camlidl_wxc_wxWindow_SetAutoLayout"
 
 external setAnchor : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SetAnchor"
+	= "camlidl_wxc_wxStyledTextCtrl_SetAnchor"
 
 external setAcceleratorTable : wxStyledTextCtrl -> wxAcceleratorTable -> unit
-	= "camlidl_wxc_idl_wxWindow_SetAcceleratorTable"
+	= "camlidl_wxc_wxWindow_SetAcceleratorTable"
 
 external selectionIsRectangle : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SelectionIsRectangle"
+	= "camlidl_wxc_wxStyledTextCtrl_SelectionIsRectangle"
 
 external selectAll : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SelectAll"
+	= "camlidl_wxc_wxStyledTextCtrl_SelectAll"
 
 external searchPrev : wxStyledTextCtrl -> int -> wxString -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SearchPrev"
+	= "camlidl_wxc_wxStyledTextCtrl_SearchPrev"
 
 external searchNext : wxStyledTextCtrl -> int -> wxString -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SearchNext"
+	= "camlidl_wxc_wxStyledTextCtrl_SearchNext"
 
 external searchInTarget : wxStyledTextCtrl -> wxString -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SearchInTarget"
+	= "camlidl_wxc_wxStyledTextCtrl_SearchInTarget"
 
 external searchAnchor : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SearchAnchor"
+	= "camlidl_wxc_wxStyledTextCtrl_SearchAnchor"
 
 external scrollWindowRect : wxStyledTextCtrl -> int -> int -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_ScrollWindowRect_bytecode" "camlidl_wxc_idl_wxWindow_ScrollWindowRect"
+	= "camlidl_wxc_wxWindow_ScrollWindowRect_bytecode" "camlidl_wxc_wxWindow_ScrollWindowRect"
 
 external scrollWindow : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_ScrollWindow"
+	= "camlidl_wxc_wxWindow_ScrollWindow"
 
 external scrollToLine : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_ScrollToLine"
+	= "camlidl_wxc_wxStyledTextCtrl_ScrollToLine"
 
 external scrollToColumn : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_ScrollToColumn"
+	= "camlidl_wxc_wxStyledTextCtrl_ScrollToColumn"
 
 external screenToClient2 : wxStyledTextCtrl -> int -> int -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ScreenToClient2"
+	= "camlidl_wxc_wxWindow_ScreenToClient2"
 
 external screenToClient : wxStyledTextCtrl -> int -> int -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ScreenToClient"
+	= "camlidl_wxc_wxWindow_ScreenToClient"
 
 external saveFile : wxStyledTextCtrl -> wxString -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_SaveFile"
+	= "camlidl_wxc_wxStyledTextCtrl_SaveFile"
 
 external safeDelete : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external resetConstraints : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_ResetConstraints"
+	= "camlidl_wxc_wxWindow_ResetConstraints"
 
 external replaceTargetRE : wxStyledTextCtrl -> wxString -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_ReplaceTargetRE"
+	= "camlidl_wxc_wxStyledTextCtrl_ReplaceTargetRE"
 
 external replaceTarget : wxStyledTextCtrl -> wxString -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_ReplaceTarget"
+	= "camlidl_wxc_wxStyledTextCtrl_ReplaceTarget"
 
 external replaceSelection : wxStyledTextCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_ReplaceSelection"
+	= "camlidl_wxc_wxStyledTextCtrl_ReplaceSelection"
 
 external reparent : wxStyledTextCtrl -> wxWindow -> int
-	= "camlidl_wxc_idl_wxWindow_Reparent"
+	= "camlidl_wxc_wxWindow_Reparent"
 
 external removeConstraintReference : wxStyledTextCtrl -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxWindow_RemoveConstraintReference"
+	= "camlidl_wxc_wxWindow_RemoveConstraintReference"
 
 external removeChild : wxStyledTextCtrl -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxWindow_RemoveChild"
+	= "camlidl_wxc_wxWindow_RemoveChild"
 
 external releaseMouse : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_ReleaseMouse"
+	= "camlidl_wxc_wxWindow_ReleaseMouse"
 
 external releaseDocument : wxStyledTextCtrl -> wxSTCDoc -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_ReleaseDocument"
+	= "camlidl_wxc_wxStyledTextCtrl_ReleaseDocument"
 
 external registerImage : wxStyledTextCtrl -> int -> wxBitmap -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_RegisterImage"
+	= "camlidl_wxc_wxStyledTextCtrl_RegisterImage"
 
 external refreshRect : wxStyledTextCtrl -> bool -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_RefreshRect_bytecode" "camlidl_wxc_idl_wxWindow_RefreshRect"
+	= "camlidl_wxc_wxWindow_RefreshRect_bytecode" "camlidl_wxc_wxWindow_RefreshRect"
 
 external refresh : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_Refresh"
+	= "camlidl_wxc_wxWindow_Refresh"
 
 external redo : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_Redo"
+	= "camlidl_wxc_wxStyledTextCtrl_Redo"
 
 external raise : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_Raise"
+	= "camlidl_wxc_wxWindow_Raise"
 
 external pushEventHandler : wxStyledTextCtrl -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxWindow_PushEventHandler"
+	= "camlidl_wxc_wxWindow_PushEventHandler"
 
 external processPendingEvents : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_ProcessPendingEvents"
+	= "camlidl_wxc_wxEvtHandler_ProcessPendingEvents"
 
 external processEvent : wxStyledTextCtrl -> wxEvent -> bool
-	= "camlidl_wxc_idl_wxEvtHandler_ProcessEvent"
+	= "camlidl_wxc_wxEvtHandler_ProcessEvent"
 
 external prepareDC : wxStyledTextCtrl -> wxDC -> unit
-	= "camlidl_wxc_idl_wxWindow_PrepareDC"
+	= "camlidl_wxc_wxWindow_PrepareDC"
 
 external positionFromPointClose : wxStyledTextCtrl -> int -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_PositionFromPointClose"
+	= "camlidl_wxc_wxStyledTextCtrl_PositionFromPointClose"
 
 external positionFromPoint : wxStyledTextCtrl -> int -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_PositionFromPoint"
+	= "camlidl_wxc_wxStyledTextCtrl_PositionFromPoint"
 
 external positionFromLine : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_PositionFromLine"
+	= "camlidl_wxc_wxStyledTextCtrl_PositionFromLine"
 
 external positionBefore : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_PositionBefore"
+	= "camlidl_wxc_wxStyledTextCtrl_PositionBefore"
 
 external positionAfter : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_PositionAfter"
+	= "camlidl_wxc_wxStyledTextCtrl_PositionAfter"
 
 external popupMenu : wxStyledTextCtrl -> wxMenu -> int -> int -> int
-	= "camlidl_wxc_idl_wxWindow_PopupMenu"
+	= "camlidl_wxc_wxWindow_PopupMenu"
 
 external popEventHandler : wxStyledTextCtrl -> bool -> voidptr
-	= "camlidl_wxc_idl_wxWindow_PopEventHandler"
+	= "camlidl_wxc_wxWindow_PopEventHandler"
 
 external pointFromPosition : wxStyledTextCtrl -> wxPoint
-	= "camlidl_wxc_idl_wxStyledTextCtrl_PointFromPosition"
+	= "camlidl_wxc_wxStyledTextCtrl_PointFromPosition"
 
 external paste : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_Paste"
+	= "camlidl_wxc_wxStyledTextCtrl_Paste"
 
 external moveConstraint : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_MoveConstraint"
+	= "camlidl_wxc_wxWindow_MoveConstraint"
 
 external moveCaretInsideView : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_MoveCaretInsideView"
+	= "camlidl_wxc_wxStyledTextCtrl_MoveCaretInsideView"
 
 external move : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_Move"
+	= "camlidl_wxc_wxWindow_Move"
 
 external markerSetForeground : wxStyledTextCtrl -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_MarkerSetForeground"
+	= "camlidl_wxc_wxStyledTextCtrl_MarkerSetForeground"
 
 external markerSetBackground : wxStyledTextCtrl -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_MarkerSetBackground"
+	= "camlidl_wxc_wxStyledTextCtrl_MarkerSetBackground"
 
 external markerPrevious : wxStyledTextCtrl -> int -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_MarkerPrevious"
+	= "camlidl_wxc_wxStyledTextCtrl_MarkerPrevious"
 
 external markerNext : wxStyledTextCtrl -> int -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_MarkerNext"
+	= "camlidl_wxc_wxStyledTextCtrl_MarkerNext"
 
 external markerLineFromHandle : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_MarkerLineFromHandle"
+	= "camlidl_wxc_wxStyledTextCtrl_MarkerLineFromHandle"
 
 external markerGet : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_MarkerGet"
+	= "camlidl_wxc_wxStyledTextCtrl_MarkerGet"
 
 external markerDeleteHandle : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_MarkerDeleteHandle"
+	= "camlidl_wxc_wxStyledTextCtrl_MarkerDeleteHandle"
 
 external markerDeleteAll : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_MarkerDeleteAll"
+	= "camlidl_wxc_wxStyledTextCtrl_MarkerDeleteAll"
 
 external markerDelete : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_MarkerDelete"
+	= "camlidl_wxc_wxStyledTextCtrl_MarkerDelete"
 
 external markerDefineBitmap : wxStyledTextCtrl -> int -> wxBitmap -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_MarkerDefineBitmap"
+	= "camlidl_wxc_wxStyledTextCtrl_MarkerDefineBitmap"
 
 external markerDefine : wxStyledTextCtrl -> int -> int -> int -> int -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_MarkerDefine_bytecode" "camlidl_wxc_idl_wxStyledTextCtrl_MarkerDefine"
+	= "camlidl_wxc_wxStyledTextCtrl_MarkerDefine_bytecode" "camlidl_wxc_wxStyledTextCtrl_MarkerDefine"
 
 external markerAdd : wxStyledTextCtrl -> int -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_MarkerAdd"
+	= "camlidl_wxc_wxStyledTextCtrl_MarkerAdd"
 
 external makeModal : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_MakeModal"
+	= "camlidl_wxc_wxWindow_MakeModal"
 
 external lower : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_Lower"
+	= "camlidl_wxc_wxWindow_Lower"
 
 external loadFile : wxStyledTextCtrl -> wxString -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_LoadFile"
+	= "camlidl_wxc_wxStyledTextCtrl_LoadFile"
 
 external linesSplit : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_LinesSplit"
+	= "camlidl_wxc_wxStyledTextCtrl_LinesSplit"
 
 external linesOnScreen : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_LinesOnScreen"
+	= "camlidl_wxc_wxStyledTextCtrl_LinesOnScreen"
 
 external linesJoin : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_LinesJoin"
+	= "camlidl_wxc_wxStyledTextCtrl_LinesJoin"
 
 external lineScroll : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_LineScroll"
+	= "camlidl_wxc_wxStyledTextCtrl_LineScroll"
 
 external lineLength : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_LineLength"
+	= "camlidl_wxc_wxStyledTextCtrl_LineLength"
 
 external lineFromPosition : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_LineFromPosition"
+	= "camlidl_wxc_wxStyledTextCtrl_LineFromPosition"
 
 external lineEndDisplayExtend : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_LineEndDisplayExtend"
+	= "camlidl_wxc_wxStyledTextCtrl_LineEndDisplayExtend"
 
 external lineEndDisplay : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_LineEndDisplay"
+	= "camlidl_wxc_wxStyledTextCtrl_LineEndDisplay"
 
 external lineDuplicate : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_LineDuplicate"
+	= "camlidl_wxc_wxStyledTextCtrl_LineDuplicate"
 
 external lineCopy : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_LineCopy"
+	= "camlidl_wxc_wxStyledTextCtrl_LineCopy"
 
 external layoutPhase2 : wxStyledTextCtrl -> int option -> int
-	= "camlidl_wxc_idl_wxWindow_LayoutPhase2"
+	= "camlidl_wxc_wxWindow_LayoutPhase2"
 
 external layoutPhase1 : wxStyledTextCtrl -> int option -> int
-	= "camlidl_wxc_idl_wxWindow_LayoutPhase1"
+	= "camlidl_wxc_wxWindow_LayoutPhase1"
 
 external layout : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_Layout"
+	= "camlidl_wxc_wxWindow_Layout"
 
 external isTopLevel : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_IsTopLevel"
+	= "camlidl_wxc_wxWindow_IsTopLevel"
 
 external isShown : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_IsShown"
+	= "camlidl_wxc_wxWindow_IsShown"
 
 external isScrolledWindow : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxStyledTextCtrl -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isExposed : wxStyledTextCtrl -> int -> int -> int -> int -> bool
-	= "camlidl_wxc_idl_wxWindow_IsExposed"
+	= "camlidl_wxc_wxWindow_IsExposed"
 
 external isEnabled : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_IsEnabled"
+	= "camlidl_wxc_wxWindow_IsEnabled"
 
 external isBeingDeleted : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_IsBeingDeleted"
+	= "camlidl_wxc_wxWindow_IsBeingDeleted"
 
 external insertText : wxStyledTextCtrl -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_InsertText"
+	= "camlidl_wxc_wxStyledTextCtrl_InsertText"
 
 external initDialog : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_InitDialog"
+	= "camlidl_wxc_wxWindow_InitDialog"
 
 external indicatorSetStyle : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_IndicatorSetStyle"
+	= "camlidl_wxc_wxStyledTextCtrl_IndicatorSetStyle"
 
 external indicatorSetForeground : wxStyledTextCtrl -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_IndicatorSetForeground"
+	= "camlidl_wxc_wxStyledTextCtrl_IndicatorSetForeground"
 
 external indicatorGetStyle : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_IndicatorGetStyle"
+	= "camlidl_wxc_wxStyledTextCtrl_IndicatorGetStyle"
 
 external indicatorGetForeground : wxStyledTextCtrl -> int -> wxColour
-	= "camlidl_wxc_idl_wxStyledTextCtrl_IndicatorGetForeground"
+	= "camlidl_wxc_wxStyledTextCtrl_IndicatorGetForeground"
 
 external homeDisplayExtend : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_HomeDisplayExtend"
+	= "camlidl_wxc_wxStyledTextCtrl_HomeDisplayExtend"
 
 external homeDisplay : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_HomeDisplay"
+	= "camlidl_wxc_wxStyledTextCtrl_HomeDisplay"
 
 external hideSelection : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_HideSelection"
+	= "camlidl_wxc_wxStyledTextCtrl_HideSelection"
 
 external hideLines : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_HideLines"
+	= "camlidl_wxc_wxStyledTextCtrl_HideLines"
 
 external hide : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_Hide"
+	= "camlidl_wxc_wxWindow_Hide"
 
 external hasFlag : wxStyledTextCtrl -> int -> bool
-	= "camlidl_wxc_idl_wxWindow_HasFlag"
+	= "camlidl_wxc_wxWindow_HasFlag"
 
 external gotoPos : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GotoPos"
+	= "camlidl_wxc_wxStyledTextCtrl_GotoPos"
 
 external gotoLine : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GotoLine"
+	= "camlidl_wxc_wxStyledTextCtrl_GotoLine"
 
 external getZoom : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetZoom"
+	= "camlidl_wxc_wxStyledTextCtrl_GetZoom"
 
 external getXOffset : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetXOffset"
+	= "camlidl_wxc_wxStyledTextCtrl_GetXOffset"
 
 external getWrapMode : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetWrapMode"
+	= "camlidl_wxc_wxStyledTextCtrl_GetWrapMode"
 
 external getWindowStyleFlag : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetWindowStyleFlag"
+	= "camlidl_wxc_wxWindow_GetWindowStyleFlag"
 
 external getVirtualSize : wxStyledTextCtrl -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetVirtualSize"
+	= "camlidl_wxc_wxWindow_GetVirtualSize"
 
 external getViewWhiteSpace : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetViewWhiteSpace"
+	= "camlidl_wxc_wxStyledTextCtrl_GetViewWhiteSpace"
 
 external getViewEOL : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetViewEOL"
+	= "camlidl_wxc_wxStyledTextCtrl_GetViewEOL"
 
 external getValidator : wxStyledTextCtrl -> wxValidator
-	= "camlidl_wxc_idl_wxWindow_GetValidator"
+	= "camlidl_wxc_wxWindow_GetValidator"
 
 external getUseVerticalScrollBar : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetUseVerticalScrollBar"
+	= "camlidl_wxc_wxStyledTextCtrl_GetUseVerticalScrollBar"
 
 external getUseTabs : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetUseTabs"
+	= "camlidl_wxc_wxStyledTextCtrl_GetUseTabs"
 
 external getUseHorizontalScrollBar : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetUseHorizontalScrollBar"
+	= "camlidl_wxc_wxStyledTextCtrl_GetUseHorizontalScrollBar"
 
 external getUpdateRegion : wxStyledTextCtrl -> wxRegion
-	= "camlidl_wxc_idl_wxWindow_GetUpdateRegion"
+	= "camlidl_wxc_wxWindow_GetUpdateRegion"
 
 external getUndoCollection : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetUndoCollection"
+	= "camlidl_wxc_wxStyledTextCtrl_GetUndoCollection"
 
 external getTwoPhaseDraw : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetTwoPhaseDraw"
+	= "camlidl_wxc_wxStyledTextCtrl_GetTwoPhaseDraw"
 
 external getToolTip : wxStyledTextCtrl -> wxString
-	= "camlidl_wxc_idl_wxWindow_GetToolTip"
+	= "camlidl_wxc_wxWindow_GetToolTip"
 
 external getTextRange : wxStyledTextCtrl -> int -> int -> wxString
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetTextRange"
+	= "camlidl_wxc_wxStyledTextCtrl_GetTextRange"
 
 external getTextLength : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetTextLength"
+	= "camlidl_wxc_wxStyledTextCtrl_GetTextLength"
 
 external getTextExtent : wxStyledTextCtrl -> wxString -> int option -> int option -> int option -> int option -> wxFont -> unit
-	= "camlidl_wxc_idl_wxWindow_GetTextExtent_bytecode" "camlidl_wxc_idl_wxWindow_GetTextExtent"
+	= "camlidl_wxc_wxWindow_GetTextExtent_bytecode" "camlidl_wxc_wxWindow_GetTextExtent"
 
 external getText : wxStyledTextCtrl -> wxString
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetText"
+	= "camlidl_wxc_wxStyledTextCtrl_GetText"
 
 external getTargetStart : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetTargetStart"
+	= "camlidl_wxc_wxStyledTextCtrl_GetTargetStart"
 
 external getTargetEnd : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetTargetEnd"
+	= "camlidl_wxc_wxStyledTextCtrl_GetTargetEnd"
 
 external getTabWidth : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetTabWidth"
+	= "camlidl_wxc_wxStyledTextCtrl_GetTabWidth"
 
 external getTabIndents : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetTabIndents"
+	= "camlidl_wxc_wxStyledTextCtrl_GetTabIndents"
 
 external getStyleBits : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetStyleBits"
+	= "camlidl_wxc_wxStyledTextCtrl_GetStyleBits"
 
 external getStyleAt : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetStyleAt"
+	= "camlidl_wxc_wxStyledTextCtrl_GetStyleAt"
 
 external getStatus : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetStatus"
+	= "camlidl_wxc_wxStyledTextCtrl_GetStatus"
 
 external getSizer : wxStyledTextCtrl -> wxSizer
-	= "camlidl_wxc_idl_wxWindow_GetSizer"
+	= "camlidl_wxc_wxWindow_GetSizer"
 
 external getSizeConstraint : wxStyledTextCtrl -> int * int
-	= "camlidl_wxc_idl_wxWindow_GetSizeConstraint"
+	= "camlidl_wxc_wxWindow_GetSizeConstraint"
 
 external getSize : wxStyledTextCtrl -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetSize"
+	= "camlidl_wxc_wxWindow_GetSize"
 
 external getSelectionStart : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetSelectionStart"
+	= "camlidl_wxc_wxStyledTextCtrl_GetSelectionStart"
 
 external getSelectionEnd : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetSelectionEnd"
+	= "camlidl_wxc_wxStyledTextCtrl_GetSelectionEnd"
 
 external getSelection : wxStyledTextCtrl -> int option -> int option -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetSelection"
+	= "camlidl_wxc_wxStyledTextCtrl_GetSelection"
 
 external getSelectedText : wxStyledTextCtrl -> wxString
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetSelectedText"
+	= "camlidl_wxc_wxStyledTextCtrl_GetSelectedText"
 
 external getSearchFlags : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetSearchFlags"
+	= "camlidl_wxc_wxStyledTextCtrl_GetSearchFlags"
 
 external getScrollWidth : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetScrollWidth"
+	= "camlidl_wxc_wxStyledTextCtrl_GetScrollWidth"
 
 external getScrollThumb : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxWindow_GetScrollThumb"
+	= "camlidl_wxc_wxWindow_GetScrollThumb"
 
 external getScrollRange : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxWindow_GetScrollRange"
+	= "camlidl_wxc_wxWindow_GetScrollRange"
 
 external getScrollPos : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxWindow_GetScrollPos"
+	= "camlidl_wxc_wxWindow_GetScrollPos"
 
 external getSTCFocus : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetSTCFocus"
+	= "camlidl_wxc_wxStyledTextCtrl_GetSTCFocus"
 
 external getSTCCursor : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetSTCCursor"
+	= "camlidl_wxc_wxStyledTextCtrl_GetSTCCursor"
 
 external getRect : wxStyledTextCtrl -> wxRect
-	= "camlidl_wxc_idl_wxWindow_GetRect"
+	= "camlidl_wxc_wxWindow_GetRect"
 
 external getReadOnly : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetReadOnly"
+	= "camlidl_wxc_wxStyledTextCtrl_GetReadOnly"
 
 external getPrintWrapMode : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetPrintWrapMode"
+	= "camlidl_wxc_wxStyledTextCtrl_GetPrintWrapMode"
 
 external getPrintMagnification : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetPrintMagnification"
+	= "camlidl_wxc_wxStyledTextCtrl_GetPrintMagnification"
 
 external getPrintColourMode : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetPrintColourMode"
+	= "camlidl_wxc_wxStyledTextCtrl_GetPrintColourMode"
 
 external getPreviousHandler : wxStyledTextCtrl -> wxEvtHandler
-	= "camlidl_wxc_idl_wxEvtHandler_GetPreviousHandler"
+	= "camlidl_wxc_wxEvtHandler_GetPreviousHandler"
 
 external getPositionConstraint : wxStyledTextCtrl -> int * int
-	= "camlidl_wxc_idl_wxWindow_GetPositionConstraint"
+	= "camlidl_wxc_wxWindow_GetPositionConstraint"
 
 external getPosition : wxStyledTextCtrl -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_GetPosition"
+	= "camlidl_wxc_wxWindow_GetPosition"
 
 external getParent : wxStyledTextCtrl -> wxWindow
-	= "camlidl_wxc_idl_wxWindow_GetParent"
+	= "camlidl_wxc_wxWindow_GetParent"
 
 external getOvertype : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetOvertype"
+	= "camlidl_wxc_wxStyledTextCtrl_GetOvertype"
 
 external getNextHandler : wxStyledTextCtrl -> wxEvtHandler
-	= "camlidl_wxc_idl_wxEvtHandler_GetNextHandler"
+	= "camlidl_wxc_wxEvtHandler_GetNextHandler"
 
 external getName : wxStyledTextCtrl -> wxString
-	= "camlidl_wxc_idl_wxWindow_GetName"
+	= "camlidl_wxc_wxWindow_GetName"
 
 external getMouseDwellTime : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetMouseDwellTime"
+	= "camlidl_wxc_wxStyledTextCtrl_GetMouseDwellTime"
 
 external getMouseDownCaptures : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetMouseDownCaptures"
+	= "camlidl_wxc_wxStyledTextCtrl_GetMouseDownCaptures"
 
 external getModify : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetModify"
+	= "camlidl_wxc_wxStyledTextCtrl_GetModify"
 
 external getModEventMask : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetModEventMask"
+	= "camlidl_wxc_wxStyledTextCtrl_GetModEventMask"
 
 external getMinWidth : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetMinWidth"
+	= "camlidl_wxc_wxWindow_GetMinWidth"
 
 external getMinHeight : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetMinHeight"
+	= "camlidl_wxc_wxWindow_GetMinHeight"
 
 external getMaxWidth : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetMaxWidth"
+	= "camlidl_wxc_wxWindow_GetMaxWidth"
 
 external getMaxLineState : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetMaxLineState"
+	= "camlidl_wxc_wxStyledTextCtrl_GetMaxLineState"
 
 external getMaxHeight : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetMaxHeight"
+	= "camlidl_wxc_wxWindow_GetMaxHeight"
 
 external getMarginWidth : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetMarginWidth"
+	= "camlidl_wxc_wxStyledTextCtrl_GetMarginWidth"
 
 external getMarginType : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetMarginType"
+	= "camlidl_wxc_wxStyledTextCtrl_GetMarginType"
 
 external getMarginSensitive : wxStyledTextCtrl -> int -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetMarginSensitive"
+	= "camlidl_wxc_wxStyledTextCtrl_GetMarginSensitive"
 
 external getMarginRight : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetMarginRight"
+	= "camlidl_wxc_wxStyledTextCtrl_GetMarginRight"
 
 external getMarginMask : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetMarginMask"
+	= "camlidl_wxc_wxStyledTextCtrl_GetMarginMask"
 
 external getMarginLeft : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetMarginLeft"
+	= "camlidl_wxc_wxStyledTextCtrl_GetMarginLeft"
 
 external getLineVisible : wxStyledTextCtrl -> int -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetLineVisible"
+	= "camlidl_wxc_wxStyledTextCtrl_GetLineVisible"
 
 external getLineState : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetLineState"
+	= "camlidl_wxc_wxStyledTextCtrl_GetLineState"
 
 external getLineIndentation : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetLineIndentation"
+	= "camlidl_wxc_wxStyledTextCtrl_GetLineIndentation"
 
 external getLineIndentPosition : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetLineIndentPosition"
+	= "camlidl_wxc_wxStyledTextCtrl_GetLineIndentPosition"
 
 external getLineEndPosition : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetLineEndPosition"
+	= "camlidl_wxc_wxStyledTextCtrl_GetLineEndPosition"
 
 external getLineCount : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetLineCount"
+	= "camlidl_wxc_wxStyledTextCtrl_GetLineCount"
 
 external getLine : wxStyledTextCtrl -> int -> wxString
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetLine"
+	= "camlidl_wxc_wxStyledTextCtrl_GetLine"
 
 external getLexer : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetLexer"
+	= "camlidl_wxc_wxStyledTextCtrl_GetLexer"
 
 external getLength : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetLength"
+	= "camlidl_wxc_wxStyledTextCtrl_GetLength"
 
 external getLayoutCache : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetLayoutCache"
+	= "camlidl_wxc_wxStyledTextCtrl_GetLayoutCache"
 
 external getLastKeydownProcessed : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetLastKeydownProcessed"
+	= "camlidl_wxc_wxStyledTextCtrl_GetLastKeydownProcessed"
 
 external getLastChild : wxStyledTextCtrl -> int -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetLastChild"
+	= "camlidl_wxc_wxStyledTextCtrl_GetLastChild"
 
 external getLabelEmpty : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetLabelEmpty"
+	= "camlidl_wxc_wxWindow_GetLabelEmpty"
 
 external getLabel : wxStyledTextCtrl -> wxString
-	= "camlidl_wxc_idl_wxControl_GetLabel"
+	= "camlidl_wxc_wxControl_GetLabel"
 
 external getIndentationGuides : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetIndentationGuides"
+	= "camlidl_wxc_wxStyledTextCtrl_GetIndentationGuides"
 
 external getIndent : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetIndent"
+	= "camlidl_wxc_wxStyledTextCtrl_GetIndent"
 
 external getId : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetId"
+	= "camlidl_wxc_wxWindow_GetId"
 
 external getHighlightGuide : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetHighlightGuide"
+	= "camlidl_wxc_wxStyledTextCtrl_GetHighlightGuide"
 
 external getHandle : wxStyledTextCtrl -> voidptr
-	= "camlidl_wxc_idl_wxWindow_GetHandle"
+	= "camlidl_wxc_wxWindow_GetHandle"
 
 external getForegroundColour : wxStyledTextCtrl -> wxColour -> unit
-	= "camlidl_wxc_idl_wxWindow_GetForegroundColour"
+	= "camlidl_wxc_wxWindow_GetForegroundColour"
 
 external getFont : wxStyledTextCtrl -> wxFont -> unit
-	= "camlidl_wxc_idl_wxWindow_GetFont"
+	= "camlidl_wxc_wxWindow_GetFont"
 
 external getFoldParent : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetFoldParent"
+	= "camlidl_wxc_wxStyledTextCtrl_GetFoldParent"
 
 external getFoldLevel : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetFoldLevel"
+	= "camlidl_wxc_wxStyledTextCtrl_GetFoldLevel"
 
 external getFoldExpanded : wxStyledTextCtrl -> int -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetFoldExpanded"
+	= "camlidl_wxc_wxStyledTextCtrl_GetFoldExpanded"
 
 external getFirstVisibleLine : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetFirstVisibleLine"
+	= "camlidl_wxc_wxStyledTextCtrl_GetFirstVisibleLine"
 
 external getEvtHandlerEnabled : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxEvtHandler_GetEvtHandlerEnabled"
+	= "camlidl_wxc_wxEvtHandler_GetEvtHandlerEnabled"
 
 external getEventHandler : wxStyledTextCtrl -> wxEvtHandler
-	= "camlidl_wxc_idl_wxWindow_GetEventHandler"
+	= "camlidl_wxc_wxWindow_GetEventHandler"
 
 external getEndStyled : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetEndStyled"
+	= "camlidl_wxc_wxStyledTextCtrl_GetEndStyled"
 
 external getEndAtLastLine : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetEndAtLastLine"
+	= "camlidl_wxc_wxStyledTextCtrl_GetEndAtLastLine"
 
 external getEffectiveMinSize : wxStyledTextCtrl -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetEffectiveMinSize"
+	= "camlidl_wxc_wxWindow_GetEffectiveMinSize"
 
 external getEdgeMode : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetEdgeMode"
+	= "camlidl_wxc_wxStyledTextCtrl_GetEdgeMode"
 
 external getEdgeColumn : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetEdgeColumn"
+	= "camlidl_wxc_wxStyledTextCtrl_GetEdgeColumn"
 
 external getEdgeColour : wxStyledTextCtrl -> wxColour
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetEdgeColour"
+	= "camlidl_wxc_wxStyledTextCtrl_GetEdgeColour"
 
 external getEOLMode : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetEOLMode"
+	= "camlidl_wxc_wxStyledTextCtrl_GetEOLMode"
 
 external getDropTarget : wxStyledTextCtrl -> wxDropTarget
-	= "camlidl_wxc_idl_wxWindow_GetDropTarget"
+	= "camlidl_wxc_wxWindow_GetDropTarget"
 
 external getDocPointer : wxStyledTextCtrl -> wxSTCDoc
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetDocPointer"
+	= "camlidl_wxc_wxStyledTextCtrl_GetDocPointer"
 
 external getCursor : wxStyledTextCtrl -> wxCursor
-	= "camlidl_wxc_idl_wxWindow_GetCursor"
+	= "camlidl_wxc_wxWindow_GetCursor"
 
 external getCurrentPos : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetCurrentPos"
+	= "camlidl_wxc_wxStyledTextCtrl_GetCurrentPos"
 
 external getCurrentLine : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetCurrentLine"
+	= "camlidl_wxc_wxStyledTextCtrl_GetCurrentLine"
 
 external getControlCharSymbol : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetControlCharSymbol"
+	= "camlidl_wxc_wxStyledTextCtrl_GetControlCharSymbol"
 
 external getConstraintsInvolvedIn : wxStyledTextCtrl -> voidptr
-	= "camlidl_wxc_idl_wxWindow_GetConstraintsInvolvedIn"
+	= "camlidl_wxc_wxWindow_GetConstraintsInvolvedIn"
 
 external getConstraints : wxStyledTextCtrl -> wxLayoutConstraints
-	= "camlidl_wxc_idl_wxWindow_GetConstraints"
+	= "camlidl_wxc_wxWindow_GetConstraints"
 
 external getColumn : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetColumn"
+	= "camlidl_wxc_wxStyledTextCtrl_GetColumn"
 
 external getCodePage : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetCodePage"
+	= "camlidl_wxc_wxStyledTextCtrl_GetCodePage"
 
 external getClosure : wxStyledTextCtrl -> int -> int -> wxClosure
-	= "camlidl_wxc_idl_wxEvtHandler_GetClosure"
+	= "camlidl_wxc_wxEvtHandler_GetClosure"
 
 external getClientSizeConstraint : wxStyledTextCtrl -> int * int
-	= "camlidl_wxc_idl_wxWindow_GetClientSizeConstraint"
+	= "camlidl_wxc_wxWindow_GetClientSizeConstraint"
 
 external getClientSize : wxStyledTextCtrl -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetClientSize"
+	= "camlidl_wxc_wxWindow_GetClientSize"
 
 external getClientData : wxStyledTextCtrl -> wxClientData
-	= "camlidl_wxc_idl_wxWindow_GetClientData"
+	= "camlidl_wxc_wxWindow_GetClientData"
 
 external getClientClosure : wxStyledTextCtrl -> wxClosure
-	= "camlidl_wxc_idl_wxEvtHandler_GetClientClosure"
+	= "camlidl_wxc_wxEvtHandler_GetClientClosure"
 
 external getClassInfo : wxStyledTextCtrl -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external getChildren : wxStyledTextCtrl -> voidptr -> int -> int
-	= "camlidl_wxc_idl_wxWindow_GetChildren"
+	= "camlidl_wxc_wxWindow_GetChildren"
 
 external getCharWidth : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetCharWidth"
+	= "camlidl_wxc_wxWindow_GetCharWidth"
 
 external getCharHeight : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetCharHeight"
+	= "camlidl_wxc_wxWindow_GetCharHeight"
 
 external getCharAt : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetCharAt"
+	= "camlidl_wxc_wxStyledTextCtrl_GetCharAt"
 
 external getCaretWidth : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetCaretWidth"
+	= "camlidl_wxc_wxStyledTextCtrl_GetCaretWidth"
 
 external getCaretPeriod : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetCaretPeriod"
+	= "camlidl_wxc_wxStyledTextCtrl_GetCaretPeriod"
 
 external getCaretLineVisible : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetCaretLineVisible"
+	= "camlidl_wxc_wxStyledTextCtrl_GetCaretLineVisible"
 
 external getCaretLineBackground : wxStyledTextCtrl -> wxColour
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetCaretLineBackground"
+	= "camlidl_wxc_wxStyledTextCtrl_GetCaretLineBackground"
 
 external getCaretForeground : wxStyledTextCtrl -> wxColour
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetCaretForeground"
+	= "camlidl_wxc_wxStyledTextCtrl_GetCaretForeground"
 
 external getCaret : wxStyledTextCtrl -> wxCaret
-	= "camlidl_wxc_idl_wxWindow_GetCaret"
+	= "camlidl_wxc_wxWindow_GetCaret"
 
 external getBufferedDraw : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetBufferedDraw"
+	= "camlidl_wxc_wxStyledTextCtrl_GetBufferedDraw"
 
 external getBestSize : wxStyledTextCtrl -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetBestSize"
+	= "camlidl_wxc_wxWindow_GetBestSize"
 
 external getBackgroundColour : wxStyledTextCtrl -> wxColour -> unit
-	= "camlidl_wxc_idl_wxWindow_GetBackgroundColour"
+	= "camlidl_wxc_wxWindow_GetBackgroundColour"
 
 external getBackSpaceUnIndents : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetBackSpaceUnIndents"
+	= "camlidl_wxc_wxStyledTextCtrl_GetBackSpaceUnIndents"
 
 external getAutoLayout : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetAutoLayout"
+	= "camlidl_wxc_wxWindow_GetAutoLayout"
 
 external getAnchor : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_GetAnchor"
+	= "camlidl_wxc_wxStyledTextCtrl_GetAnchor"
 
 external freeze : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_Freeze"
+	= "camlidl_wxc_wxWindow_Freeze"
 
 external formatRange : wxStyledTextCtrl -> bool -> int -> int -> wxDC -> wxDC -> wxRect -> wxRect -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_FormatRange_bytecode" "camlidl_wxc_idl_wxStyledTextCtrl_FormatRange"
+	= "camlidl_wxc_wxStyledTextCtrl_FormatRange_bytecode" "camlidl_wxc_wxStyledTextCtrl_FormatRange"
 
 external fitInside : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_FitInside"
+	= "camlidl_wxc_wxWindow_FitInside"
 
 external fit : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_Fit"
+	= "camlidl_wxc_wxWindow_Fit"
 
 external findWindow : wxStyledTextCtrl -> wxString -> wxWindow
-	= "camlidl_wxc_idl_wxWindow_FindWindow"
+	= "camlidl_wxc_wxWindow_FindWindow"
 
 external findText : wxStyledTextCtrl -> int -> int -> wxString -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_FindText"
+	= "camlidl_wxc_wxStyledTextCtrl_FindText"
 
 external findFocus : wxStyledTextCtrl -> wxWindow
-	= "camlidl_wxc_idl_wxWindow_FindFocus"
+	= "camlidl_wxc_wxWindow_FindFocus"
 
 external ensureVisibleEnforcePolicy : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_EnsureVisibleEnforcePolicy"
+	= "camlidl_wxc_wxStyledTextCtrl_EnsureVisibleEnforcePolicy"
 
 external ensureVisible : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_EnsureVisible"
+	= "camlidl_wxc_wxStyledTextCtrl_EnsureVisible"
 
 external ensureCaretVisible : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_EnsureCaretVisible"
+	= "camlidl_wxc_wxStyledTextCtrl_EnsureCaretVisible"
 
 external endUndoAction : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_EndUndoAction"
+	= "camlidl_wxc_wxStyledTextCtrl_EndUndoAction"
 
 external enable : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_Enable"
+	= "camlidl_wxc_wxWindow_Enable"
 
 external emptyUndoBuffer : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_EmptyUndoBuffer"
+	= "camlidl_wxc_wxStyledTextCtrl_EmptyUndoBuffer"
 
 external docLineFromVisible : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_DocLineFromVisible"
+	= "camlidl_wxc_wxStyledTextCtrl_DocLineFromVisible"
 
 external doPhase : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxWindow_DoPhase"
+	= "camlidl_wxc_wxWindow_DoPhase"
 
 external disconnect : wxStyledTextCtrl -> int -> int -> int -> int -> int
-	= "camlidl_wxc_idl_wxEvtHandler_Disconnect"
+	= "camlidl_wxc_wxEvtHandler_Disconnect"
 
 external disable : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_Disable"
+	= "camlidl_wxc_wxWindow_Disable"
 
 external destroyChildren : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_DestroyChildren"
+	= "camlidl_wxc_wxWindow_DestroyChildren"
 
 external destroy : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_Destroy"
+	= "camlidl_wxc_wxWindow_Destroy"
 
 external deleteRelatedConstraints : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_DeleteRelatedConstraints"
+	= "camlidl_wxc_wxWindow_DeleteRelatedConstraints"
 
 external delete : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_Delete"
+	= "camlidl_wxc_wxEvtHandler_Delete"
 
 external delLineRight : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_DelLineRight"
+	= "camlidl_wxc_wxStyledTextCtrl_DelLineRight"
 
 external delLineLeft : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_DelLineLeft"
+	= "camlidl_wxc_wxStyledTextCtrl_DelLineLeft"
 
 external cut : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_Cut"
+	= "camlidl_wxc_wxStyledTextCtrl_Cut"
 
 external createDocument : wxStyledTextCtrl -> wxSTCDoc
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CreateDocument"
+	= "camlidl_wxc_wxStyledTextCtrl_CreateDocument"
 
 external copyText : wxStyledTextCtrl -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CopyText"
+	= "camlidl_wxc_wxStyledTextCtrl_CopyText"
 
 external copyRange : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CopyRange"
+	= "camlidl_wxc_wxStyledTextCtrl_CopyRange"
 
 external copy : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_Copy"
+	= "camlidl_wxc_wxStyledTextCtrl_Copy"
 
 external convertPixelsToDialogEx : wxStyledTextCtrl -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ConvertPixelsToDialogEx"
+	= "camlidl_wxc_wxWindow_ConvertPixelsToDialogEx"
 
 external convertPixelsToDialog : wxStyledTextCtrl -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ConvertPixelsToDialog"
+	= "camlidl_wxc_wxWindow_ConvertPixelsToDialog"
 
 external convertEOLs : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_ConvertEOLs"
+	= "camlidl_wxc_wxStyledTextCtrl_ConvertEOLs"
 
 external convertDialogToPixelsEx : wxStyledTextCtrl -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ConvertDialogToPixelsEx"
+	= "camlidl_wxc_wxWindow_ConvertDialogToPixelsEx"
 
 external convertDialogToPixels : wxStyledTextCtrl -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ConvertDialogToPixels"
+	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
 external connect : wxStyledTextCtrl -> int -> int -> (wxEvent -> unit) -> unit
-	= "camlidl_wxc_idl_wxo_wxEvtHandler_Connect"
+	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external command : wxStyledTextCtrl -> wxEvent -> unit
-	= "camlidl_wxc_idl_wxControl_Command"
+	= "camlidl_wxc_wxControl_Command"
 
 external colourise : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_Colourise"
+	= "camlidl_wxc_wxStyledTextCtrl_Colourise"
 
 external cmdKeyExecute : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CmdKeyExecute"
+	= "camlidl_wxc_wxStyledTextCtrl_CmdKeyExecute"
 
 external cmdKeyClearAll : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CmdKeyClearAll"
+	= "camlidl_wxc_wxStyledTextCtrl_CmdKeyClearAll"
 
 external cmdKeyClear : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CmdKeyClear"
+	= "camlidl_wxc_wxStyledTextCtrl_CmdKeyClear"
 
 external cmdKeyAssign : wxStyledTextCtrl -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CmdKeyAssign"
+	= "camlidl_wxc_wxStyledTextCtrl_CmdKeyAssign"
 
 external close : wxStyledTextCtrl -> bool -> bool
-	= "camlidl_wxc_idl_wxWindow_Close"
+	= "camlidl_wxc_wxWindow_Close"
 
 external clientToScreen : wxStyledTextCtrl -> int -> int -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ClientToScreen"
+	= "camlidl_wxc_wxWindow_ClientToScreen"
 
 external clearRegisteredImages : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_ClearRegisteredImages"
+	= "camlidl_wxc_wxStyledTextCtrl_ClearRegisteredImages"
 
 external clearDocumentStyle : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_ClearDocumentStyle"
+	= "camlidl_wxc_wxStyledTextCtrl_ClearDocumentStyle"
 
 external clearBackground : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_ClearBackground"
+	= "camlidl_wxc_wxWindow_ClearBackground"
 
 external clearAll : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_ClearAll"
+	= "camlidl_wxc_wxStyledTextCtrl_ClearAll"
 
 external clear : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_Clear"
+	= "camlidl_wxc_wxStyledTextCtrl_Clear"
 
 external chooseCaretX : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_ChooseCaretX"
+	= "camlidl_wxc_wxStyledTextCtrl_ChooseCaretX"
 
 external centerOnParent : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_CenterOnParent"
+	= "camlidl_wxc_wxWindow_CenterOnParent"
 
 external center : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_Center"
+	= "camlidl_wxc_wxWindow_Center"
 
 external captureMouse : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_CaptureMouse"
+	= "camlidl_wxc_wxWindow_CaptureMouse"
 
 external canUndo : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CanUndo"
+	= "camlidl_wxc_wxStyledTextCtrl_CanUndo"
 
 external canRedo : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CanRedo"
+	= "camlidl_wxc_wxStyledTextCtrl_CanRedo"
 
 external canPaste : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CanPaste"
+	= "camlidl_wxc_wxStyledTextCtrl_CanPaste"
 
 external callTipShow : wxStyledTextCtrl -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CallTipShow"
+	= "camlidl_wxc_wxStyledTextCtrl_CallTipShow"
 
 external callTipSetHighlight : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CallTipSetHighlight"
+	= "camlidl_wxc_wxStyledTextCtrl_CallTipSetHighlight"
 
 external callTipSetForegroundHighlight : wxStyledTextCtrl -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CallTipSetForegroundHighlight"
+	= "camlidl_wxc_wxStyledTextCtrl_CallTipSetForegroundHighlight"
 
 external callTipSetForeground : wxStyledTextCtrl -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CallTipSetForeground"
+	= "camlidl_wxc_wxStyledTextCtrl_CallTipSetForeground"
 
 external callTipSetBackground : wxStyledTextCtrl -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CallTipSetBackground"
+	= "camlidl_wxc_wxStyledTextCtrl_CallTipSetBackground"
 
 external callTipPosAtStart : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CallTipPosAtStart"
+	= "camlidl_wxc_wxStyledTextCtrl_CallTipPosAtStart"
 
 external callTipCancel : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CallTipCancel"
+	= "camlidl_wxc_wxStyledTextCtrl_CallTipCancel"
 
 external callTipActive : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_CallTipActive"
+	= "camlidl_wxc_wxStyledTextCtrl_CallTipActive"
 
 external braceMatch : wxStyledTextCtrl -> int -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_BraceMatch"
+	= "camlidl_wxc_wxStyledTextCtrl_BraceMatch"
 
 external braceHighlight : wxStyledTextCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_BraceHighlight"
+	= "camlidl_wxc_wxStyledTextCtrl_BraceHighlight"
 
 external braceBadLight : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_BraceBadLight"
+	= "camlidl_wxc_wxStyledTextCtrl_BraceBadLight"
 
 external beginUndoAction : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_BeginUndoAction"
+	= "camlidl_wxc_wxStyledTextCtrl_BeginUndoAction"
 
 external autoCompStops : wxStyledTextCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompStops"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompStops"
 
 external autoCompShow : wxStyledTextCtrl -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompShow"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompShow"
 
 external autoCompSetTypeSeparator : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompSetTypeSeparator"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompSetTypeSeparator"
 
 external autoCompSetSeparator : wxStyledTextCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompSetSeparator"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompSetSeparator"
 
 external autoCompSetIgnoreCase : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompSetIgnoreCase"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompSetIgnoreCase"
 
 external autoCompSetFillUps : wxStyledTextCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompSetFillUps"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompSetFillUps"
 
 external autoCompSetDropRestOfWord : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompSetDropRestOfWord"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompSetDropRestOfWord"
 
 external autoCompSetChooseSingle : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompSetChooseSingle"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompSetChooseSingle"
 
 external autoCompSetCancelAtStart : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompSetCancelAtStart"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompSetCancelAtStart"
 
 external autoCompSetAutoHide : wxStyledTextCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompSetAutoHide"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompSetAutoHide"
 
 external autoCompSelect : wxStyledTextCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompSelect"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompSelect"
 
 external autoCompPosStart : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompPosStart"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompPosStart"
 
 external autoCompGetTypeSeparator : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompGetTypeSeparator"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompGetTypeSeparator"
 
 external autoCompGetSeparator : wxStyledTextCtrl -> int
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompGetSeparator"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompGetSeparator"
 
 external autoCompGetIgnoreCase : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompGetIgnoreCase"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompGetIgnoreCase"
 
 external autoCompGetDropRestOfWord : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompGetDropRestOfWord"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompGetDropRestOfWord"
 
 external autoCompGetChooseSingle : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompGetChooseSingle"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompGetChooseSingle"
 
 external autoCompGetCancelAtStart : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompGetCancelAtStart"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompGetCancelAtStart"
 
 external autoCompGetAutoHide : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompGetAutoHide"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompGetAutoHide"
 
 external autoCompComplete : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompComplete"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompComplete"
 
 external autoCompCancel : wxStyledTextCtrl -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompCancel"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompCancel"
 
 external autoCompActive : wxStyledTextCtrl -> bool
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AutoCompActive"
+	= "camlidl_wxc_wxStyledTextCtrl_AutoCompActive"
 
 external appendText : wxStyledTextCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AppendText"
+	= "camlidl_wxc_wxStyledTextCtrl_AppendText"
 
 external addText : wxStyledTextCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AddText"
+	= "camlidl_wxc_wxStyledTextCtrl_AddText"
 
 external addStyledText : wxStyledTextCtrl -> wxMemoryBuffer -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AddStyledText"
+	= "camlidl_wxc_wxStyledTextCtrl_AddStyledText"
 
 external addRefDocument : wxStyledTextCtrl -> wxSTCDoc -> unit
-	= "camlidl_wxc_idl_wxStyledTextCtrl_AddRefDocument"
+	= "camlidl_wxc_wxStyledTextCtrl_AddRefDocument"
 
 external addPendingEvent : wxStyledTextCtrl -> wxEvent -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_AddPendingEvent"
+	= "camlidl_wxc_wxEvtHandler_AddPendingEvent"
 
 external addConstraintReference : wxStyledTextCtrl -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxWindow_AddConstraintReference"
+	= "camlidl_wxc_wxWindow_AddConstraintReference"
 
 external addChild : wxStyledTextCtrl -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxWindow_AddChild"
+	= "camlidl_wxc_wxWindow_AddChild"
 
 let wxnew _prt _id _txt _lft _top _wdt _hgt style =
   let _txt = WxString.createUTF8 _txt in
@@ -1695,7 +1695,7 @@ let addText _obj text =
   wxres
 
 external null_object : unit -> wxStyledTextCtrl
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

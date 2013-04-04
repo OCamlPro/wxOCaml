@@ -16,7 +16,7 @@
 
 #include "wxWidgets_c.h"
 
-value camlidl_wxc_idl_ELJPreviewFrame_Create(
+value camlidl_wxc_ELJPreviewFrame_Create(
 	value _v__obj,
 	value _v__init,
 	value _v__create_canvas,
@@ -47,30 +47,30 @@ value camlidl_wxc_idl_ELJPreviewFrame_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_voidptr(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__init, &_init, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__create_canvas, &_create_canvas, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__create_toolbar, &_create_toolbar, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_preview, &preview, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_title, &title, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__init, &_init, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__create_canvas, &_create_canvas, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__create_toolbar, &_create_toolbar, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_preview, &preview, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_title, &title, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   w = Int_val(_v_w);
   h = Int_val(_v_h);
   style = Int_val(_v_style);
   _res = ELJPreviewFrame_Create(_obj, _init, _create_canvas, _create_toolbar, preview, parent, title, x, y, w, h, style);
-  _vres = camlidl_c2ml_wxc_idl_ELJPreviewFrame(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_ELJPreviewFrame(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_ELJPreviewFrame_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_ELJPreviewFrame_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_ELJPreviewFrame_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9], argv[10], argv[11]);
+  return camlidl_wxc_ELJPreviewFrame_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9], argv[10], argv[11]);
 }
 
-value camlidl_wxc_idl_ELJPreviewFrame_GetControlBar(
+value camlidl_wxc_ELJPreviewFrame_GetControlBar(
 	value _v__obj)
 {
   ELJPreviewFrame _obj; /*in*/
@@ -79,14 +79,14 @@ value camlidl_wxc_idl_ELJPreviewFrame_GetControlBar(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJPreviewFrame(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_ELJPreviewFrame(_v__obj, &_obj, _ctx);
   _res = ELJPreviewFrame_GetControlBar(_obj);
-  _vres = camlidl_c2ml_wxc_idl_voidptr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_voidptr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_ELJPreviewFrame_GetPreviewCanvas(
+value camlidl_wxc_ELJPreviewFrame_GetPreviewCanvas(
 	value _v__obj)
 {
   ELJPreviewFrame _obj; /*in*/
@@ -95,14 +95,14 @@ value camlidl_wxc_idl_ELJPreviewFrame_GetPreviewCanvas(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJPreviewFrame(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_ELJPreviewFrame(_v__obj, &_obj, _ctx);
   _res = ELJPreviewFrame_GetPreviewCanvas(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxPreviewCanvas(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPreviewCanvas(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_ELJPreviewFrame_GetPrintPreview(
+value camlidl_wxc_ELJPreviewFrame_GetPrintPreview(
 	value _v__obj)
 {
   ELJPreviewFrame _obj; /*in*/
@@ -111,26 +111,26 @@ value camlidl_wxc_idl_ELJPreviewFrame_GetPrintPreview(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJPreviewFrame(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_ELJPreviewFrame(_v__obj, &_obj, _ctx);
   _res = ELJPreviewFrame_GetPrintPreview(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxPrintPreview(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPrintPreview(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_ELJPreviewFrame_Initialize(
+value camlidl_wxc_ELJPreviewFrame_Initialize(
 	value _v__obj)
 {
   ELJPreviewFrame _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJPreviewFrame(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_ELJPreviewFrame(_v__obj, &_obj, _ctx);
   ELJPreviewFrame_Initialize(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_ELJPreviewFrame_SetControlBar(
+value camlidl_wxc_ELJPreviewFrame_SetControlBar(
 	value _v__obj,
 	value _v_obj)
 {
@@ -138,14 +138,14 @@ value camlidl_wxc_idl_ELJPreviewFrame_SetControlBar(
   voidptr obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJPreviewFrame(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_ELJPreviewFrame(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_obj, &obj, _ctx);
   ELJPreviewFrame_SetControlBar(_obj, obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_ELJPreviewFrame_SetPreviewCanvas(
+value camlidl_wxc_ELJPreviewFrame_SetPreviewCanvas(
 	value _v__obj,
 	value _v_obj)
 {
@@ -153,14 +153,14 @@ value camlidl_wxc_idl_ELJPreviewFrame_SetPreviewCanvas(
   wxPreviewCanvas obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJPreviewFrame(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxPreviewCanvas(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_ELJPreviewFrame(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPreviewCanvas(_v_obj, &obj, _ctx);
   ELJPreviewFrame_SetPreviewCanvas(_obj, obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_ELJPreviewFrame_SetPrintPreview(
+value camlidl_wxc_ELJPreviewFrame_SetPrintPreview(
 	value _v__obj,
 	value _v_obj)
 {
@@ -168,8 +168,8 @@ value camlidl_wxc_idl_ELJPreviewFrame_SetPrintPreview(
   wxPrintPreview obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJPreviewFrame(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxPrintPreview(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_ELJPreviewFrame(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintPreview(_v_obj, &obj, _ctx);
   ELJPreviewFrame_SetPrintPreview(_obj, obj);
   camlidl_free(_ctx);
   return Val_unit;

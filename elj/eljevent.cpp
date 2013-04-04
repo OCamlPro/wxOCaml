@@ -1,6 +1,9 @@
 #include "wrapper.h"
 #include "wx/process.h"
 #include "wx/dialup.h"
+#if (wxVERSION_NUMBER < 2900)
+# include "wx/tabctrl.h"
+#endif
 
 #include "wx/power.h"
 
@@ -23,22 +26,30 @@
 #include "wx/collpane.h"
 #include "wx/dataview.h"
 #include "wx/fdrepdlg.h"
+#if (wxVERSION_NUMBER >= 2900)
 #include "wx/filectrl.h"
+#endif
 #include "wx/filepicker.h"
 #include "wx/fontpicker.h"
+#if (wxVERSION_NUMBER >= 2900)
 #include "wx/fswatcher.h"
 #include "wx/headerctrl.h"
+#endif
 #include "wx/hyperlink.h"
 #include "wx/listbook.h"
 #include "wx/mediactrl.h"
+#if (wxVERSION_NUMBER >= 2900)
 #include "wx/propgrid/propgrid.h"
 #include "wx/ribbon/bar.h"
 #include "wx/ribbon/buttonbar.h"
 #include "wx/ribbon/gallery.h"
 #include "wx/ribbon/toolbar.h"
+#endif
 #include "wx/richtext/richtextctrl.h"
 #include "wx/srchctrl.h"
+#if (wxVERSION_NUMBER >= 2900)
 #include "wx/stc/stc.h"
+#endif
 #include "wx/taskbar.h"
 #include "wx/textctrl.h"
 #include "wx/tglbtn.h"

@@ -1,114 +1,129 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external veto : wxPlotEvent -> unit
-	= "camlidl_wxc_idl_wxNotifyEvent_Veto"
+	= "camlidl_wxc_wxNotifyEvent_Veto"
 
 external skip : wxPlotEvent -> unit
-	= "camlidl_wxc_idl_wxEvent_Skip"
+	= "camlidl_wxc_wxEvent_Skip"
+
+external setZoom : wxPlotEvent -> float -> unit
+	= "camlidl_wxc_wxPlotEvent_SetZoom"
 
 external setTimestamp : wxPlotEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetTimestamp"
+	= "camlidl_wxc_wxEvent_SetTimestamp"
 
 external setString : wxPlotEvent -> wxString -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetString"
+	= "camlidl_wxc_wxCommandEvent_SetString"
+
+external setPosition : wxPlotEvent -> int -> unit
+	= "camlidl_wxc_wxPlotEvent_SetPosition"
 
 external setInt : wxPlotEvent -> int -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetInt"
+	= "camlidl_wxc_wxCommandEvent_SetInt"
 
 external setId : wxPlotEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetId"
+	= "camlidl_wxc_wxEvent_SetId"
 
 external setExtraLong : wxPlotEvent -> int -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetExtraLong"
+	= "camlidl_wxc_wxCommandEvent_SetExtraLong"
 
 external setEventType : wxPlotEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventType"
+	= "camlidl_wxc_wxEvent_SetEventType"
 
 external setEventObject : wxPlotEvent -> wxObject -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventObject"
+	= "camlidl_wxc_wxEvent_SetEventObject"
 
 external setClientObject : wxPlotEvent -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetClientObject"
+	= "camlidl_wxc_wxCommandEvent_SetClientObject"
 
 external setClientData : wxPlotEvent -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetClientData"
+	= "camlidl_wxc_wxCommandEvent_SetClientData"
 
 external setClientClosure : wxPlotEvent -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxPlotEvent -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external newEventType : unit -> int
-	= "camlidl_wxc_idl_wxEvent_NewEventType"
+	= "camlidl_wxc_wxEvent_NewEventType"
 
 external isSelection : wxPlotEvent -> bool
-	= "camlidl_wxc_idl_wxCommandEvent_IsSelection"
+	= "camlidl_wxc_wxCommandEvent_IsSelection"
 
 external isScrolledWindow : wxPlotEvent -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxPlotEvent -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isCommandEvent : wxPlotEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_IsCommandEvent"
+	= "camlidl_wxc_wxEvent_IsCommandEvent"
 
 external isChecked : wxPlotEvent -> bool
-	= "camlidl_wxc_idl_wxCommandEvent_IsChecked"
+	= "camlidl_wxc_wxCommandEvent_IsChecked"
 
 external isAllowed : wxPlotEvent -> bool
-	= "camlidl_wxc_idl_wxNotifyEvent_IsAllowed"
+	= "camlidl_wxc_wxNotifyEvent_IsAllowed"
+
+external getZoom : wxPlotEvent -> float
+	= "camlidl_wxc_wxPlotEvent_GetZoom"
 
 external getTimestamp : wxPlotEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetTimestamp"
+	= "camlidl_wxc_wxEvent_GetTimestamp"
 
 external getString : wxPlotEvent -> wxString
-	= "camlidl_wxc_idl_wxCommandEvent_GetString"
+	= "camlidl_wxc_wxCommandEvent_GetString"
 
 external getSkipped : wxPlotEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_GetSkipped"
+	= "camlidl_wxc_wxEvent_GetSkipped"
 
 external getSelection : wxPlotEvent -> int
-	= "camlidl_wxc_idl_wxCommandEvent_GetSelection"
+	= "camlidl_wxc_wxCommandEvent_GetSelection"
+
+external getPosition : wxPlotEvent -> int
+	= "camlidl_wxc_wxPlotEvent_GetPosition"
 
 external getInt : wxPlotEvent -> int
-	= "camlidl_wxc_idl_wxCommandEvent_GetInt"
+	= "camlidl_wxc_wxCommandEvent_GetInt"
 
 external getId : wxPlotEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetId"
+	= "camlidl_wxc_wxEvent_GetId"
 
 external getExtraLong : wxPlotEvent -> int
-	= "camlidl_wxc_idl_wxCommandEvent_GetExtraLong"
+	= "camlidl_wxc_wxCommandEvent_GetExtraLong"
 
 external getEventType : wxPlotEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetEventType"
+	= "camlidl_wxc_wxEvent_GetEventType"
 
 external getEventObject : wxPlotEvent -> wxObject
-	= "camlidl_wxc_idl_wxEvent_GetEventObject"
+	= "camlidl_wxc_wxEvent_GetEventObject"
+
+external getCurve : wxPlotEvent -> voidptr
+	= "camlidl_wxc_wxPlotEvent_GetCurve"
 
 external getClientObject : wxPlotEvent -> wxClientData
-	= "camlidl_wxc_idl_wxCommandEvent_GetClientObject"
+	= "camlidl_wxc_wxCommandEvent_GetClientObject"
 
 external getClientData : wxPlotEvent -> wxClientData
-	= "camlidl_wxc_idl_wxCommandEvent_GetClientData"
+	= "camlidl_wxc_wxCommandEvent_GetClientData"
 
 external getClientClosure : wxPlotEvent -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxPlotEvent -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxPlotEvent -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_Delete"
+	= "camlidl_wxc_wxCommandEvent_Delete"
 
 external copyObject : wxPlotEvent -> voidptr -> unit
-	= "camlidl_wxc_idl_wxNotifyEvent_CopyObject"
+	= "camlidl_wxc_wxNotifyEvent_CopyObject"
 
 external allow : wxPlotEvent -> unit
-	= "camlidl_wxc_idl_wxNotifyEvent_Allow"
+	= "camlidl_wxc_wxNotifyEvent_Allow"
 
 val setString : wxPlotEvent -> string -> unit
 val getString : wxPlotEvent -> string

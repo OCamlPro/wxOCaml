@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGridSizeEvent(value _v1, wxGridSizeEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGridSizeEvent(value _v1, wxGridSizeEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGridSizeEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGridSizeEvent(wxGridSizeEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGridSizeEvent(wxGridSizeEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGridSizeEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGridSizeEvent_GetRowOrCol(
+value camlidl_wxc_wxGridSizeEvent_GetRowOrCol(
 	value _v__obj)
 {
   wxGridSizeEvent _obj; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxGridSizeEvent_GetRowOrCol(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizeEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizeEvent(_v__obj, &_obj, _ctx);
   _res = wxGridSizeEvent_GetRowOrCol(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridSizeEvent_GetPosition(
+value camlidl_wxc_wxGridSizeEvent_GetPosition(
 	value _v__obj)
 {
   wxGridSizeEvent _obj; /*in*/
@@ -54,14 +54,14 @@ value camlidl_wxc_idl_wxGridSizeEvent_GetPosition(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizeEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizeEvent(_v__obj, &_obj, _ctx);
   _res = wxGridSizeEvent_GetPosition(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxPoint(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPoint(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridSizeEvent_ControlDown(
+value camlidl_wxc_wxGridSizeEvent_ControlDown(
 	value _v__obj)
 {
   wxGridSizeEvent _obj; /*in*/
@@ -70,14 +70,14 @@ value camlidl_wxc_idl_wxGridSizeEvent_ControlDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizeEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizeEvent(_v__obj, &_obj, _ctx);
   _res = wxGridSizeEvent_ControlDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridSizeEvent_MetaDown(
+value camlidl_wxc_wxGridSizeEvent_MetaDown(
 	value _v__obj)
 {
   wxGridSizeEvent _obj; /*in*/
@@ -86,14 +86,14 @@ value camlidl_wxc_idl_wxGridSizeEvent_MetaDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizeEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizeEvent(_v__obj, &_obj, _ctx);
   _res = wxGridSizeEvent_MetaDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridSizeEvent_ShiftDown(
+value camlidl_wxc_wxGridSizeEvent_ShiftDown(
 	value _v__obj)
 {
   wxGridSizeEvent _obj; /*in*/
@@ -102,14 +102,14 @@ value camlidl_wxc_idl_wxGridSizeEvent_ShiftDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizeEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizeEvent(_v__obj, &_obj, _ctx);
   _res = wxGridSizeEvent_ShiftDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridSizeEvent_AltDown(
+value camlidl_wxc_wxGridSizeEvent_AltDown(
 	value _v__obj)
 {
   wxGridSizeEvent _obj; /*in*/
@@ -118,7 +118,7 @@ value camlidl_wxc_idl_wxGridSizeEvent_AltDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizeEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizeEvent(_v__obj, &_obj, _ctx);
   _res = wxGridSizeEvent_AltDown(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

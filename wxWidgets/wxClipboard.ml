@@ -1,63 +1,63 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : unit -> wxClipboard
-	= "camlidl_wxc_idl_wxClipboard_Create"
+	= "camlidl_wxc_wxClipboard_Create"
 
 external usePrimarySelection : wxClipboard -> bool -> unit
-	= "camlidl_wxc_idl_wxClipboard_UsePrimarySelection"
+	= "camlidl_wxc_wxClipboard_UsePrimarySelection"
 
 external setData : wxClipboard -> wxDataObject -> bool
-	= "camlidl_wxc_idl_wxClipboard_SetData"
+	= "camlidl_wxc_wxClipboard_SetData"
 
 external setClientClosure : wxClipboard -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxClipboard -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external isSupported : wxClipboard -> wxDataFormat -> bool
-	= "camlidl_wxc_idl_wxClipboard_IsSupported"
+	= "camlidl_wxc_wxClipboard_IsSupported"
 
 external isScrolledWindow : wxClipboard -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isOpened : wxClipboard -> bool
-	= "camlidl_wxc_idl_wxClipboard_IsOpened"
+	= "camlidl_wxc_wxClipboard_IsOpened"
 
 external isKindOf : wxClipboard -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external getData : wxClipboard -> wxDataObject -> bool
-	= "camlidl_wxc_idl_wxClipboard_GetData"
+	= "camlidl_wxc_wxClipboard_GetData"
 
 external getClientClosure : wxClipboard -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxClipboard -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external flush : wxClipboard -> bool
-	= "camlidl_wxc_idl_wxClipboard_Flush"
+	= "camlidl_wxc_wxClipboard_Flush"
 
 external delete : wxClipboard -> unit
-	= "camlidl_wxc_idl_wxObject_Delete"
+	= "camlidl_wxc_wxObject_Delete"
 
 external close : wxClipboard -> unit
-	= "camlidl_wxc_idl_wxClipboard_Close"
+	= "camlidl_wxc_wxClipboard_Close"
 
 external clear : wxClipboard -> unit
-	= "camlidl_wxc_idl_wxClipboard_Clear"
+	= "camlidl_wxc_wxClipboard_Clear"
 
 external addData : wxClipboard -> wxDataObject -> bool
-	= "camlidl_wxc_idl_wxClipboard_AddData"
+	= "camlidl_wxc_wxClipboard_AddData"
 
 external _open : wxClipboard -> bool
-	= "camlidl_wxc_idl_wxClipboard_Open"
+	= "camlidl_wxc_wxClipboard_Open"
 
 external null_object : unit -> wxClipboard
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

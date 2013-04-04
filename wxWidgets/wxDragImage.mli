@@ -1,48 +1,48 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : wxBitmap -> int -> int -> wxDragImage
-	= "camlidl_wxc_idl_wxDragImage_Create"
+	= "camlidl_wxc_wxDragImage_Create"
 
 external show : wxDragImage -> bool
-	= "camlidl_wxc_idl_wxDragImage_Show"
+	= "camlidl_wxc_wxDragImage_Show"
 
 external setClientClosure : wxDragImage -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxDragImage -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external move : wxDragImage -> int -> int -> bool
-	= "camlidl_wxc_idl_wxDragImage_Move"
+	= "camlidl_wxc_wxDragImage_Move"
 
 external isScrolledWindow : wxDragImage -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxDragImage -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external hide : wxDragImage -> bool
-	= "camlidl_wxc_idl_wxDragImage_Hide"
+	= "camlidl_wxc_wxDragImage_Hide"
 
 external getClientClosure : wxDragImage -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxDragImage -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external endDrag : wxDragImage -> unit
-	= "camlidl_wxc_idl_wxDragImage_EndDrag"
+	= "camlidl_wxc_wxDragImage_EndDrag"
 
 external delete : wxDragImage -> unit
-	= "camlidl_wxc_idl_wxDragImage_Delete"
+	= "camlidl_wxc_wxDragImage_Delete"
 
 external beginDragFullScreen : wxDragImage -> int -> int -> wxWindow -> bool -> wxRect -> bool
-	= "camlidl_wxc_idl_wxDragImage_BeginDragFullScreen_bytecode" "camlidl_wxc_idl_wxDragImage_BeginDragFullScreen"
+	= "camlidl_wxc_wxDragImage_BeginDragFullScreen_bytecode" "camlidl_wxc_wxDragImage_BeginDragFullScreen"
 
 external beginDrag : wxDragImage -> int -> int -> wxWindow -> wxWindow -> bool
-	= "camlidl_wxc_idl_wxDragImage_BeginDrag"
+	= "camlidl_wxc_wxDragImage_BeginDrag"
 
   val ptrNULL : wxDragImage
 

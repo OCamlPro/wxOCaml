@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxClientDC(value _v1, wxClientDC * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxClientDC(value _v1, wxClientDC * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxClientDC *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxClientDC(wxClientDC * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxClientDC(wxClientDC * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxClientDC) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxClientDC_Create(
+value camlidl_wxc_wxClientDC_Create(
 	value _v_win)
 {
   wxWindow win; /*in*/
@@ -38,20 +38,20 @@ value camlidl_wxc_idl_wxClientDC_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v_win, &win, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_win, &win, _ctx);
   _res = wxClientDC_Create(win);
-  _vres = camlidl_c2ml_wxc_idl_wxClientDC(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxClientDC(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxClientDC_Delete(
+value camlidl_wxc_wxClientDC_Delete(
 	value _v__obj)
 {
   wxClientDC _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxClientDC(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxClientDC(_v__obj, &_obj, _ctx);
   wxClientDC_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxPropertyGridEvent(value _v1, wxPropertyGridEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxPropertyGridEvent(value _v1, wxPropertyGridEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxPropertyGridEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxPropertyGridEvent(wxPropertyGridEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxPropertyGridEvent(wxPropertyGridEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxPropertyGridEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxPropertyGridEvent_HasProperty(
+value camlidl_wxc_wxPropertyGridEvent_HasProperty(
 	value _v__obj)
 {
   wxPropertyGridEvent _obj; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxPropertyGridEvent_HasProperty(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPropertyGridEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPropertyGridEvent(_v__obj, &_obj, _ctx);
   _res = wxPropertyGridEvent_HasProperty(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPropertyGridEvent_GetProperty(
+value camlidl_wxc_wxPropertyGridEvent_GetProperty(
 	value _v__obj)
 {
   wxPropertyGridEvent _obj; /*in*/
@@ -54,9 +54,9 @@ value camlidl_wxc_idl_wxPropertyGridEvent_GetProperty(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPropertyGridEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPropertyGridEvent(_v__obj, &_obj, _ctx);
   _res = wxPropertyGridEvent_GetProperty(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxPGProperty(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPGProperty(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

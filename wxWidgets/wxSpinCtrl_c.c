@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxSpinCtrl(value _v1, wxSpinCtrl * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxSpinCtrl(value _v1, wxSpinCtrl * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxSpinCtrl *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxSpinCtrl(wxSpinCtrl * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxSpinCtrl(wxSpinCtrl * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxSpinCtrl) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxSpinCtrl_Create(
+value camlidl_wxc_wxSpinCtrl_Create(
 	value _v__prt,
 	value _v__id,
 	value _v__txt,
@@ -58,9 +58,9 @@ value camlidl_wxc_idl_wxSpinCtrl_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
   _id = Int_val(_v__id);
-  camlidl_ml2c_wxc_idl_wxString(_v__txt, &_txt, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__txt, &_txt, _ctx);
   _lft = Int_val(_v__lft);
   _top = Int_val(_v__top);
   _wdt = Int_val(_v__wdt);
@@ -70,17 +70,17 @@ value camlidl_wxc_idl_wxSpinCtrl_Create(
   _max = Int_val(_v__max);
   _init = Int_val(_v__init);
   _res = wxSpinCtrl_Create(_prt, _id, _txt, _lft, _top, _wdt, _hgt, _stl, _min, _max, _init);
-  _vres = camlidl_c2ml_wxc_idl_wxSpinCtrl(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxSpinCtrl(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSpinCtrl_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxSpinCtrl_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxSpinCtrl_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9], argv[10]);
+  return camlidl_wxc_wxSpinCtrl_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9], argv[10]);
 }
 
-value camlidl_wxc_idl_wxSpinCtrl_GetMax(
+value camlidl_wxc_wxSpinCtrl_GetMax(
 	value _v__obj)
 {
   wxSpinCtrl _obj; /*in*/
@@ -89,14 +89,14 @@ value camlidl_wxc_idl_wxSpinCtrl_GetMax(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSpinCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSpinCtrl(_v__obj, &_obj, _ctx);
   _res = wxSpinCtrl_GetMax(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSpinCtrl_GetMin(
+value camlidl_wxc_wxSpinCtrl_GetMin(
 	value _v__obj)
 {
   wxSpinCtrl _obj; /*in*/
@@ -105,14 +105,14 @@ value camlidl_wxc_idl_wxSpinCtrl_GetMin(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSpinCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSpinCtrl(_v__obj, &_obj, _ctx);
   _res = wxSpinCtrl_GetMin(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSpinCtrl_GetValue(
+value camlidl_wxc_wxSpinCtrl_GetValue(
 	value _v__obj)
 {
   wxSpinCtrl _obj; /*in*/
@@ -121,14 +121,14 @@ value camlidl_wxc_idl_wxSpinCtrl_GetValue(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSpinCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSpinCtrl(_v__obj, &_obj, _ctx);
   _res = wxSpinCtrl_GetValue(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSpinCtrl_SetRange(
+value camlidl_wxc_wxSpinCtrl_SetRange(
 	value _v__obj,
 	value _v_min_val,
 	value _v_max_val)
@@ -138,7 +138,7 @@ value camlidl_wxc_idl_wxSpinCtrl_SetRange(
   int max_val; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSpinCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSpinCtrl(_v__obj, &_obj, _ctx);
   min_val = Int_val(_v_min_val);
   max_val = Int_val(_v_max_val);
   wxSpinCtrl_SetRange(_obj, min_val, max_val);
@@ -146,7 +146,7 @@ value camlidl_wxc_idl_wxSpinCtrl_SetRange(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSpinCtrl_SetValue(
+value camlidl_wxc_wxSpinCtrl_SetValue(
 	value _v__obj,
 	value _v__val)
 {
@@ -154,7 +154,7 @@ value camlidl_wxc_idl_wxSpinCtrl_SetValue(
   int _val; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSpinCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSpinCtrl(_v__obj, &_obj, _ctx);
   _val = Int_val(_v__val);
   wxSpinCtrl_SetValue(_obj, _val);
   camlidl_free(_ctx);

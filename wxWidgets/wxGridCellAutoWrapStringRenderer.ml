@@ -1,9 +1,9 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external ctor : unit -> wxGridCellAutoWrapStringRenderer
-	= "camlidl_wxc_idl_wxGridCellAutoWrapStringRenderer_Ctor"
+	= "camlidl_wxc_wxGridCellAutoWrapStringRenderer_Ctor"
 
 
   (* Cast functions *)

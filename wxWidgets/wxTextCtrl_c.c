@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxTextCtrl(value _v1, wxTextCtrl * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxTextCtrl(value _v1, wxTextCtrl * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxTextCtrl *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxTextCtrl(wxTextCtrl * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxTextCtrl(wxTextCtrl * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxTextCtrl) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_AppendText(
+value camlidl_wxc_wxTextCtrl_AppendText(
 	value _v__obj,
 	value _v_text)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxTextCtrl_AppendText(
   wxString text; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_text, &text, _ctx);
   wxTextCtrl_AppendText(_obj, text);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_CanCopy(
+value camlidl_wxc_wxTextCtrl_CanCopy(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -53,14 +53,14 @@ value camlidl_wxc_idl_wxTextCtrl_CanCopy(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_CanCopy(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_CanCut(
+value camlidl_wxc_wxTextCtrl_CanCut(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -69,14 +69,14 @@ value camlidl_wxc_idl_wxTextCtrl_CanCut(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_CanCut(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_CanPaste(
+value camlidl_wxc_wxTextCtrl_CanPaste(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -85,14 +85,14 @@ value camlidl_wxc_idl_wxTextCtrl_CanPaste(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_CanPaste(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_CanRedo(
+value camlidl_wxc_wxTextCtrl_CanRedo(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -101,14 +101,14 @@ value camlidl_wxc_idl_wxTextCtrl_CanRedo(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_CanRedo(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_CanUndo(
+value camlidl_wxc_wxTextCtrl_CanUndo(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -117,14 +117,14 @@ value camlidl_wxc_idl_wxTextCtrl_CanUndo(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_CanUndo(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_ChangeValue(
+value camlidl_wxc_wxTextCtrl_ChangeValue(
 	value _v__obj,
 	value _v_text)
 {
@@ -132,38 +132,38 @@ value camlidl_wxc_idl_wxTextCtrl_ChangeValue(
   wxString text; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_text, &text, _ctx);
   wxTextCtrl_ChangeValue(_obj, text);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_Clear(
+value camlidl_wxc_wxTextCtrl_Clear(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   wxTextCtrl_Clear(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_Copy(
+value camlidl_wxc_wxTextCtrl_Copy(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   wxTextCtrl_Copy(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_Create(
+value camlidl_wxc_wxTextCtrl_Create(
 	value _v__prt,
 	value _v__id,
 	value _v__txt,
@@ -186,50 +186,50 @@ value camlidl_wxc_idl_wxTextCtrl_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
   _id = Int_val(_v__id);
-  camlidl_ml2c_wxc_idl_wxString(_v__txt, &_txt, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__txt, &_txt, _ctx);
   _lft = Int_val(_v__lft);
   _top = Int_val(_v__top);
   _wdt = Int_val(_v__wdt);
   _hgt = Int_val(_v__hgt);
   _stl = Long_val(_v__stl);
   _res = wxTextCtrl_Create(_prt, _id, _txt, _lft, _top, _wdt, _hgt, _stl);
-  _vres = camlidl_c2ml_wxc_idl_wxTextCtrl(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxTextCtrl(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxTextCtrl_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxTextCtrl_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
+  return camlidl_wxc_wxTextCtrl_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
 }
 
-value camlidl_wxc_idl_wxTextCtrl_Cut(
+value camlidl_wxc_wxTextCtrl_Cut(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   wxTextCtrl_Cut(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_DiscardEdits(
+value camlidl_wxc_wxTextCtrl_DiscardEdits(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   wxTextCtrl_DiscardEdits(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_GetInsertionPoint(
+value camlidl_wxc_wxTextCtrl_GetInsertionPoint(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -238,14 +238,14 @@ value camlidl_wxc_idl_wxTextCtrl_GetInsertionPoint(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_GetInsertionPoint(_obj);
   _vres = Val_long(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_GetLastPosition(
+value camlidl_wxc_wxTextCtrl_GetLastPosition(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -254,14 +254,14 @@ value camlidl_wxc_idl_wxTextCtrl_GetLastPosition(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_GetLastPosition(_obj);
   _vres = Val_long(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_GetLineLength(
+value camlidl_wxc_wxTextCtrl_GetLineLength(
 	value _v__obj,
 	value _v_lineNo)
 {
@@ -272,7 +272,7 @@ value camlidl_wxc_idl_wxTextCtrl_GetLineLength(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   lineNo = Long_val(_v_lineNo);
   _res = wxTextCtrl_GetLineLength(_obj, lineNo);
   _vres = Val_int(_res);
@@ -280,7 +280,7 @@ value camlidl_wxc_idl_wxTextCtrl_GetLineLength(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_GetLineText(
+value camlidl_wxc_wxTextCtrl_GetLineText(
 	value _v__obj,
 	value _v_lineNo)
 {
@@ -291,15 +291,15 @@ value camlidl_wxc_idl_wxTextCtrl_GetLineText(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   lineNo = Long_val(_v_lineNo);
   _res = wxTextCtrl_GetLineText(_obj, lineNo);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_GetNumberOfLines(
+value camlidl_wxc_wxTextCtrl_GetNumberOfLines(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -308,14 +308,14 @@ value camlidl_wxc_idl_wxTextCtrl_GetNumberOfLines(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_GetNumberOfLines(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_GetSelection(
+value camlidl_wxc_wxTextCtrl_GetSelection(
 	value _v__obj,
 	value _v_from,
 	value _v__to)
@@ -325,15 +325,15 @@ value camlidl_wxc_idl_wxTextCtrl_GetSelection(
   voidptr _to; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_from, &from, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__to, &_to, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_from, &from, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__to, &_to, _ctx);
   wxTextCtrl_GetSelection(_obj, from, _to);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_GetValue(
+value camlidl_wxc_wxTextCtrl_GetValue(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -342,14 +342,14 @@ value camlidl_wxc_idl_wxTextCtrl_GetValue(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_GetValue(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_IsEditable(
+value camlidl_wxc_wxTextCtrl_IsEditable(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -358,14 +358,14 @@ value camlidl_wxc_idl_wxTextCtrl_IsEditable(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_IsEditable(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_IsModified(
+value camlidl_wxc_wxTextCtrl_IsModified(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -374,14 +374,14 @@ value camlidl_wxc_idl_wxTextCtrl_IsModified(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_IsModified(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_LoadFile(
+value camlidl_wxc_wxTextCtrl_LoadFile(
 	value _v__obj,
 	value _v_file)
 {
@@ -392,27 +392,27 @@ value camlidl_wxc_idl_wxTextCtrl_LoadFile(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_file, &file, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_file, &file, _ctx);
   _res = wxTextCtrl_LoadFile(_obj, file);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_Paste(
+value camlidl_wxc_wxTextCtrl_Paste(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   wxTextCtrl_Paste(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_PositionToXY(
+value camlidl_wxc_wxTextCtrl_PositionToXY(
 	value _v__obj,
 	value _v_pos,
 	value _v_x,
@@ -431,7 +431,7 @@ value camlidl_wxc_idl_wxTextCtrl_PositionToXY(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   pos = Long_val(_v_pos);
   if (_v_x == Val_int(0)) {
     x = NULL;
@@ -453,19 +453,19 @@ value camlidl_wxc_idl_wxTextCtrl_PositionToXY(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_Redo(
+value camlidl_wxc_wxTextCtrl_Redo(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   wxTextCtrl_Redo(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_Remove(
+value camlidl_wxc_wxTextCtrl_Remove(
 	value _v__obj,
 	value _v_from,
 	value _v__to)
@@ -475,7 +475,7 @@ value camlidl_wxc_idl_wxTextCtrl_Remove(
   long _to; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   from = Long_val(_v_from);
   _to = Long_val(_v__to);
   wxTextCtrl_Remove(_obj, from, _to);
@@ -483,28 +483,28 @@ value camlidl_wxc_idl_wxTextCtrl_Remove(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_Replace(
+value camlidl_wxc_wxTextCtrl_Replace(
 	value _v__obj,
 	value _v_from,
 	value _v__to,
-	value _v_v)
+	value _v__value)
 {
   wxTextCtrl _obj; /*in*/
   long from; /*in*/
   long _to; /*in*/
-  wxString v; /*in*/
+  wxString _value; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   from = Long_val(_v_from);
   _to = Long_val(_v__to);
-  camlidl_ml2c_wxc_idl_wxString(_v_v, &v, _ctx);
-  wxTextCtrl_Replace(_obj, from, _to, v);
+  camlidl_ml2c_wxc_wxString(_v__value, &_value, _ctx);
+  wxTextCtrl_Replace(_obj, from, _to, _value);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_SaveFile(
+value camlidl_wxc_wxTextCtrl_SaveFile(
 	value _v__obj,
 	value _v_file)
 {
@@ -515,15 +515,15 @@ value camlidl_wxc_idl_wxTextCtrl_SaveFile(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_file, &file, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_file, &file, _ctx);
   _res = wxTextCtrl_SaveFile(_obj, file);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_SetEditable(
+value camlidl_wxc_wxTextCtrl_SetEditable(
 	value _v__obj,
 	value _v_editable)
 {
@@ -531,14 +531,14 @@ value camlidl_wxc_idl_wxTextCtrl_SetEditable(
   int editable; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   editable = Int_val(_v_editable);
   wxTextCtrl_SetEditable(_obj, editable);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_SetInsertionPoint(
+value camlidl_wxc_wxTextCtrl_SetInsertionPoint(
 	value _v__obj,
 	value _v_pos)
 {
@@ -546,26 +546,26 @@ value camlidl_wxc_idl_wxTextCtrl_SetInsertionPoint(
   long pos; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   pos = Long_val(_v_pos);
   wxTextCtrl_SetInsertionPoint(_obj, pos);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_SetInsertionPointEnd(
+value camlidl_wxc_wxTextCtrl_SetInsertionPointEnd(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   wxTextCtrl_SetInsertionPointEnd(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_SetSelection(
+value camlidl_wxc_wxTextCtrl_SetSelection(
 	value _v__obj,
 	value _v_from,
 	value _v__to)
@@ -575,7 +575,7 @@ value camlidl_wxc_idl_wxTextCtrl_SetSelection(
   long _to; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   from = Long_val(_v_from);
   _to = Long_val(_v__to);
   wxTextCtrl_SetSelection(_obj, from, _to);
@@ -583,22 +583,22 @@ value camlidl_wxc_idl_wxTextCtrl_SetSelection(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_SetValue(
+value camlidl_wxc_wxTextCtrl_SetValue(
 	value _v__obj,
-	value _v_v)
+	value _v__value)
 {
   wxTextCtrl _obj; /*in*/
-  wxString v; /*in*/
+  wxString _value; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_v, &v, _ctx);
-  wxTextCtrl_SetValue(_obj, v);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__value, &_value, _ctx);
+  wxTextCtrl_SetValue(_obj, _value);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_ShowPosition(
+value camlidl_wxc_wxTextCtrl_ShowPosition(
 	value _v__obj,
 	value _v_pos)
 {
@@ -606,26 +606,26 @@ value camlidl_wxc_idl_wxTextCtrl_ShowPosition(
   long pos; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   pos = Long_val(_v_pos);
   wxTextCtrl_ShowPosition(_obj, pos);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_Undo(
+value camlidl_wxc_wxTextCtrl_Undo(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   wxTextCtrl_Undo(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_WriteText(
+value camlidl_wxc_wxTextCtrl_WriteText(
 	value _v__obj,
 	value _v_text)
 {
@@ -633,14 +633,14 @@ value camlidl_wxc_idl_wxTextCtrl_WriteText(
   wxString text; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_text, &text, _ctx);
   wxTextCtrl_WriteText(_obj, text);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_XYToPosition(
+value camlidl_wxc_wxTextCtrl_XYToPosition(
 	value _v__obj,
 	value _v_x,
 	value _v_y)
@@ -653,7 +653,7 @@ value camlidl_wxc_idl_wxTextCtrl_XYToPosition(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   x = Long_val(_v_x);
   y = Long_val(_v_y);
   _res = wxTextCtrl_XYToPosition(_obj, x, y);
@@ -662,7 +662,7 @@ value camlidl_wxc_idl_wxTextCtrl_XYToPosition(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_EmulateKeyPress(
+value camlidl_wxc_wxTextCtrl_EmulateKeyPress(
 	value _v__obj,
 	value _v_keyevent)
 {
@@ -673,15 +673,15 @@ value camlidl_wxc_idl_wxTextCtrl_EmulateKeyPress(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxKeyEvent(_v_keyevent, &keyevent, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxKeyEvent(_v_keyevent, &keyevent, _ctx);
   _res = wxTextCtrl_EmulateKeyPress(_obj, keyevent);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_GetDefaultStyle(
+value camlidl_wxc_wxTextCtrl_GetDefaultStyle(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -690,14 +690,14 @@ value camlidl_wxc_idl_wxTextCtrl_GetDefaultStyle(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_GetDefaultStyle(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxTextAttr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxTextAttr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_GetRange(
+value camlidl_wxc_wxTextCtrl_GetRange(
 	value _v__obj,
 	value _v_from,
 	value _v__to)
@@ -710,16 +710,16 @@ value camlidl_wxc_idl_wxTextCtrl_GetRange(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   from = Long_val(_v_from);
   _to = Long_val(_v__to);
   _res = wxTextCtrl_GetRange(_obj, from, _to);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_GetStringSelection(
+value camlidl_wxc_wxTextCtrl_GetStringSelection(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -728,14 +728,14 @@ value camlidl_wxc_idl_wxTextCtrl_GetStringSelection(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_GetStringSelection(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_IsMultiLine(
+value camlidl_wxc_wxTextCtrl_IsMultiLine(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -744,14 +744,14 @@ value camlidl_wxc_idl_wxTextCtrl_IsMultiLine(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_IsMultiLine(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_IsSingleLine(
+value camlidl_wxc_wxTextCtrl_IsSingleLine(
 	value _v__obj)
 {
   wxTextCtrl _obj; /*in*/
@@ -760,14 +760,14 @@ value camlidl_wxc_idl_wxTextCtrl_IsSingleLine(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   _res = wxTextCtrl_IsSingleLine(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_SetDefaultStyle(
+value camlidl_wxc_wxTextCtrl_SetDefaultStyle(
 	value _v__obj,
 	value _v_style)
 {
@@ -778,15 +778,15 @@ value camlidl_wxc_idl_wxTextCtrl_SetDefaultStyle(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxTextAttr(_v_style, &style, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextAttr(_v_style, &style, _ctx);
   _res = wxTextCtrl_SetDefaultStyle(_obj, style);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_SetMaxLength(
+value camlidl_wxc_wxTextCtrl_SetMaxLength(
 	value _v__obj,
 	value _v_len)
 {
@@ -794,14 +794,14 @@ value camlidl_wxc_idl_wxTextCtrl_SetMaxLength(
   long len; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   len = Long_val(_v_len);
   wxTextCtrl_SetMaxLength(_obj, len);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTextCtrl_SetStyle(
+value camlidl_wxc_wxTextCtrl_SetStyle(
 	value _v__obj,
 	value _v_start,
 	value _v__end,
@@ -816,10 +816,10 @@ value camlidl_wxc_idl_wxTextCtrl_SetStyle(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v__obj, &_obj, _ctx);
   start = Long_val(_v_start);
   _end = Long_val(_v__end);
-  camlidl_ml2c_wxc_idl_wxTextAttr(_v_style, &style, _ctx);
+  camlidl_ml2c_wxc_wxTextAttr(_v_style, &style, _ctx);
   _res = wxTextCtrl_SetStyle(_obj, start, _end, style);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxQueryCol(value _v1, wxQueryCol * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxQueryCol(value _v1, wxQueryCol * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxQueryCol *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxQueryCol(wxQueryCol * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxQueryCol(wxQueryCol * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxQueryCol) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

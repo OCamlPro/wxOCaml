@@ -1,75 +1,75 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : unit -> wxGraphicsMatrix
-	= "camlidl_wxc_idl_wxGraphicsMatrix_Create"
+	= "camlidl_wxc_wxGraphicsMatrix_Create"
 
 external translate : wxGraphicsMatrix -> float -> float -> unit
-	= "camlidl_wxc_idl_wxGraphicsMatrix_Translate"
+	= "camlidl_wxc_wxGraphicsMatrix_Translate"
 
 external transformPoint : wxGraphicsMatrix -> float option -> float option -> unit
-	= "camlidl_wxc_idl_wxGraphicsMatrix_TransformPoint"
+	= "camlidl_wxc_wxGraphicsMatrix_TransformPoint"
 
 external transformDistance : wxGraphicsMatrix -> float option -> float option -> unit
-	= "camlidl_wxc_idl_wxGraphicsMatrix_TransformDistance"
+	= "camlidl_wxc_wxGraphicsMatrix_TransformDistance"
 
 external setClientClosure : wxGraphicsMatrix -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external set : wxGraphicsMatrix -> float -> float -> float -> float -> float -> float -> unit
-	= "camlidl_wxc_idl_wxGraphicsMatrix_Set_bytecode" "camlidl_wxc_idl_wxGraphicsMatrix_Set"
+	= "camlidl_wxc_wxGraphicsMatrix_Set_bytecode" "camlidl_wxc_wxGraphicsMatrix_Set"
 
 external scale : wxGraphicsMatrix -> float -> float -> unit
-	= "camlidl_wxc_idl_wxGraphicsMatrix_Scale"
+	= "camlidl_wxc_wxGraphicsMatrix_Scale"
 
 external safeDelete : wxGraphicsMatrix -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external rotate : wxGraphicsMatrix -> float -> unit
-	= "camlidl_wxc_idl_wxGraphicsMatrix_Rotate"
+	= "camlidl_wxc_wxGraphicsMatrix_Rotate"
 
 external isScrolledWindow : wxGraphicsMatrix -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isNull : wxGraphicsMatrix -> bool
-	= "camlidl_wxc_idl_wxGraphicsObject_IsNull"
+	= "camlidl_wxc_wxGraphicsObject_IsNull"
 
 external isKindOf : wxGraphicsMatrix -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isIdentity : wxGraphicsMatrix -> bool
-	= "camlidl_wxc_idl_wxGraphicsMatrix_IsIdentity"
+	= "camlidl_wxc_wxGraphicsMatrix_IsIdentity"
 
 external isEqual : wxGraphicsMatrix -> wxGraphicsMatrix -> bool
-	= "camlidl_wxc_idl_wxGraphicsMatrix_IsEqual"
+	= "camlidl_wxc_wxGraphicsMatrix_IsEqual"
 
 external invert : wxGraphicsMatrix -> unit
-	= "camlidl_wxc_idl_wxGraphicsMatrix_Invert"
+	= "camlidl_wxc_wxGraphicsMatrix_Invert"
 
 external getRenderer : unit -> wxGraphicsRenderer
-	= "camlidl_wxc_idl_wxGraphicsObject_GetRenderer"
+	= "camlidl_wxc_wxGraphicsObject_GetRenderer"
 
 external getNativeMatrix : wxGraphicsMatrix -> voidptr
-	= "camlidl_wxc_idl_wxGraphicsMatrix_GetNativeMatrix"
+	= "camlidl_wxc_wxGraphicsMatrix_GetNativeMatrix"
 
 external getClientClosure : wxGraphicsMatrix -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxGraphicsMatrix -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external get : wxGraphicsMatrix -> float option -> float option -> float option -> float option -> float option -> float option -> unit
-	= "camlidl_wxc_idl_wxGraphicsMatrix_Get_bytecode" "camlidl_wxc_idl_wxGraphicsMatrix_Get"
+	= "camlidl_wxc_wxGraphicsMatrix_Get_bytecode" "camlidl_wxc_wxGraphicsMatrix_Get"
 
 external delete : wxGraphicsMatrix -> unit
-	= "camlidl_wxc_idl_wxGraphicsMatrix_Delete"
+	= "camlidl_wxc_wxGraphicsMatrix_Delete"
 
 external concat : wxGraphicsMatrix -> wxGraphicsMatrix -> unit
-	= "camlidl_wxc_idl_wxGraphicsMatrix_Concat"
+	= "camlidl_wxc_wxGraphicsMatrix_Concat"
 
 external null_object : unit -> wxGraphicsMatrix
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

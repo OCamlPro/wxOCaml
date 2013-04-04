@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGridCellFloatEditor(value _v1, wxGridCellFloatEditor * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGridCellFloatEditor(value _v1, wxGridCellFloatEditor * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGridCellFloatEditor *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGridCellFloatEditor(wxGridCellFloatEditor * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGridCellFloatEditor(wxGridCellFloatEditor * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGridCellFloatEditor) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGridCellFloatEditor_Ctor(
+value camlidl_wxc_wxGridCellFloatEditor_Ctor(
 	value _v_width,
 	value _v_precision)
 {
@@ -43,7 +43,7 @@ value camlidl_wxc_idl_wxGridCellFloatEditor_Ctor(
   width = Int_val(_v_width);
   precision = Int_val(_v_precision);
   _res = wxGridCellFloatEditor_Ctor(width, precision);
-  _vres = camlidl_c2ml_wxc_idl_wxGridCellFloatEditor(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGridCellFloatEditor(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

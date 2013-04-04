@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxArray(value _v1, wxArray * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxArray(value _v1, wxArray * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxArray *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxArray(wxArray * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxArray(wxArray * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxArray) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxExprDatabase(value _v1, wxExprDatabase * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxExprDatabase(value _v1, wxExprDatabase * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxExprDatabase *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxExprDatabase(wxExprDatabase * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxExprDatabase(wxExprDatabase * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxExprDatabase) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

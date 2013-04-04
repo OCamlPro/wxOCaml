@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxProcessEvent(value _v1, wxProcessEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxProcessEvent(value _v1, wxProcessEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxProcessEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxProcessEvent(wxProcessEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxProcessEvent(wxProcessEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxProcessEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxProcessEvent_GetExitCode(
+value camlidl_wxc_wxProcessEvent_GetExitCode(
 	value _v__obj)
 {
   wxProcessEvent _obj; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxProcessEvent_GetExitCode(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxProcessEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxProcessEvent(_v__obj, &_obj, _ctx);
   _res = wxProcessEvent_GetExitCode(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxProcessEvent_GetPid(
+value camlidl_wxc_wxProcessEvent_GetPid(
 	value _v__obj)
 {
   wxProcessEvent _obj; /*in*/
@@ -54,7 +54,7 @@ value camlidl_wxc_idl_wxProcessEvent_GetPid(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxProcessEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxProcessEvent(_v__obj, &_obj, _ctx);
   _res = wxProcessEvent_GetPid(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

@@ -1,60 +1,60 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : unit -> wxRegionIterator
-	= "camlidl_wxc_idl_wxRegionIterator_Create"
+	= "camlidl_wxc_wxRegionIterator_Create"
 
 external setClientClosure : wxRegionIterator -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxRegionIterator -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external resetToRegion : wxRegionIterator -> wxRegion -> unit
-	= "camlidl_wxc_idl_wxRegionIterator_ResetToRegion"
+	= "camlidl_wxc_wxRegionIterator_ResetToRegion"
 
 external reset : wxRegionIterator -> unit
-	= "camlidl_wxc_idl_wxRegionIterator_Reset"
+	= "camlidl_wxc_wxRegionIterator_Reset"
 
 external next : wxRegionIterator -> unit
-	= "camlidl_wxc_idl_wxRegionIterator_Next"
+	= "camlidl_wxc_wxRegionIterator_Next"
 
 external isScrolledWindow : wxRegionIterator -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxRegionIterator -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external haveRects : wxRegionIterator -> bool
-	= "camlidl_wxc_idl_wxRegionIterator_HaveRects"
+	= "camlidl_wxc_wxRegionIterator_HaveRects"
 
 external getY : wxRegionIterator -> int
-	= "camlidl_wxc_idl_wxRegionIterator_GetY"
+	= "camlidl_wxc_wxRegionIterator_GetY"
 
 external getX : wxRegionIterator -> int
-	= "camlidl_wxc_idl_wxRegionIterator_GetX"
+	= "camlidl_wxc_wxRegionIterator_GetX"
 
 external getWidth : wxRegionIterator -> int
-	= "camlidl_wxc_idl_wxRegionIterator_GetWidth"
+	= "camlidl_wxc_wxRegionIterator_GetWidth"
 
 external getHeight : wxRegionIterator -> int
-	= "camlidl_wxc_idl_wxRegionIterator_GetHeight"
+	= "camlidl_wxc_wxRegionIterator_GetHeight"
 
 external getClientClosure : wxRegionIterator -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxRegionIterator -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxRegionIterator -> unit
-	= "camlidl_wxc_idl_wxRegionIterator_Delete"
+	= "camlidl_wxc_wxRegionIterator_Delete"
 
 external createFromRegion : wxRegion -> wxRegionIterator
-	= "camlidl_wxc_idl_wxRegionIterator_CreateFromRegion"
+	= "camlidl_wxc_wxRegionIterator_CreateFromRegion"
 
 external null_object : unit -> wxRegionIterator
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

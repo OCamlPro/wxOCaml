@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxPostScriptDC(value _v1, wxPostScriptDC * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxPostScriptDC(value _v1, wxPostScriptDC * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxPostScriptDC *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxPostScriptDC(wxPostScriptDC * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxPostScriptDC(wxPostScriptDC * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxPostScriptDC) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxPostScriptDC_Create(
+value camlidl_wxc_wxPostScriptDC_Create(
 	value _v_data)
 {
   wxPrintData data; /*in*/
@@ -38,26 +38,26 @@ value camlidl_wxc_idl_wxPostScriptDC_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintData(_v_data, &data, _ctx);
+  camlidl_ml2c_wxc_wxPrintData(_v_data, &data, _ctx);
   _res = wxPostScriptDC_Create(data);
-  _vres = camlidl_c2ml_wxc_idl_wxPostScriptDC(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPostScriptDC(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPostScriptDC_Delete(
+value camlidl_wxc_wxPostScriptDC_Delete(
 	value _v_self)
 {
   wxPostScriptDC self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPostScriptDC(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxPostScriptDC(_v_self, &self, _ctx);
   wxPostScriptDC_Delete(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPostScriptDC_SetResolution(
+value camlidl_wxc_wxPostScriptDC_SetResolution(
 	value _v_self,
 	value _v_ppi)
 {
@@ -65,14 +65,14 @@ value camlidl_wxc_idl_wxPostScriptDC_SetResolution(
   int ppi; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPostScriptDC(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxPostScriptDC(_v_self, &self, _ctx);
   ppi = Int_val(_v_ppi);
   wxPostScriptDC_SetResolution(self, ppi);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPostScriptDC_GetResolution(
+value camlidl_wxc_wxPostScriptDC_GetResolution(
 	value _v_self)
 {
   wxPostScriptDC self; /*in*/
@@ -81,7 +81,7 @@ value camlidl_wxc_idl_wxPostScriptDC_GetResolution(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPostScriptDC(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxPostScriptDC(_v_self, &self, _ctx);
   _res = wxPostScriptDC_GetResolution(self);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

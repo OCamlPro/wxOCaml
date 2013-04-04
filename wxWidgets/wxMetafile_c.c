@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxMetafile(value _v1, wxMetafile * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxMetafile(value _v1, wxMetafile * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxMetafile *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxMetafile(wxMetafile * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxMetafile(wxMetafile * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxMetafile) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxMetafile_Create(
+value camlidl_wxc_wxMetafile_Create(
 	value _v__file)
 {
   wxString _file; /*in*/
@@ -38,26 +38,26 @@ value camlidl_wxc_idl_wxMetafile_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxString(_v__file, &_file, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__file, &_file, _ctx);
   _res = wxMetafile_Create(_file);
-  _vres = camlidl_c2ml_wxc_idl_wxMetafile(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMetafile(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMetafile_Delete(
+value camlidl_wxc_wxMetafile_Delete(
 	value _v__obj)
 {
   wxMetafile _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMetafile(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMetafile(_v__obj, &_obj, _ctx);
   wxMetafile_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxMetafile_IsOk(
+value camlidl_wxc_wxMetafile_IsOk(
 	value _v__obj)
 {
   wxMetafile _obj; /*in*/
@@ -66,14 +66,14 @@ value camlidl_wxc_idl_wxMetafile_IsOk(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMetafile(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMetafile(_v__obj, &_obj, _ctx);
   _res = wxMetafile_IsOk(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMetafile_Play(
+value camlidl_wxc_wxMetafile_Play(
 	value _v__obj,
 	value _v__dc)
 {
@@ -84,15 +84,15 @@ value camlidl_wxc_idl_wxMetafile_Play(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMetafile(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxDC(_v__dc, &_dc, _ctx);
+  camlidl_ml2c_wxc_wxMetafile(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxDC(_v__dc, &_dc, _ctx);
   _res = wxMetafile_Play(_obj, _dc);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMetafile_SetClipboard(
+value camlidl_wxc_wxMetafile_SetClipboard(
 	value _v__obj,
 	value _v_width,
 	value _v_height)
@@ -105,7 +105,7 @@ value camlidl_wxc_idl_wxMetafile_SetClipboard(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMetafile(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMetafile(_v__obj, &_obj, _ctx);
   width = Int_val(_v_width);
   height = Int_val(_v_height);
   _res = wxMetafile_SetClipboard(_obj, width, height);

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxAcceleratorEntry(value _v1, wxAcceleratorEntry * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxAcceleratorEntry(value _v1, wxAcceleratorEntry * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxAcceleratorEntry *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxAcceleratorEntry(wxAcceleratorEntry * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxAcceleratorEntry(wxAcceleratorEntry * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxAcceleratorEntry) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxAcceleratorEntry_Create(
+value camlidl_wxc_wxAcceleratorEntry_Create(
 	value _v_flags,
 	value _v_keyCode,
 	value _v_cmd)
@@ -46,24 +46,24 @@ value camlidl_wxc_idl_wxAcceleratorEntry_Create(
   keyCode = Int_val(_v_keyCode);
   cmd = Int_val(_v_cmd);
   _res = wxAcceleratorEntry_Create(flags, keyCode, cmd);
-  _vres = camlidl_c2ml_wxc_idl_wxAcceleratorEntry(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxAcceleratorEntry(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxAcceleratorEntry_Delete(
+value camlidl_wxc_wxAcceleratorEntry_Delete(
 	value _v__obj)
 {
   wxAcceleratorEntry _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxAcceleratorEntry(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxAcceleratorEntry(_v__obj, &_obj, _ctx);
   wxAcceleratorEntry_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxAcceleratorEntry_GetCommand(
+value camlidl_wxc_wxAcceleratorEntry_GetCommand(
 	value _v__obj)
 {
   wxAcceleratorEntry _obj; /*in*/
@@ -72,14 +72,14 @@ value camlidl_wxc_idl_wxAcceleratorEntry_GetCommand(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxAcceleratorEntry(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxAcceleratorEntry(_v__obj, &_obj, _ctx);
   _res = wxAcceleratorEntry_GetCommand(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxAcceleratorEntry_GetFlags(
+value camlidl_wxc_wxAcceleratorEntry_GetFlags(
 	value _v__obj)
 {
   wxAcceleratorEntry _obj; /*in*/
@@ -88,14 +88,14 @@ value camlidl_wxc_idl_wxAcceleratorEntry_GetFlags(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxAcceleratorEntry(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxAcceleratorEntry(_v__obj, &_obj, _ctx);
   _res = wxAcceleratorEntry_GetFlags(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxAcceleratorEntry_GetKeyCode(
+value camlidl_wxc_wxAcceleratorEntry_GetKeyCode(
 	value _v__obj)
 {
   wxAcceleratorEntry _obj; /*in*/
@@ -104,14 +104,14 @@ value camlidl_wxc_idl_wxAcceleratorEntry_GetKeyCode(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxAcceleratorEntry(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxAcceleratorEntry(_v__obj, &_obj, _ctx);
   _res = wxAcceleratorEntry_GetKeyCode(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxAcceleratorEntry_Set(
+value camlidl_wxc_wxAcceleratorEntry_Set(
 	value _v__obj,
 	value _v_flags,
 	value _v_keyCode,
@@ -123,7 +123,7 @@ value camlidl_wxc_idl_wxAcceleratorEntry_Set(
   int cmd; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxAcceleratorEntry(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxAcceleratorEntry(_v__obj, &_obj, _ctx);
   flags = Int_val(_v_flags);
   keyCode = Int_val(_v_keyCode);
   cmd = Int_val(_v_cmd);

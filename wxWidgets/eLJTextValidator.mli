@@ -1,108 +1,108 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : voidptr -> voidptr -> string -> int -> eLJTextValidator
-	= "camlidl_wxc_idl_ELJTextValidator_Create"
+	= "camlidl_wxc_ELJTextValidator_Create"
 
 external validate : eLJTextValidator -> wxWindow -> bool
-	= "camlidl_wxc_idl_wxValidator_Validate"
+	= "camlidl_wxc_wxValidator_Validate"
 
 external transferToWindow : eLJTextValidator -> bool
-	= "camlidl_wxc_idl_wxTextValidator_TransferToWindow"
+	= "camlidl_wxc_wxTextValidator_TransferToWindow"
 
 external transferFromWindow : eLJTextValidator -> bool
-	= "camlidl_wxc_idl_wxTextValidator_TransferFromWindow"
+	= "camlidl_wxc_wxTextValidator_TransferFromWindow"
 
 external setWindow : eLJTextValidator -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxValidator_SetWindow"
+	= "camlidl_wxc_wxValidator_SetWindow"
 
 external setStyle : eLJTextValidator -> int -> unit
-	= "camlidl_wxc_idl_wxTextValidator_SetStyle"
+	= "camlidl_wxc_wxTextValidator_SetStyle"
 
 external setPreviousHandler : eLJTextValidator -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetPreviousHandler"
+	= "camlidl_wxc_wxEvtHandler_SetPreviousHandler"
 
 external setNextHandler : eLJTextValidator -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetNextHandler"
+	= "camlidl_wxc_wxEvtHandler_SetNextHandler"
 
 external setIncludes : eLJTextValidator -> string -> int -> unit
-	= "camlidl_wxc_idl_wxTextValidator_SetIncludes"
+	= "camlidl_wxc_wxTextValidator_SetIncludes"
 
 external setExcludes : eLJTextValidator -> string -> int -> unit
-	= "camlidl_wxc_idl_wxTextValidator_SetExcludes"
+	= "camlidl_wxc_wxTextValidator_SetExcludes"
 
 external setEvtHandlerEnabled : eLJTextValidator -> bool -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetEvtHandlerEnabled"
+	= "camlidl_wxc_wxEvtHandler_SetEvtHandlerEnabled"
 
 external setClientClosure : eLJTextValidator -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetClientClosure"
+	= "camlidl_wxc_wxEvtHandler_SetClientClosure"
 
 external setBellOnError : bool -> unit
-	= "camlidl_wxc_idl_wxValidator_SetBellOnError"
+	= "camlidl_wxc_wxValidator_SetBellOnError"
 
 external safeDelete : eLJTextValidator -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external processPendingEvents : eLJTextValidator -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_ProcessPendingEvents"
+	= "camlidl_wxc_wxEvtHandler_ProcessPendingEvents"
 
 external processEvent : eLJTextValidator -> wxEvent -> bool
-	= "camlidl_wxc_idl_wxEvtHandler_ProcessEvent"
+	= "camlidl_wxc_wxEvtHandler_ProcessEvent"
 
 external onChar : eLJTextValidator -> wxEvent -> unit
-	= "camlidl_wxc_idl_wxTextValidator_OnChar"
+	= "camlidl_wxc_wxTextValidator_OnChar"
 
 external isScrolledWindow : eLJTextValidator -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : eLJTextValidator -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external getWindow : eLJTextValidator -> wxWindow
-	= "camlidl_wxc_idl_wxValidator_GetWindow"
+	= "camlidl_wxc_wxValidator_GetWindow"
 
 external getStyle : eLJTextValidator -> int
-	= "camlidl_wxc_idl_wxTextValidator_GetStyle"
+	= "camlidl_wxc_wxTextValidator_GetStyle"
 
 external getPreviousHandler : eLJTextValidator -> wxEvtHandler
-	= "camlidl_wxc_idl_wxEvtHandler_GetPreviousHandler"
+	= "camlidl_wxc_wxEvtHandler_GetPreviousHandler"
 
 external getNextHandler : eLJTextValidator -> wxEvtHandler
-	= "camlidl_wxc_idl_wxEvtHandler_GetNextHandler"
+	= "camlidl_wxc_wxEvtHandler_GetNextHandler"
 
 external getIncludes : eLJTextValidator -> int * string
-	= "camlidl_wxc_idl_wxTextValidator_GetIncludes"
+	= "camlidl_wxc_wxTextValidator_GetIncludes"
 
 external getExcludes : eLJTextValidator -> int * string
-	= "camlidl_wxc_idl_wxTextValidator_GetExcludes"
+	= "camlidl_wxc_wxTextValidator_GetExcludes"
 
 external getEvtHandlerEnabled : eLJTextValidator -> bool
-	= "camlidl_wxc_idl_wxEvtHandler_GetEvtHandlerEnabled"
+	= "camlidl_wxc_wxEvtHandler_GetEvtHandlerEnabled"
 
 external getClosure : eLJTextValidator -> int -> int -> wxClosure
-	= "camlidl_wxc_idl_wxEvtHandler_GetClosure"
+	= "camlidl_wxc_wxEvtHandler_GetClosure"
 
 external getClientClosure : eLJTextValidator -> wxClosure
-	= "camlidl_wxc_idl_wxEvtHandler_GetClientClosure"
+	= "camlidl_wxc_wxEvtHandler_GetClientClosure"
 
 external getClassInfo : eLJTextValidator -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external disconnect : eLJTextValidator -> int -> int -> int -> int -> int
-	= "camlidl_wxc_idl_wxEvtHandler_Disconnect"
+	= "camlidl_wxc_wxEvtHandler_Disconnect"
 
 external delete : eLJTextValidator -> unit
-	= "camlidl_wxc_idl_wxValidator_Delete"
+	= "camlidl_wxc_wxValidator_Delete"
 
 external connect : eLJTextValidator -> int -> int -> (wxEvent -> unit) -> unit
-	= "camlidl_wxc_idl_wxo_wxEvtHandler_Connect"
+	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external clone : eLJTextValidator -> wxValidator
-	= "camlidl_wxc_idl_wxTextValidator_Clone"
+	= "camlidl_wxc_wxTextValidator_Clone"
 
 external addPendingEvent : eLJTextValidator -> wxEvent -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_AddPendingEvent"
+	= "camlidl_wxc_wxEvtHandler_AddPendingEvent"
 
   val ptrNULL : eLJTextValidator
 

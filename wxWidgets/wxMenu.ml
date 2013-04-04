@@ -1,198 +1,198 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : wxString -> int -> wxMenu
-	= "camlidl_wxc_idl_wxMenu_Create"
+	= "camlidl_wxc_wxMenu_Create"
 
 external updateUI : wxMenu -> voidptr -> unit
-	= "camlidl_wxc_idl_wxMenu_UpdateUI"
+	= "camlidl_wxc_wxMenu_UpdateUI"
 
 external setTitle : wxMenu -> wxString -> unit
-	= "camlidl_wxc_idl_wxMenu_SetTitle"
+	= "camlidl_wxc_wxMenu_SetTitle"
 
 external setPreviousHandler : wxMenu -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetPreviousHandler"
+	= "camlidl_wxc_wxEvtHandler_SetPreviousHandler"
 
 external setParent : wxMenu -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxMenu_SetParent"
+	= "camlidl_wxc_wxMenu_SetParent"
 
 external setNextHandler : wxMenu -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetNextHandler"
+	= "camlidl_wxc_wxEvtHandler_SetNextHandler"
 
 external setLabel : wxMenu -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxMenu_SetLabel"
+	= "camlidl_wxc_wxMenu_SetLabel"
 
 external setInvokingWindow : wxMenu -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxMenu_SetInvokingWindow"
+	= "camlidl_wxc_wxMenu_SetInvokingWindow"
 
 external setHelpString : wxMenu -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxMenu_SetHelpString"
+	= "camlidl_wxc_wxMenu_SetHelpString"
 
 external setEvtHandlerEnabled : wxMenu -> bool -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetEvtHandlerEnabled"
+	= "camlidl_wxc_wxEvtHandler_SetEvtHandlerEnabled"
 
 external setEventHandler : wxMenu -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxMenu_SetEventHandler"
+	= "camlidl_wxc_wxMenu_SetEventHandler"
 
 external setClientData : wxMenu -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxMenu_SetClientData"
+	= "camlidl_wxc_wxMenu_SetClientData"
 
 external setClientClosure : wxMenu -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetClientClosure"
+	= "camlidl_wxc_wxEvtHandler_SetClientClosure"
 
 external safeDelete : wxMenu -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external removeByItem : wxMenu -> voidptr -> unit
-	= "camlidl_wxc_idl_wxMenu_RemoveByItem"
+	= "camlidl_wxc_wxMenu_RemoveByItem"
 
 external removeById : wxMenu -> int -> wxMenuItem -> unit
-	= "camlidl_wxc_idl_wxMenu_RemoveById"
+	= "camlidl_wxc_wxMenu_RemoveById"
 
 external processPendingEvents : wxMenu -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_ProcessPendingEvents"
+	= "camlidl_wxc_wxEvtHandler_ProcessPendingEvents"
 
 external processEvent : wxMenu -> wxEvent -> bool
-	= "camlidl_wxc_idl_wxEvtHandler_ProcessEvent"
+	= "camlidl_wxc_wxEvtHandler_ProcessEvent"
 
 external prependSub : wxMenu -> int -> wxString -> wxMenu -> wxString -> unit
-	= "camlidl_wxc_idl_wxMenu_PrependSub"
+	= "camlidl_wxc_wxMenu_PrependSub"
 
 external prependItem : wxMenu -> wxMenuItem -> unit
-	= "camlidl_wxc_idl_wxMenu_PrependItem"
+	= "camlidl_wxc_wxMenu_PrependItem"
 
 external prepend : wxMenu -> int -> wxString -> wxString -> bool -> unit
-	= "camlidl_wxc_idl_wxMenu_Prepend"
+	= "camlidl_wxc_wxMenu_Prepend"
 
 external isScrolledWindow : wxMenu -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxMenu -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isEnabled : wxMenu -> int -> bool
-	= "camlidl_wxc_idl_wxMenu_IsEnabled"
+	= "camlidl_wxc_wxMenu_IsEnabled"
 
 external isChecked : wxMenu -> int -> bool
-	= "camlidl_wxc_idl_wxMenu_IsChecked"
+	= "camlidl_wxc_wxMenu_IsChecked"
 
 external isAttached : wxMenu -> bool
-	= "camlidl_wxc_idl_wxMenu_IsAttached"
+	= "camlidl_wxc_wxMenu_IsAttached"
 
 external insertSub : wxMenu -> int -> int -> wxString -> wxMenu -> wxString -> unit
-	= "camlidl_wxc_idl_wxMenu_InsertSub_bytecode" "camlidl_wxc_idl_wxMenu_InsertSub"
+	= "camlidl_wxc_wxMenu_InsertSub_bytecode" "camlidl_wxc_wxMenu_InsertSub"
 
 external insertItem : wxMenu -> int -> wxMenuItem -> unit
-	= "camlidl_wxc_idl_wxMenu_InsertItem"
+	= "camlidl_wxc_wxMenu_InsertItem"
 
 external insert : wxMenu -> int -> int -> wxString -> wxString -> bool -> unit
-	= "camlidl_wxc_idl_wxMenu_Insert_bytecode" "camlidl_wxc_idl_wxMenu_Insert"
+	= "camlidl_wxc_wxMenu_Insert_bytecode" "camlidl_wxc_wxMenu_Insert"
 
 external getTitle : wxMenu -> wxString
-	= "camlidl_wxc_idl_wxMenu_GetTitle"
+	= "camlidl_wxc_wxMenu_GetTitle"
 
 external getStyle : wxMenu -> int
-	= "camlidl_wxc_idl_wxMenu_GetStyle"
+	= "camlidl_wxc_wxMenu_GetStyle"
 
 external getPreviousHandler : wxMenu -> wxEvtHandler
-	= "camlidl_wxc_idl_wxEvtHandler_GetPreviousHandler"
+	= "camlidl_wxc_wxEvtHandler_GetPreviousHandler"
 
 external getParent : wxMenu -> wxMenu
-	= "camlidl_wxc_idl_wxMenu_GetParent"
+	= "camlidl_wxc_wxMenu_GetParent"
 
 external getNextHandler : wxMenu -> wxEvtHandler
-	= "camlidl_wxc_idl_wxEvtHandler_GetNextHandler"
+	= "camlidl_wxc_wxEvtHandler_GetNextHandler"
 
 external getMenuItems : wxMenu -> wxList -> int
-	= "camlidl_wxc_idl_wxMenu_GetMenuItems"
+	= "camlidl_wxc_wxMenu_GetMenuItems"
 
 external getMenuItemCount : wxMenu -> int
-	= "camlidl_wxc_idl_wxMenu_GetMenuItemCount"
+	= "camlidl_wxc_wxMenu_GetMenuItemCount"
 
 external getMenuBar : wxMenu -> wxMenuBar
-	= "camlidl_wxc_idl_wxMenu_GetMenuBar"
+	= "camlidl_wxc_wxMenu_GetMenuBar"
 
 external getLabel : wxMenu -> int -> wxString
-	= "camlidl_wxc_idl_wxMenu_GetLabel"
+	= "camlidl_wxc_wxMenu_GetLabel"
 
 external getInvokingWindow : wxMenu -> wxWindow
-	= "camlidl_wxc_idl_wxMenu_GetInvokingWindow"
+	= "camlidl_wxc_wxMenu_GetInvokingWindow"
 
 external getHelpString : wxMenu -> int -> wxString
-	= "camlidl_wxc_idl_wxMenu_GetHelpString"
+	= "camlidl_wxc_wxMenu_GetHelpString"
 
 external getEvtHandlerEnabled : wxMenu -> bool
-	= "camlidl_wxc_idl_wxEvtHandler_GetEvtHandlerEnabled"
+	= "camlidl_wxc_wxEvtHandler_GetEvtHandlerEnabled"
 
 external getClosure : wxMenu -> int -> int -> wxClosure
-	= "camlidl_wxc_idl_wxEvtHandler_GetClosure"
+	= "camlidl_wxc_wxEvtHandler_GetClosure"
 
 external getClientData : wxMenu -> wxClientData
-	= "camlidl_wxc_idl_wxMenu_GetClientData"
+	= "camlidl_wxc_wxMenu_GetClientData"
 
 external getClientClosure : wxMenu -> wxClosure
-	= "camlidl_wxc_idl_wxEvtHandler_GetClientClosure"
+	= "camlidl_wxc_wxEvtHandler_GetClientClosure"
 
 external getClassInfo : wxMenu -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external findItemByLabel : wxMenu -> wxString -> int
-	= "camlidl_wxc_idl_wxMenu_FindItemByLabel"
+	= "camlidl_wxc_wxMenu_FindItemByLabel"
 
 external findItem : wxMenu -> int -> wxMenuItem
-	= "camlidl_wxc_idl_wxMenu_FindItem"
+	= "camlidl_wxc_wxMenu_FindItem"
 
 external enable : wxMenu -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxMenu_Enable"
+	= "camlidl_wxc_wxMenu_Enable"
 
 external disconnect : wxMenu -> int -> int -> int -> int -> int
-	= "camlidl_wxc_idl_wxEvtHandler_Disconnect"
+	= "camlidl_wxc_wxEvtHandler_Disconnect"
 
 external destroyByItem : wxMenu -> wxMenuItem -> unit
-	= "camlidl_wxc_idl_wxMenu_DestroyByItem"
+	= "camlidl_wxc_wxMenu_DestroyByItem"
 
 external destroyById : wxMenu -> int -> unit
-	= "camlidl_wxc_idl_wxMenu_DestroyById"
+	= "camlidl_wxc_wxMenu_DestroyById"
 
 external deletePointer : wxMenu -> unit
-	= "camlidl_wxc_idl_wxMenu_DeletePointer"
+	= "camlidl_wxc_wxMenu_DeletePointer"
 
 external deleteByItem : wxMenu -> wxMenuItem -> unit
-	= "camlidl_wxc_idl_wxMenu_DeleteByItem"
+	= "camlidl_wxc_wxMenu_DeleteByItem"
 
 external deleteById : wxMenu -> int -> unit
-	= "camlidl_wxc_idl_wxMenu_DeleteById"
+	= "camlidl_wxc_wxMenu_DeleteById"
 
 external delete : wxMenu -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_Delete"
+	= "camlidl_wxc_wxEvtHandler_Delete"
 
 external connect : wxMenu -> int -> int -> (wxEvent -> unit) -> unit
-	= "camlidl_wxc_idl_wxo_wxEvtHandler_Connect"
+	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external check : wxMenu -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxMenu_Check"
+	= "camlidl_wxc_wxMenu_Check"
 
 external break : wxMenu -> unit
-	= "camlidl_wxc_idl_wxMenu_Break"
+	= "camlidl_wxc_wxMenu_Break"
 
 external appendSub : wxMenu -> int -> wxString -> wxMenu -> wxString -> unit
-	= "camlidl_wxc_idl_wxMenu_AppendSub"
+	= "camlidl_wxc_wxMenu_AppendSub"
 
 external appendSeparator : wxMenu -> unit
-	= "camlidl_wxc_idl_wxMenu_AppendSeparator"
+	= "camlidl_wxc_wxMenu_AppendSeparator"
 
 external appendRadioItem : wxMenu -> int -> wxString -> wxString -> unit
-	= "camlidl_wxc_idl_wxMenu_AppendRadioItem"
+	= "camlidl_wxc_wxMenu_AppendRadioItem"
 
 external appendItem : wxMenu -> wxMenuItem -> unit
-	= "camlidl_wxc_idl_wxMenu_AppendItem"
+	= "camlidl_wxc_wxMenu_AppendItem"
 
 external append : wxMenu -> int -> wxString -> wxString -> bool -> unit
-	= "camlidl_wxc_idl_wxMenu_Append"
+	= "camlidl_wxc_wxMenu_Append"
 
 external addPendingEvent : wxMenu -> wxEvent -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_AddPendingEvent"
+	= "camlidl_wxc_wxEvtHandler_AddPendingEvent"
 
 let wxnew title style =
   let title = WxString.createUTF8 title in
@@ -293,7 +293,7 @@ let append _obj id text help isCheckable =
   wxres
 
 external null_object : unit -> wxMenu
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

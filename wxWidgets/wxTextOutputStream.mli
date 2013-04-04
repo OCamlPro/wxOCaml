@@ -1,15 +1,15 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : wxOutputStream -> int -> wxTextOutputStream
-	= "camlidl_wxc_idl_wxTextOutputStream_Create"
+	= "camlidl_wxc_wxTextOutputStream_Create"
 
 external writeString : wxTextOutputStream -> wxString -> unit
-	= "camlidl_wxc_idl_wxTextOutputStream_WriteString"
+	= "camlidl_wxc_wxTextOutputStream_WriteString"
 
 external delete : wxTextOutputStream -> unit
-	= "camlidl_wxc_idl_wxTextOutputStream_Delete"
+	= "camlidl_wxc_wxTextOutputStream_Delete"
 
 val writeString : wxTextOutputStream -> string -> unit
 

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxTreeItemId(value _v1, wxTreeItemId * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxTreeItemId(value _v1, wxTreeItemId * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxTreeItemId *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxTreeItemId(wxTreeItemId * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxTreeItemId(wxTreeItemId * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxTreeItemId) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxTreeItemId_Create(value _unit)
+value camlidl_wxc_wxTreeItemId_Create(value _unit)
 {
   wxTreeItemId _res;
   value _vres;
@@ -37,24 +37,24 @@ value camlidl_wxc_idl_wxTreeItemId_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxTreeItemId_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxTreeItemId(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxTreeItemId(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTreeItemId_Delete(
+value camlidl_wxc_wxTreeItemId_Delete(
 	value _v__obj)
 {
   wxTreeItemId _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTreeItemId(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTreeItemId(_v__obj, &_obj, _ctx);
   wxTreeItemId_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTreeItemId_IsOk(
+value camlidl_wxc_wxTreeItemId_IsOk(
 	value _v__obj)
 {
   wxTreeItemId _obj; /*in*/
@@ -63,14 +63,14 @@ value camlidl_wxc_idl_wxTreeItemId_IsOk(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTreeItemId(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTreeItemId(_v__obj, &_obj, _ctx);
   _res = wxTreeItemId_IsOk(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTreeItemId_Clone(
+value camlidl_wxc_wxTreeItemId_Clone(
 	value _v__obj)
 {
   wxTreeItemId _obj; /*in*/
@@ -79,17 +79,17 @@ value camlidl_wxc_idl_wxTreeItemId_Clone(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTreeItemId(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTreeItemId(_v__obj, &_obj, _ctx);
   _res = wxTreeItemId_Clone(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxTreeItemId(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxTreeItemId(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTreeItemId_CreateFromValue(
-	value _v_v)
+value camlidl_wxc_wxTreeItemId_CreateFromValue(
+	value _v__value)
 {
-  int *v; /*in*/
+  int *_value; /*in*/
   wxTreeItemId _res;
   value _v1;
   int _c2;
@@ -97,20 +97,20 @@ value camlidl_wxc_idl_wxTreeItemId_CreateFromValue(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  if (_v_v == Val_int(0)) {
-    v = NULL;
+  if (_v__value == Val_int(0)) {
+    _value = NULL;
   } else {
-    _v1 = Field(_v_v, 0);
-    v = &_c2;
+    _v1 = Field(_v__value, 0);
+    _value = &_c2;
     _c2 = Int_val(_v1);
   }
-  _res = wxTreeItemId_CreateFromValue(v);
-  _vres = camlidl_c2ml_wxc_idl_wxTreeItemId(&_res, _ctx);
+  _res = wxTreeItemId_CreateFromValue(_value);
+  _vres = camlidl_c2ml_wxc_wxTreeItemId(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTreeItemId_GetValue(
+value camlidl_wxc_wxTreeItemId_GetValue(
 	value _v__obj)
 {
   wxTreeItemId _obj; /*in*/
@@ -120,7 +120,7 @@ value camlidl_wxc_idl_wxTreeItemId_GetValue(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTreeItemId(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTreeItemId(_v__obj, &_obj, _ctx);
   _res = wxTreeItemId_GetValue(_obj);
   if (_res == NULL) {
     _vres = Val_int(0);

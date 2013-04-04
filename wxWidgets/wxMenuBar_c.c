@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxMenuBar(value _v1, wxMenuBar * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxMenuBar(value _v1, wxMenuBar * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxMenuBar *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxMenuBar(wxMenuBar * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxMenuBar(wxMenuBar * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxMenuBar) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxMenuBar_Append(
+value camlidl_wxc_wxMenuBar_Append(
 	value _v__obj,
 	value _v_menu,
 	value _v_title)
@@ -42,16 +42,16 @@ value camlidl_wxc_idl_wxMenuBar_Append(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxMenu(_v_menu, &menu, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_title, &title, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenu(_v_menu, &menu, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_title, &title, _ctx);
   _res = wxMenuBar_Append(_obj, menu, title);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_Check(
+value camlidl_wxc_wxMenuBar_Check(
 	value _v__obj,
 	value _v_id,
 	value _v_check)
@@ -61,7 +61,7 @@ value camlidl_wxc_idl_wxMenuBar_Check(
   int check; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   id = Int_val(_v_id);
   check = Int_val(_v_check);
   wxMenuBar_Check(_obj, id, check);
@@ -69,7 +69,7 @@ value camlidl_wxc_idl_wxMenuBar_Check(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxMenuBar_Create(
+value camlidl_wxc_wxMenuBar_Create(
 	value _v__style)
 {
   int _style; /*in*/
@@ -80,24 +80,24 @@ value camlidl_wxc_idl_wxMenuBar_Create(
   camlidl_ctx _ctx = &_ctxs;
   _style = Int_val(_v__style);
   _res = wxMenuBar_Create(_style);
-  _vres = camlidl_c2ml_wxc_idl_wxMenuBar(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMenuBar(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_DeletePointer(
+value camlidl_wxc_wxMenuBar_DeletePointer(
 	value _v__obj)
 {
   wxMenuBar _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   wxMenuBar_DeletePointer(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxMenuBar_Enable(
+value camlidl_wxc_wxMenuBar_Enable(
 	value _v__obj,
 	value _v_enable)
 {
@@ -108,7 +108,7 @@ value camlidl_wxc_idl_wxMenuBar_Enable(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   enable = Int_val(_v_enable);
   _res = wxMenuBar_Enable(_obj, enable);
   _vres = Val_int(_res);
@@ -116,7 +116,7 @@ value camlidl_wxc_idl_wxMenuBar_Enable(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_EnableItem(
+value camlidl_wxc_wxMenuBar_EnableItem(
 	value _v__obj,
 	value _v_id,
 	value _v_enable)
@@ -126,7 +126,7 @@ value camlidl_wxc_idl_wxMenuBar_EnableItem(
   int enable; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   id = Int_val(_v_id);
   enable = Int_val(_v_enable);
   wxMenuBar_EnableItem(_obj, id, enable);
@@ -134,7 +134,7 @@ value camlidl_wxc_idl_wxMenuBar_EnableItem(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxMenuBar_EnableTop(
+value camlidl_wxc_wxMenuBar_EnableTop(
 	value _v__obj,
 	value _v_pos,
 	value _v_enable)
@@ -144,7 +144,7 @@ value camlidl_wxc_idl_wxMenuBar_EnableTop(
   int enable; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   pos = Int_val(_v_pos);
   enable = Int_val(_v_enable);
   wxMenuBar_EnableTop(_obj, pos, enable);
@@ -152,7 +152,7 @@ value camlidl_wxc_idl_wxMenuBar_EnableTop(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxMenuBar_FindItem(
+value camlidl_wxc_wxMenuBar_FindItem(
 	value _v__obj,
 	value _v_id)
 {
@@ -163,15 +163,15 @@ value camlidl_wxc_idl_wxMenuBar_FindItem(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   id = Int_val(_v_id);
   _res = wxMenuBar_FindItem(_obj, id);
-  _vres = camlidl_c2ml_wxc_idl_wxMenuItem(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMenuItem(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_FindMenu(
+value camlidl_wxc_wxMenuBar_FindMenu(
 	value _v__obj,
 	value _v_title)
 {
@@ -182,15 +182,15 @@ value camlidl_wxc_idl_wxMenuBar_FindMenu(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_title, &title, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_title, &title, _ctx);
   _res = wxMenuBar_FindMenu(_obj, title);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_FindMenuItem(
+value camlidl_wxc_wxMenuBar_FindMenuItem(
 	value _v__obj,
 	value _v_menuString,
 	value _v_itemString)
@@ -203,16 +203,16 @@ value camlidl_wxc_idl_wxMenuBar_FindMenuItem(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_menuString, &menuString, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_itemString, &itemString, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_menuString, &menuString, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_itemString, &itemString, _ctx);
   _res = wxMenuBar_FindMenuItem(_obj, menuString, itemString);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_GetHelpString(
+value camlidl_wxc_wxMenuBar_GetHelpString(
 	value _v__obj,
 	value _v_id)
 {
@@ -223,15 +223,15 @@ value camlidl_wxc_idl_wxMenuBar_GetHelpString(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   id = Int_val(_v_id);
   _res = wxMenuBar_GetHelpString(_obj, id);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_GetLabel(
+value camlidl_wxc_wxMenuBar_GetLabel(
 	value _v__obj,
 	value _v_id)
 {
@@ -242,15 +242,15 @@ value camlidl_wxc_idl_wxMenuBar_GetLabel(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   id = Int_val(_v_id);
   _res = wxMenuBar_GetLabel(_obj, id);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_GetLabelTop(
+value camlidl_wxc_wxMenuBar_GetLabelTop(
 	value _v__obj,
 	value _v_pos)
 {
@@ -261,15 +261,15 @@ value camlidl_wxc_idl_wxMenuBar_GetLabelTop(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   pos = Int_val(_v_pos);
   _res = wxMenuBar_GetLabelTop(_obj, pos);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_GetMenu(
+value camlidl_wxc_wxMenuBar_GetMenu(
 	value _v__obj,
 	value _v_pos)
 {
@@ -280,15 +280,15 @@ value camlidl_wxc_idl_wxMenuBar_GetMenu(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   pos = Int_val(_v_pos);
   _res = wxMenuBar_GetMenu(_obj, pos);
-  _vres = camlidl_c2ml_wxc_idl_wxMenu(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMenu(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_GetMenuCount(
+value camlidl_wxc_wxMenuBar_GetMenuCount(
 	value _v__obj)
 {
   wxMenuBar _obj; /*in*/
@@ -297,14 +297,14 @@ value camlidl_wxc_idl_wxMenuBar_GetMenuCount(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   _res = wxMenuBar_GetMenuCount(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_Insert(
+value camlidl_wxc_wxMenuBar_Insert(
 	value _v__obj,
 	value _v_pos,
 	value _v_menu,
@@ -319,17 +319,17 @@ value camlidl_wxc_idl_wxMenuBar_Insert(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   pos = Int_val(_v_pos);
-  camlidl_ml2c_wxc_idl_wxMenu(_v_menu, &menu, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_title, &title, _ctx);
+  camlidl_ml2c_wxc_wxMenu(_v_menu, &menu, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_title, &title, _ctx);
   _res = wxMenuBar_Insert(_obj, pos, menu, title);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_IsChecked(
+value camlidl_wxc_wxMenuBar_IsChecked(
 	value _v__obj,
 	value _v_id)
 {
@@ -340,7 +340,7 @@ value camlidl_wxc_idl_wxMenuBar_IsChecked(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   id = Int_val(_v_id);
   _res = wxMenuBar_IsChecked(_obj, id);
   _vres = Val_int(_res);
@@ -348,7 +348,7 @@ value camlidl_wxc_idl_wxMenuBar_IsChecked(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_IsEnabled(
+value camlidl_wxc_wxMenuBar_IsEnabled(
 	value _v__obj,
 	value _v_id)
 {
@@ -359,7 +359,7 @@ value camlidl_wxc_idl_wxMenuBar_IsEnabled(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   id = Int_val(_v_id);
   _res = wxMenuBar_IsEnabled(_obj, id);
   _vres = Val_int(_res);
@@ -367,7 +367,7 @@ value camlidl_wxc_idl_wxMenuBar_IsEnabled(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_Remove(
+value camlidl_wxc_wxMenuBar_Remove(
 	value _v__obj,
 	value _v_pos)
 {
@@ -378,15 +378,15 @@ value camlidl_wxc_idl_wxMenuBar_Remove(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   pos = Int_val(_v_pos);
   _res = wxMenuBar_Remove(_obj, pos);
-  _vres = camlidl_c2ml_wxc_idl_wxMenu(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMenu(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_Replace(
+value camlidl_wxc_wxMenuBar_Replace(
 	value _v__obj,
 	value _v_pos,
 	value _v_menu,
@@ -401,17 +401,17 @@ value camlidl_wxc_idl_wxMenuBar_Replace(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   pos = Int_val(_v_pos);
-  camlidl_ml2c_wxc_idl_wxMenu(_v_menu, &menu, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_title, &title, _ctx);
+  camlidl_ml2c_wxc_wxMenu(_v_menu, &menu, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_title, &title, _ctx);
   _res = wxMenuBar_Replace(_obj, pos, menu, title);
-  _vres = camlidl_c2ml_wxc_idl_wxMenu(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMenu(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMenuBar_SetHelpString(
+value camlidl_wxc_wxMenuBar_SetHelpString(
 	value _v__obj,
 	value _v_id,
 	value _v_helpString)
@@ -421,15 +421,15 @@ value camlidl_wxc_idl_wxMenuBar_SetHelpString(
   wxString helpString; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   id = Int_val(_v_id);
-  camlidl_ml2c_wxc_idl_wxString(_v_helpString, &helpString, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_helpString, &helpString, _ctx);
   wxMenuBar_SetHelpString(_obj, id, helpString);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxMenuBar_SetItemLabel(
+value camlidl_wxc_wxMenuBar_SetItemLabel(
 	value _v__obj,
 	value _v_id,
 	value _v_label)
@@ -439,15 +439,15 @@ value camlidl_wxc_idl_wxMenuBar_SetItemLabel(
   wxString label; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   id = Int_val(_v_id);
-  camlidl_ml2c_wxc_idl_wxString(_v_label, &label, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_label, &label, _ctx);
   wxMenuBar_SetItemLabel(_obj, id, label);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxMenuBar_SetLabel(
+value camlidl_wxc_wxMenuBar_SetLabel(
 	value _v__obj,
 	value _v_s)
 {
@@ -455,14 +455,14 @@ value camlidl_wxc_idl_wxMenuBar_SetLabel(
   wxString s; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_s, &s, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_s, &s, _ctx);
   wxMenuBar_SetLabel(_obj, s);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxMenuBar_SetLabelTop(
+value camlidl_wxc_wxMenuBar_SetLabelTop(
 	value _v__obj,
 	value _v_pos,
 	value _v_label)
@@ -472,15 +472,15 @@ value camlidl_wxc_idl_wxMenuBar_SetLabelTop(
   wxString label; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   pos = Int_val(_v_pos);
-  camlidl_ml2c_wxc_idl_wxString(_v_label, &label, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_label, &label, _ctx);
   wxMenuBar_SetLabelTop(_obj, pos, label);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxMenuBar_GetFrame(
+value camlidl_wxc_wxMenuBar_GetFrame(
 	value _v__obj)
 {
   wxMenuBar _obj; /*in*/
@@ -489,9 +489,9 @@ value camlidl_wxc_idl_wxMenuBar_GetFrame(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMenuBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenuBar(_v__obj, &_obj, _ctx);
   _res = wxMenuBar_GetFrame(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxFrame(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxFrame(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

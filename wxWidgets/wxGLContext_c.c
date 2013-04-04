@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGLContext(value _v1, wxGLContext * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGLContext(value _v1, wxGLContext * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGLContext *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGLContext(wxGLContext * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGLContext(wxGLContext * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGLContext) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGLContext_Create(
+value camlidl_wxc_wxGLContext_Create(
 	value _v_win,
 	value _v_other)
 {
@@ -40,15 +40,15 @@ value camlidl_wxc_idl_wxGLContext_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGLCanvas(_v_win, &win, _ctx);
-  camlidl_ml2c_wxc_idl_wxGLContext(_v_other, &other, _ctx);
+  camlidl_ml2c_wxc_wxGLCanvas(_v_win, &win, _ctx);
+  camlidl_ml2c_wxc_wxGLContext(_v_other, &other, _ctx);
   _res = wxGLContext_Create(win, other);
-  _vres = camlidl_c2ml_wxc_idl_wxGLContext(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGLContext(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGLContext_CreateFromNull(
+value camlidl_wxc_wxGLContext_CreateFromNull(
 	value _v_win)
 {
   wxGLCanvas win; /*in*/
@@ -57,14 +57,14 @@ value camlidl_wxc_idl_wxGLContext_CreateFromNull(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGLCanvas(_v_win, &win, _ctx);
+  camlidl_ml2c_wxc_wxGLCanvas(_v_win, &win, _ctx);
   _res = wxGLContext_CreateFromNull(win);
-  _vres = camlidl_c2ml_wxc_idl_wxGLContext(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGLContext(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGLContext_SetCurrent(
+value camlidl_wxc_wxGLContext_SetCurrent(
 	value _v_self,
 	value _v_win)
 {
@@ -75,8 +75,8 @@ value camlidl_wxc_idl_wxGLContext_SetCurrent(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGLContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxGLCanvas(_v_win, &win, _ctx);
+  camlidl_ml2c_wxc_wxGLContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGLCanvas(_v_win, &win, _ctx);
   _res = wxGLContext_SetCurrent(self, win);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

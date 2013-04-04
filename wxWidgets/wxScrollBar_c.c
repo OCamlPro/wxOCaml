@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxScrollBar(value _v1, wxScrollBar * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxScrollBar(value _v1, wxScrollBar * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxScrollBar *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxScrollBar(wxScrollBar * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxScrollBar(wxScrollBar * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxScrollBar) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxScrollBar_Create(
+value camlidl_wxc_wxScrollBar_Create(
 	value _v__prt,
 	value _v__id,
 	value _v__lft,
@@ -50,7 +50,7 @@ value camlidl_wxc_idl_wxScrollBar_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
   _id = Int_val(_v__id);
   _lft = Int_val(_v__lft);
   _top = Int_val(_v__top);
@@ -58,17 +58,17 @@ value camlidl_wxc_idl_wxScrollBar_Create(
   _hgt = Int_val(_v__hgt);
   _stl = Int_val(_v__stl);
   _res = wxScrollBar_Create(_prt, _id, _lft, _top, _wdt, _hgt, _stl);
-  _vres = camlidl_c2ml_wxc_idl_wxScrollBar(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxScrollBar(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScrollBar_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxScrollBar_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxScrollBar_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxScrollBar_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
-value camlidl_wxc_idl_wxScrollBar_GetPageSize(
+value camlidl_wxc_wxScrollBar_GetPageSize(
 	value _v__obj)
 {
   wxScrollBar _obj; /*in*/
@@ -77,14 +77,14 @@ value camlidl_wxc_idl_wxScrollBar_GetPageSize(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrollBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrollBar(_v__obj, &_obj, _ctx);
   _res = wxScrollBar_GetPageSize(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScrollBar_GetRange(
+value camlidl_wxc_wxScrollBar_GetRange(
 	value _v__obj)
 {
   wxScrollBar _obj; /*in*/
@@ -93,14 +93,14 @@ value camlidl_wxc_idl_wxScrollBar_GetRange(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrollBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrollBar(_v__obj, &_obj, _ctx);
   _res = wxScrollBar_GetRange(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScrollBar_GetThumbPosition(
+value camlidl_wxc_wxScrollBar_GetThumbPosition(
 	value _v__obj)
 {
   wxScrollBar _obj; /*in*/
@@ -109,14 +109,14 @@ value camlidl_wxc_idl_wxScrollBar_GetThumbPosition(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrollBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrollBar(_v__obj, &_obj, _ctx);
   _res = wxScrollBar_GetThumbPosition(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScrollBar_GetThumbSize(
+value camlidl_wxc_wxScrollBar_GetThumbSize(
 	value _v__obj)
 {
   wxScrollBar _obj; /*in*/
@@ -125,14 +125,14 @@ value camlidl_wxc_idl_wxScrollBar_GetThumbSize(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrollBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrollBar(_v__obj, &_obj, _ctx);
   _res = wxScrollBar_GetThumbSize(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScrollBar_SetScrollbar(
+value camlidl_wxc_wxScrollBar_SetScrollbar(
 	value _v__obj,
 	value _v_position,
 	value _v_thumbSize,
@@ -148,7 +148,7 @@ value camlidl_wxc_idl_wxScrollBar_SetScrollbar(
   int refresh; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrollBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrollBar(_v__obj, &_obj, _ctx);
   position = Int_val(_v_position);
   thumbSize = Int_val(_v_thumbSize);
   range = Int_val(_v_range);
@@ -159,12 +159,12 @@ value camlidl_wxc_idl_wxScrollBar_SetScrollbar(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxScrollBar_SetScrollbar_bytecode(value * argv, int argn)
+value camlidl_wxc_wxScrollBar_SetScrollbar_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxScrollBar_SetScrollbar(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
+  return camlidl_wxc_wxScrollBar_SetScrollbar(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
-value camlidl_wxc_idl_wxScrollBar_SetThumbPosition(
+value camlidl_wxc_wxScrollBar_SetThumbPosition(
 	value _v__obj,
 	value _v_viewStart)
 {
@@ -172,7 +172,7 @@ value camlidl_wxc_idl_wxScrollBar_SetThumbPosition(
   int viewStart; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrollBar(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrollBar(_v__obj, &_obj, _ctx);
   viewStart = Int_val(_v_viewStart);
   wxScrollBar_SetThumbPosition(_obj, viewStart);
   camlidl_free(_ctx);

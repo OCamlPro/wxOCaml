@@ -1,297 +1,297 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : wxPrintData -> wxPrinterDC
-	= "camlidl_wxc_idl_wxPrinterDC_Create"
+	= "camlidl_wxc_wxPrinterDC_Create"
 
 external startPage : wxPrinterDC -> unit
-	= "camlidl_wxc_idl_wxDC_StartPage"
+	= "camlidl_wxc_wxDC_StartPage"
 
 external startDoc : wxPrinterDC -> wxString -> bool
-	= "camlidl_wxc_idl_wxDC_StartDoc"
+	= "camlidl_wxc_wxDC_StartDoc"
 
 external setUserScale : wxPrinterDC -> float -> float -> unit
-	= "camlidl_wxc_idl_wxDC_SetUserScale"
+	= "camlidl_wxc_wxDC_SetUserScale"
 
 external setTextForeground : wxPrinterDC -> wxColour -> unit
-	= "camlidl_wxc_idl_wxDC_SetTextForeground"
+	= "camlidl_wxc_wxDC_SetTextForeground"
 
 external setTextBackground : wxPrinterDC -> wxColour -> unit
-	= "camlidl_wxc_idl_wxDC_SetTextBackground"
+	= "camlidl_wxc_wxDC_SetTextBackground"
 
 external setPen : wxPrinterDC -> wxPen -> unit
-	= "camlidl_wxc_idl_wxDC_SetPen"
+	= "camlidl_wxc_wxDC_SetPen"
 
 external setPalette : wxPrinterDC -> wxPalette -> unit
-	= "camlidl_wxc_idl_wxDC_SetPalette"
+	= "camlidl_wxc_wxDC_SetPalette"
 
 external setMapMode : wxPrinterDC -> int -> unit
-	= "camlidl_wxc_idl_wxDC_SetMapMode"
+	= "camlidl_wxc_wxDC_SetMapMode"
 
 external setLogicalScale : wxPrinterDC -> float -> float -> unit
-	= "camlidl_wxc_idl_wxDC_SetLogicalScale"
+	= "camlidl_wxc_wxDC_SetLogicalScale"
 
 external setLogicalOrigin : wxPrinterDC -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_SetLogicalOrigin"
+	= "camlidl_wxc_wxDC_SetLogicalOrigin"
 
 external setLogicalFunction : wxPrinterDC -> int -> unit
-	= "camlidl_wxc_idl_wxDC_SetLogicalFunction"
+	= "camlidl_wxc_wxDC_SetLogicalFunction"
 
 external setFont : wxPrinterDC -> wxFont -> unit
-	= "camlidl_wxc_idl_wxDC_SetFont"
+	= "camlidl_wxc_wxDC_SetFont"
 
 external setDeviceOrigin : wxPrinterDC -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_SetDeviceOrigin"
+	= "camlidl_wxc_wxDC_SetDeviceOrigin"
 
 external setClippingRegionFromRegion : wxPrinterDC -> wxRegion -> unit
-	= "camlidl_wxc_idl_wxDC_SetClippingRegionFromRegion"
+	= "camlidl_wxc_wxDC_SetClippingRegionFromRegion"
 
 external setClippingRegion : wxPrinterDC -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_SetClippingRegion"
+	= "camlidl_wxc_wxDC_SetClippingRegion"
 
 external setClientClosure : wxPrinterDC -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external setBrush : wxPrinterDC -> wxBrush -> unit
-	= "camlidl_wxc_idl_wxDC_SetBrush"
+	= "camlidl_wxc_wxDC_SetBrush"
 
 external setBackgroundMode : wxPrinterDC -> int -> unit
-	= "camlidl_wxc_idl_wxDC_SetBackgroundMode"
+	= "camlidl_wxc_wxDC_SetBackgroundMode"
 
 external setBackground : wxPrinterDC -> wxBrush -> unit
-	= "camlidl_wxc_idl_wxDC_SetBackground"
+	= "camlidl_wxc_wxDC_SetBackground"
 
 external setAxisOrientation : wxPrinterDC -> bool -> bool -> unit
-	= "camlidl_wxc_idl_wxDC_SetAxisOrientation"
+	= "camlidl_wxc_wxDC_SetAxisOrientation"
 
 external safeDelete : wxPrinterDC -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external resetBoundingBox : wxPrinterDC -> unit
-	= "camlidl_wxc_idl_wxDC_ResetBoundingBox"
+	= "camlidl_wxc_wxDC_ResetBoundingBox"
 
 external minY : wxPrinterDC -> int
-	= "camlidl_wxc_idl_wxDC_MinY"
+	= "camlidl_wxc_wxDC_MinY"
 
 external minX : wxPrinterDC -> int
-	= "camlidl_wxc_idl_wxDC_MinX"
+	= "camlidl_wxc_wxDC_MinX"
 
 external maxY : wxPrinterDC -> int
-	= "camlidl_wxc_idl_wxDC_MaxY"
+	= "camlidl_wxc_wxDC_MaxY"
 
 external maxX : wxPrinterDC -> int
-	= "camlidl_wxc_idl_wxDC_MaxX"
+	= "camlidl_wxc_wxDC_MaxX"
 
 external logicalToDeviceYRel : wxPrinterDC -> int -> int
-	= "camlidl_wxc_idl_wxDC_LogicalToDeviceYRel"
+	= "camlidl_wxc_wxDC_LogicalToDeviceYRel"
 
 external logicalToDeviceY : wxPrinterDC -> int -> int
-	= "camlidl_wxc_idl_wxDC_LogicalToDeviceY"
+	= "camlidl_wxc_wxDC_LogicalToDeviceY"
 
 external logicalToDeviceXRel : wxPrinterDC -> int -> int
-	= "camlidl_wxc_idl_wxDC_LogicalToDeviceXRel"
+	= "camlidl_wxc_wxDC_LogicalToDeviceXRel"
 
 external logicalToDeviceX : wxPrinterDC -> int -> int
-	= "camlidl_wxc_idl_wxDC_LogicalToDeviceX"
+	= "camlidl_wxc_wxDC_LogicalToDeviceX"
 
 external isScrolledWindow : wxPrinterDC -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isOk : wxPrinterDC -> bool
-	= "camlidl_wxc_idl_wxDC_IsOk"
+	= "camlidl_wxc_wxDC_IsOk"
 
 external isKindOf : wxPrinterDC -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external getUserScaleY : wxPrinterDC -> float
-	= "camlidl_wxc_idl_wxDC_GetUserScaleY"
+	= "camlidl_wxc_wxDC_GetUserScaleY"
 
 external getUserScaleX : wxPrinterDC -> float
-	= "camlidl_wxc_idl_wxDC_GetUserScaleX"
+	= "camlidl_wxc_wxDC_GetUserScaleX"
 
 external getUserScale : wxPrinterDC -> float option -> float option -> unit
-	= "camlidl_wxc_idl_wxDC_GetUserScale"
+	= "camlidl_wxc_wxDC_GetUserScale"
 
 external getTextForeground : wxPrinterDC -> wxColour -> unit
-	= "camlidl_wxc_idl_wxDC_GetTextForeground"
+	= "camlidl_wxc_wxDC_GetTextForeground"
 
 external getTextExtent : wxPrinterDC -> wxString -> voidptr -> voidptr -> voidptr -> voidptr -> wxFont -> unit
-	= "camlidl_wxc_idl_wxDC_GetTextExtent_bytecode" "camlidl_wxc_idl_wxDC_GetTextExtent"
+	= "camlidl_wxc_wxDC_GetTextExtent_bytecode" "camlidl_wxc_wxDC_GetTextExtent"
 
 external getTextBackground : wxPrinterDC -> wxColour -> unit
-	= "camlidl_wxc_idl_wxDC_GetTextBackground"
+	= "camlidl_wxc_wxDC_GetTextBackground"
 
 external getSizeMM : wxPrinterDC -> wxSize
-	= "camlidl_wxc_idl_wxDC_GetSizeMM"
+	= "camlidl_wxc_wxDC_GetSizeMM"
 
 external getSize : wxPrinterDC -> wxSize
-	= "camlidl_wxc_idl_wxDC_GetSize"
+	= "camlidl_wxc_wxDC_GetSize"
 
 external getPixel2 : wxPrinterDC -> int -> int -> wxColour -> unit
-	= "camlidl_wxc_idl_wxDC_GetPixel2"
+	= "camlidl_wxc_wxDC_GetPixel2"
 
 external getPixel : wxPrinterDC -> int -> int -> wxColour -> bool
-	= "camlidl_wxc_idl_wxDC_GetPixel"
+	= "camlidl_wxc_wxDC_GetPixel"
 
 external getPen : wxPrinterDC -> wxPen -> unit
-	= "camlidl_wxc_idl_wxDC_GetPen"
+	= "camlidl_wxc_wxDC_GetPen"
 
 external getPaperRect : wxPrinterDC -> wxRect
-	= "camlidl_wxc_idl_wxPrinterDC_GetPaperRect"
+	= "camlidl_wxc_wxPrinterDC_GetPaperRect"
 
 external getPPI : wxPrinterDC -> wxSize
-	= "camlidl_wxc_idl_wxDC_GetPPI"
+	= "camlidl_wxc_wxDC_GetPPI"
 
 external getMultiLineTextExtent : wxPrinterDC -> wxString -> voidptr -> voidptr -> voidptr -> wxFont -> unit
-	= "camlidl_wxc_idl_wxDC_GetMultiLineTextExtent_bytecode" "camlidl_wxc_idl_wxDC_GetMultiLineTextExtent"
+	= "camlidl_wxc_wxDC_GetMultiLineTextExtent_bytecode" "camlidl_wxc_wxDC_GetMultiLineTextExtent"
 
 external getMapMode : wxPrinterDC -> int
-	= "camlidl_wxc_idl_wxDC_GetMapMode"
+	= "camlidl_wxc_wxDC_GetMapMode"
 
 external getLogicalScale : wxPrinterDC -> float option -> float option -> unit
-	= "camlidl_wxc_idl_wxDC_GetLogicalScale"
+	= "camlidl_wxc_wxDC_GetLogicalScale"
 
 external getLogicalOrigin : wxPrinterDC -> int * int
-	= "camlidl_wxc_idl_wxDC_GetLogicalOrigin"
+	= "camlidl_wxc_wxDC_GetLogicalOrigin"
 
 external getLogicalFunction : wxPrinterDC -> int
-	= "camlidl_wxc_idl_wxDC_GetLogicalFunction"
+	= "camlidl_wxc_wxDC_GetLogicalFunction"
 
 external getFont : wxPrinterDC -> wxFont -> unit
-	= "camlidl_wxc_idl_wxDC_GetFont"
+	= "camlidl_wxc_wxDC_GetFont"
 
 external getDeviceOrigin : wxPrinterDC -> int * int
-	= "camlidl_wxc_idl_wxDC_GetDeviceOrigin"
+	= "camlidl_wxc_wxDC_GetDeviceOrigin"
 
 external getDepth : wxPrinterDC -> int
-	= "camlidl_wxc_idl_wxDC_GetDepth"
+	= "camlidl_wxc_wxDC_GetDepth"
 
 external getClippingBox : wxPrinterDC -> int * int * int * int
-	= "camlidl_wxc_idl_wxDC_GetClippingBox"
+	= "camlidl_wxc_wxDC_GetClippingBox"
 
 external getClientClosure : wxPrinterDC -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxPrinterDC -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external getCharWidth : wxPrinterDC -> int
-	= "camlidl_wxc_idl_wxDC_GetCharWidth"
+	= "camlidl_wxc_wxDC_GetCharWidth"
 
 external getCharHeight : wxPrinterDC -> int
-	= "camlidl_wxc_idl_wxDC_GetCharHeight"
+	= "camlidl_wxc_wxDC_GetCharHeight"
 
 external getBrush : wxPrinterDC -> wxBrush -> unit
-	= "camlidl_wxc_idl_wxDC_GetBrush"
+	= "camlidl_wxc_wxDC_GetBrush"
 
 external getBackgroundMode : wxPrinterDC -> int
-	= "camlidl_wxc_idl_wxDC_GetBackgroundMode"
+	= "camlidl_wxc_wxDC_GetBackgroundMode"
 
 external getBackground : wxPrinterDC -> wxBrush -> unit
-	= "camlidl_wxc_idl_wxDC_GetBackground"
+	= "camlidl_wxc_wxDC_GetBackground"
 
 external floodFill : wxPrinterDC -> int -> int -> wxColour -> int -> unit
-	= "camlidl_wxc_idl_wxDC_FloodFill"
+	= "camlidl_wxc_wxDC_FloodFill"
 
 external endPage : wxPrinterDC -> unit
-	= "camlidl_wxc_idl_wxDC_EndPage"
+	= "camlidl_wxc_wxDC_EndPage"
 
 external endDoc : wxPrinterDC -> unit
-	= "camlidl_wxc_idl_wxDC_EndDoc"
+	= "camlidl_wxc_wxDC_EndDoc"
 
 external drawText : wxPrinterDC -> wxString -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_DrawText"
+	= "camlidl_wxc_wxDC_DrawText"
 
 external drawRoundedRectangle : wxPrinterDC -> int -> int -> int -> int -> float -> unit
-	= "camlidl_wxc_idl_wxDC_DrawRoundedRectangle_bytecode" "camlidl_wxc_idl_wxDC_DrawRoundedRectangle"
+	= "camlidl_wxc_wxDC_DrawRoundedRectangle_bytecode" "camlidl_wxc_wxDC_DrawRoundedRectangle"
 
 external drawRotatedText : wxPrinterDC -> wxString -> int -> int -> float -> unit
-	= "camlidl_wxc_idl_wxDC_DrawRotatedText"
+	= "camlidl_wxc_wxDC_DrawRotatedText"
 
 external drawRectangle : wxPrinterDC -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_DrawRectangle"
+	= "camlidl_wxc_wxDC_DrawRectangle"
 
 external drawPolygon : wxPrinterDC -> int -> voidptr -> voidptr -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_DrawPolygon_bytecode" "camlidl_wxc_idl_wxDC_DrawPolygon"
+	= "camlidl_wxc_wxDC_DrawPolygon_bytecode" "camlidl_wxc_wxDC_DrawPolygon"
 
 external drawPolyPolygon : wxPrinterDC -> int -> voidptr -> voidptr -> voidptr -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_DrawPolyPolygon_bytecode" "camlidl_wxc_idl_wxDC_DrawPolyPolygon"
+	= "camlidl_wxc_wxDC_DrawPolyPolygon_bytecode" "camlidl_wxc_wxDC_DrawPolyPolygon"
 
 external drawPoint : wxPrinterDC -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_DrawPoint"
+	= "camlidl_wxc_wxDC_DrawPoint"
 
 external drawLines : wxPrinterDC -> int -> voidptr -> voidptr -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_DrawLines_bytecode" "camlidl_wxc_idl_wxDC_DrawLines"
+	= "camlidl_wxc_wxDC_DrawLines_bytecode" "camlidl_wxc_wxDC_DrawLines"
 
 external drawLine : wxPrinterDC -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_DrawLine"
+	= "camlidl_wxc_wxDC_DrawLine"
 
 external drawLabelBitmap : wxPrinterDC -> wxString -> wxBitmap -> int -> int -> int -> int -> int -> int -> wxRect
-	= "camlidl_wxc_idl_wxDC_DrawLabelBitmap_bytecode" "camlidl_wxc_idl_wxDC_DrawLabelBitmap"
+	= "camlidl_wxc_wxDC_DrawLabelBitmap_bytecode" "camlidl_wxc_wxDC_DrawLabelBitmap"
 
 external drawLabel : wxPrinterDC -> wxString -> int -> int -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_DrawLabel_bytecode" "camlidl_wxc_idl_wxDC_DrawLabel"
+	= "camlidl_wxc_wxDC_DrawLabel_bytecode" "camlidl_wxc_wxDC_DrawLabel"
 
 external drawIcon : wxPrinterDC -> wxIcon -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_DrawIcon"
+	= "camlidl_wxc_wxDC_DrawIcon"
 
 external drawEllipticArc : wxPrinterDC -> int -> int -> int -> int -> float -> float -> unit
-	= "camlidl_wxc_idl_wxDC_DrawEllipticArc_bytecode" "camlidl_wxc_idl_wxDC_DrawEllipticArc"
+	= "camlidl_wxc_wxDC_DrawEllipticArc_bytecode" "camlidl_wxc_wxDC_DrawEllipticArc"
 
 external drawEllipse : wxPrinterDC -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_DrawEllipse"
+	= "camlidl_wxc_wxDC_DrawEllipse"
 
 external drawCircle : wxPrinterDC -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_DrawCircle"
+	= "camlidl_wxc_wxDC_DrawCircle"
 
 external drawCheckMark : wxPrinterDC -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_DrawCheckMark"
+	= "camlidl_wxc_wxDC_DrawCheckMark"
 
 external drawBitmap : wxPrinterDC -> wxBitmap -> int -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxDC_DrawBitmap"
+	= "camlidl_wxc_wxDC_DrawBitmap"
 
 external drawArc : wxPrinterDC -> int -> int -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_DrawArc_bytecode" "camlidl_wxc_idl_wxDC_DrawArc"
+	= "camlidl_wxc_wxDC_DrawArc_bytecode" "camlidl_wxc_wxDC_DrawArc"
 
 external deviceToLogicalYRel : wxPrinterDC -> int -> int
-	= "camlidl_wxc_idl_wxDC_DeviceToLogicalYRel"
+	= "camlidl_wxc_wxDC_DeviceToLogicalYRel"
 
 external deviceToLogicalY : wxPrinterDC -> int -> int
-	= "camlidl_wxc_idl_wxDC_DeviceToLogicalY"
+	= "camlidl_wxc_wxDC_DeviceToLogicalY"
 
 external deviceToLogicalXRel : wxPrinterDC -> int -> int
-	= "camlidl_wxc_idl_wxDC_DeviceToLogicalXRel"
+	= "camlidl_wxc_wxDC_DeviceToLogicalXRel"
 
 external deviceToLogicalX : wxPrinterDC -> int -> int
-	= "camlidl_wxc_idl_wxDC_DeviceToLogicalX"
+	= "camlidl_wxc_wxDC_DeviceToLogicalX"
 
 external destroyClippingRegion : wxPrinterDC -> unit
-	= "camlidl_wxc_idl_wxDC_DestroyClippingRegion"
+	= "camlidl_wxc_wxDC_DestroyClippingRegion"
 
 external delete : wxPrinterDC -> unit
-	= "camlidl_wxc_idl_wxPrinterDC_Delete"
+	= "camlidl_wxc_wxPrinterDC_Delete"
 
 external crossHair : wxPrinterDC -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_CrossHair"
+	= "camlidl_wxc_wxDC_CrossHair"
 
 external computeScaleAndOrigin : wxPrinterDC -> unit
-	= "camlidl_wxc_idl_wxDC_ComputeScaleAndOrigin"
+	= "camlidl_wxc_wxDC_ComputeScaleAndOrigin"
 
 external clear : wxPrinterDC -> unit
-	= "camlidl_wxc_idl_wxDC_Clear"
+	= "camlidl_wxc_wxDC_Clear"
 
 external canGetTextExtent : wxPrinterDC -> bool
-	= "camlidl_wxc_idl_wxDC_CanGetTextExtent"
+	= "camlidl_wxc_wxDC_CanGetTextExtent"
 
 external canDrawBitmap : wxPrinterDC -> bool
-	= "camlidl_wxc_idl_wxDC_CanDrawBitmap"
+	= "camlidl_wxc_wxDC_CanDrawBitmap"
 
 external calcBoundingBox : wxPrinterDC -> int -> int -> unit
-	= "camlidl_wxc_idl_wxDC_CalcBoundingBox"
+	= "camlidl_wxc_wxDC_CalcBoundingBox"
 
 external blit : wxPrinterDC -> int -> int -> int -> int -> wxDC -> int -> int -> int -> bool -> bool
-	= "camlidl_wxc_idl_wxDC_Blit_bytecode" "camlidl_wxc_idl_wxDC_Blit"
+	= "camlidl_wxc_wxDC_Blit_bytecode" "camlidl_wxc_wxDC_Blit"
 
 val startDoc : wxPrinterDC -> string -> bool
 val getTextExtent : wxPrinterDC -> string -> voidptr -> voidptr -> voidptr -> voidptr -> wxFont -> unit

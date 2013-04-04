@@ -1,123 +1,123 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external skip : wxHelpEvent -> unit
-	= "camlidl_wxc_idl_wxEvent_Skip"
+	= "camlidl_wxc_wxEvent_Skip"
 
 external setTimestamp : wxHelpEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetTimestamp"
+	= "camlidl_wxc_wxEvent_SetTimestamp"
 
 external setTarget : wxHelpEvent -> wxString -> unit
-	= "camlidl_wxc_idl_wxHelpEvent_SetTarget"
+	= "camlidl_wxc_wxHelpEvent_SetTarget"
 
 external setString : wxHelpEvent -> wxString -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetString"
+	= "camlidl_wxc_wxCommandEvent_SetString"
 
 external setPosition : wxHelpEvent -> int -> int -> unit
-	= "camlidl_wxc_idl_wxHelpEvent_SetPosition"
+	= "camlidl_wxc_wxHelpEvent_SetPosition"
 
 external setLink : wxHelpEvent -> wxString -> unit
-	= "camlidl_wxc_idl_wxHelpEvent_SetLink"
+	= "camlidl_wxc_wxHelpEvent_SetLink"
 
 external setInt : wxHelpEvent -> int -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetInt"
+	= "camlidl_wxc_wxCommandEvent_SetInt"
 
 external setId : wxHelpEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetId"
+	= "camlidl_wxc_wxEvent_SetId"
 
 external setExtraLong : wxHelpEvent -> int -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetExtraLong"
+	= "camlidl_wxc_wxCommandEvent_SetExtraLong"
 
 external setEventType : wxHelpEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventType"
+	= "camlidl_wxc_wxEvent_SetEventType"
 
 external setEventObject : wxHelpEvent -> wxObject -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventObject"
+	= "camlidl_wxc_wxEvent_SetEventObject"
 
 external setClientObject : wxHelpEvent -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetClientObject"
+	= "camlidl_wxc_wxCommandEvent_SetClientObject"
 
 external setClientData : wxHelpEvent -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetClientData"
+	= "camlidl_wxc_wxCommandEvent_SetClientData"
 
 external setClientClosure : wxHelpEvent -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxHelpEvent -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external newEventType : unit -> int
-	= "camlidl_wxc_idl_wxEvent_NewEventType"
+	= "camlidl_wxc_wxEvent_NewEventType"
 
 external isSelection : wxHelpEvent -> bool
-	= "camlidl_wxc_idl_wxCommandEvent_IsSelection"
+	= "camlidl_wxc_wxCommandEvent_IsSelection"
 
 external isScrolledWindow : wxHelpEvent -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxHelpEvent -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isCommandEvent : wxHelpEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_IsCommandEvent"
+	= "camlidl_wxc_wxEvent_IsCommandEvent"
 
 external isChecked : wxHelpEvent -> bool
-	= "camlidl_wxc_idl_wxCommandEvent_IsChecked"
+	= "camlidl_wxc_wxCommandEvent_IsChecked"
 
 external getTimestamp : wxHelpEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetTimestamp"
+	= "camlidl_wxc_wxEvent_GetTimestamp"
 
 external getTarget : wxHelpEvent -> wxString
-	= "camlidl_wxc_idl_wxHelpEvent_GetTarget"
+	= "camlidl_wxc_wxHelpEvent_GetTarget"
 
 external getString : wxHelpEvent -> wxString
-	= "camlidl_wxc_idl_wxCommandEvent_GetString"
+	= "camlidl_wxc_wxCommandEvent_GetString"
 
 external getSkipped : wxHelpEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_GetSkipped"
+	= "camlidl_wxc_wxEvent_GetSkipped"
 
 external getSelection : wxHelpEvent -> int
-	= "camlidl_wxc_idl_wxCommandEvent_GetSelection"
+	= "camlidl_wxc_wxCommandEvent_GetSelection"
 
 external getPosition : wxHelpEvent -> wxPoint
-	= "camlidl_wxc_idl_wxHelpEvent_GetPosition"
+	= "camlidl_wxc_wxHelpEvent_GetPosition"
 
 external getLink : wxHelpEvent -> wxString
-	= "camlidl_wxc_idl_wxHelpEvent_GetLink"
+	= "camlidl_wxc_wxHelpEvent_GetLink"
 
 external getInt : wxHelpEvent -> int
-	= "camlidl_wxc_idl_wxCommandEvent_GetInt"
+	= "camlidl_wxc_wxCommandEvent_GetInt"
 
 external getId : wxHelpEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetId"
+	= "camlidl_wxc_wxEvent_GetId"
 
 external getExtraLong : wxHelpEvent -> int
-	= "camlidl_wxc_idl_wxCommandEvent_GetExtraLong"
+	= "camlidl_wxc_wxCommandEvent_GetExtraLong"
 
 external getEventType : wxHelpEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetEventType"
+	= "camlidl_wxc_wxEvent_GetEventType"
 
 external getEventObject : wxHelpEvent -> wxObject
-	= "camlidl_wxc_idl_wxEvent_GetEventObject"
+	= "camlidl_wxc_wxEvent_GetEventObject"
 
 external getClientObject : wxHelpEvent -> wxClientData
-	= "camlidl_wxc_idl_wxCommandEvent_GetClientObject"
+	= "camlidl_wxc_wxCommandEvent_GetClientObject"
 
 external getClientData : wxHelpEvent -> wxClientData
-	= "camlidl_wxc_idl_wxCommandEvent_GetClientData"
+	= "camlidl_wxc_wxCommandEvent_GetClientData"
 
 external getClientClosure : wxHelpEvent -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxHelpEvent -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxHelpEvent -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_Delete"
+	= "camlidl_wxc_wxCommandEvent_Delete"
 
 external copyObject : wxHelpEvent -> voidptr -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_CopyObject"
+	= "camlidl_wxc_wxCommandEvent_CopyObject"
 
 let setTarget _obj target =
   let target = WxString.createUTF8 target in
@@ -150,7 +150,7 @@ let getLink _obj =
   WxString.getUtf8 wxres
 
 external null_object : unit -> wxHelpEvent
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxIdleEvent(value _v1, wxIdleEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxIdleEvent(value _v1, wxIdleEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxIdleEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxIdleEvent(wxIdleEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxIdleEvent(wxIdleEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxIdleEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxIdleEvent_CopyObject(
+value camlidl_wxc_wxIdleEvent_CopyObject(
 	value _v__obj,
 	value _v_object_dest)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxIdleEvent_CopyObject(
   wxObject object_dest; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIdleEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxObject(_v_object_dest, &object_dest, _ctx);
+  camlidl_ml2c_wxc_wxIdleEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxObject(_v_object_dest, &object_dest, _ctx);
   wxIdleEvent_CopyObject(_obj, object_dest);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIdleEvent_MoreRequested(
+value camlidl_wxc_wxIdleEvent_MoreRequested(
 	value _v__obj)
 {
   wxIdleEvent _obj; /*in*/
@@ -53,14 +53,14 @@ value camlidl_wxc_idl_wxIdleEvent_MoreRequested(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIdleEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIdleEvent(_v__obj, &_obj, _ctx);
   _res = wxIdleEvent_MoreRequested(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIdleEvent_RequestMore(
+value camlidl_wxc_wxIdleEvent_RequestMore(
 	value _v__obj,
 	value _v_needMore)
 {
@@ -68,7 +68,7 @@ value camlidl_wxc_idl_wxIdleEvent_RequestMore(
   int needMore; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIdleEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIdleEvent(_v__obj, &_obj, _ctx);
   needMore = Int_val(_v_needMore);
   wxIdleEvent_RequestMore(_obj, needMore);
   camlidl_free(_ctx);

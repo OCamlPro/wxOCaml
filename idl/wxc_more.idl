@@ -7,3 +7,4 @@ int wxcMessageBox(TClass(wxString) message,
 
 
 [string]char* wxString_GetUtf8(wxString s);
+TClass(wxString) wxString_CreateUTF8( TString buffer );

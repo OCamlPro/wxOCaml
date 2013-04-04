@@ -1,57 +1,57 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external startingKey : wxGridCellTextEditor -> wxEvent -> unit
-	= "camlidl_wxc_idl_wxGridCellEditor_StartingKey"
+	= "camlidl_wxc_wxGridCellEditor_StartingKey"
 
 external startingClick : wxGridCellTextEditor -> unit
-	= "camlidl_wxc_idl_wxGridCellEditor_StartingClick"
+	= "camlidl_wxc_wxGridCellEditor_StartingClick"
 
 external show : wxGridCellTextEditor -> int -> wxGridCellAttr -> unit
-	= "camlidl_wxc_idl_wxGridCellEditor_Show"
+	= "camlidl_wxc_wxGridCellEditor_Show"
 
 external setSize : wxGridCellTextEditor -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxGridCellEditor_SetSize"
+	= "camlidl_wxc_wxGridCellEditor_SetSize"
 
 external setParameters : wxGridCellTextEditor -> wxString -> unit
-	= "camlidl_wxc_idl_wxGridCellEditor_SetParameters"
+	= "camlidl_wxc_wxGridCellEditor_SetParameters"
 
 external setControl : wxGridCellTextEditor -> wxControl -> unit
-	= "camlidl_wxc_idl_wxGridCellEditor_SetControl"
+	= "camlidl_wxc_wxGridCellEditor_SetControl"
 
 external reset : wxGridCellTextEditor -> unit
-	= "camlidl_wxc_idl_wxGridCellEditor_Reset"
+	= "camlidl_wxc_wxGridCellEditor_Reset"
 
-external paintBackground : wxGridCellTextEditor -> wxDC -> int -> int -> int -> int -> wxGridCellAttr -> unit
-	= "camlidl_wxc_idl_wxGridCellEditor_PaintBackground_bytecode" "camlidl_wxc_idl_wxGridCellEditor_PaintBackground"
+external paintBackground : wxGridCellTextEditor -> int -> int -> int -> int -> wxGridCellAttr -> unit
+	= "camlidl_wxc_wxGridCellEditor_PaintBackground_bytecode" "camlidl_wxc_wxGridCellEditor_PaintBackground"
 
 external isCreated : wxGridCellTextEditor -> bool
-	= "camlidl_wxc_idl_wxGridCellEditor_IsCreated"
+	= "camlidl_wxc_wxGridCellEditor_IsCreated"
 
 external isAcceptedKey : wxGridCellTextEditor -> wxEvent -> bool
-	= "camlidl_wxc_idl_wxGridCellEditor_IsAcceptedKey"
+	= "camlidl_wxc_wxGridCellEditor_IsAcceptedKey"
 
 external handleReturn : wxGridCellTextEditor -> wxEvent -> unit
-	= "camlidl_wxc_idl_wxGridCellEditor_HandleReturn"
+	= "camlidl_wxc_wxGridCellEditor_HandleReturn"
 
 external getControl : wxGridCellTextEditor -> wxControl
-	= "camlidl_wxc_idl_wxGridCellEditor_GetControl"
+	= "camlidl_wxc_wxGridCellEditor_GetControl"
 
 external endEdit : wxGridCellTextEditor -> int -> int -> wxGrid -> wxString -> wxString -> int
-	= "camlidl_wxc_idl_wxGridCellEditor_EndEdit_bytecode" "camlidl_wxc_idl_wxGridCellEditor_EndEdit"
+	= "camlidl_wxc_wxGridCellEditor_EndEdit_bytecode" "camlidl_wxc_wxGridCellEditor_EndEdit"
 
 external destroy : wxGridCellTextEditor -> unit
-	= "camlidl_wxc_idl_wxGridCellEditor_Destroy"
+	= "camlidl_wxc_wxGridCellEditor_Destroy"
 
 external ctor : unit -> wxGridCellTextEditor
-	= "camlidl_wxc_idl_wxGridCellTextEditor_Ctor"
+	= "camlidl_wxc_wxGridCellTextEditor_Ctor"
 
 external create : wxGridCellTextEditor -> wxWindow -> int -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxGridCellEditor_Create"
+	= "camlidl_wxc_wxGridCellEditor_Create"
 
 external beginEdit : wxGridCellTextEditor -> int -> int -> wxGrid -> unit
-	= "camlidl_wxc_idl_wxGridCellEditor_BeginEdit"
+	= "camlidl_wxc_wxGridCellEditor_BeginEdit"
 
 let setParameters _obj params =
   let params = WxString.createUTF8 params in

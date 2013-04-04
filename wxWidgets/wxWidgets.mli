@@ -1,568 +1,565 @@
 open WxClasses
 external wxFileConfig : wxInputStream -> wxFileConfig
-	= "camlidl_wxc_idl_wxFileConfig_Create"
+	= "camlidl_wxc_wxFileConfig_Create"
 
 external wxTextAttr : wxColour -> wxColour -> wxFont -> wxTextAttr
-	= "camlidl_wxc_idl_wxTextAttr_Create"
+	= "camlidl_wxc_wxTextAttr_Create"
 
 external wxLogWindow : wxWindow -> string -> bool -> bool -> wxLogWindow
-	= "camlidl_wxc_idl_wxLogWindow_Create"
+	= "camlidl_wxc_wxLogWindow_Create"
 
 external wxLogTextCtrl : wxTextCtrl -> wxLogTextCtrl
-	= "camlidl_wxc_idl_wxLogTextCtrl_Create"
+	= "camlidl_wxc_wxLogTextCtrl_Create"
 
 external wxLogNull : unit -> wxLogNull
-	= "camlidl_wxc_idl_wxLogNull_Create"
+	= "camlidl_wxc_wxLogNull_Create"
 
 external wxLogStderr : unit -> wxLogStderr
-	= "camlidl_wxc_idl_wxLogStderr_Create"
+	= "camlidl_wxc_wxLogStderr_Create"
 
 external wxHtmlWindow : wxWindow -> int -> int -> int -> int -> int -> int -> wxString -> wxHtmlWindow
-	= "camlidl_wxc_idl_wxHtmlWindow_Create_bytecode" "camlidl_wxc_idl_wxHtmlWindow_Create"
+	= "camlidl_wxc_wxHtmlWindow_Create_bytecode" "camlidl_wxc_wxHtmlWindow_Create"
 
 val wxHtmlWindow : wxWindow -> int -> int -> int -> int -> int -> int -> string -> wxHtmlWindow
 external wxcHtmlWindow : wxWindow -> int -> int -> int -> int -> int -> int -> wxString -> wxcHtmlWindow
-	= "camlidl_wxc_idl_wxcHtmlWindow_Create_bytecode" "camlidl_wxc_idl_wxcHtmlWindow_Create"
+	= "camlidl_wxc_wxcHtmlWindow_Create_bytecode" "camlidl_wxc_wxcHtmlWindow_Create"
 
 val wxcHtmlWindow : wxWindow -> int -> int -> int -> int -> int -> int -> string -> wxcHtmlWindow
 external wxInputSink : wxInputStream -> wxEvtHandler -> int -> wxInputSink
-	= "camlidl_wxc_idl_wxInputSink_Create"
+	= "camlidl_wxc_wxInputSink_Create"
 
 external wxProgressDialog : wxString -> wxString -> int -> wxWindow -> int -> wxProgressDialog
-	= "camlidl_wxc_idl_wxProgressDialog_Create"
+	= "camlidl_wxc_wxProgressDialog_Create"
 
 val wxProgressDialog : string -> string -> int -> wxWindow -> int -> wxProgressDialog
 external wxTimerEx : unit -> wxTimerEx
-	= "camlidl_wxc_idl_wxTimerEx_Create"
+	= "camlidl_wxc_wxTimerEx_Create"
 
 external wxcTreeItemData : wxClosure -> wxcTreeItemData
-	= "camlidl_wxc_idl_wxcTreeItemData_Create"
+	= "camlidl_wxc_wxcTreeItemData_Create"
 
 external wxString : string -> wxString
-	= "camlidl_wxc_idl_wxString_Create"
+	= "camlidl_wxc_wxString_Create"
 
 val wxString : string -> string
 external wxClosure : voidptr -> voidptr -> wxClosure
-	= "camlidl_wxc_idl_wxClosure_Create"
+	= "camlidl_wxc_wxClosure_Create"
 
 external wxStyledTextCtrl : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxStyledTextCtrl
-	= "camlidl_wxc_idl_wxStyledTextCtrl_Create_bytecode" "camlidl_wxc_idl_wxStyledTextCtrl_Create"
+	= "camlidl_wxc_wxStyledTextCtrl_Create_bytecode" "camlidl_wxc_wxStyledTextCtrl_Create"
 
 val wxStyledTextCtrl : wxWindow -> int -> string -> int -> int -> int -> int -> int -> wxStyledTextCtrl
 external wxTextOutputStream : wxOutputStream -> int -> wxTextOutputStream
-	= "camlidl_wxc_idl_wxTextOutputStream_Create"
+	= "camlidl_wxc_wxTextOutputStream_Create"
 
 external wxTextInputStream : wxInputStream -> wxString -> wxTextInputStream
-	= "camlidl_wxc_idl_wxTextInputStream_Create"
+	= "camlidl_wxc_wxTextInputStream_Create"
 
 val wxTextInputStream : wxInputStream -> string -> wxTextInputStream
 external wxcPrintout : wxString -> wxcPrintout
-	= "camlidl_wxc_idl_wxcPrintout_Create"
+	= "camlidl_wxc_wxcPrintout_Create"
 
 val wxcPrintout : string -> wxcPrintout
 external wxPreviewFrame : wxPrintPreview -> wxFrame -> wxString -> int -> int -> int -> int -> int -> wxString -> wxPreviewFrame
-	= "camlidl_wxc_idl_wxPreviewFrame_Create_bytecode" "camlidl_wxc_idl_wxPreviewFrame_Create"
+	= "camlidl_wxc_wxPreviewFrame_Create_bytecode" "camlidl_wxc_wxPreviewFrame_Create"
 
 val wxPreviewFrame : wxPrintPreview -> wxFrame -> string -> int -> int -> int -> int -> int -> string -> wxPreviewFrame
 external wxMediaCtrl : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxString -> wxString -> wxMediaCtrl
-	= "camlidl_wxc_idl_wxMediaCtrl_Create_bytecode" "camlidl_wxc_idl_wxMediaCtrl_Create"
+	= "camlidl_wxc_wxMediaCtrl_Create_bytecode" "camlidl_wxc_wxMediaCtrl_Create"
 
 val wxMediaCtrl : wxWindow -> int -> string -> int -> int -> int -> int -> int -> string -> string -> wxMediaCtrl
 external wxSound : wxString -> bool -> wxSound
-	= "camlidl_wxc_idl_wxSound_Create"
+	= "camlidl_wxc_wxSound_Create"
 
 val wxSound : string -> bool -> wxSound
-external wxGLCanvas : wxWindow -> int -> int array -> int -> int -> int -> int -> int -> wxString -> wxPalette -> wxGLCanvas
-	= "camlidl_wxc_idl_wxGLCanvas_Create_bytecode" "camlidl_wxc_idl_wxGLCanvas_Create"
+external wxGLCanvas : wxWindow -> int -> int option -> int -> int -> int -> int -> int -> wxString -> wxPalette -> wxGLCanvas
+	= "camlidl_wxc_wxGLCanvas_Create_bytecode" "camlidl_wxc_wxGLCanvas_Create"
 
-val wxGLCanvas : wxWindow -> int -> int array -> int -> int -> int -> int -> int -> string -> wxPalette -> wxGLCanvas
+val wxGLCanvas : wxWindow -> int -> int option -> int -> int -> int -> int -> int -> string -> wxPalette -> wxGLCanvas
 external wxGraphicsPen : unit -> wxGraphicsPen
-	= "camlidl_wxc_idl_wxGraphicsPen_Create"
+	= "camlidl_wxc_wxGraphicsPen_Create"
 
 external wxGraphicsPath : unit -> wxGraphicsPath
-	= "camlidl_wxc_idl_wxGraphicsPath_Create"
+	= "camlidl_wxc_wxGraphicsPath_Create"
 
 external wxGraphicsMatrix : unit -> wxGraphicsMatrix
-	= "camlidl_wxc_idl_wxGraphicsMatrix_Create"
+	= "camlidl_wxc_wxGraphicsMatrix_Create"
 
 external wxGraphicsFont : unit -> wxGraphicsFont
-	= "camlidl_wxc_idl_wxGraphicsFont_Create"
+	= "camlidl_wxc_wxGraphicsFont_Create"
 
 external wxGraphicsContext : wxWindowDC -> wxGraphicsContext
-	= "camlidl_wxc_idl_wxGraphicsContext_Create"
+	= "camlidl_wxc_wxGraphicsContext_Create"
 
 external wxGraphicsBrush : unit -> wxGraphicsBrush
-	= "camlidl_wxc_idl_wxGraphicsBrush_Create"
+	= "camlidl_wxc_wxGraphicsBrush_Create"
 
 external wxGenericDragImage : wxCursor -> wxGenericDragImage
-	= "camlidl_wxc_idl_wxGenericDragImage_Create"
+	= "camlidl_wxc_wxGenericDragImage_Create"
 
 external wxDragImage : wxBitmap -> int -> int -> wxDragImage
-	= "camlidl_wxc_idl_wxDragImage_Create"
+	= "camlidl_wxc_wxDragImage_Create"
 
 external wxPropertyCategory : wxString -> wxPropertyCategory
-	= "camlidl_wxc_idl_wxPropertyCategory_Create"
+	= "camlidl_wxc_wxPropertyCategory_Create"
 
 val wxPropertyCategory : string -> wxPropertyCategory
 external wxFileProperty : wxString -> wxString -> wxString -> wxFileProperty
-	= "camlidl_wxc_idl_wxFileProperty_Create"
+	= "camlidl_wxc_wxFileProperty_Create"
 
 val wxFileProperty : string -> string -> string -> wxFileProperty
 external wxDateProperty : wxString -> wxString -> wxDateTime -> wxDateProperty
-	= "camlidl_wxc_idl_wxDateProperty_Create"
+	= "camlidl_wxc_wxDateProperty_Create"
 
 val wxDateProperty : string -> string -> wxDateTime -> wxDateProperty
 external wxFloatProperty : wxString -> wxString -> float -> wxFloatProperty
-	= "camlidl_wxc_idl_wxFloatProperty_Create"
+	= "camlidl_wxc_wxFloatProperty_Create"
 
 val wxFloatProperty : string -> string -> float -> wxFloatProperty
 external wxBoolProperty : wxString -> wxString -> bool -> wxBoolProperty
-	= "camlidl_wxc_idl_wxBoolProperty_Create"
+	= "camlidl_wxc_wxBoolProperty_Create"
 
 val wxBoolProperty : string -> string -> bool -> wxBoolProperty
 external wxIntProperty : wxString -> wxString -> int -> wxIntProperty
-	= "camlidl_wxc_idl_wxIntProperty_Create"
+	= "camlidl_wxc_wxIntProperty_Create"
 
 val wxIntProperty : string -> string -> int -> wxIntProperty
 external wxStringProperty : wxString -> wxString -> wxString -> wxStringProperty
-	= "camlidl_wxc_idl_wxStringProperty_Create"
+	= "camlidl_wxc_wxStringProperty_Create"
 
 val wxStringProperty : string -> string -> string -> wxStringProperty
 external wxPropertyGrid : wxWindow -> int -> int -> int -> int -> int -> int -> wxPropertyGrid
-	= "camlidl_wxc_idl_wxPropertyGrid_Create_bytecode" "camlidl_wxc_idl_wxPropertyGrid_Create"
+	= "camlidl_wxc_wxPropertyGrid_Create_bytecode" "camlidl_wxc_wxPropertyGrid_Create"
 
 external wxXmlResource : int -> wxXmlResource
-	= "camlidl_wxc_idl_wxXmlResource_Create"
+	= "camlidl_wxc_wxXmlResource_Create"
 
 external wxWizardPageSimple : wxWizard -> wxWizardPageSimple
-	= "camlidl_wxc_idl_wxWizardPageSimple_Create"
+	= "camlidl_wxc_wxWizardPageSimple_Create"
 
 external wxWizard : wxWindow -> int -> wxString -> wxBitmap -> int -> int -> int -> int -> wxWizard
-	= "camlidl_wxc_idl_wxWizard_Create_bytecode" "camlidl_wxc_idl_wxWizard_Create"
+	= "camlidl_wxc_wxWizard_Create_bytecode" "camlidl_wxc_wxWizard_Create"
 
 val wxWizard : wxWindow -> int -> string -> wxBitmap -> int -> int -> int -> int -> wxWizard
 external wxWindowDC : wxWindow -> wxWindowDC
-	= "camlidl_wxc_idl_wxWindowDC_Create"
+	= "camlidl_wxc_wxWindowDC_Create"
 
 external wxWindow : wxWindow -> int -> int -> int -> int -> int -> int -> wxWindow
-	= "camlidl_wxc_idl_wxWindow_Create_bytecode" "camlidl_wxc_idl_wxWindow_Create"
+	= "camlidl_wxc_wxWindow_Create_bytecode" "camlidl_wxc_wxWindow_Create"
 
 external wxValidator : unit -> wxValidator
-	= "camlidl_wxc_idl_wxValidator_Create"
+	= "camlidl_wxc_wxValidator_Create"
 
 external wxTreeItemId : unit -> wxTreeItemId
-	= "camlidl_wxc_idl_wxTreeItemId_Create"
+	= "camlidl_wxc_wxTreeItemId_Create"
 
 external wxTreeCtrl : voidptr -> voidptr -> wxWindow -> int -> int -> int -> int -> int -> int -> wxTreeCtrl
-	= "camlidl_wxc_idl_wxTreeCtrl_Create_bytecode" "camlidl_wxc_idl_wxTreeCtrl_Create"
+	= "camlidl_wxc_wxTreeCtrl_Create_bytecode" "camlidl_wxc_wxTreeCtrl_Create"
 
 external wxToolBar : wxWindow -> int -> int -> int -> int -> int -> int -> wxToolBar
-	= "camlidl_wxc_idl_wxToolBar_Create_bytecode" "camlidl_wxc_idl_wxToolBar_Create"
+	= "camlidl_wxc_wxToolBar_Create_bytecode" "camlidl_wxc_wxToolBar_Create"
 
 external wxTipWindow : wxWindow -> wxString -> int -> wxTipWindow
-	= "camlidl_wxc_idl_wxTipWindow_Create"
+	= "camlidl_wxc_wxTipWindow_Create"
 
 val wxTipWindow : wxWindow -> string -> int -> wxTipWindow
 external wxTimer : wxWindow -> int -> wxTimer
-	= "camlidl_wxc_idl_wxTimer_Create"
+	= "camlidl_wxc_wxTimer_Create"
 
 external wxTextValidator : int -> voidptr -> wxTextValidator
-	= "camlidl_wxc_idl_wxTextValidator_Create"
+	= "camlidl_wxc_wxTextValidator_Create"
 
 external wxTextCtrl : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxTextCtrl
-	= "camlidl_wxc_idl_wxTextCtrl_Create_bytecode" "camlidl_wxc_idl_wxTextCtrl_Create"
+	= "camlidl_wxc_wxTextCtrl_Create_bytecode" "camlidl_wxc_wxTextCtrl_Create"
 
 val wxTextCtrl : wxWindow -> int -> string -> int -> int -> int -> int -> int -> wxTextCtrl
 external wxTaskBarIcon : unit -> wxTaskBarIcon
-	= "camlidl_wxc_idl_wxTaskBarIcon_Create"
+	= "camlidl_wxc_wxTaskBarIcon_Create"
 
 external wxStopWatch : unit -> wxStopWatch
-	= "camlidl_wxc_idl_wxStopWatch_Create"
+	= "camlidl_wxc_wxStopWatch_Create"
 
 external wxStatusBar : wxWindow -> int -> int -> int -> int -> int -> int -> wxStatusBar
-	= "camlidl_wxc_idl_wxStatusBar_Create_bytecode" "camlidl_wxc_idl_wxStatusBar_Create"
+	= "camlidl_wxc_wxStatusBar_Create_bytecode" "camlidl_wxc_wxStatusBar_Create"
 
 external wxStaticText : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxStaticText
-	= "camlidl_wxc_idl_wxStaticText_Create_bytecode" "camlidl_wxc_idl_wxStaticText_Create"
+	= "camlidl_wxc_wxStaticText_Create_bytecode" "camlidl_wxc_wxStaticText_Create"
 
 val wxStaticText : wxWindow -> int -> string -> int -> int -> int -> int -> int -> wxStaticText
 external wxStaticLine : wxWindow -> int -> int -> int -> int -> int -> int -> wxStaticLine
-	= "camlidl_wxc_idl_wxStaticLine_Create_bytecode" "camlidl_wxc_idl_wxStaticLine_Create"
+	= "camlidl_wxc_wxStaticLine_Create_bytecode" "camlidl_wxc_wxStaticLine_Create"
 
 external wxStaticBoxSizer : wxStaticBox -> int -> wxStaticBoxSizer
-	= "camlidl_wxc_idl_wxStaticBoxSizer_Create"
+	= "camlidl_wxc_wxStaticBoxSizer_Create"
 
 external wxStaticBox : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxStaticBox
-	= "camlidl_wxc_idl_wxStaticBox_Create_bytecode" "camlidl_wxc_idl_wxStaticBox_Create"
+	= "camlidl_wxc_wxStaticBox_Create_bytecode" "camlidl_wxc_wxStaticBox_Create"
 
 val wxStaticBox : wxWindow -> int -> string -> int -> int -> int -> int -> int -> wxStaticBox
 external wxStaticBitmap : wxWindow -> int -> wxBitmap -> int -> int -> int -> int -> int -> wxStaticBitmap
-	= "camlidl_wxc_idl_wxStaticBitmap_Create_bytecode" "camlidl_wxc_idl_wxStaticBitmap_Create"
+	= "camlidl_wxc_wxStaticBitmap_Create_bytecode" "camlidl_wxc_wxStaticBitmap_Create"
 
 external wxSplitterWindow : wxWindow -> int -> int -> int -> int -> int -> int -> wxSplitterWindow
-	= "camlidl_wxc_idl_wxSplitterWindow_Create_bytecode" "camlidl_wxc_idl_wxSplitterWindow_Create"
+	= "camlidl_wxc_wxSplitterWindow_Create_bytecode" "camlidl_wxc_wxSplitterWindow_Create"
 
 external wxSpinCtrl : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> int -> int -> int -> wxSpinCtrl
-	= "camlidl_wxc_idl_wxSpinCtrl_Create_bytecode" "camlidl_wxc_idl_wxSpinCtrl_Create"
+	= "camlidl_wxc_wxSpinCtrl_Create_bytecode" "camlidl_wxc_wxSpinCtrl_Create"
 
 val wxSpinCtrl : wxWindow -> int -> string -> int -> int -> int -> int -> int -> int -> int -> int -> wxSpinCtrl
 external wxSpinButton : wxWindow -> int -> int -> int -> int -> int -> int -> wxSpinButton
-	= "camlidl_wxc_idl_wxSpinButton_Create_bytecode" "camlidl_wxc_idl_wxSpinButton_Create"
+	= "camlidl_wxc_wxSpinButton_Create_bytecode" "camlidl_wxc_wxSpinButton_Create"
 
 external wxSlider : wxWindow -> int -> int -> int -> int -> int -> int -> int -> int -> int -> wxSlider
-	= "camlidl_wxc_idl_wxSlider_Create_bytecode" "camlidl_wxc_idl_wxSlider_Create"
+	= "camlidl_wxc_wxSlider_Create_bytecode" "camlidl_wxc_wxSlider_Create"
 
 external wxSizerItem : int -> int -> int -> int -> int -> voidptr -> wxSizerItem
-	= "camlidl_wxc_idl_wxSizerItem_Create_bytecode" "camlidl_wxc_idl_wxSizerItem_Create"
+	= "camlidl_wxc_wxSizerItem_Create_bytecode" "camlidl_wxc_wxSizerItem_Create"
 
 external wxSize : int -> int -> wxSize
-	= "camlidl_wxc_idl_wxSize_Create"
+	= "camlidl_wxc_wxSize_Create"
 
 external wxSingleInstanceChecker : voidptr -> wxString -> wxString -> bool
-	= "camlidl_wxc_idl_wxSingleInstanceChecker_Create"
+	= "camlidl_wxc_wxSingleInstanceChecker_Create"
 
 val wxSingleInstanceChecker : voidptr -> string -> string -> bool
 external wxSimpleHelpProvider : unit -> wxSimpleHelpProvider
-	= "camlidl_wxc_idl_wxSimpleHelpProvider_Create"
+	= "camlidl_wxc_wxSimpleHelpProvider_Create"
 
 external wxScrolledWindow : wxWindow -> int -> int -> int -> int -> int -> int -> wxScrolledWindow
-	= "camlidl_wxc_idl_wxScrolledWindow_Create_bytecode" "camlidl_wxc_idl_wxScrolledWindow_Create"
+	= "camlidl_wxc_wxScrolledWindow_Create_bytecode" "camlidl_wxc_wxScrolledWindow_Create"
 
 external wxScrollBar : wxWindow -> int -> int -> int -> int -> int -> int -> wxScrollBar
-	= "camlidl_wxc_idl_wxScrollBar_Create_bytecode" "camlidl_wxc_idl_wxScrollBar_Create"
+	= "camlidl_wxc_wxScrollBar_Create_bytecode" "camlidl_wxc_wxScrollBar_Create"
 
 external wxScreenDC : unit -> wxScreenDC
-	= "camlidl_wxc_idl_wxScreenDC_Create"
+	= "camlidl_wxc_wxScreenDC_Create"
 
 external wxSashWindow : wxWindow -> int -> int -> int -> int -> int -> int -> wxSashWindow
-	= "camlidl_wxc_idl_wxSashWindow_Create_bytecode" "camlidl_wxc_idl_wxSashWindow_Create"
+	= "camlidl_wxc_wxSashWindow_Create_bytecode" "camlidl_wxc_wxSashWindow_Create"
 
 external wxSashLayoutWindow : wxWindow -> int -> int -> int -> int -> int -> int -> wxSashLayoutWindow
-	= "camlidl_wxc_idl_wxSashLayoutWindow_Create_bytecode" "camlidl_wxc_idl_wxSashLayoutWindow_Create"
+	= "camlidl_wxc_wxSashLayoutWindow_Create_bytecode" "camlidl_wxc_wxSashLayoutWindow_Create"
 
 external wxSashEvent : int -> int -> wxSashEvent
-	= "camlidl_wxc_idl_wxSashEvent_Create"
+	= "camlidl_wxc_wxSashEvent_Create"
 
 external wxSVGFileDC : wxString -> wxSVGFileDC
-	= "camlidl_wxc_idl_wxSVGFileDC_Create"
+	= "camlidl_wxc_wxSVGFileDC_Create"
 
 val wxSVGFileDC : string -> wxSVGFileDC
 external wxRegionIterator : unit -> wxRegionIterator
-	= "camlidl_wxc_idl_wxRegionIterator_Create"
+	= "camlidl_wxc_wxRegionIterator_Create"
 
 external wxRadioButton : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxRadioButton
-	= "camlidl_wxc_idl_wxRadioButton_Create_bytecode" "camlidl_wxc_idl_wxRadioButton_Create"
+	= "camlidl_wxc_wxRadioButton_Create_bytecode" "camlidl_wxc_wxRadioButton_Create"
 
 val wxRadioButton : wxWindow -> int -> string -> int -> int -> int -> int -> int -> wxRadioButton
-external wxRadioBox : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> string option -> int -> int -> wxRadioBox
-	= "camlidl_wxc_idl_wxRadioBox_Create_bytecode" "camlidl_wxc_idl_wxRadioBox_Create"
+external wxRadioBox : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> string array -> int -> int -> wxRadioBox
+	= "camlidl_wxc_wxRadioBox_Create_bytecode" "camlidl_wxc_wxRadioBox_Create"
 
-val wxRadioBox : wxWindow -> int -> string -> int -> int -> int -> int -> int -> string option -> int -> int -> wxRadioBox
+val wxRadioBox : wxWindow -> int -> string -> int -> int -> int -> int -> int -> string array -> int -> int -> wxRadioBox
 external wxQueryLayoutInfoEvent : int -> wxQueryLayoutInfoEvent
-	= "camlidl_wxc_idl_wxQueryLayoutInfoEvent_Create"
+	= "camlidl_wxc_wxQueryLayoutInfoEvent_Create"
 
 external wxPrinterDC : wxPrintData -> wxPrinterDC
-	= "camlidl_wxc_idl_wxPrinterDC_Create"
+	= "camlidl_wxc_wxPrinterDC_Create"
 
 external wxPrinter : wxPrintDialogData -> wxPrinter
-	= "camlidl_wxc_idl_wxPrinter_Create"
+	= "camlidl_wxc_wxPrinter_Create"
 
 external wxPrintDialog : wxWindow -> wxPrintDialogData -> wxPrintDialog
-	= "camlidl_wxc_idl_wxPrintDialog_Create"
+	= "camlidl_wxc_wxPrintDialog_Create"
 
 external wxPostScriptPrintNativeData : unit -> wxPostScriptPrintNativeData
-	= "camlidl_wxc_idl_wxPostScriptPrintNativeData_Create"
+	= "camlidl_wxc_wxPostScriptPrintNativeData_Create"
 
 external wxPrintData : unit -> wxPrintData
-	= "camlidl_wxc_idl_wxPrintData_Create"
+	= "camlidl_wxc_wxPrintData_Create"
 
 external wxPreviewCanvas : wxPrintPreview -> wxWindow -> int -> int -> int -> int -> int -> wxPreviewCanvas
-	= "camlidl_wxc_idl_wxPreviewCanvas_Create_bytecode" "camlidl_wxc_idl_wxPreviewCanvas_Create"
+	= "camlidl_wxc_wxPreviewCanvas_Create_bytecode" "camlidl_wxc_wxPreviewCanvas_Create"
 
 external wxPostScriptDC : wxPrintData -> wxPostScriptDC
-	= "camlidl_wxc_idl_wxPostScriptDC_Create"
-
-external wxPoint : int -> int -> wxPoint
-	= "camlidl_wxc_idl_wxPoint_Create"
+	= "camlidl_wxc_wxPostScriptDC_Create"
 
 external wxPanel : wxWindow -> int -> int -> int -> int -> int -> int -> wxPanel
-	= "camlidl_wxc_idl_wxPanel_Create_bytecode" "camlidl_wxc_idl_wxPanel_Create"
+	= "camlidl_wxc_wxPanel_Create_bytecode" "camlidl_wxc_wxPanel_Create"
 
 external wxPaintDC : wxWindow -> wxPaintDC
-	= "camlidl_wxc_idl_wxPaintDC_Create"
+	= "camlidl_wxc_wxPaintDC_Create"
 
 external wxPageSetupDialogData : unit -> wxPageSetupDialogData
-	= "camlidl_wxc_idl_wxPageSetupDialogData_Create"
+	= "camlidl_wxc_wxPageSetupDialogData_Create"
 
 external wxPageSetupDialog : wxWindow -> wxPageSetupDialogData -> wxPageSetupDialog
-	= "camlidl_wxc_idl_wxPageSetupDialog_Create"
+	= "camlidl_wxc_wxPageSetupDialog_Create"
 
 external wxNotebook : wxWindow -> int -> int -> int -> int -> int -> int -> wxNotebook
-	= "camlidl_wxc_idl_wxNotebook_Create_bytecode" "camlidl_wxc_idl_wxNotebook_Create"
+	= "camlidl_wxc_wxNotebook_Create_bytecode" "camlidl_wxc_wxNotebook_Create"
 
 external wxMirrorDC : wxDC -> wxMirrorDC
-	= "camlidl_wxc_idl_wxMirrorDC_Create"
+	= "camlidl_wxc_wxMirrorDC_Create"
 
 external wxMiniFrame : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxMiniFrame
-	= "camlidl_wxc_idl_wxMiniFrame_Create_bytecode" "camlidl_wxc_idl_wxMiniFrame_Create"
+	= "camlidl_wxc_wxMiniFrame_Create_bytecode" "camlidl_wxc_wxMiniFrame_Create"
 
 val wxMiniFrame : wxWindow -> int -> string -> int -> int -> int -> int -> int -> wxMiniFrame
 external wxMimeTypesManager : unit -> wxMimeTypesManager
-	= "camlidl_wxc_idl_wxMimeTypesManager_Create"
+	= "camlidl_wxc_wxMimeTypesManager_Create"
 
 external wxMetafileDC : wxString -> wxMetafileDC
-	= "camlidl_wxc_idl_wxMetafileDC_Create"
+	= "camlidl_wxc_wxMetafileDC_Create"
 
 val wxMetafileDC : string -> wxMetafileDC
 external wxMetafile : wxString -> wxMetafile
-	= "camlidl_wxc_idl_wxMetafile_Create"
+	= "camlidl_wxc_wxMetafile_Create"
 
 val wxMetafile : string -> wxMetafile
 external wxMessageDialog : wxWindow -> wxString -> wxString -> int -> wxMessageDialog
-	= "camlidl_wxc_idl_wxMessageDialog_Create"
+	= "camlidl_wxc_wxMessageDialog_Create"
 
 val wxMessageDialog : wxWindow -> string -> string -> int -> wxMessageDialog
 external wxMenuItem : unit -> wxMenuItem
-	= "camlidl_wxc_idl_wxMenuItem_Create"
+	= "camlidl_wxc_wxMenuItem_Create"
 
 external wxMenuBar : int -> wxMenuBar
-	= "camlidl_wxc_idl_wxMenuBar_Create"
+	= "camlidl_wxc_wxMenuBar_Create"
 
 external wxMenu : wxString -> int -> wxMenu
-	= "camlidl_wxc_idl_wxMenu_Create"
+	= "camlidl_wxc_wxMenu_Create"
 
 val wxMenu : string -> int -> wxMenu
 external wxMemoryDC : unit -> wxMemoryDC
-	= "camlidl_wxc_idl_wxMemoryDC_Create"
+	= "camlidl_wxc_wxMemoryDC_Create"
 
 external wxMask : wxBitmap -> wxMask
-	= "camlidl_wxc_idl_wxMask_Create"
+	= "camlidl_wxc_wxMask_Create"
 
 external wxMDIParentFrame : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxMDIParentFrame
-	= "camlidl_wxc_idl_wxMDIParentFrame_Create_bytecode" "camlidl_wxc_idl_wxMDIParentFrame_Create"
+	= "camlidl_wxc_wxMDIParentFrame_Create_bytecode" "camlidl_wxc_wxMDIParentFrame_Create"
 
 val wxMDIParentFrame : wxWindow -> int -> string -> int -> int -> int -> int -> int -> wxMDIParentFrame
 external wxMDIChildFrame : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxMDIChildFrame
-	= "camlidl_wxc_idl_wxMDIChildFrame_Create_bytecode" "camlidl_wxc_idl_wxMDIChildFrame_Create"
+	= "camlidl_wxc_wxMDIChildFrame_Create_bytecode" "camlidl_wxc_wxMDIChildFrame_Create"
 
 val wxMDIChildFrame : wxWindow -> int -> string -> int -> int -> int -> int -> int -> wxMDIChildFrame
 external wxLogChain : wxLog -> wxLogChain
-	= "camlidl_wxc_idl_wxLogChain_Create"
+	= "camlidl_wxc_wxLogChain_Create"
 
 external wxLocale : int -> int -> wxLocale
-	= "camlidl_wxc_idl_wxLocale_Create"
+	= "camlidl_wxc_wxLocale_Create"
 
 external wxListItem : unit -> wxListItem
-	= "camlidl_wxc_idl_wxListItem_Create"
+	= "camlidl_wxc_wxListItem_Create"
 
 external wxListCtrl : wxWindow -> int -> int -> int -> int -> int -> int -> wxListCtrl
-	= "camlidl_wxc_idl_wxListCtrl_Create_bytecode" "camlidl_wxc_idl_wxListCtrl_Create"
+	= "camlidl_wxc_wxListCtrl_Create_bytecode" "camlidl_wxc_wxListCtrl_Create"
 
-external wxListBox : wxWindow -> int -> int -> int -> int -> int -> int -> string option -> int -> wxListBox
-	= "camlidl_wxc_idl_wxListBox_Create_bytecode" "camlidl_wxc_idl_wxListBox_Create"
+external wxListBox : wxWindow -> int -> int -> int -> int -> int -> int -> string array -> int -> wxListBox
+	= "camlidl_wxc_wxListBox_Create_bytecode" "camlidl_wxc_wxListBox_Create"
 
 external wxLayoutConstraints : unit -> wxLayoutConstraints
-	= "camlidl_wxc_idl_wxLayoutConstraints_Create"
+	= "camlidl_wxc_wxLayoutConstraints_Create"
 
 external wxLayoutAlgorithm : unit -> wxLayoutAlgorithm
-	= "camlidl_wxc_idl_wxLayoutAlgorithm_Create"
+	= "camlidl_wxc_wxLayoutAlgorithm_Create"
 
 external wxImageList : int -> int -> int -> int -> wxImageList
-	= "camlidl_wxc_idl_wxImageList_Create"
+	= "camlidl_wxc_wxImageList_Create"
 
 external wxHtmlHelpController : int -> wxHtmlHelpController
-	= "camlidl_wxc_idl_wxHtmlHelpController_Create"
+	= "camlidl_wxc_wxHtmlHelpController_Create"
 
 external wxHelpControllerHelpProvider : wxHelpControllerBase -> wxHelpControllerHelpProvider
-	= "camlidl_wxc_idl_wxHelpControllerHelpProvider_Create"
+	= "camlidl_wxc_wxHelpControllerHelpProvider_Create"
 
 external wxGridSizer : int -> int -> int -> int -> wxGridSizer
-	= "camlidl_wxc_idl_wxGridSizer_Create"
+	= "camlidl_wxc_wxGridSizer_Create"
 
 external wxGridCellCoordsArray : unit -> wxGridCellCoordsArray
-	= "camlidl_wxc_idl_wxGridCellCoordsArray_Create"
+	= "camlidl_wxc_wxGridCellCoordsArray_Create"
 
 external wxGrid : wxWindow -> int -> int -> int -> int -> int -> int -> wxGrid
-	= "camlidl_wxc_idl_wxGrid_Create_bytecode" "camlidl_wxc_idl_wxGrid_Create"
+	= "camlidl_wxc_wxGrid_Create_bytecode" "camlidl_wxc_wxGrid_Create"
 
 external wxGauge : wxWindow -> int -> int -> int -> int -> int -> int -> int -> wxGauge
-	= "camlidl_wxc_idl_wxGauge_Create_bytecode" "camlidl_wxc_idl_wxGauge_Create"
+	= "camlidl_wxc_wxGauge_Create_bytecode" "camlidl_wxc_wxGauge_Create"
 
 external wxFrame : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxFrame
-	= "camlidl_wxc_idl_wxFrame_Create_bytecode" "camlidl_wxc_idl_wxFrame_Create"
+	= "camlidl_wxc_wxFrame_Create_bytecode" "camlidl_wxc_wxFrame_Create"
 
 val wxFrame : wxWindow -> int -> string -> int -> int -> int -> int -> int -> wxFrame
 external wxFontMapper : unit -> wxFontMapper
-	= "camlidl_wxc_idl_wxFontMapper_Create"
+	= "camlidl_wxc_wxFontMapper_Create"
 
 external wxFontEnumerator : voidptr -> voidptr -> wxFontEnumerator
-	= "camlidl_wxc_idl_wxFontEnumerator_Create"
+	= "camlidl_wxc_wxFontEnumerator_Create"
 
 external wxFontDialog : wxWindow -> wxFontData -> wxFontDialog
-	= "camlidl_wxc_idl_wxFontDialog_Create"
+	= "camlidl_wxc_wxFontDialog_Create"
 
 external wxFontData : unit -> wxFontData
-	= "camlidl_wxc_idl_wxFontData_Create"
+	= "camlidl_wxc_wxFontData_Create"
 
 external wxFont : int -> int -> int -> int -> bool -> wxString -> int -> wxFont
-	= "camlidl_wxc_idl_wxFont_Create_bytecode" "camlidl_wxc_idl_wxFont_Create"
+	= "camlidl_wxc_wxFont_Create_bytecode" "camlidl_wxc_wxFont_Create"
 
 val wxFont : int -> int -> int -> int -> bool -> string -> int -> wxFont
 external wxFlexGridSizer : int -> int -> int -> int -> wxFlexGridSizer
-	= "camlidl_wxc_idl_wxFlexGridSizer_Create"
+	= "camlidl_wxc_wxFlexGridSizer_Create"
 
 external wxFindReplaceDialog : wxWindow -> wxFindReplaceData -> wxString -> int -> wxFindReplaceDialog
-	= "camlidl_wxc_idl_wxFindReplaceDialog_Create"
+	= "camlidl_wxc_wxFindReplaceDialog_Create"
 
 val wxFindReplaceDialog : wxWindow -> wxFindReplaceData -> string -> int -> wxFindReplaceDialog
 external wxFindReplaceData : int -> wxFindReplaceData
-	= "camlidl_wxc_idl_wxFindReplaceData_Create"
+	= "camlidl_wxc_wxFindReplaceData_Create"
 
 external wxFileHistory : int -> wxFileHistory
-	= "camlidl_wxc_idl_wxFileHistory_Create"
+	= "camlidl_wxc_wxFileHistory_Create"
 
 external wxFileDialog : wxWindow -> wxString -> wxString -> wxString -> wxString -> int -> int -> int -> wxFileDialog
-	= "camlidl_wxc_idl_wxFileDialog_Create_bytecode" "camlidl_wxc_idl_wxFileDialog_Create"
+	= "camlidl_wxc_wxFileDialog_Create_bytecode" "camlidl_wxc_wxFileDialog_Create"
 
 val wxFileDialog : wxWindow -> string -> string -> string -> string -> int -> int -> int -> wxFileDialog
 external wxEvtHandler : unit -> wxEvtHandler
-	= "camlidl_wxc_idl_wxEvtHandler_Create"
+	= "camlidl_wxc_wxEvtHandler_Create"
 
 external wxEncodingConverter : unit -> wxEncodingConverter
-	= "camlidl_wxc_idl_wxEncodingConverter_Create"
+	= "camlidl_wxc_wxEncodingConverter_Create"
 
 external wxDrawWindow : wxWindow -> int -> int -> int -> int -> int -> int -> wxDrawWindow
-	= "camlidl_wxc_idl_wxDrawWindow_Create_bytecode" "camlidl_wxc_idl_wxDrawWindow_Create"
+	= "camlidl_wxc_wxDrawWindow_Create_bytecode" "camlidl_wxc_wxDrawWindow_Create"
 
 external wxDrawControl : wxWindow -> int -> int -> int -> int -> int -> int -> wxDrawControl
-	= "camlidl_wxc_idl_wxDrawControl_Create_bytecode" "camlidl_wxc_idl_wxDrawControl_Create"
+	= "camlidl_wxc_wxDrawControl_Create_bytecode" "camlidl_wxc_wxDrawControl_Create"
 
 external wxDirDialog : wxWindow -> wxString -> wxString -> int -> int -> int -> wxDirDialog
-	= "camlidl_wxc_idl_wxDirDialog_Create_bytecode" "camlidl_wxc_idl_wxDirDialog_Create"
+	= "camlidl_wxc_wxDirDialog_Create_bytecode" "camlidl_wxc_wxDirDialog_Create"
 
 val wxDirDialog : wxWindow -> string -> string -> int -> int -> int -> wxDirDialog
 external wxDialog : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxDialog
-	= "camlidl_wxc_idl_wxDialog_Create_bytecode" "camlidl_wxc_idl_wxDialog_Create"
+	= "camlidl_wxc_wxDialog_Create_bytecode" "camlidl_wxc_wxDialog_Create"
 
 val wxDialog : wxWindow -> int -> string -> int -> int -> int -> int -> int -> wxDialog
 external wxDateTime : unit -> wxDateTime
-	= "camlidl_wxc_idl_wxDateTime_Create"
+	= "camlidl_wxc_wxDateTime_Create"
 
 external wxDataObjectComposite : unit -> wxDataObjectComposite
-	= "camlidl_wxc_idl_wxDataObjectComposite_Create"
+	= "camlidl_wxc_wxDataObjectComposite_Create"
 
 external wxContextHelpButton : wxWindow -> int -> int -> int -> int -> int -> int -> wxContextHelpButton
-	= "camlidl_wxc_idl_wxContextHelpButton_Create_bytecode" "camlidl_wxc_idl_wxContextHelpButton_Create"
+	= "camlidl_wxc_wxContextHelpButton_Create_bytecode" "camlidl_wxc_wxContextHelpButton_Create"
 
 external wxContextHelp : wxWindow -> bool -> wxContextHelp
-	= "camlidl_wxc_idl_wxContextHelp_Create"
+	= "camlidl_wxc_wxContextHelp_Create"
 
 external wxConfigBase : unit -> wxConfigBase
-	= "camlidl_wxc_idl_wxConfigBase_Create"
+	= "camlidl_wxc_wxConfigBase_Create"
 
 external wxCommandEvent : int -> int -> wxCommandEvent
-	= "camlidl_wxc_idl_wxCommandEvent_Create"
+	= "camlidl_wxc_wxCommandEvent_Create"
 
-external wxComboBox : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> string option -> int -> wxComboBox
-	= "camlidl_wxc_idl_wxComboBox_Create_bytecode" "camlidl_wxc_idl_wxComboBox_Create"
+external wxComboBox : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> string array -> int -> wxComboBox
+	= "camlidl_wxc_wxComboBox_Create_bytecode" "camlidl_wxc_wxComboBox_Create"
 
-val wxComboBox : wxWindow -> int -> string -> int -> int -> int -> int -> int -> string option -> int -> wxComboBox
+val wxComboBox : wxWindow -> int -> string -> int -> int -> int -> int -> int -> string array -> int -> wxComboBox
 external wxColourDialog : wxWindow -> wxColourData -> wxColourDialog
-	= "camlidl_wxc_idl_wxColourDialog_Create"
+	= "camlidl_wxc_wxColourDialog_Create"
 
 external wxColourData : unit -> wxColourData
-	= "camlidl_wxc_idl_wxColourData_Create"
+	= "camlidl_wxc_wxColourData_Create"
 
 external wxClipboard : unit -> wxClipboard
-	= "camlidl_wxc_idl_wxClipboard_Create"
+	= "camlidl_wxc_wxClipboard_Create"
 
 external wxClientDC : wxWindow -> wxClientDC
-	= "camlidl_wxc_idl_wxClientDC_Create"
+	= "camlidl_wxc_wxClientDC_Create"
 
-external wxChoice : wxWindow -> int -> int -> int -> int -> int -> int -> string option -> int -> wxChoice
-	= "camlidl_wxc_idl_wxChoice_Create_bytecode" "camlidl_wxc_idl_wxChoice_Create"
+external wxChoice : wxWindow -> int -> int -> int -> int -> int -> int -> string array -> int -> wxChoice
+	= "camlidl_wxc_wxChoice_Create_bytecode" "camlidl_wxc_wxChoice_Create"
 
-external wxCheckListBox : wxWindow -> int -> int -> int -> int -> int -> int -> string option -> int -> wxCheckListBox
-	= "camlidl_wxc_idl_wxCheckListBox_Create_bytecode" "camlidl_wxc_idl_wxCheckListBox_Create"
+external wxCheckListBox : wxWindow -> int -> int -> int -> int -> int -> int -> string array -> int -> wxCheckListBox
+	= "camlidl_wxc_wxCheckListBox_Create_bytecode" "camlidl_wxc_wxCheckListBox_Create"
 
 external wxCheckBox : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxCheckBox
-	= "camlidl_wxc_idl_wxCheckBox_Create_bytecode" "camlidl_wxc_idl_wxCheckBox_Create"
+	= "camlidl_wxc_wxCheckBox_Create_bytecode" "camlidl_wxc_wxCheckBox_Create"
 
 val wxCheckBox : wxWindow -> int -> string -> int -> int -> int -> int -> int -> wxCheckBox
 external wxCaret : wxWindow -> int -> int -> wxCaret
-	= "camlidl_wxc_idl_wxCaret_Create"
+	= "camlidl_wxc_wxCaret_Create"
 
 external wxCalendarDateAttr : voidptr -> voidptr -> voidptr -> voidptr -> int -> wxCalendarDateAttr
-	= "camlidl_wxc_idl_wxCalendarDateAttr_Create"
+	= "camlidl_wxc_wxCalendarDateAttr_Create"
 
 external wxCalendarCtrl : wxWindow -> int -> wxDateTime -> int -> int -> int -> int -> int -> wxCalendarCtrl
-	= "camlidl_wxc_idl_wxCalendarCtrl_Create_bytecode" "camlidl_wxc_idl_wxCalendarCtrl_Create"
+	= "camlidl_wxc_wxCalendarCtrl_Create_bytecode" "camlidl_wxc_wxCalendarCtrl_Create"
 
 external wxCalculateLayoutEvent : int -> wxCalculateLayoutEvent
-	= "camlidl_wxc_idl_wxCalculateLayoutEvent_Create"
+	= "camlidl_wxc_wxCalculateLayoutEvent_Create"
 
 external wxButton : wxWindow -> int -> wxString -> int -> int -> int -> int -> int -> wxButton
-	= "camlidl_wxc_idl_wxButton_Create_bytecode" "camlidl_wxc_idl_wxButton_Create"
+	= "camlidl_wxc_wxButton_Create_bytecode" "camlidl_wxc_wxButton_Create"
 
 val wxButton : wxWindow -> int -> string -> int -> int -> int -> int -> int -> wxButton
 external wxBusyInfo : wxString -> wxBusyInfo
-	= "camlidl_wxc_idl_wxBusyInfo_Create"
+	= "camlidl_wxc_wxBusyInfo_Create"
 
 val wxBusyInfo : string -> wxBusyInfo
 external wxBusyCursor : unit -> wxBusyCursor
-	= "camlidl_wxc_idl_wxBusyCursor_Create"
+	= "camlidl_wxc_wxBusyCursor_Create"
 
 external wxBufferedPaintDC : wxWindow -> int -> wxBufferedPaintDC
-	= "camlidl_wxc_idl_wxBufferedPaintDC_Create"
+	= "camlidl_wxc_wxBufferedPaintDC_Create"
 
 external wxBoxSizer : int -> wxBoxSizer
-	= "camlidl_wxc_idl_wxBoxSizer_Create"
+	= "camlidl_wxc_wxBoxSizer_Create"
 
 external wxBitmapButton : wxWindow -> int -> wxBitmap -> int -> int -> int -> int -> int -> wxBitmapButton
-	= "camlidl_wxc_idl_wxBitmapButton_Create_bytecode" "camlidl_wxc_idl_wxBitmapButton_Create"
+	= "camlidl_wxc_wxBitmapButton_Create_bytecode" "camlidl_wxc_wxBitmapButton_Create"
 
 external wxBitmap : voidptr -> int -> int -> int -> int -> wxBitmap
-	= "camlidl_wxc_idl_wxBitmap_Create"
+	= "camlidl_wxc_wxBitmap_Create"
 
 external wxAutoBufferedPaintDC : wxWindow -> wxAutoBufferedPaintDC
-	= "camlidl_wxc_idl_wxAutoBufferedPaintDC_Create"
+	= "camlidl_wxc_wxAutoBufferedPaintDC_Create"
 
 external wxAcceleratorTable : int -> voidptr -> wxAcceleratorTable
-	= "camlidl_wxc_idl_wxAcceleratorTable_Create"
+	= "camlidl_wxc_wxAcceleratorTable_Create"
 
 external wxAcceleratorEntry : int -> int -> int -> wxAcceleratorEntry
-	= "camlidl_wxc_idl_wxAcceleratorEntry_Create"
+	= "camlidl_wxc_wxAcceleratorEntry_Create"
 
 external eLJTextValidator : voidptr -> voidptr -> string -> int -> eLJTextValidator
-	= "camlidl_wxc_idl_ELJTextValidator_Create"
+	= "camlidl_wxc_ELJTextValidator_Create"
 
 external eLJTextDropTarget : voidptr -> voidptr -> eLJTextDropTarget
-	= "camlidl_wxc_idl_ELJTextDropTarget_Create"
+	= "camlidl_wxc_ELJTextDropTarget_Create"
 
 external eLJPreviewFrame : voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> wxWindow -> voidptr -> int -> int -> int -> int -> int -> eLJPreviewFrame
-	= "camlidl_wxc_idl_ELJPreviewFrame_Create_bytecode" "camlidl_wxc_idl_ELJPreviewFrame_Create"
+	= "camlidl_wxc_ELJPreviewFrame_Create_bytecode" "camlidl_wxc_ELJPreviewFrame_Create"
 
 external eLJPreviewControlBar : voidptr -> int -> wxWindow -> voidptr -> int -> int -> int -> int -> int -> eLJPreviewControlBar
-	= "camlidl_wxc_idl_ELJPreviewControlBar_Create_bytecode" "camlidl_wxc_idl_ELJPreviewControlBar_Create"
+	= "camlidl_wxc_ELJPreviewControlBar_Create_bytecode" "camlidl_wxc_ELJPreviewControlBar_Create"
 
 external eLJLog : voidptr -> voidptr -> eLJLog
-	= "camlidl_wxc_idl_ELJLog_Create"
+	= "camlidl_wxc_ELJLog_Create"
 
 external eLJGridTable : voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> voidptr -> eLJGridTable
-	= "camlidl_wxc_idl_ELJGridTable_Create_bytecode" "camlidl_wxc_idl_ELJGridTable_Create"
+	= "camlidl_wxc_ELJGridTable_Create_bytecode" "camlidl_wxc_ELJGridTable_Create"
 
 external eLJFileDropTarget : voidptr -> voidptr -> eLJFileDropTarget
-	= "camlidl_wxc_idl_ELJFileDropTarget_Create"
+	= "camlidl_wxc_ELJFileDropTarget_Create"
 
 external eLJDropTarget : voidptr -> eLJDropTarget
-	= "camlidl_wxc_idl_ELJDropTarget_Create"
+	= "camlidl_wxc_ELJDropTarget_Create"
 
 external eLJDragDataObject : voidptr -> wxString -> voidptr -> voidptr -> voidptr -> eLJDragDataObject
-	= "camlidl_wxc_idl_ELJDragDataObject_Create"
+	= "camlidl_wxc_ELJDragDataObject_Create"
 
 val eLJDragDataObject : voidptr -> string -> voidptr -> voidptr -> voidptr -> eLJDragDataObject
 external eLJArtProv : voidptr -> voidptr -> eLJArtProv
-	= "camlidl_wxc_idl_ELJArtProv_Create"
+	= "camlidl_wxc_ELJArtProv_Create"
 
 external ignore_eLJApp : eLJApp -> unit = "%ignore"
 external ignore_eLJArtProv : eLJArtProv -> unit = "%ignore"

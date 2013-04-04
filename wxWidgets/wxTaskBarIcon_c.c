@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxTaskBarIcon(value _v1, wxTaskBarIcon * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxTaskBarIcon(value _v1, wxTaskBarIcon * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxTaskBarIcon *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxTaskBarIcon(wxTaskBarIcon * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxTaskBarIcon(wxTaskBarIcon * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxTaskBarIcon) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxTaskBarIcon_Create(value _unit)
+value camlidl_wxc_wxTaskBarIcon_Create(value _unit)
 {
   wxTaskBarIcon _res;
   value _vres;
@@ -37,24 +37,24 @@ value camlidl_wxc_idl_wxTaskBarIcon_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxTaskBarIcon_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxTaskBarIcon(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxTaskBarIcon(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTaskBarIcon_Delete(
+value camlidl_wxc_wxTaskBarIcon_Delete(
 	value _v__obj)
 {
   wxTaskBarIcon _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTaskBarIcon(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTaskBarIcon(_v__obj, &_obj, _ctx);
   wxTaskBarIcon_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTaskBarIcon_IsIconInstalled(
+value camlidl_wxc_wxTaskBarIcon_IsIconInstalled(
 	value _v__obj)
 {
   wxTaskBarIcon _obj; /*in*/
@@ -63,14 +63,14 @@ value camlidl_wxc_idl_wxTaskBarIcon_IsIconInstalled(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTaskBarIcon(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTaskBarIcon(_v__obj, &_obj, _ctx);
   _res = wxTaskBarIcon_IsIconInstalled(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTaskBarIcon_IsOk(
+value camlidl_wxc_wxTaskBarIcon_IsOk(
 	value _v__obj)
 {
   wxTaskBarIcon _obj; /*in*/
@@ -79,14 +79,14 @@ value camlidl_wxc_idl_wxTaskBarIcon_IsOk(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTaskBarIcon(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTaskBarIcon(_v__obj, &_obj, _ctx);
   _res = wxTaskBarIcon_IsOk(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTaskBarIcon_PopupMenu(
+value camlidl_wxc_wxTaskBarIcon_PopupMenu(
 	value _v__obj,
 	value _v_menu)
 {
@@ -97,15 +97,15 @@ value camlidl_wxc_idl_wxTaskBarIcon_PopupMenu(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTaskBarIcon(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxMenu(_v_menu, &menu, _ctx);
+  camlidl_ml2c_wxc_wxTaskBarIcon(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenu(_v_menu, &menu, _ctx);
   _res = wxTaskBarIcon_PopupMenu(_obj, menu);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTaskBarIcon_RemoveIcon(
+value camlidl_wxc_wxTaskBarIcon_RemoveIcon(
 	value _v__obj)
 {
   wxTaskBarIcon _obj; /*in*/
@@ -114,14 +114,14 @@ value camlidl_wxc_idl_wxTaskBarIcon_RemoveIcon(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTaskBarIcon(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTaskBarIcon(_v__obj, &_obj, _ctx);
   _res = wxTaskBarIcon_RemoveIcon(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTaskBarIcon_SetIcon(
+value camlidl_wxc_wxTaskBarIcon_SetIcon(
 	value _v__obj,
 	value _v_icon,
 	value _v_text)
@@ -134,9 +134,9 @@ value camlidl_wxc_idl_wxTaskBarIcon_SetIcon(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTaskBarIcon(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxIcon(_v_icon, &icon, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxTaskBarIcon(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIcon(_v_icon, &icon, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_text, &text, _ctx);
   _res = wxTaskBarIcon_SetIcon(_obj, icon, text);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

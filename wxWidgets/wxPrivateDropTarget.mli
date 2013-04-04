@@ -1,12 +1,12 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external setDataObject : wxPrivateDropTarget -> wxDataObject -> unit
-	= "camlidl_wxc_idl_wxDropTarget_SetDataObject"
+	= "camlidl_wxc_wxDropTarget_SetDataObject"
 
 external getData : wxPrivateDropTarget -> unit
-	= "camlidl_wxc_idl_wxDropTarget_GetData"
+	= "camlidl_wxc_wxDropTarget_GetData"
 
 
   (* Cast functions *)

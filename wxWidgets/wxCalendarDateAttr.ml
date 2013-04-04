@@ -1,66 +1,66 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : voidptr -> voidptr -> voidptr -> voidptr -> int -> wxCalendarDateAttr
-	= "camlidl_wxc_idl_wxCalendarDateAttr_Create"
+	= "camlidl_wxc_wxCalendarDateAttr_Create"
 
 external setTextColour : wxCalendarDateAttr -> wxColour -> unit
-	= "camlidl_wxc_idl_wxCalendarDateAttr_SetTextColour"
+	= "camlidl_wxc_wxCalendarDateAttr_SetTextColour"
 
 external setHoliday : wxCalendarDateAttr -> int -> unit
-	= "camlidl_wxc_idl_wxCalendarDateAttr_SetHoliday"
+	= "camlidl_wxc_wxCalendarDateAttr_SetHoliday"
 
 external setFont : wxCalendarDateAttr -> wxFont -> unit
-	= "camlidl_wxc_idl_wxCalendarDateAttr_SetFont"
+	= "camlidl_wxc_wxCalendarDateAttr_SetFont"
 
 external setBorderColour : wxCalendarDateAttr -> wxColour -> unit
-	= "camlidl_wxc_idl_wxCalendarDateAttr_SetBorderColour"
+	= "camlidl_wxc_wxCalendarDateAttr_SetBorderColour"
 
 external setBorder : wxCalendarDateAttr -> int -> unit
-	= "camlidl_wxc_idl_wxCalendarDateAttr_SetBorder"
+	= "camlidl_wxc_wxCalendarDateAttr_SetBorder"
 
 external setBackgroundColour : wxCalendarDateAttr -> wxColour -> unit
-	= "camlidl_wxc_idl_wxCalendarDateAttr_SetBackgroundColour"
+	= "camlidl_wxc_wxCalendarDateAttr_SetBackgroundColour"
 
 external isHoliday : wxCalendarDateAttr -> bool
-	= "camlidl_wxc_idl_wxCalendarDateAttr_IsHoliday"
+	= "camlidl_wxc_wxCalendarDateAttr_IsHoliday"
 
 external hasTextColour : wxCalendarDateAttr -> bool
-	= "camlidl_wxc_idl_wxCalendarDateAttr_HasTextColour"
+	= "camlidl_wxc_wxCalendarDateAttr_HasTextColour"
 
 external hasFont : wxCalendarDateAttr -> bool
-	= "camlidl_wxc_idl_wxCalendarDateAttr_HasFont"
+	= "camlidl_wxc_wxCalendarDateAttr_HasFont"
 
 external hasBorderColour : wxCalendarDateAttr -> bool
-	= "camlidl_wxc_idl_wxCalendarDateAttr_HasBorderColour"
+	= "camlidl_wxc_wxCalendarDateAttr_HasBorderColour"
 
 external hasBorder : wxCalendarDateAttr -> bool
-	= "camlidl_wxc_idl_wxCalendarDateAttr_HasBorder"
+	= "camlidl_wxc_wxCalendarDateAttr_HasBorder"
 
 external hasBackgroundColour : wxCalendarDateAttr -> bool
-	= "camlidl_wxc_idl_wxCalendarDateAttr_HasBackgroundColour"
+	= "camlidl_wxc_wxCalendarDateAttr_HasBackgroundColour"
 
 external getTextColour : wxCalendarDateAttr -> wxColour -> unit
-	= "camlidl_wxc_idl_wxCalendarDateAttr_GetTextColour"
+	= "camlidl_wxc_wxCalendarDateAttr_GetTextColour"
 
 external getFont : wxCalendarDateAttr -> wxFont -> unit
-	= "camlidl_wxc_idl_wxCalendarDateAttr_GetFont"
+	= "camlidl_wxc_wxCalendarDateAttr_GetFont"
 
 external getBorderColour : wxCalendarDateAttr -> wxColour -> unit
-	= "camlidl_wxc_idl_wxCalendarDateAttr_GetBorderColour"
+	= "camlidl_wxc_wxCalendarDateAttr_GetBorderColour"
 
 external getBorder : wxCalendarDateAttr -> int
-	= "camlidl_wxc_idl_wxCalendarDateAttr_GetBorder"
+	= "camlidl_wxc_wxCalendarDateAttr_GetBorder"
 
 external getBackgroundColour : wxCalendarDateAttr -> wxColour -> unit
-	= "camlidl_wxc_idl_wxCalendarDateAttr_GetBackgroundColour"
+	= "camlidl_wxc_wxCalendarDateAttr_GetBackgroundColour"
 
 external delete : wxCalendarDateAttr -> unit
-	= "camlidl_wxc_idl_wxCalendarDateAttr_Delete"
+	= "camlidl_wxc_wxCalendarDateAttr_Delete"
 
 external createDefault : unit -> wxCalendarDateAttr
-	= "camlidl_wxc_idl_wxCalendarDateAttr_CreateDefault"
+	= "camlidl_wxc_wxCalendarDateAttr_CreateDefault"
 
 
   (* Cast functions *)

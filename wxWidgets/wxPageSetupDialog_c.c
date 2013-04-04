@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxPageSetupDialog(value _v1, wxPageSetupDialog * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxPageSetupDialog(value _v1, wxPageSetupDialog * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxPageSetupDialog *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxPageSetupDialog(wxPageSetupDialog * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxPageSetupDialog(wxPageSetupDialog * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxPageSetupDialog) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxPageSetupDialog_Create(
+value camlidl_wxc_wxPageSetupDialog_Create(
 	value _v_parent,
 	value _v_data)
 {
@@ -40,15 +40,15 @@ value camlidl_wxc_idl_wxPageSetupDialog_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
-  camlidl_ml2c_wxc_idl_wxPageSetupDialogData(_v_data, &data, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxPageSetupDialogData(_v_data, &data, _ctx);
   _res = wxPageSetupDialog_Create(parent, data);
-  _vres = camlidl_c2ml_wxc_idl_wxPageSetupDialog(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPageSetupDialog(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPageSetupDialog_GetPageSetupData(
+value camlidl_wxc_wxPageSetupDialog_GetPageSetupData(
 	value _v__obj,
 	value _v__ref)
 {
@@ -56,8 +56,8 @@ value camlidl_wxc_idl_wxPageSetupDialog_GetPageSetupData(
   wxPageSetupDialogData _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPageSetupDialog(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxPageSetupDialogData(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxPageSetupDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPageSetupDialogData(_v__ref, &_ref, _ctx);
   wxPageSetupDialog_GetPageSetupData(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;

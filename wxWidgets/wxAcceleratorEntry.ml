@@ -1,24 +1,24 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : int -> int -> int -> wxAcceleratorEntry
-	= "camlidl_wxc_idl_wxAcceleratorEntry_Create"
+	= "camlidl_wxc_wxAcceleratorEntry_Create"
 
 external set : wxAcceleratorEntry -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxAcceleratorEntry_Set"
+	= "camlidl_wxc_wxAcceleratorEntry_Set"
 
 external getKeyCode : wxAcceleratorEntry -> int
-	= "camlidl_wxc_idl_wxAcceleratorEntry_GetKeyCode"
+	= "camlidl_wxc_wxAcceleratorEntry_GetKeyCode"
 
 external getFlags : wxAcceleratorEntry -> int
-	= "camlidl_wxc_idl_wxAcceleratorEntry_GetFlags"
+	= "camlidl_wxc_wxAcceleratorEntry_GetFlags"
 
 external getCommand : wxAcceleratorEntry -> int
-	= "camlidl_wxc_idl_wxAcceleratorEntry_GetCommand"
+	= "camlidl_wxc_wxAcceleratorEntry_GetCommand"
 
 external delete : wxAcceleratorEntry -> unit
-	= "camlidl_wxc_idl_wxAcceleratorEntry_Delete"
+	= "camlidl_wxc_wxAcceleratorEntry_Delete"
 
 
   (* Cast functions *)

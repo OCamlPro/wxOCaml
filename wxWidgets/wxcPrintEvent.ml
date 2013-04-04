@@ -1,87 +1,87 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external skip : wxcPrintEvent -> unit
-	= "camlidl_wxc_idl_wxEvent_Skip"
+	= "camlidl_wxc_wxEvent_Skip"
 
 external setTimestamp : wxcPrintEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetTimestamp"
+	= "camlidl_wxc_wxEvent_SetTimestamp"
 
 external setPageLimits : wxcPrintEvent -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxcPrintEvent_SetPageLimits"
+	= "camlidl_wxc_wxcPrintEvent_SetPageLimits"
 
 external setId : wxcPrintEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetId"
+	= "camlidl_wxc_wxEvent_SetId"
 
 external setEventType : wxcPrintEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventType"
+	= "camlidl_wxc_wxEvent_SetEventType"
 
 external setEventObject : wxcPrintEvent -> wxObject -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventObject"
+	= "camlidl_wxc_wxEvent_SetEventObject"
 
 external setContinue : wxcPrintEvent -> bool -> unit
-	= "camlidl_wxc_idl_wxcPrintEvent_SetContinue"
+	= "camlidl_wxc_wxcPrintEvent_SetContinue"
 
 external setClientClosure : wxcPrintEvent -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxcPrintEvent -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external newEventType : unit -> int
-	= "camlidl_wxc_idl_wxEvent_NewEventType"
+	= "camlidl_wxc_wxEvent_NewEventType"
 
 external isScrolledWindow : wxcPrintEvent -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxcPrintEvent -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isCommandEvent : wxcPrintEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_IsCommandEvent"
+	= "camlidl_wxc_wxEvent_IsCommandEvent"
 
 external getTimestamp : wxcPrintEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetTimestamp"
+	= "camlidl_wxc_wxEvent_GetTimestamp"
 
 external getSkipped : wxcPrintEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_GetSkipped"
+	= "camlidl_wxc_wxEvent_GetSkipped"
 
 external getPrintout : wxcPrintEvent -> wxcPrintout
-	= "camlidl_wxc_idl_wxcPrintEvent_GetPrintout"
+	= "camlidl_wxc_wxcPrintEvent_GetPrintout"
 
 external getPage : wxcPrintEvent -> int
-	= "camlidl_wxc_idl_wxcPrintEvent_GetPage"
+	= "camlidl_wxc_wxcPrintEvent_GetPage"
 
 external getId : wxcPrintEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetId"
+	= "camlidl_wxc_wxEvent_GetId"
 
 external getEventType : wxcPrintEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetEventType"
+	= "camlidl_wxc_wxEvent_GetEventType"
 
 external getEventObject : wxcPrintEvent -> wxObject
-	= "camlidl_wxc_idl_wxEvent_GetEventObject"
+	= "camlidl_wxc_wxEvent_GetEventObject"
 
 external getEndPage : wxcPrintEvent -> int
-	= "camlidl_wxc_idl_wxcPrintEvent_GetEndPage"
+	= "camlidl_wxc_wxcPrintEvent_GetEndPage"
 
 external getContinue : wxcPrintEvent -> bool
-	= "camlidl_wxc_idl_wxcPrintEvent_GetContinue"
+	= "camlidl_wxc_wxcPrintEvent_GetContinue"
 
 external getClientClosure : wxcPrintEvent -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxcPrintEvent -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxcPrintEvent -> unit
-	= "camlidl_wxc_idl_wxObject_Delete"
+	= "camlidl_wxc_wxObject_Delete"
 
 external copyObject : wxcPrintEvent -> voidptr -> unit
-	= "camlidl_wxc_idl_wxEvent_CopyObject"
+	= "camlidl_wxc_wxEvent_CopyObject"
 
 external null_object : unit -> wxcPrintEvent
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

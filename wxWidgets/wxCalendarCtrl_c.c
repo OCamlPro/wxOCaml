@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxCalendarCtrl(value _v1, wxCalendarCtrl * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxCalendarCtrl(value _v1, wxCalendarCtrl * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxCalendarCtrl *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxCalendarCtrl(wxCalendarCtrl * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxCalendarCtrl(wxCalendarCtrl * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxCalendarCtrl) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_Create(
+value camlidl_wxc_wxCalendarCtrl_Create(
 	value _v__prt,
 	value _v__id,
 	value _v__dat,
@@ -52,26 +52,26 @@ value camlidl_wxc_idl_wxCalendarCtrl_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
   _id = Int_val(_v__id);
-  camlidl_ml2c_wxc_idl_wxDateTime(_v__dat, &_dat, _ctx);
+  camlidl_ml2c_wxc_wxDateTime(_v__dat, &_dat, _ctx);
   _lft = Int_val(_v__lft);
   _top = Int_val(_v__top);
   _wdt = Int_val(_v__wdt);
   _hgt = Int_val(_v__hgt);
   _stl = Int_val(_v__stl);
   _res = wxCalendarCtrl_Create(_prt, _id, _dat, _lft, _top, _wdt, _hgt, _stl);
-  _vres = camlidl_c2ml_wxc_idl_wxCalendarCtrl(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxCalendarCtrl(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxCalendarCtrl_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxCalendarCtrl_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
+  return camlidl_wxc_wxCalendarCtrl_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_EnableHolidayDisplay(
+value camlidl_wxc_wxCalendarCtrl_EnableHolidayDisplay(
 	value _v__obj,
 	value _v_display)
 {
@@ -79,14 +79,14 @@ value camlidl_wxc_idl_wxCalendarCtrl_EnableHolidayDisplay(
   int display; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
   display = Int_val(_v_display);
   wxCalendarCtrl_EnableHolidayDisplay(_obj, display);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_EnableMonthChange(
+value camlidl_wxc_wxCalendarCtrl_EnableMonthChange(
 	value _v__obj,
 	value _v_enable)
 {
@@ -94,14 +94,14 @@ value camlidl_wxc_idl_wxCalendarCtrl_EnableMonthChange(
   int enable; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
   enable = Int_val(_v_enable);
   wxCalendarCtrl_EnableMonthChange(_obj, enable);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_GetAttr(
+value camlidl_wxc_wxCalendarCtrl_GetAttr(
 	value _v__obj,
 	value _v_day)
 {
@@ -112,15 +112,15 @@ value camlidl_wxc_idl_wxCalendarCtrl_GetAttr(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
   day = Int_val(_v_day);
   _res = wxCalendarCtrl_GetAttr(_obj, day);
-  _vres = camlidl_c2ml_wxc_idl_voidptr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_voidptr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_GetDate(
+value camlidl_wxc_wxCalendarCtrl_GetDate(
 	value _v__obj,
 	value _v_date)
 {
@@ -128,14 +128,14 @@ value camlidl_wxc_idl_wxCalendarCtrl_GetDate(
   voidptr date; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_date, &date, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_date, &date, _ctx);
   wxCalendarCtrl_GetDate(_obj, date);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_GetHeaderColourBg(
+value camlidl_wxc_wxCalendarCtrl_GetHeaderColourBg(
 	value _v__obj,
 	value _v__ref)
 {
@@ -143,14 +143,14 @@ value camlidl_wxc_idl_wxCalendarCtrl_GetHeaderColourBg(
   wxColour _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v__ref, &_ref, _ctx);
   wxCalendarCtrl_GetHeaderColourBg(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_GetHeaderColourFg(
+value camlidl_wxc_wxCalendarCtrl_GetHeaderColourFg(
 	value _v__obj,
 	value _v__ref)
 {
@@ -158,14 +158,14 @@ value camlidl_wxc_idl_wxCalendarCtrl_GetHeaderColourFg(
   wxColour _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v__ref, &_ref, _ctx);
   wxCalendarCtrl_GetHeaderColourFg(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_GetHighlightColourBg(
+value camlidl_wxc_wxCalendarCtrl_GetHighlightColourBg(
 	value _v__obj,
 	value _v__ref)
 {
@@ -173,14 +173,14 @@ value camlidl_wxc_idl_wxCalendarCtrl_GetHighlightColourBg(
   wxColour _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v__ref, &_ref, _ctx);
   wxCalendarCtrl_GetHighlightColourBg(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_GetHighlightColourFg(
+value camlidl_wxc_wxCalendarCtrl_GetHighlightColourFg(
 	value _v__obj,
 	value _v__ref)
 {
@@ -188,14 +188,14 @@ value camlidl_wxc_idl_wxCalendarCtrl_GetHighlightColourFg(
   wxColour _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v__ref, &_ref, _ctx);
   wxCalendarCtrl_GetHighlightColourFg(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_GetHolidayColourBg(
+value camlidl_wxc_wxCalendarCtrl_GetHolidayColourBg(
 	value _v__obj,
 	value _v__ref)
 {
@@ -203,14 +203,14 @@ value camlidl_wxc_idl_wxCalendarCtrl_GetHolidayColourBg(
   wxColour _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v__ref, &_ref, _ctx);
   wxCalendarCtrl_GetHolidayColourBg(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_GetHolidayColourFg(
+value camlidl_wxc_wxCalendarCtrl_GetHolidayColourFg(
 	value _v__obj,
 	value _v__ref)
 {
@@ -218,14 +218,14 @@ value camlidl_wxc_idl_wxCalendarCtrl_GetHolidayColourFg(
   wxColour _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v__ref, &_ref, _ctx);
   wxCalendarCtrl_GetHolidayColourFg(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_HitTest(
+value camlidl_wxc_wxCalendarCtrl_HitTest(
 	value _v__obj,
 	value _v_x,
 	value _v_y,
@@ -242,18 +242,18 @@ value camlidl_wxc_idl_wxCalendarCtrl_HitTest(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
-  camlidl_ml2c_wxc_idl_voidptr(_v_date, &date, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_wd, &wd, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_date, &date, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_wd, &wd, _ctx);
   _res = wxCalendarCtrl_HitTest(_obj, x, y, date, wd);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_ResetAttr(
+value camlidl_wxc_wxCalendarCtrl_ResetAttr(
 	value _v__obj,
 	value _v_day)
 {
@@ -261,14 +261,14 @@ value camlidl_wxc_idl_wxCalendarCtrl_ResetAttr(
   int day; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
   day = Int_val(_v_day);
   wxCalendarCtrl_ResetAttr(_obj, day);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_SetAttr(
+value camlidl_wxc_wxCalendarCtrl_SetAttr(
 	value _v__obj,
 	value _v_day,
 	value _v_attr)
@@ -278,15 +278,15 @@ value camlidl_wxc_idl_wxCalendarCtrl_SetAttr(
   voidptr attr; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
   day = Int_val(_v_day);
-  camlidl_ml2c_wxc_idl_voidptr(_v_attr, &attr, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_attr, &attr, _ctx);
   wxCalendarCtrl_SetAttr(_obj, day, attr);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_SetDate(
+value camlidl_wxc_wxCalendarCtrl_SetDate(
 	value _v__obj,
 	value _v_date)
 {
@@ -294,14 +294,14 @@ value camlidl_wxc_idl_wxCalendarCtrl_SetDate(
   voidptr date; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_date, &date, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_date, &date, _ctx);
   wxCalendarCtrl_SetDate(_obj, date);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_SetHeaderColours(
+value camlidl_wxc_wxCalendarCtrl_SetHeaderColours(
 	value _v__obj,
 	value _v_colFg,
 	value _v_colBg)
@@ -311,15 +311,15 @@ value camlidl_wxc_idl_wxCalendarCtrl_SetHeaderColours(
   voidptr colBg; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_colFg, &colFg, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_colBg, &colBg, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_colFg, &colFg, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_colBg, &colBg, _ctx);
   wxCalendarCtrl_SetHeaderColours(_obj, colFg, colBg);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_SetHighlightColours(
+value camlidl_wxc_wxCalendarCtrl_SetHighlightColours(
 	value _v__obj,
 	value _v_colFg,
 	value _v_colBg)
@@ -329,15 +329,15 @@ value camlidl_wxc_idl_wxCalendarCtrl_SetHighlightColours(
   voidptr colBg; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_colFg, &colFg, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_colBg, &colBg, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_colFg, &colFg, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_colBg, &colBg, _ctx);
   wxCalendarCtrl_SetHighlightColours(_obj, colFg, colBg);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_SetHoliday(
+value camlidl_wxc_wxCalendarCtrl_SetHoliday(
 	value _v__obj,
 	value _v_day)
 {
@@ -345,14 +345,14 @@ value camlidl_wxc_idl_wxCalendarCtrl_SetHoliday(
   int day; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
   day = Int_val(_v_day);
   wxCalendarCtrl_SetHoliday(_obj, day);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCalendarCtrl_SetHolidayColours(
+value camlidl_wxc_wxCalendarCtrl_SetHolidayColours(
 	value _v__obj,
 	value _v_colFg,
 	value _v_colBg)
@@ -362,9 +362,9 @@ value camlidl_wxc_idl_wxCalendarCtrl_SetHolidayColours(
   voidptr colBg; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCalendarCtrl(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_colFg, &colFg, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_colBg, &colBg, _ctx);
+  camlidl_ml2c_wxc_wxCalendarCtrl(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_colFg, &colFg, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_colBg, &colBg, _ctx);
   wxCalendarCtrl_SetHolidayColours(_obj, colFg, colBg);
   camlidl_free(_ctx);
   return Val_unit;

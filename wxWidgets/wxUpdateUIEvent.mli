@@ -1,93 +1,93 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external skip : wxUpdateUIEvent -> unit
-	= "camlidl_wxc_idl_wxEvent_Skip"
+	= "camlidl_wxc_wxEvent_Skip"
 
 external setTimestamp : wxUpdateUIEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetTimestamp"
+	= "camlidl_wxc_wxEvent_SetTimestamp"
 
 external setText : wxUpdateUIEvent -> wxString -> unit
-	= "camlidl_wxc_idl_wxUpdateUIEvent_SetText"
+	= "camlidl_wxc_wxUpdateUIEvent_SetText"
 
 external setId : wxUpdateUIEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetId"
+	= "camlidl_wxc_wxEvent_SetId"
 
 external setEventType : wxUpdateUIEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventType"
+	= "camlidl_wxc_wxEvent_SetEventType"
 
 external setEventObject : wxUpdateUIEvent -> wxObject -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventObject"
+	= "camlidl_wxc_wxEvent_SetEventObject"
 
 external setClientClosure : wxUpdateUIEvent -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxUpdateUIEvent -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external newEventType : unit -> int
-	= "camlidl_wxc_idl_wxEvent_NewEventType"
+	= "camlidl_wxc_wxEvent_NewEventType"
 
 external isScrolledWindow : wxUpdateUIEvent -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxUpdateUIEvent -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isCommandEvent : wxUpdateUIEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_IsCommandEvent"
+	= "camlidl_wxc_wxEvent_IsCommandEvent"
 
 external getTimestamp : wxUpdateUIEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetTimestamp"
+	= "camlidl_wxc_wxEvent_GetTimestamp"
 
 external getText : wxUpdateUIEvent -> wxString
-	= "camlidl_wxc_idl_wxUpdateUIEvent_GetText"
+	= "camlidl_wxc_wxUpdateUIEvent_GetText"
 
 external getSkipped : wxUpdateUIEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_GetSkipped"
+	= "camlidl_wxc_wxEvent_GetSkipped"
 
 external getSetText : wxUpdateUIEvent -> bool
-	= "camlidl_wxc_idl_wxUpdateUIEvent_GetSetText"
+	= "camlidl_wxc_wxUpdateUIEvent_GetSetText"
 
 external getSetEnabled : wxUpdateUIEvent -> bool
-	= "camlidl_wxc_idl_wxUpdateUIEvent_GetSetEnabled"
+	= "camlidl_wxc_wxUpdateUIEvent_GetSetEnabled"
 
 external getSetChecked : wxUpdateUIEvent -> bool
-	= "camlidl_wxc_idl_wxUpdateUIEvent_GetSetChecked"
+	= "camlidl_wxc_wxUpdateUIEvent_GetSetChecked"
 
 external getId : wxUpdateUIEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetId"
+	= "camlidl_wxc_wxEvent_GetId"
 
 external getEventType : wxUpdateUIEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetEventType"
+	= "camlidl_wxc_wxEvent_GetEventType"
 
 external getEventObject : wxUpdateUIEvent -> wxObject
-	= "camlidl_wxc_idl_wxEvent_GetEventObject"
+	= "camlidl_wxc_wxEvent_GetEventObject"
 
 external getEnabled : wxUpdateUIEvent -> bool
-	= "camlidl_wxc_idl_wxUpdateUIEvent_GetEnabled"
+	= "camlidl_wxc_wxUpdateUIEvent_GetEnabled"
 
 external getClientClosure : wxUpdateUIEvent -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxUpdateUIEvent -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external getChecked : wxUpdateUIEvent -> bool
-	= "camlidl_wxc_idl_wxUpdateUIEvent_GetChecked"
+	= "camlidl_wxc_wxUpdateUIEvent_GetChecked"
 
 external enable : wxUpdateUIEvent -> bool -> unit
-	= "camlidl_wxc_idl_wxUpdateUIEvent_Enable"
+	= "camlidl_wxc_wxUpdateUIEvent_Enable"
 
 external delete : wxUpdateUIEvent -> unit
-	= "camlidl_wxc_idl_wxObject_Delete"
+	= "camlidl_wxc_wxObject_Delete"
 
 external copyObject : wxUpdateUIEvent -> wxObject -> unit
-	= "camlidl_wxc_idl_wxUpdateUIEvent_CopyObject"
+	= "camlidl_wxc_wxUpdateUIEvent_CopyObject"
 
 external check : wxUpdateUIEvent -> bool -> unit
-	= "camlidl_wxc_idl_wxUpdateUIEvent_Check"
+	= "camlidl_wxc_wxUpdateUIEvent_Check"
 
 val setText : wxUpdateUIEvent -> string -> unit
 val getText : wxUpdateUIEvent -> string

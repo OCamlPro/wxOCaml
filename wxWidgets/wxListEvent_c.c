@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxListEvent(value _v1, wxListEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxListEvent(value _v1, wxListEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxListEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxListEvent(wxListEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxListEvent(wxListEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxListEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxListEvent_Cancelled(
+value camlidl_wxc_wxListEvent_Cancelled(
 	value _v__obj)
 {
   wxListEvent _obj; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxListEvent_Cancelled(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListEvent(_v__obj, &_obj, _ctx);
   _res = wxListEvent_Cancelled(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListEvent_GetCode(
+value camlidl_wxc_wxListEvent_GetCode(
 	value _v__obj)
 {
   wxListEvent _obj; /*in*/
@@ -54,14 +54,14 @@ value camlidl_wxc_idl_wxListEvent_GetCode(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListEvent(_v__obj, &_obj, _ctx);
   _res = wxListEvent_GetCode(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListEvent_GetColumn(
+value camlidl_wxc_wxListEvent_GetColumn(
 	value _v__obj)
 {
   wxListEvent _obj; /*in*/
@@ -70,14 +70,14 @@ value camlidl_wxc_idl_wxListEvent_GetColumn(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListEvent(_v__obj, &_obj, _ctx);
   _res = wxListEvent_GetColumn(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListEvent_GetData(
+value camlidl_wxc_wxListEvent_GetData(
 	value _v__obj)
 {
   wxListEvent _obj; /*in*/
@@ -86,14 +86,14 @@ value camlidl_wxc_idl_wxListEvent_GetData(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListEvent(_v__obj, &_obj, _ctx);
   _res = wxListEvent_GetData(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListEvent_GetImage(
+value camlidl_wxc_wxListEvent_GetImage(
 	value _v__obj)
 {
   wxListEvent _obj; /*in*/
@@ -102,14 +102,14 @@ value camlidl_wxc_idl_wxListEvent_GetImage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListEvent(_v__obj, &_obj, _ctx);
   _res = wxListEvent_GetImage(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListEvent_GetIndex(
+value camlidl_wxc_wxListEvent_GetIndex(
 	value _v__obj)
 {
   wxListEvent _obj; /*in*/
@@ -118,14 +118,14 @@ value camlidl_wxc_idl_wxListEvent_GetIndex(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListEvent(_v__obj, &_obj, _ctx);
   _res = wxListEvent_GetIndex(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListEvent_GetItem(
+value camlidl_wxc_wxListEvent_GetItem(
 	value _v__obj,
 	value _v__ref)
 {
@@ -133,14 +133,14 @@ value camlidl_wxc_idl_wxListEvent_GetItem(
   wxListItem _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxListItem(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxListEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListItem(_v__ref, &_ref, _ctx);
   wxListEvent_GetItem(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxListEvent_GetLabel(
+value camlidl_wxc_wxListEvent_GetLabel(
 	value _v__obj)
 {
   wxListEvent _obj; /*in*/
@@ -149,14 +149,14 @@ value camlidl_wxc_idl_wxListEvent_GetLabel(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListEvent(_v__obj, &_obj, _ctx);
   _res = wxListEvent_GetLabel(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListEvent_GetMask(
+value camlidl_wxc_wxListEvent_GetMask(
 	value _v__obj)
 {
   wxListEvent _obj; /*in*/
@@ -165,14 +165,14 @@ value camlidl_wxc_idl_wxListEvent_GetMask(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListEvent(_v__obj, &_obj, _ctx);
   _res = wxListEvent_GetMask(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListEvent_GetPoint(
+value camlidl_wxc_wxListEvent_GetPoint(
 	value _v__obj)
 {
   wxListEvent _obj; /*in*/
@@ -181,14 +181,14 @@ value camlidl_wxc_idl_wxListEvent_GetPoint(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListEvent(_v__obj, &_obj, _ctx);
   _res = wxListEvent_GetPoint(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxPoint(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPoint(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListEvent_GetText(
+value camlidl_wxc_wxListEvent_GetText(
 	value _v__obj)
 {
   wxListEvent _obj; /*in*/
@@ -197,14 +197,14 @@ value camlidl_wxc_idl_wxListEvent_GetText(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListEvent(_v__obj, &_obj, _ctx);
   _res = wxListEvent_GetText(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListEvent_GetCacheFrom(
+value camlidl_wxc_wxListEvent_GetCacheFrom(
 	value _v__obj)
 {
   wxListEvent _obj; /*in*/
@@ -213,14 +213,14 @@ value camlidl_wxc_idl_wxListEvent_GetCacheFrom(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListEvent(_v__obj, &_obj, _ctx);
   _res = wxListEvent_GetCacheFrom(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxListEvent_GetCacheTo(
+value camlidl_wxc_wxListEvent_GetCacheTo(
 	value _v__obj)
 {
   wxListEvent _obj; /*in*/
@@ -229,7 +229,7 @@ value camlidl_wxc_idl_wxListEvent_GetCacheTo(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxListEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxListEvent(_v__obj, &_obj, _ctx);
   _res = wxListEvent_GetCacheTo(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

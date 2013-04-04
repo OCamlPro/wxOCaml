@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxLogChain(value _v1, wxLogChain * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxLogChain(value _v1, wxLogChain * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxLogChain *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxLogChain(wxLogChain * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxLogChain(wxLogChain * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxLogChain) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxLogChain_Create(
+value camlidl_wxc_wxLogChain_Create(
 	value _v_logger)
 {
   wxLog logger; /*in*/
@@ -38,26 +38,26 @@ value camlidl_wxc_idl_wxLogChain_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLog(_v_logger, &logger, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v_logger, &logger, _ctx);
   _res = wxLogChain_Create(logger);
-  _vres = camlidl_c2ml_wxc_idl_wxLogChain(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxLogChain(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxLogChain_Delete(
+value camlidl_wxc_wxLogChain_Delete(
 	value _v__obj)
 {
   wxLogChain _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLogChain(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLogChain(_v__obj, &_obj, _ctx);
   wxLogChain_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxLogChain_GetOldLog(
+value camlidl_wxc_wxLogChain_GetOldLog(
 	value _v__obj)
 {
   wxLogChain _obj; /*in*/
@@ -66,14 +66,14 @@ value camlidl_wxc_idl_wxLogChain_GetOldLog(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLogChain(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLogChain(_v__obj, &_obj, _ctx);
   _res = wxLogChain_GetOldLog(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxLog(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxLog(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxLogChain_IsPassingMessages(
+value camlidl_wxc_wxLogChain_IsPassingMessages(
 	value _v__obj)
 {
   wxLogChain _obj; /*in*/
@@ -82,14 +82,14 @@ value camlidl_wxc_idl_wxLogChain_IsPassingMessages(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLogChain(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLogChain(_v__obj, &_obj, _ctx);
   _res = wxLogChain_IsPassingMessages(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxLogChain_PassMessages(
+value camlidl_wxc_wxLogChain_PassMessages(
 	value _v__obj,
 	value _v_bDoPass)
 {
@@ -97,14 +97,14 @@ value camlidl_wxc_idl_wxLogChain_PassMessages(
   int bDoPass; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLogChain(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLogChain(_v__obj, &_obj, _ctx);
   bDoPass = Int_val(_v_bDoPass);
   wxLogChain_PassMessages(_obj, bDoPass);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxLogChain_SetLog(
+value camlidl_wxc_wxLogChain_SetLog(
 	value _v__obj,
 	value _v_logger)
 {
@@ -112,8 +112,8 @@ value camlidl_wxc_idl_wxLogChain_SetLog(
   wxLog logger; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLogChain(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxLog(_v_logger, &logger, _ctx);
+  camlidl_ml2c_wxc_wxLogChain(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxLog(_v_logger, &logger, _ctx);
   wxLogChain_SetLog(_obj, logger);
   camlidl_free(_ctx);
   return Val_unit;

@@ -1,39 +1,39 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : wxString -> bool -> wxSound
-	= "camlidl_wxc_idl_wxSound_Create"
+	= "camlidl_wxc_wxSound_Create"
 
 external stop : wxSound -> unit
-	= "camlidl_wxc_idl_wxSound_Stop"
+	= "camlidl_wxc_wxSound_Stop"
 
 external setClientClosure : wxSound -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxSound -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external play : wxSound -> int -> bool
-	= "camlidl_wxc_idl_wxSound_Play"
+	= "camlidl_wxc_wxSound_Play"
 
 external isScrolledWindow : wxSound -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isOk : wxSound -> bool
-	= "camlidl_wxc_idl_wxSound_IsOk"
+	= "camlidl_wxc_wxSound_IsOk"
 
 external isKindOf : wxSound -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external getClientClosure : wxSound -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxSound -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxSound -> unit
-	= "camlidl_wxc_idl_wxSound_Delete"
+	= "camlidl_wxc_wxSound_Delete"
 
 let wxnew fileName isResource =
   let fileName = WxString.createUTF8 fileName in
@@ -42,7 +42,7 @@ let wxnew fileName isResource =
   wxres
 
 external null_object : unit -> wxSound
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

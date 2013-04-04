@@ -141,7 +141,7 @@ typedef [abstract, ptr] void *voidptr;
 #define TArrayStringOut         [out, string *] TChar**
 #define TArrayObjectOut(tp)     TClass(tp)*
 
-#define TArrayString(n,p)       int n,[in, string*]  TChar** p
+#define TArrayString(n,p)       int n, [in, string*]  TChar* p[]
 // #define TArrayInt(n,p)          int n, int* p
 // #define TArrayIntPtr(n,p)       int n, intptr_t* p
 // #define TArrayObject(n,tp,p)    int n, TClass(tp)* p
@@ -192,5 +192,9 @@ typedef [abstract, ptr] void *voidptr;
 #define TRectOutDouble(x,y,w,h) double* x, double* y, double* w, double* h
 #define TSizeDouble(w,h)        double x,  double y
 #define TSizeOutDouble(w,h)     double* x, double* y
+
+#include "typedef.idl"
+#include "extend.idl"
+#include "wxc_more.idl"
 
 #endif /* WXC_TYPES_H */

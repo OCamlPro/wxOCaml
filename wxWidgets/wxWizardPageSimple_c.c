@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxWizardPageSimple(value _v1, wxWizardPageSimple * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxWizardPageSimple(value _v1, wxWizardPageSimple * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxWizardPageSimple *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxWizardPageSimple(wxWizardPageSimple * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxWizardPageSimple(wxWizardPageSimple * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxWizardPageSimple) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxWizardPageSimple_Create(
+value camlidl_wxc_wxWizardPageSimple_Create(
 	value _v__prt)
 {
   wxWizard _prt; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxWizardPageSimple_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWizard(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxWizard(_v__prt, &_prt, _ctx);
   _res = wxWizardPageSimple_Create(_prt);
-  _vres = camlidl_c2ml_wxc_idl_wxWizardPageSimple(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxWizardPageSimple(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxWizardPageSimple_GetBitmap(
+value camlidl_wxc_wxWizardPageSimple_GetBitmap(
 	value _v__obj,
 	value _v__ref)
 {
@@ -53,14 +53,14 @@ value camlidl_wxc_idl_wxWizardPageSimple_GetBitmap(
   wxBitmap _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWizardPageSimple(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxWizardPageSimple(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v__ref, &_ref, _ctx);
   wxWizardPageSimple_GetBitmap(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxWizardPageSimple_GetNext(
+value camlidl_wxc_wxWizardPageSimple_GetNext(
 	value _v__obj)
 {
   wxWizardPageSimple _obj; /*in*/
@@ -69,14 +69,14 @@ value camlidl_wxc_idl_wxWizardPageSimple_GetNext(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWizardPageSimple(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWizardPageSimple(_v__obj, &_obj, _ctx);
   _res = wxWizardPageSimple_GetNext(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxWizardPageSimple(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxWizardPageSimple(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxWizardPageSimple_GetPrev(
+value camlidl_wxc_wxWizardPageSimple_GetPrev(
 	value _v__obj)
 {
   wxWizardPageSimple _obj; /*in*/
@@ -85,14 +85,14 @@ value camlidl_wxc_idl_wxWizardPageSimple_GetPrev(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWizardPageSimple(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWizardPageSimple(_v__obj, &_obj, _ctx);
   _res = wxWizardPageSimple_GetPrev(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxWizardPageSimple(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxWizardPageSimple(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxWizardPageSimple_SetNext(
+value camlidl_wxc_wxWizardPageSimple_SetNext(
 	value _v__obj,
 	value _v_next)
 {
@@ -100,14 +100,14 @@ value camlidl_wxc_idl_wxWizardPageSimple_SetNext(
   wxWizardPageSimple next; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWizardPageSimple(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWizardPageSimple(_v_next, &next, _ctx);
+  camlidl_ml2c_wxc_wxWizardPageSimple(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWizardPageSimple(_v_next, &next, _ctx);
   wxWizardPageSimple_SetNext(_obj, next);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxWizardPageSimple_SetPrev(
+value camlidl_wxc_wxWizardPageSimple_SetPrev(
 	value _v__obj,
 	value _v_prev)
 {
@@ -115,8 +115,8 @@ value camlidl_wxc_idl_wxWizardPageSimple_SetPrev(
   wxWizardPageSimple prev; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWizardPageSimple(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWizardPageSimple(_v_prev, &prev, _ctx);
+  camlidl_ml2c_wxc_wxWizardPageSimple(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWizardPageSimple(_v_prev, &prev, _ctx);
   wxWizardPageSimple_SetPrev(_obj, prev);
   camlidl_free(_ctx);
   return Val_unit;

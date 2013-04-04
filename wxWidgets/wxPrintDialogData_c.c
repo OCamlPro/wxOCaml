@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxPrintDialogData(value _v1, wxPrintDialogData * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxPrintDialogData(value _v1, wxPrintDialogData * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxPrintDialogData *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxPrintDialogData(wxPrintDialogData * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxPrintDialogData(wxPrintDialogData * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxPrintDialogData) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_Assign(
+value camlidl_wxc_wxPrintDialogData_Assign(
 	value _v__obj,
 	value _v_data)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxPrintDialogData_Assign(
   wxPrintDialogData data; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v_data, &data, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v_data, &data, _ctx);
   wxPrintDialogData_Assign(_obj, data);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_AssignData(
+value camlidl_wxc_wxPrintDialogData_AssignData(
 	value _v__obj,
 	value _v_data)
 {
@@ -52,14 +52,14 @@ value camlidl_wxc_idl_wxPrintDialogData_AssignData(
   wxPrintData data; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxPrintData(_v_data, &data, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintData(_v_data, &data, _ctx);
   wxPrintDialogData_AssignData(_obj, data);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_CreateDefault(value _unit)
+value camlidl_wxc_wxPrintDialogData_CreateDefault(value _unit)
 {
   wxPrintDialogData _res;
   value _vres;
@@ -67,12 +67,12 @@ value camlidl_wxc_idl_wxPrintDialogData_CreateDefault(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxPrintDialogData_CreateDefault();
-  _vres = camlidl_c2ml_wxc_idl_wxPrintDialogData(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPrintDialogData(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_CreateFromData(
+value camlidl_wxc_wxPrintDialogData_CreateFromData(
 	value _v_printData)
 {
   wxPrintData printData; /*in*/
@@ -81,26 +81,26 @@ value camlidl_wxc_idl_wxPrintDialogData_CreateFromData(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintData(_v_printData, &printData, _ctx);
+  camlidl_ml2c_wxc_wxPrintData(_v_printData, &printData, _ctx);
   _res = wxPrintDialogData_CreateFromData(printData);
-  _vres = camlidl_c2ml_wxc_idl_wxPrintDialogData(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPrintDialogData(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_Delete(
+value camlidl_wxc_wxPrintDialogData_Delete(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   wxPrintDialogData_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_EnableHelp(
+value camlidl_wxc_wxPrintDialogData_EnableHelp(
 	value _v__obj,
 	value _v_flag)
 {
@@ -108,14 +108,14 @@ value camlidl_wxc_idl_wxPrintDialogData_EnableHelp(
   int flag; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   flag = Int_val(_v_flag);
   wxPrintDialogData_EnableHelp(_obj, flag);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_EnablePageNumbers(
+value camlidl_wxc_wxPrintDialogData_EnablePageNumbers(
 	value _v__obj,
 	value _v_flag)
 {
@@ -123,14 +123,14 @@ value camlidl_wxc_idl_wxPrintDialogData_EnablePageNumbers(
   int flag; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   flag = Int_val(_v_flag);
   wxPrintDialogData_EnablePageNumbers(_obj, flag);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_EnablePrintToFile(
+value camlidl_wxc_wxPrintDialogData_EnablePrintToFile(
 	value _v__obj,
 	value _v_flag)
 {
@@ -138,14 +138,14 @@ value camlidl_wxc_idl_wxPrintDialogData_EnablePrintToFile(
   int flag; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   flag = Int_val(_v_flag);
   wxPrintDialogData_EnablePrintToFile(_obj, flag);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_EnableSelection(
+value camlidl_wxc_wxPrintDialogData_EnableSelection(
 	value _v__obj,
 	value _v_flag)
 {
@@ -153,14 +153,14 @@ value camlidl_wxc_idl_wxPrintDialogData_EnableSelection(
   int flag; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   flag = Int_val(_v_flag);
   wxPrintDialogData_EnableSelection(_obj, flag);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetAllPages(
+value camlidl_wxc_wxPrintDialogData_GetAllPages(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
@@ -169,14 +169,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetAllPages(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   _res = wxPrintDialogData_GetAllPages(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetCollate(
+value camlidl_wxc_wxPrintDialogData_GetCollate(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
@@ -185,14 +185,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetCollate(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   _res = wxPrintDialogData_GetCollate(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetEnableHelp(
+value camlidl_wxc_wxPrintDialogData_GetEnableHelp(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
@@ -201,14 +201,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetEnableHelp(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   _res = wxPrintDialogData_GetEnableHelp(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetEnablePageNumbers(
+value camlidl_wxc_wxPrintDialogData_GetEnablePageNumbers(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
@@ -217,14 +217,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetEnablePageNumbers(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   _res = wxPrintDialogData_GetEnablePageNumbers(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetEnablePrintToFile(
+value camlidl_wxc_wxPrintDialogData_GetEnablePrintToFile(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
@@ -233,14 +233,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetEnablePrintToFile(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   _res = wxPrintDialogData_GetEnablePrintToFile(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetEnableSelection(
+value camlidl_wxc_wxPrintDialogData_GetEnableSelection(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
@@ -249,14 +249,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetEnableSelection(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   _res = wxPrintDialogData_GetEnableSelection(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetFromPage(
+value camlidl_wxc_wxPrintDialogData_GetFromPage(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
@@ -265,14 +265,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetFromPage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   _res = wxPrintDialogData_GetFromPage(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetMaxPage(
+value camlidl_wxc_wxPrintDialogData_GetMaxPage(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
@@ -281,14 +281,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetMaxPage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   _res = wxPrintDialogData_GetMaxPage(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetMinPage(
+value camlidl_wxc_wxPrintDialogData_GetMinPage(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
@@ -297,14 +297,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetMinPage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   _res = wxPrintDialogData_GetMinPage(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetNoCopies(
+value camlidl_wxc_wxPrintDialogData_GetNoCopies(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
@@ -313,14 +313,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetNoCopies(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   _res = wxPrintDialogData_GetNoCopies(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetPrintData(
+value camlidl_wxc_wxPrintDialogData_GetPrintData(
 	value _v__obj,
 	value _v__ref)
 {
@@ -328,14 +328,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetPrintData(
   wxPrintData _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxPrintData(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintData(_v__ref, &_ref, _ctx);
   wxPrintDialogData_GetPrintData(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetPrintToFile(
+value camlidl_wxc_wxPrintDialogData_GetPrintToFile(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
@@ -344,14 +344,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetPrintToFile(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   _res = wxPrintDialogData_GetPrintToFile(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetSelection(
+value camlidl_wxc_wxPrintDialogData_GetSelection(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
@@ -360,14 +360,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetSelection(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   _res = wxPrintDialogData_GetSelection(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_GetToPage(
+value camlidl_wxc_wxPrintDialogData_GetToPage(
 	value _v__obj)
 {
   wxPrintDialogData _obj; /*in*/
@@ -376,14 +376,14 @@ value camlidl_wxc_idl_wxPrintDialogData_GetToPage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   _res = wxPrintDialogData_GetToPage(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_SetAllPages(
+value camlidl_wxc_wxPrintDialogData_SetAllPages(
 	value _v__obj,
 	value _v_flag)
 {
@@ -391,14 +391,14 @@ value camlidl_wxc_idl_wxPrintDialogData_SetAllPages(
   int flag; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   flag = Int_val(_v_flag);
   wxPrintDialogData_SetAllPages(_obj, flag);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_SetCollate(
+value camlidl_wxc_wxPrintDialogData_SetCollate(
 	value _v__obj,
 	value _v_flag)
 {
@@ -406,14 +406,14 @@ value camlidl_wxc_idl_wxPrintDialogData_SetCollate(
   int flag; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   flag = Int_val(_v_flag);
   wxPrintDialogData_SetCollate(_obj, flag);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_SetFromPage(
+value camlidl_wxc_wxPrintDialogData_SetFromPage(
 	value _v__obj,
 	value _v_v)
 {
@@ -421,14 +421,14 @@ value camlidl_wxc_idl_wxPrintDialogData_SetFromPage(
   int v; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   v = Int_val(_v_v);
   wxPrintDialogData_SetFromPage(_obj, v);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_SetMaxPage(
+value camlidl_wxc_wxPrintDialogData_SetMaxPage(
 	value _v__obj,
 	value _v_v)
 {
@@ -436,14 +436,14 @@ value camlidl_wxc_idl_wxPrintDialogData_SetMaxPage(
   int v; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   v = Int_val(_v_v);
   wxPrintDialogData_SetMaxPage(_obj, v);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_SetMinPage(
+value camlidl_wxc_wxPrintDialogData_SetMinPage(
 	value _v__obj,
 	value _v_v)
 {
@@ -451,14 +451,14 @@ value camlidl_wxc_idl_wxPrintDialogData_SetMinPage(
   int v; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   v = Int_val(_v_v);
   wxPrintDialogData_SetMinPage(_obj, v);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_SetNoCopies(
+value camlidl_wxc_wxPrintDialogData_SetNoCopies(
 	value _v__obj,
 	value _v_v)
 {
@@ -466,14 +466,14 @@ value camlidl_wxc_idl_wxPrintDialogData_SetNoCopies(
   int v; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   v = Int_val(_v_v);
   wxPrintDialogData_SetNoCopies(_obj, v);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_SetPrintData(
+value camlidl_wxc_wxPrintDialogData_SetPrintData(
 	value _v__obj,
 	value _v_printData)
 {
@@ -481,14 +481,14 @@ value camlidl_wxc_idl_wxPrintDialogData_SetPrintData(
   wxPrintData printData; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxPrintData(_v_printData, &printData, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintData(_v_printData, &printData, _ctx);
   wxPrintDialogData_SetPrintData(_obj, printData);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_SetPrintToFile(
+value camlidl_wxc_wxPrintDialogData_SetPrintToFile(
 	value _v__obj,
 	value _v_flag)
 {
@@ -496,14 +496,14 @@ value camlidl_wxc_idl_wxPrintDialogData_SetPrintToFile(
   int flag; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   flag = Int_val(_v_flag);
   wxPrintDialogData_SetPrintToFile(_obj, flag);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_SetSelection(
+value camlidl_wxc_wxPrintDialogData_SetSelection(
 	value _v__obj,
 	value _v_flag)
 {
@@ -511,14 +511,14 @@ value camlidl_wxc_idl_wxPrintDialogData_SetSelection(
   int flag; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   flag = Int_val(_v_flag);
   wxPrintDialogData_SetSelection(_obj, flag);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialogData_SetToPage(
+value camlidl_wxc_wxPrintDialogData_SetToPage(
 	value _v__obj,
 	value _v_v)
 {
@@ -526,7 +526,7 @@ value camlidl_wxc_idl_wxPrintDialogData_SetToPage(
   int v; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v__obj, &_obj, _ctx);
   v = Int_val(_v_v);
   wxPrintDialogData_SetToPage(_obj, v);
   camlidl_free(_ctx);

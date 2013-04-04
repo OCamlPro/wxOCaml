@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxScrolledWindow(value _v1, wxScrolledWindow * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxScrolledWindow(value _v1, wxScrolledWindow * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxScrolledWindow *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxScrolledWindow(wxScrolledWindow * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxScrolledWindow(wxScrolledWindow * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxScrolledWindow) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,19 +29,19 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_AdjustScrollbars(
+value camlidl_wxc_wxScrolledWindow_AdjustScrollbars(
 	value _v__obj)
 {
   wxScrolledWindow _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   wxScrolledWindow_AdjustScrollbars(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_CalcScrolledPosition(
+value camlidl_wxc_wxScrolledWindow_CalcScrolledPosition(
 	value _v__obj,
 	value _v_x,
 	value _v_y)
@@ -58,7 +58,7 @@ value camlidl_wxc_idl_wxScrolledWindow_CalcScrolledPosition(
   value _vresult;
   value _vres[2] = { 0, 0, };
 
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   xx = &_c1;
@@ -75,7 +75,7 @@ value camlidl_wxc_idl_wxScrolledWindow_CalcScrolledPosition(
   return _vresult;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_CalcUnscrolledPosition(
+value camlidl_wxc_wxScrolledWindow_CalcUnscrolledPosition(
 	value _v__obj,
 	value _v_x,
 	value _v_y)
@@ -92,7 +92,7 @@ value camlidl_wxc_idl_wxScrolledWindow_CalcUnscrolledPosition(
   value _vresult;
   value _vres[2] = { 0, 0, };
 
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   xx = &_c1;
@@ -109,7 +109,7 @@ value camlidl_wxc_idl_wxScrolledWindow_CalcUnscrolledPosition(
   return _vresult;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_Create(
+value camlidl_wxc_wxScrolledWindow_Create(
 	value _v__prt,
 	value _v__id,
 	value _v__lft,
@@ -130,7 +130,7 @@ value camlidl_wxc_idl_wxScrolledWindow_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
   _id = Int_val(_v__id);
   _lft = Int_val(_v__lft);
   _top = Int_val(_v__top);
@@ -138,17 +138,17 @@ value camlidl_wxc_idl_wxScrolledWindow_Create(
   _hgt = Int_val(_v__hgt);
   _stl = Int_val(_v__stl);
   _res = wxScrolledWindow_Create(_prt, _id, _lft, _top, _wdt, _hgt, _stl);
-  _vres = camlidl_c2ml_wxc_idl_wxScrolledWindow(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxScrolledWindow(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxScrolledWindow_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxScrolledWindow_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxScrolledWindow_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_EnableScrolling(
+value camlidl_wxc_wxScrolledWindow_EnableScrolling(
 	value _v__obj,
 	value _v_x_scrolling,
 	value _v_y_scrolling)
@@ -158,7 +158,7 @@ value camlidl_wxc_idl_wxScrolledWindow_EnableScrolling(
   int y_scrolling; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   x_scrolling = Int_val(_v_x_scrolling);
   y_scrolling = Int_val(_v_y_scrolling);
   wxScrolledWindow_EnableScrolling(_obj, x_scrolling, y_scrolling);
@@ -166,7 +166,7 @@ value camlidl_wxc_idl_wxScrolledWindow_EnableScrolling(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_GetScaleX(
+value camlidl_wxc_wxScrolledWindow_GetScaleX(
 	value _v__obj)
 {
   wxScrolledWindow _obj; /*in*/
@@ -175,14 +175,14 @@ value camlidl_wxc_idl_wxScrolledWindow_GetScaleX(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   _res = wxScrolledWindow_GetScaleX(_obj);
   _vres = copy_double(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_GetScaleY(
+value camlidl_wxc_wxScrolledWindow_GetScaleY(
 	value _v__obj)
 {
   wxScrolledWindow _obj; /*in*/
@@ -191,14 +191,14 @@ value camlidl_wxc_idl_wxScrolledWindow_GetScaleY(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   _res = wxScrolledWindow_GetScaleY(_obj);
   _vres = copy_double(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_GetScrollPageSize(
+value camlidl_wxc_wxScrolledWindow_GetScrollPageSize(
 	value _v__obj,
 	value _v_orient)
 {
@@ -209,7 +209,7 @@ value camlidl_wxc_idl_wxScrolledWindow_GetScrollPageSize(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   orient = Int_val(_v_orient);
   _res = wxScrolledWindow_GetScrollPageSize(_obj, orient);
   _vres = Val_int(_res);
@@ -217,7 +217,7 @@ value camlidl_wxc_idl_wxScrolledWindow_GetScrollPageSize(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_GetScrollPixelsPerUnit(
+value camlidl_wxc_wxScrolledWindow_GetScrollPixelsPerUnit(
 	value _v__obj)
 {
   wxScrolledWindow _obj; /*in*/
@@ -230,7 +230,7 @@ value camlidl_wxc_idl_wxScrolledWindow_GetScrollPixelsPerUnit(
   value _vresult;
   value _vres[2] = { 0, 0, };
 
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   _x = &_c1;
   _y = &_c2;
   wxScrolledWindow_GetScrollPixelsPerUnit(_obj, _x, _y);
@@ -245,7 +245,7 @@ value camlidl_wxc_idl_wxScrolledWindow_GetScrollPixelsPerUnit(
   return _vresult;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_GetTargetWindow(
+value camlidl_wxc_wxScrolledWindow_GetTargetWindow(
 	value _v__obj)
 {
   wxScrolledWindow _obj; /*in*/
@@ -254,14 +254,14 @@ value camlidl_wxc_idl_wxScrolledWindow_GetTargetWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   _res = wxScrolledWindow_GetTargetWindow(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxWindow(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxWindow(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_GetViewStart(
+value camlidl_wxc_wxScrolledWindow_GetViewStart(
 	value _v__obj)
 {
   wxScrolledWindow _obj; /*in*/
@@ -274,7 +274,7 @@ value camlidl_wxc_idl_wxScrolledWindow_GetViewStart(
   value _vresult;
   value _vres[2] = { 0, 0, };
 
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   _x = &_c1;
   _y = &_c2;
   wxScrolledWindow_GetViewStart(_obj, _x, _y);
@@ -289,7 +289,7 @@ value camlidl_wxc_idl_wxScrolledWindow_GetViewStart(
   return _vresult;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_GetVirtualSize(
+value camlidl_wxc_wxScrolledWindow_GetVirtualSize(
 	value _v__obj)
 {
   wxScrolledWindow _obj; /*in*/
@@ -302,7 +302,7 @@ value camlidl_wxc_idl_wxScrolledWindow_GetVirtualSize(
   value _vresult;
   value _vres[2] = { 0, 0, };
 
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   _x = &_c1;
   _y = &_c2;
   wxScrolledWindow_GetVirtualSize(_obj, _x, _y);
@@ -317,7 +317,7 @@ value camlidl_wxc_idl_wxScrolledWindow_GetVirtualSize(
   return _vresult;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_OnDraw(
+value camlidl_wxc_wxScrolledWindow_OnDraw(
 	value _v__obj,
 	value _v_dc)
 {
@@ -325,14 +325,14 @@ value camlidl_wxc_idl_wxScrolledWindow_OnDraw(
   wxDC dc; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxDC(_v_dc, &dc, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxDC(_v_dc, &dc, _ctx);
   wxScrolledWindow_OnDraw(_obj, dc);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_PrepareDC(
+value camlidl_wxc_wxScrolledWindow_PrepareDC(
 	value _v__obj,
 	value _v_dc)
 {
@@ -340,14 +340,14 @@ value camlidl_wxc_idl_wxScrolledWindow_PrepareDC(
   wxDC dc; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxDC(_v_dc, &dc, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxDC(_v_dc, &dc, _ctx);
   wxScrolledWindow_PrepareDC(_obj, dc);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_Scroll(
+value camlidl_wxc_wxScrolledWindow_Scroll(
 	value _v__obj,
 	value _v_x_pos,
 	value _v_y_pos)
@@ -357,7 +357,7 @@ value camlidl_wxc_idl_wxScrolledWindow_Scroll(
   int y_pos; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   x_pos = Int_val(_v_x_pos);
   y_pos = Int_val(_v_y_pos);
   wxScrolledWindow_Scroll(_obj, x_pos, y_pos);
@@ -365,7 +365,7 @@ value camlidl_wxc_idl_wxScrolledWindow_Scroll(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_SetScale(
+value camlidl_wxc_wxScrolledWindow_SetScale(
 	value _v__obj,
 	value _v_xs,
 	value _v_ys)
@@ -375,7 +375,7 @@ value camlidl_wxc_idl_wxScrolledWindow_SetScale(
   double ys; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   xs = Double_val(_v_xs);
   ys = Double_val(_v_ys);
   wxScrolledWindow_SetScale(_obj, xs, ys);
@@ -383,7 +383,7 @@ value camlidl_wxc_idl_wxScrolledWindow_SetScale(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_SetScrollPageSize(
+value camlidl_wxc_wxScrolledWindow_SetScrollPageSize(
 	value _v__obj,
 	value _v_orient,
 	value _v_pageSize)
@@ -393,7 +393,7 @@ value camlidl_wxc_idl_wxScrolledWindow_SetScrollPageSize(
   int pageSize; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   orient = Int_val(_v_orient);
   pageSize = Int_val(_v_pageSize);
   wxScrolledWindow_SetScrollPageSize(_obj, orient, pageSize);
@@ -401,7 +401,7 @@ value camlidl_wxc_idl_wxScrolledWindow_SetScrollPageSize(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_SetScrollbars(
+value camlidl_wxc_wxScrolledWindow_SetScrollbars(
 	value _v__obj,
 	value _v_pixelsPerUnitX,
 	value _v_pixelsPerUnitY,
@@ -421,7 +421,7 @@ value camlidl_wxc_idl_wxScrolledWindow_SetScrollbars(
   int noRefresh; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   pixelsPerUnitX = Int_val(_v_pixelsPerUnitX);
   pixelsPerUnitY = Int_val(_v_pixelsPerUnitY);
   noUnitsX = Int_val(_v_noUnitsX);
@@ -434,12 +434,12 @@ value camlidl_wxc_idl_wxScrolledWindow_SetScrollbars(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_SetScrollbars_bytecode(value * argv, int argn)
+value camlidl_wxc_wxScrolledWindow_SetScrollbars_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxScrolledWindow_SetScrollbars(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
+  return camlidl_wxc_wxScrolledWindow_SetScrollbars(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_ShowScrollbars(
+value camlidl_wxc_wxScrolledWindow_ShowScrollbars(
 	value _v__obj,
 	value _v_showh,
 	value _v_showv)
@@ -449,7 +449,7 @@ value camlidl_wxc_idl_wxScrolledWindow_ShowScrollbars(
   int showv; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   showh = Int_val(_v_showh);
   showv = Int_val(_v_showv);
   wxScrolledWindow_ShowScrollbars(_obj, showh, showv);
@@ -457,7 +457,7 @@ value camlidl_wxc_idl_wxScrolledWindow_ShowScrollbars(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_SetTargetWindow(
+value camlidl_wxc_wxScrolledWindow_SetTargetWindow(
 	value _v__obj,
 	value _v_target)
 {
@@ -465,14 +465,14 @@ value camlidl_wxc_idl_wxScrolledWindow_SetTargetWindow(
   wxWindow target; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_target, &target, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_target, &target, _ctx);
   wxScrolledWindow_SetTargetWindow(_obj, target);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_ViewStart(
+value camlidl_wxc_wxScrolledWindow_ViewStart(
 	value _v__obj)
 {
   wxScrolledWindow _obj; /*in*/
@@ -485,7 +485,7 @@ value camlidl_wxc_idl_wxScrolledWindow_ViewStart(
   value _vresult;
   value _vres[2] = { 0, 0, };
 
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   _x = &_c1;
   _y = &_c2;
   wxScrolledWindow_ViewStart(_obj, _x, _y);
@@ -500,7 +500,7 @@ value camlidl_wxc_idl_wxScrolledWindow_ViewStart(
   return _vresult;
 }
 
-value camlidl_wxc_idl_wxScrolledWindow_SetScrollRate(
+value camlidl_wxc_wxScrolledWindow_SetScrollRate(
 	value _v__obj,
 	value _v_xstep,
 	value _v_ystep)
@@ -510,7 +510,7 @@ value camlidl_wxc_idl_wxScrolledWindow_SetScrollRate(
   int ystep; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScrolledWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScrolledWindow(_v__obj, &_obj, _ctx);
   xstep = Int_val(_v_xstep);
   ystep = Int_val(_v_ystep);
   wxScrolledWindow_SetScrollRate(_obj, xstep, ystep);

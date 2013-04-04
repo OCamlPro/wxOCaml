@@ -1,33 +1,33 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external isKindOfEx : wxClassInfo -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxClassInfo_IsKindOfEx"
+	= "camlidl_wxc_wxClassInfo_IsKindOfEx"
 
 external isKindOf : wxClassInfo -> wxString -> bool
-	= "camlidl_wxc_idl_wxClassInfo_IsKindOf"
+	= "camlidl_wxc_wxClassInfo_IsKindOf"
 
 external getSize : wxClassInfo -> int
-	= "camlidl_wxc_idl_wxClassInfo_GetSize"
+	= "camlidl_wxc_wxClassInfo_GetSize"
 
 external getClassNameEx : wxClassInfo -> wxString
-	= "camlidl_wxc_idl_wxClassInfo_GetClassNameEx"
+	= "camlidl_wxc_wxClassInfo_GetClassNameEx"
 
 external getClassName : wxClassInfo -> voidptr
-	= "camlidl_wxc_idl_wxClassInfo_GetClassName"
+	= "camlidl_wxc_wxClassInfo_GetClassName"
 
 external getBaseClassName2 : wxClassInfo -> wxString
-	= "camlidl_wxc_idl_wxClassInfo_GetBaseClassName2"
+	= "camlidl_wxc_wxClassInfo_GetBaseClassName2"
 
 external getBaseClassName1 : wxClassInfo -> wxString
-	= "camlidl_wxc_idl_wxClassInfo_GetBaseClassName1"
+	= "camlidl_wxc_wxClassInfo_GetBaseClassName1"
 
 external findClass : wxString -> wxClassInfo
-	= "camlidl_wxc_idl_wxClassInfo_FindClass"
+	= "camlidl_wxc_wxClassInfo_FindClass"
 
 external createClassByName : wxClassInfo -> voidptr
-	= "camlidl_wxc_idl_wxClassInfo_CreateClassByName"
+	= "camlidl_wxc_wxClassInfo_CreateClassByName"
 
 val isKindOf : wxClassInfo -> string -> bool
 val getClassNameEx : wxClassInfo -> string

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGridEditorCreatedEvent(value _v1, wxGridEditorCreatedEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGridEditorCreatedEvent(value _v1, wxGridEditorCreatedEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGridEditorCreatedEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGridEditorCreatedEvent(wxGridEditorCreatedEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGridEditorCreatedEvent(wxGridEditorCreatedEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGridEditorCreatedEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGridEditorCreatedEvent_GetCol(
+value camlidl_wxc_wxGridEditorCreatedEvent_GetCol(
 	value _v__obj)
 {
   wxGridEditorCreatedEvent _obj; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxGridEditorCreatedEvent_GetCol(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridEditorCreatedEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridEditorCreatedEvent(_v__obj, &_obj, _ctx);
   _res = wxGridEditorCreatedEvent_GetCol(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridEditorCreatedEvent_GetControl(
+value camlidl_wxc_wxGridEditorCreatedEvent_GetControl(
 	value _v__obj)
 {
   wxGridEditorCreatedEvent _obj; /*in*/
@@ -54,14 +54,14 @@ value camlidl_wxc_idl_wxGridEditorCreatedEvent_GetControl(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridEditorCreatedEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridEditorCreatedEvent(_v__obj, &_obj, _ctx);
   _res = wxGridEditorCreatedEvent_GetControl(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxControl(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxControl(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridEditorCreatedEvent_GetRow(
+value camlidl_wxc_wxGridEditorCreatedEvent_GetRow(
 	value _v__obj)
 {
   wxGridEditorCreatedEvent _obj; /*in*/
@@ -70,14 +70,14 @@ value camlidl_wxc_idl_wxGridEditorCreatedEvent_GetRow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridEditorCreatedEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridEditorCreatedEvent(_v__obj, &_obj, _ctx);
   _res = wxGridEditorCreatedEvent_GetRow(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridEditorCreatedEvent_SetCol(
+value camlidl_wxc_wxGridEditorCreatedEvent_SetCol(
 	value _v__obj,
 	value _v_col)
 {
@@ -85,14 +85,14 @@ value camlidl_wxc_idl_wxGridEditorCreatedEvent_SetCol(
   int col; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridEditorCreatedEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridEditorCreatedEvent(_v__obj, &_obj, _ctx);
   col = Int_val(_v_col);
   wxGridEditorCreatedEvent_SetCol(_obj, col);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridEditorCreatedEvent_SetControl(
+value camlidl_wxc_wxGridEditorCreatedEvent_SetControl(
 	value _v__obj,
 	value _v_ctrl)
 {
@@ -100,14 +100,14 @@ value camlidl_wxc_idl_wxGridEditorCreatedEvent_SetControl(
   wxControl ctrl; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridEditorCreatedEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxControl(_v_ctrl, &ctrl, _ctx);
+  camlidl_ml2c_wxc_wxGridEditorCreatedEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxControl(_v_ctrl, &ctrl, _ctx);
   wxGridEditorCreatedEvent_SetControl(_obj, ctrl);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridEditorCreatedEvent_SetRow(
+value camlidl_wxc_wxGridEditorCreatedEvent_SetRow(
 	value _v__obj,
 	value _v_row)
 {
@@ -115,7 +115,7 @@ value camlidl_wxc_idl_wxGridEditorCreatedEvent_SetRow(
   int row; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridEditorCreatedEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridEditorCreatedEvent(_v__obj, &_obj, _ctx);
   row = Int_val(_v_row);
   wxGridEditorCreatedEvent_SetRow(_obj, row);
   camlidl_free(_ctx);

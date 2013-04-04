@@ -1,78 +1,78 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : unit -> wxFontData
-	= "camlidl_wxc_idl_wxFontData_Create"
+	= "camlidl_wxc_wxFontData_Create"
 
 external setShowHelp : wxFontData -> bool -> unit
-	= "camlidl_wxc_idl_wxFontData_SetShowHelp"
+	= "camlidl_wxc_wxFontData_SetShowHelp"
 
 external setRange : wxFontData -> int -> int -> unit
-	= "camlidl_wxc_idl_wxFontData_SetRange"
+	= "camlidl_wxc_wxFontData_SetRange"
 
 external setInitialFont : wxFontData -> wxFont -> unit
-	= "camlidl_wxc_idl_wxFontData_SetInitialFont"
+	= "camlidl_wxc_wxFontData_SetInitialFont"
 
 external setEncoding : wxFontData -> int -> unit
-	= "camlidl_wxc_idl_wxFontData_SetEncoding"
+	= "camlidl_wxc_wxFontData_SetEncoding"
 
 external setColour : wxFontData -> wxColour -> unit
-	= "camlidl_wxc_idl_wxFontData_SetColour"
+	= "camlidl_wxc_wxFontData_SetColour"
 
 external setClientClosure : wxFontData -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external setChosenFont : wxFontData -> wxFont -> unit
-	= "camlidl_wxc_idl_wxFontData_SetChosenFont"
+	= "camlidl_wxc_wxFontData_SetChosenFont"
 
 external setAllowSymbols : wxFontData -> bool -> unit
-	= "camlidl_wxc_idl_wxFontData_SetAllowSymbols"
+	= "camlidl_wxc_wxFontData_SetAllowSymbols"
 
 external safeDelete : wxFontData -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external isScrolledWindow : wxFontData -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxFontData -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external getShowHelp : wxFontData -> int
-	= "camlidl_wxc_idl_wxFontData_GetShowHelp"
+	= "camlidl_wxc_wxFontData_GetShowHelp"
 
 external getInitialFont : wxFontData -> wxFont -> unit
-	= "camlidl_wxc_idl_wxFontData_GetInitialFont"
+	= "camlidl_wxc_wxFontData_GetInitialFont"
 
 external getEncoding : wxFontData -> int
-	= "camlidl_wxc_idl_wxFontData_GetEncoding"
+	= "camlidl_wxc_wxFontData_GetEncoding"
 
 external getEnableEffects : wxFontData -> bool
-	= "camlidl_wxc_idl_wxFontData_GetEnableEffects"
+	= "camlidl_wxc_wxFontData_GetEnableEffects"
 
 external getColour : wxFontData -> wxColour -> unit
-	= "camlidl_wxc_idl_wxFontData_GetColour"
+	= "camlidl_wxc_wxFontData_GetColour"
 
 external getClientClosure : wxFontData -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxFontData -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external getChosenFont : wxFontData -> wxFont -> unit
-	= "camlidl_wxc_idl_wxFontData_GetChosenFont"
+	= "camlidl_wxc_wxFontData_GetChosenFont"
 
 external getAllowSymbols : wxFontData -> bool
-	= "camlidl_wxc_idl_wxFontData_GetAllowSymbols"
+	= "camlidl_wxc_wxFontData_GetAllowSymbols"
 
 external enableEffects : wxFontData -> bool -> unit
-	= "camlidl_wxc_idl_wxFontData_EnableEffects"
+	= "camlidl_wxc_wxFontData_EnableEffects"
 
 external delete : wxFontData -> unit
-	= "camlidl_wxc_idl_wxFontData_Delete"
+	= "camlidl_wxc_wxFontData_Delete"
 
 external null_object : unit -> wxFontData
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

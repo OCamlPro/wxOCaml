@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxInputSinkEvent(value _v1, wxInputSinkEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxInputSinkEvent(value _v1, wxInputSinkEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxInputSinkEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxInputSinkEvent(wxInputSinkEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxInputSinkEvent(wxInputSinkEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxInputSinkEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxInputSinkEvent_LastError(
+value camlidl_wxc_wxInputSinkEvent_LastError(
 	value _v_obj)
 {
   wxInputSinkEvent obj; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxInputSinkEvent_LastError(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputSinkEvent(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxInputSinkEvent(_v_obj, &obj, _ctx);
   _res = wxInputSinkEvent_LastError(obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxInputSinkEvent_LastRead(
+value camlidl_wxc_wxInputSinkEvent_LastRead(
 	value _v_obj)
 {
   wxInputSinkEvent obj; /*in*/
@@ -54,14 +54,14 @@ value camlidl_wxc_idl_wxInputSinkEvent_LastRead(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputSinkEvent(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxInputSinkEvent(_v_obj, &obj, _ctx);
   _res = wxInputSinkEvent_LastRead(obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxInputSinkEvent_LastInput(
+value camlidl_wxc_wxInputSinkEvent_LastInput(
 	value _v_obj)
 {
   wxInputSinkEvent obj; /*in*/
@@ -71,7 +71,7 @@ value camlidl_wxc_idl_wxInputSinkEvent_LastInput(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputSinkEvent(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxInputSinkEvent(_v_obj, &obj, _ctx);
   _res = wxInputSinkEvent_LastInput(obj);
   if (_res == NULL) {
     _vres = Val_int(0);

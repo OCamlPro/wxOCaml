@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxFindDialogEvent(value _v1, wxFindDialogEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxFindDialogEvent(value _v1, wxFindDialogEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxFindDialogEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxFindDialogEvent(wxFindDialogEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxFindDialogEvent(wxFindDialogEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxFindDialogEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxFindDialogEvent_GetFindString(
+value camlidl_wxc_wxFindDialogEvent_GetFindString(
 	value _v__obj,
 	value _v__ref)
 {
@@ -40,15 +40,15 @@ value camlidl_wxc_idl_wxFindDialogEvent_GetFindString(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFindDialogEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxFindDialogEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__ref, &_ref, _ctx);
   _res = wxFindDialogEvent_GetFindString(_obj, _ref);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFindDialogEvent_GetFlags(
+value camlidl_wxc_wxFindDialogEvent_GetFlags(
 	value _v__obj)
 {
   wxFindDialogEvent _obj; /*in*/
@@ -57,14 +57,14 @@ value camlidl_wxc_idl_wxFindDialogEvent_GetFlags(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFindDialogEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFindDialogEvent(_v__obj, &_obj, _ctx);
   _res = wxFindDialogEvent_GetFlags(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFindDialogEvent_GetReplaceString(
+value camlidl_wxc_wxFindDialogEvent_GetReplaceString(
 	value _v__obj,
 	value _v__ref)
 {
@@ -75,8 +75,8 @@ value camlidl_wxc_idl_wxFindDialogEvent_GetReplaceString(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFindDialogEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxFindDialogEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__ref, &_ref, _ctx);
   _res = wxFindDialogEvent_GetReplaceString(_obj, _ref);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

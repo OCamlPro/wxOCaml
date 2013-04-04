@@ -8,11 +8,11 @@ TClassDef(wxManagedPtr)
 #define EXPORT extern "C"
 #endif
 
-void* wxManagedPtr_GetPtr( TSelf(wxManagedPtr) self );
+voidptr wxManagedPtr_GetPtr( TSelf(wxManagedPtr) self );
 void  wxManagedPtr_NoFinalize( TSelf(wxManagedPtr) self );
 void  wxManagedPtr_Finalize( TSelf(wxManagedPtr) self );
 void  wxManagedPtr_Delete( TSelf(wxManagedPtr) self );
-EXPORT void* wxManagedPtr_GetDeleteFunction( );
+EXPORT voidptr wxManagedPtr_GetDeleteFunction( );
 
 /*-----------------------------------------------------------------------------
   Creators
@@ -33,26 +33,26 @@ TClass(wxManagedPtr) wxManagedPtr_CreateFromPen(TClass(wxPen) obj);
 /*-----------------------------------------------------------------------------
   Safe deletion
 -----------------------------------------------------------------------------*/
-void wxObject_SafeDelete( TSelf(Object) self );
+void wxObject_SafeDelete( TSelf(wxObject) self );
 
-void wxBitmap_SafeDelete( TSelf(Bitmap) self );
-void wxIcon_SafeDelete( TSelf(Icon) self );
+void wxBitmap_SafeDelete( TSelf(wxBitmap) self );
+void wxIcon_SafeDelete( TSelf(wxIcon) self );
 
-void wxBrush_SafeDelete( TSelf(Brush) self );
-void wxColour_SafeDelete( TSelf(Colour) self );
-void wxCursor_SafeDelete( TSelf(Cursor) self );
-void wxFont_SafeDelete( TSelf(Font) self );
-void wxPen_SafeDelete( TSelf(Pen) self );
+void wxBrush_SafeDelete( TSelf(wxBrush) self );
+void wxColour_SafeDelete( TSelf(wxColour) self );
+void wxCursor_SafeDelete( TSelf(wxCursor) self );
+void wxFont_SafeDelete( TSelf(wxFont) self );
+void wxPen_SafeDelete( TSelf(wxPen) self );
 
 /*-----------------------------------------------------------------------------
   Is an object static (i.e. do not delete it)
 -----------------------------------------------------------------------------*/
-TBool wxBitmap_IsStatic( TSelf(Bitmap) self );
-TBool wxIcon_IsStatic( TSelf(Icon) self );
+TBool wxBitmap_IsStatic( TSelf(wxBitmap) self );
+TBool wxIcon_IsStatic( TSelf(wxIcon) self );
 
-TBool wxBrush_IsStatic( TSelf(Brush) self );
-TBool wxColour_IsStatic( TSelf(Colour) self );
-TBool wxCursor_IsStatic( TSelf(Cursor) self );
-TBool wxFont_IsStatic( TSelf(Font) self );
-TBool wxPen_IsStatic( TSelf(Pen) self );
+TBool wxBrush_IsStatic( TSelf(wxBrush) self );
+TBool wxColour_IsStatic( TSelf(wxColour) self );
+TBool wxCursor_IsStatic( TSelf(wxCursor) self );
+TBool wxFont_IsStatic( TSelf(wxFont) self );
+TBool wxPen_IsStatic( TSelf(wxPen) self );
 

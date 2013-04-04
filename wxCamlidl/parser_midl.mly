@@ -178,6 +178,7 @@ component:
         { read_import $2 }
   | quote opt_semi
         { let (kind, txt) = make_diversion $1 in [Comp_diversion(kind, txt)] }
+  | SEMI { [] }
 ;
 
 /* Constant declaration */
@@ -212,7 +213,7 @@ opt_quotes:
   | /* empty */
         { [] }
 ;
-    
+
 /* Parameter lists */
 
 param_list_declarator:
@@ -335,14 +336,14 @@ array_bounds_declarator:
 /* Struct declaration and discriminated unions */
 
 union_name:
-    ident 
+    ident
         { $1 }
   | /* empty */
         { "u" }
 ;
 struct_declarator:
     STRUCT opt_ident LBRACE field_declarators RBRACE
-        { {sd_name = $2; sd_mod = ""; sd_stamp = 0; sd_fields = $4} } 
+        { {sd_name = $2; sd_mod = ""; sd_stamp = 0; sd_fields = $4} }
   | UNION opt_ident SWITCH LPAREN simple_type_spec ident RPAREN union_name
     LBRACE union_body RBRACE
         { make_discriminated_union $2 $8 $6 $5 (List.rev $10) }

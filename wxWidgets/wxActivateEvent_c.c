@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxActivateEvent(value _v1, wxActivateEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxActivateEvent(value _v1, wxActivateEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxActivateEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxActivateEvent(wxActivateEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxActivateEvent(wxActivateEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxActivateEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxActivateEvent_CopyObject(
+value camlidl_wxc_wxActivateEvent_CopyObject(
 	value _v__obj,
 	value _v_obj)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxActivateEvent_CopyObject(
   voidptr obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxActivateEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxActivateEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_obj, &obj, _ctx);
   wxActivateEvent_CopyObject(_obj, obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxActivateEvent_GetActive(
+value camlidl_wxc_wxActivateEvent_GetActive(
 	value _v__obj)
 {
   wxActivateEvent _obj; /*in*/
@@ -53,7 +53,7 @@ value camlidl_wxc_idl_wxActivateEvent_GetActive(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxActivateEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxActivateEvent(_v__obj, &_obj, _ctx);
   _res = wxActivateEvent_GetActive(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

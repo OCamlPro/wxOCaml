@@ -1,120 +1,120 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : unit -> wxListItem
-	= "camlidl_wxc_idl_wxListItem_Create"
+	= "camlidl_wxc_wxListItem_Create"
 
 external setWidth : wxListItem -> int -> unit
-	= "camlidl_wxc_idl_wxListItem_SetWidth"
+	= "camlidl_wxc_wxListItem_SetWidth"
 
 external setTextColour : wxListItem -> wxColour -> unit
-	= "camlidl_wxc_idl_wxListItem_SetTextColour"
+	= "camlidl_wxc_wxListItem_SetTextColour"
 
 external setText : wxListItem -> wxString -> unit
-	= "camlidl_wxc_idl_wxListItem_SetText"
+	= "camlidl_wxc_wxListItem_SetText"
 
 external setStateMask : wxListItem -> int -> unit
-	= "camlidl_wxc_idl_wxListItem_SetStateMask"
+	= "camlidl_wxc_wxListItem_SetStateMask"
 
 external setState : wxListItem -> int -> unit
-	= "camlidl_wxc_idl_wxListItem_SetState"
+	= "camlidl_wxc_wxListItem_SetState"
 
 external setMask : wxListItem -> int -> unit
-	= "camlidl_wxc_idl_wxListItem_SetMask"
+	= "camlidl_wxc_wxListItem_SetMask"
 
 external setImage : wxListItem -> int -> unit
-	= "camlidl_wxc_idl_wxListItem_SetImage"
+	= "camlidl_wxc_wxListItem_SetImage"
 
 external setId : wxListItem -> int -> unit
-	= "camlidl_wxc_idl_wxListItem_SetId"
+	= "camlidl_wxc_wxListItem_SetId"
 
 external setFont : wxListItem -> wxFont -> unit
-	= "camlidl_wxc_idl_wxListItem_SetFont"
+	= "camlidl_wxc_wxListItem_SetFont"
 
 external setDataPointer : wxListItem -> voidptr -> unit
-	= "camlidl_wxc_idl_wxListItem_SetDataPointer"
+	= "camlidl_wxc_wxListItem_SetDataPointer"
 
 external setData : wxListItem -> int -> unit
-	= "camlidl_wxc_idl_wxListItem_SetData"
+	= "camlidl_wxc_wxListItem_SetData"
 
 external setColumn : wxListItem -> int -> unit
-	= "camlidl_wxc_idl_wxListItem_SetColumn"
+	= "camlidl_wxc_wxListItem_SetColumn"
 
 external setClientClosure : wxListItem -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external setBackgroundColour : wxListItem -> wxColour -> unit
-	= "camlidl_wxc_idl_wxListItem_SetBackgroundColour"
+	= "camlidl_wxc_wxListItem_SetBackgroundColour"
 
 external setAlign : wxListItem -> int -> unit
-	= "camlidl_wxc_idl_wxListItem_SetAlign"
+	= "camlidl_wxc_wxListItem_SetAlign"
 
 external safeDelete : wxListItem -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external isScrolledWindow : wxListItem -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxListItem -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external hasAttributes : wxListItem -> bool
-	= "camlidl_wxc_idl_wxListItem_HasAttributes"
+	= "camlidl_wxc_wxListItem_HasAttributes"
 
 external getWidth : wxListItem -> int
-	= "camlidl_wxc_idl_wxListItem_GetWidth"
+	= "camlidl_wxc_wxListItem_GetWidth"
 
 external getTextColour : wxListItem -> wxColour -> unit
-	= "camlidl_wxc_idl_wxListItem_GetTextColour"
+	= "camlidl_wxc_wxListItem_GetTextColour"
 
 external getText : wxListItem -> wxString
-	= "camlidl_wxc_idl_wxListItem_GetText"
+	= "camlidl_wxc_wxListItem_GetText"
 
 external getState : wxListItem -> int
-	= "camlidl_wxc_idl_wxListItem_GetState"
+	= "camlidl_wxc_wxListItem_GetState"
 
 external getMask : wxListItem -> int
-	= "camlidl_wxc_idl_wxListItem_GetMask"
+	= "camlidl_wxc_wxListItem_GetMask"
 
 external getImage : wxListItem -> int
-	= "camlidl_wxc_idl_wxListItem_GetImage"
+	= "camlidl_wxc_wxListItem_GetImage"
 
 external getId : wxListItem -> int
-	= "camlidl_wxc_idl_wxListItem_GetId"
+	= "camlidl_wxc_wxListItem_GetId"
 
 external getFont : wxListItem -> wxFont -> unit
-	= "camlidl_wxc_idl_wxListItem_GetFont"
+	= "camlidl_wxc_wxListItem_GetFont"
 
 external getData : wxListItem -> int
-	= "camlidl_wxc_idl_wxListItem_GetData"
+	= "camlidl_wxc_wxListItem_GetData"
 
 external getColumn : wxListItem -> int
-	= "camlidl_wxc_idl_wxListItem_GetColumn"
+	= "camlidl_wxc_wxListItem_GetColumn"
 
 external getClientClosure : wxListItem -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxListItem -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external getBackgroundColour : wxListItem -> wxColour -> unit
-	= "camlidl_wxc_idl_wxListItem_GetBackgroundColour"
+	= "camlidl_wxc_wxListItem_GetBackgroundColour"
 
 external getAttributes : wxListItem -> voidptr
-	= "camlidl_wxc_idl_wxListItem_GetAttributes"
+	= "camlidl_wxc_wxListItem_GetAttributes"
 
 external getAlign : wxListItem -> int
-	= "camlidl_wxc_idl_wxListItem_GetAlign"
+	= "camlidl_wxc_wxListItem_GetAlign"
 
 external delete : wxListItem -> unit
-	= "camlidl_wxc_idl_wxListItem_Delete"
+	= "camlidl_wxc_wxListItem_Delete"
 
 external clearAttributes : wxListItem -> unit
-	= "camlidl_wxc_idl_wxListItem_ClearAttributes"
+	= "camlidl_wxc_wxListItem_ClearAttributes"
 
 external clear : wxListItem -> unit
-	= "camlidl_wxc_idl_wxListItem_Clear"
+	= "camlidl_wxc_wxListItem_Clear"
 
 let setText _obj text =
   let text = WxString.createUTF8 text in
@@ -127,7 +127,7 @@ let getText _obj =
   WxString.getUtf8 wxres
 
 external null_object : unit -> wxListItem
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

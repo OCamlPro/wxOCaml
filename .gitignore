@@ -31,3 +31,4 @@ autom4te.cache/
 generators/gen
 wxOCaml/00-config.ocp
 wxOCaml/wxdefs.ml
+idl/wxc.h

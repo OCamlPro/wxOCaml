@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxPrinterDC(value _v1, wxPrinterDC * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxPrinterDC(value _v1, wxPrinterDC * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxPrinterDC *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxPrinterDC(wxPrinterDC * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxPrinterDC(wxPrinterDC * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxPrinterDC) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxPrinterDC_Create(
+value camlidl_wxc_wxPrinterDC_Create(
 	value _v_data)
 {
   wxPrintData data; /*in*/
@@ -38,26 +38,26 @@ value camlidl_wxc_idl_wxPrinterDC_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintData(_v_data, &data, _ctx);
+  camlidl_ml2c_wxc_wxPrintData(_v_data, &data, _ctx);
   _res = wxPrinterDC_Create(data);
-  _vres = camlidl_c2ml_wxc_idl_wxPrinterDC(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPrinterDC(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrinterDC_Delete(
+value camlidl_wxc_wxPrinterDC_Delete(
 	value _v_self)
 {
   wxPrinterDC self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrinterDC(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxPrinterDC(_v_self, &self, _ctx);
   wxPrinterDC_Delete(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrinterDC_GetPaperRect(
+value camlidl_wxc_wxPrinterDC_GetPaperRect(
 	value _v_self)
 {
   wxPrinterDC self; /*in*/
@@ -66,9 +66,9 @@ value camlidl_wxc_idl_wxPrinterDC_GetPaperRect(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrinterDC(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxPrinterDC(_v_self, &self, _ctx);
   _res = wxPrinterDC_GetPaperRect(self);
-  _vres = camlidl_c2ml_wxc_idl_wxRect(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxRect(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

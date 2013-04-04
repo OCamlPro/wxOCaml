@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxLogTextCtrl(value _v1, wxLogTextCtrl * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxLogTextCtrl(value _v1, wxLogTextCtrl * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxLogTextCtrl *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxLogTextCtrl(wxLogTextCtrl * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxLogTextCtrl(wxLogTextCtrl * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxLogTextCtrl) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxLogTextCtrl_Create(
+value camlidl_wxc_wxLogTextCtrl_Create(
 	value _v_text)
 {
   wxTextCtrl text; /*in*/
@@ -38,9 +38,9 @@ value camlidl_wxc_idl_wxLogTextCtrl_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTextCtrl(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxTextCtrl(_v_text, &text, _ctx);
   _res = wxLogTextCtrl_Create(text);
-  _vres = camlidl_c2ml_wxc_idl_wxLogTextCtrl(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxLogTextCtrl(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

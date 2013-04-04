@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxUpdateUIEvent(value _v1, wxUpdateUIEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxUpdateUIEvent(value _v1, wxUpdateUIEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxUpdateUIEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxUpdateUIEvent(wxUpdateUIEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxUpdateUIEvent(wxUpdateUIEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxUpdateUIEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxUpdateUIEvent_Check(
+value camlidl_wxc_wxUpdateUIEvent_Check(
 	value _v__obj,
 	value _v_check)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxUpdateUIEvent_Check(
   int check; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
   check = Int_val(_v_check);
   wxUpdateUIEvent_Check(_obj, check);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxUpdateUIEvent_CopyObject(
+value camlidl_wxc_wxUpdateUIEvent_CopyObject(
 	value _v__obj,
 	value _v_obj)
 {
@@ -52,14 +52,14 @@ value camlidl_wxc_idl_wxUpdateUIEvent_CopyObject(
   wxObject obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxObject(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxObject(_v_obj, &obj, _ctx);
   wxUpdateUIEvent_CopyObject(_obj, obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxUpdateUIEvent_Enable(
+value camlidl_wxc_wxUpdateUIEvent_Enable(
 	value _v__obj,
 	value _v_enable)
 {
@@ -67,14 +67,14 @@ value camlidl_wxc_idl_wxUpdateUIEvent_Enable(
   int enable; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
   enable = Int_val(_v_enable);
   wxUpdateUIEvent_Enable(_obj, enable);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxUpdateUIEvent_GetChecked(
+value camlidl_wxc_wxUpdateUIEvent_GetChecked(
 	value _v__obj)
 {
   wxUpdateUIEvent _obj; /*in*/
@@ -83,14 +83,14 @@ value camlidl_wxc_idl_wxUpdateUIEvent_GetChecked(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
   _res = wxUpdateUIEvent_GetChecked(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxUpdateUIEvent_GetEnabled(
+value camlidl_wxc_wxUpdateUIEvent_GetEnabled(
 	value _v__obj)
 {
   wxUpdateUIEvent _obj; /*in*/
@@ -99,14 +99,14 @@ value camlidl_wxc_idl_wxUpdateUIEvent_GetEnabled(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
   _res = wxUpdateUIEvent_GetEnabled(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxUpdateUIEvent_GetSetChecked(
+value camlidl_wxc_wxUpdateUIEvent_GetSetChecked(
 	value _v__obj)
 {
   wxUpdateUIEvent _obj; /*in*/
@@ -115,14 +115,14 @@ value camlidl_wxc_idl_wxUpdateUIEvent_GetSetChecked(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
   _res = wxUpdateUIEvent_GetSetChecked(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxUpdateUIEvent_GetSetEnabled(
+value camlidl_wxc_wxUpdateUIEvent_GetSetEnabled(
 	value _v__obj)
 {
   wxUpdateUIEvent _obj; /*in*/
@@ -131,14 +131,14 @@ value camlidl_wxc_idl_wxUpdateUIEvent_GetSetEnabled(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
   _res = wxUpdateUIEvent_GetSetEnabled(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxUpdateUIEvent_GetSetText(
+value camlidl_wxc_wxUpdateUIEvent_GetSetText(
 	value _v__obj)
 {
   wxUpdateUIEvent _obj; /*in*/
@@ -147,14 +147,14 @@ value camlidl_wxc_idl_wxUpdateUIEvent_GetSetText(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
   _res = wxUpdateUIEvent_GetSetText(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxUpdateUIEvent_GetText(
+value camlidl_wxc_wxUpdateUIEvent_GetText(
 	value _v__obj)
 {
   wxUpdateUIEvent _obj; /*in*/
@@ -163,14 +163,14 @@ value camlidl_wxc_idl_wxUpdateUIEvent_GetText(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
   _res = wxUpdateUIEvent_GetText(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxUpdateUIEvent_SetText(
+value camlidl_wxc_wxUpdateUIEvent_SetText(
 	value _v__obj,
 	value _v_text)
 {
@@ -178,8 +178,8 @@ value camlidl_wxc_idl_wxUpdateUIEvent_SetText(
   wxString text; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxUpdateUIEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_text, &text, _ctx);
   wxUpdateUIEvent_SetText(_obj, text);
   camlidl_free(_ctx);
   return Val_unit;

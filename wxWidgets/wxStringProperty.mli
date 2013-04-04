@@ -1,45 +1,45 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : wxString -> wxString -> wxString -> wxStringProperty
-	= "camlidl_wxc_idl_wxStringProperty_Create"
+	= "camlidl_wxc_wxStringProperty_Create"
 
 external setHelpString : wxStringProperty -> wxString -> unit
-	= "camlidl_wxc_idl_wxPGProperty_SetHelpString"
+	= "camlidl_wxc_wxPGProperty_SetHelpString"
 
 external setClientClosure : wxStringProperty -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxStringProperty -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external isScrolledWindow : wxStringProperty -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxStringProperty -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external getValueType : wxStringProperty -> wxString
-	= "camlidl_wxc_idl_wxPGProperty_GetValueType"
+	= "camlidl_wxc_wxPGProperty_GetValueType"
 
 external getValueAsString : wxStringProperty -> wxString
-	= "camlidl_wxc_idl_wxPGProperty_GetValueAsString"
+	= "camlidl_wxc_wxPGProperty_GetValueAsString"
 
 external getName : wxStringProperty -> wxString
-	= "camlidl_wxc_idl_wxPGProperty_GetName"
+	= "camlidl_wxc_wxPGProperty_GetName"
 
 external getLabel : wxStringProperty -> wxString
-	= "camlidl_wxc_idl_wxPGProperty_GetLabel"
+	= "camlidl_wxc_wxPGProperty_GetLabel"
 
 external getClientClosure : wxStringProperty -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxStringProperty -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxStringProperty -> unit
-	= "camlidl_wxc_idl_wxObject_Delete"
+	= "camlidl_wxc_wxObject_Delete"
 
 val wxnew : string -> string -> string -> wxStringProperty
 val setHelpString : wxStringProperty -> string -> unit

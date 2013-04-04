@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxFileDialog(value _v1, wxFileDialog * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxFileDialog(value _v1, wxFileDialog * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxFileDialog *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxFileDialog(wxFileDialog * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxFileDialog(wxFileDialog * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxFileDialog) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxFileDialog_Create(
+value camlidl_wxc_wxFileDialog_Create(
 	value _v__prt,
 	value _v__msg,
 	value _v__dir,
@@ -52,26 +52,26 @@ value camlidl_wxc_idl_wxFileDialog_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v__msg, &_msg, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v__dir, &_dir, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v__fle, &_fle, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v__wcd, &_wcd, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__msg, &_msg, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__dir, &_dir, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__fle, &_fle, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__wcd, &_wcd, _ctx);
   _lft = Int_val(_v__lft);
   _top = Int_val(_v__top);
   _stl = Int_val(_v__stl);
   _res = wxFileDialog_Create(_prt, _msg, _dir, _fle, _wcd, _lft, _top, _stl);
-  _vres = camlidl_c2ml_wxc_idl_wxFileDialog(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxFileDialog(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFileDialog_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxFileDialog_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxFileDialog_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
+  return camlidl_wxc_wxFileDialog_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
 }
 
-value camlidl_wxc_idl_wxFileDialog_GetDirectory(
+value camlidl_wxc_wxFileDialog_GetDirectory(
 	value _v__obj)
 {
   wxFileDialog _obj; /*in*/
@@ -80,14 +80,14 @@ value camlidl_wxc_idl_wxFileDialog_GetDirectory(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
   _res = wxFileDialog_GetDirectory(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFileDialog_GetFilename(
+value camlidl_wxc_wxFileDialog_GetFilename(
 	value _v__obj)
 {
   wxFileDialog _obj; /*in*/
@@ -96,14 +96,14 @@ value camlidl_wxc_idl_wxFileDialog_GetFilename(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
   _res = wxFileDialog_GetFilename(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFileDialog_GetFilenames(
+value camlidl_wxc_wxFileDialog_GetFilenames(
 	value _v__obj)
 {
   wxFileDialog _obj; /*in*/
@@ -115,7 +115,7 @@ value camlidl_wxc_idl_wxFileDialog_GetFilenames(
   value _vresult;
   value _vres[2] = { 0, 0, };
 
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
   paths = &_c1;
   _res = wxFileDialog_GetFilenames(_obj, paths);
   Begin_roots_block(_vres, 2)
@@ -129,7 +129,7 @@ value camlidl_wxc_idl_wxFileDialog_GetFilenames(
   return _vresult;
 }
 
-value camlidl_wxc_idl_wxFileDialog_GetFilterIndex(
+value camlidl_wxc_wxFileDialog_GetFilterIndex(
 	value _v__obj)
 {
   wxFileDialog _obj; /*in*/
@@ -138,14 +138,14 @@ value camlidl_wxc_idl_wxFileDialog_GetFilterIndex(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
   _res = wxFileDialog_GetFilterIndex(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFileDialog_GetMessage(
+value camlidl_wxc_wxFileDialog_GetMessage(
 	value _v__obj)
 {
   wxFileDialog _obj; /*in*/
@@ -154,14 +154,14 @@ value camlidl_wxc_idl_wxFileDialog_GetMessage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
   _res = wxFileDialog_GetMessage(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFileDialog_GetPath(
+value camlidl_wxc_wxFileDialog_GetPath(
 	value _v__obj)
 {
   wxFileDialog _obj; /*in*/
@@ -170,14 +170,14 @@ value camlidl_wxc_idl_wxFileDialog_GetPath(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
   _res = wxFileDialog_GetPath(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFileDialog_GetPaths(
+value camlidl_wxc_wxFileDialog_GetPaths(
 	value _v__obj)
 {
   wxFileDialog _obj; /*in*/
@@ -189,7 +189,7 @@ value camlidl_wxc_idl_wxFileDialog_GetPaths(
   value _vresult;
   value _vres[2] = { 0, 0, };
 
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
   paths = &_c1;
   _res = wxFileDialog_GetPaths(_obj, paths);
   Begin_roots_block(_vres, 2)
@@ -203,7 +203,7 @@ value camlidl_wxc_idl_wxFileDialog_GetPaths(
   return _vresult;
 }
 
-value camlidl_wxc_idl_wxFileDialog_GetStyle(
+value camlidl_wxc_wxFileDialog_GetStyle(
 	value _v__obj)
 {
   wxFileDialog _obj; /*in*/
@@ -212,14 +212,14 @@ value camlidl_wxc_idl_wxFileDialog_GetStyle(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
   _res = wxFileDialog_GetStyle(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFileDialog_GetWildcard(
+value camlidl_wxc_wxFileDialog_GetWildcard(
 	value _v__obj)
 {
   wxFileDialog _obj; /*in*/
@@ -228,14 +228,14 @@ value camlidl_wxc_idl_wxFileDialog_GetWildcard(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
   _res = wxFileDialog_GetWildcard(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFileDialog_SetDirectory(
+value camlidl_wxc_wxFileDialog_SetDirectory(
 	value _v__obj,
 	value _v_dir)
 {
@@ -243,14 +243,14 @@ value camlidl_wxc_idl_wxFileDialog_SetDirectory(
   wxString dir; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_dir, &dir, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_dir, &dir, _ctx);
   wxFileDialog_SetDirectory(_obj, dir);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFileDialog_SetFilename(
+value camlidl_wxc_wxFileDialog_SetFilename(
 	value _v__obj,
 	value _v_name)
 {
@@ -258,14 +258,14 @@ value camlidl_wxc_idl_wxFileDialog_SetFilename(
   wxString name; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   wxFileDialog_SetFilename(_obj, name);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFileDialog_SetFilterIndex(
+value camlidl_wxc_wxFileDialog_SetFilterIndex(
 	value _v__obj,
 	value _v_filterIndex)
 {
@@ -273,14 +273,14 @@ value camlidl_wxc_idl_wxFileDialog_SetFilterIndex(
   int filterIndex; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
   filterIndex = Int_val(_v_filterIndex);
   wxFileDialog_SetFilterIndex(_obj, filterIndex);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFileDialog_SetMessage(
+value camlidl_wxc_wxFileDialog_SetMessage(
 	value _v__obj,
 	value _v_message)
 {
@@ -288,14 +288,14 @@ value camlidl_wxc_idl_wxFileDialog_SetMessage(
   wxString message; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_message, &message, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_message, &message, _ctx);
   wxFileDialog_SetMessage(_obj, message);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFileDialog_SetPath(
+value camlidl_wxc_wxFileDialog_SetPath(
 	value _v__obj,
 	value _v_path)
 {
@@ -303,14 +303,14 @@ value camlidl_wxc_idl_wxFileDialog_SetPath(
   wxString path; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_path, &path, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_path, &path, _ctx);
   wxFileDialog_SetPath(_obj, path);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFileDialog_SetStyle(
+value camlidl_wxc_wxFileDialog_SetStyle(
 	value _v__obj,
 	value _v_style)
 {
@@ -318,14 +318,14 @@ value camlidl_wxc_idl_wxFileDialog_SetStyle(
   int style; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
   style = Int_val(_v_style);
   wxFileDialog_SetStyle(_obj, style);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFileDialog_SetWildcard(
+value camlidl_wxc_wxFileDialog_SetWildcard(
 	value _v__obj,
 	value _v_wildCard)
 {
@@ -333,8 +333,8 @@ value camlidl_wxc_idl_wxFileDialog_SetWildcard(
   wxString wildCard; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileDialog(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_wildCard, &wildCard, _ctx);
+  camlidl_ml2c_wxc_wxFileDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_wildCard, &wildCard, _ctx);
   wxFileDialog_SetWildcard(_obj, wildCard);
   camlidl_free(_ctx);
   return Val_unit;

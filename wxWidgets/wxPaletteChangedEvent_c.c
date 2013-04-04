@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxPaletteChangedEvent(value _v1, wxPaletteChangedEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxPaletteChangedEvent(value _v1, wxPaletteChangedEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxPaletteChangedEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxPaletteChangedEvent(wxPaletteChangedEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxPaletteChangedEvent(wxPaletteChangedEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxPaletteChangedEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxPaletteChangedEvent_CopyObject(
+value camlidl_wxc_wxPaletteChangedEvent_CopyObject(
 	value _v__obj,
 	value _v_obj)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxPaletteChangedEvent_CopyObject(
   voidptr obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPaletteChangedEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxPaletteChangedEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_obj, &obj, _ctx);
   wxPaletteChangedEvent_CopyObject(_obj, obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPaletteChangedEvent_GetChangedWindow(
+value camlidl_wxc_wxPaletteChangedEvent_GetChangedWindow(
 	value _v__obj)
 {
   wxPaletteChangedEvent _obj; /*in*/
@@ -53,14 +53,14 @@ value camlidl_wxc_idl_wxPaletteChangedEvent_GetChangedWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPaletteChangedEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPaletteChangedEvent(_v__obj, &_obj, _ctx);
   _res = wxPaletteChangedEvent_GetChangedWindow(_obj);
-  _vres = camlidl_c2ml_wxc_idl_voidptr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_voidptr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPaletteChangedEvent_SetChangedWindow(
+value camlidl_wxc_wxPaletteChangedEvent_SetChangedWindow(
 	value _v__obj,
 	value _v_win)
 {
@@ -68,8 +68,8 @@ value camlidl_wxc_idl_wxPaletteChangedEvent_SetChangedWindow(
   wxWindow win; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPaletteChangedEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_win, &win, _ctx);
+  camlidl_ml2c_wxc_wxPaletteChangedEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_win, &win, _ctx);
   wxPaletteChangedEvent_SetChangedWindow(_obj, win);
   camlidl_free(_ctx);
   return Val_unit;

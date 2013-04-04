@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGridSizer(value _v1, wxGridSizer * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGridSizer(value _v1, wxGridSizer * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGridSizer *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGridSizer(wxGridSizer * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGridSizer(wxGridSizer * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGridSizer) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGridSizer_CalcMin(
+value camlidl_wxc_wxGridSizer_CalcMin(
 	value _v__obj)
 {
   wxGridSizer _obj; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxGridSizer_CalcMin(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizer(_v__obj, &_obj, _ctx);
   _res = wxGridSizer_CalcMin(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxSize(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxSize(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridSizer_Create(
+value camlidl_wxc_wxGridSizer_Create(
 	value _v_rows,
 	value _v_cols,
 	value _v_vgap,
@@ -65,12 +65,12 @@ value camlidl_wxc_idl_wxGridSizer_Create(
   vgap = Int_val(_v_vgap);
   hgap = Int_val(_v_hgap);
   _res = wxGridSizer_Create(rows, cols, vgap, hgap);
-  _vres = camlidl_c2ml_wxc_idl_wxGridSizer(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGridSizer(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridSizer_GetCols(
+value camlidl_wxc_wxGridSizer_GetCols(
 	value _v__obj)
 {
   wxGridSizer _obj; /*in*/
@@ -79,14 +79,14 @@ value camlidl_wxc_idl_wxGridSizer_GetCols(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizer(_v__obj, &_obj, _ctx);
   _res = wxGridSizer_GetCols(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridSizer_GetHGap(
+value camlidl_wxc_wxGridSizer_GetHGap(
 	value _v__obj)
 {
   wxGridSizer _obj; /*in*/
@@ -95,14 +95,14 @@ value camlidl_wxc_idl_wxGridSizer_GetHGap(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizer(_v__obj, &_obj, _ctx);
   _res = wxGridSizer_GetHGap(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridSizer_GetRows(
+value camlidl_wxc_wxGridSizer_GetRows(
 	value _v__obj)
 {
   wxGridSizer _obj; /*in*/
@@ -111,14 +111,14 @@ value camlidl_wxc_idl_wxGridSizer_GetRows(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizer(_v__obj, &_obj, _ctx);
   _res = wxGridSizer_GetRows(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridSizer_GetVGap(
+value camlidl_wxc_wxGridSizer_GetVGap(
 	value _v__obj)
 {
   wxGridSizer _obj; /*in*/
@@ -127,26 +127,26 @@ value camlidl_wxc_idl_wxGridSizer_GetVGap(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizer(_v__obj, &_obj, _ctx);
   _res = wxGridSizer_GetVGap(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGridSizer_RecalcSizes(
+value camlidl_wxc_wxGridSizer_RecalcSizes(
 	value _v__obj)
 {
   wxGridSizer _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizer(_v__obj, &_obj, _ctx);
   wxGridSizer_RecalcSizes(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridSizer_SetCols(
+value camlidl_wxc_wxGridSizer_SetCols(
 	value _v__obj,
 	value _v_cols)
 {
@@ -154,14 +154,14 @@ value camlidl_wxc_idl_wxGridSizer_SetCols(
   int cols; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizer(_v__obj, &_obj, _ctx);
   cols = Int_val(_v_cols);
   wxGridSizer_SetCols(_obj, cols);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridSizer_SetHGap(
+value camlidl_wxc_wxGridSizer_SetHGap(
 	value _v__obj,
 	value _v_gap)
 {
@@ -169,14 +169,14 @@ value camlidl_wxc_idl_wxGridSizer_SetHGap(
   int gap; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizer(_v__obj, &_obj, _ctx);
   gap = Int_val(_v_gap);
   wxGridSizer_SetHGap(_obj, gap);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridSizer_SetRows(
+value camlidl_wxc_wxGridSizer_SetRows(
 	value _v__obj,
 	value _v_rows)
 {
@@ -184,14 +184,14 @@ value camlidl_wxc_idl_wxGridSizer_SetRows(
   int rows; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizer(_v__obj, &_obj, _ctx);
   rows = Int_val(_v_rows);
   wxGridSizer_SetRows(_obj, rows);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGridSizer_SetVGap(
+value camlidl_wxc_wxGridSizer_SetVGap(
 	value _v__obj,
 	value _v_gap)
 {
@@ -199,7 +199,7 @@ value camlidl_wxc_idl_wxGridSizer_SetVGap(
   int gap; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGridSizer(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxGridSizer(_v__obj, &_obj, _ctx);
   gap = Int_val(_v_gap);
   wxGridSizer_SetVGap(_obj, gap);
   camlidl_free(_ctx);

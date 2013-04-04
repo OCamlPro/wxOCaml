@@ -1,147 +1,147 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external veto : wxGridRangeSelectEvent -> unit
-	= "camlidl_wxc_idl_wxNotifyEvent_Veto"
+	= "camlidl_wxc_wxNotifyEvent_Veto"
 
 external skip : wxGridRangeSelectEvent -> unit
-	= "camlidl_wxc_idl_wxEvent_Skip"
+	= "camlidl_wxc_wxEvent_Skip"
 
 external shiftDown : wxGridRangeSelectEvent -> bool
-	= "camlidl_wxc_idl_wxGridRangeSelectEvent_ShiftDown"
+	= "camlidl_wxc_wxGridRangeSelectEvent_ShiftDown"
 
 external setTimestamp : wxGridRangeSelectEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetTimestamp"
+	= "camlidl_wxc_wxEvent_SetTimestamp"
 
 external setString : wxGridRangeSelectEvent -> wxString -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetString"
+	= "camlidl_wxc_wxCommandEvent_SetString"
 
 external setInt : wxGridRangeSelectEvent -> int -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetInt"
+	= "camlidl_wxc_wxCommandEvent_SetInt"
 
 external setId : wxGridRangeSelectEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetId"
+	= "camlidl_wxc_wxEvent_SetId"
 
 external setExtraLong : wxGridRangeSelectEvent -> int -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetExtraLong"
+	= "camlidl_wxc_wxCommandEvent_SetExtraLong"
 
 external setEventType : wxGridRangeSelectEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventType"
+	= "camlidl_wxc_wxEvent_SetEventType"
 
 external setEventObject : wxGridRangeSelectEvent -> wxObject -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventObject"
+	= "camlidl_wxc_wxEvent_SetEventObject"
 
 external setClientObject : wxGridRangeSelectEvent -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetClientObject"
+	= "camlidl_wxc_wxCommandEvent_SetClientObject"
 
 external setClientData : wxGridRangeSelectEvent -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetClientData"
+	= "camlidl_wxc_wxCommandEvent_SetClientData"
 
 external setClientClosure : wxGridRangeSelectEvent -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external selecting : wxGridRangeSelectEvent -> bool
-	= "camlidl_wxc_idl_wxGridRangeSelectEvent_Selecting"
+	= "camlidl_wxc_wxGridRangeSelectEvent_Selecting"
 
 external safeDelete : wxGridRangeSelectEvent -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external newEventType : unit -> int
-	= "camlidl_wxc_idl_wxEvent_NewEventType"
+	= "camlidl_wxc_wxEvent_NewEventType"
 
 external metaDown : wxGridRangeSelectEvent -> bool
-	= "camlidl_wxc_idl_wxGridRangeSelectEvent_MetaDown"
+	= "camlidl_wxc_wxGridRangeSelectEvent_MetaDown"
 
 external isSelection : wxGridRangeSelectEvent -> bool
-	= "camlidl_wxc_idl_wxCommandEvent_IsSelection"
+	= "camlidl_wxc_wxCommandEvent_IsSelection"
 
 external isScrolledWindow : wxGridRangeSelectEvent -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxGridRangeSelectEvent -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isCommandEvent : wxGridRangeSelectEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_IsCommandEvent"
+	= "camlidl_wxc_wxEvent_IsCommandEvent"
 
 external isChecked : wxGridRangeSelectEvent -> bool
-	= "camlidl_wxc_idl_wxCommandEvent_IsChecked"
+	= "camlidl_wxc_wxCommandEvent_IsChecked"
 
 external isAllowed : wxGridRangeSelectEvent -> bool
-	= "camlidl_wxc_idl_wxNotifyEvent_IsAllowed"
+	= "camlidl_wxc_wxNotifyEvent_IsAllowed"
 
 external getTopRow : wxGridRangeSelectEvent -> int
-	= "camlidl_wxc_idl_wxGridRangeSelectEvent_GetTopRow"
+	= "camlidl_wxc_wxGridRangeSelectEvent_GetTopRow"
 
 external getTopLeftCoords : wxGridRangeSelectEvent -> int * int
-	= "camlidl_wxc_idl_wxGridRangeSelectEvent_GetTopLeftCoords"
+	= "camlidl_wxc_wxGridRangeSelectEvent_GetTopLeftCoords"
 
 external getTimestamp : wxGridRangeSelectEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetTimestamp"
+	= "camlidl_wxc_wxEvent_GetTimestamp"
 
 external getString : wxGridRangeSelectEvent -> wxString
-	= "camlidl_wxc_idl_wxCommandEvent_GetString"
+	= "camlidl_wxc_wxCommandEvent_GetString"
 
 external getSkipped : wxGridRangeSelectEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_GetSkipped"
+	= "camlidl_wxc_wxEvent_GetSkipped"
 
 external getSelection : wxGridRangeSelectEvent -> int
-	= "camlidl_wxc_idl_wxCommandEvent_GetSelection"
+	= "camlidl_wxc_wxCommandEvent_GetSelection"
 
 external getRightCol : wxGridRangeSelectEvent -> int
-	= "camlidl_wxc_idl_wxGridRangeSelectEvent_GetRightCol"
+	= "camlidl_wxc_wxGridRangeSelectEvent_GetRightCol"
 
 external getLeftCol : wxGridRangeSelectEvent -> int
-	= "camlidl_wxc_idl_wxGridRangeSelectEvent_GetLeftCol"
+	= "camlidl_wxc_wxGridRangeSelectEvent_GetLeftCol"
 
 external getInt : wxGridRangeSelectEvent -> int
-	= "camlidl_wxc_idl_wxCommandEvent_GetInt"
+	= "camlidl_wxc_wxCommandEvent_GetInt"
 
 external getId : wxGridRangeSelectEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetId"
+	= "camlidl_wxc_wxEvent_GetId"
 
 external getExtraLong : wxGridRangeSelectEvent -> int
-	= "camlidl_wxc_idl_wxCommandEvent_GetExtraLong"
+	= "camlidl_wxc_wxCommandEvent_GetExtraLong"
 
 external getEventType : wxGridRangeSelectEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetEventType"
+	= "camlidl_wxc_wxEvent_GetEventType"
 
 external getEventObject : wxGridRangeSelectEvent -> wxObject
-	= "camlidl_wxc_idl_wxEvent_GetEventObject"
+	= "camlidl_wxc_wxEvent_GetEventObject"
 
 external getClientObject : wxGridRangeSelectEvent -> wxClientData
-	= "camlidl_wxc_idl_wxCommandEvent_GetClientObject"
+	= "camlidl_wxc_wxCommandEvent_GetClientObject"
 
 external getClientData : wxGridRangeSelectEvent -> wxClientData
-	= "camlidl_wxc_idl_wxCommandEvent_GetClientData"
+	= "camlidl_wxc_wxCommandEvent_GetClientData"
 
 external getClientClosure : wxGridRangeSelectEvent -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxGridRangeSelectEvent -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external getBottomRow : wxGridRangeSelectEvent -> int
-	= "camlidl_wxc_idl_wxGridRangeSelectEvent_GetBottomRow"
+	= "camlidl_wxc_wxGridRangeSelectEvent_GetBottomRow"
 
 external getBottomRightCoords : wxGridRangeSelectEvent -> int * int
-	= "camlidl_wxc_idl_wxGridRangeSelectEvent_GetBottomRightCoords"
+	= "camlidl_wxc_wxGridRangeSelectEvent_GetBottomRightCoords"
 
 external delete : wxGridRangeSelectEvent -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_Delete"
+	= "camlidl_wxc_wxCommandEvent_Delete"
 
 external copyObject : wxGridRangeSelectEvent -> voidptr -> unit
-	= "camlidl_wxc_idl_wxNotifyEvent_CopyObject"
+	= "camlidl_wxc_wxNotifyEvent_CopyObject"
 
 external controlDown : wxGridRangeSelectEvent -> bool
-	= "camlidl_wxc_idl_wxGridRangeSelectEvent_ControlDown"
+	= "camlidl_wxc_wxGridRangeSelectEvent_ControlDown"
 
 external altDown : wxGridRangeSelectEvent -> bool
-	= "camlidl_wxc_idl_wxGridRangeSelectEvent_AltDown"
+	= "camlidl_wxc_wxGridRangeSelectEvent_AltDown"
 
 external allow : wxGridRangeSelectEvent -> unit
-	= "camlidl_wxc_idl_wxNotifyEvent_Allow"
+	= "camlidl_wxc_wxNotifyEvent_Allow"
 
 let setString _obj s =
   let s = WxString.createUTF8 s in
@@ -154,7 +154,7 @@ let getString _obj =
   WxString.getUtf8 wxres
 
 external null_object : unit -> wxGridRangeSelectEvent
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

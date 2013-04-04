@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxMirrorDC(value _v1, wxMirrorDC * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxMirrorDC(value _v1, wxMirrorDC * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxMirrorDC *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxMirrorDC(wxMirrorDC * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxMirrorDC(wxMirrorDC * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxMirrorDC) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxMirrorDC_Create(
+value camlidl_wxc_wxMirrorDC_Create(
 	value _v_dc)
 {
   wxDC dc; /*in*/
@@ -38,20 +38,20 @@ value camlidl_wxc_idl_wxMirrorDC_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxDC(_v_dc, &dc, _ctx);
+  camlidl_ml2c_wxc_wxDC(_v_dc, &dc, _ctx);
   _res = wxMirrorDC_Create(dc);
-  _vres = camlidl_c2ml_wxc_idl_wxMirrorDC(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMirrorDC(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMirrorDC_Delete(
+value camlidl_wxc_wxMirrorDC_Delete(
 	value _v__obj)
 {
   wxMemoryDC _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMemoryDC(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMemoryDC(_v__obj, &_obj, _ctx);
   wxMirrorDC_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;

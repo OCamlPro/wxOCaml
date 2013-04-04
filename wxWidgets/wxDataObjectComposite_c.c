@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxDataObjectComposite(value _v1, wxDataObjectComposite * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxDataObjectComposite(value _v1, wxDataObjectComposite * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxDataObjectComposite *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxDataObjectComposite(wxDataObjectComposite * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxDataObjectComposite(wxDataObjectComposite * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxDataObjectComposite) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxDataObjectComposite_Add(
+value camlidl_wxc_wxDataObjectComposite_Add(
 	value _v__obj,
 	value _v__dat,
 	value _v__preferred)
@@ -39,15 +39,15 @@ value camlidl_wxc_idl_wxDataObjectComposite_Add(
   int _preferred; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxDataObjectComposite(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__dat, &_dat, _ctx);
+  camlidl_ml2c_wxc_wxDataObjectComposite(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__dat, &_dat, _ctx);
   _preferred = Int_val(_v__preferred);
   wxDataObjectComposite_Add(_obj, _dat, _preferred);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxDataObjectComposite_Create(value _unit)
+value camlidl_wxc_wxDataObjectComposite_Create(value _unit)
 {
   wxDataObjectComposite _res;
   value _vres;
@@ -55,18 +55,18 @@ value camlidl_wxc_idl_wxDataObjectComposite_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxDataObjectComposite_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxDataObjectComposite(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxDataObjectComposite(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxDataObjectComposite_Delete(
+value camlidl_wxc_wxDataObjectComposite_Delete(
 	value _v__obj)
 {
   wxDataObjectComposite _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxDataObjectComposite(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxDataObjectComposite(_v__obj, &_obj, _ctx);
   wxDataObjectComposite_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;

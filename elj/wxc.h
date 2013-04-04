@@ -17,6 +17,7 @@
 
 -----------------------------------------------------------------------------*/
 
+#include "wx/version.h"
 #include "wxc_types.h"
 #include "wxc_glue.h"
 
@@ -47,8 +48,8 @@
 
 /* wxClosure */
 TClassDefExtend(wxClosure,wxObject)
-TClass(wxClosure)  wxClosure_Create( TClosureFun _fun_CEvent, void* _data );
-void*              wxClosure_GetData( TSelf(wxClosure) _obj );
+TClass(wxClosure)  wxClosure_Create( TClosureFun _fun_CEvent, voidptr _data );
+voidptr              wxClosure_GetData( TSelf(wxClosure) _obj );
 
 TClass(wxClosure)  wxEvtHandler_GetClosure( TSelf(wxEvtHandler) _obj, int id, int type );
 
@@ -462,7 +463,7 @@ TClass(wxFileConfig) wxFileConfig_Create( TClass(wxInputStream) inp );
 
 TClass(wxBitmap) wxBitmap_CreateFromImage( TClass(wxImage) image, int depth );
 
-TClass(wxImage) wxImage_CreateFromDataEx( TSize(width,height), void* data, TBoolInt isStaticData);
+TClass(wxImage) wxImage_CreateFromDataEx( TSize(width,height), voidptr data, TBoolInt isStaticData);
 
 void wxImage_Delete( TSelf(wxImage) image );
 
@@ -516,9 +517,9 @@ void wxcInitPixelsRGBA( TUInt8* buffer, TSize(width,height), TUInt rgba );
 
 /* malloc/free */
 
-void* wxcMalloc(int size );
+voidptr wxcMalloc(int size );
 
-void  wxcFree( void* p );
+void  wxcFree( voidptr p );
 
 
 
@@ -541,7 +542,10 @@ TClass(wxString) wxGetApplicationPath();
 
 
 /* ELJApp */
-void  ELJApp_InitializeC( TClass(wxClosure) closure, int _argc, TChar** _argv );
+
+// void  ELJApp_InitializeC( TClass(wxClosure) closure, int _argc, TChar** _argv );
+
+ void  ELJApp_InitializeC( TClass(wxClosure) closure, TArrayString( _argc, _argv ));
 
 int   ELJApp_GetIdleInterval();
 

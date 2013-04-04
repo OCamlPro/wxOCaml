@@ -1,111 +1,111 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external skip : wxCalendarEvent -> unit
-	= "camlidl_wxc_idl_wxEvent_Skip"
+	= "camlidl_wxc_wxEvent_Skip"
 
 external setTimestamp : wxCalendarEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetTimestamp"
+	= "camlidl_wxc_wxEvent_SetTimestamp"
 
 external setString : wxCalendarEvent -> wxString -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetString"
+	= "camlidl_wxc_wxCommandEvent_SetString"
 
 external setInt : wxCalendarEvent -> int -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetInt"
+	= "camlidl_wxc_wxCommandEvent_SetInt"
 
 external setId : wxCalendarEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetId"
+	= "camlidl_wxc_wxEvent_SetId"
 
 external setExtraLong : wxCalendarEvent -> int -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetExtraLong"
+	= "camlidl_wxc_wxCommandEvent_SetExtraLong"
 
 external setEventType : wxCalendarEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventType"
+	= "camlidl_wxc_wxEvent_SetEventType"
 
 external setEventObject : wxCalendarEvent -> wxObject -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventObject"
+	= "camlidl_wxc_wxEvent_SetEventObject"
 
 external setClientObject : wxCalendarEvent -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetClientObject"
+	= "camlidl_wxc_wxCommandEvent_SetClientObject"
 
 external setClientData : wxCalendarEvent -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_SetClientData"
+	= "camlidl_wxc_wxCommandEvent_SetClientData"
 
 external setClientClosure : wxCalendarEvent -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxCalendarEvent -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external newEventType : unit -> int
-	= "camlidl_wxc_idl_wxEvent_NewEventType"
+	= "camlidl_wxc_wxEvent_NewEventType"
 
 external isSelection : wxCalendarEvent -> bool
-	= "camlidl_wxc_idl_wxCommandEvent_IsSelection"
+	= "camlidl_wxc_wxCommandEvent_IsSelection"
 
 external isScrolledWindow : wxCalendarEvent -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxCalendarEvent -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isCommandEvent : wxCalendarEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_IsCommandEvent"
+	= "camlidl_wxc_wxEvent_IsCommandEvent"
 
 external isChecked : wxCalendarEvent -> bool
-	= "camlidl_wxc_idl_wxCommandEvent_IsChecked"
+	= "camlidl_wxc_wxCommandEvent_IsChecked"
 
 external getWeekDay : wxCalendarEvent -> int
-	= "camlidl_wxc_idl_wxCalendarEvent_GetWeekDay"
+	= "camlidl_wxc_wxCalendarEvent_GetWeekDay"
 
 external getTimestamp : wxCalendarEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetTimestamp"
+	= "camlidl_wxc_wxEvent_GetTimestamp"
 
 external getString : wxCalendarEvent -> wxString
-	= "camlidl_wxc_idl_wxCommandEvent_GetString"
+	= "camlidl_wxc_wxCommandEvent_GetString"
 
 external getSkipped : wxCalendarEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_GetSkipped"
+	= "camlidl_wxc_wxEvent_GetSkipped"
 
 external getSelection : wxCalendarEvent -> int
-	= "camlidl_wxc_idl_wxCommandEvent_GetSelection"
+	= "camlidl_wxc_wxCommandEvent_GetSelection"
 
 external getInt : wxCalendarEvent -> int
-	= "camlidl_wxc_idl_wxCommandEvent_GetInt"
+	= "camlidl_wxc_wxCommandEvent_GetInt"
 
 external getId : wxCalendarEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetId"
+	= "camlidl_wxc_wxEvent_GetId"
 
 external getExtraLong : wxCalendarEvent -> int
-	= "camlidl_wxc_idl_wxCommandEvent_GetExtraLong"
+	= "camlidl_wxc_wxCommandEvent_GetExtraLong"
 
 external getEventType : wxCalendarEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetEventType"
+	= "camlidl_wxc_wxEvent_GetEventType"
 
 external getEventObject : wxCalendarEvent -> wxObject
-	= "camlidl_wxc_idl_wxEvent_GetEventObject"
+	= "camlidl_wxc_wxEvent_GetEventObject"
 
 external getDate : wxCalendarEvent -> voidptr -> unit
-	= "camlidl_wxc_idl_wxCalendarEvent_GetDate"
+	= "camlidl_wxc_wxCalendarEvent_GetDate"
 
 external getClientObject : wxCalendarEvent -> wxClientData
-	= "camlidl_wxc_idl_wxCommandEvent_GetClientObject"
+	= "camlidl_wxc_wxCommandEvent_GetClientObject"
 
 external getClientData : wxCalendarEvent -> wxClientData
-	= "camlidl_wxc_idl_wxCommandEvent_GetClientData"
+	= "camlidl_wxc_wxCommandEvent_GetClientData"
 
 external getClientClosure : wxCalendarEvent -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxCalendarEvent -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxCalendarEvent -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_Delete"
+	= "camlidl_wxc_wxCommandEvent_Delete"
 
 external copyObject : wxCalendarEvent -> voidptr -> unit
-	= "camlidl_wxc_idl_wxCommandEvent_CopyObject"
+	= "camlidl_wxc_wxCommandEvent_CopyObject"
 
 let setString _obj s =
   let s = WxString.createUTF8 s in
@@ -118,7 +118,7 @@ let getString _obj =
   WxString.getUtf8 wxres
 
 external null_object : unit -> wxCalendarEvent
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

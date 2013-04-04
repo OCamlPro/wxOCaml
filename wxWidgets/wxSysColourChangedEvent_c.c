@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxSysColourChangedEvent(value _v1, wxSysColourChangedEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxSysColourChangedEvent(value _v1, wxSysColourChangedEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxSysColourChangedEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxSysColourChangedEvent(wxSysColourChangedEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxSysColourChangedEvent(wxSysColourChangedEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxSysColourChangedEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

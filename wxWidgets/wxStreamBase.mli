@@ -1,18 +1,18 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external isOk : wxStreamBase -> bool
-	= "camlidl_wxc_idl_wxStreamBase_IsOk"
+	= "camlidl_wxc_wxStreamBase_IsOk"
 
 external getSize : wxStreamBase -> int
-	= "camlidl_wxc_idl_wxStreamBase_GetSize"
+	= "camlidl_wxc_wxStreamBase_GetSize"
 
 external getLastError : wxStreamBase -> int
-	= "camlidl_wxc_idl_wxStreamBase_GetLastError"
+	= "camlidl_wxc_wxStreamBase_GetLastError"
 
 external delete : wxStreamBase -> unit
-	= "camlidl_wxc_idl_wxStreamBase_Delete"
+	= "camlidl_wxc_wxStreamBase_Delete"
 
 
   (* Cast functions *)

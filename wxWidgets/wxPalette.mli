@@ -1,48 +1,48 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external setClientClosure : wxPalette -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxPalette -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external isScrolledWindow : wxPalette -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isOk : wxPalette -> bool
-	= "camlidl_wxc_idl_wxPalette_IsOk"
+	= "camlidl_wxc_wxPalette_IsOk"
 
 external isKindOf : wxPalette -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isEqual : wxPalette -> wxPalette -> bool
-	= "camlidl_wxc_idl_wxPalette_IsEqual"
+	= "camlidl_wxc_wxPalette_IsEqual"
 
 external getRGB : wxPalette -> int -> voidptr -> voidptr -> voidptr -> bool
-	= "camlidl_wxc_idl_wxPalette_GetRGB"
+	= "camlidl_wxc_wxPalette_GetRGB"
 
 external getPixel : wxPalette -> int -> int -> int -> int
-	= "camlidl_wxc_idl_wxPalette_GetPixel"
+	= "camlidl_wxc_wxPalette_GetPixel"
 
 external getClientClosure : wxPalette -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxPalette -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxPalette -> unit
-	= "camlidl_wxc_idl_wxPalette_Delete"
+	= "camlidl_wxc_wxPalette_Delete"
 
 external createRGB : int -> voidptr -> voidptr -> voidptr -> wxPalette
-	= "camlidl_wxc_idl_wxPalette_CreateRGB"
+	= "camlidl_wxc_wxPalette_CreateRGB"
 
 external createDefault : unit -> wxPalette
-	= "camlidl_wxc_idl_wxPalette_CreateDefault"
+	= "camlidl_wxc_wxPalette_CreateDefault"
 
 external assign : wxPalette -> wxPalette -> unit
-	= "camlidl_wxc_idl_wxPalette_Assign"
+	= "camlidl_wxc_wxPalette_Assign"
 
   val ptrNULL : wxPalette
 

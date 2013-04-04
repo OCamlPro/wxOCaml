@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxBrush(value _v1, wxBrush * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxBrush(value _v1, wxBrush * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxBrush *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxBrush(wxBrush * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxBrush(wxBrush * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxBrush) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxBrush_Assign(
+value camlidl_wxc_wxBrush_Assign(
 	value _v__obj,
 	value _v_brush)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxBrush_Assign(
   wxBrush brush; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBrush(_v_brush, &brush, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v_brush, &brush, _ctx);
   wxBrush_Assign(_obj, brush);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBrush_CreateDefault(value _unit)
+value camlidl_wxc_wxBrush_CreateDefault(value _unit)
 {
   wxBrush _res;
   value _vres;
@@ -52,12 +52,12 @@ value camlidl_wxc_idl_wxBrush_CreateDefault(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxBrush_CreateDefault();
-  _vres = camlidl_c2ml_wxc_idl_wxBrush(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxBrush(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBrush_CreateFromBitmap(
+value camlidl_wxc_wxBrush_CreateFromBitmap(
 	value _v_bitmap)
 {
   wxBitmap bitmap; /*in*/
@@ -66,14 +66,14 @@ value camlidl_wxc_idl_wxBrush_CreateFromBitmap(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_bitmap, &bitmap, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_bitmap, &bitmap, _ctx);
   _res = wxBrush_CreateFromBitmap(bitmap);
-  _vres = camlidl_c2ml_wxc_idl_wxBrush(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxBrush(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBrush_CreateFromColour(
+value camlidl_wxc_wxBrush_CreateFromColour(
 	value _v_col,
 	value _v_style)
 {
@@ -84,15 +84,15 @@ value camlidl_wxc_idl_wxBrush_CreateFromColour(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxColour(_v_col, &col, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_col, &col, _ctx);
   style = Int_val(_v_style);
   _res = wxBrush_CreateFromColour(col, style);
-  _vres = camlidl_c2ml_wxc_idl_wxBrush(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxBrush(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBrush_CreateFromStock(
+value camlidl_wxc_wxBrush_CreateFromStock(
 	value _v_id)
 {
   int id; /*in*/
@@ -103,24 +103,24 @@ value camlidl_wxc_idl_wxBrush_CreateFromStock(
   camlidl_ctx _ctx = &_ctxs;
   id = Int_val(_v_id);
   _res = wxBrush_CreateFromStock(id);
-  _vres = camlidl_c2ml_wxc_idl_wxBrush(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxBrush(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBrush_Delete(
+value camlidl_wxc_wxBrush_Delete(
 	value _v__obj)
 {
   wxBrush _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v__obj, &_obj, _ctx);
   wxBrush_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBrush_GetColour(
+value camlidl_wxc_wxBrush_GetColour(
 	value _v__obj,
 	value _v__ref)
 {
@@ -128,14 +128,14 @@ value camlidl_wxc_idl_wxBrush_GetColour(
   wxColour _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v__ref, &_ref, _ctx);
   wxBrush_GetColour(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBrush_GetStipple(
+value camlidl_wxc_wxBrush_GetStipple(
 	value _v__obj,
 	value _v__ref)
 {
@@ -143,14 +143,14 @@ value camlidl_wxc_idl_wxBrush_GetStipple(
   wxBitmap _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v__ref, &_ref, _ctx);
   wxBrush_GetStipple(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBrush_GetStyle(
+value camlidl_wxc_wxBrush_GetStyle(
 	value _v__obj)
 {
   wxBrush _obj; /*in*/
@@ -159,14 +159,14 @@ value camlidl_wxc_idl_wxBrush_GetStyle(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v__obj, &_obj, _ctx);
   _res = wxBrush_GetStyle(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBrush_IsEqual(
+value camlidl_wxc_wxBrush_IsEqual(
 	value _v__obj,
 	value _v_brush)
 {
@@ -177,15 +177,15 @@ value camlidl_wxc_idl_wxBrush_IsEqual(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBrush(_v_brush, &brush, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v_brush, &brush, _ctx);
   _res = wxBrush_IsEqual(_obj, brush);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBrush_IsOk(
+value camlidl_wxc_wxBrush_IsOk(
 	value _v__obj)
 {
   wxBrush _obj; /*in*/
@@ -194,14 +194,14 @@ value camlidl_wxc_idl_wxBrush_IsOk(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v__obj, &_obj, _ctx);
   _res = wxBrush_IsOk(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBrush_SetColour(
+value camlidl_wxc_wxBrush_SetColour(
 	value _v__obj,
 	value _v_col)
 {
@@ -209,14 +209,14 @@ value camlidl_wxc_idl_wxBrush_SetColour(
   wxColour col; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v_col, &col, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_col, &col, _ctx);
   wxBrush_SetColour(_obj, col);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBrush_SetColourSingle(
+value camlidl_wxc_wxBrush_SetColourSingle(
 	value _v__obj,
 	value _v_r,
 	value _v_g,
@@ -228,7 +228,7 @@ value camlidl_wxc_idl_wxBrush_SetColourSingle(
   char b; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v__obj, &_obj, _ctx);
   r = Int_val(_v_r);
   g = Int_val(_v_g);
   b = Int_val(_v_b);
@@ -237,7 +237,7 @@ value camlidl_wxc_idl_wxBrush_SetColourSingle(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBrush_SetStipple(
+value camlidl_wxc_wxBrush_SetStipple(
 	value _v__obj,
 	value _v_stipple)
 {
@@ -245,14 +245,14 @@ value camlidl_wxc_idl_wxBrush_SetStipple(
   wxBitmap stipple; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_stipple, &stipple, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_stipple, &stipple, _ctx);
   wxBrush_SetStipple(_obj, stipple);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBrush_SetStyle(
+value camlidl_wxc_wxBrush_SetStyle(
 	value _v__obj,
 	value _v_style)
 {
@@ -260,26 +260,26 @@ value camlidl_wxc_idl_wxBrush_SetStyle(
   int style; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v__obj, &_obj, _ctx);
   style = Int_val(_v_style);
   wxBrush_SetStyle(_obj, style);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBrush_SafeDelete(
+value camlidl_wxc_wxBrush_SafeDelete(
 	value _v_self)
 {
   wxBrush self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v_self, &self, _ctx);
   wxBrush_SafeDelete(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxBrush_IsStatic(
+value camlidl_wxc_wxBrush_IsStatic(
 	value _v_self)
 {
   wxBrush self; /*in*/
@@ -288,7 +288,7 @@ value camlidl_wxc_idl_wxBrush_IsStatic(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBrush(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v_self, &self, _ctx);
   _res = wxBrush_IsStatic(self);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

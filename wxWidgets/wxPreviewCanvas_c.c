@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxPreviewCanvas(value _v1, wxPreviewCanvas * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxPreviewCanvas(value _v1, wxPreviewCanvas * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxPreviewCanvas *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxPreviewCanvas(wxPreviewCanvas * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxPreviewCanvas(wxPreviewCanvas * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxPreviewCanvas) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxPreviewCanvas_Create(
+value camlidl_wxc_wxPreviewCanvas_Create(
 	value _v_preview,
 	value _v_parent,
 	value _v_x,
@@ -50,21 +50,21 @@ value camlidl_wxc_idl_wxPreviewCanvas_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintPreview(_v_preview, &preview, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxPrintPreview(_v_preview, &preview, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   w = Int_val(_v_w);
   h = Int_val(_v_h);
   style = Int_val(_v_style);
   _res = wxPreviewCanvas_Create(preview, parent, x, y, w, h, style);
-  _vres = camlidl_c2ml_wxc_idl_wxPreviewCanvas(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPreviewCanvas(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPreviewCanvas_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxPreviewCanvas_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxPreviewCanvas_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxPreviewCanvas_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 

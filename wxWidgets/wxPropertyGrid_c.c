@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxPropertyGrid(value _v1, wxPropertyGrid * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxPropertyGrid(value _v1, wxPropertyGrid * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxPropertyGrid *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxPropertyGrid(wxPropertyGrid * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxPropertyGrid(wxPropertyGrid * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxPropertyGrid) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxPropertyGrid_Append(
+value camlidl_wxc_wxPropertyGrid_Append(
 	value _v__obj,
 	value _v_prop)
 {
@@ -40,15 +40,15 @@ value camlidl_wxc_idl_wxPropertyGrid_Append(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPropertyGrid(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxPGProperty(_v_prop, &prop, _ctx);
+  camlidl_ml2c_wxc_wxPropertyGrid(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPGProperty(_v_prop, &prop, _ctx);
   _res = wxPropertyGrid_Append(_obj, prop);
-  _vres = camlidl_c2ml_wxc_idl_wxPGProperty(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPGProperty(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPropertyGrid_Create(
+value camlidl_wxc_wxPropertyGrid_Create(
 	value _v__prt,
 	value _v__id,
 	value _v__lft,
@@ -69,7 +69,7 @@ value camlidl_wxc_idl_wxPropertyGrid_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
   _id = Int_val(_v__id);
   _lft = Int_val(_v__lft);
   _top = Int_val(_v__top);
@@ -77,17 +77,17 @@ value camlidl_wxc_idl_wxPropertyGrid_Create(
   _hgt = Int_val(_v__hgt);
   _stl = Int_val(_v__stl);
   _res = wxPropertyGrid_Create(_prt, _id, _lft, _top, _wdt, _hgt, _stl);
-  _vres = camlidl_c2ml_wxc_idl_wxPropertyGrid(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPropertyGrid(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPropertyGrid_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxPropertyGrid_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxPropertyGrid_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxPropertyGrid_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
-value camlidl_wxc_idl_wxPropertyGrid_DisableProperty(
+value camlidl_wxc_wxPropertyGrid_DisableProperty(
 	value _v__obj,
 	value _v_propName)
 {
@@ -98,8 +98,8 @@ value camlidl_wxc_idl_wxPropertyGrid_DisableProperty(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPropertyGrid(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_propName, &propName, _ctx);
+  camlidl_ml2c_wxc_wxPropertyGrid(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_propName, &propName, _ctx);
   _res = wxPropertyGrid_DisableProperty(_obj, propName);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

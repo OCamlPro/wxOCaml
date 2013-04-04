@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxLogWindow(value _v1, wxLogWindow * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxLogWindow(value _v1, wxLogWindow * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxLogWindow *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxLogWindow(wxLogWindow * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxLogWindow(wxLogWindow * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxLogWindow) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxLogWindow_Create(
+value camlidl_wxc_wxLogWindow_Create(
 	value _v_parent,
 	value _v_title,
 	value _v_showit,
@@ -44,17 +44,17 @@ value camlidl_wxc_idl_wxLogWindow_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
   title = String_val(_v_title);
   showit = Int_val(_v_showit);
   passthrough = Int_val(_v_passthrough);
   _res = wxLogWindow_Create(parent, title, showit, passthrough);
-  _vres = camlidl_c2ml_wxc_idl_wxLogWindow(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxLogWindow(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxLogWindow_GetFrame(
+value camlidl_wxc_wxLogWindow_GetFrame(
 	value _v_obj)
 {
   wxLogWindow obj; /*in*/
@@ -63,9 +63,9 @@ value camlidl_wxc_idl_wxLogWindow_GetFrame(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxLogWindow(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxLogWindow(_v_obj, &obj, _ctx);
   _res = wxLogWindow_GetFrame(obj);
-  _vres = camlidl_c2ml_wxc_idl_wxFrame(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxFrame(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

@@ -1,50 +1,50 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : wxString -> wxString -> wxDateTime -> wxDateProperty
-	= "camlidl_wxc_idl_wxDateProperty_Create"
+	= "camlidl_wxc_wxDateProperty_Create"
 
 external setHelpString : wxDateProperty -> wxString -> unit
-	= "camlidl_wxc_idl_wxPGProperty_SetHelpString"
+	= "camlidl_wxc_wxPGProperty_SetHelpString"
 
 external setClientClosure : wxDateProperty -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxDateProperty -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external isScrolledWindow : wxDateProperty -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxDateProperty -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external getValueType : wxDateProperty -> wxString
-	= "camlidl_wxc_idl_wxPGProperty_GetValueType"
+	= "camlidl_wxc_wxPGProperty_GetValueType"
 
 external getValueAsString : wxDateProperty -> wxString
-	= "camlidl_wxc_idl_wxPGProperty_GetValueAsString"
+	= "camlidl_wxc_wxPGProperty_GetValueAsString"
 
 external getName : wxDateProperty -> wxString
-	= "camlidl_wxc_idl_wxPGProperty_GetName"
+	= "camlidl_wxc_wxPGProperty_GetName"
 
 external getLabel : wxDateProperty -> wxString
-	= "camlidl_wxc_idl_wxPGProperty_GetLabel"
+	= "camlidl_wxc_wxPGProperty_GetLabel"
 
 external getClientClosure : wxDateProperty -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxDateProperty -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxDateProperty -> unit
-	= "camlidl_wxc_idl_wxObject_Delete"
+	= "camlidl_wxc_wxObject_Delete"
 
-let wxnew label name v =
+let wxnew label name _value =
   let label = WxString.createUTF8 label in
   let name = WxString.createUTF8 name in
-  let wxres = wxnew label name v  in
+  let wxres = wxnew label name _value  in
   WxString.delete label;
   WxString.delete name;
   wxres
@@ -72,7 +72,7 @@ let getLabel _obj =
   WxString.getUtf8 wxres
 
 external null_object : unit -> wxDateProperty
-   = "camlidl_wxc_idl_null_object"
+   = "camlidl_wxc_null_object"
     let ptrNULL = null_object()
 
   (* Cast functions *)

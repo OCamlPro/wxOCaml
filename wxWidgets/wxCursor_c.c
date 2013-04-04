@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxCursor(value _v1, wxCursor * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxCursor(value _v1, wxCursor * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxCursor *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxCursor(wxCursor * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxCursor(wxCursor * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxCursor) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,19 +29,19 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxCursor_SafeDelete(
+value camlidl_wxc_wxCursor_SafeDelete(
 	value _v_self)
 {
   wxCursor self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCursor(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxCursor(_v_self, &self, _ctx);
   wxCursor_SafeDelete(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCursor_IsStatic(
+value camlidl_wxc_wxCursor_IsStatic(
 	value _v_self)
 {
   wxCursor self; /*in*/
@@ -50,20 +50,20 @@ value camlidl_wxc_idl_wxCursor_IsStatic(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCursor(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxCursor(_v_self, &self, _ctx);
   _res = wxCursor_IsStatic(self);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxCursor_Delete(
+value camlidl_wxc_wxCursor_Delete(
 	value _v__obj)
 {
   wxCursor _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCursor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCursor(_v__obj, &_obj, _ctx);
   wxCursor_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;

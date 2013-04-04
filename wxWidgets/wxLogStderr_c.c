@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxLogStderr(value _v1, wxLogStderr * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxLogStderr(value _v1, wxLogStderr * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxLogStderr *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxLogStderr(wxLogStderr * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxLogStderr(wxLogStderr * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxLogStderr) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxLogStderr_Create(value _unit)
+value camlidl_wxc_wxLogStderr_Create(value _unit)
 {
   wxLogStderr _res;
   value _vres;
@@ -37,12 +37,12 @@ value camlidl_wxc_idl_wxLogStderr_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxLogStderr_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxLogStderr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxLogStderr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxLogStderr_CreateStdOut(value _unit)
+value camlidl_wxc_wxLogStderr_CreateStdOut(value _unit)
 {
   wxLogStderr _res;
   value _vres;
@@ -50,7 +50,7 @@ value camlidl_wxc_idl_wxLogStderr_CreateStdOut(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxLogStderr_CreateStdOut();
-  _vres = camlidl_c2ml_wxc_idl_wxLogStderr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxLogStderr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

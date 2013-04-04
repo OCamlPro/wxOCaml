@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxStaticBitmap(value _v1, wxStaticBitmap * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxStaticBitmap(value _v1, wxStaticBitmap * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxStaticBitmap *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxStaticBitmap(wxStaticBitmap * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxStaticBitmap(wxStaticBitmap * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxStaticBitmap) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxStaticBitmap_Create(
+value camlidl_wxc_wxStaticBitmap_Create(
 	value _v__prt,
 	value _v__id,
 	value _v_bitmap,
@@ -52,38 +52,38 @@ value camlidl_wxc_idl_wxStaticBitmap_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
   _id = Int_val(_v__id);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_bitmap, &bitmap, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_bitmap, &bitmap, _ctx);
   _lft = Int_val(_v__lft);
   _top = Int_val(_v__top);
   _wdt = Int_val(_v__wdt);
   _hgt = Int_val(_v__hgt);
   _stl = Int_val(_v__stl);
   _res = wxStaticBitmap_Create(_prt, _id, bitmap, _lft, _top, _wdt, _hgt, _stl);
-  _vres = camlidl_c2ml_wxc_idl_wxStaticBitmap(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxStaticBitmap(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxStaticBitmap_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxStaticBitmap_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxStaticBitmap_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
+  return camlidl_wxc_wxStaticBitmap_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
 }
 
-value camlidl_wxc_idl_wxStaticBitmap_Delete(
+value camlidl_wxc_wxStaticBitmap_Delete(
 	value _v__obj)
 {
   wxStaticBitmap _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxStaticBitmap(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxStaticBitmap(_v__obj, &_obj, _ctx);
   wxStaticBitmap_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxStaticBitmap_GetBitmap(
+value camlidl_wxc_wxStaticBitmap_GetBitmap(
 	value _v__obj,
 	value _v__ref)
 {
@@ -91,14 +91,14 @@ value camlidl_wxc_idl_wxStaticBitmap_GetBitmap(
   wxBitmap _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxStaticBitmap(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxStaticBitmap(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v__ref, &_ref, _ctx);
   wxStaticBitmap_GetBitmap(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxStaticBitmap_GetIcon(
+value camlidl_wxc_wxStaticBitmap_GetIcon(
 	value _v__obj,
 	value _v__ref)
 {
@@ -106,14 +106,14 @@ value camlidl_wxc_idl_wxStaticBitmap_GetIcon(
   wxIcon _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxStaticBitmap(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxIcon(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxStaticBitmap(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIcon(_v__ref, &_ref, _ctx);
   wxStaticBitmap_GetIcon(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxStaticBitmap_SetBitmap(
+value camlidl_wxc_wxStaticBitmap_SetBitmap(
 	value _v__obj,
 	value _v_bitmap)
 {
@@ -121,14 +121,14 @@ value camlidl_wxc_idl_wxStaticBitmap_SetBitmap(
   wxBitmap bitmap; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxStaticBitmap(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_bitmap, &bitmap, _ctx);
+  camlidl_ml2c_wxc_wxStaticBitmap(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_bitmap, &bitmap, _ctx);
   wxStaticBitmap_SetBitmap(_obj, bitmap);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxStaticBitmap_SetIcon(
+value camlidl_wxc_wxStaticBitmap_SetIcon(
 	value _v__obj,
 	value _v_icon)
 {
@@ -136,8 +136,8 @@ value camlidl_wxc_idl_wxStaticBitmap_SetIcon(
   wxIcon icon; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxStaticBitmap(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxIcon(_v_icon, &icon, _ctx);
+  camlidl_ml2c_wxc_wxStaticBitmap(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIcon(_v_icon, &icon, _ctx);
   wxStaticBitmap_SetIcon(_obj, icon);
   camlidl_free(_ctx);
   return Val_unit;

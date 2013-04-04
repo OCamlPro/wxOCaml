@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxColourData(value _v1, wxColourData * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxColourData(value _v1, wxColourData * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxColourData *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxColourData(wxColourData * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxColourData(wxColourData * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxColourData) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxColourData_Create(value _unit)
+value camlidl_wxc_wxColourData_Create(value _unit)
 {
   wxColourData _res;
   value _vres;
@@ -37,24 +37,24 @@ value camlidl_wxc_idl_wxColourData_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxColourData_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxColourData(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxColourData(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxColourData_Delete(
+value camlidl_wxc_wxColourData_Delete(
 	value _v__obj)
 {
   wxColourData _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxColourData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColourData(_v__obj, &_obj, _ctx);
   wxColourData_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxColourData_GetChooseFull(
+value camlidl_wxc_wxColourData_GetChooseFull(
 	value _v__obj)
 {
   wxColourData _obj; /*in*/
@@ -63,14 +63,14 @@ value camlidl_wxc_idl_wxColourData_GetChooseFull(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxColourData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColourData(_v__obj, &_obj, _ctx);
   _res = wxColourData_GetChooseFull(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxColourData_GetColour(
+value camlidl_wxc_wxColourData_GetColour(
 	value _v__obj,
 	value _v__ref)
 {
@@ -78,14 +78,14 @@ value camlidl_wxc_idl_wxColourData_GetColour(
   wxColour _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxColourData(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxColourData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v__ref, &_ref, _ctx);
   wxColourData_GetColour(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxColourData_GetCustomColour(
+value camlidl_wxc_wxColourData_GetCustomColour(
 	value _v__obj,
 	value _v_i,
 	value _v__ref)
@@ -95,15 +95,15 @@ value camlidl_wxc_idl_wxColourData_GetCustomColour(
   wxColour _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxColourData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColourData(_v__obj, &_obj, _ctx);
   i = Int_val(_v_i);
-  camlidl_ml2c_wxc_idl_wxColour(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v__ref, &_ref, _ctx);
   wxColourData_GetCustomColour(_obj, i, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxColourData_SetChooseFull(
+value camlidl_wxc_wxColourData_SetChooseFull(
 	value _v__obj,
 	value _v_flag)
 {
@@ -111,14 +111,14 @@ value camlidl_wxc_idl_wxColourData_SetChooseFull(
   int flag; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxColourData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColourData(_v__obj, &_obj, _ctx);
   flag = Int_val(_v_flag);
   wxColourData_SetChooseFull(_obj, flag);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxColourData_SetColour(
+value camlidl_wxc_wxColourData_SetColour(
 	value _v__obj,
 	value _v_colour)
 {
@@ -126,14 +126,14 @@ value camlidl_wxc_idl_wxColourData_SetColour(
   wxColour colour; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxColourData(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v_colour, &colour, _ctx);
+  camlidl_ml2c_wxc_wxColourData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_colour, &colour, _ctx);
   wxColourData_SetColour(_obj, colour);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxColourData_SetCustomColour(
+value camlidl_wxc_wxColourData_SetCustomColour(
 	value _v__obj,
 	value _v_i,
 	value _v_colour)
@@ -143,9 +143,9 @@ value camlidl_wxc_idl_wxColourData_SetCustomColour(
   wxColour colour; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxColourData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColourData(_v__obj, &_obj, _ctx);
   i = Int_val(_v_i);
-  camlidl_ml2c_wxc_idl_wxColour(_v_colour, &colour, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_colour, &colour, _ctx);
   wxColourData_SetCustomColour(_obj, i, colour);
   camlidl_free(_ctx);
   return Val_unit;

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxFontData(value _v1, wxFontData * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxFontData(value _v1, wxFontData * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxFontData *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxFontData(wxFontData * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxFontData(wxFontData * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxFontData) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxFontData_Create(value _unit)
+value camlidl_wxc_wxFontData_Create(value _unit)
 {
   wxFontData _res;
   value _vres;
@@ -37,24 +37,24 @@ value camlidl_wxc_idl_wxFontData_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxFontData_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxFontData(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxFontData(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFontData_Delete(
+value camlidl_wxc_wxFontData_Delete(
 	value _v__obj)
 {
   wxFontData _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
   wxFontData_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFontData_EnableEffects(
+value camlidl_wxc_wxFontData_EnableEffects(
 	value _v__obj,
 	value _v_flag)
 {
@@ -62,14 +62,14 @@ value camlidl_wxc_idl_wxFontData_EnableEffects(
   int flag; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
   flag = Int_val(_v_flag);
   wxFontData_EnableEffects(_obj, flag);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFontData_GetAllowSymbols(
+value camlidl_wxc_wxFontData_GetAllowSymbols(
 	value _v__obj)
 {
   wxFontData _obj; /*in*/
@@ -78,14 +78,14 @@ value camlidl_wxc_idl_wxFontData_GetAllowSymbols(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
   _res = wxFontData_GetAllowSymbols(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFontData_GetChosenFont(
+value camlidl_wxc_wxFontData_GetChosenFont(
 	value _v__obj,
 	value _v_ref)
 {
@@ -93,14 +93,14 @@ value camlidl_wxc_idl_wxFontData_GetChosenFont(
   wxFont ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxFont(_v_ref, &ref, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFont(_v_ref, &ref, _ctx);
   wxFontData_GetChosenFont(_obj, ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFontData_GetColour(
+value camlidl_wxc_wxFontData_GetColour(
 	value _v__obj,
 	value _v__ref)
 {
@@ -108,14 +108,14 @@ value camlidl_wxc_idl_wxFontData_GetColour(
   wxColour _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v__ref, &_ref, _ctx);
   wxFontData_GetColour(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFontData_GetEnableEffects(
+value camlidl_wxc_wxFontData_GetEnableEffects(
 	value _v__obj)
 {
   wxFontData _obj; /*in*/
@@ -124,14 +124,14 @@ value camlidl_wxc_idl_wxFontData_GetEnableEffects(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
   _res = wxFontData_GetEnableEffects(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFontData_GetEncoding(
+value camlidl_wxc_wxFontData_GetEncoding(
 	value _v__obj)
 {
   wxFontData _obj; /*in*/
@@ -140,14 +140,14 @@ value camlidl_wxc_idl_wxFontData_GetEncoding(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
   _res = wxFontData_GetEncoding(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFontData_GetInitialFont(
+value camlidl_wxc_wxFontData_GetInitialFont(
 	value _v__obj,
 	value _v_ref)
 {
@@ -155,14 +155,14 @@ value camlidl_wxc_idl_wxFontData_GetInitialFont(
   wxFont ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxFont(_v_ref, &ref, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFont(_v_ref, &ref, _ctx);
   wxFontData_GetInitialFont(_obj, ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFontData_GetShowHelp(
+value camlidl_wxc_wxFontData_GetShowHelp(
 	value _v__obj)
 {
   wxFontData _obj; /*in*/
@@ -171,14 +171,14 @@ value camlidl_wxc_idl_wxFontData_GetShowHelp(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
   _res = wxFontData_GetShowHelp(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFontData_SetAllowSymbols(
+value camlidl_wxc_wxFontData_SetAllowSymbols(
 	value _v__obj,
 	value _v_flag)
 {
@@ -186,14 +186,14 @@ value camlidl_wxc_idl_wxFontData_SetAllowSymbols(
   int flag; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
   flag = Int_val(_v_flag);
   wxFontData_SetAllowSymbols(_obj, flag);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFontData_SetChosenFont(
+value camlidl_wxc_wxFontData_SetChosenFont(
 	value _v__obj,
 	value _v_font)
 {
@@ -201,14 +201,14 @@ value camlidl_wxc_idl_wxFontData_SetChosenFont(
   wxFont font; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxFont(_v_font, &font, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFont(_v_font, &font, _ctx);
   wxFontData_SetChosenFont(_obj, font);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFontData_SetColour(
+value camlidl_wxc_wxFontData_SetColour(
 	value _v__obj,
 	value _v_colour)
 {
@@ -216,14 +216,14 @@ value camlidl_wxc_idl_wxFontData_SetColour(
   wxColour colour; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v_colour, &colour, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_colour, &colour, _ctx);
   wxFontData_SetColour(_obj, colour);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFontData_SetEncoding(
+value camlidl_wxc_wxFontData_SetEncoding(
 	value _v__obj,
 	value _v_encoding)
 {
@@ -231,14 +231,14 @@ value camlidl_wxc_idl_wxFontData_SetEncoding(
   int encoding; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
   encoding = Int_val(_v_encoding);
   wxFontData_SetEncoding(_obj, encoding);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFontData_SetInitialFont(
+value camlidl_wxc_wxFontData_SetInitialFont(
 	value _v__obj,
 	value _v_font)
 {
@@ -246,14 +246,14 @@ value camlidl_wxc_idl_wxFontData_SetInitialFont(
   wxFont font; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxFont(_v_font, &font, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFont(_v_font, &font, _ctx);
   wxFontData_SetInitialFont(_obj, font);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFontData_SetRange(
+value camlidl_wxc_wxFontData_SetRange(
 	value _v__obj,
 	value _v_minRange,
 	value _v_maxRange)
@@ -263,7 +263,7 @@ value camlidl_wxc_idl_wxFontData_SetRange(
   int maxRange; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
   minRange = Int_val(_v_minRange);
   maxRange = Int_val(_v_maxRange);
   wxFontData_SetRange(_obj, minRange, maxRange);
@@ -271,7 +271,7 @@ value camlidl_wxc_idl_wxFontData_SetRange(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFontData_SetShowHelp(
+value camlidl_wxc_wxFontData_SetShowHelp(
 	value _v__obj,
 	value _v_flag)
 {
@@ -279,7 +279,7 @@ value camlidl_wxc_idl_wxFontData_SetShowHelp(
   int flag; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontData(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__obj, &_obj, _ctx);
   flag = Int_val(_v_flag);
   wxFontData_SetShowHelp(_obj, flag);
   camlidl_free(_ctx);

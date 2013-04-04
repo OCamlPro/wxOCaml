@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxMediaCtrl(value _v1, wxMediaCtrl * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxMediaCtrl(value _v1, wxMediaCtrl * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxMediaCtrl *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxMediaCtrl(wxMediaCtrl * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxMediaCtrl(wxMediaCtrl * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxMediaCtrl) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_Create(
+value camlidl_wxc_wxMediaCtrl_Create(
 	value _v_parent,
 	value _v_windowID,
 	value _v_fileName,
@@ -56,40 +56,40 @@ value camlidl_wxc_idl_wxMediaCtrl_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
   windowID = Int_val(_v_windowID);
-  camlidl_ml2c_wxc_idl_wxString(_v_fileName, &fileName, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_fileName, &fileName, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   w = Int_val(_v_w);
   h = Int_val(_v_h);
   style = Long_val(_v_style);
-  camlidl_ml2c_wxc_idl_wxString(_v_szBackend, &szBackend, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_szBackend, &szBackend, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _res = wxMediaCtrl_Create(parent, windowID, fileName, x, y, w, h, style, szBackend, name);
-  _vres = camlidl_c2ml_wxc_idl_wxMediaCtrl(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMediaCtrl(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxMediaCtrl_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxMediaCtrl_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9]);
+  return camlidl_wxc_wxMediaCtrl_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9]);
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_Delete(
+value camlidl_wxc_wxMediaCtrl_Delete(
 	value _v_self)
 {
   wxMediaCtrl self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   wxMediaCtrl_Delete(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_GetBestSize(
+value camlidl_wxc_wxMediaCtrl_GetBestSize(
 	value _v_self)
 {
   wxMediaCtrl self; /*in*/
@@ -98,14 +98,14 @@ value camlidl_wxc_idl_wxMediaCtrl_GetBestSize(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   _res = wxMediaCtrl_GetBestSize(self);
-  _vres = camlidl_c2ml_wxc_idl_wxSize(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxSize(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_GetPlaybackRate(
+value camlidl_wxc_wxMediaCtrl_GetPlaybackRate(
 	value _v_self)
 {
   wxMediaCtrl self; /*in*/
@@ -114,14 +114,14 @@ value camlidl_wxc_idl_wxMediaCtrl_GetPlaybackRate(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   _res = wxMediaCtrl_GetPlaybackRate(self);
   _vres = copy_double(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_GetVolume(
+value camlidl_wxc_wxMediaCtrl_GetVolume(
 	value _v_self)
 {
   wxMediaCtrl self; /*in*/
@@ -130,14 +130,14 @@ value camlidl_wxc_idl_wxMediaCtrl_GetVolume(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   _res = wxMediaCtrl_GetVolume(self);
   _vres = copy_double(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_GetState(
+value camlidl_wxc_wxMediaCtrl_GetState(
 	value _v_self)
 {
   wxMediaCtrl self; /*in*/
@@ -146,14 +146,14 @@ value camlidl_wxc_idl_wxMediaCtrl_GetState(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   _res = wxMediaCtrl_GetState(self);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_Length(
+value camlidl_wxc_wxMediaCtrl_Length(
 	value _v_self)
 {
   wxMediaCtrl self; /*in*/
@@ -162,14 +162,14 @@ value camlidl_wxc_idl_wxMediaCtrl_Length(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   _res = wxMediaCtrl_Length(self);
   _vres = copy_int64(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_Load(
+value camlidl_wxc_wxMediaCtrl_Load(
 	value _v_self,
 	value _v_fileName)
 {
@@ -180,15 +180,15 @@ value camlidl_wxc_idl_wxMediaCtrl_Load(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_fileName, &fileName, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_fileName, &fileName, _ctx);
   _res = wxMediaCtrl_Load(self, fileName);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_LoadURI(
+value camlidl_wxc_wxMediaCtrl_LoadURI(
 	value _v_self,
 	value _v_uri)
 {
@@ -199,15 +199,15 @@ value camlidl_wxc_idl_wxMediaCtrl_LoadURI(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_uri, &uri, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_uri, &uri, _ctx);
   _res = wxMediaCtrl_LoadURI(self, uri);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_LoadURIWithProxy(
+value camlidl_wxc_wxMediaCtrl_LoadURIWithProxy(
 	value _v_self,
 	value _v_uri,
 	value _v_proxy)
@@ -220,16 +220,16 @@ value camlidl_wxc_idl_wxMediaCtrl_LoadURIWithProxy(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_uri, &uri, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_proxy, &proxy, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_uri, &uri, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_proxy, &proxy, _ctx);
   _res = wxMediaCtrl_LoadURIWithProxy(self, uri, proxy);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_Pause(
+value camlidl_wxc_wxMediaCtrl_Pause(
 	value _v_self)
 {
   wxMediaCtrl self; /*in*/
@@ -238,14 +238,14 @@ value camlidl_wxc_idl_wxMediaCtrl_Pause(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   _res = wxMediaCtrl_Pause(self);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_Play(
+value camlidl_wxc_wxMediaCtrl_Play(
 	value _v_self)
 {
   wxMediaCtrl self; /*in*/
@@ -254,14 +254,14 @@ value camlidl_wxc_idl_wxMediaCtrl_Play(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   _res = wxMediaCtrl_Play(self);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_Seek(
+value camlidl_wxc_wxMediaCtrl_Seek(
 	value _v_self,
 	value _v_offsetWhere,
 	value _v_mode)
@@ -274,7 +274,7 @@ value camlidl_wxc_idl_wxMediaCtrl_Seek(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   offsetWhere = Int64_val(_v_offsetWhere);
   mode = Int_val(_v_mode);
   _res = wxMediaCtrl_Seek(self, offsetWhere, mode);
@@ -283,7 +283,7 @@ value camlidl_wxc_idl_wxMediaCtrl_Seek(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_SetPlaybackRate(
+value camlidl_wxc_wxMediaCtrl_SetPlaybackRate(
 	value _v_self,
 	value _v_dRate)
 {
@@ -294,7 +294,7 @@ value camlidl_wxc_idl_wxMediaCtrl_SetPlaybackRate(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   dRate = Double_val(_v_dRate);
   _res = wxMediaCtrl_SetPlaybackRate(self, dRate);
   _vres = Val_int(_res);
@@ -302,7 +302,7 @@ value camlidl_wxc_idl_wxMediaCtrl_SetPlaybackRate(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_SetVolume(
+value camlidl_wxc_wxMediaCtrl_SetVolume(
 	value _v_self,
 	value _v_dVolume)
 {
@@ -313,7 +313,7 @@ value camlidl_wxc_idl_wxMediaCtrl_SetVolume(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   dVolume = Double_val(_v_dVolume);
   _res = wxMediaCtrl_SetVolume(self, dVolume);
   _vres = Val_int(_res);
@@ -321,7 +321,7 @@ value camlidl_wxc_idl_wxMediaCtrl_SetVolume(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_ShowPlayerControls(
+value camlidl_wxc_wxMediaCtrl_ShowPlayerControls(
 	value _v_self,
 	value _v_flags)
 {
@@ -332,7 +332,7 @@ value camlidl_wxc_idl_wxMediaCtrl_ShowPlayerControls(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   flags = Int_val(_v_flags);
   _res = wxMediaCtrl_ShowPlayerControls(self, flags);
   _vres = Val_int(_res);
@@ -340,7 +340,7 @@ value camlidl_wxc_idl_wxMediaCtrl_ShowPlayerControls(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_Stop(
+value camlidl_wxc_wxMediaCtrl_Stop(
 	value _v_self)
 {
   wxMediaCtrl self; /*in*/
@@ -349,14 +349,14 @@ value camlidl_wxc_idl_wxMediaCtrl_Stop(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   _res = wxMediaCtrl_Stop(self);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxMediaCtrl_Tell(
+value camlidl_wxc_wxMediaCtrl_Tell(
 	value _v_self)
 {
   wxMediaCtrl self; /*in*/
@@ -365,7 +365,7 @@ value camlidl_wxc_idl_wxMediaCtrl_Tell(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxMediaCtrl(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxMediaCtrl(_v_self, &self, _ctx);
   _res = wxMediaCtrl_Tell(self);
   _vres = copy_int64(_res);
   camlidl_free(_ctx);

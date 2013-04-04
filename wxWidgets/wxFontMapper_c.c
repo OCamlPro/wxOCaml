@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxFontMapper(value _v1, wxFontMapper * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxFontMapper(value _v1, wxFontMapper * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxFontMapper *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxFontMapper(wxFontMapper * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxFontMapper(wxFontMapper * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxFontMapper) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxFontMapper_Create(value _unit)
+value camlidl_wxc_wxFontMapper_Create(value _unit)
 {
   wxFontMapper _res;
   value _vres;
@@ -37,12 +37,12 @@ value camlidl_wxc_idl_wxFontMapper_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxFontMapper_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxFontMapper(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxFontMapper(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFontMapper_GetAltForEncoding(
+value camlidl_wxc_wxFontMapper_GetAltForEncoding(
 	value _v__obj,
 	value _v_encoding,
 	value _v_alt_encoding,
@@ -57,17 +57,17 @@ value camlidl_wxc_idl_wxFontMapper_GetAltForEncoding(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontMapper(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFontMapper(_v__obj, &_obj, _ctx);
   encoding = Int_val(_v_encoding);
-  camlidl_ml2c_wxc_idl_voidptr(_v_alt_encoding, &alt_encoding, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v__buf, &_buf, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_alt_encoding, &alt_encoding, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__buf, &_buf, _ctx);
   _res = wxFontMapper_GetAltForEncoding(_obj, encoding, alt_encoding, _buf);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFontMapper_IsEncodingAvailable(
+value camlidl_wxc_wxFontMapper_IsEncodingAvailable(
 	value _v__obj,
 	value _v_encoding,
 	value _v__buf)
@@ -80,9 +80,9 @@ value camlidl_wxc_idl_wxFontMapper_IsEncodingAvailable(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontMapper(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFontMapper(_v__obj, &_obj, _ctx);
   encoding = Int_val(_v_encoding);
-  camlidl_ml2c_wxc_idl_wxString(_v__buf, &_buf, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__buf, &_buf, _ctx);
   _res = wxFontMapper_IsEncodingAvailable(_obj, encoding, _buf);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

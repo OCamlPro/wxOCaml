@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxScreenDC(value _v1, wxScreenDC * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxScreenDC(value _v1, wxScreenDC * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxScreenDC *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxScreenDC(wxScreenDC * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxScreenDC(wxScreenDC * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxScreenDC) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxScreenDC_Create(value _unit)
+value camlidl_wxc_wxScreenDC_Create(value _unit)
 {
   wxScreenDC _res;
   value _vres;
@@ -37,24 +37,24 @@ value camlidl_wxc_idl_wxScreenDC_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxScreenDC_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxScreenDC(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxScreenDC(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScreenDC_Delete(
+value camlidl_wxc_wxScreenDC_Delete(
 	value _v__obj)
 {
   wxScreenDC _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScreenDC(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScreenDC(_v__obj, &_obj, _ctx);
   wxScreenDC_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxScreenDC_EndDrawingOnTop(
+value camlidl_wxc_wxScreenDC_EndDrawingOnTop(
 	value _v__obj)
 {
   wxScreenDC _obj; /*in*/
@@ -63,14 +63,14 @@ value camlidl_wxc_idl_wxScreenDC_EndDrawingOnTop(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScreenDC(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScreenDC(_v__obj, &_obj, _ctx);
   _res = wxScreenDC_EndDrawingOnTop(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScreenDC_StartDrawingOnTop(
+value camlidl_wxc_wxScreenDC_StartDrawingOnTop(
 	value _v__obj,
 	value _v_x,
 	value _v_y,
@@ -87,7 +87,7 @@ value camlidl_wxc_idl_wxScreenDC_StartDrawingOnTop(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScreenDC(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxScreenDC(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   w = Int_val(_v_w);
@@ -98,7 +98,7 @@ value camlidl_wxc_idl_wxScreenDC_StartDrawingOnTop(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxScreenDC_StartDrawingOnTopOfWin(
+value camlidl_wxc_wxScreenDC_StartDrawingOnTopOfWin(
 	value _v__obj,
 	value _v_win)
 {
@@ -109,8 +109,8 @@ value camlidl_wxc_idl_wxScreenDC_StartDrawingOnTopOfWin(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxScreenDC(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_win, &win, _ctx);
+  camlidl_ml2c_wxc_wxScreenDC(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_win, &win, _ctx);
   _res = wxScreenDC_StartDrawingOnTopOfWin(_obj, win);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

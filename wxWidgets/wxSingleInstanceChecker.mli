@@ -1,18 +1,18 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : voidptr -> wxString -> wxString -> bool
-	= "camlidl_wxc_idl_wxSingleInstanceChecker_Create"
+	= "camlidl_wxc_wxSingleInstanceChecker_Create"
 
 external isAnotherRunning : wxSingleInstanceChecker -> bool
-	= "camlidl_wxc_idl_wxSingleInstanceChecker_IsAnotherRunning"
+	= "camlidl_wxc_wxSingleInstanceChecker_IsAnotherRunning"
 
 external delete : wxSingleInstanceChecker -> unit
-	= "camlidl_wxc_idl_wxSingleInstanceChecker_Delete"
+	= "camlidl_wxc_wxSingleInstanceChecker_Delete"
 
 external createDefault : unit -> wxSingleInstanceChecker
-	= "camlidl_wxc_idl_wxSingleInstanceChecker_CreateDefault"
+	= "camlidl_wxc_wxSingleInstanceChecker_CreateDefault"
 
 val wxnew : voidptr -> string -> string -> bool
 

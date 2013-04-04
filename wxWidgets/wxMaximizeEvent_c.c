@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxMaximizeEvent(value _v1, wxMaximizeEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxMaximizeEvent(value _v1, wxMaximizeEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxMaximizeEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxMaximizeEvent(wxMaximizeEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxMaximizeEvent(wxMaximizeEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxMaximizeEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

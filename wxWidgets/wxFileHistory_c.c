@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxFileHistory(value _v1, wxFileHistory * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxFileHistory(value _v1, wxFileHistory * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxFileHistory *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxFileHistory(wxFileHistory * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxFileHistory(wxFileHistory * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxFileHistory) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxFileHistory_AddFileToHistory(
+value camlidl_wxc_wxFileHistory_AddFileToHistory(
 	value _v__obj,
 	value _v_file)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxFileHistory_AddFileToHistory(
   wxString file; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileHistory(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_file, &file, _ctx);
+  camlidl_ml2c_wxc_wxFileHistory(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_file, &file, _ctx);
   wxFileHistory_AddFileToHistory(_obj, file);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFileHistory_AddFilesToMenu(
+value camlidl_wxc_wxFileHistory_AddFilesToMenu(
 	value _v__obj,
 	value _v_menu)
 {
@@ -52,14 +52,14 @@ value camlidl_wxc_idl_wxFileHistory_AddFilesToMenu(
   wxMenu menu; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileHistory(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxMenu(_v_menu, &menu, _ctx);
+  camlidl_ml2c_wxc_wxFileHistory(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenu(_v_menu, &menu, _ctx);
   wxFileHistory_AddFilesToMenu(_obj, menu);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFileHistory_Create(
+value camlidl_wxc_wxFileHistory_Create(
 	value _v_maxFiles)
 {
   int maxFiles; /*in*/
@@ -70,24 +70,24 @@ value camlidl_wxc_idl_wxFileHistory_Create(
   camlidl_ctx _ctx = &_ctxs;
   maxFiles = Int_val(_v_maxFiles);
   _res = wxFileHistory_Create(maxFiles);
-  _vres = camlidl_c2ml_wxc_idl_wxFileHistory(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxFileHistory(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFileHistory_Delete(
+value camlidl_wxc_wxFileHistory_Delete(
 	value _v__obj)
 {
   wxFileHistory _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileHistory(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileHistory(_v__obj, &_obj, _ctx);
   wxFileHistory_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFileHistory_GetCount(
+value camlidl_wxc_wxFileHistory_GetCount(
 	value _v__obj)
 {
   wxFileHistory _obj; /*in*/
@@ -96,14 +96,14 @@ value camlidl_wxc_idl_wxFileHistory_GetCount(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileHistory(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileHistory(_v__obj, &_obj, _ctx);
   _res = wxFileHistory_GetCount(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFileHistory_GetHistoryFile(
+value camlidl_wxc_wxFileHistory_GetHistoryFile(
 	value _v__obj,
 	value _v_i)
 {
@@ -114,15 +114,15 @@ value camlidl_wxc_idl_wxFileHistory_GetHistoryFile(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileHistory(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileHistory(_v__obj, &_obj, _ctx);
   i = Int_val(_v_i);
   _res = wxFileHistory_GetHistoryFile(_obj, i);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFileHistory_GetMaxFiles(
+value camlidl_wxc_wxFileHistory_GetMaxFiles(
 	value _v__obj)
 {
   wxFileHistory _obj; /*in*/
@@ -131,14 +131,14 @@ value camlidl_wxc_idl_wxFileHistory_GetMaxFiles(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileHistory(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileHistory(_v__obj, &_obj, _ctx);
   _res = wxFileHistory_GetMaxFiles(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFileHistory_GetMenus(
+value camlidl_wxc_wxFileHistory_GetMenus(
 	value _v__obj,
 	value _v__ref)
 {
@@ -151,13 +151,13 @@ value camlidl_wxc_idl_wxFileHistory_GetMenus(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileHistory(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileHistory(_v__obj, &_obj, _ctx);
   if (_v__ref == Val_int(0)) {
     _ref = NULL;
   } else {
     _v1 = Field(_v__ref, 0);
     _ref = &_c2;
-    camlidl_ml2c_wxc_idl_wxMenu(_v1, &_c2, _ctx);
+    camlidl_ml2c_wxc_wxMenu(_v1, &_c2, _ctx);
   }
   _res = wxFileHistory_GetMenus(_obj, _ref);
   _vres = Val_int(_res);
@@ -165,7 +165,7 @@ value camlidl_wxc_idl_wxFileHistory_GetMenus(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFileHistory_Load(
+value camlidl_wxc_wxFileHistory_Load(
 	value _v__obj,
 	value _v_config)
 {
@@ -173,14 +173,14 @@ value camlidl_wxc_idl_wxFileHistory_Load(
   wxConfigBase config; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileHistory(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxConfigBase(_v_config, &config, _ctx);
+  camlidl_ml2c_wxc_wxFileHistory(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxConfigBase(_v_config, &config, _ctx);
   wxFileHistory_Load(_obj, config);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFileHistory_RemoveFileFromHistory(
+value camlidl_wxc_wxFileHistory_RemoveFileFromHistory(
 	value _v__obj,
 	value _v_i)
 {
@@ -188,14 +188,14 @@ value camlidl_wxc_idl_wxFileHistory_RemoveFileFromHistory(
   int i; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileHistory(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFileHistory(_v__obj, &_obj, _ctx);
   i = Int_val(_v_i);
   wxFileHistory_RemoveFileFromHistory(_obj, i);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFileHistory_RemoveMenu(
+value camlidl_wxc_wxFileHistory_RemoveMenu(
 	value _v__obj,
 	value _v_menu)
 {
@@ -203,14 +203,14 @@ value camlidl_wxc_idl_wxFileHistory_RemoveMenu(
   wxMenu menu; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileHistory(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxMenu(_v_menu, &menu, _ctx);
+  camlidl_ml2c_wxc_wxFileHistory(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenu(_v_menu, &menu, _ctx);
   wxFileHistory_RemoveMenu(_obj, menu);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFileHistory_Save(
+value camlidl_wxc_wxFileHistory_Save(
 	value _v__obj,
 	value _v_config)
 {
@@ -218,14 +218,14 @@ value camlidl_wxc_idl_wxFileHistory_Save(
   wxConfigBase config; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileHistory(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxConfigBase(_v_config, &config, _ctx);
+  camlidl_ml2c_wxc_wxFileHistory(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxConfigBase(_v_config, &config, _ctx);
   wxFileHistory_Save(_obj, config);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxFileHistory_UseMenu(
+value camlidl_wxc_wxFileHistory_UseMenu(
 	value _v__obj,
 	value _v_menu)
 {
@@ -233,8 +233,8 @@ value camlidl_wxc_idl_wxFileHistory_UseMenu(
   wxMenu menu; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFileHistory(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxMenu(_v_menu, &menu, _ctx);
+  camlidl_ml2c_wxc_wxFileHistory(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxMenu(_v_menu, &menu, _ctx);
   wxFileHistory_UseMenu(_obj, menu);
   camlidl_free(_ctx);
   return Val_unit;

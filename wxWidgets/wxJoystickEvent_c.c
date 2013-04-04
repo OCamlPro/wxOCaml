@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxJoystickEvent(value _v1, wxJoystickEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxJoystickEvent(value _v1, wxJoystickEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxJoystickEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxJoystickEvent(wxJoystickEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxJoystickEvent(wxJoystickEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxJoystickEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_ButtonDown(
+value camlidl_wxc_wxJoystickEvent_ButtonDown(
 	value _v__obj,
 	value _v_but)
 {
@@ -40,7 +40,7 @@ value camlidl_wxc_idl_wxJoystickEvent_ButtonDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   but = Int_val(_v_but);
   _res = wxJoystickEvent_ButtonDown(_obj, but);
   _vres = Val_int(_res);
@@ -48,7 +48,7 @@ value camlidl_wxc_idl_wxJoystickEvent_ButtonDown(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_ButtonIsDown(
+value camlidl_wxc_wxJoystickEvent_ButtonIsDown(
 	value _v__obj,
 	value _v_but)
 {
@@ -59,7 +59,7 @@ value camlidl_wxc_idl_wxJoystickEvent_ButtonIsDown(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   but = Int_val(_v_but);
   _res = wxJoystickEvent_ButtonIsDown(_obj, but);
   _vres = Val_int(_res);
@@ -67,7 +67,7 @@ value camlidl_wxc_idl_wxJoystickEvent_ButtonIsDown(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_ButtonUp(
+value camlidl_wxc_wxJoystickEvent_ButtonUp(
 	value _v__obj,
 	value _v_but)
 {
@@ -78,7 +78,7 @@ value camlidl_wxc_idl_wxJoystickEvent_ButtonUp(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   but = Int_val(_v_but);
   _res = wxJoystickEvent_ButtonUp(_obj, but);
   _vres = Val_int(_res);
@@ -86,7 +86,7 @@ value camlidl_wxc_idl_wxJoystickEvent_ButtonUp(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_CopyObject(
+value camlidl_wxc_wxJoystickEvent_CopyObject(
 	value _v__obj,
 	value _v_obj)
 {
@@ -94,14 +94,14 @@ value camlidl_wxc_idl_wxJoystickEvent_CopyObject(
   voidptr obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_obj, &obj, _ctx);
   wxJoystickEvent_CopyObject(_obj, obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_GetButtonChange(
+value camlidl_wxc_wxJoystickEvent_GetButtonChange(
 	value _v__obj)
 {
   wxJoystickEvent _obj; /*in*/
@@ -110,14 +110,14 @@ value camlidl_wxc_idl_wxJoystickEvent_GetButtonChange(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   _res = wxJoystickEvent_GetButtonChange(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_GetButtonState(
+value camlidl_wxc_wxJoystickEvent_GetButtonState(
 	value _v__obj)
 {
   wxJoystickEvent _obj; /*in*/
@@ -126,14 +126,14 @@ value camlidl_wxc_idl_wxJoystickEvent_GetButtonState(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   _res = wxJoystickEvent_GetButtonState(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_GetJoystick(
+value camlidl_wxc_wxJoystickEvent_GetJoystick(
 	value _v__obj)
 {
   wxJoystickEvent _obj; /*in*/
@@ -142,14 +142,14 @@ value camlidl_wxc_idl_wxJoystickEvent_GetJoystick(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   _res = wxJoystickEvent_GetJoystick(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_GetPosition(
+value camlidl_wxc_wxJoystickEvent_GetPosition(
 	value _v__obj)
 {
   wxJoystickEvent _obj; /*in*/
@@ -158,14 +158,14 @@ value camlidl_wxc_idl_wxJoystickEvent_GetPosition(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   _res = wxJoystickEvent_GetPosition(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxPoint(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPoint(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_GetZPosition(
+value camlidl_wxc_wxJoystickEvent_GetZPosition(
 	value _v__obj)
 {
   wxJoystickEvent _obj; /*in*/
@@ -174,14 +174,14 @@ value camlidl_wxc_idl_wxJoystickEvent_GetZPosition(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   _res = wxJoystickEvent_GetZPosition(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_IsButton(
+value camlidl_wxc_wxJoystickEvent_IsButton(
 	value _v__obj)
 {
   wxJoystickEvent _obj; /*in*/
@@ -190,14 +190,14 @@ value camlidl_wxc_idl_wxJoystickEvent_IsButton(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   _res = wxJoystickEvent_IsButton(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_IsMove(
+value camlidl_wxc_wxJoystickEvent_IsMove(
 	value _v__obj)
 {
   wxJoystickEvent _obj; /*in*/
@@ -206,14 +206,14 @@ value camlidl_wxc_idl_wxJoystickEvent_IsMove(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   _res = wxJoystickEvent_IsMove(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_IsZMove(
+value camlidl_wxc_wxJoystickEvent_IsZMove(
 	value _v__obj)
 {
   wxJoystickEvent _obj; /*in*/
@@ -222,14 +222,14 @@ value camlidl_wxc_idl_wxJoystickEvent_IsZMove(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   _res = wxJoystickEvent_IsZMove(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_SetButtonChange(
+value camlidl_wxc_wxJoystickEvent_SetButtonChange(
 	value _v__obj,
 	value _v_change)
 {
@@ -237,14 +237,14 @@ value camlidl_wxc_idl_wxJoystickEvent_SetButtonChange(
   int change; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   change = Int_val(_v_change);
   wxJoystickEvent_SetButtonChange(_obj, change);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_SetButtonState(
+value camlidl_wxc_wxJoystickEvent_SetButtonState(
 	value _v__obj,
 	value _v_state)
 {
@@ -252,14 +252,14 @@ value camlidl_wxc_idl_wxJoystickEvent_SetButtonState(
   int state; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   state = Int_val(_v_state);
   wxJoystickEvent_SetButtonState(_obj, state);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_SetJoystick(
+value camlidl_wxc_wxJoystickEvent_SetJoystick(
 	value _v__obj,
 	value _v_stick)
 {
@@ -267,14 +267,14 @@ value camlidl_wxc_idl_wxJoystickEvent_SetJoystick(
   int stick; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   stick = Int_val(_v_stick);
   wxJoystickEvent_SetJoystick(_obj, stick);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_SetPosition(
+value camlidl_wxc_wxJoystickEvent_SetPosition(
 	value _v__obj,
 	value _v_x,
 	value _v_y)
@@ -284,7 +284,7 @@ value camlidl_wxc_idl_wxJoystickEvent_SetPosition(
   int y; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   wxJoystickEvent_SetPosition(_obj, x, y);
@@ -292,7 +292,7 @@ value camlidl_wxc_idl_wxJoystickEvent_SetPosition(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxJoystickEvent_SetZPosition(
+value camlidl_wxc_wxJoystickEvent_SetZPosition(
 	value _v__obj,
 	value _v_zPos)
 {
@@ -300,7 +300,7 @@ value camlidl_wxc_idl_wxJoystickEvent_SetZPosition(
   int zPos; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxJoystickEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxJoystickEvent(_v__obj, &_obj, _ctx);
   zPos = Int_val(_v_zPos);
   wxJoystickEvent_SetZPosition(_obj, zPos);
   camlidl_free(_ctx);

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxHtmlColourCell(value _v1, wxHtmlColourCell * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxHtmlColourCell(value _v1, wxHtmlColourCell * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxHtmlColourCell *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxHtmlColourCell(wxHtmlColourCell * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxHtmlColourCell(wxHtmlColourCell * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxHtmlColourCell) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

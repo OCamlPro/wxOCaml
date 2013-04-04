@@ -626,6 +626,10 @@ let main intf =
              (Printf.sprintf "%s.ml" cl.cl_name)) in
       Printf.fprintf oc.oc "open WxClasses\n";
       gen_ml_file oc.oc !functions;
+      if !functions = [] then begin
+        Printf.eprintf "Warning: class %S has not direct methods\n%!"
+          cl.cl_name;
+      end;
       if cl.cl_name <> "wxString" then
         gen_ml_wxString oc.oc !functions;
 
@@ -633,7 +637,7 @@ let main intf =
           None -> ()
         | Some parents ->
           if from_object cl then begin
-            Printf.fprintf oc.oc "external null_object : unit -> %s\n   = \"camlidl_wxc_idl_null_object\"\n" cl.cl_name;
+            Printf.fprintf oc.oc "external null_object : unit -> %s\n   = \"camlidl_wxc_null_object\"\n" cl.cl_name;
 
             Printf.fprintf oc.oc "    let ptrNULL = null_object()\n";
           end;

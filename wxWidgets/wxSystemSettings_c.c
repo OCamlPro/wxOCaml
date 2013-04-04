@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxSystemSettings(value _v1, wxSystemSettings * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxSystemSettings(value _v1, wxSystemSettings * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxSystemSettings *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxSystemSettings(wxSystemSettings * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxSystemSettings(wxSystemSettings * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxSystemSettings) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxSystemSettings_GetColour(
+value camlidl_wxc_wxSystemSettings_GetColour(
 	value _v_index,
 	value _v__ref)
 {
@@ -38,13 +38,13 @@ value camlidl_wxc_idl_wxSystemSettings_GetColour(
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   index = Int_val(_v_index);
-  camlidl_ml2c_wxc_idl_wxColour(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v__ref, &_ref, _ctx);
   wxSystemSettings_GetColour(index, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSystemSettings_GetFont(
+value camlidl_wxc_wxSystemSettings_GetFont(
 	value _v_index,
 	value _v__ref)
 {
@@ -53,13 +53,13 @@ value camlidl_wxc_idl_wxSystemSettings_GetFont(
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   index = Int_val(_v_index);
-  camlidl_ml2c_wxc_idl_wxFont(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxFont(_v__ref, &_ref, _ctx);
   wxSystemSettings_GetFont(index, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSystemSettings_GetMetric(
+value camlidl_wxc_wxSystemSettings_GetMetric(
 	value _v_index)
 {
   int index; /*in*/
@@ -72,7 +72,7 @@ value camlidl_wxc_idl_wxSystemSettings_GetMetric(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSystemSettings_GetScreenType(value _unit)
+value camlidl_wxc_wxSystemSettings_GetScreenType(value _unit)
 {
   int _res;
   value _vres;

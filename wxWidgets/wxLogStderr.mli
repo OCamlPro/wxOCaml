@@ -1,69 +1,69 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : unit -> wxLogStderr
-	= "camlidl_wxc_idl_wxLogStderr_Create"
+	= "camlidl_wxc_wxLogStderr_Create"
 
 external suspend : wxLogStderr -> unit
-	= "camlidl_wxc_idl_wxLog_Suspend"
+	= "camlidl_wxc_wxLog_Suspend"
 
 external setVerbose : wxLogStderr -> int -> unit
-	= "camlidl_wxc_idl_wxLog_SetVerbose"
+	= "camlidl_wxc_wxLog_SetVerbose"
 
 external setTraceMask : wxLogStderr -> int -> unit
-	= "camlidl_wxc_idl_wxLog_SetTraceMask"
+	= "camlidl_wxc_wxLog_SetTraceMask"
 
 external setTimestamp : wxLogStderr -> string -> unit
-	= "camlidl_wxc_idl_wxLog_SetTimestamp"
+	= "camlidl_wxc_wxLog_SetTimestamp"
 
 external setActiveTarget : wxLogStderr -> wxLog
-	= "camlidl_wxc_idl_wxLog_SetActiveTarget"
+	= "camlidl_wxc_wxLog_SetActiveTarget"
 
 external resume : wxLogStderr -> unit
-	= "camlidl_wxc_idl_wxLog_Resume"
+	= "camlidl_wxc_wxLog_Resume"
 
 external removeTraceMask : wxLogStderr -> wxString -> unit
-	= "camlidl_wxc_idl_wxLog_RemoveTraceMask"
+	= "camlidl_wxc_wxLog_RemoveTraceMask"
 
 external onLog : wxLogStderr -> int -> string -> int -> unit
-	= "camlidl_wxc_idl_wxLog_OnLog"
+	= "camlidl_wxc_wxLog_OnLog"
 
 external isAllowedTraceMask : wxLogStderr -> wxMask -> bool
-	= "camlidl_wxc_idl_wxLog_IsAllowedTraceMask"
+	= "camlidl_wxc_wxLog_IsAllowedTraceMask"
 
 external hasPendingMessages : wxLogStderr -> bool
-	= "camlidl_wxc_idl_wxLog_HasPendingMessages"
+	= "camlidl_wxc_wxLog_HasPendingMessages"
 
 external getVerbose : wxLogStderr -> int
-	= "camlidl_wxc_idl_wxLog_GetVerbose"
+	= "camlidl_wxc_wxLog_GetVerbose"
 
 external getTraceMask : wxLogStderr -> int
-	= "camlidl_wxc_idl_wxLog_GetTraceMask"
+	= "camlidl_wxc_wxLog_GetTraceMask"
 
 external getTimestamp : wxLogStderr -> char option
-	= "camlidl_wxc_idl_wxLog_GetTimestamp"
+	= "camlidl_wxc_wxLog_GetTimestamp"
 
 external getActiveTarget : unit -> wxLog
-	= "camlidl_wxc_idl_wxLog_GetActiveTarget"
+	= "camlidl_wxc_wxLog_GetActiveTarget"
 
 external flushActive : wxLogStderr -> unit
-	= "camlidl_wxc_idl_wxLog_FlushActive"
+	= "camlidl_wxc_wxLog_FlushActive"
 
 external flush : wxLogStderr -> unit
-	= "camlidl_wxc_idl_wxLog_Flush"
+	= "camlidl_wxc_wxLog_Flush"
 
 external dontCreateOnDemand : wxLogStderr -> unit
-	= "camlidl_wxc_idl_wxLog_DontCreateOnDemand"
+	= "camlidl_wxc_wxLog_DontCreateOnDemand"
 
 external delete : wxLogStderr -> unit
-	= "camlidl_wxc_idl_wxLog_Delete"
+	= "camlidl_wxc_wxLog_Delete"
 
 external createStdOut : unit -> wxLogStderr
-	= "camlidl_wxc_idl_wxLogStderr_CreateStdOut"
+	= "camlidl_wxc_wxLogStderr_CreateStdOut"
 
 external addTraceMask : wxLogStderr -> wxString -> unit
-	= "camlidl_wxc_idl_wxLog_AddTraceMask"
+	= "camlidl_wxc_wxLog_AddTraceMask"
 
 val removeTraceMask : wxLogStderr -> string -> unit
 val addTraceMask : wxLogStderr -> string -> unit

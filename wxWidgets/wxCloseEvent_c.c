@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxCloseEvent(value _v1, wxCloseEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxCloseEvent(value _v1, wxCloseEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxCloseEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxCloseEvent(wxCloseEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxCloseEvent(wxCloseEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxCloseEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxCloseEvent_CanVeto(
+value camlidl_wxc_wxCloseEvent_CanVeto(
 	value _v__obj)
 {
   wxCloseEvent _obj; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxCloseEvent_CanVeto(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCloseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCloseEvent(_v__obj, &_obj, _ctx);
   _res = wxCloseEvent_CanVeto(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxCloseEvent_CopyObject(
+value camlidl_wxc_wxCloseEvent_CopyObject(
 	value _v__obj,
 	value _v_obj)
 {
@@ -53,14 +53,14 @@ value camlidl_wxc_idl_wxCloseEvent_CopyObject(
   wxObject obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCloseEvent(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxObject(_v_obj, &obj, _ctx);
+  camlidl_ml2c_wxc_wxCloseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxObject(_v_obj, &obj, _ctx);
   wxCloseEvent_CopyObject(_obj, obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCloseEvent_GetLoggingOff(
+value camlidl_wxc_wxCloseEvent_GetLoggingOff(
 	value _v__obj)
 {
   wxCloseEvent _obj; /*in*/
@@ -69,14 +69,14 @@ value camlidl_wxc_idl_wxCloseEvent_GetLoggingOff(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCloseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCloseEvent(_v__obj, &_obj, _ctx);
   _res = wxCloseEvent_GetLoggingOff(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxCloseEvent_GetVeto(
+value camlidl_wxc_wxCloseEvent_GetVeto(
 	value _v__obj)
 {
   wxCloseEvent _obj; /*in*/
@@ -85,14 +85,14 @@ value camlidl_wxc_idl_wxCloseEvent_GetVeto(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCloseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCloseEvent(_v__obj, &_obj, _ctx);
   _res = wxCloseEvent_GetVeto(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxCloseEvent_SetCanVeto(
+value camlidl_wxc_wxCloseEvent_SetCanVeto(
 	value _v__obj,
 	value _v_canVeto)
 {
@@ -100,14 +100,14 @@ value camlidl_wxc_idl_wxCloseEvent_SetCanVeto(
   int canVeto; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCloseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCloseEvent(_v__obj, &_obj, _ctx);
   canVeto = Int_val(_v_canVeto);
   wxCloseEvent_SetCanVeto(_obj, canVeto);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCloseEvent_SetLoggingOff(
+value camlidl_wxc_wxCloseEvent_SetLoggingOff(
 	value _v__obj,
 	value _v_logOff)
 {
@@ -115,14 +115,14 @@ value camlidl_wxc_idl_wxCloseEvent_SetLoggingOff(
   int logOff; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCloseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCloseEvent(_v__obj, &_obj, _ctx);
   logOff = Int_val(_v_logOff);
   wxCloseEvent_SetLoggingOff(_obj, logOff);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxCloseEvent_Veto(
+value camlidl_wxc_wxCloseEvent_Veto(
 	value _v__obj,
 	value _v_veto)
 {
@@ -130,7 +130,7 @@ value camlidl_wxc_idl_wxCloseEvent_Veto(
   int veto; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCloseEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxCloseEvent(_v__obj, &_obj, _ctx);
   veto = Int_val(_v_veto);
   wxCloseEvent_Veto(_obj, veto);
   camlidl_free(_ctx);

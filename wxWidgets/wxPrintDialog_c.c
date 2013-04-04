@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxPrintDialog(value _v1, wxPrintDialog * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxPrintDialog(value _v1, wxPrintDialog * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxPrintDialog *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxPrintDialog(wxPrintDialog * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxPrintDialog(wxPrintDialog * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxPrintDialog) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxPrintDialog_Create(
+value camlidl_wxc_wxPrintDialog_Create(
 	value _v_parent,
 	value _v_data)
 {
@@ -40,15 +40,15 @@ value camlidl_wxc_idl_wxPrintDialog_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
-  camlidl_ml2c_wxc_idl_wxPrintDialogData(_v_data, &data, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialogData(_v_data, &data, _ctx);
   _res = wxPrintDialog_Create(parent, data);
-  _vres = camlidl_c2ml_wxc_idl_wxPrintDialog(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPrintDialog(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialog_GetPrintDC(
+value camlidl_wxc_wxPrintDialog_GetPrintDC(
 	value _v__obj)
 {
   wxPrintDialog _obj; /*in*/
@@ -57,14 +57,14 @@ value camlidl_wxc_idl_wxPrintDialog_GetPrintDC(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialog(_v__obj, &_obj, _ctx);
   _res = wxPrintDialog_GetPrintDC(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxDC(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxDC(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxPrintDialog_GetPrintData(
+value camlidl_wxc_wxPrintDialog_GetPrintData(
 	value _v__obj,
 	value _v__ref)
 {
@@ -72,14 +72,14 @@ value camlidl_wxc_idl_wxPrintDialog_GetPrintData(
   wxPrintData _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialog(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxPrintData(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintData(_v__ref, &_ref, _ctx);
   wxPrintDialog_GetPrintData(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxPrintDialog_GetPrintDialogData(
+value camlidl_wxc_wxPrintDialog_GetPrintDialogData(
 	value _v__obj)
 {
   wxPrintDialog _obj; /*in*/
@@ -88,9 +88,9 @@ value camlidl_wxc_idl_wxPrintDialog_GetPrintDialogData(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxPrintDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxPrintDialog(_v__obj, &_obj, _ctx);
   _res = wxPrintDialog_GetPrintDialogData(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxPrintDialogData(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPrintDialogData(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

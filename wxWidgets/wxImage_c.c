@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxImage(value _v1, wxImage * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxImage(value _v1, wxImage * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxImage *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxImage(wxImage * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxImage(wxImage * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxImage) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxImage_CanRead(
+value camlidl_wxc_wxImage_CanRead(
 	value _v_name)
 {
   wxString name; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxImage_CanRead(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _res = wxImage_CanRead(name);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_ConvertToBitmap(
+value camlidl_wxc_wxImage_ConvertToBitmap(
 	value _v__obj,
 	value _v_bitmap)
 {
@@ -53,14 +53,14 @@ value camlidl_wxc_idl_wxImage_ConvertToBitmap(
   wxBitmap bitmap; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_bitmap, &bitmap, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_bitmap, &bitmap, _ctx);
   wxImage_ConvertToBitmap(_obj, bitmap);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_ConvertToByteString(
+value camlidl_wxc_wxImage_ConvertToByteString(
 	value _v__obj,
 	value _v__type,
 	value _v_data)
@@ -75,7 +75,7 @@ value camlidl_wxc_idl_wxImage_ConvertToByteString(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   _type = Int_val(_v__type);
   if (_v_data == Val_int(0)) {
     data = NULL;
@@ -90,7 +90,7 @@ value camlidl_wxc_idl_wxImage_ConvertToByteString(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_ConvertToLazyByteString(
+value camlidl_wxc_wxImage_ConvertToLazyByteString(
 	value _v__obj,
 	value _v__type,
 	value _v_data)
@@ -105,7 +105,7 @@ value camlidl_wxc_idl_wxImage_ConvertToLazyByteString(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   _type = Int_val(_v__type);
   if (_v_data == Val_int(0)) {
     data = NULL;
@@ -120,7 +120,7 @@ value camlidl_wxc_idl_wxImage_ConvertToLazyByteString(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_CountColours(
+value camlidl_wxc_wxImage_CountColours(
 	value _v__obj,
 	value _v_stopafter)
 {
@@ -131,7 +131,7 @@ value camlidl_wxc_idl_wxImage_CountColours(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   stopafter = Int_val(_v_stopafter);
   _res = wxImage_CountColours(_obj, stopafter);
   _vres = Val_int(_res);
@@ -139,7 +139,7 @@ value camlidl_wxc_idl_wxImage_CountColours(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_CreateDefault(value _unit)
+value camlidl_wxc_wxImage_CreateDefault(value _unit)
 {
   wxImage _res;
   value _vres;
@@ -147,12 +147,12 @@ value camlidl_wxc_idl_wxImage_CreateDefault(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxImage_CreateDefault();
-  _vres = camlidl_c2ml_wxc_idl_wxImage(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxImage(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_CreateFromBitmap(
+value camlidl_wxc_wxImage_CreateFromBitmap(
 	value _v_bitmap)
 {
   wxBitmap bitmap; /*in*/
@@ -161,14 +161,14 @@ value camlidl_wxc_idl_wxImage_CreateFromBitmap(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_bitmap, &bitmap, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_bitmap, &bitmap, _ctx);
   _res = wxImage_CreateFromBitmap(bitmap);
-  _vres = camlidl_c2ml_wxc_idl_wxImage(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxImage(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_CreateFromByteString(
+value camlidl_wxc_wxImage_CreateFromByteString(
 	value _v_data,
 	value _v_length,
 	value _v__type)
@@ -201,12 +201,12 @@ value camlidl_wxc_idl_wxImage_CreateFromByteString(
   length = Int_val(_v_length);
   _type = Int_val(_v__type);
   _res = wxImage_CreateFromByteString(data, length, _type);
-  _vres = camlidl_c2ml_wxc_idl_wxImage(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxImage(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_CreateFromLazyByteString(
+value camlidl_wxc_wxImage_CreateFromLazyByteString(
 	value _v_data,
 	value _v_length,
 	value _v__type)
@@ -239,12 +239,12 @@ value camlidl_wxc_idl_wxImage_CreateFromLazyByteString(
   length = Int_val(_v_length);
   _type = Int_val(_v__type);
   _res = wxImage_CreateFromLazyByteString(data, length, _type);
-  _vres = camlidl_c2ml_wxc_idl_wxImage(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxImage(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_CreateFromData(
+value camlidl_wxc_wxImage_CreateFromData(
 	value _v_width,
 	value _v_height,
 	value _v_data)
@@ -259,14 +259,14 @@ value camlidl_wxc_idl_wxImage_CreateFromData(
   camlidl_ctx _ctx = &_ctxs;
   width = Int_val(_v_width);
   height = Int_val(_v_height);
-  camlidl_ml2c_wxc_idl_voidptr(_v_data, &data, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_data, &data, _ctx);
   _res = wxImage_CreateFromData(width, height, data);
-  _vres = camlidl_c2ml_wxc_idl_wxImage(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxImage(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_CreateFromFile(
+value camlidl_wxc_wxImage_CreateFromFile(
 	value _v_name)
 {
   wxString name; /*in*/
@@ -275,14 +275,14 @@ value camlidl_wxc_idl_wxImage_CreateFromFile(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _res = wxImage_CreateFromFile(name);
-  _vres = camlidl_c2ml_wxc_idl_wxImage(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxImage(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_CreateSized(
+value camlidl_wxc_wxImage_CreateSized(
 	value _v_width,
 	value _v_height)
 {
@@ -296,24 +296,24 @@ value camlidl_wxc_idl_wxImage_CreateSized(
   width = Int_val(_v_width);
   height = Int_val(_v_height);
   _res = wxImage_CreateSized(width, height);
-  _vres = camlidl_c2ml_wxc_idl_wxImage(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxImage(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_Destroy(
+value camlidl_wxc_wxImage_Destroy(
 	value _v__obj)
 {
   wxImage _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   wxImage_Destroy(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_GetBlue(
+value camlidl_wxc_wxImage_GetBlue(
 	value _v__obj,
 	value _v_x,
 	value _v_y)
@@ -326,7 +326,7 @@ value camlidl_wxc_idl_wxImage_GetBlue(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   _res = wxImage_GetBlue(_obj, x, y);
@@ -335,7 +335,7 @@ value camlidl_wxc_idl_wxImage_GetBlue(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_GetData(
+value camlidl_wxc_wxImage_GetData(
 	value _v__obj)
 {
   wxImage _obj; /*in*/
@@ -344,14 +344,14 @@ value camlidl_wxc_idl_wxImage_GetData(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   _res = wxImage_GetData(_obj);
-  _vres = camlidl_c2ml_wxc_idl_voidptr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_voidptr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_GetGreen(
+value camlidl_wxc_wxImage_GetGreen(
 	value _v__obj,
 	value _v_x,
 	value _v_y)
@@ -364,7 +364,7 @@ value camlidl_wxc_idl_wxImage_GetGreen(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   _res = wxImage_GetGreen(_obj, x, y);
@@ -373,7 +373,7 @@ value camlidl_wxc_idl_wxImage_GetGreen(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_GetHeight(
+value camlidl_wxc_wxImage_GetHeight(
 	value _v__obj)
 {
   wxImage _obj; /*in*/
@@ -382,14 +382,14 @@ value camlidl_wxc_idl_wxImage_GetHeight(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   _res = wxImage_GetHeight(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_GetMaskBlue(
+value camlidl_wxc_wxImage_GetMaskBlue(
 	value _v__obj)
 {
   wxImage _obj; /*in*/
@@ -398,14 +398,14 @@ value camlidl_wxc_idl_wxImage_GetMaskBlue(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   _res = wxImage_GetMaskBlue(_obj);
   _vres = Val_int((unsigned char)(_res));
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_GetMaskGreen(
+value camlidl_wxc_wxImage_GetMaskGreen(
 	value _v__obj)
 {
   wxImage _obj; /*in*/
@@ -414,14 +414,14 @@ value camlidl_wxc_idl_wxImage_GetMaskGreen(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   _res = wxImage_GetMaskGreen(_obj);
   _vres = Val_int((unsigned char)(_res));
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_GetMaskRed(
+value camlidl_wxc_wxImage_GetMaskRed(
 	value _v__obj)
 {
   wxImage _obj; /*in*/
@@ -430,14 +430,14 @@ value camlidl_wxc_idl_wxImage_GetMaskRed(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   _res = wxImage_GetMaskRed(_obj);
   _vres = Val_int((unsigned char)(_res));
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_GetRed(
+value camlidl_wxc_wxImage_GetRed(
 	value _v__obj,
 	value _v_x,
 	value _v_y)
@@ -450,7 +450,7 @@ value camlidl_wxc_idl_wxImage_GetRed(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   _res = wxImage_GetRed(_obj, x, y);
@@ -459,7 +459,7 @@ value camlidl_wxc_idl_wxImage_GetRed(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_GetSubImage(
+value camlidl_wxc_wxImage_GetSubImage(
 	value _v__obj,
 	value _v_x,
 	value _v_y,
@@ -475,23 +475,23 @@ value camlidl_wxc_idl_wxImage_GetSubImage(
   wxImage image; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   w = Int_val(_v_w);
   h = Int_val(_v_h);
-  camlidl_ml2c_wxc_idl_wxImage(_v_image, &image, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v_image, &image, _ctx);
   wxImage_GetSubImage(_obj, x, y, w, h, image);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_GetSubImage_bytecode(value * argv, int argn)
+value camlidl_wxc_wxImage_GetSubImage_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxImage_GetSubImage(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
+  return camlidl_wxc_wxImage_GetSubImage(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
-value camlidl_wxc_idl_wxImage_GetWidth(
+value camlidl_wxc_wxImage_GetWidth(
 	value _v__obj)
 {
   wxImage _obj; /*in*/
@@ -500,14 +500,14 @@ value camlidl_wxc_idl_wxImage_GetWidth(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   _res = wxImage_GetWidth(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_HasMask(
+value camlidl_wxc_wxImage_HasMask(
 	value _v__obj)
 {
   wxImage _obj; /*in*/
@@ -516,14 +516,14 @@ value camlidl_wxc_idl_wxImage_HasMask(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   _res = wxImage_HasMask(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_GetOption(
+value camlidl_wxc_wxImage_GetOption(
 	value _v__obj,
 	value _v_name)
 {
@@ -534,15 +534,15 @@ value camlidl_wxc_idl_wxImage_GetOption(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _res = wxImage_GetOption(_obj, name);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_GetOptionInt(
+value camlidl_wxc_wxImage_GetOptionInt(
 	value _v__obj,
 	value _v_name)
 {
@@ -553,15 +553,15 @@ value camlidl_wxc_idl_wxImage_GetOptionInt(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _res = wxImage_GetOptionInt(_obj, name);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_HasOption(
+value camlidl_wxc_wxImage_HasOption(
 	value _v__obj,
 	value _v_name)
 {
@@ -572,15 +572,15 @@ value camlidl_wxc_idl_wxImage_HasOption(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _res = wxImage_HasOption(_obj, name);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_Initialize(
+value camlidl_wxc_wxImage_Initialize(
 	value _v__obj,
 	value _v_width,
 	value _v_height)
@@ -590,7 +590,7 @@ value camlidl_wxc_idl_wxImage_Initialize(
   int height; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   width = Int_val(_v_width);
   height = Int_val(_v_height);
   wxImage_Initialize(_obj, width, height);
@@ -598,7 +598,7 @@ value camlidl_wxc_idl_wxImage_Initialize(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_InitializeFromData(
+value camlidl_wxc_wxImage_InitializeFromData(
 	value _v__obj,
 	value _v_width,
 	value _v_height,
@@ -610,16 +610,16 @@ value camlidl_wxc_idl_wxImage_InitializeFromData(
   voidptr data; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   width = Int_val(_v_width);
   height = Int_val(_v_height);
-  camlidl_ml2c_wxc_idl_voidptr(_v_data, &data, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_data, &data, _ctx);
   wxImage_InitializeFromData(_obj, width, height, data);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_LoadFile(
+value camlidl_wxc_wxImage_LoadFile(
 	value _v__obj,
 	value _v_name,
 	value _v__type)
@@ -632,8 +632,8 @@ value camlidl_wxc_idl_wxImage_LoadFile(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _type = Int_val(_v__type);
   _res = wxImage_LoadFile(_obj, name, _type);
   _vres = Val_int(_res);
@@ -641,7 +641,7 @@ value camlidl_wxc_idl_wxImage_LoadFile(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_Mirror(
+value camlidl_wxc_wxImage_Mirror(
 	value _v__obj,
 	value _v_horizontally,
 	value _v_image)
@@ -651,15 +651,15 @@ value camlidl_wxc_idl_wxImage_Mirror(
   wxImage image; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   horizontally = Int_val(_v_horizontally);
-  camlidl_ml2c_wxc_idl_wxImage(_v_image, &image, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v_image, &image, _ctx);
   wxImage_Mirror(_obj, horizontally, image);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_IsOk(
+value camlidl_wxc_wxImage_IsOk(
 	value _v__obj)
 {
   wxImage _obj; /*in*/
@@ -668,14 +668,14 @@ value camlidl_wxc_idl_wxImage_IsOk(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   _res = wxImage_IsOk(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_Paste(
+value camlidl_wxc_wxImage_Paste(
 	value _v__obj,
 	value _v_image,
 	value _v_x,
@@ -687,8 +687,8 @@ value camlidl_wxc_idl_wxImage_Paste(
   int y; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxImage(_v_image, &image, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v_image, &image, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   wxImage_Paste(_obj, image, x, y);
@@ -696,7 +696,7 @@ value camlidl_wxc_idl_wxImage_Paste(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_Replace(
+value camlidl_wxc_wxImage_Replace(
 	value _v__obj,
 	value _v_r1,
 	value _v_g1,
@@ -714,7 +714,7 @@ value camlidl_wxc_idl_wxImage_Replace(
   int b2; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   r1 = Int_val(_v_r1);
   g1 = Int_val(_v_g1);
   b1 = Int_val(_v_b1);
@@ -726,12 +726,12 @@ value camlidl_wxc_idl_wxImage_Replace(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_Replace_bytecode(value * argv, int argn)
+value camlidl_wxc_wxImage_Replace_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxImage_Replace(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxImage_Replace(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
-value camlidl_wxc_idl_wxImage_Rescale(
+value camlidl_wxc_wxImage_Rescale(
 	value _v__obj,
 	value _v_width,
 	value _v_height)
@@ -741,7 +741,7 @@ value camlidl_wxc_idl_wxImage_Rescale(
   int height; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   width = Int_val(_v_width);
   height = Int_val(_v_height);
   wxImage_Rescale(_obj, width, height);
@@ -749,7 +749,7 @@ value camlidl_wxc_idl_wxImage_Rescale(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_Rotate(
+value camlidl_wxc_wxImage_Rotate(
 	value _v__obj,
 	value _v_angle,
 	value _v_c_x,
@@ -767,24 +767,24 @@ value camlidl_wxc_idl_wxImage_Rotate(
   wxImage image; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   angle = Double_val(_v_angle);
   c_x = Int_val(_v_c_x);
   c_y = Int_val(_v_c_y);
   interpolating = Int_val(_v_interpolating);
-  camlidl_ml2c_wxc_idl_voidptr(_v_offset_after_rotation, &offset_after_rotation, _ctx);
-  camlidl_ml2c_wxc_idl_wxImage(_v_image, &image, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_offset_after_rotation, &offset_after_rotation, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v_image, &image, _ctx);
   wxImage_Rotate(_obj, angle, c_x, c_y, interpolating, offset_after_rotation, image);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_Rotate_bytecode(value * argv, int argn)
+value camlidl_wxc_wxImage_Rotate_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxImage_Rotate(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxImage_Rotate(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
-value camlidl_wxc_idl_wxImage_Rotate90(
+value camlidl_wxc_wxImage_Rotate90(
 	value _v__obj,
 	value _v_clockwise,
 	value _v_image)
@@ -794,15 +794,15 @@ value camlidl_wxc_idl_wxImage_Rotate90(
   wxImage image; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   clockwise = Int_val(_v_clockwise);
-  camlidl_ml2c_wxc_idl_wxImage(_v_image, &image, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v_image, &image, _ctx);
   wxImage_Rotate90(_obj, clockwise, image);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_SaveFile(
+value camlidl_wxc_wxImage_SaveFile(
 	value _v__obj,
 	value _v_name,
 	value _v__type)
@@ -815,8 +815,8 @@ value camlidl_wxc_idl_wxImage_SaveFile(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _type = Int_val(_v__type);
   _res = wxImage_SaveFile(_obj, name, _type);
   _vres = Val_int(_res);
@@ -824,7 +824,7 @@ value camlidl_wxc_idl_wxImage_SaveFile(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_Scale(
+value camlidl_wxc_wxImage_Scale(
 	value _v__obj,
 	value _v_width,
 	value _v_height,
@@ -836,16 +836,16 @@ value camlidl_wxc_idl_wxImage_Scale(
   wxImage image; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   width = Int_val(_v_width);
   height = Int_val(_v_height);
-  camlidl_ml2c_wxc_idl_wxImage(_v_image, &image, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v_image, &image, _ctx);
   wxImage_Scale(_obj, width, height, image);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_SetData(
+value camlidl_wxc_wxImage_SetData(
 	value _v__obj,
 	value _v_data)
 {
@@ -853,14 +853,14 @@ value camlidl_wxc_idl_wxImage_SetData(
   voidptr data; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_data, &data, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_data, &data, _ctx);
   wxImage_SetData(_obj, data);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_SetDataAndSize(
+value camlidl_wxc_wxImage_SetDataAndSize(
 	value _v__obj,
 	value _v_data,
 	value _v_new_width,
@@ -872,8 +872,8 @@ value camlidl_wxc_idl_wxImage_SetDataAndSize(
   int new_height; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_data, &data, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_data, &data, _ctx);
   new_width = Int_val(_v_new_width);
   new_height = Int_val(_v_new_height);
   wxImage_SetDataAndSize(_obj, data, new_width, new_height);
@@ -881,7 +881,7 @@ value camlidl_wxc_idl_wxImage_SetDataAndSize(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_SetMask(
+value camlidl_wxc_wxImage_SetMask(
 	value _v__obj,
 	value _v_mask)
 {
@@ -889,14 +889,14 @@ value camlidl_wxc_idl_wxImage_SetMask(
   int mask; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   mask = Int_val(_v_mask);
   wxImage_SetMask(_obj, mask);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_SetMaskColour(
+value camlidl_wxc_wxImage_SetMaskColour(
 	value _v__obj,
 	value _v_r,
 	value _v_g,
@@ -908,7 +908,7 @@ value camlidl_wxc_idl_wxImage_SetMaskColour(
   int b; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   r = Int_val(_v_r);
   g = Int_val(_v_g);
   b = Int_val(_v_b);
@@ -917,43 +917,43 @@ value camlidl_wxc_idl_wxImage_SetMaskColour(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_SetOption(
+value camlidl_wxc_wxImage_SetOption(
 	value _v__obj,
 	value _v_name,
-	value _v_v)
+	value _v__value)
 {
   wxImage _obj; /*in*/
   wxString name; /*in*/
-  wxString v; /*in*/
+  wxString _value; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_v, &v, _ctx);
-  wxImage_SetOption(_obj, name, v);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__value, &_value, _ctx);
+  wxImage_SetOption(_obj, name, _value);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_SetOptionInt(
+value camlidl_wxc_wxImage_SetOptionInt(
 	value _v__obj,
 	value _v_name,
-	value _v_v)
+	value _v__value)
 {
   wxImage _obj; /*in*/
   wxString name; /*in*/
-  int v; /*in*/
+  int _value; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
-  v = Int_val(_v_v);
-  wxImage_SetOptionInt(_obj, name, v);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
+  _value = Int_val(_v__value);
+  wxImage_SetOptionInt(_obj, name, _value);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_SetRGB(
+value camlidl_wxc_wxImage_SetRGB(
 	value _v__obj,
 	value _v_x,
 	value _v_y,
@@ -969,7 +969,7 @@ value camlidl_wxc_idl_wxImage_SetRGB(
   int b; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   r = Int_val(_v_r);
@@ -980,12 +980,12 @@ value camlidl_wxc_idl_wxImage_SetRGB(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxImage_SetRGB_bytecode(value * argv, int argn)
+value camlidl_wxc_wxImage_SetRGB_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxImage_SetRGB(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
+  return camlidl_wxc_wxImage_SetRGB(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
-value camlidl_wxc_idl_wxImage_CreateFromDataEx(
+value camlidl_wxc_wxImage_CreateFromDataEx(
 	value _v_width,
 	value _v_height,
 	value _v_data,
@@ -1002,21 +1002,21 @@ value camlidl_wxc_idl_wxImage_CreateFromDataEx(
   camlidl_ctx _ctx = &_ctxs;
   width = Int_val(_v_width);
   height = Int_val(_v_height);
-  camlidl_ml2c_wxc_idl_voidptr(_v_data, &data, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_data, &data, _ctx);
   isStaticData = Int_val(_v_isStaticData);
   _res = wxImage_CreateFromDataEx(width, height, data, isStaticData);
-  _vres = camlidl_c2ml_wxc_idl_wxImage(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxImage(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxImage_Delete(
+value camlidl_wxc_wxImage_Delete(
 	value _v_image)
 {
   wxImage image; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxImage(_v_image, &image, _ctx);
+  camlidl_ml2c_wxc_wxImage(_v_image, &image, _ctx);
   wxImage_Delete(image);
   camlidl_free(_ctx);
   return Val_unit;

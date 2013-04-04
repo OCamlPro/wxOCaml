@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxSpinEvent(value _v1, wxSpinEvent * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxSpinEvent(value _v1, wxSpinEvent * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxSpinEvent *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxSpinEvent(wxSpinEvent * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxSpinEvent(wxSpinEvent * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxSpinEvent) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxSpinEvent_GetPosition(
+value camlidl_wxc_wxSpinEvent_GetPosition(
 	value _v__obj)
 {
   wxSpinEvent _obj; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxSpinEvent_GetPosition(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSpinEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSpinEvent(_v__obj, &_obj, _ctx);
   _res = wxSpinEvent_GetPosition(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSpinEvent_SetPosition(
+value camlidl_wxc_wxSpinEvent_SetPosition(
 	value _v__obj,
 	value _v_pos)
 {
@@ -53,7 +53,7 @@ value camlidl_wxc_idl_wxSpinEvent_SetPosition(
   int pos; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSpinEvent(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSpinEvent(_v__obj, &_obj, _ctx);
   pos = Int_val(_v_pos);
   wxSpinEvent_SetPosition(_obj, pos);
   camlidl_free(_ctx);

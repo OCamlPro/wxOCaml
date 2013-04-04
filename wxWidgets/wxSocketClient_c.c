@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxSocketClient(value _v1, wxSocketClient * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxSocketClient(value _v1, wxSocketClient * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxSocketClient *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxSocketClient(wxSocketClient * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxSocketClient(wxSocketClient * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxSocketClient) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

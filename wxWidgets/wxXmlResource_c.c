@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxXmlResource(value _v1, wxXmlResource * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxXmlResource(value _v1, wxXmlResource * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxXmlResource *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxXmlResource(wxXmlResource * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxXmlResource(wxXmlResource * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxXmlResource) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxXmlResource_AddHandler(
+value camlidl_wxc_wxXmlResource_AddHandler(
 	value _v__obj,
 	value _v_handler)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxXmlResource_AddHandler(
   wxEvtHandler handler; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxEvtHandler(_v_handler, &handler, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxEvtHandler(_v_handler, &handler, _ctx);
   wxXmlResource_AddHandler(_obj, handler);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxXmlResource_AddSubclassFactory(
+value camlidl_wxc_wxXmlResource_AddSubclassFactory(
 	value _v__obj,
 	value _v_factory)
 {
@@ -52,14 +52,14 @@ value camlidl_wxc_idl_wxXmlResource_AddSubclassFactory(
   voidptr factory; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_factory, &factory, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_factory, &factory, _ctx);
   wxXmlResource_AddSubclassFactory(_obj, factory);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxXmlResource_AttachUnknownControl(
+value camlidl_wxc_wxXmlResource_AttachUnknownControl(
 	value _v__obj,
 	value _v_control,
 	value _v_parent)
@@ -72,28 +72,28 @@ value camlidl_wxc_idl_wxXmlResource_AttachUnknownControl(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxControl(_v_control, &control, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxControl(_v_control, &control, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
   _res = wxXmlResource_AttachUnknownControl(_obj, control, parent);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_ClearHandlers(
+value camlidl_wxc_wxXmlResource_ClearHandlers(
 	value _v__obj)
 {
   wxXmlResource _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
   wxXmlResource_ClearHandlers(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxXmlResource_CompareVersion(
+value camlidl_wxc_wxXmlResource_CompareVersion(
 	value _v__obj,
 	value _v_major,
 	value _v_minor,
@@ -110,7 +110,7 @@ value camlidl_wxc_idl_wxXmlResource_CompareVersion(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
   major = Int_val(_v_major);
   minor = Int_val(_v_minor);
   release = Int_val(_v_release);
@@ -121,7 +121,7 @@ value camlidl_wxc_idl_wxXmlResource_CompareVersion(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_Create(
+value camlidl_wxc_wxXmlResource_Create(
 	value _v_flags)
 {
   int flags; /*in*/
@@ -132,12 +132,12 @@ value camlidl_wxc_idl_wxXmlResource_Create(
   camlidl_ctx _ctx = &_ctxs;
   flags = Int_val(_v_flags);
   _res = wxXmlResource_Create(flags);
-  _vres = camlidl_c2ml_wxc_idl_wxXmlResource(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxXmlResource(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_CreateFromFile(
+value camlidl_wxc_wxXmlResource_CreateFromFile(
 	value _v_filemask,
 	value _v_flags)
 {
@@ -148,15 +148,15 @@ value camlidl_wxc_idl_wxXmlResource_CreateFromFile(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxString(_v_filemask, &filemask, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_filemask, &filemask, _ctx);
   flags = Int_val(_v_flags);
   _res = wxXmlResource_CreateFromFile(filemask, flags);
-  _vres = camlidl_c2ml_wxc_idl_wxXmlResource(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxXmlResource(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_Get(value _unit)
+value camlidl_wxc_wxXmlResource_Get(value _unit)
 {
   wxXmlResource _res;
   value _vres;
@@ -164,12 +164,12 @@ value camlidl_wxc_idl_wxXmlResource_Get(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxXmlResource_Get();
-  _vres = camlidl_c2ml_wxc_idl_wxXmlResource(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxXmlResource(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetDomain(
+value camlidl_wxc_wxXmlResource_GetDomain(
 	value _v__obj)
 {
   wxXmlResource _obj; /*in*/
@@ -178,14 +178,14 @@ value camlidl_wxc_idl_wxXmlResource_GetDomain(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
   _res = wxXmlResource_GetDomain(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetFlags(
+value camlidl_wxc_wxXmlResource_GetFlags(
 	value _v__obj)
 {
   wxXmlResource _obj; /*in*/
@@ -194,14 +194,14 @@ value camlidl_wxc_idl_wxXmlResource_GetFlags(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
   _res = wxXmlResource_GetFlags(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetVersion(
+value camlidl_wxc_wxXmlResource_GetVersion(
 	value _v__obj)
 {
   wxXmlResource _obj; /*in*/
@@ -210,14 +210,14 @@ value camlidl_wxc_idl_wxXmlResource_GetVersion(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
   _res = wxXmlResource_GetVersion(_obj);
   _vres = Val_long(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetXRCID(
+value camlidl_wxc_wxXmlResource_GetXRCID(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -228,27 +228,27 @@ value camlidl_wxc_idl_wxXmlResource_GetXRCID(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetXRCID(_obj, str_id);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_InitAllHandlers(
+value camlidl_wxc_wxXmlResource_InitAllHandlers(
 	value _v__obj)
 {
   wxXmlResource _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
   wxXmlResource_InitAllHandlers(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxXmlResource_InsertHandler(
+value camlidl_wxc_wxXmlResource_InsertHandler(
 	value _v__obj,
 	value _v_handler)
 {
@@ -256,14 +256,14 @@ value camlidl_wxc_idl_wxXmlResource_InsertHandler(
   wxEvtHandler handler; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxEvtHandler(_v_handler, &handler, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxEvtHandler(_v_handler, &handler, _ctx);
   wxXmlResource_InsertHandler(_obj, handler);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxXmlResource_Load(
+value camlidl_wxc_wxXmlResource_Load(
 	value _v__obj,
 	value _v_filemask)
 {
@@ -274,15 +274,15 @@ value camlidl_wxc_idl_wxXmlResource_Load(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_filemask, &filemask, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_filemask, &filemask, _ctx);
   _res = wxXmlResource_Load(_obj, filemask);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_LoadBitmap(
+value camlidl_wxc_wxXmlResource_LoadBitmap(
 	value _v__obj,
 	value _v_name,
 	value _v__ref)
@@ -292,15 +292,15 @@ value camlidl_wxc_idl_wxXmlResource_LoadBitmap(
   wxBitmap _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v__ref, &_ref, _ctx);
   wxXmlResource_LoadBitmap(_obj, name, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxXmlResource_LoadDialog(
+value camlidl_wxc_wxXmlResource_LoadDialog(
 	value _v__obj,
 	value _v_parent,
 	value _v_name)
@@ -313,16 +313,16 @@ value camlidl_wxc_idl_wxXmlResource_LoadDialog(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _res = wxXmlResource_LoadDialog(_obj, parent, name);
-  _vres = camlidl_c2ml_wxc_idl_wxDialog(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxDialog(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_LoadFrame(
+value camlidl_wxc_wxXmlResource_LoadFrame(
 	value _v__obj,
 	value _v_parent,
 	value _v_name)
@@ -335,16 +335,16 @@ value camlidl_wxc_idl_wxXmlResource_LoadFrame(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _res = wxXmlResource_LoadFrame(_obj, parent, name);
-  _vres = camlidl_c2ml_wxc_idl_wxFrame(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxFrame(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_LoadIcon(
+value camlidl_wxc_wxXmlResource_LoadIcon(
 	value _v__obj,
 	value _v_name,
 	value _v__ref)
@@ -354,15 +354,15 @@ value camlidl_wxc_idl_wxXmlResource_LoadIcon(
   wxIcon _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
-  camlidl_ml2c_wxc_idl_wxIcon(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxIcon(_v__ref, &_ref, _ctx);
   wxXmlResource_LoadIcon(_obj, name, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxXmlResource_LoadMenu(
+value camlidl_wxc_wxXmlResource_LoadMenu(
 	value _v__obj,
 	value _v_name)
 {
@@ -373,15 +373,15 @@ value camlidl_wxc_idl_wxXmlResource_LoadMenu(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _res = wxXmlResource_LoadMenu(_obj, name);
-  _vres = camlidl_c2ml_wxc_idl_wxMenu(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMenu(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_LoadMenuBar(
+value camlidl_wxc_wxXmlResource_LoadMenuBar(
 	value _v__obj,
 	value _v_parent,
 	value _v_name)
@@ -394,16 +394,16 @@ value camlidl_wxc_idl_wxXmlResource_LoadMenuBar(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _res = wxXmlResource_LoadMenuBar(_obj, parent, name);
-  _vres = camlidl_c2ml_wxc_idl_wxMenuBar(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMenuBar(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_LoadPanel(
+value camlidl_wxc_wxXmlResource_LoadPanel(
 	value _v__obj,
 	value _v_parent,
 	value _v_name)
@@ -416,16 +416,16 @@ value camlidl_wxc_idl_wxXmlResource_LoadPanel(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _res = wxXmlResource_LoadPanel(_obj, parent, name);
-  _vres = camlidl_c2ml_wxc_idl_wxPanel(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPanel(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_LoadToolBar(
+value camlidl_wxc_wxXmlResource_LoadToolBar(
 	value _v__obj,
 	value _v_parent,
 	value _v_name)
@@ -438,16 +438,16 @@ value camlidl_wxc_idl_wxXmlResource_LoadToolBar(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_name, &name, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_name, &name, _ctx);
   _res = wxXmlResource_LoadToolBar(_obj, parent, name);
-  _vres = camlidl_c2ml_wxc_idl_wxToolBar(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxToolBar(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetSizer(
+value camlidl_wxc_wxXmlResource_GetSizer(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -458,15 +458,15 @@ value camlidl_wxc_idl_wxXmlResource_GetSizer(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetSizer(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxSizer(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxSizer(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetBoxSizer(
+value camlidl_wxc_wxXmlResource_GetBoxSizer(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -477,15 +477,15 @@ value camlidl_wxc_idl_wxXmlResource_GetBoxSizer(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetBoxSizer(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxBoxSizer(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxBoxSizer(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetStaticBoxSizer(
+value camlidl_wxc_wxXmlResource_GetStaticBoxSizer(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -496,15 +496,15 @@ value camlidl_wxc_idl_wxXmlResource_GetStaticBoxSizer(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetStaticBoxSizer(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxStaticBoxSizer(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxStaticBoxSizer(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetGridSizer(
+value camlidl_wxc_wxXmlResource_GetGridSizer(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -515,15 +515,15 @@ value camlidl_wxc_idl_wxXmlResource_GetGridSizer(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetGridSizer(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxGridSizer(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGridSizer(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetFlexGridSizer(
+value camlidl_wxc_wxXmlResource_GetFlexGridSizer(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -534,15 +534,15 @@ value camlidl_wxc_idl_wxXmlResource_GetFlexGridSizer(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetFlexGridSizer(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxFlexGridSizer(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxFlexGridSizer(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetBitmapButton(
+value camlidl_wxc_wxXmlResource_GetBitmapButton(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -553,15 +553,15 @@ value camlidl_wxc_idl_wxXmlResource_GetBitmapButton(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetBitmapButton(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxBitmapButton(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxBitmapButton(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetButton(
+value camlidl_wxc_wxXmlResource_GetButton(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -572,15 +572,15 @@ value camlidl_wxc_idl_wxXmlResource_GetButton(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetButton(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxButton(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxButton(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetCalendarCtrl(
+value camlidl_wxc_wxXmlResource_GetCalendarCtrl(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -591,15 +591,15 @@ value camlidl_wxc_idl_wxXmlResource_GetCalendarCtrl(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetCalendarCtrl(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxCalendarCtrl(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxCalendarCtrl(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetCheckBox(
+value camlidl_wxc_wxXmlResource_GetCheckBox(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -610,15 +610,15 @@ value camlidl_wxc_idl_wxXmlResource_GetCheckBox(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetCheckBox(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxCheckBox(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxCheckBox(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetCheckListBox(
+value camlidl_wxc_wxXmlResource_GetCheckListBox(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -629,15 +629,15 @@ value camlidl_wxc_idl_wxXmlResource_GetCheckListBox(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetCheckListBox(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxCheckListBox(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxCheckListBox(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetChoice(
+value camlidl_wxc_wxXmlResource_GetChoice(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -648,15 +648,15 @@ value camlidl_wxc_idl_wxXmlResource_GetChoice(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetChoice(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxChoice(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxChoice(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetComboBox(
+value camlidl_wxc_wxXmlResource_GetComboBox(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -667,15 +667,15 @@ value camlidl_wxc_idl_wxXmlResource_GetComboBox(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetComboBox(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxComboBox(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxComboBox(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetGauge(
+value camlidl_wxc_wxXmlResource_GetGauge(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -686,15 +686,15 @@ value camlidl_wxc_idl_wxXmlResource_GetGauge(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetGauge(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxGauge(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGauge(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetGrid(
+value camlidl_wxc_wxXmlResource_GetGrid(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -705,15 +705,15 @@ value camlidl_wxc_idl_wxXmlResource_GetGrid(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetGrid(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxGrid(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGrid(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetHtmlWindow(
+value camlidl_wxc_wxXmlResource_GetHtmlWindow(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -724,15 +724,15 @@ value camlidl_wxc_idl_wxXmlResource_GetHtmlWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetHtmlWindow(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxHtmlWindow(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxHtmlWindow(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetListBox(
+value camlidl_wxc_wxXmlResource_GetListBox(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -743,15 +743,15 @@ value camlidl_wxc_idl_wxXmlResource_GetListBox(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetListBox(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxListBox(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxListBox(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetListCtrl(
+value camlidl_wxc_wxXmlResource_GetListCtrl(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -762,15 +762,15 @@ value camlidl_wxc_idl_wxXmlResource_GetListCtrl(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetListCtrl(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxListCtrl(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxListCtrl(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetMDIChildFrame(
+value camlidl_wxc_wxXmlResource_GetMDIChildFrame(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -781,15 +781,15 @@ value camlidl_wxc_idl_wxXmlResource_GetMDIChildFrame(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetMDIChildFrame(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxMDIChildFrame(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMDIChildFrame(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetMDIParentFrame(
+value camlidl_wxc_wxXmlResource_GetMDIParentFrame(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -800,15 +800,15 @@ value camlidl_wxc_idl_wxXmlResource_GetMDIParentFrame(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetMDIParentFrame(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxMDIParentFrame(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMDIParentFrame(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetMenu(
+value camlidl_wxc_wxXmlResource_GetMenu(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -819,15 +819,15 @@ value camlidl_wxc_idl_wxXmlResource_GetMenu(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetMenu(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxMenu(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMenu(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetMenuBar(
+value camlidl_wxc_wxXmlResource_GetMenuBar(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -838,15 +838,15 @@ value camlidl_wxc_idl_wxXmlResource_GetMenuBar(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetMenuBar(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxMenuBar(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMenuBar(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetMenuItem(
+value camlidl_wxc_wxXmlResource_GetMenuItem(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -857,15 +857,15 @@ value camlidl_wxc_idl_wxXmlResource_GetMenuItem(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetMenuItem(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxMenuItem(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxMenuItem(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetNotebook(
+value camlidl_wxc_wxXmlResource_GetNotebook(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -876,15 +876,15 @@ value camlidl_wxc_idl_wxXmlResource_GetNotebook(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetNotebook(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxNotebook(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxNotebook(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetPanel(
+value camlidl_wxc_wxXmlResource_GetPanel(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -895,15 +895,15 @@ value camlidl_wxc_idl_wxXmlResource_GetPanel(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetPanel(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxPanel(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxPanel(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetRadioButton(
+value camlidl_wxc_wxXmlResource_GetRadioButton(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -914,15 +914,15 @@ value camlidl_wxc_idl_wxXmlResource_GetRadioButton(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetRadioButton(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxRadioButton(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxRadioButton(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetRadioBox(
+value camlidl_wxc_wxXmlResource_GetRadioBox(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -933,15 +933,15 @@ value camlidl_wxc_idl_wxXmlResource_GetRadioBox(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetRadioBox(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxRadioBox(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxRadioBox(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetScrollBar(
+value camlidl_wxc_wxXmlResource_GetScrollBar(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -952,15 +952,15 @@ value camlidl_wxc_idl_wxXmlResource_GetScrollBar(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetScrollBar(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxScrollBar(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxScrollBar(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetScrolledWindow(
+value camlidl_wxc_wxXmlResource_GetScrolledWindow(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -971,15 +971,15 @@ value camlidl_wxc_idl_wxXmlResource_GetScrolledWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetScrolledWindow(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxScrolledWindow(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxScrolledWindow(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetSlider(
+value camlidl_wxc_wxXmlResource_GetSlider(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -990,15 +990,15 @@ value camlidl_wxc_idl_wxXmlResource_GetSlider(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetSlider(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxSlider(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxSlider(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetSpinButton(
+value camlidl_wxc_wxXmlResource_GetSpinButton(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -1009,15 +1009,15 @@ value camlidl_wxc_idl_wxXmlResource_GetSpinButton(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetSpinButton(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxSpinButton(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxSpinButton(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetSpinCtrl(
+value camlidl_wxc_wxXmlResource_GetSpinCtrl(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -1028,15 +1028,15 @@ value camlidl_wxc_idl_wxXmlResource_GetSpinCtrl(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetSpinCtrl(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxSpinCtrl(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxSpinCtrl(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetSplitterWindow(
+value camlidl_wxc_wxXmlResource_GetSplitterWindow(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -1047,15 +1047,15 @@ value camlidl_wxc_idl_wxXmlResource_GetSplitterWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetSplitterWindow(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxSplitterWindow(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxSplitterWindow(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetStaticBitmap(
+value camlidl_wxc_wxXmlResource_GetStaticBitmap(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -1066,15 +1066,15 @@ value camlidl_wxc_idl_wxXmlResource_GetStaticBitmap(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetStaticBitmap(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxStaticBitmap(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxStaticBitmap(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetStaticBox(
+value camlidl_wxc_wxXmlResource_GetStaticBox(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -1085,15 +1085,15 @@ value camlidl_wxc_idl_wxXmlResource_GetStaticBox(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetStaticBox(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxStaticBox(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxStaticBox(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetStaticLine(
+value camlidl_wxc_wxXmlResource_GetStaticLine(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -1104,15 +1104,15 @@ value camlidl_wxc_idl_wxXmlResource_GetStaticLine(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetStaticLine(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxStaticLine(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxStaticLine(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetStaticText(
+value camlidl_wxc_wxXmlResource_GetStaticText(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -1123,15 +1123,15 @@ value camlidl_wxc_idl_wxXmlResource_GetStaticText(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetStaticText(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxStaticText(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxStaticText(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetTextCtrl(
+value camlidl_wxc_wxXmlResource_GetTextCtrl(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -1142,15 +1142,15 @@ value camlidl_wxc_idl_wxXmlResource_GetTextCtrl(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetTextCtrl(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxTextCtrl(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxTextCtrl(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetTreeCtrl(
+value camlidl_wxc_wxXmlResource_GetTreeCtrl(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -1161,15 +1161,15 @@ value camlidl_wxc_idl_wxXmlResource_GetTreeCtrl(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetTreeCtrl(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxTreeCtrl(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxTreeCtrl(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_Unload(
+value camlidl_wxc_wxXmlResource_Unload(
 	value _v__obj,
 	value _v_filemask)
 {
@@ -1180,15 +1180,15 @@ value camlidl_wxc_idl_wxXmlResource_Unload(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_filemask, &filemask, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_filemask, &filemask, _ctx);
   _res = wxXmlResource_Unload(_obj, filemask);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_Set(
+value camlidl_wxc_wxXmlResource_Set(
 	value _v__obj,
 	value _v_res)
 {
@@ -1199,15 +1199,15 @@ value camlidl_wxc_idl_wxXmlResource_Set(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v_res, &res, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v_res, &res, _ctx);
   _res = wxXmlResource_Set(_obj, res);
-  _vres = camlidl_c2ml_wxc_idl_wxXmlResource(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxXmlResource(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxXmlResource_SetDomain(
+value camlidl_wxc_wxXmlResource_SetDomain(
 	value _v__obj,
 	value _v_domain)
 {
@@ -1215,14 +1215,14 @@ value camlidl_wxc_idl_wxXmlResource_SetDomain(
   wxString domain; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_domain, &domain, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_domain, &domain, _ctx);
   wxXmlResource_SetDomain(_obj, domain);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxXmlResource_SetFlags(
+value camlidl_wxc_wxXmlResource_SetFlags(
 	value _v__obj,
 	value _v_flags)
 {
@@ -1230,14 +1230,14 @@ value camlidl_wxc_idl_wxXmlResource_SetFlags(
   int flags; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxXmlResource(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxXmlResource(_v__obj, &_obj, _ctx);
   flags = Int_val(_v_flags);
   wxXmlResource_SetFlags(_obj, flags);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxXmlResource_GetStyledTextCtrl(
+value camlidl_wxc_wxXmlResource_GetStyledTextCtrl(
 	value _v__obj,
 	value _v_str_id)
 {
@@ -1248,10 +1248,10 @@ value camlidl_wxc_idl_wxXmlResource_GetStyledTextCtrl(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_str_id, &str_id, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_str_id, &str_id, _ctx);
   _res = wxXmlResource_GetStyledTextCtrl(_obj, str_id);
-  _vres = camlidl_c2ml_wxc_idl_wxStyledTextCtrl(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxStyledTextCtrl(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

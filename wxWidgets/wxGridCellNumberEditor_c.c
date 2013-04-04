@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGridCellNumberEditor(value _v1, wxGridCellNumberEditor * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGridCellNumberEditor(value _v1, wxGridCellNumberEditor * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGridCellNumberEditor *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGridCellNumberEditor(wxGridCellNumberEditor * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGridCellNumberEditor(wxGridCellNumberEditor * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGridCellNumberEditor) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGridCellNumberEditor_Ctor(
+value camlidl_wxc_wxGridCellNumberEditor_Ctor(
 	value _v_min,
 	value _v_max)
 {
@@ -43,7 +43,7 @@ value camlidl_wxc_idl_wxGridCellNumberEditor_Ctor(
   min = Int_val(_v_min);
   max = Int_val(_v_max);
   _res = wxGridCellNumberEditor_Ctor(min, max);
-  _vres = camlidl_c2ml_wxc_idl_wxGridCellNumberEditor(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGridCellNumberEditor(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

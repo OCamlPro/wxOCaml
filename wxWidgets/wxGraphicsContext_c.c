@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGraphicsContext(value _v1, wxGraphicsContext * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGraphicsContext(value _v1, wxGraphicsContext * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGraphicsContext *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGraphicsContext(wxGraphicsContext * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGraphicsContext(wxGraphicsContext * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGraphicsContext) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_Create(
+value camlidl_wxc_wxGraphicsContext_Create(
 	value _v_dc)
 {
   wxWindowDC dc; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxGraphicsContext_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindowDC(_v_dc, &dc, _ctx);
+  camlidl_ml2c_wxc_wxWindowDC(_v_dc, &dc, _ctx);
   _res = wxGraphicsContext_Create(dc);
-  _vres = camlidl_c2ml_wxc_idl_wxGraphicsContext(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGraphicsContext(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_CreateFromWindow(
+value camlidl_wxc_wxGraphicsContext_CreateFromWindow(
 	value _v_window)
 {
   wxWindow window; /*in*/
@@ -54,26 +54,26 @@ value camlidl_wxc_idl_wxGraphicsContext_CreateFromWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v_window, &window, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_window, &window, _ctx);
   _res = wxGraphicsContext_CreateFromWindow(window);
-  _vres = camlidl_c2ml_wxc_idl_wxGraphicsContext(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGraphicsContext(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_Delete(
+value camlidl_wxc_wxGraphicsContext_Delete(
 	value _v_self)
 {
   wxGraphicsContext self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
   wxGraphicsContext_Delete(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_CreateFromNative(
+value camlidl_wxc_wxGraphicsContext_CreateFromNative(
 	value _v_context)
 {
   voidptr context; /*in*/
@@ -82,14 +82,14 @@ value camlidl_wxc_idl_wxGraphicsContext_CreateFromNative(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_voidptr(_v_context, &context, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_context, &context, _ctx);
   _res = wxGraphicsContext_CreateFromNative(context);
-  _vres = camlidl_c2ml_wxc_idl_wxGraphicsContext(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGraphicsContext(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_CreateFromNativeWindow(
+value camlidl_wxc_wxGraphicsContext_CreateFromNativeWindow(
 	value _v_window)
 {
   voidptr window; /*in*/
@@ -98,14 +98,14 @@ value camlidl_wxc_idl_wxGraphicsContext_CreateFromNativeWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_voidptr(_v_window, &window, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_window, &window, _ctx);
   _res = wxGraphicsContext_CreateFromNativeWindow(window);
-  _vres = camlidl_c2ml_wxc_idl_wxGraphicsContext(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGraphicsContext(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_Clip(
+value camlidl_wxc_wxGraphicsContext_Clip(
 	value _v_self,
 	value _v_region)
 {
@@ -113,14 +113,14 @@ value camlidl_wxc_idl_wxGraphicsContext_Clip(
   wxRegion region; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxRegion(_v_region, &region, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxRegion(_v_region, &region, _ctx);
   wxGraphicsContext_Clip(self, region);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_ClipByRectangle(
+value camlidl_wxc_wxGraphicsContext_ClipByRectangle(
 	value _v_self,
 	value _v_x,
 	value _v_y,
@@ -134,7 +134,7 @@ value camlidl_wxc_idl_wxGraphicsContext_ClipByRectangle(
   double h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   w = Double_val(_v_w);
@@ -144,19 +144,19 @@ value camlidl_wxc_idl_wxGraphicsContext_ClipByRectangle(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_ResetClip(
+value camlidl_wxc_wxGraphicsContext_ResetClip(
 	value _v_self)
 {
   wxGraphicsContext self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
   wxGraphicsContext_ResetClip(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_DrawBitmap(
+value camlidl_wxc_wxGraphicsContext_DrawBitmap(
 	value _v_self,
 	value _v_bmp,
 	value _v_x,
@@ -172,8 +172,8 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawBitmap(
   double h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_bmp, &bmp, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_bmp, &bmp, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   w = Double_val(_v_w);
@@ -183,12 +183,12 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawBitmap(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_DrawBitmap_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGraphicsContext_DrawBitmap_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGraphicsContext_DrawBitmap(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
+  return camlidl_wxc_wxGraphicsContext_DrawBitmap(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_DrawEllipse(
+value camlidl_wxc_wxGraphicsContext_DrawEllipse(
 	value _v_self,
 	value _v_x,
 	value _v_y,
@@ -202,7 +202,7 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawEllipse(
   double h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   w = Double_val(_v_w);
@@ -212,7 +212,7 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawEllipse(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_DrawIcon(
+value camlidl_wxc_wxGraphicsContext_DrawIcon(
 	value _v_self,
 	value _v_icon,
 	value _v_x,
@@ -228,8 +228,8 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawIcon(
   double h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxIcon(_v_icon, &icon, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxIcon(_v_icon, &icon, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   w = Double_val(_v_w);
@@ -239,12 +239,12 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawIcon(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_DrawIcon_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGraphicsContext_DrawIcon_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGraphicsContext_DrawIcon(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
+  return camlidl_wxc_wxGraphicsContext_DrawIcon(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_DrawLines(
+value camlidl_wxc_wxGraphicsContext_DrawLines(
 	value _v_self,
 	value _v_n,
 	value _v_x,
@@ -258,17 +258,17 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawLines(
   int style; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
   n = Int_val(_v_n);
-  camlidl_ml2c_wxc_idl_voidptr(_v_x, &x, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_y, &y, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_x, &x, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_y, &y, _ctx);
   style = Int_val(_v_style);
   wxGraphicsContext_DrawLines(self, n, x, y, style);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_DrawPath(
+value camlidl_wxc_wxGraphicsContext_DrawPath(
 	value _v_self,
 	value _v_path,
 	value _v_style)
@@ -278,15 +278,15 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawPath(
   int style; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_path, &path, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_path, &path, _ctx);
   style = Int_val(_v_style);
   wxGraphicsContext_DrawPath(self, path, style);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_DrawRectangle(
+value camlidl_wxc_wxGraphicsContext_DrawRectangle(
 	value _v_self,
 	value _v_x,
 	value _v_y,
@@ -300,7 +300,7 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawRectangle(
   double h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   w = Double_val(_v_w);
@@ -310,7 +310,7 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawRectangle(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_DrawRoundedRectangle(
+value camlidl_wxc_wxGraphicsContext_DrawRoundedRectangle(
 	value _v_self,
 	value _v_x,
 	value _v_y,
@@ -326,7 +326,7 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawRoundedRectangle(
   double radius; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   w = Double_val(_v_w);
@@ -337,12 +337,12 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawRoundedRectangle(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_DrawRoundedRectangle_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGraphicsContext_DrawRoundedRectangle_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGraphicsContext_DrawRoundedRectangle(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
+  return camlidl_wxc_wxGraphicsContext_DrawRoundedRectangle(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_DrawText(
+value camlidl_wxc_wxGraphicsContext_DrawText(
 	value _v_self,
 	value _v_text,
 	value _v_x,
@@ -354,8 +354,8 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawText(
   double y; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_text, &text, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   wxGraphicsContext_DrawText(self, text, x, y);
@@ -363,7 +363,7 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawText(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_DrawTextWithAngle(
+value camlidl_wxc_wxGraphicsContext_DrawTextWithAngle(
 	value _v_self,
 	value _v_text,
 	value _v_x,
@@ -377,8 +377,8 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawTextWithAngle(
   double radius; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_text, &text, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   radius = Double_val(_v_radius);
@@ -387,7 +387,7 @@ value camlidl_wxc_idl_wxGraphicsContext_DrawTextWithAngle(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_FillPath(
+value camlidl_wxc_wxGraphicsContext_FillPath(
 	value _v_self,
 	value _v_path,
 	value _v_style)
@@ -397,15 +397,15 @@ value camlidl_wxc_idl_wxGraphicsContext_FillPath(
   int style; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_path, &path, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_path, &path, _ctx);
   style = Int_val(_v_style);
   wxGraphicsContext_FillPath(self, path, style);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_StrokePath(
+value camlidl_wxc_wxGraphicsContext_StrokePath(
 	value _v_self,
 	value _v_path)
 {
@@ -413,14 +413,14 @@ value camlidl_wxc_idl_wxGraphicsContext_StrokePath(
   wxGraphicsPath path; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxGraphicsPath(_v_path, &path, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPath(_v_path, &path, _ctx);
   wxGraphicsContext_StrokePath(self, path);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_GetNativeContext(
+value camlidl_wxc_wxGraphicsContext_GetNativeContext(
 	value _v_self)
 {
   wxGraphicsContext self; /*in*/
@@ -429,14 +429,14 @@ value camlidl_wxc_idl_wxGraphicsContext_GetNativeContext(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
   _res = wxGraphicsContext_GetNativeContext(self);
-  _vres = camlidl_c2ml_wxc_idl_voidptr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_voidptr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_GetTextExtent(
+value camlidl_wxc_wxGraphicsContext_GetTextExtent(
 	value _v_self,
 	value _v_text,
 	value _v_width,
@@ -460,8 +460,8 @@ value camlidl_wxc_idl_wxGraphicsContext_GetTextExtent(
   double _c8;
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_text, &text, _ctx);
   if (_v_width == Val_int(0)) {
     width = NULL;
   } else {
@@ -495,12 +495,12 @@ value camlidl_wxc_idl_wxGraphicsContext_GetTextExtent(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_GetTextExtent_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGraphicsContext_GetTextExtent_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGraphicsContext_GetTextExtent(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
+  return camlidl_wxc_wxGraphicsContext_GetTextExtent(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_Rotate(
+value camlidl_wxc_wxGraphicsContext_Rotate(
 	value _v_self,
 	value _v_angle)
 {
@@ -508,14 +508,14 @@ value camlidl_wxc_idl_wxGraphicsContext_Rotate(
   double angle; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
   angle = Double_val(_v_angle);
   wxGraphicsContext_Rotate(self, angle);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_Scale(
+value camlidl_wxc_wxGraphicsContext_Scale(
 	value _v_self,
 	value _v_x,
 	value _v_y)
@@ -525,7 +525,7 @@ value camlidl_wxc_idl_wxGraphicsContext_Scale(
   double y; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
   x = Double_val(_v_x);
   y = Double_val(_v_y);
   wxGraphicsContext_Scale(self, x, y);
@@ -533,7 +533,7 @@ value camlidl_wxc_idl_wxGraphicsContext_Scale(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_Translate(
+value camlidl_wxc_wxGraphicsContext_Translate(
 	value _v_self,
 	value _v_dx,
 	value _v_dy)
@@ -543,7 +543,7 @@ value camlidl_wxc_idl_wxGraphicsContext_Translate(
   double dy; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
   dx = Double_val(_v_dx);
   dy = Double_val(_v_dy);
   wxGraphicsContext_Translate(self, dx, dy);
@@ -551,7 +551,7 @@ value camlidl_wxc_idl_wxGraphicsContext_Translate(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_SetTransform(
+value camlidl_wxc_wxGraphicsContext_SetTransform(
 	value _v_self,
 	value _v_path)
 {
@@ -559,14 +559,14 @@ value camlidl_wxc_idl_wxGraphicsContext_SetTransform(
   wxGraphicsMatrix path; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_path, &path, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_path, &path, _ctx);
   wxGraphicsContext_SetTransform(self, path);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_ConcatTransform(
+value camlidl_wxc_wxGraphicsContext_ConcatTransform(
 	value _v_self,
 	value _v_path)
 {
@@ -574,14 +574,14 @@ value camlidl_wxc_idl_wxGraphicsContext_ConcatTransform(
   wxGraphicsMatrix path; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxGraphicsMatrix(_v_path, &path, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsMatrix(_v_path, &path, _ctx);
   wxGraphicsContext_ConcatTransform(self, path);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_SetBrush(
+value camlidl_wxc_wxGraphicsContext_SetBrush(
 	value _v_self,
 	value _v_brush)
 {
@@ -589,14 +589,14 @@ value camlidl_wxc_idl_wxGraphicsContext_SetBrush(
   wxBrush brush; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxBrush(_v_brush, &brush, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxBrush(_v_brush, &brush, _ctx);
   wxGraphicsContext_SetBrush(self, brush);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_SetGraphicsBrush(
+value camlidl_wxc_wxGraphicsContext_SetGraphicsBrush(
 	value _v_self,
 	value _v_brush)
 {
@@ -604,14 +604,14 @@ value camlidl_wxc_idl_wxGraphicsContext_SetGraphicsBrush(
   wxGraphicsBrush brush; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxGraphicsBrush(_v_brush, &brush, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsBrush(_v_brush, &brush, _ctx);
   wxGraphicsContext_SetGraphicsBrush(self, brush);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_SetFont(
+value camlidl_wxc_wxGraphicsContext_SetFont(
 	value _v_self,
 	value _v_font,
 	value _v_colour)
@@ -621,15 +621,15 @@ value camlidl_wxc_idl_wxGraphicsContext_SetFont(
   wxColour colour; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxFont(_v_font, &font, _ctx);
-  camlidl_ml2c_wxc_idl_wxColour(_v_colour, &colour, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxFont(_v_font, &font, _ctx);
+  camlidl_ml2c_wxc_wxColour(_v_colour, &colour, _ctx);
   wxGraphicsContext_SetFont(self, font, colour);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_SetGraphicsFont(
+value camlidl_wxc_wxGraphicsContext_SetGraphicsFont(
 	value _v_self,
 	value _v_font)
 {
@@ -637,14 +637,14 @@ value camlidl_wxc_idl_wxGraphicsContext_SetGraphicsFont(
   wxGraphicsFont font; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxGraphicsFont(_v_font, &font, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsFont(_v_font, &font, _ctx);
   wxGraphicsContext_SetGraphicsFont(self, font);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_SetPen(
+value camlidl_wxc_wxGraphicsContext_SetPen(
 	value _v_self,
 	value _v_pen)
 {
@@ -652,14 +652,14 @@ value camlidl_wxc_idl_wxGraphicsContext_SetPen(
   wxPen pen; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxPen(_v_pen, &pen, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxPen(_v_pen, &pen, _ctx);
   wxGraphicsContext_SetPen(self, pen);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_SetGraphicsPen(
+value camlidl_wxc_wxGraphicsContext_SetGraphicsPen(
 	value _v_self,
 	value _v_pen)
 {
@@ -667,14 +667,14 @@ value camlidl_wxc_idl_wxGraphicsContext_SetGraphicsPen(
   wxGraphicsPen pen; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxGraphicsPen(_v_pen, &pen, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsPen(_v_pen, &pen, _ctx);
   wxGraphicsContext_SetGraphicsPen(self, pen);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_StrokeLine(
+value camlidl_wxc_wxGraphicsContext_StrokeLine(
 	value _v_self,
 	value _v_x1,
 	value _v_y1,
@@ -688,7 +688,7 @@ value camlidl_wxc_idl_wxGraphicsContext_StrokeLine(
   double y2; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
   x1 = Double_val(_v_x1);
   y1 = Double_val(_v_y1);
   x2 = Double_val(_v_x2);
@@ -698,7 +698,7 @@ value camlidl_wxc_idl_wxGraphicsContext_StrokeLine(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsContext_StrokeLines(
+value camlidl_wxc_wxGraphicsContext_StrokeLines(
 	value _v_self,
 	value _v_n,
 	value _v_x,
@@ -712,10 +712,10 @@ value camlidl_wxc_idl_wxGraphicsContext_StrokeLines(
   int style; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsContext(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsContext(_v_self, &self, _ctx);
   n = Int_val(_v_n);
-  camlidl_ml2c_wxc_idl_voidptr(_v_x, &x, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_y, &y, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_x, &x, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_y, &y, _ctx);
   style = Int_val(_v_style);
   wxGraphicsContext_StrokeLines(self, n, x, y, style);
   camlidl_free(_ctx);

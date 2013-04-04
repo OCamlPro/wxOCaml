@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxEncodingConverter(value _v1, wxEncodingConverter * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxEncodingConverter(value _v1, wxEncodingConverter * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxEncodingConverter *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxEncodingConverter(wxEncodingConverter * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxEncodingConverter(wxEncodingConverter * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxEncodingConverter) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxEncodingConverter_Convert(
+value camlidl_wxc_wxEncodingConverter_Convert(
 	value _v__obj,
 	value _v_input,
 	value _v_output)
@@ -39,15 +39,15 @@ value camlidl_wxc_idl_wxEncodingConverter_Convert(
   voidptr output; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxEncodingConverter(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_input, &input, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_output, &output, _ctx);
+  camlidl_ml2c_wxc_wxEncodingConverter(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_input, &input, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_output, &output, _ctx);
   wxEncodingConverter_Convert(_obj, input, output);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxEncodingConverter_Create(value _unit)
+value camlidl_wxc_wxEncodingConverter_Create(value _unit)
 {
   wxEncodingConverter _res;
   value _vres;
@@ -55,24 +55,24 @@ value camlidl_wxc_idl_wxEncodingConverter_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxEncodingConverter_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxEncodingConverter(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxEncodingConverter(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxEncodingConverter_Delete(
+value camlidl_wxc_wxEncodingConverter_Delete(
 	value _v__obj)
 {
   wxEncodingConverter _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxEncodingConverter(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxEncodingConverter(_v__obj, &_obj, _ctx);
   wxEncodingConverter_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxEncodingConverter_GetAllEquivalents(
+value camlidl_wxc_wxEncodingConverter_GetAllEquivalents(
 	value _v__obj,
 	value _v_enc,
 	value _v__lst)
@@ -85,16 +85,16 @@ value camlidl_wxc_idl_wxEncodingConverter_GetAllEquivalents(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxEncodingConverter(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxEncodingConverter(_v__obj, &_obj, _ctx);
   enc = Int_val(_v_enc);
-  camlidl_ml2c_wxc_idl_wxList(_v__lst, &_lst, _ctx);
+  camlidl_ml2c_wxc_wxList(_v__lst, &_lst, _ctx);
   _res = wxEncodingConverter_GetAllEquivalents(_obj, enc, _lst);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxEncodingConverter_GetPlatformEquivalents(
+value camlidl_wxc_wxEncodingConverter_GetPlatformEquivalents(
 	value _v__obj,
 	value _v_enc,
 	value _v_platform,
@@ -109,17 +109,17 @@ value camlidl_wxc_idl_wxEncodingConverter_GetPlatformEquivalents(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxEncodingConverter(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxEncodingConverter(_v__obj, &_obj, _ctx);
   enc = Int_val(_v_enc);
   platform = Int_val(_v_platform);
-  camlidl_ml2c_wxc_idl_wxList(_v__lst, &_lst, _ctx);
+  camlidl_ml2c_wxc_wxList(_v__lst, &_lst, _ctx);
   _res = wxEncodingConverter_GetPlatformEquivalents(_obj, enc, platform, _lst);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxEncodingConverter_Init(
+value camlidl_wxc_wxEncodingConverter_Init(
 	value _v__obj,
 	value _v_input_enc,
 	value _v_output_enc,
@@ -134,7 +134,7 @@ value camlidl_wxc_idl_wxEncodingConverter_Init(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxEncodingConverter(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxEncodingConverter(_v__obj, &_obj, _ctx);
   input_enc = Int_val(_v_input_enc);
   output_enc = Int_val(_v_output_enc);
   _method = Int_val(_v__method);

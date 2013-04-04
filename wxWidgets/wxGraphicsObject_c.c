@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGraphicsObject(value _v1, wxGraphicsObject * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGraphicsObject(value _v1, wxGraphicsObject * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGraphicsObject *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGraphicsObject(wxGraphicsObject * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGraphicsObject(wxGraphicsObject * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGraphicsObject) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGraphicsObject_GetRenderer(value _unit)
+value camlidl_wxc_wxGraphicsObject_GetRenderer(value _unit)
 {
   wxGraphicsRenderer _res;
   value _vres;
@@ -37,12 +37,12 @@ value camlidl_wxc_idl_wxGraphicsObject_GetRenderer(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxGraphicsObject_GetRenderer();
-  _vres = camlidl_c2ml_wxc_idl_wxGraphicsRenderer(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGraphicsRenderer(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsObject_IsNull(
+value camlidl_wxc_wxGraphicsObject_IsNull(
 	value _v_self)
 {
   wxGraphicsObject self; /*in*/
@@ -51,7 +51,7 @@ value camlidl_wxc_idl_wxGraphicsObject_IsNull(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsObject(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsObject(_v_self, &self, _ctx);
   _res = wxGraphicsObject_IsNull(self);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

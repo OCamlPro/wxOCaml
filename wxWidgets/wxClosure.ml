@@ -1,12 +1,12 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : voidptr -> voidptr -> wxClosure
-	= "camlidl_wxc_idl_wxClosure_Create"
+	= "camlidl_wxc_wxClosure_Create"
 
 external getData : wxClosure -> voidptr
-	= "camlidl_wxc_idl_wxClosure_GetData"
+	= "camlidl_wxc_wxClosure_GetData"
 
 
   (* Cast functions *)

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxValidator(value _v1, wxValidator * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxValidator(value _v1, wxValidator * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxValidator *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxValidator(wxValidator * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxValidator(wxValidator * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxValidator) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxValidator_Create(value _unit)
+value camlidl_wxc_wxValidator_Create(value _unit)
 {
   wxValidator _res;
   value _vres;
@@ -37,24 +37,24 @@ value camlidl_wxc_idl_wxValidator_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxValidator_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxValidator(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxValidator(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxValidator_Delete(
+value camlidl_wxc_wxValidator_Delete(
 	value _v__obj)
 {
   wxValidator _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxValidator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxValidator(_v__obj, &_obj, _ctx);
   wxValidator_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxValidator_GetWindow(
+value camlidl_wxc_wxValidator_GetWindow(
 	value _v__obj)
 {
   wxValidator _obj; /*in*/
@@ -63,14 +63,14 @@ value camlidl_wxc_idl_wxValidator_GetWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxValidator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxValidator(_v__obj, &_obj, _ctx);
   _res = wxValidator_GetWindow(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxWindow(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxWindow(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxValidator_SetBellOnError(
+value camlidl_wxc_wxValidator_SetBellOnError(
 	value _v_doIt)
 {
   int doIt; /*in*/
@@ -79,7 +79,7 @@ value camlidl_wxc_idl_wxValidator_SetBellOnError(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxValidator_SetWindow(
+value camlidl_wxc_wxValidator_SetWindow(
 	value _v__obj,
 	value _v_win)
 {
@@ -87,14 +87,14 @@ value camlidl_wxc_idl_wxValidator_SetWindow(
   wxWindow win; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxValidator(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_win, &win, _ctx);
+  camlidl_ml2c_wxc_wxValidator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_win, &win, _ctx);
   wxValidator_SetWindow(_obj, win);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxValidator_TransferFromWindow(
+value camlidl_wxc_wxValidator_TransferFromWindow(
 	value _v__obj)
 {
   wxValidator _obj; /*in*/
@@ -103,14 +103,14 @@ value camlidl_wxc_idl_wxValidator_TransferFromWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxValidator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxValidator(_v__obj, &_obj, _ctx);
   _res = wxValidator_TransferFromWindow(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxValidator_TransferToWindow(
+value camlidl_wxc_wxValidator_TransferToWindow(
 	value _v__obj)
 {
   wxValidator _obj; /*in*/
@@ -119,14 +119,14 @@ value camlidl_wxc_idl_wxValidator_TransferToWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxValidator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxValidator(_v__obj, &_obj, _ctx);
   _res = wxValidator_TransferToWindow(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxValidator_Validate(
+value camlidl_wxc_wxValidator_Validate(
 	value _v__obj,
 	value _v_parent)
 {
@@ -137,8 +137,8 @@ value camlidl_wxc_idl_wxValidator_Validate(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxValidator(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxValidator(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
   _res = wxValidator_Validate(_obj, parent);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

@@ -1,18 +1,18 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : voidptr -> voidptr -> wxFontEnumerator
-	= "camlidl_wxc_idl_wxFontEnumerator_Create"
+	= "camlidl_wxc_wxFontEnumerator_Create"
 
 external enumerateFacenames : wxFontEnumerator -> int -> int -> bool
-	= "camlidl_wxc_idl_wxFontEnumerator_EnumerateFacenames"
+	= "camlidl_wxc_wxFontEnumerator_EnumerateFacenames"
 
 external enumerateEncodings : wxFontEnumerator -> wxString -> bool
-	= "camlidl_wxc_idl_wxFontEnumerator_EnumerateEncodings"
+	= "camlidl_wxc_wxFontEnumerator_EnumerateEncodings"
 
 external delete : wxFontEnumerator -> unit
-	= "camlidl_wxc_idl_wxFontEnumerator_Delete"
+	= "camlidl_wxc_wxFontEnumerator_Delete"
 
 let enumerateEncodings _obj facename =
   let facename = WxString.createUTF8 facename in

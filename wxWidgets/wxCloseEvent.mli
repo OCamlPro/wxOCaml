@@ -1,84 +1,84 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external veto : wxCloseEvent -> bool -> unit
-	= "camlidl_wxc_idl_wxCloseEvent_Veto"
+	= "camlidl_wxc_wxCloseEvent_Veto"
 
 external skip : wxCloseEvent -> unit
-	= "camlidl_wxc_idl_wxEvent_Skip"
+	= "camlidl_wxc_wxEvent_Skip"
 
 external setTimestamp : wxCloseEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetTimestamp"
+	= "camlidl_wxc_wxEvent_SetTimestamp"
 
 external setLoggingOff : wxCloseEvent -> bool -> unit
-	= "camlidl_wxc_idl_wxCloseEvent_SetLoggingOff"
+	= "camlidl_wxc_wxCloseEvent_SetLoggingOff"
 
 external setId : wxCloseEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetId"
+	= "camlidl_wxc_wxEvent_SetId"
 
 external setEventType : wxCloseEvent -> int -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventType"
+	= "camlidl_wxc_wxEvent_SetEventType"
 
 external setEventObject : wxCloseEvent -> wxObject -> unit
-	= "camlidl_wxc_idl_wxEvent_SetEventObject"
+	= "camlidl_wxc_wxEvent_SetEventObject"
 
 external setClientClosure : wxCloseEvent -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external setCanVeto : wxCloseEvent -> bool -> unit
-	= "camlidl_wxc_idl_wxCloseEvent_SetCanVeto"
+	= "camlidl_wxc_wxCloseEvent_SetCanVeto"
 
 external safeDelete : wxCloseEvent -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external newEventType : unit -> int
-	= "camlidl_wxc_idl_wxEvent_NewEventType"
+	= "camlidl_wxc_wxEvent_NewEventType"
 
 external isScrolledWindow : wxCloseEvent -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxCloseEvent -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isCommandEvent : wxCloseEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_IsCommandEvent"
+	= "camlidl_wxc_wxEvent_IsCommandEvent"
 
 external getVeto : wxCloseEvent -> bool
-	= "camlidl_wxc_idl_wxCloseEvent_GetVeto"
+	= "camlidl_wxc_wxCloseEvent_GetVeto"
 
 external getTimestamp : wxCloseEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetTimestamp"
+	= "camlidl_wxc_wxEvent_GetTimestamp"
 
 external getSkipped : wxCloseEvent -> bool
-	= "camlidl_wxc_idl_wxEvent_GetSkipped"
+	= "camlidl_wxc_wxEvent_GetSkipped"
 
 external getLoggingOff : wxCloseEvent -> bool
-	= "camlidl_wxc_idl_wxCloseEvent_GetLoggingOff"
+	= "camlidl_wxc_wxCloseEvent_GetLoggingOff"
 
 external getId : wxCloseEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetId"
+	= "camlidl_wxc_wxEvent_GetId"
 
 external getEventType : wxCloseEvent -> int
-	= "camlidl_wxc_idl_wxEvent_GetEventType"
+	= "camlidl_wxc_wxEvent_GetEventType"
 
 external getEventObject : wxCloseEvent -> wxObject
-	= "camlidl_wxc_idl_wxEvent_GetEventObject"
+	= "camlidl_wxc_wxEvent_GetEventObject"
 
 external getClientClosure : wxCloseEvent -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxCloseEvent -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxCloseEvent -> unit
-	= "camlidl_wxc_idl_wxObject_Delete"
+	= "camlidl_wxc_wxObject_Delete"
 
 external copyObject : wxCloseEvent -> wxObject -> unit
-	= "camlidl_wxc_idl_wxCloseEvent_CopyObject"
+	= "camlidl_wxc_wxCloseEvent_CopyObject"
 
 external canVeto : wxCloseEvent -> bool
-	= "camlidl_wxc_idl_wxCloseEvent_CanVeto"
+	= "camlidl_wxc_wxCloseEvent_CanVeto"
 
   val ptrNULL : wxCloseEvent
 

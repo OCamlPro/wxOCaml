@@ -1,33 +1,33 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : voidptr -> voidptr -> eLJFileDropTarget
-	= "camlidl_wxc_idl_ELJFileDropTarget_Create"
+	= "camlidl_wxc_ELJFileDropTarget_Create"
 
 external setOnLeave : eLJFileDropTarget -> voidptr -> unit
-	= "camlidl_wxc_idl_ELJFileDropTarget_SetOnLeave"
+	= "camlidl_wxc_ELJFileDropTarget_SetOnLeave"
 
 external setOnEnter : eLJFileDropTarget -> voidptr -> unit
-	= "camlidl_wxc_idl_ELJFileDropTarget_SetOnEnter"
+	= "camlidl_wxc_ELJFileDropTarget_SetOnEnter"
 
 external setOnDrop : eLJFileDropTarget -> voidptr -> unit
-	= "camlidl_wxc_idl_ELJFileDropTarget_SetOnDrop"
+	= "camlidl_wxc_ELJFileDropTarget_SetOnDrop"
 
 external setOnDragOver : eLJFileDropTarget -> voidptr -> unit
-	= "camlidl_wxc_idl_ELJFileDropTarget_SetOnDragOver"
+	= "camlidl_wxc_ELJFileDropTarget_SetOnDragOver"
 
 external setOnData : eLJFileDropTarget -> voidptr -> unit
-	= "camlidl_wxc_idl_ELJFileDropTarget_SetOnData"
+	= "camlidl_wxc_ELJFileDropTarget_SetOnData"
 
 external setDataObject : eLJFileDropTarget -> wxDataObject -> unit
-	= "camlidl_wxc_idl_wxDropTarget_SetDataObject"
+	= "camlidl_wxc_wxDropTarget_SetDataObject"
 
 external getData : eLJFileDropTarget -> unit
-	= "camlidl_wxc_idl_wxDropTarget_GetData"
+	= "camlidl_wxc_wxDropTarget_GetData"
 
 external delete : eLJFileDropTarget -> unit
-	= "camlidl_wxc_idl_ELJFileDropTarget_Delete"
+	= "camlidl_wxc_ELJFileDropTarget_Delete"
 
 
   (* Cast functions *)

@@ -40,7 +40,7 @@ void ml_global_root_destroy (void *data)
 
 typedef void *wxEvent;
 
-value camlidl_c2ml_wxc_idl_wxEvent(wxEvent * _c2, camlidl_ctx _ctx);
+value camlidl_c2ml_wxc_wxEvent(wxEvent * _c2, camlidl_ctx _ctx);
 void on_event( void* fun, void* data, void* evt )
 {
   value *clos_p = (value *)data;
@@ -56,7 +56,7 @@ void on_event( void* fun, void* data, void* evt )
     /* evt == 0 on application close */
     _vevt = NULL;
   } else {
-    _vevt = camlidl_c2ml_wxc_idl_wxEvent(&evt, _ctx);
+    _vevt = camlidl_c2ml_wxc_wxEvent(&evt, _ctx);
   }
   camlidl_free(_ctx);
   callback(*clos_p, _vevt);
@@ -79,7 +79,7 @@ static void ml2c_wxFrame(value _v1, wxFrame * _c2, camlidl_ctx _ctx)
 }
 ***/
 
-CAMLprim value camlidl_wxc_idl_wxo_wxEvtHandler_Connect
+CAMLprim value camlidl_wxc_wxo_wxEvtHandler_Connect
     (value vwin, value vid, value typ, value vclos)
 {
   CAMLparam4(vwin, vid, typ, vclos);
@@ -107,14 +107,14 @@ CAMLprim value camlidl_wxc_idl_wxo_wxEvtHandler_Connect
   CAMLreturn (Val_unit);
 }
 
-extern value camlidl_c2ml_wxc_idl_wxClosure(void ** _c2, void* _ctx);
+extern value camlidl_c2ml_wxc_wxClosure(void ** _c2, void* _ctx);
 
 value wxc_idl_ml2c_wxClosure(value clos_v)
 {
   value *clos_p = ml_global_root_new (clos_v);
 
   void *closure = wxClosure_Create((void *)on_event, (void *)clos_p);
-  value _res = camlidl_c2ml_wxc_idl_wxClosure(&closure, NULL);
+  value _res = camlidl_c2ml_wxc_wxClosure(&closure, NULL);
   return _res;
 }
 

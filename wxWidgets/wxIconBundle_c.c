@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxIconBundle(value _v1, wxIconBundle * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxIconBundle(value _v1, wxIconBundle * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxIconBundle *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxIconBundle(wxIconBundle * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxIconBundle(wxIconBundle * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxIconBundle) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxIconBundle_AddIcon(
+value camlidl_wxc_wxIconBundle_AddIcon(
 	value _v__obj,
 	value _v_icon)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxIconBundle_AddIcon(
   wxIcon icon; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIconBundle(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxIcon(_v_icon, &icon, _ctx);
+  camlidl_ml2c_wxc_wxIconBundle(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIcon(_v_icon, &icon, _ctx);
   wxIconBundle_AddIcon(_obj, icon);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIconBundle_AddIconFromFile(
+value camlidl_wxc_wxIconBundle_AddIconFromFile(
 	value _v__obj,
 	value _v_file,
 	value _v__type)
@@ -54,15 +54,15 @@ value camlidl_wxc_idl_wxIconBundle_AddIconFromFile(
   int _type; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIconBundle(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_file, &file, _ctx);
+  camlidl_ml2c_wxc_wxIconBundle(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_file, &file, _ctx);
   _type = Int_val(_v__type);
   wxIconBundle_AddIconFromFile(_obj, file, _type);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIconBundle_Assign(
+value camlidl_wxc_wxIconBundle_Assign(
 	value _v__obj,
 	value _v__ref)
 {
@@ -70,14 +70,14 @@ value camlidl_wxc_idl_wxIconBundle_Assign(
   wxIconBundle _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIconBundle(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxIconBundle(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxIconBundle(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIconBundle(_v__ref, &_ref, _ctx);
   wxIconBundle_Assign(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIconBundle_CreateDefault(value _unit)
+value camlidl_wxc_wxIconBundle_CreateDefault(value _unit)
 {
   wxIconBundle _res;
   value _vres;
@@ -85,12 +85,12 @@ value camlidl_wxc_idl_wxIconBundle_CreateDefault(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxIconBundle_CreateDefault();
-  _vres = camlidl_c2ml_wxc_idl_wxIconBundle(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxIconBundle(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIconBundle_CreateFromFile(
+value camlidl_wxc_wxIconBundle_CreateFromFile(
 	value _v_file,
 	value _v__type)
 {
@@ -101,15 +101,15 @@ value camlidl_wxc_idl_wxIconBundle_CreateFromFile(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxString(_v_file, &file, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_file, &file, _ctx);
   _type = Int_val(_v__type);
   _res = wxIconBundle_CreateFromFile(file, _type);
-  _vres = camlidl_c2ml_wxc_idl_wxIconBundle(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxIconBundle(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIconBundle_CreateFromIcon(
+value camlidl_wxc_wxIconBundle_CreateFromIcon(
 	value _v_icon)
 {
   wxIcon icon; /*in*/
@@ -118,26 +118,26 @@ value camlidl_wxc_idl_wxIconBundle_CreateFromIcon(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIcon(_v_icon, &icon, _ctx);
+  camlidl_ml2c_wxc_wxIcon(_v_icon, &icon, _ctx);
   _res = wxIconBundle_CreateFromIcon(icon);
-  _vres = camlidl_c2ml_wxc_idl_wxIconBundle(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxIconBundle(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxIconBundle_Delete(
+value camlidl_wxc_wxIconBundle_Delete(
 	value _v__obj)
 {
   wxIconBundle _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIconBundle(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIconBundle(_v__obj, &_obj, _ctx);
   wxIconBundle_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxIconBundle_GetIcon(
+value camlidl_wxc_wxIconBundle_GetIcon(
 	value _v__obj,
 	value _v_w,
 	value _v_h,
@@ -149,10 +149,10 @@ value camlidl_wxc_idl_wxIconBundle_GetIcon(
   wxIcon _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxIconBundle(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxIconBundle(_v__obj, &_obj, _ctx);
   w = Int_val(_v_w);
   h = Int_val(_v_h);
-  camlidl_ml2c_wxc_idl_wxIcon(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxIcon(_v__ref, &_ref, _ctx);
   wxIconBundle_GetIcon(_obj, w, h, _ref);
   camlidl_free(_ctx);
   return Val_unit;

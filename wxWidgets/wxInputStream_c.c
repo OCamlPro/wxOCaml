@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxInputStream(value _v1, wxInputStream * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxInputStream(value _v1, wxInputStream * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxInputStream *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxInputStream(wxInputStream * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxInputStream(wxInputStream * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxInputStream) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,19 +29,19 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxInputStream_Delete(
+value camlidl_wxc_wxInputStream_Delete(
 	value _v__obj)
 {
   wxInputStream _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxInputStream(_v__obj, &_obj, _ctx);
   wxInputStream_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxInputStream_Eof(
+value camlidl_wxc_wxInputStream_Eof(
 	value _v__obj)
 {
   wxInputStream _obj; /*in*/
@@ -50,14 +50,14 @@ value camlidl_wxc_idl_wxInputStream_Eof(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxInputStream(_v__obj, &_obj, _ctx);
   _res = wxInputStream_Eof(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxInputStream_GetC(
+value camlidl_wxc_wxInputStream_GetC(
 	value _v__obj)
 {
   wxInputStream _obj; /*in*/
@@ -66,14 +66,14 @@ value camlidl_wxc_idl_wxInputStream_GetC(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxInputStream(_v__obj, &_obj, _ctx);
   _res = wxInputStream_GetC(_obj);
   _vres = Val_int((unsigned char)(_res));
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxInputStream_LastRead(
+value camlidl_wxc_wxInputStream_LastRead(
 	value _v__obj)
 {
   wxInputStream _obj; /*in*/
@@ -82,14 +82,14 @@ value camlidl_wxc_idl_wxInputStream_LastRead(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxInputStream(_v__obj, &_obj, _ctx);
   _res = wxInputStream_LastRead(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxInputStream_Peek(
+value camlidl_wxc_wxInputStream_Peek(
 	value _v__obj)
 {
   wxInputStream _obj; /*in*/
@@ -98,14 +98,14 @@ value camlidl_wxc_idl_wxInputStream_Peek(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxInputStream(_v__obj, &_obj, _ctx);
   _res = wxInputStream_Peek(_obj);
   _vres = Val_int((unsigned char)(_res));
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxInputStream_Read(
+value camlidl_wxc_wxInputStream_Read(
 	value _v__obj,
 	value _v_buffer,
 	value _v_size)
@@ -115,15 +115,15 @@ value camlidl_wxc_idl_wxInputStream_Read(
   int size; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputStream(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_buffer, &buffer, _ctx);
+  camlidl_ml2c_wxc_wxInputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_buffer, &buffer, _ctx);
   size = Int_val(_v_size);
   wxInputStream_Read(_obj, buffer, size);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxInputStream_SeekI(
+value camlidl_wxc_wxInputStream_SeekI(
 	value _v__obj,
 	value _v_pos,
 	value _v_mode)
@@ -136,7 +136,7 @@ value camlidl_wxc_idl_wxInputStream_SeekI(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxInputStream(_v__obj, &_obj, _ctx);
   pos = Int_val(_v_pos);
   mode = Int_val(_v_mode);
   _res = wxInputStream_SeekI(_obj, pos, mode);
@@ -145,7 +145,7 @@ value camlidl_wxc_idl_wxInputStream_SeekI(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxInputStream_Tell(
+value camlidl_wxc_wxInputStream_Tell(
 	value _v__obj)
 {
   wxInputStream _obj; /*in*/
@@ -154,14 +154,14 @@ value camlidl_wxc_idl_wxInputStream_Tell(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxInputStream(_v__obj, &_obj, _ctx);
   _res = wxInputStream_Tell(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxInputStream_UngetBuffer(
+value camlidl_wxc_wxInputStream_UngetBuffer(
 	value _v__obj,
 	value _v_buffer,
 	value _v_size)
@@ -174,8 +174,8 @@ value camlidl_wxc_idl_wxInputStream_UngetBuffer(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputStream(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_buffer, &buffer, _ctx);
+  camlidl_ml2c_wxc_wxInputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_buffer, &buffer, _ctx);
   size = Int_val(_v_size);
   _res = wxInputStream_UngetBuffer(_obj, buffer, size);
   _vres = Val_int(_res);
@@ -183,7 +183,7 @@ value camlidl_wxc_idl_wxInputStream_UngetBuffer(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxInputStream_Ungetch(
+value camlidl_wxc_wxInputStream_Ungetch(
 	value _v__obj,
 	value _v_c)
 {
@@ -194,7 +194,7 @@ value camlidl_wxc_idl_wxInputStream_Ungetch(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxInputStream(_v__obj, &_obj, _ctx);
   c = Int_val(_v_c);
   _res = wxInputStream_Ungetch(_obj, c);
   _vres = Val_int(_res);
@@ -202,7 +202,7 @@ value camlidl_wxc_idl_wxInputStream_Ungetch(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxInputStream_CanRead(
+value camlidl_wxc_wxInputStream_CanRead(
 	value _v_self)
 {
   wxInputStream self; /*in*/
@@ -211,7 +211,7 @@ value camlidl_wxc_idl_wxInputStream_CanRead(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputStream(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxInputStream(_v_self, &self, _ctx);
   _res = wxInputStream_CanRead(self);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

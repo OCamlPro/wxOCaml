@@ -1,33 +1,33 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external getPrintCommand : wxFileType -> voidptr -> voidptr -> int
-	= "camlidl_wxc_idl_wxFileType_GetPrintCommand"
+	= "camlidl_wxc_wxFileType_GetPrintCommand"
 
 external getOpenCommand : wxFileType -> voidptr -> voidptr -> int
-	= "camlidl_wxc_idl_wxFileType_GetOpenCommand"
+	= "camlidl_wxc_wxFileType_GetOpenCommand"
 
 external getMimeTypes : wxFileType -> wxList -> int
-	= "camlidl_wxc_idl_wxFileType_GetMimeTypes"
+	= "camlidl_wxc_wxFileType_GetMimeTypes"
 
 external getMimeType : wxFileType -> wxString
-	= "camlidl_wxc_idl_wxFileType_GetMimeType"
+	= "camlidl_wxc_wxFileType_GetMimeType"
 
 external getIcon : wxFileType -> wxIcon -> int
-	= "camlidl_wxc_idl_wxFileType_GetIcon"
+	= "camlidl_wxc_wxFileType_GetIcon"
 
 external getExtensions : wxFileType -> wxList -> int
-	= "camlidl_wxc_idl_wxFileType_GetExtensions"
+	= "camlidl_wxc_wxFileType_GetExtensions"
 
 external getDescription : wxFileType -> wxString
-	= "camlidl_wxc_idl_wxFileType_GetDescription"
+	= "camlidl_wxc_wxFileType_GetDescription"
 
 external expandCommand : wxFileType -> voidptr -> voidptr -> wxString
-	= "camlidl_wxc_idl_wxFileType_ExpandCommand"
+	= "camlidl_wxc_wxFileType_ExpandCommand"
 
 external delete : wxFileType -> unit
-	= "camlidl_wxc_idl_wxFileType_Delete"
+	= "camlidl_wxc_wxFileType_Delete"
 
 let getMimeType _obj =
   let wxres = getMimeType _obj  in

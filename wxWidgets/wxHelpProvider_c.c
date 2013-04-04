@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxHelpProvider(value _v1, wxHelpProvider * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxHelpProvider(value _v1, wxHelpProvider * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxHelpProvider *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxHelpProvider(wxHelpProvider * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxHelpProvider(wxHelpProvider * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxHelpProvider) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxHelpProvider_AddHelp(
+value camlidl_wxc_wxHelpProvider_AddHelp(
 	value _v__obj,
 	value _v_window,
 	value _v_text)
@@ -39,15 +39,15 @@ value camlidl_wxc_idl_wxHelpProvider_AddHelp(
   wxString text; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxHelpProvider(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_window, &window, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxHelpProvider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_window, &window, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_text, &text, _ctx);
   wxHelpProvider_AddHelp(_obj, window, text);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxHelpProvider_AddHelpById(
+value camlidl_wxc_wxHelpProvider_AddHelpById(
 	value _v__obj,
 	value _v_id,
 	value _v_text)
@@ -57,27 +57,27 @@ value camlidl_wxc_idl_wxHelpProvider_AddHelpById(
   wxString text; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxHelpProvider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxHelpProvider(_v__obj, &_obj, _ctx);
   id = Int_val(_v_id);
-  camlidl_ml2c_wxc_idl_wxString(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_text, &text, _ctx);
   wxHelpProvider_AddHelpById(_obj, id, text);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxHelpProvider_Delete(
+value camlidl_wxc_wxHelpProvider_Delete(
 	value _v__obj)
 {
   wxHelpProvider _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxHelpProvider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxHelpProvider(_v__obj, &_obj, _ctx);
   wxHelpProvider_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxHelpProvider_Get(value _unit)
+value camlidl_wxc_wxHelpProvider_Get(value _unit)
 {
   wxHelpProvider _res;
   value _vres;
@@ -85,12 +85,12 @@ value camlidl_wxc_idl_wxHelpProvider_Get(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxHelpProvider_Get();
-  _vres = camlidl_c2ml_wxc_idl_wxHelpProvider(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxHelpProvider(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxHelpProvider_GetHelp(
+value camlidl_wxc_wxHelpProvider_GetHelp(
 	value _v__obj,
 	value _v_window)
 {
@@ -101,15 +101,15 @@ value camlidl_wxc_idl_wxHelpProvider_GetHelp(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxHelpProvider(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_window, &window, _ctx);
+  camlidl_ml2c_wxc_wxHelpProvider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_window, &window, _ctx);
   _res = wxHelpProvider_GetHelp(_obj, window);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxHelpProvider_RemoveHelp(
+value camlidl_wxc_wxHelpProvider_RemoveHelp(
 	value _v__obj,
 	value _v_window)
 {
@@ -117,14 +117,14 @@ value camlidl_wxc_idl_wxHelpProvider_RemoveHelp(
   wxWindow window; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxHelpProvider(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_window, &window, _ctx);
+  camlidl_ml2c_wxc_wxHelpProvider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_window, &window, _ctx);
   wxHelpProvider_RemoveHelp(_obj, window);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxHelpProvider_Set(
+value camlidl_wxc_wxHelpProvider_Set(
 	value _v_helpProvider)
 {
   wxHelpProvider helpProvider; /*in*/
@@ -133,14 +133,14 @@ value camlidl_wxc_idl_wxHelpProvider_Set(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxHelpProvider(_v_helpProvider, &helpProvider, _ctx);
+  camlidl_ml2c_wxc_wxHelpProvider(_v_helpProvider, &helpProvider, _ctx);
   _res = wxHelpProvider_Set(helpProvider);
-  _vres = camlidl_c2ml_wxc_idl_wxHelpProvider(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxHelpProvider(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxHelpProvider_ShowHelp(
+value camlidl_wxc_wxHelpProvider_ShowHelp(
 	value _v__obj,
 	value _v_window)
 {
@@ -151,8 +151,8 @@ value camlidl_wxc_idl_wxHelpProvider_ShowHelp(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxHelpProvider(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_window, &window, _ctx);
+  camlidl_ml2c_wxc_wxHelpProvider(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_window, &window, _ctx);
   _res = wxHelpProvider_ShowHelp(_obj, window);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

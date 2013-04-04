@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxBusyCursor(value _v1, wxBusyCursor * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxBusyCursor(value _v1, wxBusyCursor * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxBusyCursor *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxBusyCursor(wxBusyCursor * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxBusyCursor(wxBusyCursor * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxBusyCursor) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxBusyCursor_Create(value _unit)
+value camlidl_wxc_wxBusyCursor_Create(value _unit)
 {
   wxBusyCursor _res;
   value _vres;
@@ -37,12 +37,12 @@ value camlidl_wxc_idl_wxBusyCursor_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxBusyCursor_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxBusyCursor(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxBusyCursor(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBusyCursor_CreateWithCursor(
+value camlidl_wxc_wxBusyCursor_CreateWithCursor(
 	value _v__cur)
 {
   wxBusyCursor _cur; /*in*/
@@ -51,20 +51,20 @@ value camlidl_wxc_idl_wxBusyCursor_CreateWithCursor(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBusyCursor(_v__cur, &_cur, _ctx);
+  camlidl_ml2c_wxc_wxBusyCursor(_v__cur, &_cur, _ctx);
   _res = wxBusyCursor_CreateWithCursor(_cur);
-  _vres = camlidl_c2ml_wxc_idl_voidptr(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_voidptr(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBusyCursor_Delete(
+value camlidl_wxc_wxBusyCursor_Delete(
 	value _v__obj)
 {
   wxBusyCursor _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBusyCursor(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxBusyCursor(_v__obj, &_obj, _ctx);
   wxBusyCursor_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;

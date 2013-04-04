@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxOutputStream(value _v1, wxOutputStream * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxOutputStream(value _v1, wxOutputStream * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxOutputStream *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxOutputStream(wxOutputStream * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxOutputStream(wxOutputStream * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxOutputStream) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,19 +29,19 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxOutputStream_Delete(
+value camlidl_wxc_wxOutputStream_Delete(
 	value _v__obj)
 {
   wxOutputStream _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxOutputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxOutputStream(_v__obj, &_obj, _ctx);
   wxOutputStream_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxOutputStream_LastWrite(
+value camlidl_wxc_wxOutputStream_LastWrite(
 	value _v__obj)
 {
   wxOutputStream _obj; /*in*/
@@ -50,14 +50,14 @@ value camlidl_wxc_idl_wxOutputStream_LastWrite(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxOutputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxOutputStream(_v__obj, &_obj, _ctx);
   _res = wxOutputStream_LastWrite(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxOutputStream_PutC(
+value camlidl_wxc_wxOutputStream_PutC(
 	value _v__obj,
 	value _v_c)
 {
@@ -65,14 +65,14 @@ value camlidl_wxc_idl_wxOutputStream_PutC(
   char c; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxOutputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxOutputStream(_v__obj, &_obj, _ctx);
   c = Int_val(_v_c);
   wxOutputStream_PutC(_obj, c);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxOutputStream_Seek(
+value camlidl_wxc_wxOutputStream_Seek(
 	value _v__obj,
 	value _v_pos,
 	value _v_mode)
@@ -85,7 +85,7 @@ value camlidl_wxc_idl_wxOutputStream_Seek(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxOutputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxOutputStream(_v__obj, &_obj, _ctx);
   pos = Int_val(_v_pos);
   mode = Int_val(_v_mode);
   _res = wxOutputStream_Seek(_obj, pos, mode);
@@ -94,19 +94,19 @@ value camlidl_wxc_idl_wxOutputStream_Seek(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxOutputStream_Sync(
+value camlidl_wxc_wxOutputStream_Sync(
 	value _v__obj)
 {
   wxOutputStream _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxOutputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxOutputStream(_v__obj, &_obj, _ctx);
   wxOutputStream_Sync(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxOutputStream_Tell(
+value camlidl_wxc_wxOutputStream_Tell(
 	value _v__obj)
 {
   wxOutputStream _obj; /*in*/
@@ -115,14 +115,14 @@ value camlidl_wxc_idl_wxOutputStream_Tell(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxOutputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxOutputStream(_v__obj, &_obj, _ctx);
   _res = wxOutputStream_Tell(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxOutputStream_Write(
+value camlidl_wxc_wxOutputStream_Write(
 	value _v__obj,
 	value _v_buffer,
 	value _v_size)
@@ -132,8 +132,8 @@ value camlidl_wxc_idl_wxOutputStream_Write(
   int size; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxOutputStream(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_buffer, &buffer, _ctx);
+  camlidl_ml2c_wxc_wxOutputStream(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_buffer, &buffer, _ctx);
   size = Int_val(_v_size);
   wxOutputStream_Write(_obj, buffer, size);
   camlidl_free(_ctx);

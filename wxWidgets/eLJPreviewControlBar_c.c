@@ -16,7 +16,7 @@
 
 #include "wxWidgets_c.h"
 
-value camlidl_wxc_idl_ELJPreviewControlBar_Create(
+value camlidl_wxc_ELJPreviewControlBar_Create(
 	value _v_preview,
 	value _v_buttons,
 	value _v_parent,
@@ -41,23 +41,23 @@ value camlidl_wxc_idl_ELJPreviewControlBar_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_voidptr(_v_preview, &preview, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_preview, &preview, _ctx);
   buttons = Int_val(_v_buttons);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_title, &title, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_title, &title, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   w = Int_val(_v_w);
   h = Int_val(_v_h);
   style = Int_val(_v_style);
   _res = ELJPreviewControlBar_Create(preview, buttons, parent, title, x, y, w, h, style);
-  _vres = camlidl_c2ml_wxc_idl_ELJPreviewControlBar(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_ELJPreviewControlBar(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_ELJPreviewControlBar_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_ELJPreviewControlBar_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_ELJPreviewControlBar_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
+  return camlidl_wxc_ELJPreviewControlBar_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8]);
 }
 

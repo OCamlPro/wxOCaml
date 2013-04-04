@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxFontDialog(value _v1, wxFontDialog * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxFontDialog(value _v1, wxFontDialog * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxFontDialog *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxFontDialog(wxFontDialog * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxFontDialog(wxFontDialog * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxFontDialog) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxFontDialog_Create(
+value camlidl_wxc_wxFontDialog_Create(
 	value _v__prt,
 	value _v_fnt)
 {
@@ -40,15 +40,15 @@ value camlidl_wxc_idl_wxFontDialog_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
-  camlidl_ml2c_wxc_idl_wxFontData(_v_fnt, &fnt, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v_fnt, &fnt, _ctx);
   _res = wxFontDialog_Create(_prt, fnt);
-  _vres = camlidl_c2ml_wxc_idl_wxFontDialog(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxFontDialog(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxFontDialog_GetFontData(
+value camlidl_wxc_wxFontDialog_GetFontData(
 	value _v__obj,
 	value _v__ref)
 {
@@ -56,8 +56,8 @@ value camlidl_wxc_idl_wxFontDialog_GetFontData(
   wxFontData _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxFontDialog(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxFontData(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxFontDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxFontData(_v__ref, &_ref, _ctx);
   wxFontDialog_GetFontData(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;

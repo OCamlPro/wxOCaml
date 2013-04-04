@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxcTreeItemData(value _v1, wxcTreeItemData * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxcTreeItemData(value _v1, wxcTreeItemData * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxcTreeItemData *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxcTreeItemData(wxcTreeItemData * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxcTreeItemData(wxcTreeItemData * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxcTreeItemData) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxcTreeItemData_Create(
+value camlidl_wxc_wxcTreeItemData_Create(
 	value _v_closure)
 {
   wxClosure closure; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxcTreeItemData_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxClosure(_v_closure, &closure, _ctx);
+  camlidl_ml2c_wxc_wxClosure(_v_closure, &closure, _ctx);
   _res = wxcTreeItemData_Create(closure);
-  _vres = camlidl_c2ml_wxc_idl_wxcTreeItemData(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxcTreeItemData(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxcTreeItemData_GetClientClosure(
+value camlidl_wxc_wxcTreeItemData_GetClientClosure(
 	value _v_self)
 {
   wxcTreeItemData self; /*in*/
@@ -54,14 +54,14 @@ value camlidl_wxc_idl_wxcTreeItemData_GetClientClosure(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxcTreeItemData(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxcTreeItemData(_v_self, &self, _ctx);
   _res = wxcTreeItemData_GetClientClosure(self);
-  _vres = camlidl_c2ml_wxc_idl_wxClosure(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxClosure(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxcTreeItemData_SetClientClosure(
+value camlidl_wxc_wxcTreeItemData_SetClientClosure(
 	value _v_self,
 	value _v_closure)
 {
@@ -69,8 +69,8 @@ value camlidl_wxc_idl_wxcTreeItemData_SetClientClosure(
   wxClosure closure; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxcTreeItemData(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxClosure(_v_closure, &closure, _ctx);
+  camlidl_ml2c_wxc_wxcTreeItemData(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxClosure(_v_closure, &closure, _ctx);
   wxcTreeItemData_SetClientClosure(self, closure);
   camlidl_free(_ctx);
   return Val_unit;

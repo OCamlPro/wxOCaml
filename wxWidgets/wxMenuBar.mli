@@ -1,138 +1,138 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : int -> wxMenuBar
-	= "camlidl_wxc_idl_wxMenuBar_Create"
+	= "camlidl_wxc_wxMenuBar_Create"
 
 external setPreviousHandler : wxMenuBar -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetPreviousHandler"
+	= "camlidl_wxc_wxEvtHandler_SetPreviousHandler"
 
 external setNextHandler : wxMenuBar -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetNextHandler"
+	= "camlidl_wxc_wxEvtHandler_SetNextHandler"
 
 external setLabelTop : wxMenuBar -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxMenuBar_SetLabelTop"
+	= "camlidl_wxc_wxMenuBar_SetLabelTop"
 
 external setLabel : wxMenuBar -> wxString -> unit
-	= "camlidl_wxc_idl_wxMenuBar_SetLabel"
+	= "camlidl_wxc_wxMenuBar_SetLabel"
 
 external setItemLabel : wxMenuBar -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxMenuBar_SetItemLabel"
+	= "camlidl_wxc_wxMenuBar_SetItemLabel"
 
 external setHelpString : wxMenuBar -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxMenuBar_SetHelpString"
+	= "camlidl_wxc_wxMenuBar_SetHelpString"
 
 external setEvtHandlerEnabled : wxMenuBar -> bool -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetEvtHandlerEnabled"
+	= "camlidl_wxc_wxEvtHandler_SetEvtHandlerEnabled"
 
 external setClientClosure : wxMenuBar -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetClientClosure"
+	= "camlidl_wxc_wxEvtHandler_SetClientClosure"
 
 external safeDelete : wxMenuBar -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external replace : wxMenuBar -> int -> wxMenu -> wxString -> wxMenu
-	= "camlidl_wxc_idl_wxMenuBar_Replace"
+	= "camlidl_wxc_wxMenuBar_Replace"
 
 external remove : wxMenuBar -> int -> wxMenu
-	= "camlidl_wxc_idl_wxMenuBar_Remove"
+	= "camlidl_wxc_wxMenuBar_Remove"
 
 external processPendingEvents : wxMenuBar -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_ProcessPendingEvents"
+	= "camlidl_wxc_wxEvtHandler_ProcessPendingEvents"
 
 external processEvent : wxMenuBar -> wxEvent -> bool
-	= "camlidl_wxc_idl_wxEvtHandler_ProcessEvent"
+	= "camlidl_wxc_wxEvtHandler_ProcessEvent"
 
 external isScrolledWindow : wxMenuBar -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxMenuBar -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isEnabled : wxMenuBar -> int -> bool
-	= "camlidl_wxc_idl_wxMenuBar_IsEnabled"
+	= "camlidl_wxc_wxMenuBar_IsEnabled"
 
 external isChecked : wxMenuBar -> int -> bool
-	= "camlidl_wxc_idl_wxMenuBar_IsChecked"
+	= "camlidl_wxc_wxMenuBar_IsChecked"
 
 external insert : wxMenuBar -> int -> wxMenu -> wxString -> int
-	= "camlidl_wxc_idl_wxMenuBar_Insert"
+	= "camlidl_wxc_wxMenuBar_Insert"
 
 external getPreviousHandler : wxMenuBar -> wxEvtHandler
-	= "camlidl_wxc_idl_wxEvtHandler_GetPreviousHandler"
+	= "camlidl_wxc_wxEvtHandler_GetPreviousHandler"
 
 external getNextHandler : wxMenuBar -> wxEvtHandler
-	= "camlidl_wxc_idl_wxEvtHandler_GetNextHandler"
+	= "camlidl_wxc_wxEvtHandler_GetNextHandler"
 
 external getMenuCount : wxMenuBar -> int
-	= "camlidl_wxc_idl_wxMenuBar_GetMenuCount"
+	= "camlidl_wxc_wxMenuBar_GetMenuCount"
 
 external getMenu : wxMenuBar -> int -> wxMenu
-	= "camlidl_wxc_idl_wxMenuBar_GetMenu"
+	= "camlidl_wxc_wxMenuBar_GetMenu"
 
 external getLabelTop : wxMenuBar -> int -> wxString
-	= "camlidl_wxc_idl_wxMenuBar_GetLabelTop"
+	= "camlidl_wxc_wxMenuBar_GetLabelTop"
 
 external getLabel : wxMenuBar -> int -> wxString
-	= "camlidl_wxc_idl_wxMenuBar_GetLabel"
+	= "camlidl_wxc_wxMenuBar_GetLabel"
 
 external getHelpString : wxMenuBar -> int -> wxString
-	= "camlidl_wxc_idl_wxMenuBar_GetHelpString"
+	= "camlidl_wxc_wxMenuBar_GetHelpString"
 
 external getFrame : wxMenuBar -> wxFrame
-	= "camlidl_wxc_idl_wxMenuBar_GetFrame"
+	= "camlidl_wxc_wxMenuBar_GetFrame"
 
 external getEvtHandlerEnabled : wxMenuBar -> bool
-	= "camlidl_wxc_idl_wxEvtHandler_GetEvtHandlerEnabled"
+	= "camlidl_wxc_wxEvtHandler_GetEvtHandlerEnabled"
 
 external getClosure : wxMenuBar -> int -> int -> wxClosure
-	= "camlidl_wxc_idl_wxEvtHandler_GetClosure"
+	= "camlidl_wxc_wxEvtHandler_GetClosure"
 
 external getClientClosure : wxMenuBar -> wxClosure
-	= "camlidl_wxc_idl_wxEvtHandler_GetClientClosure"
+	= "camlidl_wxc_wxEvtHandler_GetClientClosure"
 
 external getClassInfo : wxMenuBar -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external findMenuItem : wxMenuBar -> wxString -> wxString -> int
-	= "camlidl_wxc_idl_wxMenuBar_FindMenuItem"
+	= "camlidl_wxc_wxMenuBar_FindMenuItem"
 
 external findMenu : wxMenuBar -> wxString -> int
-	= "camlidl_wxc_idl_wxMenuBar_FindMenu"
+	= "camlidl_wxc_wxMenuBar_FindMenu"
 
 external findItem : wxMenuBar -> int -> wxMenuItem
-	= "camlidl_wxc_idl_wxMenuBar_FindItem"
+	= "camlidl_wxc_wxMenuBar_FindItem"
 
 external enableTop : wxMenuBar -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxMenuBar_EnableTop"
+	= "camlidl_wxc_wxMenuBar_EnableTop"
 
 external enableItem : wxMenuBar -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxMenuBar_EnableItem"
+	= "camlidl_wxc_wxMenuBar_EnableItem"
 
 external enable : wxMenuBar -> bool -> int
-	= "camlidl_wxc_idl_wxMenuBar_Enable"
+	= "camlidl_wxc_wxMenuBar_Enable"
 
 external disconnect : wxMenuBar -> int -> int -> int -> int -> int
-	= "camlidl_wxc_idl_wxEvtHandler_Disconnect"
+	= "camlidl_wxc_wxEvtHandler_Disconnect"
 
 external deletePointer : wxMenuBar -> unit
-	= "camlidl_wxc_idl_wxMenuBar_DeletePointer"
+	= "camlidl_wxc_wxMenuBar_DeletePointer"
 
 external delete : wxMenuBar -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_Delete"
+	= "camlidl_wxc_wxEvtHandler_Delete"
 
 external connect : wxMenuBar -> int -> int -> (wxEvent -> unit) -> unit
-	= "camlidl_wxc_idl_wxo_wxEvtHandler_Connect"
+	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external check : wxMenuBar -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxMenuBar_Check"
+	= "camlidl_wxc_wxMenuBar_Check"
 
 external append : wxMenuBar -> wxMenu -> wxString -> int
-	= "camlidl_wxc_idl_wxMenuBar_Append"
+	= "camlidl_wxc_wxMenuBar_Append"
 
 external addPendingEvent : wxMenuBar -> wxEvent -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_AddPendingEvent"
+	= "camlidl_wxc_wxEvtHandler_AddPendingEvent"
 
 val setLabelTop : wxMenuBar -> int -> string -> unit
 val setLabel : wxMenuBar -> string -> unit

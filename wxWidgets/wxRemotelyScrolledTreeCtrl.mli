@@ -1,669 +1,669 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external warpPointer : wxRemotelyScrolledTreeCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_WarpPointer"
+	= "camlidl_wxc_wxWindow_WarpPointer"
 
 external validate : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_Validate"
+	= "camlidl_wxc_wxWindow_Validate"
 
 external updateWindowUI : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_UpdateWindowUI"
+	= "camlidl_wxc_wxWindow_UpdateWindowUI"
 
 external unsetConstraints : wxRemotelyScrolledTreeCtrl -> voidptr -> unit
-	= "camlidl_wxc_idl_wxWindow_UnsetConstraints"
+	= "camlidl_wxc_wxWindow_UnsetConstraints"
 
 external unselectAll : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_UnselectAll"
+	= "camlidl_wxc_wxTreeCtrl_UnselectAll"
 
 external unselect : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_Unselect"
+	= "camlidl_wxc_wxTreeCtrl_Unselect"
 
 external transferDataToWindow : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_TransferDataToWindow"
+	= "camlidl_wxc_wxWindow_TransferDataToWindow"
 
 external transferDataFromWindow : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_TransferDataFromWindow"
+	= "camlidl_wxc_wxWindow_TransferDataFromWindow"
 
 external toggle : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_Toggle"
+	= "camlidl_wxc_wxTreeCtrl_Toggle"
 
 external thaw : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_Thaw"
+	= "camlidl_wxc_wxWindow_Thaw"
 
 external sortChildren : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SortChildren"
+	= "camlidl_wxc_wxTreeCtrl_SortChildren"
 
 external show : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_Show"
+	= "camlidl_wxc_wxWindow_Show"
 
 external setWindowStyleFlag : wxRemotelyScrolledTreeCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetWindowStyleFlag"
+	= "camlidl_wxc_wxWindow_SetWindowStyleFlag"
 
 external setVirtualSize : wxRemotelyScrolledTreeCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetVirtualSize"
+	= "camlidl_wxc_wxWindow_SetVirtualSize"
 
 external setValidator : wxRemotelyScrolledTreeCtrl -> wxValidator -> unit
-	= "camlidl_wxc_idl_wxWindow_SetValidator"
+	= "camlidl_wxc_wxWindow_SetValidator"
 
 external setToolTip : wxRemotelyScrolledTreeCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxWindow_SetToolTip"
+	= "camlidl_wxc_wxWindow_SetToolTip"
 
 external setStateImageList : wxRemotelyScrolledTreeCtrl -> wxImageList -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetStateImageList"
+	= "camlidl_wxc_wxTreeCtrl_SetStateImageList"
 
 external setSpacing : wxRemotelyScrolledTreeCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetSpacing"
+	= "camlidl_wxc_wxTreeCtrl_SetSpacing"
 
 external setSizer : wxRemotelyScrolledTreeCtrl -> wxSizer -> unit
-	= "camlidl_wxc_idl_wxWindow_SetSizer"
+	= "camlidl_wxc_wxWindow_SetSizer"
 
 external setSizeHints : wxRemotelyScrolledTreeCtrl -> int -> int -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetSizeHints_bytecode" "camlidl_wxc_idl_wxWindow_SetSizeHints"
+	= "camlidl_wxc_wxWindow_SetSizeHints_bytecode" "camlidl_wxc_wxWindow_SetSizeHints"
 
 external setSizeConstraint : wxRemotelyScrolledTreeCtrl -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetSizeConstraint"
+	= "camlidl_wxc_wxWindow_SetSizeConstraint"
 
 external setSize : wxRemotelyScrolledTreeCtrl -> int -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetSize_bytecode" "camlidl_wxc_idl_wxWindow_SetSize"
+	= "camlidl_wxc_wxWindow_SetSize_bytecode" "camlidl_wxc_wxWindow_SetSize"
 
 external setScrollbar : wxRemotelyScrolledTreeCtrl -> int -> int -> int -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_SetScrollbar_bytecode" "camlidl_wxc_idl_wxWindow_SetScrollbar"
+	= "camlidl_wxc_wxWindow_SetScrollbar_bytecode" "camlidl_wxc_wxWindow_SetScrollbar"
 
 external setScrollPos : wxRemotelyScrolledTreeCtrl -> int -> int -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_SetScrollPos"
+	= "camlidl_wxc_wxWindow_SetScrollPos"
 
 external setPreviousHandler : wxRemotelyScrolledTreeCtrl -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetPreviousHandler"
+	= "camlidl_wxc_wxEvtHandler_SetPreviousHandler"
 
 external setNextHandler : wxRemotelyScrolledTreeCtrl -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetNextHandler"
+	= "camlidl_wxc_wxEvtHandler_SetNextHandler"
 
 external setName : wxRemotelyScrolledTreeCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxWindow_SetName"
+	= "camlidl_wxc_wxWindow_SetName"
 
 external setLabel : wxRemotelyScrolledTreeCtrl -> wxString -> unit
-	= "camlidl_wxc_idl_wxControl_SetLabel"
+	= "camlidl_wxc_wxControl_SetLabel"
 
 external setItemTextColour : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxColour -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetItemTextColour"
+	= "camlidl_wxc_wxTreeCtrl_SetItemTextColour"
 
 external setItemText : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxString -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetItemText"
+	= "camlidl_wxc_wxTreeCtrl_SetItemText"
 
 external setItemImage : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> int -> int -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetItemImage"
+	= "camlidl_wxc_wxTreeCtrl_SetItemImage"
 
 external setItemHasChildren : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> bool -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetItemHasChildren"
+	= "camlidl_wxc_wxTreeCtrl_SetItemHasChildren"
 
 external setItemFont : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxFont -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetItemFont"
+	= "camlidl_wxc_wxTreeCtrl_SetItemFont"
 
 external setItemDropHighlight : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> bool -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetItemDropHighlight"
+	= "camlidl_wxc_wxTreeCtrl_SetItemDropHighlight"
 
 external setItemData : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> voidptr -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetItemData"
+	= "camlidl_wxc_wxTreeCtrl_SetItemData"
 
 external setItemClientClosure : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetItemClientClosure"
+	= "camlidl_wxc_wxTreeCtrl_SetItemClientClosure"
 
 external setItemBold : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> bool -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetItemBold"
+	= "camlidl_wxc_wxTreeCtrl_SetItemBold"
 
 external setItemBackgroundColour : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxColour -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetItemBackgroundColour"
+	= "camlidl_wxc_wxTreeCtrl_SetItemBackgroundColour"
 
 external setIndent : wxRemotelyScrolledTreeCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetIndent"
+	= "camlidl_wxc_wxTreeCtrl_SetIndent"
 
 external setImageList : wxRemotelyScrolledTreeCtrl -> wxImageList -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SetImageList"
+	= "camlidl_wxc_wxTreeCtrl_SetImageList"
 
 external setId : wxRemotelyScrolledTreeCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetId"
+	= "camlidl_wxc_wxWindow_SetId"
 
 external setForegroundColour : wxRemotelyScrolledTreeCtrl -> wxColour -> int
-	= "camlidl_wxc_idl_wxWindow_SetForegroundColour"
+	= "camlidl_wxc_wxWindow_SetForegroundColour"
 
 external setFont : wxRemotelyScrolledTreeCtrl -> wxFont -> int
-	= "camlidl_wxc_idl_wxWindow_SetFont"
+	= "camlidl_wxc_wxWindow_SetFont"
 
 external setFocus : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_SetFocus"
+	= "camlidl_wxc_wxWindow_SetFocus"
 
 external setExtraStyle : wxRemotelyScrolledTreeCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetExtraStyle"
+	= "camlidl_wxc_wxWindow_SetExtraStyle"
 
 external setEvtHandlerEnabled : wxRemotelyScrolledTreeCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetEvtHandlerEnabled"
+	= "camlidl_wxc_wxEvtHandler_SetEvtHandlerEnabled"
 
 external setDropTarget : wxRemotelyScrolledTreeCtrl -> wxDropTarget -> unit
-	= "camlidl_wxc_idl_wxWindow_SetDropTarget"
+	= "camlidl_wxc_wxWindow_SetDropTarget"
 
 external setCursor : wxRemotelyScrolledTreeCtrl -> wxCursor -> int
-	= "camlidl_wxc_idl_wxWindow_SetCursor"
+	= "camlidl_wxc_wxWindow_SetCursor"
 
 external setConstraints : wxRemotelyScrolledTreeCtrl -> wxLayoutConstraints -> unit
-	= "camlidl_wxc_idl_wxWindow_SetConstraints"
+	= "camlidl_wxc_wxWindow_SetConstraints"
 
 external setConstraintSizes : wxRemotelyScrolledTreeCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetConstraintSizes"
+	= "camlidl_wxc_wxWindow_SetConstraintSizes"
 
 external setClientSize : wxRemotelyScrolledTreeCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_SetClientSize"
+	= "camlidl_wxc_wxWindow_SetClientSize"
 
 external setClientObject : wxRemotelyScrolledTreeCtrl -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxWindow_SetClientObject"
+	= "camlidl_wxc_wxWindow_SetClientObject"
 
 external setClientData : wxRemotelyScrolledTreeCtrl -> wxClientData -> unit
-	= "camlidl_wxc_idl_wxWindow_SetClientData"
+	= "camlidl_wxc_wxWindow_SetClientData"
 
 external setClientClosure : wxRemotelyScrolledTreeCtrl -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_SetClientClosure"
+	= "camlidl_wxc_wxEvtHandler_SetClientClosure"
 
 external setCaret : wxRemotelyScrolledTreeCtrl -> wxCaret -> unit
-	= "camlidl_wxc_idl_wxWindow_SetCaret"
+	= "camlidl_wxc_wxWindow_SetCaret"
 
 external setBackgroundColour : wxRemotelyScrolledTreeCtrl -> wxColour -> int
-	= "camlidl_wxc_idl_wxWindow_SetBackgroundColour"
+	= "camlidl_wxc_wxWindow_SetBackgroundColour"
 
 external setAutoLayout : wxRemotelyScrolledTreeCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_SetAutoLayout"
+	= "camlidl_wxc_wxWindow_SetAutoLayout"
 
 external setAcceleratorTable : wxRemotelyScrolledTreeCtrl -> wxAcceleratorTable -> unit
-	= "camlidl_wxc_idl_wxWindow_SetAcceleratorTable"
+	= "camlidl_wxc_wxWindow_SetAcceleratorTable"
 
 external selectItem : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_SelectItem"
+	= "camlidl_wxc_wxTreeCtrl_SelectItem"
 
 external scrollWindowRect : wxRemotelyScrolledTreeCtrl -> int -> int -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_ScrollWindowRect_bytecode" "camlidl_wxc_idl_wxWindow_ScrollWindowRect"
+	= "camlidl_wxc_wxWindow_ScrollWindowRect_bytecode" "camlidl_wxc_wxWindow_ScrollWindowRect"
 
 external scrollWindow : wxRemotelyScrolledTreeCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_ScrollWindow"
+	= "camlidl_wxc_wxWindow_ScrollWindow"
 
 external scrollTo : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_ScrollTo"
+	= "camlidl_wxc_wxTreeCtrl_ScrollTo"
 
 external screenToClient2 : wxRemotelyScrolledTreeCtrl -> int -> int -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ScreenToClient2"
+	= "camlidl_wxc_wxWindow_ScreenToClient2"
 
 external screenToClient : wxRemotelyScrolledTreeCtrl -> int -> int -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ScreenToClient"
+	= "camlidl_wxc_wxWindow_ScreenToClient"
 
 external safeDelete : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external resetConstraints : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_ResetConstraints"
+	= "camlidl_wxc_wxWindow_ResetConstraints"
 
 external reparent : wxRemotelyScrolledTreeCtrl -> wxWindow -> int
-	= "camlidl_wxc_idl_wxWindow_Reparent"
+	= "camlidl_wxc_wxWindow_Reparent"
 
 external removeConstraintReference : wxRemotelyScrolledTreeCtrl -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxWindow_RemoveConstraintReference"
+	= "camlidl_wxc_wxWindow_RemoveConstraintReference"
 
 external removeChild : wxRemotelyScrolledTreeCtrl -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxWindow_RemoveChild"
+	= "camlidl_wxc_wxWindow_RemoveChild"
 
 external releaseMouse : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_ReleaseMouse"
+	= "camlidl_wxc_wxWindow_ReleaseMouse"
 
 external refreshRect : wxRemotelyScrolledTreeCtrl -> bool -> int -> int -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_RefreshRect_bytecode" "camlidl_wxc_idl_wxWindow_RefreshRect"
+	= "camlidl_wxc_wxWindow_RefreshRect_bytecode" "camlidl_wxc_wxWindow_RefreshRect"
 
 external refresh : wxRemotelyScrolledTreeCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_Refresh"
+	= "camlidl_wxc_wxWindow_Refresh"
 
 external raise : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_Raise"
+	= "camlidl_wxc_wxWindow_Raise"
 
 external pushEventHandler : wxRemotelyScrolledTreeCtrl -> wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxWindow_PushEventHandler"
+	= "camlidl_wxc_wxWindow_PushEventHandler"
 
 external processPendingEvents : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_ProcessPendingEvents"
+	= "camlidl_wxc_wxEvtHandler_ProcessPendingEvents"
 
 external processEvent : wxRemotelyScrolledTreeCtrl -> wxEvent -> bool
-	= "camlidl_wxc_idl_wxEvtHandler_ProcessEvent"
+	= "camlidl_wxc_wxEvtHandler_ProcessEvent"
 
 external prependItem : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxString -> int -> int -> voidptr -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_PrependItem_bytecode" "camlidl_wxc_idl_wxTreeCtrl_PrependItem"
+	= "camlidl_wxc_wxTreeCtrl_PrependItem_bytecode" "camlidl_wxc_wxTreeCtrl_PrependItem"
 
 external prepareDC : wxRemotelyScrolledTreeCtrl -> wxDC -> unit
-	= "camlidl_wxc_idl_wxWindow_PrepareDC"
+	= "camlidl_wxc_wxWindow_PrepareDC"
 
 external popupMenu : wxRemotelyScrolledTreeCtrl -> wxMenu -> int -> int -> int
-	= "camlidl_wxc_idl_wxWindow_PopupMenu"
+	= "camlidl_wxc_wxWindow_PopupMenu"
 
 external popEventHandler : wxRemotelyScrolledTreeCtrl -> bool -> voidptr
-	= "camlidl_wxc_idl_wxWindow_PopEventHandler"
+	= "camlidl_wxc_wxWindow_PopEventHandler"
 
 external onCompareItems : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxTreeItemId -> int
-	= "camlidl_wxc_idl_wxTreeCtrl_OnCompareItems"
+	= "camlidl_wxc_wxTreeCtrl_OnCompareItems"
 
 external moveConstraint : wxRemotelyScrolledTreeCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_MoveConstraint"
+	= "camlidl_wxc_wxWindow_MoveConstraint"
 
 external move : wxRemotelyScrolledTreeCtrl -> int -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_Move"
+	= "camlidl_wxc_wxWindow_Move"
 
 external makeModal : wxRemotelyScrolledTreeCtrl -> bool -> unit
-	= "camlidl_wxc_idl_wxWindow_MakeModal"
+	= "camlidl_wxc_wxWindow_MakeModal"
 
 external lower : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_Lower"
+	= "camlidl_wxc_wxWindow_Lower"
 
 external layoutPhase2 : wxRemotelyScrolledTreeCtrl -> int option -> int
-	= "camlidl_wxc_idl_wxWindow_LayoutPhase2"
+	= "camlidl_wxc_wxWindow_LayoutPhase2"
 
 external layoutPhase1 : wxRemotelyScrolledTreeCtrl -> int option -> int
-	= "camlidl_wxc_idl_wxWindow_LayoutPhase1"
+	= "camlidl_wxc_wxWindow_LayoutPhase1"
 
 external layout : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_Layout"
+	= "camlidl_wxc_wxWindow_Layout"
 
 external itemHasChildren : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> int
-	= "camlidl_wxc_idl_wxTreeCtrl_ItemHasChildren"
+	= "camlidl_wxc_wxTreeCtrl_ItemHasChildren"
 
 external isVisible : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> bool
-	= "camlidl_wxc_idl_wxTreeCtrl_IsVisible"
+	= "camlidl_wxc_wxTreeCtrl_IsVisible"
 
 external isTopLevel : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_IsTopLevel"
+	= "camlidl_wxc_wxWindow_IsTopLevel"
 
 external isShown : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_IsShown"
+	= "camlidl_wxc_wxWindow_IsShown"
 
 external isSelected : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> bool
-	= "camlidl_wxc_idl_wxTreeCtrl_IsSelected"
+	= "camlidl_wxc_wxTreeCtrl_IsSelected"
 
 external isScrolledWindow : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isKindOf : wxRemotelyScrolledTreeCtrl -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isExposed : wxRemotelyScrolledTreeCtrl -> int -> int -> int -> int -> bool
-	= "camlidl_wxc_idl_wxWindow_IsExposed"
+	= "camlidl_wxc_wxWindow_IsExposed"
 
 external isExpanded : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> bool
-	= "camlidl_wxc_idl_wxTreeCtrl_IsExpanded"
+	= "camlidl_wxc_wxTreeCtrl_IsExpanded"
 
 external isEnabled : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_IsEnabled"
+	= "camlidl_wxc_wxWindow_IsEnabled"
 
 external isBold : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> bool
-	= "camlidl_wxc_idl_wxTreeCtrl_IsBold"
+	= "camlidl_wxc_wxTreeCtrl_IsBold"
 
 external isBeingDeleted : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_IsBeingDeleted"
+	= "camlidl_wxc_wxWindow_IsBeingDeleted"
 
 external insertItemByIndex2 : wxRemotelyScrolledTreeCtrl -> wxWindow -> int -> wxString -> int -> int -> wxClosure -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_InsertItemByIndex2_bytecode" "camlidl_wxc_idl_wxTreeCtrl_InsertItemByIndex2"
+	= "camlidl_wxc_wxTreeCtrl_InsertItemByIndex2_bytecode" "camlidl_wxc_wxTreeCtrl_InsertItemByIndex2"
 
 external insertItemByIndex : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> int -> wxString -> int -> int -> voidptr -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_InsertItemByIndex_bytecode" "camlidl_wxc_idl_wxTreeCtrl_InsertItemByIndex"
+	= "camlidl_wxc_wxTreeCtrl_InsertItemByIndex_bytecode" "camlidl_wxc_wxTreeCtrl_InsertItemByIndex"
 
 external insertItem2 : wxRemotelyScrolledTreeCtrl -> wxWindow -> wxTreeItemId -> wxString -> int -> int -> wxClosure -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_InsertItem2_bytecode" "camlidl_wxc_idl_wxTreeCtrl_InsertItem2"
+	= "camlidl_wxc_wxTreeCtrl_InsertItem2_bytecode" "camlidl_wxc_wxTreeCtrl_InsertItem2"
 
 external insertItem : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxTreeItemId -> wxString -> int -> int -> voidptr -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_InsertItem_bytecode" "camlidl_wxc_idl_wxTreeCtrl_InsertItem"
+	= "camlidl_wxc_wxTreeCtrl_InsertItem_bytecode" "camlidl_wxc_wxTreeCtrl_InsertItem"
 
 external initDialog : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_InitDialog"
+	= "camlidl_wxc_wxWindow_InitDialog"
 
 external hitTest : wxRemotelyScrolledTreeCtrl -> int -> int -> int option -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_HitTest"
+	= "camlidl_wxc_wxTreeCtrl_HitTest"
 
 external hide : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_Hide"
+	= "camlidl_wxc_wxWindow_Hide"
 
 external hasFlag : wxRemotelyScrolledTreeCtrl -> int -> bool
-	= "camlidl_wxc_idl_wxWindow_HasFlag"
+	= "camlidl_wxc_wxWindow_HasFlag"
 
 external getWindowStyleFlag : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetWindowStyleFlag"
+	= "camlidl_wxc_wxWindow_GetWindowStyleFlag"
 
 external getVirtualSize : wxRemotelyScrolledTreeCtrl -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetVirtualSize"
+	= "camlidl_wxc_wxWindow_GetVirtualSize"
 
 external getValidator : wxRemotelyScrolledTreeCtrl -> wxValidator
-	= "camlidl_wxc_idl_wxWindow_GetValidator"
+	= "camlidl_wxc_wxWindow_GetValidator"
 
 external getUpdateRegion : wxRemotelyScrolledTreeCtrl -> wxRegion
-	= "camlidl_wxc_idl_wxWindow_GetUpdateRegion"
+	= "camlidl_wxc_wxWindow_GetUpdateRegion"
 
 external getToolTip : wxRemotelyScrolledTreeCtrl -> wxString
-	= "camlidl_wxc_idl_wxWindow_GetToolTip"
+	= "camlidl_wxc_wxWindow_GetToolTip"
 
 external getTextExtent : wxRemotelyScrolledTreeCtrl -> wxString -> int option -> int option -> int option -> int option -> wxFont -> unit
-	= "camlidl_wxc_idl_wxWindow_GetTextExtent_bytecode" "camlidl_wxc_idl_wxWindow_GetTextExtent"
+	= "camlidl_wxc_wxWindow_GetTextExtent_bytecode" "camlidl_wxc_wxWindow_GetTextExtent"
 
 external getStateImageList : wxRemotelyScrolledTreeCtrl -> wxImageList
-	= "camlidl_wxc_idl_wxTreeCtrl_GetStateImageList"
+	= "camlidl_wxc_wxTreeCtrl_GetStateImageList"
 
 external getSpacing : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxTreeCtrl_GetSpacing"
+	= "camlidl_wxc_wxTreeCtrl_GetSpacing"
 
 external getSizer : wxRemotelyScrolledTreeCtrl -> wxSizer
-	= "camlidl_wxc_idl_wxWindow_GetSizer"
+	= "camlidl_wxc_wxWindow_GetSizer"
 
 external getSizeConstraint : wxRemotelyScrolledTreeCtrl -> int * int
-	= "camlidl_wxc_idl_wxWindow_GetSizeConstraint"
+	= "camlidl_wxc_wxWindow_GetSizeConstraint"
 
 external getSize : wxRemotelyScrolledTreeCtrl -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetSize"
+	= "camlidl_wxc_wxWindow_GetSize"
 
 external getSelections : wxRemotelyScrolledTreeCtrl -> int * int option
-	= "camlidl_wxc_idl_wxTreeCtrl_GetSelections"
+	= "camlidl_wxc_wxTreeCtrl_GetSelections"
 
 external getSelection : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_GetSelection"
+	= "camlidl_wxc_wxTreeCtrl_GetSelection"
 
 external getScrollThumb : wxRemotelyScrolledTreeCtrl -> int -> int
-	= "camlidl_wxc_idl_wxWindow_GetScrollThumb"
+	= "camlidl_wxc_wxWindow_GetScrollThumb"
 
 external getScrollRange : wxRemotelyScrolledTreeCtrl -> int -> int
-	= "camlidl_wxc_idl_wxWindow_GetScrollRange"
+	= "camlidl_wxc_wxWindow_GetScrollRange"
 
 external getScrollPos : wxRemotelyScrolledTreeCtrl -> int -> int
-	= "camlidl_wxc_idl_wxWindow_GetScrollPos"
+	= "camlidl_wxc_wxWindow_GetScrollPos"
 
 external getRootItem : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_GetRootItem"
+	= "camlidl_wxc_wxTreeCtrl_GetRootItem"
 
 external getRect : wxRemotelyScrolledTreeCtrl -> wxRect
-	= "camlidl_wxc_idl_wxWindow_GetRect"
+	= "camlidl_wxc_wxWindow_GetRect"
 
 external getPreviousHandler : wxRemotelyScrolledTreeCtrl -> wxEvtHandler
-	= "camlidl_wxc_idl_wxEvtHandler_GetPreviousHandler"
+	= "camlidl_wxc_wxEvtHandler_GetPreviousHandler"
 
 external getPrevVisible : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_GetPrevVisible"
+	= "camlidl_wxc_wxTreeCtrl_GetPrevVisible"
 
 external getPrevSibling : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_GetPrevSibling"
+	= "camlidl_wxc_wxTreeCtrl_GetPrevSibling"
 
 external getPositionConstraint : wxRemotelyScrolledTreeCtrl -> int * int
-	= "camlidl_wxc_idl_wxWindow_GetPositionConstraint"
+	= "camlidl_wxc_wxWindow_GetPositionConstraint"
 
 external getPosition : wxRemotelyScrolledTreeCtrl -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_GetPosition"
+	= "camlidl_wxc_wxWindow_GetPosition"
 
 external getParent : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_GetParent"
+	= "camlidl_wxc_wxTreeCtrl_GetParent"
 
 external getNextVisible : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_GetNextVisible"
+	= "camlidl_wxc_wxTreeCtrl_GetNextVisible"
 
 external getNextSibling : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_GetNextSibling"
+	= "camlidl_wxc_wxTreeCtrl_GetNextSibling"
 
 external getNextHandler : wxRemotelyScrolledTreeCtrl -> wxEvtHandler
-	= "camlidl_wxc_idl_wxEvtHandler_GetNextHandler"
+	= "camlidl_wxc_wxEvtHandler_GetNextHandler"
 
 external getNextChild : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> int option -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_GetNextChild"
+	= "camlidl_wxc_wxTreeCtrl_GetNextChild"
 
 external getName : wxRemotelyScrolledTreeCtrl -> wxString
-	= "camlidl_wxc_idl_wxWindow_GetName"
+	= "camlidl_wxc_wxWindow_GetName"
 
 external getMinWidth : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetMinWidth"
+	= "camlidl_wxc_wxWindow_GetMinWidth"
 
 external getMinHeight : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetMinHeight"
+	= "camlidl_wxc_wxWindow_GetMinHeight"
 
 external getMaxWidth : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetMaxWidth"
+	= "camlidl_wxc_wxWindow_GetMaxWidth"
 
 external getMaxHeight : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetMaxHeight"
+	= "camlidl_wxc_wxWindow_GetMaxHeight"
 
 external getLastChild : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_GetLastChild"
+	= "camlidl_wxc_wxTreeCtrl_GetLastChild"
 
 external getLabelEmpty : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetLabelEmpty"
+	= "camlidl_wxc_wxWindow_GetLabelEmpty"
 
 external getLabel : wxRemotelyScrolledTreeCtrl -> wxString
-	= "camlidl_wxc_idl_wxControl_GetLabel"
+	= "camlidl_wxc_wxControl_GetLabel"
 
 external getItemText : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxString
-	= "camlidl_wxc_idl_wxTreeCtrl_GetItemText"
+	= "camlidl_wxc_wxTreeCtrl_GetItemText"
 
 external getItemImage : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> int -> int
-	= "camlidl_wxc_idl_wxTreeCtrl_GetItemImage"
+	= "camlidl_wxc_wxTreeCtrl_GetItemImage"
 
 external getItemData : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> voidptr
-	= "camlidl_wxc_idl_wxTreeCtrl_GetItemData"
+	= "camlidl_wxc_wxTreeCtrl_GetItemData"
 
 external getItemClientClosure : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxClosure
-	= "camlidl_wxc_idl_wxTreeCtrl_GetItemClientClosure"
+	= "camlidl_wxc_wxTreeCtrl_GetItemClientClosure"
 
 external getIndent : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxTreeCtrl_GetIndent"
+	= "camlidl_wxc_wxTreeCtrl_GetIndent"
 
 external getImageList : wxRemotelyScrolledTreeCtrl -> wxImageList
-	= "camlidl_wxc_idl_wxTreeCtrl_GetImageList"
+	= "camlidl_wxc_wxTreeCtrl_GetImageList"
 
 external getId : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetId"
+	= "camlidl_wxc_wxWindow_GetId"
 
 external getHandle : wxRemotelyScrolledTreeCtrl -> voidptr
-	= "camlidl_wxc_idl_wxWindow_GetHandle"
+	= "camlidl_wxc_wxWindow_GetHandle"
 
 external getForegroundColour : wxRemotelyScrolledTreeCtrl -> wxColour -> unit
-	= "camlidl_wxc_idl_wxWindow_GetForegroundColour"
+	= "camlidl_wxc_wxWindow_GetForegroundColour"
 
 external getFont : wxRemotelyScrolledTreeCtrl -> wxFont -> unit
-	= "camlidl_wxc_idl_wxWindow_GetFont"
+	= "camlidl_wxc_wxWindow_GetFont"
 
 external getFirstVisibleItem : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_GetFirstVisibleItem"
+	= "camlidl_wxc_wxTreeCtrl_GetFirstVisibleItem"
 
 external getFirstChild : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> int option -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_GetFirstChild"
+	= "camlidl_wxc_wxTreeCtrl_GetFirstChild"
 
 external getEvtHandlerEnabled : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxEvtHandler_GetEvtHandlerEnabled"
+	= "camlidl_wxc_wxEvtHandler_GetEvtHandlerEnabled"
 
 external getEventHandler : wxRemotelyScrolledTreeCtrl -> wxEvtHandler
-	= "camlidl_wxc_idl_wxWindow_GetEventHandler"
+	= "camlidl_wxc_wxWindow_GetEventHandler"
 
 external getEffectiveMinSize : wxRemotelyScrolledTreeCtrl -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetEffectiveMinSize"
+	= "camlidl_wxc_wxWindow_GetEffectiveMinSize"
 
 external getEditControl : wxRemotelyScrolledTreeCtrl -> wxTextCtrl
-	= "camlidl_wxc_idl_wxTreeCtrl_GetEditControl"
+	= "camlidl_wxc_wxTreeCtrl_GetEditControl"
 
 external getDropTarget : wxRemotelyScrolledTreeCtrl -> wxDropTarget
-	= "camlidl_wxc_idl_wxWindow_GetDropTarget"
+	= "camlidl_wxc_wxWindow_GetDropTarget"
 
 external getCursor : wxRemotelyScrolledTreeCtrl -> wxCursor
-	= "camlidl_wxc_idl_wxWindow_GetCursor"
+	= "camlidl_wxc_wxWindow_GetCursor"
 
 external getCount : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxTreeCtrl_GetCount"
+	= "camlidl_wxc_wxTreeCtrl_GetCount"
 
 external getConstraintsInvolvedIn : wxRemotelyScrolledTreeCtrl -> voidptr
-	= "camlidl_wxc_idl_wxWindow_GetConstraintsInvolvedIn"
+	= "camlidl_wxc_wxWindow_GetConstraintsInvolvedIn"
 
 external getConstraints : wxRemotelyScrolledTreeCtrl -> wxLayoutConstraints
-	= "camlidl_wxc_idl_wxWindow_GetConstraints"
+	= "camlidl_wxc_wxWindow_GetConstraints"
 
 external getClosure : wxRemotelyScrolledTreeCtrl -> int -> int -> wxClosure
-	= "camlidl_wxc_idl_wxEvtHandler_GetClosure"
+	= "camlidl_wxc_wxEvtHandler_GetClosure"
 
 external getClientSizeConstraint : wxRemotelyScrolledTreeCtrl -> int * int
-	= "camlidl_wxc_idl_wxWindow_GetClientSizeConstraint"
+	= "camlidl_wxc_wxWindow_GetClientSizeConstraint"
 
 external getClientSize : wxRemotelyScrolledTreeCtrl -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetClientSize"
+	= "camlidl_wxc_wxWindow_GetClientSize"
 
 external getClientData : wxRemotelyScrolledTreeCtrl -> wxClientData
-	= "camlidl_wxc_idl_wxWindow_GetClientData"
+	= "camlidl_wxc_wxWindow_GetClientData"
 
 external getClientClosure : wxRemotelyScrolledTreeCtrl -> wxClosure
-	= "camlidl_wxc_idl_wxEvtHandler_GetClientClosure"
+	= "camlidl_wxc_wxEvtHandler_GetClientClosure"
 
 external getClassInfo : wxRemotelyScrolledTreeCtrl -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external getChildrenCount : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> bool -> int
-	= "camlidl_wxc_idl_wxTreeCtrl_GetChildrenCount"
+	= "camlidl_wxc_wxTreeCtrl_GetChildrenCount"
 
 external getChildren : wxRemotelyScrolledTreeCtrl -> voidptr -> int -> int
-	= "camlidl_wxc_idl_wxWindow_GetChildren"
+	= "camlidl_wxc_wxWindow_GetChildren"
 
 external getCharWidth : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetCharWidth"
+	= "camlidl_wxc_wxWindow_GetCharWidth"
 
 external getCharHeight : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetCharHeight"
+	= "camlidl_wxc_wxWindow_GetCharHeight"
 
 external getCaret : wxRemotelyScrolledTreeCtrl -> wxCaret
-	= "camlidl_wxc_idl_wxWindow_GetCaret"
+	= "camlidl_wxc_wxWindow_GetCaret"
 
 external getBoundingRect : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> bool -> wxRect
-	= "camlidl_wxc_idl_wxTreeCtrl_GetBoundingRect"
+	= "camlidl_wxc_wxTreeCtrl_GetBoundingRect"
 
 external getBestSize : wxRemotelyScrolledTreeCtrl -> wxSize
-	= "camlidl_wxc_idl_wxWindow_GetBestSize"
+	= "camlidl_wxc_wxWindow_GetBestSize"
 
 external getBackgroundColour : wxRemotelyScrolledTreeCtrl -> wxColour -> unit
-	= "camlidl_wxc_idl_wxWindow_GetBackgroundColour"
+	= "camlidl_wxc_wxWindow_GetBackgroundColour"
 
 external getAutoLayout : wxRemotelyScrolledTreeCtrl -> int
-	= "camlidl_wxc_idl_wxWindow_GetAutoLayout"
+	= "camlidl_wxc_wxWindow_GetAutoLayout"
 
 external freeze : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_Freeze"
+	= "camlidl_wxc_wxWindow_Freeze"
 
 external fitInside : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_FitInside"
+	= "camlidl_wxc_wxWindow_FitInside"
 
 external fit : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_Fit"
+	= "camlidl_wxc_wxWindow_Fit"
 
 external findWindow : wxRemotelyScrolledTreeCtrl -> wxString -> wxWindow
-	= "camlidl_wxc_idl_wxWindow_FindWindow"
+	= "camlidl_wxc_wxWindow_FindWindow"
 
 external findFocus : wxRemotelyScrolledTreeCtrl -> wxWindow
-	= "camlidl_wxc_idl_wxWindow_FindFocus"
+	= "camlidl_wxc_wxWindow_FindFocus"
 
 external expand : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_Expand"
+	= "camlidl_wxc_wxTreeCtrl_Expand"
 
 external ensureVisible : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_EnsureVisible"
+	= "camlidl_wxc_wxTreeCtrl_EnsureVisible"
 
 external endEditLabel : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> bool -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_EndEditLabel"
+	= "camlidl_wxc_wxTreeCtrl_EndEditLabel"
 
 external enable : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_Enable"
+	= "camlidl_wxc_wxWindow_Enable"
 
 external editLabel : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_EditLabel"
+	= "camlidl_wxc_wxTreeCtrl_EditLabel"
 
 external doPhase : wxRemotelyScrolledTreeCtrl -> int -> int
-	= "camlidl_wxc_idl_wxWindow_DoPhase"
+	= "camlidl_wxc_wxWindow_DoPhase"
 
 external disconnect : wxRemotelyScrolledTreeCtrl -> int -> int -> int -> int -> int
-	= "camlidl_wxc_idl_wxEvtHandler_Disconnect"
+	= "camlidl_wxc_wxEvtHandler_Disconnect"
 
 external disable : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_Disable"
+	= "camlidl_wxc_wxWindow_Disable"
 
 external destroyChildren : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_DestroyChildren"
+	= "camlidl_wxc_wxWindow_DestroyChildren"
 
 external destroy : wxRemotelyScrolledTreeCtrl -> bool
-	= "camlidl_wxc_idl_wxWindow_Destroy"
+	= "camlidl_wxc_wxWindow_Destroy"
 
 external deleteRelatedConstraints : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_DeleteRelatedConstraints"
+	= "camlidl_wxc_wxWindow_DeleteRelatedConstraints"
 
 external deleteChildren : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_DeleteChildren"
+	= "camlidl_wxc_wxTreeCtrl_DeleteChildren"
 
 external deleteAllItems : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_DeleteAllItems"
+	= "camlidl_wxc_wxTreeCtrl_DeleteAllItems"
 
 external delete : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_Delete"
+	= "camlidl_wxc_wxTreeCtrl_Delete"
 
 external create2 : wxWindow -> int -> int -> int -> int -> int -> int -> wxTreeCtrl
-	= "camlidl_wxc_idl_wxTreeCtrl_Create2_bytecode" "camlidl_wxc_idl_wxTreeCtrl_Create2"
+	= "camlidl_wxc_wxTreeCtrl_Create2_bytecode" "camlidl_wxc_wxTreeCtrl_Create2"
 
 external convertPixelsToDialogEx : wxRemotelyScrolledTreeCtrl -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ConvertPixelsToDialogEx"
+	= "camlidl_wxc_wxWindow_ConvertPixelsToDialogEx"
 
 external convertPixelsToDialog : wxRemotelyScrolledTreeCtrl -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ConvertPixelsToDialog"
+	= "camlidl_wxc_wxWindow_ConvertPixelsToDialog"
 
 external convertDialogToPixelsEx : wxRemotelyScrolledTreeCtrl -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ConvertDialogToPixelsEx"
+	= "camlidl_wxc_wxWindow_ConvertDialogToPixelsEx"
 
 external convertDialogToPixels : wxRemotelyScrolledTreeCtrl -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ConvertDialogToPixels"
+	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
 external connect : wxRemotelyScrolledTreeCtrl -> int -> int -> (wxEvent -> unit) -> unit
-	= "camlidl_wxc_idl_wxo_wxEvtHandler_Connect"
+	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external command : wxRemotelyScrolledTreeCtrl -> wxEvent -> unit
-	= "camlidl_wxc_idl_wxControl_Command"
+	= "camlidl_wxc_wxControl_Command"
 
 external collapseAndReset : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_CollapseAndReset"
+	= "camlidl_wxc_wxTreeCtrl_CollapseAndReset"
 
 external collapse : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_Collapse"
+	= "camlidl_wxc_wxTreeCtrl_Collapse"
 
 external close : wxRemotelyScrolledTreeCtrl -> bool -> bool
-	= "camlidl_wxc_idl_wxWindow_Close"
+	= "camlidl_wxc_wxWindow_Close"
 
 external clientToScreen : wxRemotelyScrolledTreeCtrl -> int -> int -> wxPoint
-	= "camlidl_wxc_idl_wxWindow_ClientToScreen"
+	= "camlidl_wxc_wxWindow_ClientToScreen"
 
 external clearBackground : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_ClearBackground"
+	= "camlidl_wxc_wxWindow_ClearBackground"
 
 external centerOnParent : wxRemotelyScrolledTreeCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_CenterOnParent"
+	= "camlidl_wxc_wxWindow_CenterOnParent"
 
 external center : wxRemotelyScrolledTreeCtrl -> int -> unit
-	= "camlidl_wxc_idl_wxWindow_Center"
+	= "camlidl_wxc_wxWindow_Center"
 
 external captureMouse : wxRemotelyScrolledTreeCtrl -> unit
-	= "camlidl_wxc_idl_wxWindow_CaptureMouse"
+	= "camlidl_wxc_wxWindow_CaptureMouse"
 
 external assignStateImageList : wxRemotelyScrolledTreeCtrl -> wxImageList -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_AssignStateImageList"
+	= "camlidl_wxc_wxTreeCtrl_AssignStateImageList"
 
 external assignImageList : wxRemotelyScrolledTreeCtrl -> wxImageList -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_AssignImageList"
+	= "camlidl_wxc_wxTreeCtrl_AssignImageList"
 
 external appendItem : wxRemotelyScrolledTreeCtrl -> wxTreeItemId -> wxString -> int -> int -> wxTreeItemData -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_AppendItem_bytecode" "camlidl_wxc_idl_wxTreeCtrl_AppendItem"
+	= "camlidl_wxc_wxTreeCtrl_AppendItem_bytecode" "camlidl_wxc_wxTreeCtrl_AppendItem"
 
 external addRoot : wxRemotelyScrolledTreeCtrl -> wxString -> int -> int -> wxTreeItemData -> wxTreeItemId -> unit
-	= "camlidl_wxc_idl_wxTreeCtrl_AddRoot_bytecode" "camlidl_wxc_idl_wxTreeCtrl_AddRoot"
+	= "camlidl_wxc_wxTreeCtrl_AddRoot_bytecode" "camlidl_wxc_wxTreeCtrl_AddRoot"
 
 external addPendingEvent : wxRemotelyScrolledTreeCtrl -> wxEvent -> unit
-	= "camlidl_wxc_idl_wxEvtHandler_AddPendingEvent"
+	= "camlidl_wxc_wxEvtHandler_AddPendingEvent"
 
 external addConstraintReference : wxRemotelyScrolledTreeCtrl -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxWindow_AddConstraintReference"
+	= "camlidl_wxc_wxWindow_AddConstraintReference"
 
 external addChild : wxRemotelyScrolledTreeCtrl -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxWindow_AddChild"
+	= "camlidl_wxc_wxWindow_AddChild"
 
 val setToolTip : wxRemotelyScrolledTreeCtrl -> string -> unit
 val setName : wxRemotelyScrolledTreeCtrl -> string -> unit

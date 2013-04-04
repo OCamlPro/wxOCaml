@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxString(value _v1, wxString * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxString(value _v1, wxString * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxString *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxString(wxString * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxString(wxString * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxString) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxString_GetUtf8(
+value camlidl_wxc_wxString_GetUtf8(
 	value _v_s)
 {
   wxString s; /*in*/
@@ -38,14 +38,30 @@ value camlidl_wxc_idl_wxString_GetUtf8(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxString(_v_s, &s, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_s, &s, _ctx);
   _res = wxString_GetUtf8(s);
   _vres = copy_string(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxString_Create(
+value camlidl_wxc_wxString_CreateUTF8(
+	value _v_buffer)
+{
+  char *buffer; /*in*/
+  wxString _res;
+  value _vres;
+
+  struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
+  camlidl_ctx _ctx = &_ctxs;
+  buffer = String_val(_v_buffer);
+  _res = wxString_CreateUTF8(buffer);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
+  camlidl_free(_ctx);
+  return _vres;
+}
+
+value camlidl_wxc_wxString_Create(
 	value _v_buffer)
 {
   char *buffer; /*in*/
@@ -56,12 +72,12 @@ value camlidl_wxc_idl_wxString_Create(
   camlidl_ctx _ctx = &_ctxs;
   buffer = String_val(_v_buffer);
   _res = wxString_Create(buffer);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxString_CreateLen(
+value camlidl_wxc_wxString_CreateLen(
 	value _v_buffer,
 	value _v_len)
 {
@@ -75,40 +91,24 @@ value camlidl_wxc_idl_wxString_CreateLen(
   buffer = String_val(_v_buffer);
   len = Int_val(_v_len);
   _res = wxString_CreateLen(buffer, len);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxString_CreateUTF8(
-	value _v_buffer)
-{
-  char *buffer; /*in*/
-  wxString _res;
-  value _vres;
-
-  struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
-  camlidl_ctx _ctx = &_ctxs;
-  buffer = String_val(_v_buffer);
-  _res = wxString_CreateUTF8(buffer);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
-  camlidl_free(_ctx);
-  return _vres;
-}
-
-value camlidl_wxc_idl_wxString_Delete(
+value camlidl_wxc_wxString_Delete(
 	value _v_s)
 {
   wxString s; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxString(_v_s, &s, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_s, &s, _ctx);
   wxString_Delete(s);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxString_GetString(
+value camlidl_wxc_wxString_GetString(
 	value _v_s,
 	value _v_buffer)
 {
@@ -119,7 +119,7 @@ value camlidl_wxc_idl_wxString_GetString(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxString(_v_s, &s, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_s, &s, _ctx);
   buffer = String_val(_v_buffer);
   _res = wxString_GetString(s, buffer);
   _vres = Val_int(_res);
@@ -127,7 +127,7 @@ value camlidl_wxc_idl_wxString_GetString(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxString_Length(
+value camlidl_wxc_wxString_Length(
 	value _v_s)
 {
   wxString s; /*in*/
@@ -136,7 +136,7 @@ value camlidl_wxc_idl_wxString_Length(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxString(_v_s, &s, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_s, &s, _ctx);
   _res = wxString_Length(s);
   _vres = Val_int(_res);
   camlidl_free(_ctx);

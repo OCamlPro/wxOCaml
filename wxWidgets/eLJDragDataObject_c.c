@@ -16,7 +16,7 @@
 
 #include "wxWidgets_c.h"
 
-value camlidl_wxc_idl_ELJDragDataObject_Create(
+value camlidl_wxc_ELJDragDataObject_Create(
 	value _v__obj,
 	value _v__fmt,
 	value _v__func1,
@@ -33,24 +33,24 @@ value camlidl_wxc_idl_ELJDragDataObject_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_voidptr(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v__fmt, &_fmt, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__func1, &_func1, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__func2, &_func2, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__func3, &_func3, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxString(_v__fmt, &_fmt, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__func1, &_func1, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__func2, &_func2, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__func3, &_func3, _ctx);
   _res = ELJDragDataObject_Create(_obj, _fmt, _func1, _func2, _func3);
-  _vres = camlidl_c2ml_wxc_idl_ELJDragDataObject(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_ELJDragDataObject(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_ELJDragDataObject_Delete(
+value camlidl_wxc_ELJDragDataObject_Delete(
 	value _v__obj)
 {
   ELJDragDataObject _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_ELJDragDataObject(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_ELJDragDataObject(_v__obj, &_obj, _ctx);
   ELJDragDataObject_Delete(_obj);
   camlidl_free(_ctx);
   return Val_unit;

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxTipWindow(value _v1, wxTipWindow * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxTipWindow(value _v1, wxTipWindow * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxTipWindow *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxTipWindow(wxTipWindow * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxTipWindow(wxTipWindow * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxTipWindow) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,19 +29,19 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxTipWindow_Close(
+value camlidl_wxc_wxTipWindow_Close(
 	value _v__obj)
 {
   wxTipWindow _obj; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTipWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTipWindow(_v__obj, &_obj, _ctx);
   wxTipWindow_Close(_obj);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTipWindow_Create(
+value camlidl_wxc_wxTipWindow_Create(
 	value _v_parent,
 	value _v_text,
 	value _v_maxLength)
@@ -54,16 +54,16 @@ value camlidl_wxc_idl_wxTipWindow_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v_parent, &parent, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_parent, &parent, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_text, &text, _ctx);
   maxLength = Int_val(_v_maxLength);
   _res = wxTipWindow_Create(parent, text, maxLength);
-  _vres = camlidl_c2ml_wxc_idl_wxTipWindow(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxTipWindow(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTipWindow_SetBoundingRect(
+value camlidl_wxc_wxTipWindow_SetBoundingRect(
 	value _v__obj,
 	value _v_x,
 	value _v_y,
@@ -77,7 +77,7 @@ value camlidl_wxc_idl_wxTipWindow_SetBoundingRect(
   int h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTipWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTipWindow(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   w = Int_val(_v_w);
@@ -87,7 +87,7 @@ value camlidl_wxc_idl_wxTipWindow_SetBoundingRect(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTipWindow_SetTipWindowPtr(
+value camlidl_wxc_wxTipWindow_SetTipWindowPtr(
 	value _v__obj,
 	value _v_windowPtr)
 {
@@ -95,8 +95,8 @@ value camlidl_wxc_idl_wxTipWindow_SetTipWindowPtr(
   voidptr windowPtr; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTipWindow(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v_windowPtr, &windowPtr, _ctx);
+  camlidl_ml2c_wxc_wxTipWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_windowPtr, &windowPtr, _ctx);
   wxTipWindow_SetTipWindowPtr(_obj, windowPtr);
   camlidl_free(_ctx);
   return Val_unit;

@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxTreeCompanionWindow(value _v1, wxTreeCompanionWindow * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxTreeCompanionWindow(value _v1, wxTreeCompanionWindow * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxTreeCompanionWindow *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxTreeCompanionWindow(wxTreeCompanionWindow * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxTreeCompanionWindow(wxTreeCompanionWindow * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxTreeCompanionWindow) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

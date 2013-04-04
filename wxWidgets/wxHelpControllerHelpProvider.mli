@@ -1,39 +1,39 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : wxHelpControllerBase -> wxHelpControllerHelpProvider
-	= "camlidl_wxc_idl_wxHelpControllerHelpProvider_Create"
+	= "camlidl_wxc_wxHelpControllerHelpProvider_Create"
 
 external showHelp : wxHelpControllerHelpProvider -> wxWindow -> bool
-	= "camlidl_wxc_idl_wxHelpProvider_ShowHelp"
+	= "camlidl_wxc_wxHelpProvider_ShowHelp"
 
 external setHelpController : wxHelpControllerHelpProvider -> wxHelpController -> unit
-	= "camlidl_wxc_idl_wxHelpControllerHelpProvider_SetHelpController"
+	= "camlidl_wxc_wxHelpControllerHelpProvider_SetHelpController"
 
 external set : wxHelpControllerHelpProvider -> wxHelpProvider
-	= "camlidl_wxc_idl_wxHelpProvider_Set"
+	= "camlidl_wxc_wxHelpProvider_Set"
 
 external removeHelp : wxHelpControllerHelpProvider -> wxWindow -> unit
-	= "camlidl_wxc_idl_wxHelpProvider_RemoveHelp"
+	= "camlidl_wxc_wxHelpProvider_RemoveHelp"
 
 external getHelpController : wxHelpControllerHelpProvider -> wxHelpControllerBase
-	= "camlidl_wxc_idl_wxHelpControllerHelpProvider_GetHelpController"
+	= "camlidl_wxc_wxHelpControllerHelpProvider_GetHelpController"
 
 external getHelp : wxHelpControllerHelpProvider -> wxWindow -> wxString
-	= "camlidl_wxc_idl_wxHelpProvider_GetHelp"
+	= "camlidl_wxc_wxHelpProvider_GetHelp"
 
 external get : unit -> wxHelpProvider
-	= "camlidl_wxc_idl_wxHelpProvider_Get"
+	= "camlidl_wxc_wxHelpProvider_Get"
 
 external delete : wxHelpControllerHelpProvider -> unit
-	= "camlidl_wxc_idl_wxHelpProvider_Delete"
+	= "camlidl_wxc_wxHelpProvider_Delete"
 
 external addHelpById : wxHelpControllerHelpProvider -> int -> wxString -> unit
-	= "camlidl_wxc_idl_wxHelpProvider_AddHelpById"
+	= "camlidl_wxc_wxHelpProvider_AddHelpById"
 
 external addHelp : wxHelpControllerHelpProvider -> wxWindow -> wxString -> unit
-	= "camlidl_wxc_idl_wxHelpProvider_AddHelp"
+	= "camlidl_wxc_wxHelpProvider_AddHelp"
 
 val getHelp : wxHelpControllerHelpProvider -> wxWindow -> string
 val addHelpById : wxHelpControllerHelpProvider -> int -> string -> unit

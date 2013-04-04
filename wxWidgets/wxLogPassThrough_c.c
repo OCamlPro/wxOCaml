@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxLogPassThrough(value _v1, wxLogPassThrough * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxLogPassThrough(value _v1, wxLogPassThrough * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxLogPassThrough *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxLogPassThrough(wxLogPassThrough * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxLogPassThrough(wxLogPassThrough * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxLogPassThrough) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

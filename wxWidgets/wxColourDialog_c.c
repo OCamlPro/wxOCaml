@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxColourDialog(value _v1, wxColourDialog * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxColourDialog(value _v1, wxColourDialog * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxColourDialog *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxColourDialog(wxColourDialog * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxColourDialog(wxColourDialog * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxColourDialog) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxColourDialog_Create(
+value camlidl_wxc_wxColourDialog_Create(
 	value _v__prt,
 	value _v_col)
 {
@@ -40,15 +40,15 @@ value camlidl_wxc_idl_wxColourDialog_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
-  camlidl_ml2c_wxc_idl_wxColourData(_v_col, &col, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxColourData(_v_col, &col, _ctx);
   _res = wxColourDialog_Create(_prt, col);
-  _vres = camlidl_c2ml_wxc_idl_wxColourDialog(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxColourDialog(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxColourDialog_GetColourData(
+value camlidl_wxc_wxColourDialog_GetColourData(
 	value _v__obj,
 	value _v__ref)
 {
@@ -56,8 +56,8 @@ value camlidl_wxc_idl_wxColourDialog_GetColourData(
   wxColourData _ref; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxColourDialog(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxColourData(_v__ref, &_ref, _ctx);
+  camlidl_ml2c_wxc_wxColourDialog(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxColourData(_v__ref, &_ref, _ctx);
   wxColourDialog_GetColourData(_obj, _ref);
   camlidl_free(_ctx);
   return Val_unit;

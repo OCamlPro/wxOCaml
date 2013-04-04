@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxFileConfig(value _v1, wxFileConfig * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxFileConfig(value _v1, wxFileConfig * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxFileConfig *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxFileConfig(wxFileConfig * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxFileConfig(wxFileConfig * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxFileConfig) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxFileConfig_Create(
+value camlidl_wxc_wxFileConfig_Create(
 	value _v_inp)
 {
   wxInputStream inp; /*in*/
@@ -38,9 +38,9 @@ value camlidl_wxc_idl_wxFileConfig_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxInputStream(_v_inp, &inp, _ctx);
+  camlidl_ml2c_wxc_wxInputStream(_v_inp, &inp, _ctx);
   _res = wxFileConfig_Create(inp);
-  _vres = camlidl_c2ml_wxc_idl_wxFileConfig(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxFileConfig(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

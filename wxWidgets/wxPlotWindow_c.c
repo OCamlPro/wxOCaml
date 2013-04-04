@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxPlotWindow(value _v1, wxPlotWindow * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxPlotWindow(value _v1, wxPlotWindow * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxPlotWindow *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxPlotWindow(wxPlotWindow * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxPlotWindow(wxPlotWindow * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxPlotWindow) + sizeof(value) - 1) / sizeof(value), Abstract_tag);

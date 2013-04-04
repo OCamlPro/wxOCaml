@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGenericDragImage(value _v1, wxGenericDragImage * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGenericDragImage(value _v1, wxGenericDragImage * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGenericDragImage *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGenericDragImage(wxGenericDragImage * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGenericDragImage(wxGenericDragImage * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGenericDragImage) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGenericDragImage_Create(
+value camlidl_wxc_wxGenericDragImage_Create(
 	value _v_cursor)
 {
   wxCursor cursor; /*in*/
@@ -38,14 +38,14 @@ value camlidl_wxc_idl_wxGenericDragImage_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxCursor(_v_cursor, &cursor, _ctx);
+  camlidl_ml2c_wxc_wxCursor(_v_cursor, &cursor, _ctx);
   _res = wxGenericDragImage_Create(cursor);
-  _vres = camlidl_c2ml_wxc_idl_wxGenericDragImage(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGenericDragImage(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGenericDragImage_DoDrawImage(
+value camlidl_wxc_wxGenericDragImage_DoDrawImage(
 	value _v_self,
 	value _v_dc,
 	value _v_x,
@@ -60,8 +60,8 @@ value camlidl_wxc_idl_wxGenericDragImage_DoDrawImage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGenericDragImage(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxDC(_v_dc, &dc, _ctx);
+  camlidl_ml2c_wxc_wxGenericDragImage(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxDC(_v_dc, &dc, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   _res = wxGenericDragImage_DoDrawImage(self, dc, x, y);
@@ -70,7 +70,7 @@ value camlidl_wxc_idl_wxGenericDragImage_DoDrawImage(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGenericDragImage_GetImageRect(
+value camlidl_wxc_wxGenericDragImage_GetImageRect(
 	value _v_self,
 	value _v_x_pos,
 	value _v_y_pos)
@@ -83,16 +83,16 @@ value camlidl_wxc_idl_wxGenericDragImage_GetImageRect(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGenericDragImage(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGenericDragImage(_v_self, &self, _ctx);
   x_pos = Int_val(_v_x_pos);
   y_pos = Int_val(_v_y_pos);
   _res = wxGenericDragImage_GetImageRect(self, x_pos, y_pos);
-  _vres = camlidl_c2ml_wxc_idl_wxRect(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxRect(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGenericDragImage_UpdateBackingFromWindow(
+value camlidl_wxc_wxGenericDragImage_UpdateBackingFromWindow(
 	value _v_self,
 	value _v_windowDC,
 	value _v_destDC,
@@ -121,9 +121,9 @@ value camlidl_wxc_idl_wxGenericDragImage_UpdateBackingFromWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGenericDragImage(_v_self, &self, _ctx);
-  camlidl_ml2c_wxc_idl_wxDC(_v_windowDC, &windowDC, _ctx);
-  camlidl_ml2c_wxc_idl_wxMemoryDC(_v_destDC, &destDC, _ctx);
+  camlidl_ml2c_wxc_wxGenericDragImage(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxDC(_v_windowDC, &windowDC, _ctx);
+  camlidl_ml2c_wxc_wxMemoryDC(_v_destDC, &destDC, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   w = Int_val(_v_w);
@@ -138,8 +138,8 @@ value camlidl_wxc_idl_wxGenericDragImage_UpdateBackingFromWindow(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGenericDragImage_UpdateBackingFromWindow_bytecode(value * argv, int argn)
+value camlidl_wxc_wxGenericDragImage_UpdateBackingFromWindow_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxGenericDragImage_UpdateBackingFromWindow(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9], argv[10]);
+  return camlidl_wxc_wxGenericDragImage_UpdateBackingFromWindow(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9], argv[10]);
 }
 

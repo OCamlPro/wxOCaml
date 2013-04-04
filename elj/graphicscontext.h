@@ -19,15 +19,15 @@ void  wxGraphicsBrush_Delete(TSelf(wxGraphicsBrush) self);
 TClass(wxGraphicsContext)  wxGraphicsContext_Create( TClass(wxWindowDC) dc );
 TClass(wxGraphicsContext)  wxGraphicsContext_CreateFromWindow( TClass(wxWindow) window );
 void  wxGraphicsContext_Delete(TSelf(wxGraphicsContext) self);
-TClass(wxGraphicsContext)  wxGraphicsContext_CreateFromNative( void* context );
-TClass(wxGraphicsContext)  wxGraphicsContext_CreateFromNativeWindow( void* window );
+TClass(wxGraphicsContext)  wxGraphicsContext_CreateFromNative( voidptr context );
+TClass(wxGraphicsContext)  wxGraphicsContext_CreateFromNativeWindow( voidptr window );
 void  wxGraphicsContext_Clip( TSelf(wxGraphicsContext) self, TClass(wxRegion) region );
 void  wxGraphicsContext_ClipByRectangle( TSelf(wxGraphicsContext) self, TRectDouble(x,y,w,h) );
 void  wxGraphicsContext_ResetClip( TSelf(wxGraphicsContext) self );
 void  wxGraphicsContext_DrawBitmap( TSelf(wxGraphicsContext) self, TClass(wxBitmap) bmp, TRectDouble(x,y,w,h) );
 void  wxGraphicsContext_DrawEllipse( TSelf(wxGraphicsContext) self, TRectDouble(x,y,w,h) );
 void  wxGraphicsContext_DrawIcon( TSelf(wxGraphicsContext) self, TClass(wxIcon) icon, TRectDouble(x,y,w,h) );
-void  wxGraphicsContext_DrawLines( TSelf(wxGraphicsContext) self, size_t n, void* x, void* y, int style );
+void  wxGraphicsContext_DrawLines( TSelf(wxGraphicsContext) self, size_t n, voidptr x, voidptr y, int style );
 void  wxGraphicsContext_DrawPath( TSelf(wxGraphicsContext) self, TClass(wxGraphicsPath) path, int style );
 void  wxGraphicsContext_DrawRectangle( TSelf(wxGraphicsContext) self, TRectDouble(x,y,w,h) );
 void  wxGraphicsContext_DrawRoundedRectangle( TSelf(wxGraphicsContext) self, TRectDouble(x,y,w,h), double radius );
@@ -35,7 +35,7 @@ void  wxGraphicsContext_DrawText( TSelf(wxGraphicsContext) self, TClass(wxString
 void  wxGraphicsContext_DrawTextWithAngle( TSelf(wxGraphicsContext) self, TClass(wxString) text, TPointDouble(x,y), double radius );
 void  wxGraphicsContext_FillPath( TSelf(wxGraphicsContext) self, TClass(wxGraphicsPath) path, int style );
 void  wxGraphicsContext_StrokePath( TSelf(wxGraphicsContext) self, TClass(wxGraphicsPath) path );
-void*  wxGraphicsContext_GetNativeContext( TSelf(wxGraphicsContext) self );
+voidptr  wxGraphicsContext_GetNativeContext( TSelf(wxGraphicsContext) self );
 void  wxGraphicsContext_GetTextExtent( TSelf(wxGraphicsContext) self, TClass(wxString) text, double* width, double* height, double* descent, double* externalLeading );
 void  wxGraphicsContext_Rotate( TSelf(wxGraphicsContext) self, double angle );
 void  wxGraphicsContext_Scale( TSelf(wxGraphicsContext) self, TSizeDouble(xScale,yScale) );
@@ -49,7 +49,7 @@ void  wxGraphicsContext_SetGraphicsFont( TSelf(wxGraphicsContext) self, TClass(w
 void  wxGraphicsContext_SetPen( TSelf(wxGraphicsContext) self, TClass(wxPen) pen );
 void  wxGraphicsContext_SetGraphicsPen( TSelf(wxGraphicsContext) self, TClass(wxGraphicsPen) pen );
 void  wxGraphicsContext_StrokeLine( TSelf(wxGraphicsContext) self, TPointDouble(x1,y1), TPointDouble(x2,y2) );
-void  wxGraphicsContext_StrokeLines( TSelf(wxGraphicsContext) self, size_t n, void* x, void* y, int style );
+void  wxGraphicsContext_StrokeLines( TSelf(wxGraphicsContext) self, size_t n, voidptr x, voidptr y, int style );
 
 /*-----------------------------------------------------------------------------
   GraphicsFont
@@ -64,7 +64,7 @@ TClass(wxGraphicsMatrix)  wxGraphicsMatrix_Create( );
 void  wxGraphicsMatrix_Delete(TSelf(wxGraphicsMatrix) self);
 void  wxGraphicsMatrix_Concat( TSelf(wxGraphicsMatrix) self, TClass(wxGraphicsMatrix) t );
 void  wxGraphicsMatrix_Get( TSelf(wxGraphicsMatrix) self, double* a, double* b, double* c, double* d, double* tx, double* ty );
-void*  wxGraphicsMatrix_GetNativeMatrix( TSelf(wxGraphicsMatrix) self );
+voidptr  wxGraphicsMatrix_GetNativeMatrix( TSelf(wxGraphicsMatrix) self );
 void  wxGraphicsMatrix_Invert( TSelf(wxGraphicsMatrix) self );
 TBool  wxGraphicsMatrix_IsEqual( TSelf(wxGraphicsMatrix) self, TClass(wxGraphicsMatrix) t );
 TBool  wxGraphicsMatrix_IsIdentity( TSelf(wxGraphicsMatrix) self );
@@ -102,8 +102,8 @@ void  wxGraphicsPath_Contains(TSelf(wxGraphicsPath) self, TPointDouble(x,y), int
 void  wxGraphicsPath_GetBox(TSelf(wxGraphicsPath) self, TRectOutDouble(x,y,w,h));
 void  wxGraphicsPath_GetCurrentPoint(TSelf(wxGraphicsPath) self, TPointOutDouble(x,y));
 void  wxGraphicsPath_Transform( TSelf(wxGraphicsPath) self, TClass(wxGraphicsMatrix) matrix );
-void*  wxGraphicsPath_GetNativePath( TSelf(wxGraphicsPath) self );
-void  wxGraphicsPath_UnGetNativePath( void* p );
+voidptr  wxGraphicsPath_GetNativePath( TSelf(wxGraphicsPath) self );
+void  wxGraphicsPath_UnGetNativePath( voidptr p );
 
 /*-----------------------------------------------------------------------------
   GraphicsPen
@@ -118,5 +118,5 @@ void  wxGraphicsRenderer_Delete(TSelf(wxGraphicsRenderer) self);
 TClass(wxGraphicsRenderer)  wxGraphicsRenderer_GetDefaultRenderer(TSelf(wxGraphicsRenderer) self);
 TClass(wxGraphicsContext)  wxGraphicsRenderer_CreateContext( TClass(wxWindowDC) dc );
 TClass(wxGraphicsContext)  wxGraphicsRenderer_CreateContextFromWindow( TClass(wxWindow) window );
-TClass(wxGraphicsContext)  wxGraphicsRenderer_CreateContextFromNativeContext( void* context );
-TClass(wxGraphicsContext)  wxGraphicsRenderer_CreateContextFromNativeWindow( void* window );
+TClass(wxGraphicsContext)  wxGraphicsRenderer_CreateContextFromNativeContext( voidptr context );
+TClass(wxGraphicsContext)  wxGraphicsRenderer_CreateContextFromNativeWindow( voidptr window );

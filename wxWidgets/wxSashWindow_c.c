@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxSashWindow(value _v1, wxSashWindow * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxSashWindow(value _v1, wxSashWindow * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxSashWindow *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxSashWindow(wxSashWindow * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxSashWindow(wxSashWindow * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxSashWindow) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxSashWindow_Create(
+value camlidl_wxc_wxSashWindow_Create(
 	value _v__par,
 	value _v__id,
 	value _v__x,
@@ -50,7 +50,7 @@ value camlidl_wxc_idl_wxSashWindow_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__par, &_par, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__par, &_par, _ctx);
   _id = Int_val(_v__id);
   _x = Int_val(_v__x);
   _y = Int_val(_v__y);
@@ -58,17 +58,17 @@ value camlidl_wxc_idl_wxSashWindow_Create(
   _h = Int_val(_v__h);
   _stl = Int_val(_v__stl);
   _res = wxSashWindow_Create(_par, _id, _x, _y, _w, _h, _stl);
-  _vres = camlidl_c2ml_wxc_idl_wxSashWindow(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxSashWindow(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSashWindow_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxSashWindow_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxSashWindow_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxSashWindow_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
-value camlidl_wxc_idl_wxSashWindow_GetDefaultBorderSize(
+value camlidl_wxc_wxSashWindow_GetDefaultBorderSize(
 	value _v__obj)
 {
   wxSashWindow _obj; /*in*/
@@ -77,14 +77,14 @@ value camlidl_wxc_idl_wxSashWindow_GetDefaultBorderSize(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   _res = wxSashWindow_GetDefaultBorderSize(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSashWindow_GetEdgeMargin(
+value camlidl_wxc_wxSashWindow_GetEdgeMargin(
 	value _v__obj,
 	value _v_edge)
 {
@@ -95,7 +95,7 @@ value camlidl_wxc_idl_wxSashWindow_GetEdgeMargin(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   edge = Int_val(_v_edge);
   _res = wxSashWindow_GetEdgeMargin(_obj, edge);
   _vres = Val_int(_res);
@@ -103,7 +103,7 @@ value camlidl_wxc_idl_wxSashWindow_GetEdgeMargin(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSashWindow_GetExtraBorderSize(
+value camlidl_wxc_wxSashWindow_GetExtraBorderSize(
 	value _v__obj)
 {
   wxSashWindow _obj; /*in*/
@@ -112,14 +112,14 @@ value camlidl_wxc_idl_wxSashWindow_GetExtraBorderSize(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   _res = wxSashWindow_GetExtraBorderSize(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSashWindow_GetMaximumSizeX(
+value camlidl_wxc_wxSashWindow_GetMaximumSizeX(
 	value _v__obj)
 {
   wxSashWindow _obj; /*in*/
@@ -128,14 +128,14 @@ value camlidl_wxc_idl_wxSashWindow_GetMaximumSizeX(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   _res = wxSashWindow_GetMaximumSizeX(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSashWindow_GetMaximumSizeY(
+value camlidl_wxc_wxSashWindow_GetMaximumSizeY(
 	value _v__obj)
 {
   wxSashWindow _obj; /*in*/
@@ -144,14 +144,14 @@ value camlidl_wxc_idl_wxSashWindow_GetMaximumSizeY(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   _res = wxSashWindow_GetMaximumSizeY(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSashWindow_GetMinimumSizeX(
+value camlidl_wxc_wxSashWindow_GetMinimumSizeX(
 	value _v__obj)
 {
   wxSashWindow _obj; /*in*/
@@ -160,14 +160,14 @@ value camlidl_wxc_idl_wxSashWindow_GetMinimumSizeX(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   _res = wxSashWindow_GetMinimumSizeX(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSashWindow_GetMinimumSizeY(
+value camlidl_wxc_wxSashWindow_GetMinimumSizeY(
 	value _v__obj)
 {
   wxSashWindow _obj; /*in*/
@@ -176,14 +176,14 @@ value camlidl_wxc_idl_wxSashWindow_GetMinimumSizeY(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   _res = wxSashWindow_GetMinimumSizeY(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSashWindow_GetSashVisible(
+value camlidl_wxc_wxSashWindow_GetSashVisible(
 	value _v__obj,
 	value _v_edge)
 {
@@ -194,7 +194,7 @@ value camlidl_wxc_idl_wxSashWindow_GetSashVisible(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   edge = Int_val(_v_edge);
   _res = wxSashWindow_GetSashVisible(_obj, edge);
   _vres = Val_int(_res);
@@ -202,7 +202,7 @@ value camlidl_wxc_idl_wxSashWindow_GetSashVisible(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSashWindow_HasBorder(
+value camlidl_wxc_wxSashWindow_HasBorder(
 	value _v__obj,
 	value _v_edge)
 {
@@ -213,7 +213,7 @@ value camlidl_wxc_idl_wxSashWindow_HasBorder(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   edge = Int_val(_v_edge);
   _res = wxSashWindow_HasBorder(_obj, edge);
   _vres = Val_int(_res);
@@ -221,7 +221,7 @@ value camlidl_wxc_idl_wxSashWindow_HasBorder(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSashWindow_SetDefaultBorderSize(
+value camlidl_wxc_wxSashWindow_SetDefaultBorderSize(
 	value _v__obj,
 	value _v_width)
 {
@@ -229,14 +229,14 @@ value camlidl_wxc_idl_wxSashWindow_SetDefaultBorderSize(
   int width; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   width = Int_val(_v_width);
   wxSashWindow_SetDefaultBorderSize(_obj, width);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSashWindow_SetExtraBorderSize(
+value camlidl_wxc_wxSashWindow_SetExtraBorderSize(
 	value _v__obj,
 	value _v_width)
 {
@@ -244,14 +244,14 @@ value camlidl_wxc_idl_wxSashWindow_SetExtraBorderSize(
   int width; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   width = Int_val(_v_width);
   wxSashWindow_SetExtraBorderSize(_obj, width);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSashWindow_SetMaximumSizeX(
+value camlidl_wxc_wxSashWindow_SetMaximumSizeX(
 	value _v__obj,
 	value _v_max)
 {
@@ -259,14 +259,14 @@ value camlidl_wxc_idl_wxSashWindow_SetMaximumSizeX(
   int max; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   max = Int_val(_v_max);
   wxSashWindow_SetMaximumSizeX(_obj, max);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSashWindow_SetMaximumSizeY(
+value camlidl_wxc_wxSashWindow_SetMaximumSizeY(
 	value _v__obj,
 	value _v_max)
 {
@@ -274,14 +274,14 @@ value camlidl_wxc_idl_wxSashWindow_SetMaximumSizeY(
   int max; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   max = Int_val(_v_max);
   wxSashWindow_SetMaximumSizeY(_obj, max);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSashWindow_SetMinimumSizeX(
+value camlidl_wxc_wxSashWindow_SetMinimumSizeX(
 	value _v__obj,
 	value _v_min)
 {
@@ -289,14 +289,14 @@ value camlidl_wxc_idl_wxSashWindow_SetMinimumSizeX(
   int min; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   min = Int_val(_v_min);
   wxSashWindow_SetMinimumSizeX(_obj, min);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSashWindow_SetMinimumSizeY(
+value camlidl_wxc_wxSashWindow_SetMinimumSizeY(
 	value _v__obj,
 	value _v_min)
 {
@@ -304,14 +304,14 @@ value camlidl_wxc_idl_wxSashWindow_SetMinimumSizeY(
   int min; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   min = Int_val(_v_min);
   wxSashWindow_SetMinimumSizeY(_obj, min);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSashWindow_SetSashBorder(
+value camlidl_wxc_wxSashWindow_SetSashBorder(
 	value _v__obj,
 	value _v_edge,
 	value _v_border)
@@ -321,7 +321,7 @@ value camlidl_wxc_idl_wxSashWindow_SetSashBorder(
   int border; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   edge = Int_val(_v_edge);
   border = Int_val(_v_border);
   wxSashWindow_SetSashBorder(_obj, edge, border);
@@ -329,7 +329,7 @@ value camlidl_wxc_idl_wxSashWindow_SetSashBorder(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSashWindow_SetSashVisible(
+value camlidl_wxc_wxSashWindow_SetSashVisible(
 	value _v__obj,
 	value _v_edge,
 	value _v_sash)
@@ -339,7 +339,7 @@ value camlidl_wxc_idl_wxSashWindow_SetSashVisible(
   int sash; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashWindow(_v__obj, &_obj, _ctx);
   edge = Int_val(_v_edge);
   sash = Int_val(_v_sash);
   wxSashWindow_SetSashVisible(_obj, edge, sash);

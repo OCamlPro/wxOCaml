@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxTimerEx(value _v1, wxTimerEx * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxTimerEx(value _v1, wxTimerEx * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxTimerEx *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxTimerEx(wxTimerEx * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxTimerEx(wxTimerEx * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxTimerEx) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxTimerEx_Connect(
+value camlidl_wxc_wxTimerEx_Connect(
 	value _v__obj,
 	value _v_closure)
 {
@@ -37,14 +37,14 @@ value camlidl_wxc_idl_wxTimerEx_Connect(
   wxClosure closure; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTimerEx(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxClosure(_v_closure, &closure, _ctx);
+  camlidl_ml2c_wxc_wxTimerEx(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxClosure(_v_closure, &closure, _ctx);
   wxTimerEx_Connect(_obj, closure);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxTimerEx_Create(value _unit)
+value camlidl_wxc_wxTimerEx_Create(value _unit)
 {
   wxTimerEx _res;
   value _vres;
@@ -52,12 +52,12 @@ value camlidl_wxc_idl_wxTimerEx_Create(value _unit)
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
   _res = wxTimerEx_Create();
-  _vres = camlidl_c2ml_wxc_idl_wxTimerEx(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxTimerEx(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxTimerEx_GetClosure(
+value camlidl_wxc_wxTimerEx_GetClosure(
 	value _v__obj)
 {
   wxTimerEx _obj; /*in*/
@@ -66,9 +66,9 @@ value camlidl_wxc_idl_wxTimerEx_GetClosure(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxTimerEx(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxTimerEx(_v__obj, &_obj, _ctx);
   _res = wxTimerEx_GetClosure(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxClosure(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxClosure(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

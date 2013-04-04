@@ -1,33 +1,33 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external wxnew : int -> int -> wxLocale
-	= "camlidl_wxc_idl_wxLocale_Create"
+	= "camlidl_wxc_wxLocale_Create"
 
 external isOk : wxLocale -> bool
-	= "camlidl_wxc_idl_wxLocale_IsOk"
+	= "camlidl_wxc_wxLocale_IsOk"
 
 external isLoaded : wxLocale -> voidptr -> bool
-	= "camlidl_wxc_idl_wxLocale_IsLoaded"
+	= "camlidl_wxc_wxLocale_IsLoaded"
 
 external getString : wxLocale -> voidptr -> voidptr -> string
-	= "camlidl_wxc_idl_wxLocale_GetString"
+	= "camlidl_wxc_wxLocale_GetString"
 
 external getName : wxLocale -> wxString
-	= "camlidl_wxc_idl_wxLocale_GetName"
+	= "camlidl_wxc_wxLocale_GetName"
 
 external getLocale : wxLocale -> wxLocale
-	= "camlidl_wxc_idl_wxLocale_GetLocale"
+	= "camlidl_wxc_wxLocale_GetLocale"
 
 external delete : wxLocale -> unit
-	= "camlidl_wxc_idl_wxLocale_Delete"
+	= "camlidl_wxc_wxLocale_Delete"
 
 external addCatalogLookupPathPrefix : wxLocale -> voidptr -> unit
-	= "camlidl_wxc_idl_wxLocale_AddCatalogLookupPathPrefix"
+	= "camlidl_wxc_wxLocale_AddCatalogLookupPathPrefix"
 
 external addCatalog : wxLocale -> voidptr -> int
-	= "camlidl_wxc_idl_wxLocale_AddCatalog"
+	= "camlidl_wxc_wxLocale_AddCatalog"
 
 val getName : wxLocale -> string
 

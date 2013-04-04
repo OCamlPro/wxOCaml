@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxGraphicsRenderer(value _v1, wxGraphicsRenderer * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxGraphicsRenderer(value _v1, wxGraphicsRenderer * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxGraphicsRenderer *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxGraphicsRenderer(wxGraphicsRenderer * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxGraphicsRenderer(wxGraphicsRenderer * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxGraphicsRenderer) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,19 +29,19 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxGraphicsRenderer_Delete(
+value camlidl_wxc_wxGraphicsRenderer_Delete(
 	value _v_self)
 {
   wxGraphicsRenderer self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsRenderer(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsRenderer(_v_self, &self, _ctx);
   wxGraphicsRenderer_Delete(self);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxGraphicsRenderer_GetDefaultRenderer(
+value camlidl_wxc_wxGraphicsRenderer_GetDefaultRenderer(
 	value _v_self)
 {
   wxGraphicsRenderer self; /*in*/
@@ -50,14 +50,14 @@ value camlidl_wxc_idl_wxGraphicsRenderer_GetDefaultRenderer(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxGraphicsRenderer(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxGraphicsRenderer(_v_self, &self, _ctx);
   _res = wxGraphicsRenderer_GetDefaultRenderer(self);
-  _vres = camlidl_c2ml_wxc_idl_wxGraphicsRenderer(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGraphicsRenderer(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsRenderer_CreateContext(
+value camlidl_wxc_wxGraphicsRenderer_CreateContext(
 	value _v_dc)
 {
   wxWindowDC dc; /*in*/
@@ -66,14 +66,14 @@ value camlidl_wxc_idl_wxGraphicsRenderer_CreateContext(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindowDC(_v_dc, &dc, _ctx);
+  camlidl_ml2c_wxc_wxWindowDC(_v_dc, &dc, _ctx);
   _res = wxGraphicsRenderer_CreateContext(dc);
-  _vres = camlidl_c2ml_wxc_idl_wxGraphicsContext(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGraphicsContext(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsRenderer_CreateContextFromWindow(
+value camlidl_wxc_wxGraphicsRenderer_CreateContextFromWindow(
 	value _v_window)
 {
   wxWindow window; /*in*/
@@ -82,14 +82,14 @@ value camlidl_wxc_idl_wxGraphicsRenderer_CreateContextFromWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v_window, &window, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_window, &window, _ctx);
   _res = wxGraphicsRenderer_CreateContextFromWindow(window);
-  _vres = camlidl_c2ml_wxc_idl_wxGraphicsContext(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGraphicsContext(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsRenderer_CreateContextFromNativeContext(
+value camlidl_wxc_wxGraphicsRenderer_CreateContextFromNativeContext(
 	value _v_context)
 {
   voidptr context; /*in*/
@@ -98,14 +98,14 @@ value camlidl_wxc_idl_wxGraphicsRenderer_CreateContextFromNativeContext(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_voidptr(_v_context, &context, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_context, &context, _ctx);
   _res = wxGraphicsRenderer_CreateContextFromNativeContext(context);
-  _vres = camlidl_c2ml_wxc_idl_wxGraphicsContext(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGraphicsContext(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxGraphicsRenderer_CreateContextFromNativeWindow(
+value camlidl_wxc_wxGraphicsRenderer_CreateContextFromNativeWindow(
 	value _v_window)
 {
   voidptr window; /*in*/
@@ -114,9 +114,9 @@ value camlidl_wxc_idl_wxGraphicsRenderer_CreateContextFromNativeWindow(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_voidptr(_v_window, &window, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v_window, &window, _ctx);
   _res = wxGraphicsRenderer_CreateContextFromNativeWindow(window);
-  _vres = camlidl_c2ml_wxc_idl_wxGraphicsContext(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxGraphicsContext(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

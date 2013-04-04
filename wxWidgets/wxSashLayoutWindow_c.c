@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxSashLayoutWindow(value _v1, wxSashLayoutWindow * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxSashLayoutWindow(value _v1, wxSashLayoutWindow * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxSashLayoutWindow *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxSashLayoutWindow(wxSashLayoutWindow * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxSashLayoutWindow(wxSashLayoutWindow * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxSashLayoutWindow) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxSashLayoutWindow_Create(
+value camlidl_wxc_wxSashLayoutWindow_Create(
 	value _v__par,
 	value _v__id,
 	value _v__x,
@@ -50,7 +50,7 @@ value camlidl_wxc_idl_wxSashLayoutWindow_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__par, &_par, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__par, &_par, _ctx);
   _id = Int_val(_v__id);
   _x = Int_val(_v__x);
   _y = Int_val(_v__y);
@@ -58,17 +58,17 @@ value camlidl_wxc_idl_wxSashLayoutWindow_Create(
   _h = Int_val(_v__h);
   _stl = Int_val(_v__stl);
   _res = wxSashLayoutWindow_Create(_par, _id, _x, _y, _w, _h, _stl);
-  _vres = camlidl_c2ml_wxc_idl_wxSashLayoutWindow(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxSashLayoutWindow(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSashLayoutWindow_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxSashLayoutWindow_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxSashLayoutWindow_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxSashLayoutWindow_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
-value camlidl_wxc_idl_wxSashLayoutWindow_GetAlignment(
+value camlidl_wxc_wxSashLayoutWindow_GetAlignment(
 	value _v__obj)
 {
   wxSashLayoutWindow _obj; /*in*/
@@ -77,14 +77,14 @@ value camlidl_wxc_idl_wxSashLayoutWindow_GetAlignment(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashLayoutWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashLayoutWindow(_v__obj, &_obj, _ctx);
   _res = wxSashLayoutWindow_GetAlignment(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSashLayoutWindow_GetOrientation(
+value camlidl_wxc_wxSashLayoutWindow_GetOrientation(
 	value _v__obj)
 {
   wxSashLayoutWindow _obj; /*in*/
@@ -93,14 +93,14 @@ value camlidl_wxc_idl_wxSashLayoutWindow_GetOrientation(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashLayoutWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashLayoutWindow(_v__obj, &_obj, _ctx);
   _res = wxSashLayoutWindow_GetOrientation(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSashLayoutWindow_SetAlignment(
+value camlidl_wxc_wxSashLayoutWindow_SetAlignment(
 	value _v__obj,
 	value _v_align)
 {
@@ -108,14 +108,14 @@ value camlidl_wxc_idl_wxSashLayoutWindow_SetAlignment(
   int align; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashLayoutWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashLayoutWindow(_v__obj, &_obj, _ctx);
   align = Int_val(_v_align);
   wxSashLayoutWindow_SetAlignment(_obj, align);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSashLayoutWindow_SetDefaultSize(
+value camlidl_wxc_wxSashLayoutWindow_SetDefaultSize(
 	value _v__obj,
 	value _v_w,
 	value _v_h)
@@ -125,7 +125,7 @@ value camlidl_wxc_idl_wxSashLayoutWindow_SetDefaultSize(
   int h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashLayoutWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashLayoutWindow(_v__obj, &_obj, _ctx);
   w = Int_val(_v_w);
   h = Int_val(_v_h);
   wxSashLayoutWindow_SetDefaultSize(_obj, w, h);
@@ -133,7 +133,7 @@ value camlidl_wxc_idl_wxSashLayoutWindow_SetDefaultSize(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSashLayoutWindow_SetOrientation(
+value camlidl_wxc_wxSashLayoutWindow_SetOrientation(
 	value _v__obj,
 	value _v_orient)
 {
@@ -141,7 +141,7 @@ value camlidl_wxc_idl_wxSashLayoutWindow_SetOrientation(
   int orient; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSashLayoutWindow(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSashLayoutWindow(_v__obj, &_obj, _ctx);
   orient = Int_val(_v_orient);
   wxSashLayoutWindow_SetOrientation(_obj, orient);
   camlidl_free(_ctx);

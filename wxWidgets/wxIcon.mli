@@ -1,123 +1,123 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external setWidth : wxIcon -> int -> unit
-	= "camlidl_wxc_idl_wxIcon_SetWidth"
+	= "camlidl_wxc_wxIcon_SetWidth"
 
 external setMask : wxIcon -> wxMask -> unit
-	= "camlidl_wxc_idl_wxBitmap_SetMask"
+	= "camlidl_wxc_wxBitmap_SetMask"
 
 external setHeight : wxIcon -> int -> unit
-	= "camlidl_wxc_idl_wxIcon_SetHeight"
+	= "camlidl_wxc_wxIcon_SetHeight"
 
 external setDepth : wxIcon -> int -> unit
-	= "camlidl_wxc_idl_wxIcon_SetDepth"
+	= "camlidl_wxc_wxIcon_SetDepth"
 
 external setClientClosure : wxIcon -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external saveFile : wxIcon -> wxString -> int -> wxPalette -> int
-	= "camlidl_wxc_idl_wxBitmap_SaveFile"
+	= "camlidl_wxc_wxBitmap_SaveFile"
 
 external safeDelete : wxIcon -> unit
-	= "camlidl_wxc_idl_wxIcon_SafeDelete"
+	= "camlidl_wxc_wxIcon_SafeDelete"
 
 external removeHandler : wxString -> bool
-	= "camlidl_wxc_idl_wxBitmap_RemoveHandler"
+	= "camlidl_wxc_wxBitmap_RemoveHandler"
 
 external loadFile : wxIcon -> wxString -> int -> int
-	= "camlidl_wxc_idl_wxBitmap_LoadFile"
+	= "camlidl_wxc_wxBitmap_LoadFile"
 
 external load : wxIcon -> wxString -> int -> int -> int -> int
-	= "camlidl_wxc_idl_wxIcon_Load"
+	= "camlidl_wxc_wxIcon_Load"
 
 external isStatic : wxIcon -> bool
-	= "camlidl_wxc_idl_wxIcon_IsStatic"
+	= "camlidl_wxc_wxIcon_IsStatic"
 
 external isScrolledWindow : wxIcon -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isOk : wxIcon -> bool
-	= "camlidl_wxc_idl_wxIcon_IsOk"
+	= "camlidl_wxc_wxIcon_IsOk"
 
 external isKindOf : wxIcon -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external isEqual : wxIcon -> wxIcon -> bool
-	= "camlidl_wxc_idl_wxIcon_IsEqual"
+	= "camlidl_wxc_wxIcon_IsEqual"
 
 external insertHandler : wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxBitmap_InsertHandler"
+	= "camlidl_wxc_wxBitmap_InsertHandler"
 
 external initStandardHandlers : unit -> unit
-	= "camlidl_wxc_idl_wxBitmap_InitStandardHandlers"
+	= "camlidl_wxc_wxBitmap_InitStandardHandlers"
 
 external getWidth : wxIcon -> int
-	= "camlidl_wxc_idl_wxIcon_GetWidth"
+	= "camlidl_wxc_wxIcon_GetWidth"
 
 external getSubBitmap : wxIcon -> int -> int -> int -> int -> wxBitmap -> unit
-	= "camlidl_wxc_idl_wxBitmap_GetSubBitmap_bytecode" "camlidl_wxc_idl_wxBitmap_GetSubBitmap"
+	= "camlidl_wxc_wxBitmap_GetSubBitmap_bytecode" "camlidl_wxc_wxBitmap_GetSubBitmap"
 
 external getMask : wxIcon -> wxMask
-	= "camlidl_wxc_idl_wxBitmap_GetMask"
+	= "camlidl_wxc_wxBitmap_GetMask"
 
 external getHeight : wxIcon -> int
-	= "camlidl_wxc_idl_wxIcon_GetHeight"
+	= "camlidl_wxc_wxIcon_GetHeight"
 
 external getDepth : wxIcon -> int
-	= "camlidl_wxc_idl_wxIcon_GetDepth"
+	= "camlidl_wxc_wxIcon_GetDepth"
 
 external getClientClosure : wxIcon -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxIcon -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external fromXPM : wxIcon -> wxIcon
-	= "camlidl_wxc_idl_wxIcon_FromXPM"
+	= "camlidl_wxc_wxIcon_FromXPM"
 
 external fromRaw : wxIcon -> int -> int -> wxIcon
-	= "camlidl_wxc_idl_wxIcon_FromRaw"
+	= "camlidl_wxc_wxIcon_FromRaw"
 
 external findHandlerByType : int -> voidptr
-	= "camlidl_wxc_idl_wxBitmap_FindHandlerByType"
+	= "camlidl_wxc_wxBitmap_FindHandlerByType"
 
 external findHandlerByName : wxString -> voidptr
-	= "camlidl_wxc_idl_wxBitmap_FindHandlerByName"
+	= "camlidl_wxc_wxBitmap_FindHandlerByName"
 
 external findHandlerByExtension : wxIcon -> int -> voidptr
-	= "camlidl_wxc_idl_wxBitmap_FindHandlerByExtension"
+	= "camlidl_wxc_wxBitmap_FindHandlerByExtension"
 
 external delete : wxIcon -> unit
-	= "camlidl_wxc_idl_wxIcon_Delete"
+	= "camlidl_wxc_wxIcon_Delete"
 
 external createLoad : wxString -> int -> int -> int -> wxIcon
-	= "camlidl_wxc_idl_wxIcon_CreateLoad"
+	= "camlidl_wxc_wxIcon_CreateLoad"
 
 external createFromXPM : wxIcon -> wxBitmap
-	= "camlidl_wxc_idl_wxBitmap_CreateFromXPM"
+	= "camlidl_wxc_wxBitmap_CreateFromXPM"
 
 external createFromImage : wxImage -> int -> wxBitmap
-	= "camlidl_wxc_idl_wxBitmap_CreateFromImage"
+	= "camlidl_wxc_wxBitmap_CreateFromImage"
 
 external createEmpty : int -> int -> int -> wxBitmap
-	= "camlidl_wxc_idl_wxBitmap_CreateEmpty"
+	= "camlidl_wxc_wxBitmap_CreateEmpty"
 
 external createDefault : unit -> wxIcon
-	= "camlidl_wxc_idl_wxIcon_CreateDefault"
+	= "camlidl_wxc_wxIcon_CreateDefault"
 
 external copyFromBitmap : wxIcon -> wxBitmap -> unit
-	= "camlidl_wxc_idl_wxIcon_CopyFromBitmap"
+	= "camlidl_wxc_wxIcon_CopyFromBitmap"
 
 external cleanUpHandlers : unit -> unit
-	= "camlidl_wxc_idl_wxBitmap_CleanUpHandlers"
+	= "camlidl_wxc_wxBitmap_CleanUpHandlers"
 
 external assign : wxIcon -> voidptr -> unit
-	= "camlidl_wxc_idl_wxIcon_Assign"
+	= "camlidl_wxc_wxIcon_Assign"
 
 external addHandler : wxEvtHandler -> unit
-	= "camlidl_wxc_idl_wxBitmap_AddHandler"
+	= "camlidl_wxc_wxBitmap_AddHandler"
 
 val saveFile : wxIcon -> string -> int -> wxPalette -> int
 val removeHandler : string -> bool

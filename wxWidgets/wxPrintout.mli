@@ -1,63 +1,63 @@
 open WxClasses
-(* File generated from wxc_idl.idl *)
+(* File generated from wxc.idl *)
 
 
 external setPageSizePixels : wxPrintout -> int -> int -> unit
-	= "camlidl_wxc_idl_wxPrintout_SetPageSizePixels"
+	= "camlidl_wxc_wxPrintout_SetPageSizePixels"
 
 external setPageSizeMM : wxPrintout -> int -> int -> unit
-	= "camlidl_wxc_idl_wxPrintout_SetPageSizeMM"
+	= "camlidl_wxc_wxPrintout_SetPageSizeMM"
 
 external setPPIScreen : wxPrintout -> int -> int -> unit
-	= "camlidl_wxc_idl_wxPrintout_SetPPIScreen"
+	= "camlidl_wxc_wxPrintout_SetPPIScreen"
 
 external setPPIPrinter : wxPrintout -> int -> int -> unit
-	= "camlidl_wxc_idl_wxPrintout_SetPPIPrinter"
+	= "camlidl_wxc_wxPrintout_SetPPIPrinter"
 
 external setDC : wxPrintout -> wxDC -> unit
-	= "camlidl_wxc_idl_wxPrintout_SetDC"
+	= "camlidl_wxc_wxPrintout_SetDC"
 
 external setClientClosure : wxPrintout -> wxClosure -> unit
-	= "camlidl_wxc_idl_wxObject_SetClientClosure"
+	= "camlidl_wxc_wxObject_SetClientClosure"
 
 external safeDelete : wxPrintout -> unit
-	= "camlidl_wxc_idl_wxObject_SafeDelete"
+	= "camlidl_wxc_wxObject_SafeDelete"
 
 external isScrolledWindow : wxPrintout -> bool
-	= "camlidl_wxc_idl_wxObject_IsScrolledWindow"
+	= "camlidl_wxc_wxObject_IsScrolledWindow"
 
 external isPreview : wxPrintout -> bool
-	= "camlidl_wxc_idl_wxPrintout_IsPreview"
+	= "camlidl_wxc_wxPrintout_IsPreview"
 
 external isKindOf : wxPrintout -> wxClassInfo -> bool
-	= "camlidl_wxc_idl_wxObject_IsKindOf"
+	= "camlidl_wxc_wxObject_IsKindOf"
 
 external getTitle : wxPrintout -> wxString
-	= "camlidl_wxc_idl_wxPrintout_GetTitle"
+	= "camlidl_wxc_wxPrintout_GetTitle"
 
 external getPageSizePixels : wxPrintout -> int * int
-	= "camlidl_wxc_idl_wxPrintout_GetPageSizePixels"
+	= "camlidl_wxc_wxPrintout_GetPageSizePixels"
 
 external getPageSizeMM : wxPrintout -> int * int
-	= "camlidl_wxc_idl_wxPrintout_GetPageSizeMM"
+	= "camlidl_wxc_wxPrintout_GetPageSizeMM"
 
 external getPPIScreen : wxPrintout -> int * int
-	= "camlidl_wxc_idl_wxPrintout_GetPPIScreen"
+	= "camlidl_wxc_wxPrintout_GetPPIScreen"
 
 external getPPIPrinter : wxPrintout -> int * int
-	= "camlidl_wxc_idl_wxPrintout_GetPPIPrinter"
+	= "camlidl_wxc_wxPrintout_GetPPIPrinter"
 
 external getDC : wxPrintout -> wxDC
-	= "camlidl_wxc_idl_wxPrintout_GetDC"
+	= "camlidl_wxc_wxPrintout_GetDC"
 
 external getClientClosure : wxPrintout -> wxClosure
-	= "camlidl_wxc_idl_wxObject_GetClientClosure"
+	= "camlidl_wxc_wxObject_GetClientClosure"
 
 external getClassInfo : wxPrintout -> wxClassInfo
-	= "camlidl_wxc_idl_wxObject_GetClassInfo"
+	= "camlidl_wxc_wxObject_GetClassInfo"
 
 external delete : wxPrintout -> unit
-	= "camlidl_wxc_idl_wxObject_Delete"
+	= "camlidl_wxc_wxObject_Delete"
 
 val getTitle : wxPrintout -> string
   val ptrNULL : wxPrintout

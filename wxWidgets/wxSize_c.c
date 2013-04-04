@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxSize(value _v1, wxSize * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxSize(value _v1, wxSize * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxSize *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxSize(wxSize * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxSize(wxSize * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxSize) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxSize_Create(
+value camlidl_wxc_wxSize_Create(
 	value _v_w,
 	value _v_h)
 {
@@ -43,12 +43,12 @@ value camlidl_wxc_idl_wxSize_Create(
   w = Int_val(_v_w);
   h = Int_val(_v_h);
   _res = wxSize_Create(w, h);
-  _vres = camlidl_c2ml_wxc_idl_wxSize(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxSize(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSize_GetHeight(
+value camlidl_wxc_wxSize_GetHeight(
 	value _v__obj)
 {
   wxSize _obj; /*in*/
@@ -57,14 +57,14 @@ value camlidl_wxc_idl_wxSize_GetHeight(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSize(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSize(_v__obj, &_obj, _ctx);
   _res = wxSize_GetHeight(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSize_GetWidth(
+value camlidl_wxc_wxSize_GetWidth(
 	value _v__obj)
 {
   wxSize _obj; /*in*/
@@ -73,14 +73,14 @@ value camlidl_wxc_idl_wxSize_GetWidth(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSize(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSize(_v__obj, &_obj, _ctx);
   _res = wxSize_GetWidth(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxSize_SetHeight(
+value camlidl_wxc_wxSize_SetHeight(
 	value _v__obj,
 	value _v_h)
 {
@@ -88,14 +88,14 @@ value camlidl_wxc_idl_wxSize_SetHeight(
   int h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSize(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSize(_v__obj, &_obj, _ctx);
   h = Int_val(_v_h);
   wxSize_SetHeight(_obj, h);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxSize_SetWidth(
+value camlidl_wxc_wxSize_SetWidth(
 	value _v__obj,
 	value _v_w)
 {
@@ -103,7 +103,7 @@ value camlidl_wxc_idl_wxSize_SetWidth(
   int w; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxSize(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxSize(_v__obj, &_obj, _ctx);
   w = Int_val(_v_w);
   wxSize_SetWidth(_obj, w);
   camlidl_free(_ctx);

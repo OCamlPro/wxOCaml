@@ -16,7 +16,7 @@
 
 #include "wxWidgets_c.h"
 
-value camlidl_wxc_idl_ELJTextValidator_Create(
+value camlidl_wxc_ELJTextValidator_Create(
 	value _v__obj,
 	value _v__fnc,
 	value _v__txt,
@@ -31,12 +31,12 @@ value camlidl_wxc_idl_ELJTextValidator_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_voidptr(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_voidptr(_v__fnc, &_fnc, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_voidptr(_v__fnc, &_fnc, _ctx);
   _txt = String_val(_v__txt);
   _stl = Int_val(_v__stl);
   _res = ELJTextValidator_Create(_obj, _fnc, _txt, _stl);
-  _vres = camlidl_c2ml_wxc_idl_ELJTextValidator(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_ELJTextValidator(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }

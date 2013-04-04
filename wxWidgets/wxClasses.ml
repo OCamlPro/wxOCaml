@@ -1,4 +1,5 @@
-type eLJDragDataObject
+type voidptr
+and eLJDragDataObject
 and eLJMessageParameters
 and hENV
 and textDataObject
@@ -503,5 +504,4 @@ and wxStyledTextCtrl
 and wxStyledTextEvent
 and wxGridCellTextEnterEditor
 and wxFileConfig
-and voidptr
 

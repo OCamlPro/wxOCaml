@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxNotebook(value _v1, wxNotebook * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxNotebook(value _v1, wxNotebook * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxNotebook *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxNotebook(wxNotebook * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxNotebook(wxNotebook * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxNotebook) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxNotebook_AddPage(
+value camlidl_wxc_wxNotebook_AddPage(
 	value _v__obj,
 	value _v_pPage,
 	value _v_strText,
@@ -46,9 +46,9 @@ value camlidl_wxc_idl_wxNotebook_AddPage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_pPage, &pPage, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_strText, &strText, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_pPage, &pPage, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_strText, &strText, _ctx);
   bSelect = Int_val(_v_bSelect);
   imageId = Int_val(_v_imageId);
   _res = wxNotebook_AddPage(_obj, pPage, strText, bSelect, imageId);
@@ -57,7 +57,7 @@ value camlidl_wxc_idl_wxNotebook_AddPage(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_AdvanceSelection(
+value camlidl_wxc_wxNotebook_AdvanceSelection(
 	value _v__obj,
 	value _v_bForward)
 {
@@ -65,14 +65,14 @@ value camlidl_wxc_idl_wxNotebook_AdvanceSelection(
   int bForward; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   bForward = Int_val(_v_bForward);
   wxNotebook_AdvanceSelection(_obj, bForward);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxNotebook_Create(
+value camlidl_wxc_wxNotebook_Create(
 	value _v__prt,
 	value _v__id,
 	value _v__lft,
@@ -93,7 +93,7 @@ value camlidl_wxc_idl_wxNotebook_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v__prt, &_prt, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v__prt, &_prt, _ctx);
   _id = Int_val(_v__id);
   _lft = Int_val(_v__lft);
   _top = Int_val(_v__top);
@@ -101,17 +101,17 @@ value camlidl_wxc_idl_wxNotebook_Create(
   _hgt = Int_val(_v__hgt);
   _stl = Int_val(_v__stl);
   _res = wxNotebook_Create(_prt, _id, _lft, _top, _wdt, _hgt, _stl);
-  _vres = camlidl_c2ml_wxc_idl_wxNotebook(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxNotebook(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_Create_bytecode(value * argv, int argn)
+value camlidl_wxc_wxNotebook_Create_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxNotebook_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+  return camlidl_wxc_wxNotebook_Create(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 }
 
-value camlidl_wxc_idl_wxNotebook_DeleteAllPages(
+value camlidl_wxc_wxNotebook_DeleteAllPages(
 	value _v__obj)
 {
   wxNotebook _obj; /*in*/
@@ -120,14 +120,14 @@ value camlidl_wxc_idl_wxNotebook_DeleteAllPages(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   _res = wxNotebook_DeleteAllPages(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_DeletePage(
+value camlidl_wxc_wxNotebook_DeletePage(
 	value _v__obj,
 	value _v_nPage)
 {
@@ -138,7 +138,7 @@ value camlidl_wxc_idl_wxNotebook_DeletePage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   nPage = Int_val(_v_nPage);
   _res = wxNotebook_DeletePage(_obj, nPage);
   _vres = Val_int(_res);
@@ -146,7 +146,7 @@ value camlidl_wxc_idl_wxNotebook_DeletePage(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_GetImageList(
+value camlidl_wxc_wxNotebook_GetImageList(
 	value _v__obj)
 {
   wxNotebook _obj; /*in*/
@@ -155,14 +155,14 @@ value camlidl_wxc_idl_wxNotebook_GetImageList(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   _res = wxNotebook_GetImageList(_obj);
-  _vres = camlidl_c2ml_wxc_idl_wxImageList(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxImageList(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_GetPage(
+value camlidl_wxc_wxNotebook_GetPage(
 	value _v__obj,
 	value _v_nPage)
 {
@@ -173,15 +173,15 @@ value camlidl_wxc_idl_wxNotebook_GetPage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   nPage = Int_val(_v_nPage);
   _res = wxNotebook_GetPage(_obj, nPage);
-  _vres = camlidl_c2ml_wxc_idl_wxWindow(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxWindow(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_GetPageCount(
+value camlidl_wxc_wxNotebook_GetPageCount(
 	value _v__obj)
 {
   wxNotebook _obj; /*in*/
@@ -190,14 +190,14 @@ value camlidl_wxc_idl_wxNotebook_GetPageCount(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   _res = wxNotebook_GetPageCount(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_GetPageImage(
+value camlidl_wxc_wxNotebook_GetPageImage(
 	value _v__obj,
 	value _v_nPage)
 {
@@ -208,7 +208,7 @@ value camlidl_wxc_idl_wxNotebook_GetPageImage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   nPage = Int_val(_v_nPage);
   _res = wxNotebook_GetPageImage(_obj, nPage);
   _vres = Val_int(_res);
@@ -216,7 +216,7 @@ value camlidl_wxc_idl_wxNotebook_GetPageImage(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_GetPageText(
+value camlidl_wxc_wxNotebook_GetPageText(
 	value _v__obj,
 	value _v_nPage)
 {
@@ -227,15 +227,15 @@ value camlidl_wxc_idl_wxNotebook_GetPageText(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   nPage = Int_val(_v_nPage);
   _res = wxNotebook_GetPageText(_obj, nPage);
-  _vres = camlidl_c2ml_wxc_idl_wxString(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxString(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_GetRowCount(
+value camlidl_wxc_wxNotebook_GetRowCount(
 	value _v__obj)
 {
   wxNotebook _obj; /*in*/
@@ -244,14 +244,14 @@ value camlidl_wxc_idl_wxNotebook_GetRowCount(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   _res = wxNotebook_GetRowCount(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_GetSelection(
+value camlidl_wxc_wxNotebook_GetSelection(
 	value _v__obj)
 {
   wxNotebook _obj; /*in*/
@@ -260,14 +260,14 @@ value camlidl_wxc_idl_wxNotebook_GetSelection(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   _res = wxNotebook_GetSelection(_obj);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_HitTest(
+value camlidl_wxc_wxNotebook_HitTest(
 	value _v__obj,
 	value _v_x,
 	value _v_y,
@@ -284,7 +284,7 @@ value camlidl_wxc_idl_wxNotebook_HitTest(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   x = Int_val(_v_x);
   y = Int_val(_v_y);
   if (_v_flags == Val_int(0)) {
@@ -300,7 +300,7 @@ value camlidl_wxc_idl_wxNotebook_HitTest(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_InsertPage(
+value camlidl_wxc_wxNotebook_InsertPage(
 	value _v__obj,
 	value _v_nPage,
 	value _v_pPage,
@@ -319,10 +319,10 @@ value camlidl_wxc_idl_wxNotebook_InsertPage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   nPage = Int_val(_v_nPage);
-  camlidl_ml2c_wxc_idl_wxWindow(_v_pPage, &pPage, _ctx);
-  camlidl_ml2c_wxc_idl_wxString(_v_strText, &strText, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_pPage, &pPage, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_strText, &strText, _ctx);
   bSelect = Int_val(_v_bSelect);
   imageId = Int_val(_v_imageId);
   _res = wxNotebook_InsertPage(_obj, nPage, pPage, strText, bSelect, imageId);
@@ -331,12 +331,12 @@ value camlidl_wxc_idl_wxNotebook_InsertPage(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_InsertPage_bytecode(value * argv, int argn)
+value camlidl_wxc_wxNotebook_InsertPage_bytecode(value * argv, int argn)
 {
-  return camlidl_wxc_idl_wxNotebook_InsertPage(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
+  return camlidl_wxc_wxNotebook_InsertPage(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
 }
 
-value camlidl_wxc_idl_wxNotebook_RemovePage(
+value camlidl_wxc_wxNotebook_RemovePage(
 	value _v__obj,
 	value _v_nPage)
 {
@@ -347,7 +347,7 @@ value camlidl_wxc_idl_wxNotebook_RemovePage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   nPage = Int_val(_v_nPage);
   _res = wxNotebook_RemovePage(_obj, nPage);
   _vres = Val_int(_res);
@@ -355,7 +355,7 @@ value camlidl_wxc_idl_wxNotebook_RemovePage(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_SetImageList(
+value camlidl_wxc_wxNotebook_SetImageList(
 	value _v__obj,
 	value _v_imageList)
 {
@@ -363,14 +363,14 @@ value camlidl_wxc_idl_wxNotebook_SetImageList(
   wxImageList imageList; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxImageList(_v_imageList, &imageList, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImageList(_v_imageList, &imageList, _ctx);
   wxNotebook_SetImageList(_obj, imageList);
   camlidl_free(_ctx);
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxNotebook_SetPadding(
+value camlidl_wxc_wxNotebook_SetPadding(
 	value _v__obj,
 	value _v__w,
 	value _v__h)
@@ -380,7 +380,7 @@ value camlidl_wxc_idl_wxNotebook_SetPadding(
   int _h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   _w = Int_val(_v__w);
   _h = Int_val(_v__h);
   wxNotebook_SetPadding(_obj, _w, _h);
@@ -388,7 +388,7 @@ value camlidl_wxc_idl_wxNotebook_SetPadding(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxNotebook_SetPageImage(
+value camlidl_wxc_wxNotebook_SetPageImage(
 	value _v__obj,
 	value _v_nPage,
 	value _v_nImage)
@@ -401,7 +401,7 @@ value camlidl_wxc_idl_wxNotebook_SetPageImage(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   nPage = Int_val(_v_nPage);
   nImage = Int_val(_v_nImage);
   _res = wxNotebook_SetPageImage(_obj, nPage, nImage);
@@ -410,7 +410,7 @@ value camlidl_wxc_idl_wxNotebook_SetPageImage(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_SetPageSize(
+value camlidl_wxc_wxNotebook_SetPageSize(
 	value _v__obj,
 	value _v__w,
 	value _v__h)
@@ -420,7 +420,7 @@ value camlidl_wxc_idl_wxNotebook_SetPageSize(
   int _h; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   _w = Int_val(_v__w);
   _h = Int_val(_v__h);
   wxNotebook_SetPageSize(_obj, _w, _h);
@@ -428,7 +428,7 @@ value camlidl_wxc_idl_wxNotebook_SetPageSize(
   return Val_unit;
 }
 
-value camlidl_wxc_idl_wxNotebook_SetPageText(
+value camlidl_wxc_wxNotebook_SetPageText(
 	value _v__obj,
 	value _v_nPage,
 	value _v_strText)
@@ -441,16 +441,16 @@ value camlidl_wxc_idl_wxNotebook_SetPageText(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   nPage = Int_val(_v_nPage);
-  camlidl_ml2c_wxc_idl_wxString(_v_strText, &strText, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_strText, &strText, _ctx);
   _res = wxNotebook_SetPageText(_obj, nPage, strText);
   _vres = Val_int(_res);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_SetSelection(
+value camlidl_wxc_wxNotebook_SetSelection(
 	value _v__obj,
 	value _v_nPage)
 {
@@ -461,7 +461,7 @@ value camlidl_wxc_idl_wxNotebook_SetSelection(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
   nPage = Int_val(_v_nPage);
   _res = wxNotebook_SetSelection(_obj, nPage);
   _vres = Val_int(_res);
@@ -469,7 +469,7 @@ value camlidl_wxc_idl_wxNotebook_SetSelection(
   return _vres;
 }
 
-value camlidl_wxc_idl_wxNotebook_AssignImageList(
+value camlidl_wxc_wxNotebook_AssignImageList(
 	value _v__obj,
 	value _v_imageList)
 {
@@ -477,8 +477,8 @@ value camlidl_wxc_idl_wxNotebook_AssignImageList(
   wxImageList imageList; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxNotebook(_v__obj, &_obj, _ctx);
-  camlidl_ml2c_wxc_idl_wxImageList(_v_imageList, &imageList, _ctx);
+  camlidl_ml2c_wxc_wxNotebook(_v__obj, &_obj, _ctx);
+  camlidl_ml2c_wxc_wxImageList(_v_imageList, &imageList, _ctx);
   wxNotebook_AssignImageList(_obj, imageList);
   camlidl_free(_ctx);
   return Val_unit;

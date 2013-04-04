@@ -16,12 +16,12 @@
 
 #include "wxWidgets_c.h"
 
-void camlidl_ml2c_wxc_idl_wxBufferedPaintDC(value _v1, wxBufferedPaintDC * _c2, camlidl_ctx _ctx)
+void camlidl_ml2c_wxc_wxBufferedPaintDC(value _v1, wxBufferedPaintDC * _c2, camlidl_ctx _ctx)
 {
   *_c2 = *((wxBufferedPaintDC *) Bp_val(_v1));
 }
 
-value camlidl_c2ml_wxc_idl_wxBufferedPaintDC(wxBufferedPaintDC * _c2, camlidl_ctx _ctx)
+value camlidl_c2ml_wxc_wxBufferedPaintDC(wxBufferedPaintDC * _c2, camlidl_ctx _ctx)
 {
 value _v1;
   _v1 = camlidl_alloc((sizeof(wxBufferedPaintDC) + sizeof(value) - 1) / sizeof(value), Abstract_tag);
@@ -29,7 +29,7 @@ value _v1;
   return _v1;
 }
 
-value camlidl_wxc_idl_wxBufferedPaintDC_Create(
+value camlidl_wxc_wxBufferedPaintDC_Create(
 	value _v_window,
 	value _v_style)
 {
@@ -40,15 +40,15 @@ value camlidl_wxc_idl_wxBufferedPaintDC_Create(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v_window, &window, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_window, &window, _ctx);
   style = Int_val(_v_style);
   _res = wxBufferedPaintDC_Create(window, style);
-  _vres = camlidl_c2ml_wxc_idl_wxBufferedPaintDC(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxBufferedPaintDC(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBufferedPaintDC_CreateWithBitmap(
+value camlidl_wxc_wxBufferedPaintDC_CreateWithBitmap(
 	value _v_window,
 	value _v_bitmap,
 	value _v_style)
@@ -61,22 +61,22 @@ value camlidl_wxc_idl_wxBufferedPaintDC_CreateWithBitmap(
 
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxWindow(_v_window, &window, _ctx);
-  camlidl_ml2c_wxc_idl_wxBitmap(_v_bitmap, &bitmap, _ctx);
+  camlidl_ml2c_wxc_wxWindow(_v_window, &window, _ctx);
+  camlidl_ml2c_wxc_wxBitmap(_v_bitmap, &bitmap, _ctx);
   style = Int_val(_v_style);
   _res = wxBufferedPaintDC_CreateWithBitmap(window, bitmap, style);
-  _vres = camlidl_c2ml_wxc_idl_wxBufferedPaintDC(&_res, _ctx);
+  _vres = camlidl_c2ml_wxc_wxBufferedPaintDC(&_res, _ctx);
   camlidl_free(_ctx);
   return _vres;
 }
 
-value camlidl_wxc_idl_wxBufferedPaintDC_Delete(
+value camlidl_wxc_wxBufferedPaintDC_Delete(
 	value _v_self)
 {
   wxBufferedPaintDC self; /*in*/
   struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
   camlidl_ctx _ctx = &_ctxs;
-  camlidl_ml2c_wxc_idl_wxBufferedPaintDC(_v_self, &self, _ctx);
+  camlidl_ml2c_wxc_wxBufferedPaintDC(_v_self, &self, _ctx);
   wxBufferedPaintDC_Delete(self);
   camlidl_free(_ctx);
   return Val_unit;
