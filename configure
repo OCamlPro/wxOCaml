@@ -5970,7 +5970,7 @@ LIBS="$LIBS $WX_LIBS"
 
 
 
-ac_config_files="$ac_config_files Makefile.config config.ocp wxWidgets/00-config.ocp wxCamlidl/config.ml"
+ac_config_files="$ac_config_files Makefile.config config.ocp wxCamlidl/config.ml"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -6680,7 +6680,6 @@ do
   case $ac_config_target in
     "Makefile.config") CONFIG_FILES="$CONFIG_FILES Makefile.config" ;;
     "config.ocp") CONFIG_FILES="$CONFIG_FILES config.ocp" ;;
-    "wxWidgets/00-config.ocp") CONFIG_FILES="$CONFIG_FILES wxWidgets/00-config.ocp" ;;
     "wxCamlidl/config.ml") CONFIG_FILES="$CONFIG_FILES wxCamlidl/config.ml" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;

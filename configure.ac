@@ -75,7 +75,6 @@ AC_SUBST(CXXFLAGS)
 AC_CONFIG_FILES(
   Makefile.config \
   config.ocp \
-  wxWidgets/00-config.ocp \
   wxCamlidl/config.ml \
 )
 AC_OUTPUT
