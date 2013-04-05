@@ -891,8 +891,10 @@ let main intf =
 
   let ocp_oc = open_out (Filename.concat src_dirname "wxWidgets.ocp") in
   Printf.fprintf ocp_oc.oc "begin library %S\n" "wxWidgets";
-  Printf.fprintf ocp_oc.oc "  requires = [ \"wxOCaml_elj\" \"wxOCaml_wxo\"  \"camlidl\" ]\n";
+  Printf.fprintf ocp_oc.oc "  use \"link-with-wxOCaml\"\n";
+  Printf.fprintf ocp_oc.oc "  requires = [ \"wxOCaml_elj\"  \"camlidl\" ]\n";
   Printf.fprintf ocp_oc.oc "  files = [ ";
+  Printf.fprintf ocp_oc.oc "  %S (use %S)\n" "wxo_start_c.c" "compile-c-with-wxWidget";
   Printf.fprintf ocp_oc.oc "  %S\n" "wxdefs.ml";
   Printf.fprintf ocp_oc.oc "  %S\n" "wxID.ml";
   Printf.fprintf ocp_oc.oc "  %S\n" "wxMain.ml";

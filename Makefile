@@ -1,11 +1,11 @@
 NJOBS=-j 10
 
-all:
-	(cd elj; $(MAKE) $(NJOBS))
-	ocp-build
+# The new version of ocp-build will fail to build because some warnings have
+# become errors, it should be reverted soon, but in the meantime, we just
+# apply the -no-color switch to use the old behavior.
 
-boot:
-	ocp-build wxCamlidl gen2
+all:
+	ocp-build -no-color wxCamlidl gen2
 	(cd elj; $(MAKE) $(NJOBS))
 	(cd idl; $(MAKE))
 	(cd generators; $(MAKE))

@@ -30,12 +30,16 @@ A binding to wxWidgets
 
 ## How to use
 
-* The module WxOCaml2 defines a set of modules (one module = one WX class).
-  It is only partial, but all types are verified.
-* A lot of useful constants are in Wxdefs.
-* The module WxOCaml contains a sub-module IDL, exporting all the
-   stubs available, and some useful functions. Types are not correctly
-   verified, so using directly these functions can be dangerous.
+* Look at the examples in examples/
+* The global architectures of modules (in wxWidgets/) is:
+  - a module WxClasses with all the (abstract) types
+  - a module WxWidgets with the constructors (useful to open)
+  - a module Wxdefs with the constants (useful to open too)
+  - a module per class, with all the methods (including inherited ones)
+      Note that some "wx"+NAME classes are virtual in C++, so, in OCaml,
+      they have been made concrete under the name "ELJ"+NAME.
+  - a module WxMisc with misc functions
+  - a module WxMain with the main
 
 ## How is it done ?
 
@@ -43,15 +47,16 @@ WxOCaml follows the same idea as WxHaskell, itself based on WxEiffel.
 
 * The 'elj' sub-directory contains the C++ files (and headers) from
   WxHaskell/wxc sub-directory (with no modification)
-* The 'defs' sub-directory contains a program that generates an OCaml
+* The 'wxCamlidl' is a modification of camlidl (in particular the module
+     wxmore.ml) to generate the stubs as a hierarchy of modules.
+* The 'idl' sub-directory is the place where wxCamlidl is called on
+  ../elj/wxc.h to generate the stubs. To match the IDL format, "wxc_types.h"
+  is different. The 'typedef.idl' and 'extend.idl' files define the basic 
+  types ('typedef.idl' for basic classes, 'extend.idl' for extensions).
+* The 'generators' sub-directory contains a program that generates an OCaml
   source files containing the content of WX constants. The 'defs1.h' file
   was generated from the 'defs.cpp' file of 'elj', after commenting some
   obsolete constants.
-* The 'idl' sub-directory contains a _modified_ copy of the 'elj' header
-  files, so that they can be used by 'camlidl'. The 'typedef.idl' and
-  'extend.idl' files define the basic types (note that 'extend.idl' does
-  not define a hierarchy of types, but an equivalence, so that the IDL
-  interface is _completely_ unsafe, and should be fixed in the future).
 
 
 

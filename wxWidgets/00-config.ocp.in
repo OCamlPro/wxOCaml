@@ -1,1 +1,7 @@
-link = [ "-cclib" "-lwxOCaml_elj @LIBS@ -lcamlidl" ]
+begin config "link-with-wxOCaml"
+  link = [ "-cclib" "-lwxOCaml_elj @LIBS@ -lcamlidl" ]
+end
+
+begin config "compile-c-with-wxWidget"
+  ccopt = [ "@CXXFLAGS@" "@CPPFLAGS@" ]
+end

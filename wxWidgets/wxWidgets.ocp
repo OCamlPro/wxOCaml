@@ -1,6 +1,8 @@
 begin library "wxWidgets"
-  requires = [ "wxOCaml_elj" "wxOCaml_wxo"  "camlidl" ]
-  files = [   "wxdefs.ml"
+  use "link-with-wxOCaml"
+  requires = [ "wxOCaml_elj"  "camlidl" ]
+  files = [   "wxo_start_c.c" (use "compile-c-with-wxWidget")
+  "wxdefs.ml"
   "wxID.ml"
   "wxMain.ml"
   "wxWidgets.mli"
