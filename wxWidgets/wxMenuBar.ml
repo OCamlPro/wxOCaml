@@ -122,7 +122,7 @@ external deletePointer : wxMenuBar -> unit
 external delete : wxMenuBar -> unit
 	= "camlidl_wxc_wxEvtHandler_Delete"
 
-external connect : wxMenuBar -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxMenuBar -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external check : wxMenuBar -> int -> bool -> unit

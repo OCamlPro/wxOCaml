@@ -264,6 +264,7 @@ TClass(wxClosure)  wxTimerEx_GetClosure( TSelf(wxTimerEx) _obj );
 /* Menu */
 
 void  wxMenu_AppendRadioItem( TSelf(wxMenu) self, int id, TClass(wxString) text, TClass(wxString) help);
+void  wxMenu_AppendCheckItem( TSelf(wxMenu) self, int id, TClass(wxString) text, TClass(wxString) help);
 
 
 

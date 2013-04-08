@@ -597,6 +597,34 @@ typedef wxEvent wxTimerEvent;
 
 typedef wxEvent wxUpdateUIEvent;
 
+typedef wxEvent wxTreeListEvent;
+
+typedef wxEvent wxSpinDoubleEvent;
+
+typedef wxEvent wxPowerEvent;
+
+typedef wxEvent wxHyperlinkEvent;
+
+typedef wxEvent wxFontPickerEvent;
+
+typedef wxEvent wxFileDirPickerEvent;
+
+typedef wxEvent wxFileCtrlEvent;
+
+typedef wxEvent wxClipboardTextEvent;
+
+typedef wxEvent wxContextMenuEvent;
+
+typedef wxEvent wxChildFocusEvent;
+
+typedef wxEvent wxMouseCaptureLostEvent;
+
+typedef wxEvent wxDataViewEvent;
+
+typedef wxEvent wxCollapsiblePaneEvent;
+
+typedef wxEvent wxColourPickerEvent;
+
 typedef wxCommandEvent wxCalendarEvent;
 
 typedef wxCommandEvent wxFindDialogEvent;
@@ -8569,6 +8597,8 @@ _CAMLIDL_EXTERN_C wxClosure wxTimerEx_GetClosure(/*in*/ wxTimerEx _obj);
 
 _CAMLIDL_EXTERN_C void wxMenu_AppendRadioItem(/*in*/ wxMenu self, /*in*/ int id, /*in*/ wxString text, /*in*/ wxString help);
 
+_CAMLIDL_EXTERN_C void wxMenu_AppendCheckItem(/*in*/ wxMenu self, /*in*/ int id, /*in*/ wxString text, /*in*/ wxString help);
+
 _CAMLIDL_EXTERN_C wxMenuItem wxMenuItem_CreateSeparator(void);
 
 _CAMLIDL_EXTERN_C wxMenuItem wxMenuItem_CreateEx(/*in*/ int id, /*in*/ wxString label, /*in*/ wxString help, /*in*/ int itemkind, /*in*/ wxMenu submenu);
@@ -9732,6 +9762,48 @@ extern value camlidl_c2ml_wxc_wxTimerEvent(wxTimerEvent *, camlidl_ctx _ctx);
 
 extern void camlidl_ml2c_wxc_wxUpdateUIEvent(value, wxUpdateUIEvent *, camlidl_ctx _ctx);
 extern value camlidl_c2ml_wxc_wxUpdateUIEvent(wxUpdateUIEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxTreeListEvent(value, wxTreeListEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxTreeListEvent(wxTreeListEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxSpinDoubleEvent(value, wxSpinDoubleEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxSpinDoubleEvent(wxSpinDoubleEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxPowerEvent(value, wxPowerEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxPowerEvent(wxPowerEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxHyperlinkEvent(value, wxHyperlinkEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxHyperlinkEvent(wxHyperlinkEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxFontPickerEvent(value, wxFontPickerEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFontPickerEvent(wxFontPickerEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxFileDirPickerEvent(value, wxFileDirPickerEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileDirPickerEvent(wxFileDirPickerEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxFileCtrlEvent(value, wxFileCtrlEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxFileCtrlEvent(wxFileCtrlEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxClipboardTextEvent(value, wxClipboardTextEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxClipboardTextEvent(wxClipboardTextEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxContextMenuEvent(value, wxContextMenuEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxContextMenuEvent(wxContextMenuEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxChildFocusEvent(value, wxChildFocusEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxChildFocusEvent(wxChildFocusEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxMouseCaptureLostEvent(value, wxMouseCaptureLostEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxMouseCaptureLostEvent(wxMouseCaptureLostEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxDataViewEvent(value, wxDataViewEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxDataViewEvent(wxDataViewEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxCollapsiblePaneEvent(value, wxCollapsiblePaneEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxCollapsiblePaneEvent(wxCollapsiblePaneEvent *, camlidl_ctx _ctx);
+
+extern void camlidl_ml2c_wxc_wxColourPickerEvent(value, wxColourPickerEvent *, camlidl_ctx _ctx);
+extern value camlidl_c2ml_wxc_wxColourPickerEvent(wxColourPickerEvent *, camlidl_ctx _ctx);
 
 extern void camlidl_ml2c_wxc_wxCalendarEvent(value, wxCalendarEvent *, camlidl_ctx _ctx);
 extern value camlidl_c2ml_wxc_wxCalendarEvent(wxCalendarEvent *, camlidl_ctx _ctx);

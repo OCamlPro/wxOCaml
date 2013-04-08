@@ -554,7 +554,7 @@ external convertDialogToPixelsEx : eLJPreviewFrame -> wxPoint
 external convertDialogToPixels : eLJPreviewFrame -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : eLJPreviewFrame -> int -> int -> (wxEvent -> unit) -> unit
+external connect : eLJPreviewFrame -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external close : eLJPreviewFrame -> bool -> bool

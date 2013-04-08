@@ -95,7 +95,7 @@ external disconnect : eLJTextValidator -> int -> int -> int -> int -> int
 external delete : eLJTextValidator -> unit
 	= "camlidl_wxc_wxValidator_Delete"
 
-external connect : eLJTextValidator -> int -> int -> (wxEvent -> unit) -> unit
+external connect : eLJTextValidator -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external clone : eLJTextValidator -> wxValidator

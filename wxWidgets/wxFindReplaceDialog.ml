@@ -452,7 +452,7 @@ external convertDialogToPixelsEx : wxFindReplaceDialog -> wxPoint
 external convertDialogToPixels : wxFindReplaceDialog -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxFindReplaceDialog -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxFindReplaceDialog -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external close : wxFindReplaceDialog -> bool -> bool

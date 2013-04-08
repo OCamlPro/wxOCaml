@@ -44,7 +44,7 @@ external getClassInfo : wxTimerEx -> wxClassInfo
 external delete : wxTimerEx -> unit
 	= "camlidl_wxc_wxTimer_Delete"
 
-external connect : wxEvtHandler -> wxClosure -> wxClosure -> (wxEvent -> unit) -> unit
+external connect : wxEvtHandler -> wxClosure -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external null_object : unit -> wxTimerEx

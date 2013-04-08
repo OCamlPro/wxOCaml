@@ -614,7 +614,7 @@ external convertDialogToPixelsEx : wxRemotelyScrolledTreeCtrl -> wxPoint
 external convertDialogToPixels : wxRemotelyScrolledTreeCtrl -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxRemotelyScrolledTreeCtrl -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxRemotelyScrolledTreeCtrl -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external command : wxRemotelyScrolledTreeCtrl -> wxEvent -> unit

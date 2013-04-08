@@ -167,7 +167,7 @@ external deleteById : wxMenu -> int -> unit
 external delete : wxMenu -> unit
 	= "camlidl_wxc_wxEvtHandler_Delete"
 
-external connect : wxMenu -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxMenu -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external check : wxMenu -> int -> bool -> unit
@@ -187,6 +187,9 @@ external appendRadioItem : wxMenu -> int -> wxString -> wxString -> unit
 
 external appendItem : wxMenu -> wxMenuItem -> unit
 	= "camlidl_wxc_wxMenu_AppendItem"
+
+external appendCheckItem : wxMenu -> int -> wxString -> wxString -> unit
+	= "camlidl_wxc_wxMenu_AppendCheckItem"
 
 external append : wxMenu -> int -> wxString -> wxString -> bool -> unit
 	= "camlidl_wxc_wxMenu_Append"
@@ -280,6 +283,14 @@ let appendRadioItem self id text help =
   let text = WxString.createUTF8 text in
   let help = WxString.createUTF8 help in
   let wxres = appendRadioItem self id text help  in
+  WxString.delete text;
+  WxString.delete help;
+  wxres
+
+let appendCheckItem self id text help =
+  let text = WxString.createUTF8 text in
+  let help = WxString.createUTF8 help in
+  let wxres = appendCheckItem self id text help  in
   WxString.delete text;
   WxString.delete help;
   wxres

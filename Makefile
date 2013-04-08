@@ -5,7 +5,7 @@ NJOBS=-j 10
 # apply the -no-color switch to use the old behavior.
 
 all:
-	ocp-build -no-color wxCamlidl gen2
+	ocp-build -no-color wxCamlidl gen1
 	(cd elj; $(MAKE) $(NJOBS))
 	(cd idl; $(MAKE))
 	(cd generators; $(MAKE))

@@ -443,7 +443,7 @@ external convertDialogToPixelsEx : wxSingleChoiceDialog -> wxPoint
 external convertDialogToPixels : wxSingleChoiceDialog -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxSingleChoiceDialog -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxSingleChoiceDialog -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external close : wxSingleChoiceDialog -> bool -> bool

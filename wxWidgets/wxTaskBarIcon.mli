@@ -71,7 +71,7 @@ external disconnect : wxTaskBarIcon -> int -> int -> int -> int -> int
 external delete : wxTaskBarIcon -> unit
 	= "camlidl_wxc_wxTaskBarIcon_Delete"
 
-external connect : wxTaskBarIcon -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxTaskBarIcon -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external addPendingEvent : wxTaskBarIcon -> wxEvent -> unit

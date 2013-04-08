@@ -53,7 +53,7 @@ external disconnect : wxWave -> int -> int -> int -> int -> int
 external delete : wxWave -> unit
 	= "camlidl_wxc_wxEvtHandler_Delete"
 
-external connect : wxWave -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxWave -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external addPendingEvent : wxWave -> wxEvent -> unit

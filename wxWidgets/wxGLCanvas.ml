@@ -494,7 +494,7 @@ external convertDialogToPixelsEx : wxGLCanvas -> wxPoint
 external convertDialogToPixels : wxGLCanvas -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxGLCanvas -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxGLCanvas -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external close : wxGLCanvas -> bool -> bool

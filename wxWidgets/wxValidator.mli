@@ -74,7 +74,7 @@ external disconnect : wxValidator -> int -> int -> int -> int -> int
 external delete : wxValidator -> unit
 	= "camlidl_wxc_wxValidator_Delete"
 
-external connect : wxValidator -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxValidator -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external addPendingEvent : wxValidator -> wxEvent -> unit

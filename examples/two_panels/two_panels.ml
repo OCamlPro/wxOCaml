@@ -66,9 +66,9 @@ let _ =
       WxStaticText.setLabel m_text (string_of_int !counter)
     in
     WxPanel.connect
-      m_lp plus_id wxEVT_COMMAND_BUTTON_CLICKED (add 1);
+      m_lp plus_id WxEVT._COMMAND_BUTTON_CLICKED (add 1);
     WxPanel.connect
-      m_lp minus_id wxEVT_COMMAND_BUTTON_CLICKED (add (-1));
+      m_lp minus_id WxEVT._COMMAND_BUTTON_CLICKED (add (-1));
 
 
     WxBoxSizer.addWindow hbox (WxPanel.wxWindow m_lp) 1

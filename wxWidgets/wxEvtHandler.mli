@@ -56,7 +56,7 @@ external disconnect : wxEvtHandler -> int -> int -> int -> int -> int
 external delete : wxEvtHandler -> unit
 	= "camlidl_wxc_wxEvtHandler_Delete"
 
-external connect : wxEvtHandler -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxEvtHandler -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external addPendingEvent : wxEvtHandler -> wxEvent -> unit

@@ -551,7 +551,7 @@ external convertDialogToPixelsEx : wxMDIParentFrame -> wxPoint
 external convertDialogToPixels : wxMDIParentFrame -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxMDIParentFrame -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxMDIParentFrame -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external close : wxMDIParentFrame -> bool -> bool

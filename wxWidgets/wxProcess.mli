@@ -86,7 +86,7 @@ external createRedirect : wxWindow -> bool -> wxProcess
 external createDefault : wxWindow -> int -> wxProcess
 	= "camlidl_wxc_wxProcess_CreateDefault"
 
-external connect : wxProcess -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxProcess -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external closeOutput : wxProcess -> unit

@@ -209,6 +209,21 @@ typedef wxEvent wxSocketEvent;
 typedef wxEvent wxSysColourChangedEvent;
 typedef wxEvent wxTimerEvent;
 typedef wxEvent wxUpdateUIEvent;
+typedef wxEvent wxTreeListEvent;
+typedef wxEvent wxSpinDoubleEvent;
+typedef wxEvent wxPowerEvent;
+typedef wxEvent wxHyperlinkEvent;
+typedef wxEvent wxFontPickerEvent;
+typedef wxEvent wxFileDirPickerEvent;
+typedef wxEvent wxFileCtrlEvent;
+typedef wxEvent wxClipboardTextEvent;
+typedef wxEvent wxContextMenuEvent;
+
+typedef wxEvent wxChildFocusEvent;
+typedef wxEvent wxMouseCaptureLostEvent;
+typedef wxEvent wxDataViewEvent ;
+typedef wxEvent wxCollapsiblePaneEvent;
+typedef wxEvent wxColourPickerEvent;
 /*
 typedef cbPluginEvent cbCustomizeBarEvent;
 typedef cbPluginEvent cbCustomizeLayoutEvent;

@@ -95,7 +95,7 @@ external disconnect : wxTextValidator -> int -> int -> int -> int -> int
 external delete : wxTextValidator -> unit
 	= "camlidl_wxc_wxValidator_Delete"
 
-external connect : wxTextValidator -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxTextValidator -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external clone : wxTextValidator -> wxValidator

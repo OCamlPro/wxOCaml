@@ -167,7 +167,7 @@ external deleteById : wxMenu -> int -> unit
 external delete : wxMenu -> unit
 	= "camlidl_wxc_wxEvtHandler_Delete"
 
-external connect : wxMenu -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxMenu -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external check : wxMenu -> int -> bool -> unit
@@ -187,6 +187,9 @@ external appendRadioItem : wxMenu -> int -> wxString -> wxString -> unit
 
 external appendItem : wxMenu -> wxMenuItem -> unit
 	= "camlidl_wxc_wxMenu_AppendItem"
+
+external appendCheckItem : wxMenu -> int -> wxString -> wxString -> unit
+	= "camlidl_wxc_wxMenu_AppendCheckItem"
 
 external append : wxMenu -> int -> wxString -> wxString -> bool -> unit
 	= "camlidl_wxc_wxMenu_Append"
@@ -208,6 +211,7 @@ val getHelpString : wxMenu -> int -> string
 val findItemByLabel : wxMenu -> string -> int
 val appendSub : wxMenu -> int -> string -> wxMenu -> string -> unit
 val appendRadioItem : wxMenu -> int -> string -> string -> unit
+val appendCheckItem : wxMenu -> int -> string -> string -> unit
 val append : wxMenu -> int -> string -> string -> bool -> unit
   val ptrNULL : wxMenu
 

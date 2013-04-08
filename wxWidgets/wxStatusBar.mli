@@ -455,7 +455,7 @@ external convertDialogToPixelsEx : wxStatusBar -> wxPoint
 external convertDialogToPixels : wxStatusBar -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxStatusBar -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxStatusBar -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external close : wxStatusBar -> bool -> bool

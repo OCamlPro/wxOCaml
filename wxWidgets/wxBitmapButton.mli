@@ -467,7 +467,7 @@ external convertDialogToPixelsEx : wxBitmapButton -> wxPoint
 external convertDialogToPixels : wxBitmapButton -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxBitmapButton -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxBitmapButton -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external command : wxBitmapButton -> wxEvent -> unit

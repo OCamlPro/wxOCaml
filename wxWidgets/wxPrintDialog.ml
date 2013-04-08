@@ -455,7 +455,7 @@ external convertDialogToPixelsEx : wxPrintDialog -> wxPoint
 external convertDialogToPixels : wxPrintDialog -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxPrintDialog -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxPrintDialog -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external close : wxPrintDialog -> bool -> bool

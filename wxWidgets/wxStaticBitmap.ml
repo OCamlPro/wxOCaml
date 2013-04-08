@@ -443,7 +443,7 @@ external convertDialogToPixelsEx : wxStaticBitmap -> wxPoint
 external convertDialogToPixels : wxStaticBitmap -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxStaticBitmap -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxStaticBitmap -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external command : wxStaticBitmap -> wxEvent -> unit

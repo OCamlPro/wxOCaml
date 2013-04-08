@@ -446,7 +446,7 @@ external convertDialogToPixelsEx : wxScrollBar -> wxPoint
 external convertDialogToPixels : wxScrollBar -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxScrollBar -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxScrollBar -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external command : wxScrollBar -> wxEvent -> unit

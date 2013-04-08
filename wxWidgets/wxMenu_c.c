@@ -829,3 +829,24 @@ value camlidl_wxc_wxMenu_AppendRadioItem(
   return Val_unit;
 }
 
+value camlidl_wxc_wxMenu_AppendCheckItem(
+	value _v_self,
+	value _v_id,
+	value _v_text,
+	value _v_help)
+{
+  wxMenu self; /*in*/
+  int id; /*in*/
+  wxString text; /*in*/
+  wxString help; /*in*/
+  struct camlidl_ctx_struct _ctxs = { CAMLIDL_TRANSIENT, NULL };
+  camlidl_ctx _ctx = &_ctxs;
+  camlidl_ml2c_wxc_wxMenu(_v_self, &self, _ctx);
+  id = Int_val(_v_id);
+  camlidl_ml2c_wxc_wxString(_v_text, &text, _ctx);
+  camlidl_ml2c_wxc_wxString(_v_help, &help, _ctx);
+  wxMenu_AppendCheckItem(self, id, text, help);
+  camlidl_free(_ctx);
+  return Val_unit;
+}
+

@@ -58,6 +58,12 @@ WxOCaml follows the same idea as WxHaskell, itself based on WxEiffel.
   was generated from the 'defs.cpp' file of 'elj', after commenting some
   obsolete constants.
 
+## TODO
+
+The official WxWidgets uses the interface/wx/*.h files to generate its own
+documentation. It would be interesting to be able to generate the 
+OCaml bindings and its documentation directly from there. Some volunteer ?
+
 
 
 

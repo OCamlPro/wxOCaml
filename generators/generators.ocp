@@ -6,3 +6,16 @@ binannot = false
 begin program "gen2"
   files = [ "gen2.ml" ]
 end
+
+begin program "gen1"
+  files = [ "gen1.ml" ]
+end
+
+begin program "gen_wxEVT"
+  files = [
+    "gen_wxEVT_types.ml"
+    "gen_wxEVT_lexer.mll"
+    "gen_wxEVT_parser.mly"
+    "gen_wxEVT_main.ml"
+  ]
+end

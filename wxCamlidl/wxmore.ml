@@ -359,8 +359,8 @@ let main intf =
                     [
                       "_obj", In, direct_type "wxEvtHandler";
                       "_first", In, type_int;
-                      "_type", In, type_int;
-                      "_clos", In, direct_type "(wxEvent -> unit)";
+                      "_type", In, direct_type "('a WxEVT.t)";
+                      "_clos", In, direct_type "('a -> unit)";
                     ];
                 }
               else fd
@@ -894,8 +894,9 @@ let main intf =
   Printf.fprintf ocp_oc.oc "  use \"link-with-wxOCaml\"\n";
   Printf.fprintf ocp_oc.oc "  requires = [ \"wxOCaml_elj\"  \"camlidl\" ]\n";
   Printf.fprintf ocp_oc.oc "  files = [ ";
-  Printf.fprintf ocp_oc.oc "  %S (use %S)\n" "wxo_start_c.c" "compile-c-with-wxWidget";
   Printf.fprintf ocp_oc.oc "  %S\n" "wxdefs.ml";
+  Printf.fprintf ocp_oc.oc "  %S\n" "wxEVT.ml";
+  Printf.fprintf ocp_oc.oc "  %S (use %S)\n" "wxo_start_c.c" "compile-c-with-wxWidget";
   Printf.fprintf ocp_oc.oc "  %S\n" "wxID.ml";
   Printf.fprintf ocp_oc.oc "  %S\n" "wxMain.ml";
   List.iter (fun file ->

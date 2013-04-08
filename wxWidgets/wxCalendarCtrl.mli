@@ -485,7 +485,7 @@ external convertDialogToPixelsEx : wxCalendarCtrl -> wxPoint
 external convertDialogToPixels : wxCalendarCtrl -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxCalendarCtrl -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxCalendarCtrl -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external command : wxCalendarCtrl -> wxEvent -> unit

@@ -12,6 +12,12 @@ all: $(TARGETS)
 gen: gen.cpp defs1.h
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -Wl,--hash-size=31 -Wl,--reduce-memory-overheads -DwxcREFUSE_MEDIACTRL -fPIC -o gen  gen.cpp $(LIBS)
 
+gen.cpp: ../_obuild/gen1/gen1.asm
+	../_obuild/gen1/gen1.asm
+
+../_obuild/gen1/gen1.asm: ../generators/gen1.ml
+	ocp-build -no-color -asm gen1
+
 clean:
 	rm -f *~ gen gen.o *.cm?
 

@@ -449,7 +449,7 @@ external convertDialogToPixelsEx : wxChoice -> wxPoint
 external convertDialogToPixels : wxChoice -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxChoice -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxChoice -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external command : wxChoice -> wxEvent -> unit

@@ -452,7 +452,7 @@ external convertDialogToPixelsEx : wxGaugeMSW -> wxPoint
 external convertDialogToPixels : wxGaugeMSW -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxGaugeMSW -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxGaugeMSW -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external command : wxGaugeMSW -> wxEvent -> unit

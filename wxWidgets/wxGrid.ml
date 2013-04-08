@@ -941,7 +941,7 @@ external convertDialogToPixelsEx : wxGrid -> wxPoint
 external convertDialogToPixels : wxGrid -> wxPoint
 	= "camlidl_wxc_wxWindow_ConvertDialogToPixels"
 
-external connect : wxGrid -> int -> int -> (wxEvent -> unit) -> unit
+external connect : wxGrid -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external close : wxGrid -> bool -> bool

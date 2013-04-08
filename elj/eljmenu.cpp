@@ -343,4 +343,9 @@ EWXWEXPORT(wxString*,wxMenuItem_GetHelp)(wxMenuItem* self)
 	return result;
 }
 
+EWXWEXPORT(void,wxMenu_AppendCheckItem)(wxMenu* self,int id,wxString* text,wxString* help)
+{
+  self->AppendCheckItem(id,*text,*help);
+}
+
 }

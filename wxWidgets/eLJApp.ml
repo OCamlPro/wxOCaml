@@ -185,7 +185,7 @@ external delete : eLJApp -> unit
 external createLogTarget : unit -> eLJLog
 	= "camlidl_wxc_ELJApp_CreateLogTarget"
 
-external connect : eLJApp -> int -> int -> (wxEvent -> unit) -> unit
+external connect : eLJApp -> int -> ('a WxEVT.t) -> ('a -> unit) -> unit
 	= "camlidl_wxc_wxo_wxEvtHandler_Connect"
 
 external bell : unit -> unit
