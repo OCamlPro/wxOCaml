@@ -1,0 +1,10 @@
+begin program "wxStubsGen"
+
+   files = [
+    "genTypes.ml";
+    "genLexer.mll";
+    "genParser.mly";
+    "genMain.ml"
+  ]
+
+end

@@ -1,6 +1,6 @@
 include ../Makefile.config
 
-TARGETS=../wxWidgets/wxdefs.ml ../wxOCaml/wxOCaml.ml
+TARGETS=../wxWidgets/wxdefs.ml
 
 all: $(TARGETS)
 

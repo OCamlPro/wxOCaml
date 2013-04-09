@@ -1,4 +1,17 @@
 
+# Generated sources cannot be linked, since they have dependencies towards
+# the OCaml runtime :-(
+
+GENERATED_SOURCE= \
+    wxOCaml.cpp  \
+    \
+    wxWindow_ml.cpp \
+    wxTopLevelWindow_ml.cpp \
+    wxFrame_ml.cpp \
+    wxDragImage_ml.cpp \
+    wxGenericDragImage_ml.cpp \
+
+
 SOURCES= \
     apppath.cpp \
     dragimage.cpp \
@@ -110,7 +123,7 @@ SOURCES= \
     defs.cpp \
     wrapper.cpp \
     \
-    wxc_more.cpp
+    wxc_more.cpp 
 
 
 #    stc_gen.cpp ?
