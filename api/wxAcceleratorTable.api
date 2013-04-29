@@ -1,0 +1,5 @@
+class wxAcceleratorTable inherit wxObject begin
+
+
+end
+

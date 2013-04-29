@@ -1,0 +1,16 @@
+
+class wxGridSizer inherit wxSizer begin
+
+new(Create)(int rows,int cols,int vgap,int hgap)
+	
+method(void,SetCols)(int cols)
+method(void,SetRows)(int rows)
+method(void,SetVGap)(int gap)
+method(void,SetHGap)(int gap)
+method(int,GetCols)()
+method(int,GetRows)()
+method(int,GetVGap)()
+method(int,GetHGap)()
+
+end
+

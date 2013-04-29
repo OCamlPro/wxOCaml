@@ -1,10 +1,19 @@
 begin program "wxStubsGen"
 
    files = [
+    "genMisc.ml"
     "genTypes.ml";
+
+
     "genLexer.mll";
     "genParser.mly";
+
+    "genProject.ml"
+    "genCplusplus.ml";
+    "genOCaml.ml"
+
     "genMain.ml"
   ]
 
+  requires = [ "unix" ]
 end

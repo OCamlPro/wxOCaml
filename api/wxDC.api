@@ -1,0 +1,3 @@
+class wxDC inherit wxObject begin
+
+end

@@ -1,4 +1,5 @@
 open WxWidgets
+open WxDefs
 
 let _ =
   let onInit event =
@@ -9,17 +10,19 @@ let _ =
     let about_id = wxID() in
 
     let frame = wxFrame
-        WxWindow.ptrNULL
+        None
         frame_id
         "Hello World"
-        50 50
-        450 350
-        Wxdefs.wxDEFAULT_FRAME_STYLE
+        (50, 50)
+        (450, 350)
+        wxDEFAULT_FRAME_STYLE
     in
 
+(*
     if Sys.file_exists "sample.xpm" then
       WxFrame.setIcon frame (WxIcon.createLoad "sample.xpm"
           Wxdefs.wxBITMAP_TYPE_XPM 32 32);
+*)
 
     let menuBar = wxMenuBar 0 in
 

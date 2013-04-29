@@ -1,0 +1,3 @@
+class wxCursor inherit wxObject begin
+
+end

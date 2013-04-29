@@ -1,4 +1,4 @@
-include ../Makefile.config
+include ../config/Makefile
 
 TARGETS=../wxWidgets/wxdefs.ml
 

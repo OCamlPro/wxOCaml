@@ -1,0 +1,3 @@
+class wxTreeCtrl inherit wxControl begin
+
+end

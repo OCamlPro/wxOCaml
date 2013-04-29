@@ -1,0 +1,3 @@
+class wxToolTip inherit wxObject begin
+
+end

@@ -1,0 +1,12 @@
+class wxButton inherit wxAnyButton begin
+
+  new(Create)(wxWindow? _prt,int _id, wxString& _txt, 
+     wxPoint& pos, wxSize& sz, int _stl, _ "wxDefaultValidator")
+
+  method(void,SetDefault)()
+
+(* INHERITED FROM wxWindow 
+  method(bool,SetBackgroundColour)(wxColour& colour)
+*)
+
+end

@@ -1,0 +1,3 @@
+class wxStaticBox inherit wxControl begin
+
+end

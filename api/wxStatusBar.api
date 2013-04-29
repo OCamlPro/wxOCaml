@@ -1,0 +1,3 @@
+class wxStatusBar inherit wxControl begin
+
+end

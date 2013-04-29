@@ -1,0 +1,5 @@
+class wxToolBar inherit wxControl begin
+
+
+end
+

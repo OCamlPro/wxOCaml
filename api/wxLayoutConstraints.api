@@ -1,0 +1,3 @@
+class wxLayoutConstraints inherit wxObject begin
+
+end

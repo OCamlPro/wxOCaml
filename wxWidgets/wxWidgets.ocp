@@ -1,3 +1,5 @@
+enabled = false
+
 begin library "wxWidgets"
   use "link-with-wxOCaml"
   requires = [ "wxOCaml_elj"  "camlidl" ]

@@ -1,0 +1,30 @@
+(* superseeds eljframe.cpp *)
+
+class wxNonOwnedWindowBase inherit wxWindow begin
+
+end
+
+class wxTopLevelWindowBase inherit wxNonOwnedWindowBase begin
+
+end
+
+class wxTopLevelWindow inherit wxTopLevelWindowBase begin
+
+ method(bool,EnableCloseButton)(bool enable)
+ method(wxWindow?,GetDefaultItem)()
+ method(wxIcon,GetIcon)()
+ method(wxString,GetTitle)()
+ method(void,Iconize)(bool iconize)
+ method(bool,IsActive)()
+ method(bool,IsIconized)()
+ method(bool,IsMaximized)()
+ method(void,Maximize)(bool iconize)
+ method(void,RequestUserAttention)(int flags)
+ method(void,SetDefaultItem)(wxWindow? _item)
+ method(void,SetIcon)(wxIcon& _icons)
+ method(void,SetIcons)(wxIconBundle& _icons)
+ method(void,SetMaxSize)(wxSize& sz)
+ method(void,SetMinSize)(wxSize& sz)
+ method(void,SetTitle)(wxString& _str)
+
+end

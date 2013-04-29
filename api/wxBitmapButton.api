@@ -1,0 +1,21 @@
+
+class wxBitmapButton inherit wxButton begin
+
+  new(Create)(wxWindow? _prt,int _id,wxBitmap& _bmp, wxPoint& pos, wxSize& sz,
+      int _stl, _ "wxDefaultValidator")
+
+(* TODO verify... *)
+  method(wxBitmap,GetBitmapLabel)()
+  method(wxBitmap,GetBitmapFocus)()
+  method(wxBitmap,GetBitmapDisabled)()
+(* end TODO verify *)
+	
+  method(void,SetBitmapSelected)(wxBitmap& sel)
+  method(void,SetBitmapFocus)(wxBitmap& focus)
+  method(void,SetBitmapDisabled)(wxBitmap& disabled)
+  method(void,SetBitmapLabel)(wxBitmap& bitmap)
+  method(void,SetMargins)(int x,int y)
+  method(int,GetMarginX)()
+  method(int,GetMarginY)()
+
+end

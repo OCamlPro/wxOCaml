@@ -1,0 +1,3 @@
+class wxBitmap inherit wxObject begin
+
+end

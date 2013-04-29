@@ -1,0 +1,21 @@
+GENERATED_SOURCES = \
+    wxGenericDragImage_ml.cpp  \
+    wxDragImage_ml.cpp  \
+    wxBitmapButton_ml.cpp  \
+    wxBoxSizer_ml.cpp  \
+    wxButton_ml.cpp  \
+    wxEvtHandler_ml.cpp  \
+    wxFlexGridSizer_ml.cpp  \
+    wxFrame_ml.cpp  \
+    wxGridSizer_ml.cpp  \
+    wxMenu_ml.cpp  \
+    wxMenuBar_ml.cpp  \
+    wxMenuItem_ml.cpp  \
+    wxPanel_ml.cpp  \
+    wxSizer_ml.cpp  \
+    wxSizerItem_ml.cpp  \
+    wxStaticBoxSizer_ml.cpp  \
+    wxStaticText_ml.cpp  \
+    wxTopLevelWindow_ml.cpp  \
+    wxWindow_ml.cpp  \
+

@@ -11,7 +11,7 @@
 (***********************************************************************)
 
 binannot = false
-
+enabled = false
 
 begin program "two_panels"
   requires = [ "wxWidgets" ]

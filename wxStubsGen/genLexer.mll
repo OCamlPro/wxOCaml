@@ -54,7 +54,10 @@ rule token = parse
   | '*' { STAR }
   | '?' { QUESTION }
   | ',' { COMMA }
+  | '=' { EQUAL }
   | '&' { AMPERSAND }
+  | "<-" { LESSMINUS }
+  | "<>" { LESSGREATER }
   | "include" { INCLUDE }
   | "class"   { CLASS }
   | "inherit" { INHERIT }
@@ -129,6 +132,9 @@ let string_of_token token = match token with
   | METHOD -> "METHOD"
   | LBRACKET -> "LBRACKET"
   | RBRACKET -> "RBRACKET"
+  | EQUAL -> "EQUAL"
+  | LESSGREATER -> "LESSGREATER"
+  | LESSMINUS -> "LESSMINUS"
 
   let token lexbuf =
     let token = token lexbuf in

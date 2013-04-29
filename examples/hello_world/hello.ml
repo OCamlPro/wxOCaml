@@ -11,6 +11,7 @@
 (***********************************************************************)
 
 open WxWidgets
+open WxDefs
 
 let _ =
   let onInit event =
@@ -21,12 +22,12 @@ let _ =
     let about_id = wxID() in
 
     let frame = wxFrame
-        WxWindow.ptrNULL
+        None
         frame_id
         "Hello World"
-        50 50
-        450 350
-        Wxdefs.wxDEFAULT_FRAME_STYLE
+        (50, 50)
+        (450, 350)
+        wxDEFAULT_FRAME_STYLE
     in
 
     let menuBar = wxMenuBar 0 in
@@ -42,9 +43,9 @@ let _ =
     WxMenu.append  menuFile quit_id
       "E&xit" "Exit from the application" checkable;
 
-    ignore_int (WxMenuBar.append menuBar menuFile "&File");
+    ignore_bool (WxMenuBar.append menuBar (Some menuFile) "&File");
 
-    WxFrame.setMenuBar frame menuBar;
+    WxFrame.setMenuBar frame (Some menuBar);
 
     ignore_wxStatusBar (WxFrame.createStatusBar frame 1 0);
 

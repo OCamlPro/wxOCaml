@@ -1,0 +1,18 @@
+
+class wxPanel inherit wxWindow begin
+
+   new(Create) (wxWindow? _prt, int _id, 
+   wxPoint& pos, wxSize& sz, int style, wxString& panel_name)
+
+
+(*   method(void, InitDialog)() INHERITED FROM wxWindow *)
+(* TODO
+   method(void*, GetDefaultItem)()
+   method(void, SetDefaultItem)(wxButton? btn)
+*)
+
+(* #if (wxVERSION_NUMBER >= 2800) 
+   method(void, SetFocus)() INHERITED FROM wxWindow
+*)
+
+end

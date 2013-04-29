@@ -1,0 +1,5 @@
+class wxValidator inherit wxEvtHandler begin
+
+
+end
+

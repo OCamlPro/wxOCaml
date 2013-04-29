@@ -32,6 +32,7 @@ distclean: clean
 	rm -f config.ocp Makefile.config ocaml/00-config.ocp idl/00-config.ocp
 	rm -f ocp-build.root*
 
-configure: configure.ac
-	aclocal -I m4
-	autoconf
+configure: config/configure.ac
+	cd config; \
+		aclocal -I m4 \
+		autoconf	

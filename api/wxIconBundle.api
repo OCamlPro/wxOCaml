@@ -1,0 +1,3 @@
+class wxIconBundle inherit wxObject begin
+
+end

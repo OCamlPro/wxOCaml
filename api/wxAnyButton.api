@@ -1,0 +1,5 @@
+
+class wxAnyButton inherit wxControl begin
+
+
+end

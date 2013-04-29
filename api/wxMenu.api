@@ -1,0 +1,86 @@
+
+class wxMenu inherit wxEvtHandler begin
+
+
+new(Create)(wxString& title,long style)
+	
+method(void,AppendSeparator)()
+	
+method(void,Append)(int id,wxString& text,wxString& help,bool isCheckable)
+method(void,Append,AppendSub)(int id,wxString& text,wxMenu* submenu,wxString& help)
+method(void,Append,AppendItem)(wxMenuItem* item)
+method(void,Break)()
+
+method(void,Insert)(int pos,int id,wxString& text,wxString& help,bool isCheckable)
+method(void,Insert,InsertSub)(int pos,int id,wxString& text,wxMenu* submenu,wxString& help)
+method(void,Insert,InsertItem)(int pos,wxMenuItem* item)
+
+method(void,Prepend)(int id,wxString& text,wxString& help,bool isCheckable)
+method(void,Prepend,PrependSub)(int id,wxString& text,wxMenu* submenu,wxString& help)
+method(void,Prepend,PrependItem)(wxMenuItem* item)
+
+method(wxMenuItem*,Remove,RemoveByItem)(wxMenuItem* item)
+method(wxMenuItem*,Remove,RemoveById)(int id)
+
+method(void,Delete,DeleteById)(int id)
+method(void,Delete,DeleteByItem)(wxMenuItem* item)
+
+method(void,Destroy, DestroyById)(int id)
+method(void,Destroy, DestroyByItem)(wxMenuItem* item)
+	
+method(int,GetMenuItemCount)()
+
+	
+method(int,FindItem,FindItemByLabel)(wxString& itemString)
+method(wxMenuItem*,FindItem)(int id)
+
+method(void,Enable)(int id,bool enable)
+method(bool,IsEnabled)(int id)
+method(void,Check)(int id,bool check)
+method(bool,IsChecked)(int id)
+method(void,SetLabel)(int id,wxString& label)
+method(wxString,GetLabel)(int id)
+method(void,SetHelpString)(int id,wxString& helpString)
+method(wxString,GetHelpString)(int id)
+method(void,SetTitle)(wxString& title)
+method(wxString,GetTitle)()
+	
+method(void,SetEventHandler)(wxEvtHandler* handler)
+method(void,SetInvokingWindow)(wxWindow* win)
+method(wxWindow*,GetInvokingWindow)()
+method(int,GetStyle)()
+method(void,UpdateUI)(wxEvtHandler* source)
+method(bool,IsAttached)()
+	
+method(void,SetParent)(wxMenu* parent)
+method(wxMenu*,GetParent)()
+method(void,AppendCheckItem)(int id,wxString& text,wxString& help)
+
+
+(* TODO
+method(void,Delete)()
+
+method(int,GetMenuItems)(void* _lst)
+{
+	if (_lst)
+	{
+		for (unsigned int i = 0; i < self->GetMenuItems().GetCount(); i++)
+			((void** )_lst)[i] = self->GetMenuItems().Item(i)->GetData();
+	}
+	return self->GetMenuItems().GetCount();
+}
+
+
+method(void,SetClientData)(void* clientData)
+{
+	self->SetClientData(clientData);
+}
+	
+method(void*,GetClientData)()
+{
+	return (void* )self->GetClientData();
+}
+
+*)
+
+end

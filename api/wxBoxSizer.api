@@ -1,0 +1,10 @@
+
+class wxBoxSizer inherit wxSizer begin
+
+  new(Create)(int orient)
+(*  method(void,RecalcSizes)() INHERITED from wxSizer *)
+(*  method(wxSize,CalcMin)()   INHERITED from wxSizer *)
+  method(int,GetOrientation)()
+
+end
+

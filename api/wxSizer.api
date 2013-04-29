@@ -1,0 +1,97 @@
+class wxSizer inherit wxObject begin
+
+(* TODO: all these functions return wxSizerItem* *)
+  method(void,Add,AddWindow)(wxWindow? window,
+         int option,int flag,int border, wxObject? userData)	
+  method(void,Add,AddSizer)(wxSizer? sizer,
+         int option,int flag,int border,wxObject? userData)	
+  method(void,Add)(int width,int height,int option,int flag,int border,
+           wxObject? userData)
+
+  method(void,Insert,InsertWindow)(int before,wxWindow? window,
+          int option, int flag,int border,wxObject? userData)	
+  method(void,Insert,InsertSizer)(int before,wxSizer? sizer,
+           int option,int flag,int border,wxObject? userData)	
+  method(void,Insert)(int before,int width,int height,
+           int option,int flag,int border, wxObject? userData)
+	
+  method(void,Prepend,PrependWindow)(wxWindow? window,
+          int option,int flag,int border, wxObject? userData)
+  method(void,Prepend,PrependSizer)(wxSizer? sizer,
+          int option,int flag,int border,wxObject? userData)
+  method(void,Prepend)(int width,int height,
+          int option,int flag,int border,wxObject? userData)
+	
+(* #if (wxVERSION_NUMBER < 2800) 
+  method(bool,Remove,RemoveWindow)(wxWindow? window)
+*)
+  method(bool,Remove,RemoveSizer)(wxSizer? sizer)
+  method(bool,Remove)(int pos)
+(* #endif *)
+	
+  method(void,SetMinSize)(int width,int height)
+
+  method(void,SetItemMinSize, SetItemMinSizeWindow)(wxWindow? window,
+         int width,int height)
+  method(void,SetItemMinSize, SetItemMinSizeSizer)(wxSizer? sizer,
+         int width,int height)
+  method(void,SetItemMinSize)(int pos,int width,int height)
+
+  method(wxSize,GetSize)()
+  method(wxPoint,GetPosition)()
+  method(wxSize,GetMinSize)()
+  method(void,RecalcSizes)()
+  method(wxSize,CalcMin)()
+  method(void,Layout)()
+  method(void,Fit)(wxWindow? window)
+  method(void,SetSizeHints)(wxWindow? window)
+(* TODO
+  method(int, wxSizer_GetChildren)( void* _res, int _cnt)
+*)
+
+(* #if (wxVERSION_NUMBER >= 2800) *)
+  method(void,AddSpacer)(int size)
+  method(void,AddStretchSpacer)(int size)
+  method(void,Clear)(bool delete_windows)
+
+  method(bool,Detach,DetachWindow)(wxWindow? window)
+  method(bool,Detach, DetachSizer)(wxSizer? sizer)
+  method(bool,Detach)(int index)
+
+  method(void,FitInside)(wxWindow? window)
+  method(wxWindow?,GetContainingWindow)()
+  method(wxSizerItem?,GetItem,GetItemWindow)(wxWindow? window,bool recursive)
+  method(wxSizerItem?,GetItem,GetItemSizer)(wxSizer? sizer,bool recursive)
+  method(wxSizerItem?,GetItem)(int index)
+
+  method(bool,Hide,HideWindow)(wxWindow? window)
+  method(bool,Hide,HideSizer)(wxSizer? sizer)
+  method(bool,Hide)(int index)
+
+  method(wxSizerItem?,InsertSpacer)(int index,int size)
+  method(wxSizerItem?,InsertStretchSpacer)(int index,int prop)
+
+  method(bool,IsShown,IsShownWindow)(wxWindow? window)
+  method(bool,IsShown,IsShownSizer)(wxSizer? sizer)
+  method(bool,IsShown)(int index)
+
+  method(wxSizerItem?,PrependSpacer)(int size)
+  method(wxSizerItem?,PrependStretchSpacer)(int prop)
+
+  method(bool,Replace,ReplaceWindow)(wxWindow? oldwin,wxWindow? newwin,
+     bool recursive)
+
+  method(bool,Replace,ReplaceSizer)(wxSizer? oldsz,wxSizer? newsz,
+     bool recursive)
+
+  method(bool,Replace)(int oldindex,wxSizerItem? newsz)
+
+  method(void,SetVirtualSizeHints)(wxWindow? window) (* DEPRECATED *)
+  method(bool,Show,ShowWindow)(wxWindow? window,bool show,bool recursive)
+  method(bool,Show,ShowSizer)(wxSizer? sizer,bool show,bool recursive)
+  method(bool,Show)(int index,bool show)
+(*#endif *)
+	
+  method(void,SetDimension)(int x,int y,int width,int height)
+
+end

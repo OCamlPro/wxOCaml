@@ -11,7 +11,7 @@
 (***********************************************************************)
 
 open WxWidgets
-open Wxdefs
+open WxDefs
 
 let _ =
   let onInit event =
@@ -21,17 +21,17 @@ let _ =
 
     let frame =
       wxFrame
-        WxWindow.ptrNULL
+        None
             frame_id
             "Counter"
-            (-1) (-1)
-            290 150
+            (-1,-1)
+            (290, 150)
             wxDEFAULT_FRAME_STYLE
     in
 
     let m_parent = wxPanel
         (WxFrame.wxWindow frame) WxID.any
-        (-1) (-1) (-1) (-1) wxTAB_TRAVERSAL
+        (-1,-1) (-1,-1) wxTAB_TRAVERSAL
     in
     let hbox = wxBoxSizer wxHORIZONTAL in
 

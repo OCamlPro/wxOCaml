@@ -1,0 +1,11 @@
+
+class wxFlexGridSizer inherit wxGridSizer begin
+
+new(Create)(int rows,int cols,int vgap,int hgap)
+method(void, AddGrowableRow)(int idx)
+method(void, RemoveGrowableRow)(int idx)
+method(void, AddGrowableCol)(int idx)
+method(void, RemoveGrowableCol)(int idx)
+
+end
+

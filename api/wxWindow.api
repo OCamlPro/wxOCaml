@@ -1,0 +1,171 @@
+
+class wxWindowBase inherit wxEvtHandler begin
+
+end
+
+  (* superseeds eljwindow.cpp *)
+class wxWindow inherit wxWindowBase begin
+
+
+  new(Create)(wxWindow? _prt,int _id, wxPoint& point, wxSize& sz,int _stl)
+	
+  method(bool,Close)(bool _force)
+  method(bool,Destroy)()
+  method(void,ClearBackground)()
+  method(void,Fit)()
+  method(void,DestroyChildren)()
+  method(bool,IsBeingDeleted)()
+  method(void,SetLabel)(wxString& _title)
+  method(wxString,GetLabel)()
+  method(void,SetName)(wxString& _name)
+  method(wxString,GetName)()
+  method(void,SetId)(int _id)
+  method(int,GetId)()
+  method(void,SetSize)(int x,int y,int width,int height,int sizeFlags)
+  method(void,Move)(int x,int y)
+  method(void,Raise)()
+  method(void,Lower)()
+  method(void,SetClientSize)(int width,int height)
+  method(wxPoint,GetPosition)()
+  method(wxSize,GetSize)()
+  method(wxRect,GetRect)()
+  method(wxSize,GetClientSize)()
+  method(wxSize,GetBestSize)()
+  method(void,Center)(int direction)
+  method(void,CenterOnParent)(int dir)
+  method(void,SetSizeHints)(int minW,int minH,int maxW,int maxH,int incW,int incH)
+  method(int,GetMinWidth)()
+  method(int,GetMinHeight)()
+  method(int,GetMaxWidth)()
+  method(int,GetMaxHeight)()
+  method(bool,Show)()
+  method(bool,Hide)()
+  method(bool,Enable)()
+  method(void, Enable, EnableBool)(bool enable)    
+
+  method(bool,Disable)()
+  method(bool,IsShown)()
+  method(bool,IsEnabled)()
+  method(void,SetWindowStyleFlag)(long style)
+  method(int,GetWindowStyleFlag)()
+  method(bool,HasFlag)(int flag)
+  method(void,SetExtraStyle)(long exStyle)
+  method(void,MakeModal)(bool modal)
+  method(void,SetFocus)()
+  method(wxWindow?,FindFocus)()
+
+(* Can be specialized for some classes (wxMenu) *)
+  method(wxWindow?,GetParent)()
+  method(bool,IsTopLevel)()
+  method(wxWindow?,FindWindow)(wxString& name)
+  method(wxWindow?,FindWindow,FindWindowById)(int _id)
+  method(void,AddChild)(wxWindowBase? child)
+  method(void,RemoveChild)(wxWindowBase? child)
+  method(wxEvtHandler?,GetEventHandler)()
+  method(void,PushEventHandler)(wxEvtHandler? handler)
+  method(wxEvtHandler?,PopEventHandler)(bool deleteHandler)
+  method(void,SetValidator)(wxValidator& validator)
+  method(wxValidator?,GetValidator)()
+  method(bool,Validate)()
+  method(bool,TransferDataToWindow)()
+  method(bool,TransferDataFromWindow)()
+  method(void,InitDialog)()
+  method(void,SetAcceleratorTable)(wxAcceleratorTable& accel)
+  method(wxPoint,ConvertPixelsToDialog)(wxPoint& pt)
+  method(wxPoint,ConvertDialogToPixels)(wxPoint& pt)
+  method(void,WarpPointer)(int x,int y)
+  method(void,CaptureMouse)()
+  method(void,ReleaseMouse)()
+  method(void,Refresh)(bool eraseBackground, wxRect? rect)
+  method(void,PrepareDC)(wxDC& dc)
+  method(wxRegion&,GetUpdateRegion)()
+  method(bool,IsExposed)(int x,int y,int w,int h)
+  method(bool,SetBackgroundColour)(wxColour& colour)
+  method(void,SetForegroundColour)(wxColour& colour)
+  method(wxColour,GetBackgroundColour)()
+  method(wxColour,GetForegroundColour)()
+  method(void,SetCursor)(wxCursor& cursor)
+  method(wxCursor,GetCursor)()
+  method(void,SetFont)(wxFont& font)
+  method(wxFont,GetFont)()
+  method(void,SetCaret)(wxCaret? caret)
+  method(wxCaret?,GetCaret)()
+  method(int,GetCharHeight)()
+  method(int,GetCharWidth)()
+  method(void,GetTextExtent)(wxString& string,
+     int <-x,int <-y,int <-descent,int <-externalLeading,wxFont? theFont)
+  method(wxPoint,ScreenToClient)(wxPoint& pos)
+  method(void,UpdateWindowUI)()
+  method(bool,PopupMenu)(wxMenu? menu,int x,int y)
+  method(void,SetScrollPos)(int orient,int pos,bool refresh)
+  method(int,GetScrollPos)(int orient)
+  method(int,GetScrollThumb)(int orient)
+  method(int,GetScrollRange)(int orient)
+  method(void,ScrollWindow)(int dx,int dy, wxRect? rect)
+  method(void,SetToolTip)(wxString& tip)
+  method(wxToolTip?,GetToolTip)()
+  method(void,SetDropTarget)(wxDropTarget? dropTarget)
+  method(wxDropTarget?,GetDropTarget)()
+  method(void,SetConstraints)(wxLayoutConstraints? constraints)
+  method(wxLayoutConstraints?,GetConstraints)()
+  method(void,SetAutoLayout)(bool autoLayout)
+  method(int,GetAutoLayout)()
+  method(void,Layout)()
+
+  method(void,UnsetConstraints)(wxLayoutConstraints? c)
+
+
+  method(void,AddConstraintReference)(wxWindowBase? otherWin)
+  method(void,RemoveConstraintReference)(wxWindowBase? otherWin)
+  method(void,DeleteRelatedConstraints)()
+  method(void,ResetConstraints)()
+  method(void,SetConstraintSizes)(bool recurse)
+  method(int,DoPhase)(int phase)
+  method(void,SetSizeConstraint)(int x,int y,int w,int h)
+  method(void,MoveConstraint)(int x,int y)
+  method(void,GetSizeConstraint)(int <- w,int <- h)
+  method(void,GetClientSizeConstraint)(int <- w,int <- h)
+  method(void,GetPositionConstraint)(int <- x,int <- y)
+  method(void,SetSizer)(wxSizer? sizer)
+  method(wxSizer?,GetSizer)()
+	
+  method(void,SetScrollbar)(int orient,int pos,int thumbVisible,int range,bool refresh)
+  method(bool,Reparent)(wxWindow? _par)
+
+(*
+#if (wxVERSION_NUMBER < 2800) 
+  method(wxSize,GetAdjustedBestSize)()
+#else
+*)
+  method(wxSize,GetEffectiveMinSize)()
+(*#endif *)
+
+  method(void,Freeze)()
+  method(void,Thaw)()
+
+(*#if (wxVERSION_NUMBER >= 2800) *)
+  method(wxPoint,ClientToScreen)(wxPoint& pos)
+  method(void,FitInside)()
+  method(void,SetVirtualSize)(int w,int h)
+  method(wxSize,GetVirtualSize)()
+
+
+(* TODO
+  method(void*,GetHandle)()
+  method(int,LayoutPhase1)(int* noChanges)
+  method(int,LayoutPhase2)(int* noChanges)
+
+  We need more info, is it really optional the return value ?
+  we also need a converter from wxWindowList to wxWindow array:
+  method(wxWindowList?,GetConstraintsInvolvedIn)()
+
+  method(void,SetClientData)(void* data)
+  method(void*,GetClientData)()
+
+  api_delayed.cpp:
+  method(int,GetChildren)(void* _res,int _cnt)
+
+*)
+
+
+end

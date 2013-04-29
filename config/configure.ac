@@ -73,11 +73,11 @@ LIBS="$LIBS $WX_LIBS"
 AC_SUBST(CXXFLAGS)
 
 AC_CONFIG_FILES(
-  Makefile.config \
-  config.ocp \
-  wxCamlidl/config.ml \
+  Makefile \
+  ../config.ocp \
+  ../wxCamlidl/config.ml \
 )
 AC_OUTPUT
 
-ocp-build root
+
 

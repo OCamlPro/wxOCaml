@@ -1,0 +1,8 @@
+
+class wxStaticText inherit wxControl begin
+
+   new(Create)(wxWindow? _prt,int _id,wxString& _txt, 
+               wxPoint& pos, wxSize& sz ,int _stl)
+
+end
+

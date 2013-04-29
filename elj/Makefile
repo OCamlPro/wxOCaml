@@ -130,7 +130,7 @@ SOURCES= \
 
 OBJECTS=$(SOURCES:.cpp=.o)
 
-include ../Makefile.config
+include ../config/Makefile
 
 NAME=wxOCaml_elj
 

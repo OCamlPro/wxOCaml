@@ -1,0 +1,37 @@
+class wxMenuBar inherit wxWindow begin
+
+new(Create)(int style)
+	
+method(bool, Append)(wxMenu? menu,wxString& title)
+	
+method(bool, Insert)(int pos,wxMenu? menu,wxString& title)
+method(int, GetMenuCount)()
+method(wxMenu*, GetMenu)(int pos)
+method(wxMenu*, Replace)(int pos,wxMenu? menu,wxString& title)
+method(wxMenu*, Remove)(int pos)
+method(void, EnableTop)(int pos,bool enable)
+method(void, SetLabelTop)(int pos,wxString& label)
+method(wxString, GetLabelTop)(int pos)
+method(int, FindMenuItem)(wxString& menuString,wxString& itemString)
+method(wxMenuItem*, FindItem)(int id, _ "NULL") (* TODO: improve *)
+method(int, FindMenu)(wxString& title)
+method(void, Enable, EnableItem)(int id,bool enable)
+method(void, Check)(int id,bool check)
+method(bool, IsChecked)(int id)
+method(void, SetLabel, SetItemLabel)(int id,wxString& label)
+method(wxString, GetLabel, GetItemLabel)(int id)
+method(void, SetHelpString)(int id,wxString& helpString)
+method(wxString, GetHelpString)(int id)
+(*  INHERITED FROM wxWindow
+  method(bool, IsEnabled)(int id)
+   method(void, SetLabel)(wxString& s)  
+*)
+
+(* TODO	
+method(void, DeletePointer)()
+{
+	delete self;
+}
+*)
+
+end

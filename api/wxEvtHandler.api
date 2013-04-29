@@ -1,0 +1,115 @@
+(* Fabrice: For OCaml closures, I propose the following "safe"
+  mechanism: instead of storing OCaml closures in wxClosures, we
+  should store a C function and an integer (the index), the C function
+  should lookup the OCaml closure in a table at the specified index.
+  This way, we only need to keep track of closures stored in the table,
+  not in wxObjects that could be desallocated by mistake. This should be
+  safe, even if it leads to a memory leak of OCaml closures.
+ *)
+
+
+
+class wxEvtHandler inherit wxObject begin
+
+(*
+  method{ gen_c = "false" }(int,Connect)(int first,int last,
+     { arg_ctype = "int"
+       arg_name = "type"
+       arg_ocaml = "('a WxEVT.t)"
+     }, 
+     { arg_ocaml = "('a -> unit)" }
+     )
+
+*)
+
+(*
+/* event handling */
+EWXWEXPORT(int,wxEvtHandler_Connect)(void* _obj,int first,int last,int type,wxClosure* closure)
+{
+  wxCallback* callback = new wxCallback(closure);
+  ((wxEvtHandler* )_obj)->Connect(first, last, type, (wxObjectEventFunction)&ELJApp::HandleEvent, callback);
+  return 0;
+}
+
+EWXWEXPORT(wxClosure*,wxEvtHandler_GetClosure)(wxEvtHandler* evtHandler,int id,int type)
+{
+  wxCommandEvent  event(type,id);     //We can use any kind of event here
+  wxCallback*     callback = NULL;
+  bool            found    = false;
+
+  //set the global variable 'getCallback' so HandleEvent
+  //knows we just want to know the closure. Unfortunately, this
+  //seems the cleanest way to retrieve the callback in wxWindows.
+  getCallback = &callback;
+  // Bugfix: see www.mail-archive.com/wxhaskell-devel@lists.sourceforge.net/msg00577.html
+  // On entry, Dynamic event table may have no bound events
+  // Bug reproduces only on Debug builds, and seems to be ignorable
+  if (evtHandler->GetDynamicEventTable() != NULL)
+    found = evtHandler->SearchDynamicEventTable( event );
+  getCallback = NULL;
+
+  if (found && callback)
+    return callback->GetClosure();
+  else
+    return NULL;
+}
+
+
+
+/* client data */
+EWXWEXPORT(void*,wxEvtHandler_GetClientClosure)(void* _obj)
+{
+  return (void* )((wxEvtHandler* )_obj)->GetClientObject();
+}
+
+EWXWEXPORT(void,wxEvtHandler_SetClientClosure)(void* _obj,wxClosure* closure)
+{
+  ((wxEvtHandler* )_obj)->SetClientObject(closure);
+}
+
+EWXWEXPORT(void*,wxEvtHandler_Create)()
+{
+        return (void* )new wxEvtHandler();
+}
+
+EWXWEXPORT(void,wxEvtHandler_Delete)(wxEvtHandler* self)
+{
+        delete self;
+}
+
+
+EWXWEXPORT(int,wxEvtHandler_Disconnect)(wxEvtHandler* self,int first,int last,int type,wxObject* data)
+{
+        return (int)self->Disconnect(first, last, type, (wxObjectEventFunction)&ELJApp::HandleEvent, data);
+}
+
+EWXWEXPORT(void*,wxEvtHandler_GetNextHandler)(wxEvtHandler* self)
+{
+        return (void* )self->GetNextHandler();
+}
+
+EWXWEXPORT(void*,wxEvtHandler_GetPreviousHandler)(wxEvtHandler* self)
+{
+        return (void* )self->GetPreviousHandler();
+}
+
+EWXWEXPORT(void,wxEvtHandler_SetNextHandler)(wxEvtHandler* self,void* handler)
+{
+        self->SetNextHandler((wxEvtHandler* )handler);
+}
+
+EWXWEXPORT(void,wxEvtHandler_SetPreviousHandler)(wxEvtHandler* self,void* handler)
+{
+        self->SetPreviousHandler((wxEvtHandler* )handler);
+}
+*)
+
+  method(void,SetEvtHandlerEnabled)(bool enabled)
+  method(bool,GetEvtHandlerEnabled)()
+  method(bool,ProcessEvent)(wxEvent& event)
+  method(void,AddPendingEvent)(wxEvent& event)
+  method(void,ProcessPendingEvents)()
+
+end
+
+

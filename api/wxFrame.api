@@ -1,0 +1,35 @@
+
+class wxFrame inherit wxTopLevelWindow begin
+
+  new(Create)(wxWindow? _prt,int _id, wxString& _txt, wxPoint& point, wxSize& size,int _stl)
+
+  method(wxStatusBar*,CreateStatusBar)(int number,int style, _ "1")
+
+ method(void,Restore)()
+	
+ method(wxPoint,GetClientAreaOrigin)()
+ method(void,SetMenuBar)(wxMenuBar? menubar)
+ method(wxMenuBar?,GetMenuBar)()
+ method(wxStatusBar?,GetStatusBar)()
+ method(void,SetStatusBar)(wxStatusBar* statBar)
+ method(void,SetStatusText)(wxString& _txt,int _number)
+ method(void,SetStatusWidths)(int _n, ints? widths_field)
+ method(wxToolBar?,CreateToolBar)(long style, _ "1")
+ method(wxToolBar?,GetToolBar)()
+ method(void,SetToolBar)(wxToolBar? _toolbar)
+
+
+
+
+(* INHERITED FROM wxTopLevelWindow 
+ method(wxIcon,GetIcon)()
+ method(void,Iconize)()
+ method(bool,IsMaximized)()
+ method(bool,IsIconized)()
+ method(void,Maximize)()
+ method(void,SetIcon)(wxIcon& _icon)
+  method(void,SetIcons)(wxIconBundle& icons)
+
+*)
+
+end

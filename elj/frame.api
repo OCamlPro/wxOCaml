@@ -280,3 +280,9 @@ class wxFrame inherit wxTopLevelWindow begin
   method(void,SetIcons)(wxIconBundle& icons)
 
 end
+
+
+class wxPanel begin end
+class wxBoxSizer begin end
+class wxButton begin end
+class wxStaticText begin end

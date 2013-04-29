@@ -1,0 +1,35 @@
+class wxMenuItem inherit wxObject begin
+
+
+new(Create)()
+
+method(wxMenu*, GetMenu)()
+method(void, SetId)(int id)
+method(int, GetId)()
+method(bool, IsSeparator)()
+method(void, SetCheckable)(bool checkable)
+method(bool, IsCheckable)()
+method(bool, IsSubMenu)()
+method(void, SetSubMenu)(wxMenu* menu)
+method(wxMenu*, GetSubMenu)()
+method(void, Enable)(bool enable)
+method(bool, IsEnabled)()
+method(void, Check)(bool check)
+method(bool, IsChecked)()
+method(void, SetHelp)(wxString& str)
+method(wxString, GetHelp)()
+
+(* DEPRECATED *)
+method(void, SetText)(wxString& str)
+method(wxString, GetLabel)()
+method(wxString, GetText)()
+method(wxString, GetLabelFromText)(wxString& text)
+
+(* TODO 	
+method(void, Delete)()
+{
+	delete self;
+}
+*)
+
+end

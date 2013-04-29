@@ -1,0 +1,58 @@
+
+class wxSizerItem inherit wxObject begin
+
+  new(Create)(int width,int height,int option,int flag,int border,wxObject? userData)
+  new(Create,CreateInWindow)(wxWindow? window,int option,int flag,int border,wxObject? userData)
+  new(Create,CreateInSizer)(wxSizer? sizer,int option,int flag,int border,wxObject? userData)
+	
+  method(wxSize,GetSize)()
+  method(wxSize,CalcMin)()
+  method(void,SetDimension)(wxPoint& pos, wxSize& size)
+  method(wxSize,GetMinSize)()
+  method(void,SetRatio)(int width,int height)
+  method(void,SetRatio,SetFloatRatio)(float ratio)
+  method(float,GetRatio)()
+  method(bool,IsWindow)()
+  method(bool,IsSizer)()
+  method(bool,IsSpacer)()
+  method(void,SetInitSize)(int x,int y)
+  (* #if (wxVERSION_NUMBER < 2800)	 
+  method(void,SetOption)(int option)
+   #endif *)
+  method(void,SetFlag)(int flag)
+  method(void,SetBorder)(int border)
+  method(wxWindow?,GetWindow)()
+  method(void,SetWindow)(wxWindow? window) (* DEPRECATED *)
+  method(wxSizer?,GetSizer)()
+  method(void,SetSizer)(wxSizer? sizer) (* DEPRECATED *)
+  (* #if (wxVERSION_NUMBER < 2800) 
+  method(int,GetOption)()
+   #endif *)
+  method(int,GetFlag)()
+  method(int,GetBorder)()
+(* TODO   
+method(void*,GetUserData)()
+{
+	return ((ELJDataObject* )self->GetUserData())->data;
+}
+*)	
+  method(wxPoint,GetPosition)()
+  (* #if (wxVERSION_NUMBER >= 2800)  *)
+  (* TODO 
+  method(void,Delete)()
+{
+	delete self;
+}
+*)
+  method(void,DeleteWindows)()
+  method(void,DetachSizer)()
+  method(int,GetProportion)()
+  method(wxRect,GetRect)()
+(* Only if isSpacer is true *)
+  method(wxSize,GetSpacer)()
+  method(bool,IsShown)()
+  method(void,SetProportion)(int proportion)
+  method(void,SetSpacer)(wxSize& size) (* DEPRECATED *)
+  method(void,Show)(int show)
+
+end

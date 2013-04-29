@@ -32,3 +32,5 @@ generators/gen
 wxOCaml/00-config.ocp
 wxOCaml/wxdefs.ml
 idl/wxc.h
+config/Makefile
+api/new_sources/libwxOCaml_api.so
