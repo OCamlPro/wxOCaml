@@ -6,7 +6,6 @@ include Makefile.project
 
 SOURCES= \
     wxOCaml.cpp  \
-    api_delayed.cpp \
     \
     $(GENERATED_SOURCES)
 
@@ -19,11 +18,14 @@ NOT_SOURCES= \
 
 OBJECTS=$(SOURCES:.cpp=.o)
 
-include ../../config/Makefile
+include ../config/Makefile
 
 NAME=wxOCaml_api
 
 all: lib$(NAME).a
+
+clean:
+	rm -f *.o *~
 
 lib$(NAME).a: $(OBJECTS) 
 	ar rc  lib$(NAME).a $(OBJECTS)

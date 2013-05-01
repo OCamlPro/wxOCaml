@@ -3,9 +3,9 @@ open GenProject
 open GenTypes
 open GenMisc
 
-let generate_events source_directory wxEVT =
+let generate_events api_directory source_directory wxEVT =
   let events = ref [] in
-  let ic = open_in "events.dsc" in
+  let ic = open_in (Filename.concat api_directory "events.dsc") in
   begin try
     while true do
       events := input_line ic :: !events

@@ -5,9 +5,10 @@ NJOBS=-j 10
 # apply the -no-color switch to use the old behavior.
 
 all:
-	(cd generators; $(MAKE))
+	(cd wxDefsGen; $(MAKE))
+	(cd wxStubsGen; $(MAKE))
 	ocp-build -no-color wxStubsGen
-	(cd api; $(MAKE) $(NJOBS))
+	(cd wxWidgets; $(MAKE) $(NJOBS))
 	ocp-build
 
 byte:
@@ -20,15 +21,15 @@ partialclean:
 	ocp-build -clean
 
 clean:
-	rm -f *~ ocaml/*~ idl/*~ examples/*/*~
-	(cd elj; $(MAKE) clean)
-	(cd idl; $(MAKE) clean)
-	(cd generators; $(MAKE) clean)
+	rm -f *~
+	(cd wxDefsGen; $(MAKE) clean)
+	(cd wxStubsGen; $(MAKE) clean)
+	(cd wxWidgets; $(MAKE) clean)
 	ocp-build -clean
 
 distclean: clean
-	rm -rf autom4te.cache config.status config.log
-	rm -f config.ocp Makefile.config ocaml/00-config.ocp idl/00-config.ocp
+	rm -rf config/autom4te.cache config/config.status config/config.log
+	rm -f config.ocp config/Makefile 
 	rm -f ocp-build.root*
 
 configure: config/configure.ac

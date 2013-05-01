@@ -109,23 +109,28 @@ let create_class_hierarchy files =
   !classes;
   !classes
 
+let source_directory = ref "sources"
+let api_directory = ref "api"
 
 let _ =
   Arg.parse [
+    "-api", Arg.String (fun s -> api_directory := s), "dir set API directory";
+    "-target", Arg.String (fun s -> source_directory := s), "dir set target directory";
     "-tokens", Arg.Set GenLexer.debug, " Print Lexer Tokens";
   ]
     read  " ";
+
+  let source_directory = !source_directory in
 
   let files = !files in
   let classes = create_class_hierarchy files in
 
   try
-    let source_directory = "new_sources" in
     mkdir source_directory;
     GenOCaml.generate_types_module
       source_directory "wxClasses" classes;
     List.iter (generate_sources source_directory) files;
-    GenEvents.generate_events source_directory "wxEVT";
+    GenEvents.generate_events !api_directory source_directory "wxEVT";
 
     GenProject.generate_project_ocp
       (Filename.concat source_directory "wxWidgets.ocp");
