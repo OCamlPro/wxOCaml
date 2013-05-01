@@ -7,7 +7,6 @@ NJOBS=-j 10
 all:
 	(cd wxDefsGen; $(MAKE))
 	(cd wxStubsGen; $(MAKE))
-	ocp-build -no-color wxStubsGen
 	(cd wxWidgets; $(MAKE) $(NJOBS))
 	ocp-build
 
