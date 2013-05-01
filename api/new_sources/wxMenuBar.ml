@@ -101,6 +101,11 @@ external getHelpString : wxMenuBar ->
 
 (* Methods inherited from parents, if any *)
 
+external connect : wxMenuBar ->
+   int -> ('a WxEVT.t) -> ('a -> unit) -> 
+      unit = "wxEvtHandler_Connect_c"
+
+
 external setEvtHandlerEnabled : wxMenuBar ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"

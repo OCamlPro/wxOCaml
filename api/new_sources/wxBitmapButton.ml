@@ -56,6 +56,11 @@ external setDefault : wxBitmapButton ->
    unit = "wxButton_SetDefault_c"
 
 
+external connect : wxBitmapButton ->
+   int -> ('a WxEVT.t) -> ('a -> unit) -> 
+      unit = "wxEvtHandler_Connect_c"
+
+
 external setEvtHandlerEnabled : wxBitmapButton ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"

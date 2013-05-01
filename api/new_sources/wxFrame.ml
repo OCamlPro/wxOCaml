@@ -62,6 +62,11 @@ external setToolBar : wxFrame ->
 
 (* Methods inherited from parents, if any *)
 
+external connect : wxFrame ->
+   int -> ('a WxEVT.t) -> ('a -> unit) -> 
+      unit = "wxEvtHandler_Connect_c"
+
+
 external setEvtHandlerEnabled : wxFrame ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"

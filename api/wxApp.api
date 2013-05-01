@@ -1,0 +1,8 @@
+
+class wxApp inherit wxAppConsole begin
+  function{ gen_cpp = false }(void, Main)(
+      "('a -> unit)" handler onInit,
+      "(string array)" char** argv
+  )
+  function{ gen_cpp = false }(void, SetTopWindow)(wxWindow& window)
+end

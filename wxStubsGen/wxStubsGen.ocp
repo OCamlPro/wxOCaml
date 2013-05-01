@@ -11,6 +11,7 @@ begin program "wxStubsGen"
     "genProject.ml"
     "genCplusplus.ml";
     "genOCaml.ml"
+    "genEvents.ml";
 
     "genMain.ml"
   ]

@@ -45,7 +45,7 @@ let generate_sources source_directory (filename, components) =
   List.iter (fun comp ->
     match comp with
     | Comp_include s -> includes := s :: !includes
-    | _ -> ()
+    | Comp_class _ -> ()
   ) components;
 
   let includes = List.rev !includes in
@@ -53,11 +53,10 @@ let generate_sources source_directory (filename, components) =
   List.iter (fun comp ->
     match comp with
     | Comp_class cl ->
-
       if cl.class_methods <> [] then
         GenCplusplus.generate_class_stubs source_directory cl includes;
       GenOCaml.generate_class_module source_directory cl
-    | _ -> ()
+    | Comp_include _ -> ()
   ) components;
 
   ()
@@ -126,6 +125,7 @@ let _ =
     GenOCaml.generate_types_module
       source_directory "wxClasses" classes;
     List.iter (generate_sources source_directory) files;
+    GenEvents.generate_events source_directory "wxEVT";
 
     GenProject.generate_project_ocp
       (Filename.concat source_directory "wxWidgets.ocp");

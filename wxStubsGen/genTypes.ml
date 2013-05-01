@@ -25,17 +25,24 @@ and prototype = {
   proto_name : string;
   proto_mlname : string option;
   proto_args : fun_arg list;
-  proto_options : (string * string) list;
+  proto_options : proto_options;
+}
+
+and proto_options = {
+  fopt_gen_cpp : bool;
+  fopt_others : unit;
 }
 
 and proto_kind =
   | ProtoNew
   | ProtoMethod
+  | ProtoFunction
 
 and fun_arg = {
   arg_name : string;
   arg_ctype : ctype;
   arg_direction : direction;
+  arg_ocaml : string option;
 }
 
 and direction = In | Out (* | InOut *)

@@ -1,6 +1,8 @@
 #include "wxOCaml.h"
 
-#include "caml/callback.h"
+extern "C" {
+  #include "caml/callback.h"
+}
 
 extern "C"
 {
@@ -67,6 +69,8 @@ value Val_wxSize(wxSize *point_c)
 
 }
 
+}
+
 class OCamlCallback: public wxObject
 {
   private:
@@ -84,32 +88,84 @@ class OCamlCallback: public wxObject
   value get() { return m_closure; }
 };
 
-class OCamlEvtHandler : public wxEvtHandler
+class OCamlApp: public wxApp
 {
-public:
-  void HandleEvent(wxEvent& _evt)
+  public:
+    bool OnInit (void);
+    int  OnExit (void);
+    void HandleEvent2(wxEvent& _evt);
+};
+
+static int terminating = 0;
+static OCamlCallback* initHandler = NULL;
+
+wxIMPLEMENT_APP_NO_MAIN(OCamlApp);
+bool OCamlApp::OnInit (void){ 
+  wxInitAllImageHandlers();
+  if(initHandler != NULL){
+    value closure_v = initHandler->get();
+    caml_callback(closure_v, Val_unit);
+  }
+  return true; 
+}
+int OCamlApp::OnExit (void){ 
+
+  return 0; 
+}
+
+void OCamlApp::HandleEvent2(wxEvent& _evt)
   {
     wxEvent* event_c = &_evt;
     value event_v = Val_abstract(event_c);
     value callback_v = ((OCamlCallback*)(_evt.m_callbackUserData))->get();
     caml_callback( callback_v, event_v );
   }
-};
 
-value wxEvtHandler_Connect_c(value self_v, value first_v, value last_v, 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
+
+extern "C" {
+  
+  value wxApp_SetTopWindow_c(value window_v){
+    wxWindow* window_c = (wxWindow*) Abstract_val(window_v);
+    wxGetApp().SetTopWindow (window_c);
+  }
+
+  value wxApp_Main_c(value onInit_v, value argv_v){
+    int argc = Wosize_val(argv_v);
+    char **argv_c = argc == 0 ? NULL : (char**)argv_v;
+
+    initHandler = new OCamlCallback(onInit_v);
+    terminating = 0;
+#ifdef _WIN32
+    wxhInstance = GetModuleHandle(NULL);
+    wxEntry(wxhInstance, NULL, argv_c, SW_SHOWNORMAL);
+#else
+    wxEntry(argc, argv_c);
+#endif
+    terminating = 1;
+
+    return Val_unit;
+  }
+
+
+value wxEvtHandler_Connect_c(value self_v, value first_v, 
 			     value type_v, value closure_v)
 {
   value ret_v;
   wxEvtHandler* self_c = (wxEvtHandler*)Abstract_val(self_v);
   int first_c = Int_val(first_v);
-  int last_c = Int_val(last_v);
   int type_c = Int_val(type_v);
-  self_c->Connect(first_c, last_c, type_c, 
+  OCamlCallback* callback_c = new OCamlCallback(closure_v);
+
+  self_c->Connect(first_c, -1, type_c, 
 			      (wxObjectEventFunction)
-			      &OCamlEvtHandler::HandleEvent, 
-			      new OCamlCallback(closure_v));
+		  &OCamlApp::HandleEvent2, callback_c);
 
   return Val_unit;
 }
+
 
 }

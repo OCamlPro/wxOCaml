@@ -11,6 +11,11 @@ external setDefault : wxButton ->
 
 (* Methods inherited from parents, if any *)
 
+external connect : wxButton ->
+   int -> ('a WxEVT.t) -> ('a -> unit) -> 
+      unit = "wxEvtHandler_Connect_c"
+
+
 external setEvtHandlerEnabled : wxButton ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"

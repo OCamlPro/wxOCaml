@@ -194,6 +194,11 @@ external appendCheckItem : wxMenu ->
 
 (* Methods inherited from parents, if any *)
 
+external connect : wxMenu ->
+   int -> ('a WxEVT.t) -> ('a -> unit) -> 
+      unit = "wxEvtHandler_Connect_c"
+
+
 external setEvtHandlerEnabled : wxMenu ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"

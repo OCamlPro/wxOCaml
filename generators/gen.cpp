@@ -1,8 +1,12 @@
-#include "../elj/wrapper.h"
+#include "../api/new_sources/wxOCaml.h"
 #define exp2() 0
 #define EWXWCONSTANTSTR(name, v)
 #define EWXWCONSTANTINT(name, v) printf("let " #name " = %d\n",v);
-int main(){
+
+extern "C" {
+
+int main(int argc, char* argv[]){
+ printf("let wxEVT_COMMAND_MENU_SELECTED = %d\n",wxEVT_COMMAND_MENU_SELECTED);
 #include "defs1.h"
 printf("let wxUSE_ABOUTDLG = ");
 #if wxUSE_ABOUTDLG
@@ -1979,4 +1983,6 @@ printf("true\n");
 printf("false\n");
 #endif
   return 0;
+}
+
 }

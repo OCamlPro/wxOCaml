@@ -2,6 +2,11 @@ open WxClasses
 
 (* Methods inherited from parents, if any *)
 
+external connect : wxWindowBase ->
+   int -> ('a WxEVT.t) -> ('a -> unit) -> 
+      unit = "wxEvtHandler_Connect_c"
+
+
 external setEvtHandlerEnabled : wxWindowBase ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"

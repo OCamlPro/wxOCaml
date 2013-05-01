@@ -15,6 +15,8 @@ let new_class class_name class_inherit class_methods =
     class_children;
   }
 
+let default_options = { fopt_gen_cpp = true; fopt_others = () }
+
 %}
 
 
@@ -45,6 +47,10 @@ let new_class class_name class_inherit class_methods =
 %token INHERIT
 %token NEW
 %token METHOD
+%token TRUE
+%token FALSE
+%token GEN_CPP
+%token FUNCTION
 
 %start file
 %type <GenTypes.file> file
@@ -59,10 +65,8 @@ components:
 ;
 
 component:
-  | INCLUDE STRING { Comp_include $2 }
-  | CLASS IDENT ancestors BEGIN methods END {
-    Comp_class (new_class  $2 $3 $5)
-  }
+  | INCLUDE STRING                          { Comp_include $2 }
+  | CLASS IDENT ancestors BEGIN methods END { Comp_class (new_class  $2 $3 $5) }
 ;
 
 ancestors:
@@ -78,7 +82,7 @@ methods:
 /* For Mantis: using "method" as a rule name triggers a weird error.
       There should be some substitution done for keywords in ocamlyacc, no ? */
 meth:
-| NEW options_maybe LPAREN IDENT maybe_mlname RPAREN LPAREN arguments RPAREN
+| NEW options_maybe LPAREN genident maybe_mlname RPAREN LPAREN arguments RPAREN
   {
     { proto_kind = ProtoNew;
       proto_ret = None;
@@ -98,26 +102,41 @@ meth:
       proto_options = $2;
     }
   }
+| FUNCTION options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN LPAREN arguments RPAREN
+  {
+    { proto_kind = ProtoFunction;
+      proto_ret = Some $4;
+      proto_name = $6;
+      proto_mlname = $7;
+      proto_args = $10;
+      proto_options = $2;
+    }
+  }
 ;
 
 options_maybe:
-  { [] }
-| LBRACE options RBRACKET { $2 }
+                          { default_options }
+| LBRACE options RBRACE { $2 }
+;
+
+bool:
+  TRUE   { true }
+| FALSE  { false }
 ;
 
 options:
-  { [] }
-| genident EQUAL STRING options { ($1,$3) :: $4 }
+                             { default_options }
+| GEN_CPP EQUAL bool options {  { $4 with fopt_gen_cpp = $3 } }
 ;
 
 maybe_mlname:
-  { None }
+                 { None }
 | COMMA genident { Some $2 }
 ;
 
 ctype:
   | ctype STAR { Typ_pointer $1 }
-  | IDENT { Typ_ident $1 }
+  | genident { Typ_ident $1 }
   | ctype AMPERSAND { Typ_reference $1 }
   | ctype QUESTION { Typ_option $1 }
   | UNDERSCORE { Typ_direct }
@@ -135,10 +154,16 @@ more_arguments:
 ;
 
 argument:
-  UNDERSCORE STRING
-    { { arg_name = $2; arg_ctype = Typ_direct; arg_direction = In } }
-| ctype maybe_direction genident
-    { { arg_ctype = $1; arg_direction = $2; arg_name = $3; } }
+  maybe_ocaml UNDERSCORE STRING
+    { { arg_name = $3; arg_ctype = Typ_direct; arg_direction = In;
+        arg_ocaml = $1 } }
+| maybe_ocaml ctype maybe_direction genident
+    { { arg_ocaml = $1; arg_ctype = $2; arg_direction = $3; arg_name = $4; } }
+;
+
+maybe_ocaml:
+|             { None }
+| STRING      { Some $1 }
 ;
 
 maybe_direction:
@@ -157,5 +182,9 @@ genident:
 | INHERIT { "inherit" }
 | NEW     { "new" }
 | METHOD  { "method" }
+| GEN_CPP   { "gen_cpp" }
+| TRUE    { "true" }
+| FALSE   { "false" }
+| FUNCTION { "function" }
 ;
 

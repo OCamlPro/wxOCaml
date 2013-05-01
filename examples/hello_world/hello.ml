@@ -63,18 +63,19 @@ let _ =
       WxEVT._COMMAND_MENU_SELECTED
       (fun _ -> Printf.eprintf "ABOUT ???\n%!";
         ignore_int (
-          WxMisc.wxcMessageBox           "wxWidgets Hello World example."
+          WxMisc.wxMessageBox
+            "wxWidgets Hello World example."
             "About Hello World"
-            (Wxdefs.wxOK lor Wxdefs.wxICON_INFORMATION)
-            (WxFrame.wxWindow frame)
-            Wxdefs.wxDefaultCoord
-            Wxdefs.wxDefaultCoord
+            (wxOK lor wxICON_INFORMATION)
+            (Some (WxFrame.wxWindow frame))
+            wxDefaultCoord
+            wxDefaultCoord
         )
         );
 
     ignore_bool ( WxFrame.show frame );
-    ELJApp.setTopWindow (WxFrame.wxWindow frame)
-
+    WxApp.setTopWindow (WxFrame.wxWindow frame)
   in
-  WxMain.main onInit
+  WxApp.main onInit Sys.argv
+
 

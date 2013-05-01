@@ -1,6 +1,8 @@
 GENERATED_SOURCES = \
+    wxEVT_ml.cpp  \
     wxGenericDragImage_ml.cpp  \
     wxDragImage_ml.cpp  \
+    wxApp_ml.cpp  \
     wxBitmapButton_ml.cpp  \
     wxBoxSizer_ml.cpp  \
     wxButton_ml.cpp  \
@@ -11,6 +13,7 @@ GENERATED_SOURCES = \
     wxMenu_ml.cpp  \
     wxMenuBar_ml.cpp  \
     wxMenuItem_ml.cpp  \
+    wxMisc_ml.cpp  \
     wxPanel_ml.cpp  \
     wxSizer_ml.cpp  \
     wxSizerItem_ml.cpp  \

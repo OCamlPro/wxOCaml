@@ -1,0 +1,4 @@
+
+class wxAppConsole inherit wxEvtHandler (* inherit wxEventFilter *) begin
+
+end

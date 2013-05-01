@@ -6,6 +6,8 @@ type ints = int array
 type wxAcceleratorTable
 type wxActivateEvent
 type wxAnyButton
+type wxApp
+type wxAppConsole
 type wxBitmap
 type wxBitmapButton
 type wxBoxSizer
@@ -49,6 +51,7 @@ type wxMenu
 type wxMenuBar
 type wxMenuEvent
 type wxMenuItem
+type wxMisc
 type wxMouseCaptureChangedEvent
 type wxMouseCaptureLostEvent
 type wxMouseEvent

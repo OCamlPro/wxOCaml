@@ -65,6 +65,11 @@ rule token = parse
   | "end"     { END   }
   | "new"     { NEW }
   | "method"  { METHOD }
+  | "true"    { TRUE }
+  | "false"    { FALSE }
+  | "gen_cpp"    { GEN_CPP }
+  | "function"  { FUNCTION }
+
   | '_' { UNDERSCORE }
   | firstidentchar identchar* {
     IDENT (Lexing.lexeme lexbuf)
@@ -108,7 +113,7 @@ and comment = parse
 
 
 {
-  let debug = ref false
+  let debug = ref (try ignore (Sys.getenv "WXDEBUG"); true with _ -> false)
 
 let string_of_token token = match token with
     NEW -> "NEW"
@@ -135,6 +140,10 @@ let string_of_token token = match token with
   | EQUAL -> "EQUAL"
   | LESSGREATER -> "LESSGREATER"
   | LESSMINUS -> "LESSMINUS"
+  | TRUE -> "TRUE"
+  | FALSE -> "FALSE"
+  | GEN_CPP -> "GEN_CPP"
+  | FUNCTION -> "FUNCTION"
 
   let token lexbuf =
     let token = token lexbuf in

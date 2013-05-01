@@ -1,6 +1,9 @@
+binannot = false
 
 begin config "link-with-wxOCaml"
-  link = [ "-cclib" "-lwxOCaml_elj @LIBS@ -lcamlidl" ]
+  custom = true
+  bytelink += [ "-custom" ]
+  link += [ "-cclib" "-lwxOCaml_api @LIBS@ " ]
 end
 
 begin config "compile-c-with-wxWidget"

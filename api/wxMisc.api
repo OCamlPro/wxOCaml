@@ -1,0 +1,6 @@
+
+class wxMisc begin
+
+  function(int, wxMessageBox) (wxString& message, wxString& caption, long style, wxWindow? parent, int x, int y)
+
+end

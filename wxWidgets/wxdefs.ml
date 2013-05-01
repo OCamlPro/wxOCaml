@@ -1,3 +1,4 @@
+let wxEVT_COMMAND_MENU_SELECTED = 10013
 let wxACCEL_ALT = 1
 let wxACCEL_CTRL = 2
 let wxACCEL_SHIFT = 4

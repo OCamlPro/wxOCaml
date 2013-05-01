@@ -1,5 +1,10 @@
 open WxClasses
 
+external connect : wxEvtHandler ->
+   int -> ('a WxEVT.t) -> ('a -> unit) -> 
+      unit = "wxEvtHandler_Connect_c"
+
+
 external setEvtHandlerEnabled : wxEvtHandler ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"

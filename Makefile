@@ -5,10 +5,8 @@ NJOBS=-j 10
 # apply the -no-color switch to use the old behavior.
 
 all:
-	ocp-build -no-color wxCamlidl gen1
-	(cd elj; $(MAKE) $(NJOBS))
-	(cd idl; $(MAKE))
-	(cd generators; $(MAKE))
+	ocp-build -no-color wxStubsGen
+	(cd api; $(MAKE) $(NJOBS))
 	ocp-build
 
 byte:
@@ -34,5 +32,5 @@ distclean: clean
 
 configure: config/configure.ac
 	cd config; \
-		aclocal -I m4 \
+		aclocal -I m4; \
 		autoconf	

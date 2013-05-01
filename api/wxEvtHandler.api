@@ -11,16 +11,10 @@
 
 class wxEvtHandler inherit wxObject begin
 
-(*
-  method{ gen_c = "false" }(int,Connect)(int first,int last,
-     { arg_ctype = "int"
-       arg_name = "type"
-       arg_ocaml = "('a WxEVT.t)"
-     }, 
-     { arg_ocaml = "('a -> unit)" }
+  method{ gen_cpp = false }(void,Connect)(int evid,
+   "('a WxEVT.t)" int type,
+   "('a -> unit)" ocaml_closure handler
      )
-
-*)
 
 (*
 /* event handling */

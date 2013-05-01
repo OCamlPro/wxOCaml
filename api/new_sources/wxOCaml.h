@@ -17,7 +17,6 @@
 typedef int intptr_t;
 #endif
 
-#include "ewxw_def.h"
 #include "wx/wx.h"
 #if (wxVERSION_NUMBER >= 2600)
 #include "wx/apptrait.h"
@@ -53,12 +52,11 @@ typedef int intptr_t;
 #include "wx/artprov.h"
 #include "wx/sound.h"
 
+extern "C" {
 
 #include <caml/mlvalues.h>
 #include <caml/alloc.h>
 #include <caml/memory.h>
-
-extern "C" {
 
 #define Abstract_val(s) Field(s, 0)
 extern value Val_abstract(void *ptr);
