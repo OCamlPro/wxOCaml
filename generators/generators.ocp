@@ -1,21 +1,5 @@
 binannot = false
 
-(* Used to generate wxOCaml2.ml from Classes/
-  cd ocaml; ./../_obuild/gen2/gen2.asm
-*)
-begin program "gen2"
-  files = [ "gen2.ml" ]
-end
-
-begin program "gen1"
-  files = [ "gen1.ml" ]
-end
-
-begin program "gen_wxEVT"
-  files = [
-    "gen_wxEVT_types.ml"
-    "gen_wxEVT_lexer.mll"
-    "gen_wxEVT_parser.mly"
-    "gen_wxEVT_main.ml"
-  ]
+begin program "gen_wxDefs"
+  files = [ "gen_wxDefs.ml" ]
 end

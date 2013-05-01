@@ -5,6 +5,7 @@ NJOBS=-j 10
 # apply the -no-color switch to use the old behavior.
 
 all:
+	(cd generators; $(MAKE))
 	ocp-build -no-color wxStubsGen
 	(cd api; $(MAKE) $(NJOBS))
 	ocp-build
