@@ -67,6 +67,11 @@ external connect : wxFrame ->
       unit = "wxEvtHandler_Connect_c"
 
 
+external disconnect : wxFrame ->
+   int -> int -> int -> wxObject option -> 
+      int = "wxEvtHandler_Disconnect_c"
+
+
 external setEvtHandlerEnabled : wxFrame ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"
@@ -264,9 +269,19 @@ external center : wxFrame ->
       unit = "wxWindow_Center_c"
 
 
+external centre : wxFrame ->
+   int -> 
+      unit = "wxWindow_Centre_c"
+
+
 external centerOnParent : wxFrame ->
    int -> 
       unit = "wxWindow_CenterOnParent_c"
+
+
+external centreOnParent : wxFrame ->
+   int -> 
+      unit = "wxWindow_CentreOnParent_c"
 
 
 external setSizeHints : wxFrame ->

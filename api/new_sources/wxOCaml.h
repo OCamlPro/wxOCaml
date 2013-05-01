@@ -121,4 +121,12 @@ extern value Val_wxSize(wxSize *point_c);
 }
 
 
+class OCamlApp: public wxApp
+{
+  public:
+    bool OnInit (void);
+    int  OnExit (void);
+    void HandleGenericEvent(wxEvent& event);
+};
+
 #endif

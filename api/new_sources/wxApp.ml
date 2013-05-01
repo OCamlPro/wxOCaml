@@ -17,6 +17,11 @@ external connect : wxApp ->
       unit = "wxEvtHandler_Connect_c"
 
 
+external disconnect : wxApp ->
+   int -> int -> int -> wxObject option -> 
+      int = "wxEvtHandler_Disconnect_c"
+
+
 external setEvtHandlerEnabled : wxApp ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"

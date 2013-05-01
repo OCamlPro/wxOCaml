@@ -7,6 +7,11 @@ external connect : wxAnyButton ->
       unit = "wxEvtHandler_Connect_c"
 
 
+external disconnect : wxAnyButton ->
+   int -> int -> int -> wxObject option -> 
+      int = "wxEvtHandler_Disconnect_c"
+
+
 external setEvtHandlerEnabled : wxAnyButton ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"
@@ -130,9 +135,19 @@ external center : wxAnyButton ->
       unit = "wxWindow_Center_c"
 
 
+external centre : wxAnyButton ->
+   int -> 
+      unit = "wxWindow_Centre_c"
+
+
 external centerOnParent : wxAnyButton ->
    int -> 
       unit = "wxWindow_CenterOnParent_c"
+
+
+external centreOnParent : wxAnyButton ->
+   int -> 
+      unit = "wxWindow_CentreOnParent_c"
 
 
 external setSizeHints : wxAnyButton ->

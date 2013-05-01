@@ -7,6 +7,11 @@ external connect : wxTopLevelWindowBase ->
       unit = "wxEvtHandler_Connect_c"
 
 
+external disconnect : wxTopLevelWindowBase ->
+   int -> int -> int -> wxObject option -> 
+      int = "wxEvtHandler_Disconnect_c"
+
+
 external setEvtHandlerEnabled : wxTopLevelWindowBase ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"
@@ -130,9 +135,19 @@ external center : wxTopLevelWindowBase ->
       unit = "wxWindow_Center_c"
 
 
+external centre : wxTopLevelWindowBase ->
+   int -> 
+      unit = "wxWindow_Centre_c"
+
+
 external centerOnParent : wxTopLevelWindowBase ->
    int -> 
       unit = "wxWindow_CenterOnParent_c"
+
+
+external centreOnParent : wxTopLevelWindowBase ->
+   int -> 
+      unit = "wxWindow_CentreOnParent_c"
 
 
 external setSizeHints : wxTopLevelWindowBase ->

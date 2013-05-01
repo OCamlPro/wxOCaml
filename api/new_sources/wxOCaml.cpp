@@ -88,14 +88,6 @@ class OCamlCallback: public wxObject
   value get() { return m_closure; }
 };
 
-class OCamlApp: public wxApp
-{
-  public:
-    bool OnInit (void);
-    int  OnExit (void);
-    void HandleEvent2(wxEvent& _evt);
-};
-
 static int terminating = 0;
 static OCamlCallback* initHandler = NULL;
 
@@ -113,7 +105,7 @@ int OCamlApp::OnExit (void){
   return 0; 
 }
 
-void OCamlApp::HandleEvent2(wxEvent& _evt)
+void OCamlApp::HandleGenericEvent(wxEvent& _evt)
   {
     wxEvent* event_c = &_evt;
     value event_v = Val_abstract(event_c);
@@ -162,7 +154,7 @@ value wxEvtHandler_Connect_c(value self_v, value first_v,
 
   self_c->Connect(first_c, -1, type_c, 
 			      (wxObjectEventFunction)
-		  &OCamlApp::HandleEvent2, callback_c);
+		  &OCamlApp::HandleGenericEvent, callback_c);
 
   return Val_unit;
 }

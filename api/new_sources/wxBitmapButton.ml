@@ -61,6 +61,11 @@ external connect : wxBitmapButton ->
       unit = "wxEvtHandler_Connect_c"
 
 
+external disconnect : wxBitmapButton ->
+   int -> int -> int -> wxObject option -> 
+      int = "wxEvtHandler_Disconnect_c"
+
+
 external setEvtHandlerEnabled : wxBitmapButton ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"
@@ -184,9 +189,19 @@ external center : wxBitmapButton ->
       unit = "wxWindow_Center_c"
 
 
+external centre : wxBitmapButton ->
+   int -> 
+      unit = "wxWindow_Centre_c"
+
+
 external centerOnParent : wxBitmapButton ->
    int -> 
       unit = "wxWindow_CenterOnParent_c"
+
+
+external centreOnParent : wxBitmapButton ->
+   int -> 
+      unit = "wxWindow_CentreOnParent_c"
 
 
 external setSizeHints : wxBitmapButton ->

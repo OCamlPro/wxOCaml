@@ -7,6 +7,11 @@ external connect : wxStatusBar ->
       unit = "wxEvtHandler_Connect_c"
 
 
+external disconnect : wxStatusBar ->
+   int -> int -> int -> wxObject option -> 
+      int = "wxEvtHandler_Disconnect_c"
+
+
 external setEvtHandlerEnabled : wxStatusBar ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"
@@ -130,9 +135,19 @@ external center : wxStatusBar ->
       unit = "wxWindow_Center_c"
 
 
+external centre : wxStatusBar ->
+   int -> 
+      unit = "wxWindow_Centre_c"
+
+
 external centerOnParent : wxStatusBar ->
    int -> 
       unit = "wxWindow_CenterOnParent_c"
+
+
+external centreOnParent : wxStatusBar ->
+   int -> 
+      unit = "wxWindow_CentreOnParent_c"
 
 
 external setSizeHints : wxStatusBar ->

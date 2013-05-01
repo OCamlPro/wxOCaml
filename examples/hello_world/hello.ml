@@ -55,13 +55,13 @@ let _ =
       frame
       quit_id
       WxEVT._COMMAND_MENU_SELECTED
-      (fun _ -> Printf.eprintf "QUIT !!\n%!"; exit 0);
+      (fun _ -> exit 0);
 
     WxFrame.connect
       frame
       about_id
       WxEVT._COMMAND_MENU_SELECTED
-      (fun _ -> Printf.eprintf "ABOUT ???\n%!";
+      (fun _ ->
         ignore_int (
           WxMisc.wxMessageBox
             "wxWidgets Hello World example."

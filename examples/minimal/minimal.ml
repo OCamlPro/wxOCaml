@@ -21,7 +21,7 @@ let _ =
 (*
     if Sys.file_exists "sample.xpm" then
       WxFrame.setIcon frame (WxIcon.createLoad "sample.xpm"
-          Wxdefs.wxBITMAP_TYPE_XPM 32 32);
+          wxBITMAP_TYPE_XPM 32 32);
 *)
 
     let menuBar = wxMenuBar 0 in
@@ -37,9 +37,9 @@ let _ =
     WxMenu.append  menuFile quit_id
       "E&xit" "Exit from the application" checkable;
 
-    ignore_int (WxMenuBar.append menuBar menuFile "&File");
+    ignore_bool (WxMenuBar.append menuBar (Some menuFile) "&File");
 
-    WxFrame.setMenuBar frame menuBar;
+    WxFrame.setMenuBar frame (Some menuBar);
 
     ignore_wxStatusBar (WxFrame.createStatusBar frame 1 0);
 
@@ -49,26 +49,26 @@ let _ =
       frame
       quit_id
       WxEVT._COMMAND_MENU_SELECTED
-      (fun _ -> Printf.eprintf "QUIT !!\n%!"; exit 0);
+      (fun _ -> exit 0);
 
     WxFrame.connect
       frame
       about_id
       WxEVT._COMMAND_MENU_SELECTED
-      (fun _ -> Printf.eprintf "ABOUT ???\n%!";
+      (fun _ ->
         ignore_int (
-          WxMisc.wxcMessageBox           "wxWidgets Hello World example."
+          WxMisc.wxMessageBox           "wxWidgets Hello World example."
             "About Hello World"
-            (Wxdefs.wxOK lor Wxdefs.wxICON_INFORMATION)
-            (WxFrame.wxWindow frame)
-            Wxdefs.wxDefaultCoord
-            Wxdefs.wxDefaultCoord
+            (wxOK lor wxICON_INFORMATION)
+            (Some (WxFrame.wxWindow frame))
+            wxDefaultCoord
+            wxDefaultCoord
         )
         );
 
     ignore_bool ( WxFrame.show frame );
-    ELJApp.setTopWindow (WxFrame.wxWindow frame)
+    WxApp.setTopWindow (WxFrame.wxWindow frame)
 
   in
-  WxMain.main onInit
+  WxApp.main onInit Sys.argv
 

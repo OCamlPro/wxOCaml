@@ -286,6 +286,18 @@ value wxWindow_Center_c(value self_v, value direction_v)
 }
 
 
+value wxWindow_Centre_c(value self_v, value direction_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
+  int direction_c = Int_val(direction_v);
+  self_c->Centre(direction_c);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
 value wxWindow_CenterOnParent_c(value self_v, value dir_v)
 {
   CAMLparam0();
@@ -293,6 +305,18 @@ value wxWindow_CenterOnParent_c(value self_v, value dir_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int dir_c = Int_val(dir_v);
   self_c->CenterOnParent(dir_c);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
+value wxWindow_CentreOnParent_c(value self_v, value dir_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
+  int dir_c = Int_val(dir_v);
+  self_c->CentreOnParent(dir_c);
   ret_v = Val_unit;
   CAMLreturn(ret_v);
 }

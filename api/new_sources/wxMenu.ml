@@ -199,6 +199,11 @@ external connect : wxMenu ->
       unit = "wxEvtHandler_Connect_c"
 
 
+external disconnect : wxMenu ->
+   int -> int -> int -> wxObject option -> 
+      int = "wxEvtHandler_Disconnect_c"
+
+
 external setEvtHandlerEnabled : wxMenu ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"

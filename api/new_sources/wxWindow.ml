@@ -105,9 +105,19 @@ external center : wxWindow ->
       unit = "wxWindow_Center_c"
 
 
+external centre : wxWindow ->
+   int -> 
+      unit = "wxWindow_Centre_c"
+
+
 external centerOnParent : wxWindow ->
    int -> 
       unit = "wxWindow_CenterOnParent_c"
+
+
+external centreOnParent : wxWindow ->
+   int -> 
+      unit = "wxWindow_CentreOnParent_c"
 
 
 external setSizeHints : wxWindow ->
@@ -555,6 +565,11 @@ external getVirtualSize : wxWindow ->
 external connect : wxWindow ->
    int -> ('a WxEVT.t) -> ('a -> unit) -> 
       unit = "wxEvtHandler_Connect_c"
+
+
+external disconnect : wxWindow ->
+   int -> int -> int -> wxObject option -> 
+      int = "wxEvtHandler_Disconnect_c"
 
 
 external setEvtHandlerEnabled : wxWindow ->

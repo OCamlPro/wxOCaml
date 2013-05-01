@@ -1,5 +1,4 @@
 binannot = false
-enabled = false
 
 begin program "minimal"
   requires = [ "wxWidgets" ]

@@ -30,35 +30,35 @@ let _ =
     in
 
     let m_parent = wxPanel
-        (WxFrame.wxWindow frame) WxID.any
-        (-1,-1) (-1,-1) wxTAB_TRAVERSAL
+        (Some (WxFrame.wxWindow frame)) WxID.any
+        (-1,-1) (-1,-1) wxTAB_TRAVERSAL ""
     in
     let hbox = wxBoxSizer wxHORIZONTAL in
 
     let m_lp  =
-      wxPanel (WxPanel.wxWindow m_parent) WxID.any
-        (-1) (-1) (-1) (-1)
-      wxBORDER_SUNKEN
+      wxPanel (Some (WxPanel.wxWindow m_parent)) WxID.any
+        (-1,-1) (-1,-1)
+      wxBORDER_SUNKEN ""
     in
     let plus_id = wxID () in
     let minus_id = wxID () in
     let _m_plus =
-        wxButton (WxPanel.wxWindow m_lp) plus_id "+" 10 10 (-1) (-1) 0
+        wxButton (Some (WxPanel.wxWindow m_lp)) plus_id "+" (10, 10) (-1, -1) 0
     in
 
     let _m_minus =
-      wxButton (WxPanel.wxWindow m_lp) minus_id "-" 10 60 (-1) (-1) 0
+      wxButton (Some (WxPanel.wxWindow m_lp)) minus_id "-" (10, 60) (-1,-1) 0
     in
 
     let m_rp =
-      wxPanel (WxPanel.wxWindow m_parent) WxID.any
-        (-1) (-1) 270 150
-      wxBORDER_SUNKEN
+      wxPanel (Some (WxPanel.wxWindow m_parent)) WxID.any
+        (-1, -1) (270, 150)
+      wxBORDER_SUNKEN ""
     in
 
     let m_text =
-      wxStaticText (WxPanel.wxWindow m_rp)
-        WxID.any "0" 40 60 (-1) (-1) 0  in
+      wxStaticText (Some (WxPanel.wxWindow m_rp))
+        WxID.any "0" (40, 60) (-1,-1) 0  in
 
     let counter = ref 0 in
     let add n _ =
@@ -71,18 +71,18 @@ let _ =
       m_lp minus_id WxEVT._COMMAND_BUTTON_CLICKED (add (-1));
 
 
-    WxBoxSizer.addWindow hbox (WxPanel.wxWindow m_lp) 1
-      (wxEXPAND lor wxALL) 5 WxObject.ptrNULL;
-    WxBoxSizer.addWindow hbox (WxPanel.wxWindow m_rp) 1
-      (wxEXPAND lor wxALL) 5 WxObject.ptrNULL;
+    WxBoxSizer.addWindow hbox (Some (WxPanel.wxWindow m_lp)) 1
+      (wxEXPAND lor wxALL) 5 None;
+    WxBoxSizer.addWindow hbox (Some (WxPanel.wxWindow m_rp)) 1
+      (wxEXPAND lor wxALL) 5 None;
 
-    WxPanel.setSizer m_parent (WxBoxSizer.wxSizer hbox);
+    WxPanel.setSizer m_parent (Some (WxBoxSizer.wxSizer hbox));
     WxFrame.centre frame wxBOTH;
 
 
     ignore_bool ( WxFrame.show frame );
-    ELJApp.setTopWindow (WxFrame.wxWindow frame)
+    WxApp.setTopWindow (WxFrame.wxWindow frame)
 
   in
-  WxMain.main onInit
+  WxApp.main onInit Sys.argv
 
