@@ -3,4 +3,15 @@ class wxMisc begin
 
   function(int, wxMessageBox) (wxString& message, wxString& caption, long style, wxWindow? parent, int x, int y)
 
+
+   function(void,wxLogError)(wxString& _msg)
+   function(void,wxLogFatalError)(wxString& _msg)
+   function(void,wxLogWarning)(wxString& _msg)
+   function(void,wxLogMessage)(wxString& _msg)
+   function(void,wxLogVerbose)(wxString& _msg)
+   function(void,wxLogStatus)(wxString& _msg)
+   function(void,wxLogSysError)(wxString& _msg)
+   function(void,wxLogDebug)(wxString& _msg)
+   function(void,wxLogTrace)(wxString& mask,wxString& _msg)
+
 end

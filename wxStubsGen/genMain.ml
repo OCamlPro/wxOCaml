@@ -46,6 +46,7 @@ let generate_sources source_directory (filename, components) =
     match comp with
     | Comp_include s -> includes := s :: !includes
     | Comp_class _ -> ()
+    | Comp_type typ -> types := StringMap.add typ.type_name typ !types
   ) components;
 
   let includes = List.rev !includes in
@@ -57,6 +58,7 @@ let generate_sources source_directory (filename, components) =
         GenCplusplus.generate_class_stubs source_directory cl includes;
       GenOCaml.generate_class_module source_directory cl
     | Comp_include _ -> ()
+    | Comp_type _ -> ()
   ) components;
 
   ()
@@ -71,7 +73,8 @@ let create_class_hierarchy files =
         if StringMap.mem cl.class_uname !classes then
           failwith (Printf.sprintf "class %S defined twice" cl.class_uname);
         classes := StringMap.add cl.class_uname cl !classes
-      | _ -> ()
+      | Comp_type _ -> ()
+      | Comp_include _ -> ()
     ) components;
   ) files;
 
@@ -135,6 +138,7 @@ let _ =
     GenProject.generate_project_ocp
       (Filename.concat source_directory "wxWidgets.ocp");
     GenProject.generate_project_Makefile
-      (Filename.concat source_directory "Makefile.project")
+      (Filename.concat source_directory "Makefile.project");
+    exit !exit_code
   with Exit ->
     exit !exit_code

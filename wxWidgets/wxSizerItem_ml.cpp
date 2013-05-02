@@ -116,7 +116,7 @@ value wxSizerItem_SetFloatRatio_c(value self_v, value ratio_v)
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
-  double ratio_c = Double_val(ratio_v);
+  float ratio_c = Double_val(ratio_v);
   self_c->SetRatio(ratio_c);
   ret_v = Val_unit;
   CAMLreturn(ret_v);

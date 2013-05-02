@@ -18,11 +18,9 @@ let _ =
         wxDEFAULT_FRAME_STYLE
     in
 
-(*
     if Sys.file_exists "sample.xpm" then
       WxFrame.setIcon frame (WxIcon.createLoad "sample.xpm"
           wxBITMAP_TYPE_XPM 32 32);
-*)
 
     let menuBar = wxMenuBar 0 in
 

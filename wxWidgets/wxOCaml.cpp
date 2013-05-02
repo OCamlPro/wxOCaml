@@ -159,5 +159,13 @@ value wxEvtHandler_Connect_c(value self_v, value first_v,
   return Val_unit;
 }
 
-
+value wxDateTime_GetValue_c(value self_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
+  wxLongLong ret_c = self_c->GetValue();
+  ret_v = caml_copy_int64(ret_c.GetValue());
+  CAMLreturn(ret_v);
+}
 }

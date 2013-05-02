@@ -19,7 +19,6 @@ class wxMaximizeEvent inherit wxEvent begin end
 class wxMenuEvent inherit wxEvent begin end
 class wxMouseCaptureChangedEvent inherit wxEvent begin end
 class wxMouseCaptureLostEvent inherit wxEvent begin end
-class wxMouseEvent inherit wxEvent begin end
 class wxMoveEvent inherit wxEvent begin end
 class wxNavigationKeyEvent inherit wxEvent begin end
 class wxNcPaintEvent inherit wxEvent begin end
@@ -37,3 +36,19 @@ class wxThreadEvent inherit wxEvent begin end
 class wxUpdateUIEvent inherit wxEvent begin end
 class wxWindowCreateEvent inherit wxEvent begin end
 class wxWindowDestroyEvent inherit wxEvent begin end
+
+class wxDateEvent inherit wxCommandEvent begin
+  method(wxDateTime, GetDate) ()
+end
+class wxCalendarEvent inherit wxDateEvent begin
+
+ end
+
+
+class wxKeyboardState begin end
+class wxMouseState begin 
+  method(wxPoint, GetPosition)()
+end
+
+class wxMouseEvent inherit wxEvent inherit wxMouseState begin 
+end

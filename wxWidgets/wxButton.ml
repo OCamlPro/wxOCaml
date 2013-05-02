@@ -409,8 +409,8 @@ external getCharWidth : wxButton ->
 
 
 external getTextExtent : wxButton ->
-   wxString -> int -> int -> int -> int -> wxFont option -> 
-      unit = "wxWindow_GetTextExtent_c_bytecode" "wxWindow_GetTextExtent_c"
+   wxString -> wxFont option -> 
+      unit * int * int * int * int = "wxWindow_GetTextExtent_c"
 
 
 external screenToClient : wxButton ->
@@ -536,18 +536,15 @@ external moveConstraint : wxButton ->
 
 
 external getSizeConstraint : wxButton ->
-   int -> int -> 
-      unit = "wxWindow_GetSizeConstraint_c"
+   unit * int * int = "wxWindow_GetSizeConstraint_c"
 
 
 external getClientSizeConstraint : wxButton ->
-   int -> int -> 
-      unit = "wxWindow_GetClientSizeConstraint_c"
+   unit * int * int = "wxWindow_GetClientSizeConstraint_c"
 
 
 external getPositionConstraint : wxButton ->
-   int -> int -> 
-      unit = "wxWindow_GetPositionConstraint_c"
+   unit * int * int = "wxWindow_GetPositionConstraint_c"
 
 
 external setSizer : wxButton ->

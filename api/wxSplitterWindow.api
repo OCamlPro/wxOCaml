@@ -1,0 +1,25 @@
+class wxSplitterWindow inherit wxWindow begin
+
+  new(Create)(wxWindow? _prt, int _id, wxPoint& pos, wxSize& size, int _stl)
+  method(wxWindow*,  GetWindow1)()
+  method(wxWindow*,  GetWindow2)()
+  method(void,  SetSplitMode)(int mode)
+  method(int,  GetSplitMode)()
+  method(void,  Initialize)(wxWindow? window)
+  method(bool,  SplitVertically)(wxWindow? window1,wxWindow? window2,int sashPosition)
+  method(int,  SplitHorizontally)(wxWindow? window1,wxWindow? window2,int sashPosition)
+  method(int,  Unsplit)(wxWindow? toRemove)
+  method(int,  ReplaceWindow)(wxWindow? winOld,wxWindow? winNew)
+  method(bool,  IsSplit)()
+  method(void,  SetSashSize)(int width)
+  method(void,  SetBorderSize)(int width)
+  method(int,  GetSashSize)()
+  method(int,  GetBorderSize)()
+  method(void,  SetSashPosition)(int position,bool redraw)
+  method(int,  GetSashPosition)()
+  method(void,  SetMinimumPaneSize)(int min)
+  method(int,  GetMinimumPaneSize)()
+  method(double,  GetSashGravity)()
+  method(void,  SetSashGravity)( double gravity)
+
+end

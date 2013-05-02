@@ -51,6 +51,7 @@ let default_options = { fopt_gen_cpp = true; fopt_others = () }
 %token FALSE
 %token GEN_CPP
 %token FUNCTION
+%token TYPE
 
 %start file
 %type <GenTypes.file> file
@@ -67,6 +68,11 @@ components:
 component:
   | INCLUDE STRING                          { Comp_include $2 }
   | CLASS IDENT ancestors BEGIN methods END { Comp_class (new_class  $2 $3 $5) }
+  | TYPE genident maybe_string EQUAL ctype               { Comp_type {
+                                                type_name = $2;
+                                                type_ocaml = $3;
+                                                type_ctype = $5;
+                                              } }
 ;
 
 ancestors:
@@ -154,14 +160,15 @@ more_arguments:
 ;
 
 argument:
-  maybe_ocaml UNDERSCORE STRING
+  maybe_string UNDERSCORE STRING
     { { arg_name = $3; arg_ctype = Typ_direct; arg_direction = In;
-        arg_ocaml = $1 } }
-| maybe_ocaml ctype maybe_direction genident
-    { { arg_ocaml = $1; arg_ctype = $2; arg_direction = $3; arg_name = $4; } }
+        arg_ocaml = $1} }
+| maybe_string ctype maybe_direction maybe_string genident
+    { { arg_ocaml = $1; arg_ctype = $2; arg_direction = $3;
+        arg_name = $5; } }
 ;
 
-maybe_ocaml:
+maybe_string:
 |             { None }
 | STRING      { Some $1 }
 ;
@@ -186,5 +193,6 @@ genident:
 | TRUE    { "true" }
 | FALSE   { "false" }
 | FUNCTION { "function" }
+| TYPE    { "type" }
 ;
 

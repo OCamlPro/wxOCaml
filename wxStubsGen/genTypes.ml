@@ -7,6 +7,13 @@ type file = component list
 and component =
   | Comp_include of string
   | Comp_class of class_descr
+  | Comp_type of type_descr
+
+and type_descr = {
+  type_name : string;
+  type_ocaml : string option;
+  type_ctype: ctype;
+}
 
 and class_descr = {
   class_name : string;
@@ -57,3 +64,29 @@ and ctype =
 
 
 let exit_code = ref 0
+let types = ref (StringMap.empty : type_descr StringMap.t)
+
+let find_cpp_equiv_with_cast wxClass =
+  try
+    let typ = StringMap.find wxClass !types in
+    match typ.type_ctype with
+    | Typ_ident equiv -> equiv, Printf.sprintf "(%s)" wxClass
+    | _ -> assert false
+  with Not_found -> wxClass, ""
+
+let find_cpp_equiv wxClass =
+  try
+    let typ = StringMap.find wxClass !types in
+    match typ.type_ctype with
+    | Typ_ident equiv -> equiv
+    | _ -> assert false
+  with Not_found -> wxClass
+
+let find_ocaml_equiv wxClass =
+  try
+    let typ = StringMap.find wxClass !types in
+    match typ.type_ctype with
+    | Typ_ident equiv -> equiv
+    | _ -> assert false
+  with Not_found -> wxClass
+

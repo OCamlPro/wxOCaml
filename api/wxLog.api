@@ -1,0 +1,58 @@
+type time_t = int
+type size_t = int
+
+type wxLogLevel = int
+type wxTraceMask = int
+
+class wxLog begin
+  (* delete *)
+
+   method(void,Flush)()
+   method(bool,wxLog::HasPendingMessages)()
+
+  function(void,wxLog::OnLog)(wxLogLevel level,wxString& szString, time_t t)
+   function(void,wxLog::FlushActive)()
+   function(wxLog?,  wxLog::GetActiveTarget)()
+   function(wxLog?,  wxLog::SetActiveTarget)(wxLog* pLogger)
+   function(void,  wxLog::Suspend)()
+   function(void,  wxLog::Resume)()
+   function(void,  wxLog::SetVerbose)(bool bVerbose)
+   function(void,  wxLog::DontCreateOnDemand)()
+   function(void,  wxLog::SetTraceMask)(wxTraceMask ulMask)
+   function(void,  wxLog::AddTraceMask)(wxString& str)
+   function(void,  wxLog::RemoveTraceMask)(wxString& str)
+   function(void,  wxLog::SetTimestamp)(wxString& ts)
+   function(bool,  wxLog::GetVerbose)()
+   function(int,  wxLog::GetTraceMask)()
+   function(bool,  wxLog::IsAllowedTraceMask)(wxString& mask)
+   function(wxString,  wxLog::GetTimestamp)()
+
+end
+
+class wxLogStderr inherit wxLog begin
+  new(Create)()
+(*  new(CreateStdOut)(FILE* fp)  *)
+end
+
+class wxLogNull inherit wxLog begin
+  new(Create)()
+end
+
+class wxLogTextCtrl inherit wxLog begin
+  new(Create)(wxTextCtrl* text)
+end
+class wxLogChain inherit wxLog begin
+
+end
+
+class wxLogInterposer inherit wxLogChain begin
+
+end
+
+class wxLogWindow inherit wxLogInterposer begin
+
+  new(Create)(wxWindow? parent,wxString& title,bool showit,bool passthrough)
+
+  method(wxFrame?,GetFrame)()
+
+end

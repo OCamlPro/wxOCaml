@@ -6,10 +6,22 @@ GENERATED_SOURCES = \
     wxBitmapButton_ml.cpp  \
     wxBoxSizer_ml.cpp  \
     wxButton_ml.cpp  \
+    wxCalendarCtrl_ml.cpp  \
+    wxCalendarDateAttr_ml.cpp  \
+    wxDateTime_ml.cpp  \
+    wxDialog_ml.cpp  \
+    wxMouseState_ml.cpp  \
+    wxDateEvent_ml.cpp  \
     wxEvtHandler_ml.cpp  \
     wxFlexGridSizer_ml.cpp  \
     wxFrame_ml.cpp  \
     wxGridSizer_ml.cpp  \
+    wxIcon_ml.cpp  \
+    wxLogWindow_ml.cpp  \
+    wxLogTextCtrl_ml.cpp  \
+    wxLogNull_ml.cpp  \
+    wxLogStderr_ml.cpp  \
+    wxLog_ml.cpp  \
     wxMenu_ml.cpp  \
     wxMenuBar_ml.cpp  \
     wxMenuItem_ml.cpp  \
@@ -17,8 +29,11 @@ GENERATED_SOURCES = \
     wxPanel_ml.cpp  \
     wxSizer_ml.cpp  \
     wxSizerItem_ml.cpp  \
+    wxSplitterWindow_ml.cpp  \
     wxStaticBoxSizer_ml.cpp  \
     wxStaticText_ml.cpp  \
+    wxSystemSettings_ml.cpp  \
+    wxTextCtrl_ml.cpp  \
     wxTopLevelWindow_ml.cpp  \
     wxWindow_ml.cpp  \
 

@@ -121,3 +121,11 @@ val _COMMAND_ENTER : wxCommandEvent t
 val _HELP : wxHelpEvent t
 val _DETAILED_HELP : wxHelpEvent t
 val _COMMAND_TEXT_UPDATED : wxCommandEvent t
+val _CALENDAR_SEL_CHANGED : wxCalendarEvent t
+val _CALENDAR_PAGE_CHANGED : wxCalendarEvent t
+val _CALENDAR_DAY_CHANGED : wxCalendarEvent t
+val _CALENDAR_MONTH_CHANGED : wxCalendarEvent t
+val _CALENDAR_YEAR_CHANGED : wxCalendarEvent t
+val _CALENDAR_DOUBLECLICKED : wxCalendarEvent t
+val _CALENDAR_WEEKDAY_CLICKED : wxCalendarEvent t
+val _CALENDAR_WEEK_CLICKED : wxCalendarEvent t

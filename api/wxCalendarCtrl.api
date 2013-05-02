@@ -1,0 +1,29 @@
+
+class wxCalendarCtrl inherit wxControl begin
+      
+
+  new(Create)(wxWindow? _prt,int _id, wxDateTime& _dat,wxPoint& pos, wxSize& size,int _stl)
+
+  method(void, SetDate)(wxDateTime& date)
+  method(wxDateTime, GetDate)()
+  method(void, EnableMonthChange)(bool enable)
+  method(void, EnableHolidayDisplay)(bool display)
+  method(void, SetHeaderColours)(wxColour& colFg,wxColour& colBg)
+  method(wxColour, GetHeaderColourFg)()
+  method(wxColour, GetHeaderColourBg)()
+  method(void, SetHighlightColours)(wxColour& colFg,wxColour& colBg)
+  method(wxColour, GetHighlightColourFg)()
+  method(wxColour, GetHighlightColourBg)()
+  method(void, SetHolidayColours)(wxColour& colFg,wxColour& colBg)
+  method(wxColour, GetHolidayColourFg)()
+  method(wxColour, GetHolidayColourBg)()
+  method(wxCalendarDateAttr*, GetAttr)(int day)
+  method(void, SetAttr)(int day,wxCalendarDateAttr? attr)
+  method(void, SetHoliday)(int day)
+  method(void, ResetAttr)(int day)
+(* TODO: one of wxCalendarHitTestResult enums (add to wxDefs..) *)
+  method(int, HitTest)(wxPoint& pos,
+    wxDateTime <- date, 
+    wxDateTime::WeekDay <- wd)
+  method (void, Mark) (size_t day, bool mark)
+end

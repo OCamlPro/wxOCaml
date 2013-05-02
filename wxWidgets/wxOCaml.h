@@ -51,6 +51,7 @@ typedef int intptr_t;
 #include "wx/socket.h"
 #include "wx/artprov.h"
 #include "wx/sound.h"
+#include "wx/datectrl.h"
 
 extern "C" {
 

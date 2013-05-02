@@ -58,6 +58,12 @@ let string_of_file filename =
       close_in ic;
       raise e
 
+let method_name name =
+  try
+    let pos = String.rindex name ':' in
+    let len = String.length name in
+    String.sub name (pos+1) (len-pos-1)
+  with Not_found -> name
 
 let mkdir dirname =
   if Sys.file_exists dirname then begin
@@ -69,3 +75,5 @@ end
   else
     Unix.mkdir dirname 0o755
 
+
+let ignore_bool (b : bool) = ()

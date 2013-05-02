@@ -1,0 +1,30 @@
+
+type wxCalendarDateBorder = int
+
+class wxCalendarDateAttr begin
+	
+
+  new(Create)(wxColour& _ctxt,wxColour& _cbck,wxColour& _cbrd,wxFont& _fnt,
+		       wxCalendarDateBorder _brd)
+
+  new(CreateDefault)()
+
+  method(void, SetTextColour)(wxColour& col)
+  method(void, SetBackgroundColour)(wxColour& col)
+  method(void, SetBorderColour)(wxColour& col)
+  method(void, SetFont)(wxFont& font)
+  method(void, SetBorder)(wxCalendarDateBorder border)
+  method(void, SetHoliday)(bool holiday)
+  method(bool, HasTextColour)()
+  method(bool, HasBackgroundColour)()
+  method(bool, HasBorderColour)()
+  method(bool, HasFont)()
+  method(bool, HasBorder)()
+  method(bool, IsHoliday)()
+  method(wxColour, GetTextColour)()
+  method(wxColour, GetBackgroundColour)()
+  method(wxColour, GetBorderColour)()
+  method(wxFont, GetFont)()
+  method(wxCalendarDateBorder, GetBorder)()
+
+end

@@ -24,9 +24,6 @@ NAME=wxOCaml_api
 
 all: lib$(NAME).a
 
-clean:
-	rm -f *.o *~
-
 lib$(NAME).a: $(OBJECTS) 
 	ar rc  lib$(NAME).a $(OBJECTS)
 	ranlib lib$(NAME).a

@@ -39,6 +39,8 @@ let bin_literal = '0' ['b' 'B'] ['0'-'1']+
 let float_literal =
   ['0'-'9']+ ('.' ['0'-'9']* )? (['e' 'E'] ['+' '-']? ['0'-'9']+)?
 
+let ident = firstidentchar identchar*
+
 rule token = parse
   blank + { token lexbuf }
   | '#' [^ '\n' ]* ('\n' | eof) { token lexbuf }
@@ -69,11 +71,10 @@ rule token = parse
   | "false"    { FALSE }
   | "gen_cpp"    { GEN_CPP }
   | "function"  { FUNCTION }
-
+  | "type"    { TYPE }
   | '_' { UNDERSCORE }
-  | firstidentchar identchar* {
-    IDENT (Lexing.lexeme lexbuf)
-  }
+  | ident "::" ident { IDENT (Lexing.lexeme lexbuf) }
+  | ident { IDENT (Lexing.lexeme lexbuf) }
   | '"' { Buffer.clear str_buf; string lexbuf }
   | eof   { EOF }
   | _ {
@@ -144,6 +145,7 @@ let string_of_token token = match token with
   | FALSE -> "FALSE"
   | GEN_CPP -> "GEN_CPP"
   | FUNCTION -> "FUNCTION"
+  | TYPE -> "TYPE"
 
   let token lexbuf =
     let token = token lexbuf in

@@ -340,7 +340,7 @@ let wxHAS_list = [
 let _ =
   let oc = open_out "gen_wxDefs.cpp" in
 
-  Printf.fprintf oc "#include %S\n" "../src/wxOCaml.h";
+  Printf.fprintf oc "#include %S\n" "../wxWidgets/wxOCaml.h";
 
   Printf.fprintf oc "#define exp2() 0\n";
 

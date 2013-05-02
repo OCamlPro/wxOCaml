@@ -1,0 +1,16 @@
+include "<wx/settings.h>"
+
+
+type wxSystemColour = int
+type wxSystemFont = int
+type wxSystemMetric = int
+
+class wxSystemSettings inherit wxObject begin
+
+
+   function(wxColour, wxSystemSettings::GetColour)(wxSystemColour index)
+   function(wxFont, wxSystemSettings::GetFont)(wxSystemFont index)
+   function(int, wxSystemSettings::GetMetric)(wxSystemMetric index)
+   function(int, wxSystemSettings::GetScreenType)()
+
+end

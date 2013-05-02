@@ -1,3 +1,27 @@
+type wxBitmapType = int
+
 class wxIcon inherit wxObject begin
+  new(CreateDefault)()
+  (* delete *)
+  new(CreateLoad)(wxString& data, wxBitmapType type, int width,int height)
+(*  new(CreateFromXPM)(strings data) *)
+
+  method(bool, LoadFile)(wxString& name,wxBitmapType type,int width,int height)
+
+  method(void, CopyFromBitmap)(wxBitmap& bmp)
+
+  method(bool, IsOk)()
+  method(int, GetDepth)()
+  method(int, GetWidth)()
+  method(int, GetHeight)()
+  method(void, SetDepth)(int depth)
+  method(void, SetWidth)(int width)
+  method(void, SetHeight)(int height)
+
+(* TODO:
+  method(bool,IsEqual)(wxIcon* other) COMPLEX
+  method(void, Assign)(wxIcon& other)
+*)
+
 
 end

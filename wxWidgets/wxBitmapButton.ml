@@ -454,8 +454,8 @@ external getCharWidth : wxBitmapButton ->
 
 
 external getTextExtent : wxBitmapButton ->
-   wxString -> int -> int -> int -> int -> wxFont option -> 
-      unit = "wxWindow_GetTextExtent_c_bytecode" "wxWindow_GetTextExtent_c"
+   wxString -> wxFont option -> 
+      unit * int * int * int * int = "wxWindow_GetTextExtent_c"
 
 
 external screenToClient : wxBitmapButton ->
@@ -581,18 +581,15 @@ external moveConstraint : wxBitmapButton ->
 
 
 external getSizeConstraint : wxBitmapButton ->
-   int -> int -> 
-      unit = "wxWindow_GetSizeConstraint_c"
+   unit * int * int = "wxWindow_GetSizeConstraint_c"
 
 
 external getClientSizeConstraint : wxBitmapButton ->
-   int -> int -> 
-      unit = "wxWindow_GetClientSizeConstraint_c"
+   unit * int * int = "wxWindow_GetClientSizeConstraint_c"
 
 
 external getPositionConstraint : wxBitmapButton ->
-   int -> int -> 
-      unit = "wxWindow_GetPositionConstraint_c"
+   unit * int * int = "wxWindow_GetPositionConstraint_c"
 
 
 external setSizer : wxBitmapButton ->

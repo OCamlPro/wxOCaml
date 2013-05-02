@@ -5,8 +5,9 @@ open GenProject
 
 let c_function_name cl p =
   Printf.sprintf "%s_%s_c" cl.class_name
-    (match p.proto_mlname with None -> p.proto_name
-                             | Some name -> name)
+    (match p.proto_mlname with
+       None -> method_name p.proto_name
+     | Some name -> name)
 
 let rec string_of_ctype ctype =
   match ctype with
@@ -42,11 +43,30 @@ let rec fprintf_ctype oc ctype var =
 
 
 let direct_return_types = [
-  "int"; "char"; "bool";
+  "int"; "char"; "bool"; "int64"; "int32";
 
   (* Allocate them on the stack, and make a copy later *)
   "wxRect"; "wxPoint"; "wxSize"; "wxString";
 ]
+
+let find_return_conversion arg =
+  match arg.arg_ctype with
+  | Typ_ident wxClass ->
+    let wxClass_equiv = find_cpp_equiv wxClass in
+    begin match wxClass_equiv with
+      |  "wxRect" -> "Val_wxRect(&"
+      |  "wxPoint" -> "Val_wxPoint(&"
+      |  "wxSize" ->  "Val_wxSize(&"
+      |  "wxString" -> "Val_wxString(&"
+      |  ("int" | "long") -> "Val_int("
+      |  "int64" -> "caml_copy_int64("
+      |  "int32" -> "caml_copy_int32("
+      | _ when
+          wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->
+        "Val_abstract("
+      | _ -> assert false
+    end
+  | _ -> assert false
 
 let generate_method_stub oc cl p =
   let proto_ret = match p.proto_ret with
@@ -111,35 +131,33 @@ let generate_method_stub oc cl p =
     match arg_direction, arg_ctype with
 
     | Out, Typ_ident wxClass ->
-      if List.mem wxClass direct_return_types then
+      let wxClass_equiv = find_cpp_equiv wxClass in
+
+      if List.mem wxClass_equiv direct_return_types then
         fprintf oc "  %s %s_c;\n" wxClass arg_name
       else
         fprintf oc "  %s* %s_c = new %s();\n" wxClass arg_name wxClass;
     | Out, _ -> assert false
 
     (* In direction *)
-    | In, Typ_ident (
-        (
-          "int" | "long" | "bool"
-        ) as int_type
-      ) ->
-      fprintf oc "  %s %s_c = Int_val(%s_v);\n" int_type
-        arg_name arg_name
-    | In, Typ_ident (
-        "float" | "double"
-      ) ->
-      fprintf oc "  double %s_c = Double_val(%s_v);\n"
-        arg_name arg_name
+    | In, Typ_ident wxClass ->
+      let wxClass_equiv, cast = find_cpp_equiv_with_cast wxClass in
+
+      begin
+        match wxClass_equiv with
+        | "int" | "long" | "bool" ->
+          fprintf oc "  %s %s_c = %sInt_val(%s_v);\n" wxClass arg_name cast arg_name
+        | "float" | "double" ->
+          fprintf oc "  %s %s_c = %sDouble_val(%s_v);\n" wxClass arg_name cast arg_name
+        | _ -> ()
+      end
+
     | In, Typ_reference (Typ_ident wxClass) ->
       begin match wxClass with
         | "wxPoint" -> ()
-        (*                  fprintf oc "  wxPoint %s_cc = WxPoint_val(%s_v);\n  wxPoint* %s_c = &%s_cc;\n" arg_name arg_name arg_name arg_name *)
         | "wxSize" -> ()
-        (*                  fprintf oc "  wxSize %s_cc = WxSize_val(%s_v);\n  wxSize* %s_c = &%s_cc;\n" arg_name arg_name arg_name arg_name *)
         | "wxRect" -> ()
-        (*                  fprintf oc "  wxRect %s_cc = WxRect_val(%s_v);\n  wxRect* %s_c = &%s_cc;\n" arg_name arg_name arg_name arg_name ; *)
         | "wxString" -> ()
-        (*                  fprintf oc "  wxString %s_cc = wxString( String_val(%s_v), wxConvUTF8 );\n   wxString* %s_c = &%s_cc;\n" arg_name arg_name arg_name arg_name *)
         | _ ->
           fprintf oc "  %s* %s_c = (%s*)Abstract_val(%s_v);\n"
             wxClass arg_name
@@ -194,7 +212,9 @@ let generate_method_stub oc cl p =
     match proto_ret with
     | Typ_ident "void" -> ()
     | Typ_ident wxClass ->
-      if List.mem wxClass direct_return_types then
+      let wxClass_equiv = find_cpp_equiv wxClass in
+
+      if List.mem wxClass_equiv direct_return_types then
         fprintf oc "%s ret_c = " wxClass
       else begin
         fprintf oc "%s *ret_c = new %s();\n" wxClass wxClass;
@@ -217,17 +237,27 @@ let generate_method_stub oc cl p =
     match arg.arg_direction, arg.arg_ctype with
 
     | Out, Typ_ident wxClass ->
-      if List.mem wxClass direct_return_types then
+      let wxClass_equiv = find_cpp_equiv wxClass in
+
+      if List.mem wxClass_equiv direct_return_types then
         fprintf oc " &%s_c" arg.arg_name
       else
         fprintf oc " %s_c" arg.arg_name;
 
     | Out, _ -> assert false
 
-    | In, Typ_ident (
-        "int" | "long" | "bool"
-        | "float" | "double"
-      ) -> fprintf oc "%s_c" arg.arg_name
+    | In, Typ_ident wxClass ->
+      let wxClass_equiv = find_cpp_equiv wxClass in
+      begin match wxClass_equiv with
+          "int" | "long" | "bool"
+        | "float" | "double" ->
+          fprintf oc "%s_c" arg.arg_name
+        | _ ->
+          Printf.eprintf "Error: don't know what to do with arg type (%s)\n  %s\n%!" arg.arg_name (string_of_ctype arg.arg_ctype);
+          exit_code := 2
+
+      end
+
     | In, Typ_reference (Typ_ident wxClass) ->
       begin
         match wxClass with
@@ -266,32 +296,45 @@ let generate_method_stub oc cl p =
       | Typ_pointer (Typ_ident wxClass) ->
         fprintf oc "Val_abstract( ret_c )"
       | Typ_reference (Typ_ident wxClass) ->
-        fprintf oc "Val_abstract( &ret_c )"
+        begin match wxClass with
+          | "wxString" ->
+            fprintf oc "Val_wxString( &ret_c )"
+          | _ ->
+            fprintf oc "Val_abstract( &ret_c )"
+        end
       | Typ_option (Typ_ident wxClass) ->
         fprintf oc "Val_abstractOption( ret_c )"
-      | Typ_ident "wxRect" ->
-        fprintf oc "Val_wxRect( &ret_c )"
-      | Typ_ident "wxPoint" ->
-        fprintf oc "Val_wxPoint( &ret_c )"
-      | Typ_ident "wxSize" ->
-        fprintf oc "Val_wxSize( &ret_c )"
-      | Typ_ident "wxString" ->
-        fprintf oc "Val_wxString( &ret_c )"
-      | Typ_ident "void" ->
-        fprintf oc "Val_unit";
-      | Typ_ident "bool" ->
-        fprintf oc "Val_bool(ret_c)";
-      | Typ_ident "int" ->
-        fprintf oc "Val_int(ret_c)";
-      | Typ_ident "long" ->
-        fprintf oc "Val_long(ret_c)";
       | Typ_ident wxClass ->
-        fprintf oc "Val_abstract( ret_c )"
+        let wxClass_equiv = find_cpp_equiv wxClass in
+        begin match wxClass_equiv with
+            "wxRect" ->
+            fprintf oc "Val_wxRect( &ret_c )"
+          |  "wxPoint" ->
+            fprintf oc "Val_wxPoint( &ret_c )"
+          |  "wxSize" ->
+            fprintf oc "Val_wxSize( &ret_c )"
+          |  "wxString" ->
+            fprintf oc "Val_wxString( &ret_c )"
+          |  "void" ->
+            fprintf oc "Val_unit";
+          |  "bool" ->
+            fprintf oc "Val_bool(ret_c)";
+          |  "int32" ->
+            fprintf oc "caml_copy_int32(ret_c)";
+          |  "int64" ->
+            fprintf oc "caml_copy_int64(ret_c)";
+          |  "int" ->
+            fprintf oc "Val_int(ret_c)";
+          |  "long" ->
+            fprintf oc "Val_long(ret_c)";
+          |  _ ->
+            fprintf oc "Val_abstract( ret_c )"
+        end
       | _ ->
         Printf.eprintf "Error: don't know what to do with return type (ret_v)\n  %s\n%!" (string_of_ctype proto_ret);
         exit_code := 2
   in
-if !out_nargs = 0 then begin
+  if !out_nargs = 0 then begin
     fprintf oc "  ret_v = ";
     convert_ret oc;
     fprintf oc ";\n";
@@ -301,17 +344,7 @@ if !out_nargs = 0 then begin
         match arg.arg_direction with
         | In -> ()
         | Out ->
-          let conversion =
-          match arg.arg_ctype with
-          | Typ_ident "wxRect" -> "Val_wxRect(&"
-          | Typ_ident "wxPoint" -> "Val_wxPoint(&"
-          | Typ_ident "wxSize" ->  "Val_wxSize(&"
-          | Typ_ident "wxString" -> "Val_wxString(&"
-          | Typ_ident ("int" | "long") -> "Val_int("
-          | Typ_ident wxClass when
-              wxClass.[0] = 'w' && wxClass.[1] = 'x' -> "Val_abstract("
-          | _ -> assert false
-          in
+          let conversion = find_return_conversion arg in
           fprintf oc "  ret_v = %s %s_c);\n" conversion arg.arg_name
       ) p.proto_args
     else
@@ -328,21 +361,7 @@ if !out_nargs = 0 then begin
           match arg.arg_direction with
           | In -> ()
           | Out ->
-            let conversion =
-              match arg.arg_ctype with
-              | Typ_ident "wxRect" -> "Val_wxRect(&"
-              | Typ_ident "wxPoint" -> "Val_wxPoint(&"
-              | Typ_ident "wxSize" ->  "Val_wxSize(&"
-              | Typ_ident "wxString" -> "Val_wxString(&"
-              | Typ_ident ("int" | "long") -> "Val_int("
-              | Typ_ident wxClass when
-                  wxClass.[0] = 'w' && wxClass.[1] = 'x' -> "Val_abstract("
-              | _ ->
-                Printf.eprintf "No out-return2 conversion for ctype:\n%s\n"
-                  (string_of_ctype arg.arg_ctype);
-                exit_code := 2;
-                raise Exit
-            in
+            let conversion = find_return_conversion arg in
             fprintf oc "  caml_initialize(&Field(ret_v,%d), %s %s_c));\n" !pos
               conversion arg.arg_name;
             incr pos
