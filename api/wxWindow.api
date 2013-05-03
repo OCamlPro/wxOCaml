@@ -80,7 +80,7 @@ class wxWindow inherit wxWindowBase begin
   method(void,ReleaseMouse)()
   method(void,Refresh)(bool eraseBackground, wxRect? rect)
   method(void,PrepareDC)(wxDC& dc)
-  method(wxRegion&,GetUpdateRegion)()
+  method(wxRegion,GetUpdateRegion)()
   method(bool,IsExposed)(int x,int y,int w,int h)
   method(bool,SetBackgroundColour)(wxColour& colour)
   method(void,SetForegroundColour)(wxColour& colour)
@@ -116,7 +116,8 @@ class wxWindow inherit wxWindowBase begin
 
   method(void,UnsetConstraints)(wxLayoutConstraints? c)
 
-
+  method(long,GetWindowStyle)()
+  method(void,SetWindowStyle)(long style)
   method(void,AddConstraintReference)(wxWindowBase? otherWin)
   method(void,RemoveConstraintReference)(wxWindowBase? otherWin)
   method(void,DeleteRelatedConstraints)()
@@ -128,7 +129,8 @@ class wxWindow inherit wxWindowBase begin
   method(void,GetSizeConstraint)(int <- w,int <- h)
   method(void,GetClientSizeConstraint)(int <- w,int <- h)
   method(void,GetPositionConstraint)(int <- x,int <- y)
-  method(void,SetSizer)(wxSizer? sizer)
+  method(void,SetSizer)(wxSizer* sizer)
+  method(void,SetSizerAndFit) (wxSizer *sizer, bool deleteOld)
   method(wxSizer?,GetSizer)()
 	
   method(void,SetScrollbar)(int orient,int pos,int thumbVisible,int range,bool refresh)
@@ -168,6 +170,7 @@ class wxWindow inherit wxWindowBase begin
   method(int,GetChildren)(void* _res,int _cnt)
 
 *)
+  function(wxWindow?, wxGetTopLevelParent)(wxWindow* win)
 
 
 end

@@ -1,7 +1,7 @@
 open WxClasses
 
 external create : 
-   wxWindow option -> int -> wxString -> wxPoint -> wxSize -> int -> 
+   wxWindow -> int -> wxString -> wxPoint -> wxSize -> int -> 
       wxTextCtrl = "wxTextCtrl_Create_c_bytecode" "wxTextCtrl_Create_c"
 
 
@@ -653,6 +653,15 @@ external unsetConstraints : wxTextCtrl ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxTextCtrl ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxTextCtrl ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxTextCtrl ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -704,8 +713,13 @@ external getPositionConstraint : wxTextCtrl ->
 
 
 external setSizer : wxTextCtrl ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxTextCtrl ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxTextCtrl ->
@@ -752,7 +766,12 @@ external getVirtualSize : wxTextCtrl ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxControl : wxTextCtrl -> wxControl = "%identity"
 

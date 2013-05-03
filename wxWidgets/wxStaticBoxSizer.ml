@@ -15,13 +15,17 @@ external getOrientation : wxStaticBoxSizer ->
    int = "wxBoxSizer_GetOrientation_c"
 
 
+external getDefaultBorder : 
+    unit -> int = "wxSizer_GetDefaultBorder_c"
+
+
 external addWindow : wxStaticBoxSizer ->
-   wxWindow option -> int -> int -> int -> wxObject option -> 
+   wxWindow -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_AddWindow_c_bytecode" "wxSizer_AddWindow_c"
 
 
 external addSizer : wxStaticBoxSizer ->
-   wxSizer option -> int -> int -> int -> wxObject option -> 
+   wxSizer -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_AddSizer_c_bytecode" "wxSizer_AddSizer_c"
 
 
@@ -31,12 +35,12 @@ external add : wxStaticBoxSizer ->
 
 
 external insertWindow : wxStaticBoxSizer ->
-   int -> wxWindow option -> int -> int -> int -> wxObject option -> 
+   int -> wxWindow -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_InsertWindow_c_bytecode" "wxSizer_InsertWindow_c"
 
 
 external insertSizer : wxStaticBoxSizer ->
-   int -> wxSizer option -> int -> int -> int -> wxObject option -> 
+   int -> wxSizer -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_InsertSizer_c_bytecode" "wxSizer_InsertSizer_c"
 
 
@@ -46,12 +50,12 @@ external insert : wxStaticBoxSizer ->
 
 
 external prependWindow : wxStaticBoxSizer ->
-   wxWindow option -> int -> int -> int -> wxObject option -> 
+   wxWindow -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_PrependWindow_c_bytecode" "wxSizer_PrependWindow_c"
 
 
 external prependSizer : wxStaticBoxSizer ->
-   wxSizer option -> int -> int -> int -> wxObject option -> 
+   wxSizer -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_PrependSizer_c_bytecode" "wxSizer_PrependSizer_c"
 
 
@@ -229,17 +233,17 @@ external prependStretchSpacer : wxStaticBoxSizer ->
 
 
 external replaceWindow : wxStaticBoxSizer ->
-   wxWindow option -> wxWindow option -> bool  -> 
+   wxWindow -> wxWindow -> bool  -> 
       bool  = "wxSizer_ReplaceWindow_c"
 
 
 external replaceSizer : wxStaticBoxSizer ->
-   wxSizer option -> wxSizer option -> bool  -> 
+   wxSizer -> wxSizer -> bool  -> 
       bool  = "wxSizer_ReplaceSizer_c"
 
 
 external replace : wxStaticBoxSizer ->
-   int -> wxSizerItem option -> 
+   int -> wxSizerItem -> 
       bool  = "wxSizer_Replace_c"
 
 
@@ -268,7 +272,7 @@ external setDimension : wxStaticBoxSizer ->
       unit = "wxSizer_SetDimension_c"
 
 
-(* Cast functions to parents, if any *)
+(* Cast functions to parents *)
 
 external wxBoxSizer : wxStaticBoxSizer -> wxBoxSizer = "%identity"
 

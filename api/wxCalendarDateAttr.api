@@ -4,9 +4,12 @@ type wxCalendarDateBorder = int
 class wxCalendarDateAttr begin
 	
 
-  new(Create)(wxColour& _ctxt,wxColour& _cbck,wxColour& _cbrd,wxFont& _fnt,
-		       wxCalendarDateBorder _brd)
-
+  new(Create)(         wxColour& _ctxt, 
+                       wxColour& _cbck, 
+                       wxColour& _cbrd (* = wxNullColor *),
+                       wxFont& _fnt (* = wxNullFont *),
+		       wxCalendarDateBorder _brd (* = wxCAL_BORDER_NONE *) )
+  new(CreateBorder)(wxCalendarDateBorder border, wxColour &colBorder)
   new(CreateDefault)()
 
   method(void, SetTextColour)(wxColour& col)

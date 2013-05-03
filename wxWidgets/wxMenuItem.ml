@@ -90,6 +90,6 @@ external getLabelFromText : wxMenuItem ->
 
 (* Methods inherited from parents, if any *)
 
-(* Cast functions to parents, if any *)
+(* Cast functions to parents *)
 
 external wxObject : wxMenuItem -> wxObject = "%identity"

@@ -587,6 +587,15 @@ external unsetConstraints : wxMenuBar ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxMenuBar ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxMenuBar ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxMenuBar ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -638,8 +647,13 @@ external getPositionConstraint : wxMenuBar ->
 
 
 external setSizer : wxMenuBar ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxMenuBar ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxMenuBar ->
@@ -686,7 +700,12 @@ external getVirtualSize : wxMenuBar ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxEvtHandler : wxMenuBar -> wxEvtHandler = "%identity"
 

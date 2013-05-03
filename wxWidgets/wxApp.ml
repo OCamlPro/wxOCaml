@@ -45,7 +45,7 @@ external processPendingEvents : wxApp ->
    unit = "wxEvtHandler_ProcessPendingEvents_c"
 
 
-(* Cast functions to parents, if any *)
+(* Cast functions to parents *)
 
 external wxAppConsole : wxApp -> wxAppConsole = "%identity"
 

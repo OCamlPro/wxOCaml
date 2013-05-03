@@ -2,7 +2,7 @@
 class wxCalendarCtrl inherit wxControl begin
       
 
-  new(Create)(wxWindow? _prt,int _id, wxDateTime& _dat,wxPoint& pos, wxSize& size,int _stl)
+  new(Create)(wxWindow* _prt,int _id, wxDateTime& _dat,wxPoint& pos, wxSize& size,int _stl)
 
   method(void, SetDate)(wxDateTime& date)
   method(wxDateTime, GetDate)()

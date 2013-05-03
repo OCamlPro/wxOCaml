@@ -6,7 +6,7 @@ value wxSplitterWindow_Create_c(value _prt_v, value _id_v, value pos_v, value si
 {
   CAMLparam0();
   CAMLlocal1(ret_v);
-  wxWindow* _prt_c = (wxWindow*)AbstractOption_val(_prt_v);
+  wxWindow* _prt_c = (wxWindow*)Abstract_val(_prt_v);
   int _id_c = Int_val(_id_v);
   int _stl_c = Int_val(_stl_v);
   wxSplitterWindow * ret_c = new wxSplitterWindow(_prt_c, _id_c, WxPoint_val(pos_v) , WxSize_val(size_v) , _stl_c);
@@ -77,8 +77,8 @@ value wxSplitterWindow_SplitVertically_c(value self_v, value window1_v, value wi
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  wxWindow* window1_c = (wxWindow*)AbstractOption_val(window1_v);
-  wxWindow* window2_c = (wxWindow*)AbstractOption_val(window2_v);
+  wxWindow* window1_c = (wxWindow*)Abstract_val(window1_v);
+  wxWindow* window2_c = (wxWindow*)Abstract_val(window2_v);
   int sashPosition_c = Int_val(sashPosition_v);
   bool ret_c = self_c->SplitVertically(window1_c, window2_c, sashPosition_c);
   ret_v = Val_bool(ret_c);
@@ -91,8 +91,8 @@ value wxSplitterWindow_SplitHorizontally_c(value self_v, value window1_v, value 
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  wxWindow* window1_c = (wxWindow*)AbstractOption_val(window1_v);
-  wxWindow* window2_c = (wxWindow*)AbstractOption_val(window2_v);
+  wxWindow* window1_c = (wxWindow*)Abstract_val(window1_v);
+  wxWindow* window2_c = (wxWindow*)Abstract_val(window2_v);
   int sashPosition_c = Int_val(sashPosition_v);
   int ret_c = self_c->SplitHorizontally(window1_c, window2_c, sashPosition_c);
   ret_v = Val_int(ret_c);
@@ -105,7 +105,7 @@ value wxSplitterWindow_Unsplit_c(value self_v, value toRemove_v)
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  wxWindow* toRemove_c = (wxWindow*)AbstractOption_val(toRemove_v);
+  wxWindow* toRemove_c = (wxWindow*)Abstract_val(toRemove_v);
   int ret_c = self_c->Unsplit(toRemove_c);
   ret_v = Val_int(ret_c);
   CAMLreturn(ret_v);
@@ -117,8 +117,8 @@ value wxSplitterWindow_ReplaceWindow_c(value self_v, value winOld_v, value winNe
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  wxWindow* winOld_c = (wxWindow*)AbstractOption_val(winOld_v);
-  wxWindow* winNew_c = (wxWindow*)AbstractOption_val(winNew_v);
+  wxWindow* winOld_c = (wxWindow*)Abstract_val(winOld_v);
+  wxWindow* winNew_c = (wxWindow*)Abstract_val(winNew_v);
   int ret_c = self_c->ReplaceWindow(winOld_c, winNew_c);
   ret_v = Val_int(ret_c);
   CAMLreturn(ret_v);

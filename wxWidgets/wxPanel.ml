@@ -1,7 +1,7 @@
 open WxClasses
 
 external create : 
-   wxWindow option -> int -> wxPoint -> wxSize -> int -> wxString -> 
+   wxWindow -> int -> wxPoint -> wxSize -> int -> wxString -> 
       wxPanel = "wxPanel_Create_c_bytecode" "wxPanel_Create_c"
 
 
@@ -493,6 +493,15 @@ external unsetConstraints : wxPanel ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxPanel ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxPanel ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxPanel ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -544,8 +553,13 @@ external getPositionConstraint : wxPanel ->
 
 
 external setSizer : wxPanel ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxPanel ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxPanel ->
@@ -592,7 +606,12 @@ external getVirtualSize : wxPanel ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxEvtHandler : wxPanel -> wxEvtHandler = "%identity"
 

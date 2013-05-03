@@ -488,6 +488,15 @@ external unsetConstraints : wxListCtrl ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxListCtrl ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxListCtrl ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxListCtrl ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -539,8 +548,13 @@ external getPositionConstraint : wxListCtrl ->
 
 
 external setSizer : wxListCtrl ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxListCtrl ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxListCtrl ->
@@ -587,7 +601,12 @@ external getVirtualSize : wxListCtrl ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxControl : wxListCtrl -> wxControl = "%identity"
 

@@ -542,6 +542,15 @@ external unsetConstraints : wxBitmapButton ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxBitmapButton ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxBitmapButton ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxBitmapButton ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -593,8 +602,13 @@ external getPositionConstraint : wxBitmapButton ->
 
 
 external setSizer : wxBitmapButton ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxBitmapButton ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxBitmapButton ->
@@ -641,7 +655,12 @@ external getVirtualSize : wxBitmapButton ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxAnyButton : wxBitmapButton -> wxAnyButton = "%identity"
 

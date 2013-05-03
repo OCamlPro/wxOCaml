@@ -488,6 +488,15 @@ external unsetConstraints : wxAnyButton ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxAnyButton ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxAnyButton ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxAnyButton ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -539,8 +548,13 @@ external getPositionConstraint : wxAnyButton ->
 
 
 external setSizer : wxAnyButton ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxAnyButton ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxAnyButton ->
@@ -587,7 +601,12 @@ external getVirtualSize : wxAnyButton ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxControl : wxAnyButton -> wxControl = "%identity"
 
@@ -598,3 +617,12 @@ external wxObject : wxAnyButton -> wxObject = "%identity"
 external wxWindow : wxAnyButton -> wxWindow = "%identity"
 
 external wxWindowBase : wxAnyButton -> wxWindowBase = "%identity"
+module Unsafe = struct
+
+  (* Cast functions to children, if any *)
+
+  external wxBitmapButton : wxAnyButton -> wxBitmapButton = "%identity"
+
+  external wxButton : wxAnyButton -> wxButton = "%identity"
+
+end

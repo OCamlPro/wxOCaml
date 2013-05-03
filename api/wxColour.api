@@ -1,3 +1,4 @@
 class wxColour inherit wxObject begin
 
+
 end

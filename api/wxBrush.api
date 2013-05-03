@@ -1,0 +1,5 @@
+
+class wxBrush inherit wxObject begin
+
+
+end

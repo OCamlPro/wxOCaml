@@ -488,6 +488,15 @@ external unsetConstraints : wxControl ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxControl ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxControl ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxControl ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -539,8 +548,13 @@ external getPositionConstraint : wxControl ->
 
 
 external setSizer : wxControl ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxControl ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxControl ->
@@ -587,7 +601,12 @@ external getVirtualSize : wxControl ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxEvtHandler : wxControl -> wxEvtHandler = "%identity"
 
@@ -596,3 +615,34 @@ external wxObject : wxControl -> wxObject = "%identity"
 external wxWindow : wxControl -> wxWindow = "%identity"
 
 external wxWindowBase : wxControl -> wxWindowBase = "%identity"
+module Unsafe = struct
+
+  (* Cast functions to children, if any *)
+
+  external wxAnyButton : wxControl -> wxAnyButton = "%identity"
+
+  external wxBitmapButton : wxControl -> wxBitmapButton = "%identity"
+
+  external wxButton : wxControl -> wxButton = "%identity"
+
+  external wxCalendarCtrl : wxControl -> wxCalendarCtrl = "%identity"
+
+  external wxDatePickerCtrl : wxControl -> wxDatePickerCtrl = "%identity"
+
+  external wxListCtrl : wxControl -> wxListCtrl = "%identity"
+
+  external wxStaticBox : wxControl -> wxStaticBox = "%identity"
+
+  external wxStaticText : wxControl -> wxStaticText = "%identity"
+
+  external wxStatusBar : wxControl -> wxStatusBar = "%identity"
+
+  external wxTextCtrl : wxControl -> wxTextCtrl = "%identity"
+
+  external wxTimePickerCtrl : wxControl -> wxTimePickerCtrl = "%identity"
+
+  external wxToolBar : wxControl -> wxToolBar = "%identity"
+
+  external wxTreeCtrl : wxControl -> wxTreeCtrl = "%identity"
+
+end

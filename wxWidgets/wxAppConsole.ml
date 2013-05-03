@@ -35,8 +35,15 @@ external processPendingEvents : wxAppConsole ->
    unit = "wxEvtHandler_ProcessPendingEvents_c"
 
 
-(* Cast functions to parents, if any *)
+(* Cast functions to parents *)
 
 external wxEvtHandler : wxAppConsole -> wxEvtHandler = "%identity"
 
 external wxObject : wxAppConsole -> wxObject = "%identity"
+module Unsafe = struct
+
+  (* Cast functions to children, if any *)
+
+  external wxApp : wxAppConsole -> wxApp = "%identity"
+
+end

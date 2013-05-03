@@ -1,0 +1,43 @@
+
+class wxValues begin
+  value(wxColour* , wxBLACK)
+  value(wxColour* , wxWHITE)
+  value(wxColour* , wxRED)
+  value(wxColour* , wxBLUE)
+  value(wxColour* , wxGREEN)
+  value(wxColour* , wxCYAN)
+  value(wxColour* , wxLIGHT_GREY)
+  value(wxColour, wxNullColour)
+
+  value(wxBrush* , wxBLUE_BRUSH)
+  value(wxBrush* , wxGREEN_BRUSH)
+  value(wxBrush* , wxWHITE_BRUSH)
+  value(wxBrush* , wxBLACK_BRUSH)
+  value(wxBrush* , wxGREY_BRUSH)
+  value(wxBrush* , wxMEDIUM_GREY_BRUSH)
+  value(wxBrush* , wxLIGHT_GREY_BRUSH)
+  value(wxBrush* , wxTRANSPARENT_BRUSH)
+  value(wxBrush* , wxCYAN_BRUSH)
+  value(wxBrush* , wxRED_BRUSH)
+
+  value(wxPen* , wxRED_PEN)
+  value(wxPen* , wxCYAN_PEN)
+  value(wxPen* , wxGREEN_PEN)
+  value(wxPen* , wxBLACK_PEN)
+  value(wxPen* , wxWHITE_PEN)
+  value(wxPen* , wxTRANSPARENT_PEN)
+  value(wxPen* , wxBLACK_DASHED_PEN)
+  value(wxPen* , wxGREY_PEN)
+  value(wxPen* , wxMEDIUM_GREY_PEN)
+  value(wxPen* , wxLIGHT_GREY_PEN)
+
+(* THESE ARE NOT CONSTANTS, BUT MACROS !! 
+  value(wxFont* , wxITALIC_FONT)
+  value(wxFont* , wxNORMAL_FONT)
+  value(wxFont* , wxSMALL_FONT)
+  value(wxFont* , wxSWISS_FONT)
+*)
+  value(wxFont, wxNullFont)
+
+  value(wxDateTime, wxDefaultDateTime)
+end

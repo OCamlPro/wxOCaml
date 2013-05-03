@@ -91,7 +91,7 @@ external getTimestamp :
     unit -> wxString = "wxLog_GetTimestamp_c"
 
 
-(* Cast functions to parents, if any *)
+(* Cast functions to parents *)
 
 external wxLog : wxLogWindow -> wxLog = "%identity"
 

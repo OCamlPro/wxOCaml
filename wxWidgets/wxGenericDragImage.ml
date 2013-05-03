@@ -37,6 +37,6 @@ external updateBackingFromWindow : wxGenericDragImage ->
 
 (* Methods inherited from parents, if any *)
 
-(* Cast functions to parents, if any *)
+(* Cast functions to parents *)
 
 external wxObject : wxGenericDragImage -> wxObject = "%identity"

@@ -1,12 +1,16 @@
 open WxClasses
 
+external getDefaultBorder : 
+    unit -> int = "wxSizer_GetDefaultBorder_c"
+
+
 external addWindow : wxSizer ->
-   wxWindow option -> int -> int -> int -> wxObject option -> 
+   wxWindow -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_AddWindow_c_bytecode" "wxSizer_AddWindow_c"
 
 
 external addSizer : wxSizer ->
-   wxSizer option -> int -> int -> int -> wxObject option -> 
+   wxSizer -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_AddSizer_c_bytecode" "wxSizer_AddSizer_c"
 
 
@@ -16,12 +20,12 @@ external add : wxSizer ->
 
 
 external insertWindow : wxSizer ->
-   int -> wxWindow option -> int -> int -> int -> wxObject option -> 
+   int -> wxWindow -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_InsertWindow_c_bytecode" "wxSizer_InsertWindow_c"
 
 
 external insertSizer : wxSizer ->
-   int -> wxSizer option -> int -> int -> int -> wxObject option -> 
+   int -> wxSizer -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_InsertSizer_c_bytecode" "wxSizer_InsertSizer_c"
 
 
@@ -31,12 +35,12 @@ external insert : wxSizer ->
 
 
 external prependWindow : wxSizer ->
-   wxWindow option -> int -> int -> int -> wxObject option -> 
+   wxWindow -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_PrependWindow_c_bytecode" "wxSizer_PrependWindow_c"
 
 
 external prependSizer : wxSizer ->
-   wxSizer option -> int -> int -> int -> wxObject option -> 
+   wxSizer -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_PrependSizer_c_bytecode" "wxSizer_PrependSizer_c"
 
 
@@ -214,17 +218,17 @@ external prependStretchSpacer : wxSizer ->
 
 
 external replaceWindow : wxSizer ->
-   wxWindow option -> wxWindow option -> bool  -> 
+   wxWindow -> wxWindow -> bool  -> 
       bool  = "wxSizer_ReplaceWindow_c"
 
 
 external replaceSizer : wxSizer ->
-   wxSizer option -> wxSizer option -> bool  -> 
+   wxSizer -> wxSizer -> bool  -> 
       bool  = "wxSizer_ReplaceSizer_c"
 
 
 external replace : wxSizer ->
-   int -> wxSizerItem option -> 
+   int -> wxSizerItem -> 
       bool  = "wxSizer_Replace_c"
 
 
@@ -255,6 +259,21 @@ external setDimension : wxSizer ->
 
 (* Methods inherited from parents, if any *)
 
-(* Cast functions to parents, if any *)
+(* Cast functions to parents *)
 
 external wxObject : wxSizer -> wxObject = "%identity"
+module Unsafe = struct
+
+  (* Cast functions to children, if any *)
+
+  external wxBoxSizer : wxSizer -> wxBoxSizer = "%identity"
+
+  external wxFlexGridSizer : wxSizer -> wxFlexGridSizer = "%identity"
+
+  external wxGridSizer : wxSizer -> wxGridSizer = "%identity"
+
+  external wxStaticBoxSizer : wxSizer -> wxStaticBoxSizer = "%identity"
+
+  external wxStdDialogButtonSizer : wxSizer -> wxStdDialogButtonSizer = "%identity"
+
+end

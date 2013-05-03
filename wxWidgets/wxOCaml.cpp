@@ -7,14 +7,14 @@ extern "C" {
 extern "C"
 {
 
-value Val_abstract(void* ptr)
+value Val_abstract(const void* ptr)
 {
   value v = caml_alloc_small(1, Abstract_tag);
   Field(v, 0) = (value)ptr;
   return v;
 }
 
-value Val_abstractOption(void* ptr)
+value Val_abstractOption(const void* ptr)
 {
   CAMLparam0();
   CAMLlocal1(abstract_v);

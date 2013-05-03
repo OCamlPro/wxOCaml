@@ -1,9 +1,5 @@
 open WxClasses
 
-external create : 
-    unit -> wxDateTime = "wxDateTime_Create_c"
-
-
 external setCountry : 
    int -> 
       unit = "wxDateTime_SetCountry_c"
@@ -92,6 +88,20 @@ external now :
 
 external uNow : 
     unit -> wxDateTime = "wxDateTime_UNow_c"
+
+
+external createEmpty : 
+    unit -> wxDateTime = "wxDateTime_CreateEmpty_c"
+
+
+external createDate : 
+   int -> int -> int -> 
+      wxDateTime = "wxDateTime_CreateDate_c"
+
+
+external create : 
+   int -> int -> int -> int -> int -> int -> 
+      wxDateTime = "wxDateTime_Create_c_bytecode" "wxDateTime_Create_c"
 
 
 external setToCurrent : wxDateTime ->
@@ -230,6 +240,66 @@ external getTicks : wxDateTime ->
    int = "wxDateTime_GetTicks_c"
 
 
+external getMonth : wxDateTime ->
+   int -> 
+      int = "wxDateTime_GetMonth_c"
+
+
+external getYear : wxDateTime ->
+   int -> 
+      int = "wxDateTime_GetYear_c"
+
+
+external getWeekDayTZ : wxDateTime ->
+   int -> 
+      int = "wxDateTime_GetWeekDayTZ_c"
+
+
+external toTimezone : wxDateTime ->
+   int -> bool  -> 
+      unit = "wxDateTime_ToTimezone_c"
+
+
+external makeTimezone : wxDateTime ->
+   int -> bool  -> 
+      unit = "wxDateTime_MakeTimezone_c"
+
+
+external getHour : wxDateTime ->
+   int -> 
+      int = "wxDateTime_GetHour_c"
+
+
+external getMinute : wxDateTime ->
+   int -> 
+      int = "wxDateTime_GetMinute_c"
+
+
+external getSecond : wxDateTime ->
+   int -> 
+      int = "wxDateTime_GetSecond_c"
+
+
+external getMillisecond : wxDateTime ->
+   int -> 
+      int = "wxDateTime_GetMillisecond_c"
+
+
+external getDayOfYear : wxDateTime ->
+   int -> 
+      int = "wxDateTime_GetDayOfYear_c"
+
+
+external getWeekOfYear : wxDateTime ->
+   int -> int -> 
+      int = "wxDateTime_GetWeekOfYear_c"
+
+
+external getWeekOfMonth : wxDateTime ->
+   int -> int -> 
+      int = "wxDateTime_GetWeekOfMonth_c"
+
+
 external isWorkDay : wxDateTime ->
    int -> 
       bool  = "wxDateTime_IsWorkDay_c"
@@ -271,7 +341,7 @@ external isSameTime : wxDateTime ->
 
 
 external format : wxDateTime ->
-   wxString -> 
+   wxString -> int -> 
       wxString = "wxDateTime_Format_c"
 
 
@@ -300,9 +370,8 @@ external getValue : wxDateTime ->
 
 
 external getDay : wxDateTime ->
-   int = "wxDateTime_GetDay_c"
+   int -> 
+      int = "wxDateTime_GetDay_c"
 
 
 (* Methods inherited from parents, if any *)
-
-(* Cast functions to parents, if any *)

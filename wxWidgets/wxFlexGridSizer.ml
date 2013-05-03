@@ -63,13 +63,17 @@ external getHGap : wxFlexGridSizer ->
    int = "wxGridSizer_GetHGap_c"
 
 
+external getDefaultBorder : 
+    unit -> int = "wxSizer_GetDefaultBorder_c"
+
+
 external addWindow : wxFlexGridSizer ->
-   wxWindow option -> int -> int -> int -> wxObject option -> 
+   wxWindow -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_AddWindow_c_bytecode" "wxSizer_AddWindow_c"
 
 
 external addSizer : wxFlexGridSizer ->
-   wxSizer option -> int -> int -> int -> wxObject option -> 
+   wxSizer -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_AddSizer_c_bytecode" "wxSizer_AddSizer_c"
 
 
@@ -79,12 +83,12 @@ external add : wxFlexGridSizer ->
 
 
 external insertWindow : wxFlexGridSizer ->
-   int -> wxWindow option -> int -> int -> int -> wxObject option -> 
+   int -> wxWindow -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_InsertWindow_c_bytecode" "wxSizer_InsertWindow_c"
 
 
 external insertSizer : wxFlexGridSizer ->
-   int -> wxSizer option -> int -> int -> int -> wxObject option -> 
+   int -> wxSizer -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_InsertSizer_c_bytecode" "wxSizer_InsertSizer_c"
 
 
@@ -94,12 +98,12 @@ external insert : wxFlexGridSizer ->
 
 
 external prependWindow : wxFlexGridSizer ->
-   wxWindow option -> int -> int -> int -> wxObject option -> 
+   wxWindow -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_PrependWindow_c_bytecode" "wxSizer_PrependWindow_c"
 
 
 external prependSizer : wxFlexGridSizer ->
-   wxSizer option -> int -> int -> int -> wxObject option -> 
+   wxSizer -> int -> int -> int -> wxObject option -> 
       unit = "wxSizer_PrependSizer_c_bytecode" "wxSizer_PrependSizer_c"
 
 
@@ -277,17 +281,17 @@ external prependStretchSpacer : wxFlexGridSizer ->
 
 
 external replaceWindow : wxFlexGridSizer ->
-   wxWindow option -> wxWindow option -> bool  -> 
+   wxWindow -> wxWindow -> bool  -> 
       bool  = "wxSizer_ReplaceWindow_c"
 
 
 external replaceSizer : wxFlexGridSizer ->
-   wxSizer option -> wxSizer option -> bool  -> 
+   wxSizer -> wxSizer -> bool  -> 
       bool  = "wxSizer_ReplaceSizer_c"
 
 
 external replace : wxFlexGridSizer ->
-   int -> wxSizerItem option -> 
+   int -> wxSizerItem -> 
       bool  = "wxSizer_Replace_c"
 
 
@@ -316,7 +320,7 @@ external setDimension : wxFlexGridSizer ->
       unit = "wxSizer_SetDimension_c"
 
 
-(* Cast functions to parents, if any *)
+(* Cast functions to parents *)
 
 external wxGridSizer : wxFlexGridSizer -> wxGridSizer = "%identity"
 

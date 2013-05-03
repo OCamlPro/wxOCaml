@@ -1,7 +1,7 @@
 open WxClasses
 
 external create : 
-   wxWindow option -> int -> wxDateTime -> wxPoint -> wxSize -> int -> 
+   wxWindow -> int -> wxDateTime -> wxPoint -> wxSize -> int -> 
       wxCalendarCtrl = "wxCalendarCtrl_Create_c_bytecode" "wxCalendarCtrl_Create_c"
 
 
@@ -581,6 +581,15 @@ external unsetConstraints : wxCalendarCtrl ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxCalendarCtrl ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxCalendarCtrl ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxCalendarCtrl ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -632,8 +641,13 @@ external getPositionConstraint : wxCalendarCtrl ->
 
 
 external setSizer : wxCalendarCtrl ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxCalendarCtrl ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxCalendarCtrl ->
@@ -680,7 +694,12 @@ external getVirtualSize : wxCalendarCtrl ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxControl : wxCalendarCtrl -> wxControl = "%identity"
 

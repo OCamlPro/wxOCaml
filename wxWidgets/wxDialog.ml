@@ -5,6 +5,28 @@ external create :
       wxDialog = "wxDialog_Create_c_bytecode" "wxDialog_Create_c"
 
 
+external isModal : wxDialog ->
+   bool  = "wxDialog_IsModal_c"
+
+
+external showModal : wxDialog ->
+   int = "wxDialog_ShowModal_c"
+
+
+external endModal : wxDialog ->
+   int -> 
+      unit = "wxDialog_EndModal_c"
+
+
+external setReturnCode : wxDialog ->
+   int -> 
+      unit = "wxDialog_SetReturnCode_c"
+
+
+external getReturnCode : wxDialog ->
+   int = "wxDialog_GetReturnCode_c"
+
+
 (* Methods inherited from parents, if any *)
 
 external connect : wxDialog ->
@@ -567,6 +589,15 @@ external unsetConstraints : wxDialog ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxDialog ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxDialog ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxDialog ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -618,8 +649,13 @@ external getPositionConstraint : wxDialog ->
 
 
 external setSizer : wxDialog ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxDialog ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxDialog ->
@@ -666,7 +702,12 @@ external getVirtualSize : wxDialog ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxEvtHandler : wxDialog -> wxEvtHandler = "%identity"
 

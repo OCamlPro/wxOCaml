@@ -488,6 +488,15 @@ external unsetConstraints : wxStatusBar ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxStatusBar ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxStatusBar ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxStatusBar ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -539,8 +548,13 @@ external getPositionConstraint : wxStatusBar ->
 
 
 external setSizer : wxStatusBar ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxStatusBar ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxStatusBar ->
@@ -587,7 +601,12 @@ external getVirtualSize : wxStatusBar ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxControl : wxStatusBar -> wxControl = "%identity"
 

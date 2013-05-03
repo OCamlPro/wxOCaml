@@ -1,7 +1,7 @@
 
 class wxPanel inherit wxWindow begin
 
-   new(Create) (wxWindow? _prt, int _id, 
+   new(Create) (wxWindow* _prt, int _id, 
    wxPoint& pos, wxSize& sz, int style, wxString& panel_name)
 
 

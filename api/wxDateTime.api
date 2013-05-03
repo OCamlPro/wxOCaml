@@ -1,6 +1,7 @@
 
 type wxLongLong = int64
 
+type wxDateTime::WeekFlags = int
 type wxDateTime::WeekDay = int
 type wxDateTime::Country = int
 type wxDateTime::Calendar = int
@@ -10,9 +11,10 @@ type wxDateTime::TZ = int
 type wxDateTime::wxDateTime_t = int
 type wxDateTime::GregorianAdoption = int
 
-class wxDateTime begin
+(* This one has a specific conversion in C++ within wxStubsGen *)
+type wxDateTime::TimeZone = int
 
-  new(Create)()
+class wxDateTime begin
 
   function(void,wxDateTime::SetCountry)(wxDateTime::Country country)
   function(wxDateTime::Country, wxDateTime::GetCountry, GetCountry)()
@@ -43,6 +45,14 @@ class wxDateTime begin
   function(wxDateTime, wxDateTime::Now)()
   function(wxDateTime, wxDateTime::UNow)()
 
+
+  new(CreateEmpty)()
+  new(CreateDate)(int day, wxDateTime::Month month, int year)
+  new(Create)(int day, wxDateTime::Month month, int year,
+         wxDateTime::wxDateTime_t hour,
+         wxDateTime::wxDateTime_t minute,
+         wxDateTime::wxDateTime_t second
+         )
 
   method(void, SetToCurrent)()	
   method(void,  Set, SetTime)(wxDateTime::wxDateTime_t hour,
@@ -80,23 +90,23 @@ class wxDateTime begin
   method(int,  IsDST)(wxDateTime::Country country)
   method(bool,  IsValid)()
   method(time_t,  GetTicks)()
-(* TODO: we need to convert first tz to wxDateTime::TimeZone  
-	wxDateTime::TimeZone((wxDateTime::TZ)tz
-  method(int,  GetYear)(int tz)
-  method(int,  GetMonth)(int tz)
-  method(int,  GetWeekDayTZ)(int tz)
-  method(void,  ToTimezone)(int tz,bool noDST)
-  method(void,  MakeTimezone)(int tz,bool noDST)
-  method(int,  GetHour)(int tz)
-  method(int,  GetMinute)(int tz)
-  method(int,  GetSecond)(int tz)
-  method(int,  GetMillisecond)(int tz)
-  method(int,  GetDayOfYear)(int tz)
-  method(int,  GetWeekOfYear)(wxDateTime::WeekFlags flags,int tz)
-  method(int,  GetWeekOfMonth)(wxDateTime::WeekFlags flags,int tz)
-*)
+
+  method(int,  GetMonth)(wxDateTime::TimeZone tz)
+
+  method(int,  GetYear)(wxDateTime::TimeZone tz)
+  method(int,  GetWeekDay, GetWeekDayTZ)(wxDateTime::TimeZone tz)
+  method(void,  ToTimezone)(wxDateTime::TimeZone tz,bool noDST)
+  method(void,  MakeTimezone)(wxDateTime::TimeZone tz,bool noDST)
+  method(int,  GetHour)(wxDateTime::TimeZone tz)
+  method(int,  GetMinute)(wxDateTime::TimeZone tz)
+  method(int,  GetSecond)(wxDateTime::TimeZone tz)
+  method(int,  GetMillisecond)(wxDateTime::TimeZone tz)
+  method(int,  GetDayOfYear)(wxDateTime::TimeZone tz)
+  method(int,  GetWeekOfYear)(wxDateTime::WeekFlags flags,
+                              wxDateTime::TimeZone tz)
+  method(int,  GetWeekOfMonth)(wxDateTime::WeekFlags flags,
+                               wxDateTime::TimeZone tz)
   method(bool,  IsWorkDay)(wxDateTime::Country country)
-(*  method(bool,  IsGregorianDate)(wxDateTime::GregorianAdoption country) *)
   method(bool,  IsEqualTo)(wxDateTime& datetime)
   method(bool,  IsEarlierThan)(wxDateTime& datetime)
   method(bool,  IsLaterThan)(wxDateTime& datetime)
@@ -104,36 +114,37 @@ class wxDateTime begin
   method(bool,  IsBetween)(wxDateTime& t1,wxDateTime& t2)
   method(bool,  IsSameDate)(wxDateTime& dt)
   method(bool,  IsSameTime)(wxDateTime& dt)
-(* TODO: we need to create wxTimeSpan and wxDateTime
-  method(bool,  IsEqualUpTo)(wxDateTime& dt,wxTimeSpan& ts)
-  method(wxDateTime,  Add, AddTime)(wxTimeSpan& diff)
-  method(wxDateTime,  Subtract, SubtractTime)(wxTimeSpan& diff)
-  method(wxDateTime,  Add, AddDate)(wxDateSpan& diff)
-  method(wxDateTime,  Subtract, SubtractDate)(wxDateSpan& diff)
-*)
-(*
-  method(...,  ParseRfc822Date)(...)
-  method(void*,  ParseFormat)(void* date,void* format,wxDateTime* dateDef)
-  method(void*,  ParseDateTime)(void* datetime)
-  method(void*,  ParseDate)(void* date)
-  method(void*,  ParseTime)(void* time)
-*)
-  method(wxString,  Format)(wxString& format) (* int tz *)
+  method(wxString,  Format)(wxString& format, wxDateTime::TimeZone tz)
   method(wxString,  FormatDate)()
   method(wxString,  FormatTime)()
   method(wxString,FormatISODate)()
   method(wxString,  FormatISOTime)()
 
   function(int,  wxDateTime::GetTimeNow)()
+  method{ gen_cpp = false }(wxLongLong,GetValue)()
+  method(int,GetDay)(wxDateTime::TimeZone tz)
+
+
 (*
+ TODO: we need to create wxTimeSpan and wxDateTime
+  method(bool,  IsEqualUpTo)(wxDateTime& dt,wxTimeSpan& ts)
+  method(wxDateTime,  Add, AddTime)(wxTimeSpan& diff)
+  method(wxDateTime,  Subtract, SubtractTime)(wxTimeSpan& diff)
+  method(wxDateTime,  Add, AddDate)(wxDateSpan& diff)
+  method(wxDateTime,  Subtract, SubtractDate)(wxDateSpan& diff)
   method(void,  Add, AddTimeValues)(wxTimeSpan ts)
   method(void,  Add, AddDateValues)(wxDateSpan ds)
+
+  TODO: weird return values
+  method(...,  ParseRfc822Date)(...)
+  method(void*,  ParseFormat)(void* date,void* format,wxDateTime* dateDef)
+  method(void*,  ParseDateTime)(void* datetime)
+  method(void*,  ParseDate)(void* date)
+  method(void*,  ParseTime)(void* time)
+
+  new(wxDateTime)(wxLongLong long) 
 *)
 
-
-(*  new(wxDateTime)(wxLongLong long) *)
-  method{ gen_cpp = false }(wxLongLong,GetValue)()
-  method(int,GetDay)() (* wxDateTime::TimeZone tz) *)
 
 end
 

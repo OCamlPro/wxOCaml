@@ -1,8 +1,99 @@
 
 class wxMisc begin
 
-  function(int, wxMessageBox) (wxString& message, wxString& caption, long style, wxWindow? parent, int x, int y)
+  function(int, wxMessageBox) (
+     wxString& message, 
+     wxString& caption, 
+     long style (* = wxOK|wxCENTRE *), 
+     wxWindow? parent, int x, int y)
 
+  function(int, wxGetSingleChoiceIndex) (
+     wxString &message, 
+     wxString &caption, 
+     wxArrayString &aChoices, 
+     wxWindow? parent, int x, int y, bool centre, 
+     int width (* wxCHOICE_WIDTH *), int height (* wxCHOICE_HEIGHT *), 
+     int initialSelection (* =0 *))
+
+  function(wxColour, wxGetColourFromUser) (wxWindow? parent, wxColour &colInit,
+     wxString &caption, _ (* wxColourData *data= *) "NULL")
+
+  function(wxString,  wxDirSelector) (
+          wxString &message (* =wxDirSelectorPromptStr *), 
+          wxString &default_path (* =wxEmptyString *), 
+          long style (* =0 *), 
+          wxPoint &pos (* =wxDefaultPosition *), 
+          wxWindow? parent)
+
+  function(wxString, wxFileSelector) (
+      wxString &message, 
+      wxString &default_path (* =wxEmptyString *), 
+      wxString &default_filename (* =wxEmptyString *), 
+      wxString &default_extension (* =wxEmptyString *),
+      _ (* wxString &wildcard *) "wxFileSelectorDefaultWildcardStr", 
+      int flags (* =0 *), 
+      wxWindow? parent, 
+      int x, int y)
+
+(*
+  function(wxString, wxFileSelectorEx) (
+      wxString &message (* =wxFileSelectorPromptStr *), 
+      wxString &default_path (* =wxEmptyString *), 
+      wxString &default_filename (* =wxEmptyString *), 
+      int *indexDefaultExtension=NULL, 
+      _ (* wxString &wildcard= *) "wxFileSelectorDefaultWildcardStr", 
+      int flags (* =0 *), 
+      wxWindow? parent, int x, int y)
+*)
+
+   function(wxString, wxLoadFileSelector) (
+       wxString &what, 
+       wxString &extension, 
+       wxString &default_name (* =wxEmptyString *), 
+       wxWindow? parent)
+
+   function(wxString, wxSaveFileSelector) (
+       wxString &what, 
+       wxString &extension, 
+       wxString &default_name, 
+       wxWindow? parent)
+
+   function(wxFont, wxGetFontFromUser) (
+       wxWindow? parent, 
+       wxFont &fontInit,
+       wxString &caption)
+
+(*
+   function(long, wxGetNumberFromUser) (
+       wxString &message, 
+       wxString &prompt, 
+       wxString &caption, 
+       long value, long min (* =0 *), long max (*=100*), 
+       wxWindow? parent, wxPoint &pos)
+*)
+
+   function(wxString, wxGetTextFromUser) (
+       wxString &message, 
+       wxString &caption (* =wxGetTextFromUserPromptStr *),
+       wxString &default_value (* =wxEmptyString*), 
+       wxWindow? parent, int x, int y, bool centre (*=true*) )
+
+
+   function(wxString, wxGetPasswordFromUser) (
+       wxString &message, 
+       wxString &caption (* =wxGetPasswordFromUserPromptStr *),
+       wxString &default_value (* =wxEmptyString *), 
+       wxWindow? parent, int x, int y, bool centre (* =true *) )
+
+  (* wxTipProvider * 	wxCreateFileTipProvider (const wxString &filename, size_t currentTip) *)
+
+  (* bool 	wxShowTip (wxWindow *parent, wxTipProvider *tipProvider, bool showAtStartup=true) *)
+
+   function(void, wxBeginBusyCursor) (wxCursor *cursor (* =wxHOURGLASS_CURSOR *))
+   function(void, wxEndBusyCursor) ()
+   function(bool, wxIsBusy) ()
+   function(void, wxBell) ()
+   function(void, wxInfoMessageBox) (wxWindow? parent)
 
    function(void,wxLogError)(wxString& _msg)
    function(void,wxLogFatalError)(wxString& _msg)

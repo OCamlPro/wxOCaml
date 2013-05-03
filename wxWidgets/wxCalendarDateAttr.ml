@@ -5,6 +5,11 @@ external create :
       wxCalendarDateAttr = "wxCalendarDateAttr_Create_c"
 
 
+external createBorder : 
+   int -> wxColour -> 
+      wxCalendarDateAttr = "wxCalendarDateAttr_CreateBorder_c"
+
+
 external createDefault : 
     unit -> wxCalendarDateAttr = "wxCalendarDateAttr_CreateDefault_c"
 
@@ -84,5 +89,3 @@ external getBorder : wxCalendarDateAttr ->
 
 
 (* Methods inherited from parents, if any *)
-
-(* Cast functions to parents, if any *)

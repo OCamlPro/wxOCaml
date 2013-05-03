@@ -1,0 +1,19 @@
+
+class wxTimePickerCtrl inherit wxControl begin
+
+ 	new(Create) (
+	    wxWindow *parent, 
+            wxWindowID id, 
+            wxDateTime &dt (* =wxDefaultDateTime *), 
+	    wxPoint &pos  (* =wxDefaultPosition *),
+	    wxSize &size (* =wxDefaultSize *), 
+	    long style (* =wxTP_DEFAULT *), 
+	    _ (*  wxValidator &validator= *) "wxDefaultValidator", 
+	    wxString &name (* ="timectrl" *))
+
+
+	method (bool, 	GetTime) (int <- hour, int <- min, int <- sec) 
+	method( wxDateTime, 	GetValue) () 
+	method (bool, 	SetTime) (int hour, int min, int sec)
+	method( void, 	SetValue) (wxDateTime &dt)
+end

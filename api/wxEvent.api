@@ -1,9 +1,37 @@
-class wxEvent inherit wxObject begin end
+
+(* TODO: should be made abstract *)
+type wxEventType = int
+
+type wxEventCategory = int
+
+class wxEvent inherit wxObject begin
+
+   method(wxObject?, GetEventObject) () 
+   method(wxEventType,	GetEventType) () 
+   method(wxEventCategory,GetEventCategory) () 
+   method(wxWindowID, 	GetId) () 
+   method(bool, GetSkipped) () 
+   method(long,	GetTimestamp) () 
+
+ end
+
+
+
 class wxActivateEvent inherit wxEvent begin end
 class wxChildFocusEvent inherit wxEvent begin end
 class wxClipboardTextEvent inherit wxEvent begin end
 class wxCloseEvent inherit wxEvent begin end
-class wxCommandEvent inherit wxEvent begin end
+
+class wxCommandEvent inherit wxEvent begin
+
+  method(int,	GetInt) () 
+  method(int, 	GetSelection) () 
+  method(wxString,	GetString) () 
+  method(bool, 	IsChecked) () 
+  method(bool, 	IsSelection) () 
+
+ end
+
 class wxContextMenuEvent inherit wxEvent begin end
 class wxDisplayChangedEvent inherit wxEvent begin end
 class wxDropFilesEvent inherit wxEvent begin end
@@ -33,15 +61,31 @@ class wxSizeEvent inherit wxEvent begin end
 class wxSpinEvent inherit wxEvent begin end
 class wxSysColourChangedEvent inherit wxEvent begin end
 class wxThreadEvent inherit wxEvent begin end
-class wxUpdateUIEvent inherit wxEvent begin end
+
+class wxUpdateUIEvent inherit wxEvent begin 
+  method(void, 	Check) (bool check)
+  method(void, 	Enable) (bool enable)
+  method(bool, 	GetChecked) ()
+  method(bool, 	GetEnabled) ()
+  method(bool, 	GetSetChecked) ()
+  method(bool, 	GetSetEnabled) ()
+  method(bool, 	GetSetShown) ()
+  method(bool, 	GetSetText) ()
+  method(bool, 	GetShown) ()
+  method(wxString, 	GetText) ()
+  method(void, 	SetText) (wxString &text)
+  method(void, 	Show) (bool show)
+end
+
 class wxWindowCreateEvent inherit wxEvent begin end
 class wxWindowDestroyEvent inherit wxEvent begin end
 
 class wxDateEvent inherit wxCommandEvent begin
   method(wxDateTime, GetDate) ()
+
 end
 class wxCalendarEvent inherit wxDateEvent begin
-
+   method(wxDateTime::WeekDay,GetWeekDay) () 
  end
 
 

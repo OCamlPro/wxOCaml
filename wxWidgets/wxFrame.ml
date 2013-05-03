@@ -622,6 +622,15 @@ external unsetConstraints : wxFrame ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxFrame ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxFrame ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxFrame ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -673,8 +682,13 @@ external getPositionConstraint : wxFrame ->
 
 
 external setSizer : wxFrame ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxFrame ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxFrame ->
@@ -721,7 +735,12 @@ external getVirtualSize : wxFrame ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxEvtHandler : wxFrame -> wxEvtHandler = "%identity"
 

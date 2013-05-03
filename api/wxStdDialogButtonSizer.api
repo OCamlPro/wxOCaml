@@ -1,0 +1,13 @@
+
+class wxStdDialogButtonSizer inherit wxBoxSizer begin
+
+  new(Create)( )
+
+  method(void,	AddButton) (wxButton *button)
+  method(void, 	Realize) ()
+  method(void,	SetAffirmativeButton) (wxButton *button)
+  method(void, 	SetCancelButton) (wxButton *button)
+  method(void, 	SetNegativeButton) (wxButton *button)
+
+end
+

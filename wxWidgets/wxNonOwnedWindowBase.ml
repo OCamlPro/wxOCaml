@@ -488,6 +488,15 @@ external unsetConstraints : wxNonOwnedWindowBase ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxNonOwnedWindowBase ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxNonOwnedWindowBase ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxNonOwnedWindowBase ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -539,8 +548,13 @@ external getPositionConstraint : wxNonOwnedWindowBase ->
 
 
 external setSizer : wxNonOwnedWindowBase ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxNonOwnedWindowBase ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxNonOwnedWindowBase ->
@@ -587,7 +601,12 @@ external getVirtualSize : wxNonOwnedWindowBase ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxEvtHandler : wxNonOwnedWindowBase -> wxEvtHandler = "%identity"
 
@@ -596,3 +615,16 @@ external wxObject : wxNonOwnedWindowBase -> wxObject = "%identity"
 external wxWindow : wxNonOwnedWindowBase -> wxWindow = "%identity"
 
 external wxWindowBase : wxNonOwnedWindowBase -> wxWindowBase = "%identity"
+module Unsafe = struct
+
+  (* Cast functions to children, if any *)
+
+  external wxDialog : wxNonOwnedWindowBase -> wxDialog = "%identity"
+
+  external wxFrame : wxNonOwnedWindowBase -> wxFrame = "%identity"
+
+  external wxTopLevelWindow : wxNonOwnedWindowBase -> wxTopLevelWindow = "%identity"
+
+  external wxTopLevelWindowBase : wxNonOwnedWindowBase -> wxTopLevelWindowBase = "%identity"
+
+end

@@ -17,6 +17,18 @@ value wxCalendarDateAttr_Create_c(value _ctxt_v, value _cbck_v, value _cbrd_v, v
 }
 
 
+value wxCalendarDateAttr_CreateBorder_c(value border_v, value colBorder_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxCalendarDateBorder border_c = (wxCalendarDateBorder)Int_val(border_v);
+  wxColour* colBorder_c = (wxColour*)Abstract_val(colBorder_v);
+  wxCalendarDateAttr * ret_c = new wxCalendarDateAttr(border_c, *colBorder_c);
+  ret_v = Val_abstract( ret_c );
+  CAMLreturn(ret_v);
+}
+
+
 value wxCalendarDateAttr_CreateDefault_c()
 {
   CAMLparam0();

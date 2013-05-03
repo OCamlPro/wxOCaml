@@ -1,0 +1,18 @@
+
+(* This is a WxID.t, we should ALWAYS use it, and make it an abstract type so
+that we can prevent the user from making errors with it. *)
+type wxWindowID = int
+
+class wxDatePickerCtrl inherit wxControl begin
+
+   new(Create) (wxWindow? parent, wxWindowID id, wxDateTime &dt, 
+           wxPoint &pos, wxSize &size, 
+	   long style, _ "wxDefaultValidator", wxString &name)
+
+   method(bool,	GetRange) (wxDateTime <- dt1, wxDateTime <- dt2) 
+
+   method(wxDateTime, GetValue) ()
+   method(void, SetRange) (wxDateTime &dt1, wxDateTime &dt2)
+   method(void,	SetValue) (wxDateTime &dt)
+
+end

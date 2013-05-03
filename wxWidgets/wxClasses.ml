@@ -8,9 +8,11 @@ type wxActivateEvent
 type wxAnyButton
 type wxApp
 type wxAppConsole
+type wxArrayString
 type wxBitmap
 type wxBitmapButton
 type wxBoxSizer
+type wxBrush
 type wxButton
 type wxCalendarCtrl
 type wxCalendarDateAttr
@@ -26,6 +28,7 @@ type wxControl
 type wxCursor
 type wxDC
 type wxDateEvent
+type wxDatePickerCtrl
 type wxDateTime
 type wxDialog
 type wxDisplayChangedEvent
@@ -78,6 +81,7 @@ type wxObject
 type wxPaintEvent
 type wxPaletteChangedEvent
 type wxPanel
+type wxPen
 type wxQueryNewPaletteEvent
 type wxRegion
 type wxScrollEvent
@@ -93,11 +97,13 @@ type wxStaticBox
 type wxStaticBoxSizer
 type wxStaticText
 type wxStatusBar
+type wxStdDialogButtonSizer
 type wxSysColourChangedEvent
 type wxSystemSettings
 type wxTextCtrl
 type wxTextEntry
 type wxThreadEvent
+type wxTimePickerCtrl
 type wxToolBar
 type wxToolTip
 type wxTopLevelWindow
@@ -106,6 +112,7 @@ type wxTreeCtrl
 type wxTreeItemId
 type wxUpdateUIEvent
 type wxValidator
+type wxValues
 type wxWindow
 type wxWindowBase
 type wxWindowCreateEvent

@@ -6,7 +6,7 @@ value wxPanel_Create_c(value _prt_v, value _id_v, value pos_v, value sz_v, value
 {
   CAMLparam0();
   CAMLlocal1(ret_v);
-  wxWindow* _prt_c = (wxWindow*)AbstractOption_val(_prt_v);
+  wxWindow* _prt_c = (wxWindow*)Abstract_val(_prt_v);
   int _id_c = Int_val(_id_v);
   int style_c = Int_val(style_v);
   wxPanel * ret_c = new wxPanel(_prt_c, _id_c, WxPoint_val(pos_v) , WxSize_val(sz_v) , style_c, wxString( String_val(panel_name_v), wxConvUTF8 ) );

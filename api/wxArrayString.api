@@ -1,0 +1,23 @@
+
+class wxArrayString begin
+  new(Create)()
+
+  method(size_t, Add) (wxString &str)
+  method(size_t, Add, AddCopies) (wxString &str, size_t copies)
+  method(void, 	Clear) ()
+  method(void, 	Empty) ()
+  method(size_t, GetCount) () 
+  method(int,Index) (wxString &sz)
+  method(int,Index, IndexCaseInsensitive) (wxString &sz, _ "false")
+  method(void, Insert) (wxString& lItem, size_t nIndex)
+  method(bool, 	IsEmpty) () 
+  method(void,	Remove) (wxString &sz)
+  method(void, 	RemoveAt) (size_t nIndex, size_t count)
+  method(void, 	RemoveAt, RemoveAtItems) (size_t nIndex, size_t count)
+  method(void, 	Shrink) ()
+  method(void, 	Sort) (bool reverseOrder)
+  method(wxString, Item) (size_t nIndex)
+  method(wxString, Last) ()
+
+end
+

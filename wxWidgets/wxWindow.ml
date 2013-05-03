@@ -458,6 +458,15 @@ external unsetConstraints : wxWindow ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxWindow ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxWindow ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxWindow ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -509,8 +518,13 @@ external getPositionConstraint : wxWindow ->
 
 
 external setSizer : wxWindow ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxWindow ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxWindow ->
@@ -557,6 +571,11 @@ external getVirtualSize : wxWindow ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
 (* Methods inherited from parents, if any *)
 
 external connect : wxWindow ->
@@ -592,10 +611,59 @@ external processPendingEvents : wxWindow ->
    unit = "wxEvtHandler_ProcessPendingEvents_c"
 
 
-(* Cast functions to parents, if any *)
+(* Cast functions to parents *)
 
 external wxEvtHandler : wxWindow -> wxEvtHandler = "%identity"
 
 external wxObject : wxWindow -> wxObject = "%identity"
 
 external wxWindowBase : wxWindow -> wxWindowBase = "%identity"
+module Unsafe = struct
+
+  (* Cast functions to children, if any *)
+
+  external wxAnyButton : wxWindow -> wxAnyButton = "%identity"
+
+  external wxBitmapButton : wxWindow -> wxBitmapButton = "%identity"
+
+  external wxButton : wxWindow -> wxButton = "%identity"
+
+  external wxCalendarCtrl : wxWindow -> wxCalendarCtrl = "%identity"
+
+  external wxControl : wxWindow -> wxControl = "%identity"
+
+  external wxDatePickerCtrl : wxWindow -> wxDatePickerCtrl = "%identity"
+
+  external wxDialog : wxWindow -> wxDialog = "%identity"
+
+  external wxFrame : wxWindow -> wxFrame = "%identity"
+
+  external wxListCtrl : wxWindow -> wxListCtrl = "%identity"
+
+  external wxMenuBar : wxWindow -> wxMenuBar = "%identity"
+
+  external wxNonOwnedWindowBase : wxWindow -> wxNonOwnedWindowBase = "%identity"
+
+  external wxPanel : wxWindow -> wxPanel = "%identity"
+
+  external wxSplitterWindow : wxWindow -> wxSplitterWindow = "%identity"
+
+  external wxStaticBox : wxWindow -> wxStaticBox = "%identity"
+
+  external wxStaticText : wxWindow -> wxStaticText = "%identity"
+
+  external wxStatusBar : wxWindow -> wxStatusBar = "%identity"
+
+  external wxTextCtrl : wxWindow -> wxTextCtrl = "%identity"
+
+  external wxTimePickerCtrl : wxWindow -> wxTimePickerCtrl = "%identity"
+
+  external wxToolBar : wxWindow -> wxToolBar = "%identity"
+
+  external wxTopLevelWindow : wxWindow -> wxTopLevelWindow = "%identity"
+
+  external wxTopLevelWindowBase : wxWindow -> wxTopLevelWindowBase = "%identity"
+
+  external wxTreeCtrl : wxWindow -> wxTreeCtrl = "%identity"
+
+end

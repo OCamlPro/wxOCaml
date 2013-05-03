@@ -1,0 +1,4 @@
+
+class wxPen inherit wxObject begin
+
+end

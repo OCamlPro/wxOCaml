@@ -81,5 +81,20 @@ external getTimestamp :
 
 
 (* Methods inherited from parents, if any *)
+module Unsafe = struct
 
-(* Cast functions to parents, if any *)
+  (* Cast functions to children, if any *)
+
+  external wxLogChain : wxLog -> wxLogChain = "%identity"
+
+  external wxLogInterposer : wxLog -> wxLogInterposer = "%identity"
+
+  external wxLogNull : wxLog -> wxLogNull = "%identity"
+
+  external wxLogStderr : wxLog -> wxLogStderr = "%identity"
+
+  external wxLogTextCtrl : wxLog -> wxLogTextCtrl = "%identity"
+
+  external wxLogWindow : wxLog -> wxLogWindow = "%identity"
+
+end

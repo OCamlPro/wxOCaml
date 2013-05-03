@@ -6,7 +6,7 @@ value wxCalendarCtrl_Create_c(value _prt_v, value _id_v, value _dat_v, value pos
 {
   CAMLparam0();
   CAMLlocal1(ret_v);
-  wxWindow* _prt_c = (wxWindow*)AbstractOption_val(_prt_v);
+  wxWindow* _prt_c = (wxWindow*)Abstract_val(_prt_v);
   int _id_c = Int_val(_id_v);
   wxDateTime* _dat_c = (wxDateTime*)Abstract_val(_dat_v);
   int _stl_c = Int_val(_stl_v);

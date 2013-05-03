@@ -1,7 +1,7 @@
 open WxClasses
 
 external create : 
-   wxWindow option -> int -> wxPoint -> wxSize -> int -> 
+   wxWindow -> int -> wxPoint -> wxSize -> int -> 
       wxSplitterWindow = "wxSplitterWindow_Create_c"
 
 
@@ -28,22 +28,22 @@ external initialize : wxSplitterWindow ->
 
 
 external splitVertically : wxSplitterWindow ->
-   wxWindow option -> wxWindow option -> int -> 
+   wxWindow -> wxWindow -> int -> 
       bool  = "wxSplitterWindow_SplitVertically_c"
 
 
 external splitHorizontally : wxSplitterWindow ->
-   wxWindow option -> wxWindow option -> int -> 
+   wxWindow -> wxWindow -> int -> 
       int = "wxSplitterWindow_SplitHorizontally_c"
 
 
 external unsplit : wxSplitterWindow ->
-   wxWindow option -> 
+   wxWindow -> 
       int = "wxSplitterWindow_Unsplit_c"
 
 
 external replaceWindow : wxSplitterWindow ->
-   wxWindow option -> wxWindow option -> 
+   wxWindow -> wxWindow -> 
       int = "wxSplitterWindow_ReplaceWindow_c"
 
 
@@ -584,6 +584,15 @@ external unsetConstraints : wxSplitterWindow ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxSplitterWindow ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxSplitterWindow ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxSplitterWindow ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -635,8 +644,13 @@ external getPositionConstraint : wxSplitterWindow ->
 
 
 external setSizer : wxSplitterWindow ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxSplitterWindow ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxSplitterWindow ->
@@ -683,7 +697,12 @@ external getVirtualSize : wxSplitterWindow ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxEvtHandler : wxSplitterWindow -> wxEvtHandler = "%identity"
 

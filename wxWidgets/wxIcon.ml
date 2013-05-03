@@ -52,6 +52,6 @@ external setHeight : wxIcon ->
 
 (* Methods inherited from parents, if any *)
 
-(* Cast functions to parents, if any *)
+(* Cast functions to parents *)
 
 external wxObject : wxIcon -> wxObject = "%identity"

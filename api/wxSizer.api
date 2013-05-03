@@ -1,23 +1,25 @@
 class wxSizer inherit wxObject begin
 
+  function(int, wxSizerFlags::GetDefaultBorder)()
+
 (* TODO: all these functions return wxSizerItem* *)
-  method(void,Add,AddWindow)(wxWindow? window,
-         int option,int flag,int border, wxObject? userData)	
-  method(void,Add,AddSizer)(wxSizer? sizer,
-         int option,int flag,int border,wxObject? userData)	
-  method(void,Add)(int width,int height,int option,int flag,int border,
+  method(void,Add,AddWindow)(wxWindow* window,
+         int proportion,int flag,int border, wxObject? userData)	
+  method(void,Add,AddSizer)(wxSizer* sizer,
+         int proportion,int flag,int border,wxObject? userData)	
+  method(void,Add)(int width,int height,int proportion,int flag,int border,
            wxObject? userData)
 
-  method(void,Insert,InsertWindow)(int before,wxWindow? window,
+  method(void,Insert,InsertWindow)(int before,wxWindow* window,
           int option, int flag,int border,wxObject? userData)	
-  method(void,Insert,InsertSizer)(int before,wxSizer? sizer,
+  method(void,Insert,InsertSizer)(int before,wxSizer* sizer,
            int option,int flag,int border,wxObject? userData)	
   method(void,Insert)(int before,int width,int height,
            int option,int flag,int border, wxObject? userData)
 	
-  method(void,Prepend,PrependWindow)(wxWindow? window,
+  method(void,Prepend,PrependWindow)(wxWindow* window,
           int option,int flag,int border, wxObject? userData)
-  method(void,Prepend,PrependSizer)(wxSizer? sizer,
+  method(void,Prepend,PrependSizer)(wxSizer* sizer,
           int option,int flag,int border,wxObject? userData)
   method(void,Prepend)(int width,int height,
           int option,int flag,int border,wxObject? userData)
@@ -78,13 +80,13 @@ class wxSizer inherit wxObject begin
   method(wxSizerItem?,PrependSpacer)(int size)
   method(wxSizerItem?,PrependStretchSpacer)(int prop)
 
-  method(bool,Replace,ReplaceWindow)(wxWindow? oldwin,wxWindow? newwin,
+  method(bool,Replace,ReplaceWindow)(wxWindow* oldwin,wxWindow* newwin,
      bool recursive)
 
-  method(bool,Replace,ReplaceSizer)(wxSizer? oldsz,wxSizer? newsz,
+  method(bool,Replace,ReplaceSizer)(wxSizer* oldsz,wxSizer* newsz,
      bool recursive)
 
-  method(bool,Replace)(int oldindex,wxSizerItem? newsz)
+  method(bool,Replace)(int oldindex,wxSizerItem* newsz)
 
   method(void,SetVirtualSizeHints)(wxWindow? window) (* DEPRECATED *)
   method(bool,Show,ShowWindow)(wxWindow? window,bool show,bool recursive)

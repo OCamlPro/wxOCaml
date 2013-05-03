@@ -82,8 +82,15 @@ external getTimestamp :
     unit -> wxString = "wxLog_GetTimestamp_c"
 
 
-(* Cast functions to parents, if any *)
+(* Cast functions to parents *)
 
 external wxLog : wxLogInterposer -> wxLog = "%identity"
 
 external wxLogChain : wxLogInterposer -> wxLogChain = "%identity"
+module Unsafe = struct
+
+  (* Cast functions to children, if any *)
+
+  external wxLogWindow : wxLogInterposer -> wxLogWindow = "%identity"
+
+end

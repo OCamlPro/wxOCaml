@@ -5,5 +5,10 @@ external getPosition : wxMouseState ->
 
 
 (* Methods inherited from parents, if any *)
+module Unsafe = struct
 
-(* Cast functions to parents, if any *)
+  (* Cast functions to children, if any *)
+
+  external wxMouseEvent : wxMouseState -> wxMouseEvent = "%identity"
+
+end

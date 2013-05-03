@@ -35,7 +35,7 @@ external processPendingEvents : wxValidator ->
    unit = "wxEvtHandler_ProcessPendingEvents_c"
 
 
-(* Cast functions to parents, if any *)
+(* Cast functions to parents *)
 
 external wxEvtHandler : wxValidator -> wxEvtHandler = "%identity"
 

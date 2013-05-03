@@ -819,8 +819,9 @@ value wxWindow_GetUpdateRegion_c(value self_v)
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
-  wxRegion & ret_c = self_c->GetUpdateRegion();
-  ret_v = Val_abstract( &ret_c );
+  wxRegion *ret_c = new wxRegion();
+  *ret_c = self_c->GetUpdateRegion();
+  ret_v = Val_abstract( ret_c );
   CAMLreturn(ret_v);
 }
 
@@ -1216,6 +1217,30 @@ value wxWindow_UnsetConstraints_c(value self_v, value c_v)
 }
 
 
+value wxWindow_GetWindowStyle_c(value self_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
+  long *ret_c = new long();
+  *ret_c = self_c->GetWindowStyle();
+  ret_v = Val_long(ret_c);
+  CAMLreturn(ret_v);
+}
+
+
+value wxWindow_SetWindowStyle_c(value self_v, value style_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
+  long style_c = Int_val(style_v);
+  self_c->SetWindowStyle(style_c);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
 value wxWindow_AddConstraintReference_c(value self_v, value otherWin_v)
 {
   CAMLparam0();
@@ -1364,8 +1389,21 @@ value wxWindow_SetSizer_c(value self_v, value sizer_v)
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
-  wxSizer* sizer_c = (wxSizer*)AbstractOption_val(sizer_v);
+  wxSizer* sizer_c = (wxSizer*)Abstract_val(sizer_v);
   self_c->SetSizer(sizer_c);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
+value wxWindow_SetSizerAndFit_c(value self_v, value sizer_v, value deleteOld_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
+  wxSizer* sizer_c = (wxSizer*)Abstract_val(sizer_v);
+  bool deleteOld_c = Int_val(deleteOld_v);
+  self_c->SetSizerAndFit(sizer_c, deleteOld_c);
   ret_v = Val_unit;
   CAMLreturn(ret_v);
 }
@@ -1491,6 +1529,17 @@ value wxWindow_GetVirtualSize_c(value self_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxSize ret_c = self_c->GetVirtualSize();
   ret_v = Val_wxSize( &ret_c );
+  CAMLreturn(ret_v);
+}
+
+
+value wxWindow_wxGetTopLevelParent_c(value win_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxWindow* win_c = (wxWindow*)Abstract_val(win_v);
+  wxWindow * ret_c = wxGetTopLevelParent(win_c);
+  ret_v = Val_abstractOption( ret_c );
   CAMLreturn(ret_v);
 }
 }

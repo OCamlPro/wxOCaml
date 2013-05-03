@@ -227,7 +227,7 @@ external processPendingEvents : wxMenu ->
    unit = "wxEvtHandler_ProcessPendingEvents_c"
 
 
-(* Cast functions to parents, if any *)
+(* Cast functions to parents *)
 
 external wxEvtHandler : wxMenu -> wxEvtHandler = "%identity"
 

@@ -1,8 +1,13 @@
 open WxClasses
 
 external create : 
-   wxWindow option -> int -> wxString -> wxPoint -> wxSize -> int -> 
+   wxWindow -> int -> wxString -> wxPoint -> wxSize -> int -> 
       wxStaticText = "wxStaticText_Create_c_bytecode" "wxStaticText_Create_c"
+
+
+external wrap : wxStaticText ->
+   int -> 
+      unit = "wxStaticText_Wrap_c"
 
 
 (* Methods inherited from parents, if any *)
@@ -493,6 +498,15 @@ external unsetConstraints : wxStaticText ->
       unit = "wxWindow_UnsetConstraints_c"
 
 
+external getWindowStyle : wxStaticText ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external setWindowStyle : wxStaticText ->
+   int -> 
+      unit = "wxWindow_SetWindowStyle_c"
+
+
 external addConstraintReference : wxStaticText ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
@@ -544,8 +558,13 @@ external getPositionConstraint : wxStaticText ->
 
 
 external setSizer : wxStaticText ->
-   wxSizer option -> 
+   wxSizer -> 
       unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxStaticText ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external getSizer : wxStaticText ->
@@ -592,7 +611,12 @@ external getVirtualSize : wxStaticText ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
-(* Cast functions to parents, if any *)
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+
+
+(* Cast functions to parents *)
 
 external wxControl : wxStaticText -> wxControl = "%identity"
 
