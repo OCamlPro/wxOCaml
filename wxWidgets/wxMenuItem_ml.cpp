@@ -41,7 +41,7 @@ value wxMenuItem_GetId_c(value self_v)
   CAMLlocal1(ret_v);
   wxMenuItem* self_c = (wxMenuItem*)Abstract_val(self_v);
   int ret_c = self_c->GetId();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -52,7 +52,7 @@ value wxMenuItem_IsSeparator_c(value self_v)
   CAMLlocal1(ret_v);
   wxMenuItem* self_c = (wxMenuItem*)Abstract_val(self_v);
   bool ret_c = self_c->IsSeparator();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -75,7 +75,7 @@ value wxMenuItem_IsCheckable_c(value self_v)
   CAMLlocal1(ret_v);
   wxMenuItem* self_c = (wxMenuItem*)Abstract_val(self_v);
   bool ret_c = self_c->IsCheckable();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -86,7 +86,7 @@ value wxMenuItem_IsSubMenu_c(value self_v)
   CAMLlocal1(ret_v);
   wxMenuItem* self_c = (wxMenuItem*)Abstract_val(self_v);
   bool ret_c = self_c->IsSubMenu();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -132,7 +132,7 @@ value wxMenuItem_IsEnabled_c(value self_v)
   CAMLlocal1(ret_v);
   wxMenuItem* self_c = (wxMenuItem*)Abstract_val(self_v);
   bool ret_c = self_c->IsEnabled();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -155,7 +155,7 @@ value wxMenuItem_IsChecked_c(value self_v)
   CAMLlocal1(ret_v);
   wxMenuItem* self_c = (wxMenuItem*)Abstract_val(self_v);
   bool ret_c = self_c->IsChecked();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -177,7 +177,7 @@ value wxMenuItem_GetHelp_c(value self_v)
   CAMLlocal1(ret_v);
   wxMenuItem* self_c = (wxMenuItem*)Abstract_val(self_v);
   wxString ret_c = self_c->GetHelp();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -199,7 +199,7 @@ value wxMenuItem_GetLabel_c(value self_v)
   CAMLlocal1(ret_v);
   wxMenuItem* self_c = (wxMenuItem*)Abstract_val(self_v);
   wxString ret_c = self_c->GetLabel();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -210,7 +210,7 @@ value wxMenuItem_GetText_c(value self_v)
   CAMLlocal1(ret_v);
   wxMenuItem* self_c = (wxMenuItem*)Abstract_val(self_v);
   wxString ret_c = self_c->GetText();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -221,7 +221,7 @@ value wxMenuItem_GetLabelFromText_c(value self_v, value text_v)
   CAMLlocal1(ret_v);
   wxMenuItem* self_c = (wxMenuItem*)Abstract_val(self_v);
   wxString ret_c = self_c->GetLabelFromText(wxString( String_val(text_v), wxConvUTF8 ) );
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 }

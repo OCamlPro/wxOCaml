@@ -21,6 +21,11 @@ let wxFlexGridSizer = WxFlexGridSizer.create
 let wxStdDialogButtonSizer = WxStdDialogButtonSizer.create
 let wxCalendarDateAttr = WxCalendarDateAttr.create
 let wxCalendarDateAttrBorder = WxCalendarDateAttr.createBorder
+let wxToolBar = WxToolBar.create
+let wxWrapSizer = WxWrapSizer.create
+let wxStaticBoxSizer = WxStaticBoxSizer.create
+let wxStaticBoxSizerEx = WxStaticBoxSizer.createEx
+let wxCheckBox = WxCheckBox.create
 
 let wxDate = WxDateTime.createDate
 let wxDateTime = WxDateTime.create

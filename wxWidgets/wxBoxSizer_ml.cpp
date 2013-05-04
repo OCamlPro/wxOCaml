@@ -19,7 +19,7 @@ value wxBoxSizer_GetOrientation_c(value self_v)
   CAMLlocal1(ret_v);
   wxBoxSizer* self_c = (wxBoxSizer*)Abstract_val(self_v);
   int ret_c = self_c->GetOrientation();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 }

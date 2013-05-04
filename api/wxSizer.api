@@ -62,8 +62,8 @@ class wxSizer inherit wxObject begin
 
   method(void,FitInside)(wxWindow? window)
   method(wxWindow?,GetContainingWindow)()
-  method(wxSizerItem?,GetItem,GetItemWindow)(wxWindow? window,bool recursive)
-  method(wxSizerItem?,GetItem,GetItemSizer)(wxSizer? sizer,bool recursive)
+  method(wxSizerItem?,GetItem,GetItemWindow)(wxWindow* window,bool recursive)
+  method(wxSizerItem?,GetItem,GetItemSizer)(wxSizer* sizer,bool recursive)
   method(wxSizerItem?,GetItem)(int index)
 
   method(bool,Hide,HideWindow)(wxWindow? window)

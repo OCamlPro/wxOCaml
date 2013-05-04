@@ -124,17 +124,15 @@ class wxDateTime begin
   method{ gen_cpp = false }(wxLongLong,GetValue)()
   method(int,GetDay)(wxDateTime::TimeZone tz)
 
-
-(*
- TODO: we need to create wxTimeSpan and wxDateTime
   method(bool,  IsEqualUpTo)(wxDateTime& dt,wxTimeSpan& ts)
   method(wxDateTime,  Add, AddTime)(wxTimeSpan& diff)
   method(wxDateTime,  Subtract, SubtractTime)(wxTimeSpan& diff)
   method(wxDateTime,  Add, AddDate)(wxDateSpan& diff)
   method(wxDateTime,  Subtract, SubtractDate)(wxDateSpan& diff)
-  method(void,  Add, AddTimeValues)(wxTimeSpan ts)
-  method(void,  Add, AddDateValues)(wxDateSpan ds)
+  method(void,  Add, AddTimeValues)(wxTimeSpan& ts)
+  method(void,  Add, AddDateValues)(wxDateSpan& ds)
 
+(*
   TODO: weird return values
   method(...,  ParseRfc822Date)(...)
   method(void*,  ParseFormat)(void* date,void* format,wxDateTime* dateDef)
@@ -148,3 +146,28 @@ class wxDateTime begin
 
 end
 
+class wxTimeSpan begin
+    new(Create)(long hours,
+                      long minutes,
+                      long seconds)
+    method(wxTimeSpan, Add)(wxTimeSpan& diff) 
+    method(wxTimeSpan, Subtract)(wxTimeSpan& diff) 
+
+    method(int, GetWeeks)() 
+    method(int, GetDays)()
+    method(int, GetHours)() 
+    method(int, GetMinutes)() 
+    method(wxLongLong, GetSeconds)() 
+
+
+
+end
+
+class wxDateSpan begin
+  new(Create)(int years, int months, int weeks, int days)
+    method(int, GetYears)()
+    method(int, GetMonths)() 
+    method(int, GetWeeks)() 
+    method(int, GetDays)() 
+    method(int, GetTotalDays)()
+end

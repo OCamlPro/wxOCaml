@@ -15,6 +15,8 @@ module Unsafe = struct
 
   external wxAppConsole : wxObject -> wxAppConsole = "%identity"
 
+  external wxArtProvider : wxObject -> wxArtProvider = "%identity"
+
   external wxBitmap : wxObject -> wxBitmap = "%identity"
 
   external wxBitmapButton : wxObject -> wxBitmapButton = "%identity"
@@ -28,6 +30,8 @@ module Unsafe = struct
   external wxCalendarCtrl : wxObject -> wxCalendarCtrl = "%identity"
 
   external wxCalendarEvent : wxObject -> wxCalendarEvent = "%identity"
+
+  external wxCheckBox : wxObject -> wxCheckBox = "%identity"
 
   external wxChildFocusEvent : wxObject -> wxChildFocusEvent = "%identity"
 
@@ -175,6 +179,8 @@ module Unsafe = struct
 
   external wxToolBar : wxObject -> wxToolBar = "%identity"
 
+  external wxToolBarToolBase : wxObject -> wxToolBarToolBase = "%identity"
+
   external wxToolTip : wxObject -> wxToolTip = "%identity"
 
   external wxTopLevelWindow : wxObject -> wxTopLevelWindow = "%identity"
@@ -194,5 +200,7 @@ module Unsafe = struct
   external wxWindowCreateEvent : wxObject -> wxWindowCreateEvent = "%identity"
 
   external wxWindowDestroyEvent : wxObject -> wxWindowDestroyEvent = "%identity"
+
+  external wxWrapSizer : wxObject -> wxWrapSizer = "%identity"
 
 end

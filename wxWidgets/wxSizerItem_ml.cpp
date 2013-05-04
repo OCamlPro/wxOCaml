@@ -60,7 +60,7 @@ value wxSizerItem_GetSize_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
   wxSize ret_c = self_c->GetSize();
-  ret_v = Val_wxSize( &ret_c );
+  ret_v = Val_wxSize(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -71,7 +71,7 @@ value wxSizerItem_CalcMin_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
   wxSize ret_c = self_c->CalcMin();
-  ret_v = Val_wxSize( &ret_c );
+  ret_v = Val_wxSize(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -93,7 +93,7 @@ value wxSizerItem_GetMinSize_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
   wxSize ret_c = self_c->GetMinSize();
-  ret_v = Val_wxSize( &ret_c );
+  ret_v = Val_wxSize(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -128,9 +128,8 @@ value wxSizerItem_GetRatio_c(value self_v)
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
-  float *ret_c = new float();
-  *ret_c = self_c->GetRatio();
-  ret_v = Val_abstract( ret_c );
+  float ret_c = self_c->GetRatio();
+  ret_v = caml_copy_double( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -141,7 +140,7 @@ value wxSizerItem_IsWindow_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
   bool ret_c = self_c->IsWindow();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -152,7 +151,7 @@ value wxSizerItem_IsSizer_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
   bool ret_c = self_c->IsSizer();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -163,7 +162,7 @@ value wxSizerItem_IsSpacer_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
   bool ret_c = self_c->IsSpacer();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -257,7 +256,7 @@ value wxSizerItem_GetFlag_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
   int ret_c = self_c->GetFlag();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -268,7 +267,7 @@ value wxSizerItem_GetBorder_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
   int ret_c = self_c->GetBorder();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -279,7 +278,7 @@ value wxSizerItem_GetPosition_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
   wxPoint ret_c = self_c->GetPosition();
-  ret_v = Val_wxPoint( &ret_c );
+  ret_v = Val_wxPoint(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -312,7 +311,7 @@ value wxSizerItem_GetProportion_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
   int ret_c = self_c->GetProportion();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -323,7 +322,7 @@ value wxSizerItem_GetRect_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
   wxRect ret_c = self_c->GetRect();
-  ret_v = Val_wxRect( &ret_c );
+  ret_v = Val_wxRect(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -334,7 +333,7 @@ value wxSizerItem_GetSpacer_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
   wxSize ret_c = self_c->GetSpacer();
-  ret_v = Val_wxSize( &ret_c );
+  ret_v = Val_wxSize(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -345,7 +344,7 @@ value wxSizerItem_IsShown_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizerItem* self_c = (wxSizerItem*)Abstract_val(self_v);
   bool ret_c = self_c->IsShown();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 

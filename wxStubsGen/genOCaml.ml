@@ -21,7 +21,7 @@ let fprintf_ml_of_ctype ml_oc ctype =
         | "int64" -> fprintf ml_oc "int64"; true
         | "int32" -> fprintf ml_oc "int32"; true
         | "float" | "double" -> fprintf ml_oc "float"; true
-
+        | "string" -> fprintf ml_oc "string"; true
         (* This last item should only be allowed for returned values *)
         | _ when wxClass.[0] = 'w' && wxClass.[1] = 'x' ->
           fprintf ml_oc "%s" wxClass; true
@@ -242,6 +242,17 @@ let generate_types_module source_dirname modname classes =
   fprintf ml_oc "type wxSize = int * int\n";
   fprintf ml_oc "type wxString = string\n";
   fprintf ml_oc "type ints = int array\n";
+  StringMap.iter (fun _ ty ->
+    if not (String.contains ty.type_name ':') then begin
+      fprintf ml_oc "type %s = " ty.type_name;
+      match ty.type_ocaml with
+      | Some s -> fprintf ml_oc "%s\n" s
+      | None ->
+        ignore_bool (fprintf_ml_of_ctype ml_oc ty.type_ctype);
+        fprintf ml_oc "\n"
+    end
+  ) !types;
+
   StringMap.iter (fun _ cl ->
     fprintf ml_oc "type %s\n" cl.class_name
   ) classes;

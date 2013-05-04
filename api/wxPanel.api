@@ -2,7 +2,8 @@
 class wxPanel inherit wxWindow begin
 
    new(Create) (wxWindow* _prt, int _id, 
-   wxPoint& pos, wxSize& sz, int style, wxString& panel_name)
+   wxPoint& pos, wxSize& sz, 
+     int style (* = wxTAB_TRAVERSAL *), wxString& panel_name)
 
 
 (*   method(void, InitDialog)() INHERITED FROM wxWindow *)

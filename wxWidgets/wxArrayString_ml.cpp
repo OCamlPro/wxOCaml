@@ -18,7 +18,7 @@ value wxArrayString_Add_c(value self_v, value str_v)
   CAMLlocal1(ret_v);
   wxArrayString* self_c = (wxArrayString*)Abstract_val(self_v);
   size_t ret_c = self_c->Add(wxString( String_val(str_v), wxConvUTF8 ) );
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -30,7 +30,7 @@ value wxArrayString_AddCopies_c(value self_v, value str_v, value copies_v)
   wxArrayString* self_c = (wxArrayString*)Abstract_val(self_v);
   size_t copies_c = (size_t)Int_val(copies_v);
   size_t ret_c = self_c->Add(wxString( String_val(str_v), wxConvUTF8 ) , copies_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -63,7 +63,7 @@ value wxArrayString_GetCount_c(value self_v)
   CAMLlocal1(ret_v);
   wxArrayString* self_c = (wxArrayString*)Abstract_val(self_v);
   size_t ret_c = self_c->GetCount();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -74,7 +74,7 @@ value wxArrayString_Index_c(value self_v, value sz_v)
   CAMLlocal1(ret_v);
   wxArrayString* self_c = (wxArrayString*)Abstract_val(self_v);
   int ret_c = self_c->Index(wxString( String_val(sz_v), wxConvUTF8 ) );
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -85,7 +85,7 @@ value wxArrayString_IndexCaseInsensitive_c(value self_v, value sz_v)
   CAMLlocal1(ret_v);
   wxArrayString* self_c = (wxArrayString*)Abstract_val(self_v);
   int ret_c = self_c->Index(wxString( String_val(sz_v), wxConvUTF8 ) , false);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -108,7 +108,7 @@ value wxArrayString_IsEmpty_c(value self_v)
   CAMLlocal1(ret_v);
   wxArrayString* self_c = (wxArrayString*)Abstract_val(self_v);
   bool ret_c = self_c->IsEmpty();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -180,7 +180,7 @@ value wxArrayString_Item_c(value self_v, value nIndex_v)
   wxArrayString* self_c = (wxArrayString*)Abstract_val(self_v);
   size_t nIndex_c = (size_t)Int_val(nIndex_v);
   wxString ret_c = self_c->Item(nIndex_c);
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -191,7 +191,7 @@ value wxArrayString_Last_c(value self_v)
   CAMLlocal1(ret_v);
   wxArrayString* self_c = (wxArrayString*)Abstract_val(self_v);
   wxString ret_c = self_c->Last();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 }

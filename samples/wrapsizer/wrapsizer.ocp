@@ -1,0 +1,9 @@
+binannot = false
+
+(* enabled = false *)
+
+begin program "wrapsizer"
+  requires = [ "wxWidgets" ]
+  link += [ "-ccopt" "-g" ]
+  files = [    "wrapsizer.ml"  ]
+end

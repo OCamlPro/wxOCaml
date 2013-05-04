@@ -1,5 +1,46 @@
+type wxItemKind = int
+
+class wxToolBarToolBase inherit wxObject begin end
+
 class wxToolBar inherit wxControl begin
 
+  new(Create)(wxWindow* _prt,int _id, wxPoint& pos, wxSize& size,int _stl)
+(*  method(void, Delete)() *)
+  method(wxToolBarToolBase?, AddControl)(wxControl* ctrl)
+  method(void, AddSeparator)()
+(*  method(void, AddTool)(int id,wxBitmap& bmp,wxString& shelp,wxString& lhelp) *)
+
+  method(void, AddTool)(int id,wxString& label, wxBitmap& bmp,wxString& shelp,wxItemKind kind)
+
+
+  method(void, AddTool, AddToolEx)(int id,wxString& label, wxBitmap& bmp1,wxBitmap& bmpDisabled,
+         wxItemKind kind,wxString& shelp,wxString& lhelp, wxObject? clientData)
+  method(bool, DeleteTool)(int id)
+  method(bool, DeleteToolByPos)(int pos)
+  method(void, EnableTool)(int id,bool enb)
+  method(wxSize, GetToolSize)()
+  method(wxSize, GetToolBitmapSize)()
+  method(wxSize, GetMargins)()
+  method(wxObject?, GetToolClientData)(int id)
+  method(bool, GetToolEnabled)(int id)
+  method(wxString, GetToolLongHelp)(int id)
+  method(int, GetToolPacking)()
+  method(wxString, GetToolShortHelp)(int id)
+  method(bool, GetToolState)(int id)
+  method(void, InsertControl)(int pos,wxControl* ctrl)
+  method(void, InsertSeparator)(int pos)
+  method(void, InsertTool)(int pos,int id,wxString& label, wxBitmap& bmp,wxBitmap& bmpDisabled, wxItemKind kind)
+  method(void, InsertTool, InsertToolEx)(int pos,int id,wxString& label, wxBitmap& bmp,wxBitmap& bmpDisabled, wxItemKind kind, wxString& shelp,wxString& lhelp, wxObject? clientData)
+  method(bool, Realize)()
+  method(void, RemoveTool)(int id)
+  method(void, SetMargins)(int x,int y)
+  method(void, SetToolBitmapSize)(wxSize& size)
+  method(void, SetToolClientData)(int id,wxObject? dat)
+  method(void, SetToolLongHelp)(int id,wxString& str)
+  method(void, SetToolPacking)(int val)
+  method(void, SetToolShortHelp)(int id,wxString& str)
+  method(void, SetToolSeparation)(int val)
+  method(void, ToggleTool)(int id,bool val)
 
 end
 

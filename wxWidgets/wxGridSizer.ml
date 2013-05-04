@@ -196,12 +196,12 @@ external getContainingWindow : wxGridSizer ->
 
 
 external getItemWindow : wxGridSizer ->
-   wxWindow option -> bool  -> 
+   wxWindow -> bool  -> 
       wxSizerItem option = "wxSizer_GetItemWindow_c"
 
 
 external getItemSizer : wxGridSizer ->
-   wxSizer option -> bool  -> 
+   wxSizer -> bool  -> 
       wxSizerItem option = "wxSizer_GetItemSizer_c"
 
 

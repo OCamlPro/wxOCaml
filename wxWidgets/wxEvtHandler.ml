@@ -58,6 +58,8 @@ module Unsafe = struct
 
   external wxCalendarCtrl : wxEvtHandler -> wxCalendarCtrl = "%identity"
 
+  external wxCheckBox : wxEvtHandler -> wxCheckBox = "%identity"
+
   external wxControl : wxEvtHandler -> wxControl = "%identity"
 
   external wxDatePickerCtrl : wxEvtHandler -> wxDatePickerCtrl = "%identity"

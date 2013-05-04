@@ -27,7 +27,7 @@ value wxTextCtrl_GetValue_c(value self_v)
   CAMLlocal1(ret_v);
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   wxString ret_c = self_c->GetValue();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -61,7 +61,7 @@ value wxTextCtrl_GetLineLength_c(value self_v, value lineNo_v)
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   long lineNo_c = Int_val(lineNo_v);
   int ret_c = self_c->GetLineLength(lineNo_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -73,7 +73,7 @@ value wxTextCtrl_GetLineText_c(value self_v, value lineNo_v)
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   long lineNo_c = Int_val(lineNo_v);
   wxString ret_c = self_c->GetLineText(lineNo_c);
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -84,7 +84,7 @@ value wxTextCtrl_GetNumberOfLines_c(value self_v)
   CAMLlocal1(ret_v);
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   int ret_c = self_c->GetNumberOfLines();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -95,7 +95,7 @@ value wxTextCtrl_IsModified_c(value self_v)
   CAMLlocal1(ret_v);
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   bool ret_c = self_c->IsModified();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -106,7 +106,7 @@ value wxTextCtrl_IsEditable_c(value self_v)
   CAMLlocal1(ret_v);
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   bool ret_c = self_c->IsEditable();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -169,7 +169,7 @@ value wxTextCtrl_LoadFile_c(value self_v, value file_v)
   CAMLlocal1(ret_v);
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   bool ret_c = self_c->LoadFile(wxString( String_val(file_v), wxConvUTF8 ) );
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -180,7 +180,7 @@ value wxTextCtrl_SaveFile_c(value self_v, value file_v)
   CAMLlocal1(ret_v);
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   bool ret_c = self_c->SaveFile(wxString( String_val(file_v), wxConvUTF8 ) );
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -227,7 +227,7 @@ value wxTextCtrl_XYToPosition_c(value self_v, value x_v, value y_v)
   long y_c = Int_val(y_v);
   long *ret_c = new long();
   *ret_c = self_c->XYToPosition(x_c, y_c);
-  ret_v = Val_long(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -242,7 +242,7 @@ value wxTextCtrl_PositionToXY_c(value self_v, value pos_v)
   long* y_c = new long();
   bool ret_c = self_c->PositionToXY(pos_c,  x_c,  y_c);
   ret_v = caml_alloc(3, 0);
-  caml_initialize(&Field(ret_v,0), Val_bool(ret_c));
+  caml_initialize(&Field(ret_v,0), Val_bool( ret_c));
   caml_initialize(&Field(ret_v,1), Val_int( x_c));
   caml_initialize(&Field(ret_v,2), Val_int( y_c));
   CAMLreturn(ret_v);
@@ -300,7 +300,7 @@ value wxTextCtrl_CanCopy_c(value self_v)
   CAMLlocal1(ret_v);
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   bool ret_c = self_c->CanCopy();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -311,7 +311,7 @@ value wxTextCtrl_CanCut_c(value self_v)
   CAMLlocal1(ret_v);
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   bool ret_c = self_c->CanCut();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -322,7 +322,7 @@ value wxTextCtrl_CanPaste_c(value self_v)
   CAMLlocal1(ret_v);
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   bool ret_c = self_c->CanPaste();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -355,7 +355,7 @@ value wxTextCtrl_CanUndo_c(value self_v)
   CAMLlocal1(ret_v);
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   bool ret_c = self_c->CanUndo();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -366,7 +366,7 @@ value wxTextCtrl_CanRedo_c(value self_v)
   CAMLlocal1(ret_v);
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   bool ret_c = self_c->CanRedo();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -401,7 +401,7 @@ value wxTextCtrl_GetInsertionPoint_c(value self_v)
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   long *ret_c = new long();
   *ret_c = self_c->GetInsertionPoint();
-  ret_v = Val_long(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -413,7 +413,7 @@ value wxTextCtrl_GetLastPosition_c(value self_v)
   wxTextCtrl* self_c = (wxTextCtrl*)Abstract_val(self_v);
   long *ret_c = new long();
   *ret_c = self_c->GetLastPosition();
-  ret_v = Val_long(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 

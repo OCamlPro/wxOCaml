@@ -1,0 +1,12 @@
+class wxCheckBox inherit wxControl begin
+
+
+  new(Create)(wxWindow* _prt,int _id,wxString& _txt, 
+              wxPoint& pos, wxSize &sz, int style, _ "wxDefaultValidator", 
+              wxString& name)
+
+(*  delete(Delete)() *)
+  method(void,SetValue)(bool value)
+  method(bool,GetValue)()
+
+end

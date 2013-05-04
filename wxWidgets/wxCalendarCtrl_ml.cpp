@@ -41,7 +41,7 @@ value wxCalendarCtrl_GetDate_c(value self_v)
   wxCalendarCtrl* self_c = (wxCalendarCtrl*)Abstract_val(self_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = self_c->GetDate();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -90,7 +90,7 @@ value wxCalendarCtrl_GetHeaderColourFg_c(value self_v)
   wxCalendarCtrl* self_c = (wxCalendarCtrl*)Abstract_val(self_v);
   wxColour *ret_c = new wxColour();
   *ret_c = self_c->GetHeaderColourFg();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -102,7 +102,7 @@ value wxCalendarCtrl_GetHeaderColourBg_c(value self_v)
   wxCalendarCtrl* self_c = (wxCalendarCtrl*)Abstract_val(self_v);
   wxColour *ret_c = new wxColour();
   *ret_c = self_c->GetHeaderColourBg();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -127,7 +127,7 @@ value wxCalendarCtrl_GetHighlightColourFg_c(value self_v)
   wxCalendarCtrl* self_c = (wxCalendarCtrl*)Abstract_val(self_v);
   wxColour *ret_c = new wxColour();
   *ret_c = self_c->GetHighlightColourFg();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -139,7 +139,7 @@ value wxCalendarCtrl_GetHighlightColourBg_c(value self_v)
   wxCalendarCtrl* self_c = (wxCalendarCtrl*)Abstract_val(self_v);
   wxColour *ret_c = new wxColour();
   *ret_c = self_c->GetHighlightColourBg();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -164,7 +164,7 @@ value wxCalendarCtrl_GetHolidayColourFg_c(value self_v)
   wxCalendarCtrl* self_c = (wxCalendarCtrl*)Abstract_val(self_v);
   wxColour *ret_c = new wxColour();
   *ret_c = self_c->GetHolidayColourFg();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -176,7 +176,7 @@ value wxCalendarCtrl_GetHolidayColourBg_c(value self_v)
   wxCalendarCtrl* self_c = (wxCalendarCtrl*)Abstract_val(self_v);
   wxColour *ret_c = new wxColour();
   *ret_c = self_c->GetHolidayColourBg();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -239,7 +239,7 @@ value wxCalendarCtrl_HitTest_c(value self_v, value pos_v)
   wxDateTime::WeekDay wd_c;
   int ret_c = self_c->HitTest(WxPoint_val(pos_v) ,  date_c,  &wd_c);
   ret_v = caml_alloc(3, 0);
-  caml_initialize(&Field(ret_v,0), Val_int(ret_c));
+  caml_initialize(&Field(ret_v,0), Val_int( ret_c));
   caml_initialize(&Field(ret_v,1), Val_abstract( date_c));
   caml_initialize(&Field(ret_v,2), Val_int( wd_c));
   CAMLreturn(ret_v);

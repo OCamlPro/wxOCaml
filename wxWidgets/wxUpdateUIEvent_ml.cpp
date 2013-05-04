@@ -32,7 +32,7 @@ value wxUpdateUIEvent_GetChecked_c(value self_v)
   CAMLlocal1(ret_v);
   wxUpdateUIEvent* self_c = (wxUpdateUIEvent*)Abstract_val(self_v);
   bool ret_c = self_c->GetChecked();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -43,7 +43,7 @@ value wxUpdateUIEvent_GetEnabled_c(value self_v)
   CAMLlocal1(ret_v);
   wxUpdateUIEvent* self_c = (wxUpdateUIEvent*)Abstract_val(self_v);
   bool ret_c = self_c->GetEnabled();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -54,7 +54,7 @@ value wxUpdateUIEvent_GetSetChecked_c(value self_v)
   CAMLlocal1(ret_v);
   wxUpdateUIEvent* self_c = (wxUpdateUIEvent*)Abstract_val(self_v);
   bool ret_c = self_c->GetSetChecked();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -65,7 +65,7 @@ value wxUpdateUIEvent_GetSetEnabled_c(value self_v)
   CAMLlocal1(ret_v);
   wxUpdateUIEvent* self_c = (wxUpdateUIEvent*)Abstract_val(self_v);
   bool ret_c = self_c->GetSetEnabled();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -76,7 +76,7 @@ value wxUpdateUIEvent_GetSetShown_c(value self_v)
   CAMLlocal1(ret_v);
   wxUpdateUIEvent* self_c = (wxUpdateUIEvent*)Abstract_val(self_v);
   bool ret_c = self_c->GetSetShown();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -87,7 +87,7 @@ value wxUpdateUIEvent_GetSetText_c(value self_v)
   CAMLlocal1(ret_v);
   wxUpdateUIEvent* self_c = (wxUpdateUIEvent*)Abstract_val(self_v);
   bool ret_c = self_c->GetSetText();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -98,7 +98,7 @@ value wxUpdateUIEvent_GetShown_c(value self_v)
   CAMLlocal1(ret_v);
   wxUpdateUIEvent* self_c = (wxUpdateUIEvent*)Abstract_val(self_v);
   bool ret_c = self_c->GetShown();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -109,7 +109,7 @@ value wxUpdateUIEvent_GetText_c(value self_v)
   CAMLlocal1(ret_v);
   wxUpdateUIEvent* self_c = (wxUpdateUIEvent*)Abstract_val(self_v);
   wxString ret_c = self_c->GetText();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 

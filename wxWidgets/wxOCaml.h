@@ -53,6 +53,7 @@ typedef int intptr_t;
 #include "wx/sound.h"
 #include "wx/datectrl.h"
 #include "wx/timectrl.h"
+#include "wx/wrapsizer.h"
 
 extern "C" {
 
@@ -75,6 +76,7 @@ extern value Val_wxRect(wxRect *rect_c);
 	  Long_val( Field(rect_v, 1)), \
 	  Long_val( Field(rect_v, 2)), \
 	  Long_val( Field(rect_v, 3)) )
+
 
 #define Begin_wxRectOption(name_c, name_v) \
   do{ wxRect *name_c = (name_v == Val_int(0)) ? NULL : new WxRect_val(Field(name_v,0)) 
@@ -119,6 +121,11 @@ extern value Val_wxSize(wxSize *point_c);
   if(name_c != NULL) delete(name_c); }while(0)
 
 #define Val_wxString(s)  copy_string((s)->utf8_str().data())
+
+#define Val_wxLongLong(l) \
+  caml_copy_int64((l).GetValue())
+#define WxLongLong_val(l_v) \
+  wxLongLong(Int64_val(l_v))
 
 }
 

@@ -11,7 +11,7 @@ value wxMisc_wxMessageBox_c(value message_v, value caption_v, value style_v, val
   int x_c = Int_val(x_v);
   int y_c = Int_val(y_v);
   int ret_c = wxMessageBox(wxString( String_val(message_v), wxConvUTF8 ) , wxString( String_val(caption_v), wxConvUTF8 ) , style_c, parent_c, x_c, y_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -35,7 +35,7 @@ value wxMisc_wxGetSingleChoiceIndex_c(value message_v, value caption_v, value aC
   int height_c = Int_val(height_v);
   int initialSelection_c = Int_val(initialSelection_v);
   int ret_c = wxGetSingleChoiceIndex(wxString( String_val(message_v), wxConvUTF8 ) , wxString( String_val(caption_v), wxConvUTF8 ) , *aChoices_c, parent_c, x_c, y_c, centre_c, width_c, height_c, initialSelection_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -54,7 +54,7 @@ value wxMisc_wxGetColourFromUser_c(value parent_v, value colInit_v, value captio
   wxColour* colInit_c = (wxColour*)Abstract_val(colInit_v);
   wxColour *ret_c = new wxColour();
   *ret_c = wxGetColourFromUser(parent_c, *colInit_c, wxString( String_val(caption_v), wxConvUTF8 ) , NULL);
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -66,7 +66,7 @@ value wxMisc_wxDirSelector_c(value message_v, value default_path_v, value style_
   long style_c = Int_val(style_v);
   wxWindow* parent_c = (wxWindow*)AbstractOption_val(parent_v);
   wxString ret_c = wxDirSelector(wxString( String_val(message_v), wxConvUTF8 ) , wxString( String_val(default_path_v), wxConvUTF8 ) , style_c, WxPoint_val(pos_v) , parent_c);
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -80,7 +80,7 @@ value wxMisc_wxFileSelector_c(value message_v, value default_path_v, value defau
   int x_c = Int_val(x_v);
   int y_c = Int_val(y_v);
   wxString ret_c = wxFileSelector(wxString( String_val(message_v), wxConvUTF8 ) , wxString( String_val(default_path_v), wxConvUTF8 ) , wxString( String_val(default_filename_v), wxConvUTF8 ) , wxString( String_val(default_extension_v), wxConvUTF8 ) , wxFileSelectorDefaultWildcardStr, flags_c, parent_c, x_c, y_c);
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -97,7 +97,7 @@ value wxMisc_wxLoadFileSelector_c(value what_v, value extension_v, value default
   CAMLlocal1(ret_v);
   wxWindow* parent_c = (wxWindow*)AbstractOption_val(parent_v);
   wxString ret_c = wxLoadFileSelector(wxString( String_val(what_v), wxConvUTF8 ) , wxString( String_val(extension_v), wxConvUTF8 ) , wxString( String_val(default_name_v), wxConvUTF8 ) , parent_c);
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -108,7 +108,7 @@ value wxMisc_wxSaveFileSelector_c(value what_v, value extension_v, value default
   CAMLlocal1(ret_v);
   wxWindow* parent_c = (wxWindow*)AbstractOption_val(parent_v);
   wxString ret_c = wxSaveFileSelector(wxString( String_val(what_v), wxConvUTF8 ) , wxString( String_val(extension_v), wxConvUTF8 ) , wxString( String_val(default_name_v), wxConvUTF8 ) , parent_c);
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -121,7 +121,7 @@ value wxMisc_wxGetFontFromUser_c(value parent_v, value fontInit_v, value caption
   wxFont* fontInit_c = (wxFont*)Abstract_val(fontInit_v);
   wxFont *ret_c = new wxFont();
   *ret_c = wxGetFontFromUser(parent_c, *fontInit_c, wxString( String_val(caption_v), wxConvUTF8 ) );
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -135,7 +135,7 @@ value wxMisc_wxGetTextFromUser_c(value message_v, value caption_v, value default
   int y_c = Int_val(y_v);
   bool centre_c = Int_val(centre_v);
   wxString ret_c = wxGetTextFromUser(wxString( String_val(message_v), wxConvUTF8 ) , wxString( String_val(caption_v), wxConvUTF8 ) , wxString( String_val(default_value_v), wxConvUTF8 ) , parent_c, x_c, y_c, centre_c);
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -155,7 +155,7 @@ value wxMisc_wxGetPasswordFromUser_c(value message_v, value caption_v, value def
   int y_c = Int_val(y_v);
   bool centre_c = Int_val(centre_v);
   wxString ret_c = wxGetPasswordFromUser(wxString( String_val(message_v), wxConvUTF8 ) , wxString( String_val(caption_v), wxConvUTF8 ) , wxString( String_val(default_value_v), wxConvUTF8 ) , parent_c, x_c, y_c, centre_c);
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -192,7 +192,7 @@ value wxMisc_wxIsBusy_c()
   CAMLparam0();
   CAMLlocal1(ret_v);
   bool ret_c = wxIsBusy();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 

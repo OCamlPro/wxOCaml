@@ -164,12 +164,12 @@ external getContainingWindow : wxBoxSizer ->
 
 
 external getItemWindow : wxBoxSizer ->
-   wxWindow option -> bool  -> 
+   wxWindow -> bool  -> 
       wxSizerItem option = "wxSizer_GetItemWindow_c"
 
 
 external getItemSizer : wxBoxSizer ->
-   wxSizer option -> bool  -> 
+   wxSizer -> bool  -> 
       wxSizerItem option = "wxSizer_GetItemSizer_c"
 
 
@@ -280,5 +280,7 @@ module Unsafe = struct
   external wxStaticBoxSizer : wxBoxSizer -> wxStaticBoxSizer = "%identity"
 
   external wxStdDialogButtonSizer : wxBoxSizer -> wxStdDialogButtonSizer = "%identity"
+
+  external wxWrapSizer : wxBoxSizer -> wxWrapSizer = "%identity"
 
 end

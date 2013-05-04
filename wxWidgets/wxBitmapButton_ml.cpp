@@ -29,7 +29,7 @@ value wxBitmapButton_GetBitmapLabel_c(value self_v)
   wxBitmapButton* self_c = (wxBitmapButton*)Abstract_val(self_v);
   wxBitmap *ret_c = new wxBitmap();
   *ret_c = self_c->GetBitmapLabel();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -41,7 +41,7 @@ value wxBitmapButton_GetBitmapFocus_c(value self_v)
   wxBitmapButton* self_c = (wxBitmapButton*)Abstract_val(self_v);
   wxBitmap *ret_c = new wxBitmap();
   *ret_c = self_c->GetBitmapFocus();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -53,7 +53,7 @@ value wxBitmapButton_GetBitmapDisabled_c(value self_v)
   wxBitmapButton* self_c = (wxBitmapButton*)Abstract_val(self_v);
   wxBitmap *ret_c = new wxBitmap();
   *ret_c = self_c->GetBitmapDisabled();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -125,7 +125,7 @@ value wxBitmapButton_GetMarginX_c(value self_v)
   CAMLlocal1(ret_v);
   wxBitmapButton* self_c = (wxBitmapButton*)Abstract_val(self_v);
   int ret_c = self_c->GetMarginX();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -136,7 +136,7 @@ value wxBitmapButton_GetMarginY_c(value self_v)
   CAMLlocal1(ret_v);
   wxBitmapButton* self_c = (wxBitmapButton*)Abstract_val(self_v);
   int ret_c = self_c->GetMarginY();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 }

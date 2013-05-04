@@ -22,7 +22,7 @@ value wxEvtHandler_Disconnect_c(value self_v, value first_v, value last_v, value
   int type_c = Int_val(type_v);
   wxObject* data_c = (wxObject*)AbstractOption_val(data_v);
   int ret_c = self_c->Disconnect(first_c, last_c, type_c, (wxObjectEventFunction)&OCamlApp::HandleGenericEvent, data_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -45,7 +45,7 @@ value wxEvtHandler_GetEvtHandlerEnabled_c(value self_v)
   CAMLlocal1(ret_v);
   wxEvtHandler* self_c = (wxEvtHandler*)Abstract_val(self_v);
   bool ret_c = self_c->GetEvtHandlerEnabled();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -57,7 +57,7 @@ value wxEvtHandler_ProcessEvent_c(value self_v, value event_v)
   wxEvtHandler* self_c = (wxEvtHandler*)Abstract_val(self_v);
   wxEvent* event_c = (wxEvent*)Abstract_val(event_v);
   bool ret_c = self_c->ProcessEvent(*event_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 

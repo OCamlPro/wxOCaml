@@ -51,7 +51,7 @@ value wxFrame_GetClientAreaOrigin_c(value self_v)
   CAMLlocal1(ret_v);
   wxFrame* self_c = (wxFrame*)Abstract_val(self_v);
   wxPoint ret_c = self_c->GetClientAreaOrigin();
-  ret_v = Val_wxPoint( &ret_c );
+  ret_v = Val_wxPoint(& ret_c);
   CAMLreturn(ret_v);
 }
 

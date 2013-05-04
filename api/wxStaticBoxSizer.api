@@ -2,9 +2,7 @@
 class wxStaticBoxSizer inherit wxBoxSizer begin
 
   new(Create)(wxStaticBox? box,int orient)
-(*  method(void,RecalcSizes)() inherited from wxBoxSizer *)
-(*  method(wxSize,CalcMin)() inherited from wxBoxSizer *)
   method(wxStaticBox?,GetStaticBox)()
-	
+  new(CreateEx) (int orient, wxWindow *parent, wxString &label)
 end
 

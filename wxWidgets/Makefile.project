@@ -4,12 +4,16 @@ GENERATED_SOURCES = \
     wxDragImage_ml.cpp  \
     wxApp_ml.cpp  \
     wxArrayString_ml.cpp  \
+    wxArtProvider_ml.cpp  \
     wxBitmapButton_ml.cpp  \
     wxBoxSizer_ml.cpp  \
     wxButton_ml.cpp  \
     wxCalendarCtrl_ml.cpp  \
     wxCalendarDateAttr_ml.cpp  \
+    wxCheckBox_ml.cpp  \
     wxDatePickerCtrl_ml.cpp  \
+    wxDateSpan_ml.cpp  \
+    wxTimeSpan_ml.cpp  \
     wxDateTime_ml.cpp  \
     wxDialog_ml.cpp  \
     wxMouseState_ml.cpp  \
@@ -43,7 +47,9 @@ GENERATED_SOURCES = \
     wxSystemSettings_ml.cpp  \
     wxTextCtrl_ml.cpp  \
     wxTimePickerCtrl_ml.cpp  \
+    wxToolBar_ml.cpp  \
     wxTopLevelWindow_ml.cpp  \
     wxValues_ml.cpp  \
     wxWindow_ml.cpp  \
+    wxWrapSizer_ml.cpp  \
 

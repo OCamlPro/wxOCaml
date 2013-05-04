@@ -374,4 +374,39 @@ external getDay : wxDateTime ->
       int = "wxDateTime_GetDay_c"
 
 
+external isEqualUpTo : wxDateTime ->
+   wxDateTime -> wxTimeSpan -> 
+      bool  = "wxDateTime_IsEqualUpTo_c"
+
+
+external addTime : wxDateTime ->
+   wxTimeSpan -> 
+      wxDateTime = "wxDateTime_AddTime_c"
+
+
+external subtractTime : wxDateTime ->
+   wxTimeSpan -> 
+      wxDateTime = "wxDateTime_SubtractTime_c"
+
+
+external addDate : wxDateTime ->
+   wxDateSpan -> 
+      wxDateTime = "wxDateTime_AddDate_c"
+
+
+external subtractDate : wxDateTime ->
+   wxDateSpan -> 
+      wxDateTime = "wxDateTime_SubtractDate_c"
+
+
+external addTimeValues : wxDateTime ->
+   wxTimeSpan -> 
+      unit = "wxDateTime_AddTimeValues_c"
+
+
+external addDateValues : wxDateTime ->
+   wxDateSpan -> 
+      unit = "wxDateTime_AddDateValues_c"
+
+
 (* Methods inherited from parents, if any *)

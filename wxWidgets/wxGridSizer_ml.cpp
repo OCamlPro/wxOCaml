@@ -70,7 +70,7 @@ value wxGridSizer_GetCols_c(value self_v)
   CAMLlocal1(ret_v);
   wxGridSizer* self_c = (wxGridSizer*)Abstract_val(self_v);
   int ret_c = self_c->GetCols();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -81,7 +81,7 @@ value wxGridSizer_GetRows_c(value self_v)
   CAMLlocal1(ret_v);
   wxGridSizer* self_c = (wxGridSizer*)Abstract_val(self_v);
   int ret_c = self_c->GetRows();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -92,7 +92,7 @@ value wxGridSizer_GetVGap_c(value self_v)
   CAMLlocal1(ret_v);
   wxGridSizer* self_c = (wxGridSizer*)Abstract_val(self_v);
   int ret_c = self_c->GetVGap();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -103,7 +103,7 @@ value wxGridSizer_GetHGap_c(value self_v)
   CAMLlocal1(ret_v);
   wxGridSizer* self_c = (wxGridSizer*)Abstract_val(self_v);
   int ret_c = self_c->GetHGap();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 }

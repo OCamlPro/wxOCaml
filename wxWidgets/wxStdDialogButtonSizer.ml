@@ -187,12 +187,12 @@ external getContainingWindow : wxStdDialogButtonSizer ->
 
 
 external getItemWindow : wxStdDialogButtonSizer ->
-   wxWindow option -> bool  -> 
+   wxWindow -> bool  -> 
       wxSizerItem option = "wxSizer_GetItemWindow_c"
 
 
 external getItemSizer : wxStdDialogButtonSizer ->
-   wxSizer option -> bool  -> 
+   wxSizer -> bool  -> 
       wxSizerItem option = "wxSizer_GetItemSizer_c"
 
 

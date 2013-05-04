@@ -9,7 +9,7 @@ value wxTopLevelWindow_EnableCloseButton_c(value self_v, value enable_v)
   wxTopLevelWindow* self_c = (wxTopLevelWindow*)Abstract_val(self_v);
   bool enable_c = Int_val(enable_v);
   bool ret_c = self_c->EnableCloseButton(enable_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -32,7 +32,7 @@ value wxTopLevelWindow_GetIcon_c(value self_v)
   wxTopLevelWindow* self_c = (wxTopLevelWindow*)Abstract_val(self_v);
   wxIcon *ret_c = new wxIcon();
   *ret_c = self_c->GetIcon();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -43,7 +43,7 @@ value wxTopLevelWindow_GetTitle_c(value self_v)
   CAMLlocal1(ret_v);
   wxTopLevelWindow* self_c = (wxTopLevelWindow*)Abstract_val(self_v);
   wxString ret_c = self_c->GetTitle();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -66,7 +66,7 @@ value wxTopLevelWindow_IsActive_c(value self_v)
   CAMLlocal1(ret_v);
   wxTopLevelWindow* self_c = (wxTopLevelWindow*)Abstract_val(self_v);
   bool ret_c = self_c->IsActive();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -77,7 +77,7 @@ value wxTopLevelWindow_IsIconized_c(value self_v)
   CAMLlocal1(ret_v);
   wxTopLevelWindow* self_c = (wxTopLevelWindow*)Abstract_val(self_v);
   bool ret_c = self_c->IsIconized();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -88,7 +88,7 @@ value wxTopLevelWindow_IsMaximized_c(value self_v)
   CAMLlocal1(ret_v);
   wxTopLevelWindow* self_c = (wxTopLevelWindow*)Abstract_val(self_v);
   bool ret_c = self_c->IsMaximized();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 

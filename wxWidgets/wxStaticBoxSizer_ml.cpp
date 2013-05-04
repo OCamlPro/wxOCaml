@@ -23,4 +23,16 @@ value wxStaticBoxSizer_GetStaticBox_c(value self_v)
   ret_v = Val_abstractOption( ret_c );
   CAMLreturn(ret_v);
 }
+
+
+value wxStaticBoxSizer_CreateEx_c(value orient_v, value parent_v, value label_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  int orient_c = Int_val(orient_v);
+  wxWindow* parent_c = (wxWindow*)Abstract_val(parent_v);
+  wxStaticBoxSizer * ret_c = new wxStaticBoxSizer(orient_c, parent_c, wxString( String_val(label_v), wxConvUTF8 ) );
+  ret_v = Val_abstract( ret_c );
+  CAMLreturn(ret_v);
+}
 }

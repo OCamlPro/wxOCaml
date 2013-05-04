@@ -32,7 +32,7 @@ value wxTimePickerCtrl_GetTime_c(value self_v)
   int sec_c;
   bool ret_c = self_c->GetTime( &hour_c,  &min_c,  &sec_c);
   ret_v = caml_alloc(4, 0);
-  caml_initialize(&Field(ret_v,0), Val_bool(ret_c));
+  caml_initialize(&Field(ret_v,0), Val_bool( ret_c));
   caml_initialize(&Field(ret_v,1), Val_int( hour_c));
   caml_initialize(&Field(ret_v,2), Val_int( min_c));
   caml_initialize(&Field(ret_v,3), Val_int( sec_c));
@@ -47,7 +47,7 @@ value wxTimePickerCtrl_GetValue_c(value self_v)
   wxTimePickerCtrl* self_c = (wxTimePickerCtrl*)Abstract_val(self_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = self_c->GetValue();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -61,7 +61,7 @@ value wxTimePickerCtrl_SetTime_c(value self_v, value hour_v, value min_v, value 
   int min_c = Int_val(min_v);
   int sec_c = Int_val(sec_v);
   bool ret_c = self_c->SetTime(hour_c, min_c, sec_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 

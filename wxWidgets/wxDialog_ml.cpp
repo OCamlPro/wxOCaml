@@ -27,7 +27,7 @@ value wxDialog_IsModal_c(value self_v)
   CAMLlocal1(ret_v);
   wxDialog* self_c = (wxDialog*)Abstract_val(self_v);
   bool ret_c = self_c->IsModal();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -38,7 +38,7 @@ value wxDialog_ShowModal_c(value self_v)
   CAMLlocal1(ret_v);
   wxDialog* self_c = (wxDialog*)Abstract_val(self_v);
   int ret_c = self_c->ShowModal();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -73,7 +73,7 @@ value wxDialog_GetReturnCode_c(value self_v)
   CAMLlocal1(ret_v);
   wxDialog* self_c = (wxDialog*)Abstract_val(self_v);
   int ret_c = self_c->GetReturnCode();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 }

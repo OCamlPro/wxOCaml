@@ -43,7 +43,7 @@ let rec fprintf_ctype oc ctype var =
 
 
 let direct_return_types = [
-  "int"; "char"; "bool"; "int64"; "int32";
+  "int"; "char"; "bool"; "int64"; "int32"; "double"; "float";
 
   (* Allocate them on the stack, and make a copy later *)
   "wxRect"; "wxPoint"; "wxSize"; "wxString";
@@ -51,6 +51,8 @@ let direct_return_types = [
 
 let find_return_conversion ctyp =
   match ctyp with
+  | Typ_ident "wxLongLong" -> "Val_wxLongLong("
+
   | Typ_ident wxClass ->
     let wxClass_equiv = find_cpp_equiv wxClass in
     begin match wxClass_equiv with
@@ -59,12 +61,18 @@ let find_return_conversion ctyp =
       |  "wxSize" ->  "Val_wxSize(&"
       |  "wxString" -> "Val_wxString(&"
       |  ("int" | "long") -> "Val_int("
+      |  "bool" -> "Val_bool("
       |  "int64" -> "caml_copy_int64("
       |  "int32" -> "caml_copy_int32("
+      | ("double" | "float") -> "caml_copy_double("
       | _ when
           wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->
         "Val_abstract("
-      | _ -> assert false
+      | _ ->
+        Printf.eprintf "Error(4): no retrurn conversion for %S\n%!"
+          wxClass_equiv;
+        exit_code := 2;
+        raise Exit
     end
   | _ -> assert false
 
@@ -156,7 +164,8 @@ let generate_method_stub oc cl p =
       end
 
     | In, Typ_reference (Typ_ident wxClass) ->
-      begin match wxClass with
+      let wxClass_equiv = find_cpp_equiv wxClass in
+      begin match wxClass_equiv with
         | "wxPoint" -> ()
         | "wxSize" -> ()
         | "wxRect" -> ()
@@ -169,7 +178,8 @@ let generate_method_stub oc cl p =
 
     | In, Typ_pointer (Typ_ident wxClass)
       ->
-      begin match wxClass with
+      let wxClass_equiv = find_cpp_equiv wxClass in
+      begin match wxClass_equiv with
         | "wxPoint" ->
           fprintf oc "  wxPoint %s_cc = WxPoint_val(%s_v);\n  wxPoint* %s_c = &%s_cc;\n" arg_name arg_name arg_name arg_name
         | "wxSize" ->
@@ -185,7 +195,8 @@ let generate_method_stub oc cl p =
       end
     | In, Typ_option (Typ_ident wxClass)
       ->
-      begin match wxClass with
+      let wxClass_equiv = find_cpp_equiv wxClass in
+      begin match wxClass_equiv with
         | "wxPoint" ->
           fprintf oc "  Begin_wxPointOption(%s_c, %s_v);\n"
             arg_name arg_name
@@ -260,14 +271,15 @@ let generate_method_stub oc cl p =
         | "float" | "double" ->
           fprintf oc "%s_c" arg.arg_name
         | _ ->
-          Printf.eprintf "Error: don't know what to do with arg type (%s)\n  %s\n%!" arg.arg_name (string_of_ctype arg.arg_ctype);
-          exit_code := 2
-
+          Printf.eprintf "Error(1): don't know what to do with arg type (%s)\n  %s\n%!" arg.arg_name (string_of_ctype arg.arg_ctype);
+          exit_code := 2;
+          raise Exit
       end
 
     | In, Typ_reference (Typ_ident wxClass) ->
       begin
-        match wxClass with
+        let wxClass_equiv = find_cpp_equiv wxClass in
+        match wxClass_equiv with
         | "wxPoint" ->
           fprintf oc "WxPoint_val(%s_v) " arg.arg_name
         | "wxSize" ->
@@ -288,7 +300,7 @@ let generate_method_stub oc cl p =
     | In, Typ_direct ->
       fprintf oc "%s" arg.arg_name
     | _ ->
-      Printf.eprintf "Error: don't know what to do with arg type (%s)\n  %s\n%!" arg.arg_name (string_of_ctype arg.arg_ctype);
+      Printf.eprintf "Error(2): don't know what to do with arg type (%s)\n  %s\n%!" arg.arg_name (string_of_ctype arg.arg_ctype);
       exit_code := 2
   ) p.proto_args;
   fprintf oc ");\n";
@@ -311,6 +323,12 @@ let generate_method_stub oc cl p =
         end
       | Typ_option (Typ_ident wxClass) ->
         fprintf oc "Val_abstractOption( ret_c )"
+      | Typ_ident "void" ->
+        fprintf oc "Val_unit";
+      | _ ->
+        let conversion = find_return_conversion proto_ret in
+        fprintf oc "%s ret_c)" conversion
+(*
       | Typ_ident wxClass ->
         let wxClass_equiv = find_cpp_equiv wxClass in
         begin match wxClass_equiv with
@@ -322,8 +340,6 @@ let generate_method_stub oc cl p =
             fprintf oc "Val_wxSize( &ret_c )"
           |  "wxString" ->
             fprintf oc "Val_wxString( &ret_c )"
-          |  "void" ->
-            fprintf oc "Val_unit";
           |  "bool" ->
             fprintf oc "Val_bool(ret_c)";
           |  "int32" ->
@@ -338,8 +354,9 @@ let generate_method_stub oc cl p =
             fprintf oc "Val_abstract( ret_c )"
         end
       | _ ->
-        Printf.eprintf "Error: don't know what to do with return type (ret_v)\n  %s\n%!" (string_of_ctype proto_ret);
+        Printf.eprintf "Error(3): don't know what to do with return type (ret_v)\n  %s\n%!" (string_of_ctype proto_ret);
         exit_code := 2
+*)
   in
   if !out_nargs = 0 then begin
     fprintf oc "  ret_v = ";
@@ -447,6 +464,7 @@ let find_value_conversion ctyp =
       |  ("int" | "long") -> "Val_int(", ")"
       |  "int64" -> "caml_copy_int64(", ")"
       |  "int32" -> "caml_copy_int32(", ")"
+      |  "string" -> "caml_copy_string(", ")"
       | _ when
           wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->
         "Val_abstract(&", ")"
@@ -499,7 +517,12 @@ let generate_class_stubs source_dirname cl includes =
       match p.proto_kind with
       | ProtoValue -> values := p :: !values
       | _ ->
-        generate_method_stub oc cl p
+        try
+          generate_method_stub oc cl p
+        with e ->
+          Printf.eprintf "  while generate_method_stub %s::%s\n%!"
+            cl.class_name (c_function_name cl p);
+          raise e
   ) cl.class_methods;
 
   if !values <> [] then

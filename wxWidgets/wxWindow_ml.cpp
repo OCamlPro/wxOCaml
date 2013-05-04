@@ -22,7 +22,7 @@ value wxWindow_Close_c(value self_v, value _force_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   bool _force_c = Int_val(_force_v);
   bool ret_c = self_c->Close(_force_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -33,7 +33,7 @@ value wxWindow_Destroy_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   bool ret_c = self_c->Destroy();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -77,7 +77,7 @@ value wxWindow_IsBeingDeleted_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   bool ret_c = self_c->IsBeingDeleted();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -99,7 +99,7 @@ value wxWindow_GetLabel_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxString ret_c = self_c->GetLabel();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -121,7 +121,7 @@ value wxWindow_GetName_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxString ret_c = self_c->GetName();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -144,7 +144,7 @@ value wxWindow_GetId_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int ret_c = self_c->GetId();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -225,7 +225,7 @@ value wxWindow_GetPosition_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxPoint ret_c = self_c->GetPosition();
-  ret_v = Val_wxPoint( &ret_c );
+  ret_v = Val_wxPoint(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -236,7 +236,7 @@ value wxWindow_GetSize_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxSize ret_c = self_c->GetSize();
-  ret_v = Val_wxSize( &ret_c );
+  ret_v = Val_wxSize(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -247,7 +247,7 @@ value wxWindow_GetRect_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxRect ret_c = self_c->GetRect();
-  ret_v = Val_wxRect( &ret_c );
+  ret_v = Val_wxRect(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -258,7 +258,7 @@ value wxWindow_GetClientSize_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxSize ret_c = self_c->GetClientSize();
-  ret_v = Val_wxSize( &ret_c );
+  ret_v = Val_wxSize(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -269,7 +269,7 @@ value wxWindow_GetBestSize_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxSize ret_c = self_c->GetBestSize();
-  ret_v = Val_wxSize( &ret_c );
+  ret_v = Val_wxSize(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -351,7 +351,7 @@ value wxWindow_GetMinWidth_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int ret_c = self_c->GetMinWidth();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -362,7 +362,7 @@ value wxWindow_GetMinHeight_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int ret_c = self_c->GetMinHeight();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -373,7 +373,7 @@ value wxWindow_GetMaxWidth_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int ret_c = self_c->GetMaxWidth();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -384,7 +384,7 @@ value wxWindow_GetMaxHeight_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int ret_c = self_c->GetMaxHeight();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -395,7 +395,7 @@ value wxWindow_Show_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   bool ret_c = self_c->Show();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -406,7 +406,7 @@ value wxWindow_Hide_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   bool ret_c = self_c->Hide();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -417,7 +417,7 @@ value wxWindow_Enable_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   bool ret_c = self_c->Enable();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -440,7 +440,7 @@ value wxWindow_Disable_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   bool ret_c = self_c->Disable();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -451,7 +451,7 @@ value wxWindow_IsShown_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   bool ret_c = self_c->IsShown();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -462,7 +462,7 @@ value wxWindow_IsEnabled_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   bool ret_c = self_c->IsEnabled();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -485,7 +485,7 @@ value wxWindow_GetWindowStyleFlag_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int ret_c = self_c->GetWindowStyleFlag();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -497,7 +497,7 @@ value wxWindow_HasFlag_c(value self_v, value flag_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int flag_c = Int_val(flag_v);
   bool ret_c = self_c->HasFlag(flag_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -565,7 +565,7 @@ value wxWindow_IsTopLevel_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   bool ret_c = self_c->IsTopLevel();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -681,7 +681,7 @@ value wxWindow_Validate_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   bool ret_c = self_c->Validate();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -692,7 +692,7 @@ value wxWindow_TransferDataToWindow_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   bool ret_c = self_c->TransferDataToWindow();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -703,7 +703,7 @@ value wxWindow_TransferDataFromWindow_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   bool ret_c = self_c->TransferDataFromWindow();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -737,7 +737,7 @@ value wxWindow_ConvertPixelsToDialog_c(value self_v, value pt_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxPoint ret_c = self_c->ConvertPixelsToDialog(WxPoint_val(pt_v) );
-  ret_v = Val_wxPoint( &ret_c );
+  ret_v = Val_wxPoint(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -748,7 +748,7 @@ value wxWindow_ConvertDialogToPixels_c(value self_v, value pt_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxPoint ret_c = self_c->ConvertDialogToPixels(WxPoint_val(pt_v) );
-  ret_v = Val_wxPoint( &ret_c );
+  ret_v = Val_wxPoint(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -821,7 +821,7 @@ value wxWindow_GetUpdateRegion_c(value self_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxRegion *ret_c = new wxRegion();
   *ret_c = self_c->GetUpdateRegion();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -836,7 +836,7 @@ value wxWindow_IsExposed_c(value self_v, value x_v, value y_v, value w_v, value 
   int w_c = Int_val(w_v);
   int h_c = Int_val(h_v);
   bool ret_c = self_c->IsExposed(x_c, y_c, w_c, h_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -848,7 +848,7 @@ value wxWindow_SetBackgroundColour_c(value self_v, value colour_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxColour* colour_c = (wxColour*)Abstract_val(colour_v);
   bool ret_c = self_c->SetBackgroundColour(*colour_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -872,7 +872,7 @@ value wxWindow_GetBackgroundColour_c(value self_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxColour *ret_c = new wxColour();
   *ret_c = self_c->GetBackgroundColour();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -884,7 +884,7 @@ value wxWindow_GetForegroundColour_c(value self_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxColour *ret_c = new wxColour();
   *ret_c = self_c->GetForegroundColour();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -908,7 +908,7 @@ value wxWindow_GetCursor_c(value self_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxCursor *ret_c = new wxCursor();
   *ret_c = self_c->GetCursor();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -932,7 +932,7 @@ value wxWindow_GetFont_c(value self_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxFont *ret_c = new wxFont();
   *ret_c = self_c->GetFont();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -966,7 +966,7 @@ value wxWindow_GetCharHeight_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int ret_c = self_c->GetCharHeight();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -977,7 +977,7 @@ value wxWindow_GetCharWidth_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int ret_c = self_c->GetCharWidth();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -1008,7 +1008,7 @@ value wxWindow_ScreenToClient_c(value self_v, value pos_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxPoint ret_c = self_c->ScreenToClient(WxPoint_val(pos_v) );
-  ret_v = Val_wxPoint( &ret_c );
+  ret_v = Val_wxPoint(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -1033,7 +1033,7 @@ value wxWindow_PopupMenu_c(value self_v, value menu_v, value x_v, value y_v)
   int x_c = Int_val(x_v);
   int y_c = Int_val(y_v);
   bool ret_c = self_c->PopupMenu(menu_c, x_c, y_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -1059,7 +1059,7 @@ value wxWindow_GetScrollPos_c(value self_v, value orient_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int orient_c = Int_val(orient_v);
   int ret_c = self_c->GetScrollPos(orient_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -1071,7 +1071,7 @@ value wxWindow_GetScrollThumb_c(value self_v, value orient_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int orient_c = Int_val(orient_v);
   int ret_c = self_c->GetScrollThumb(orient_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -1083,7 +1083,7 @@ value wxWindow_GetScrollRange_c(value self_v, value orient_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int orient_c = Int_val(orient_v);
   int ret_c = self_c->GetScrollRange(orient_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -1189,7 +1189,7 @@ value wxWindow_GetAutoLayout_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int ret_c = self_c->GetAutoLayout();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -1224,7 +1224,7 @@ value wxWindow_GetWindowStyle_c(value self_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   long *ret_c = new long();
   *ret_c = self_c->GetWindowStyle();
-  ret_v = Val_long(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -1306,7 +1306,7 @@ value wxWindow_DoPhase_c(value self_v, value phase_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   int phase_c = Int_val(phase_v);
   int ret_c = self_c->DoPhase(phase_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -1449,7 +1449,7 @@ value wxWindow_Reparent_c(value self_v, value _par_v)
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxWindow* _par_c = (wxWindow*)AbstractOption_val(_par_v);
   bool ret_c = self_c->Reparent(_par_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -1460,7 +1460,7 @@ value wxWindow_GetEffectiveMinSize_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxSize ret_c = self_c->GetEffectiveMinSize();
-  ret_v = Val_wxSize( &ret_c );
+  ret_v = Val_wxSize(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -1493,7 +1493,7 @@ value wxWindow_ClientToScreen_c(value self_v, value pos_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxPoint ret_c = self_c->ClientToScreen(WxPoint_val(pos_v) );
-  ret_v = Val_wxPoint( &ret_c );
+  ret_v = Val_wxPoint(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -1528,7 +1528,7 @@ value wxWindow_GetVirtualSize_c(value self_v)
   CAMLlocal1(ret_v);
   wxWindow* self_c = (wxWindow*)Abstract_val(self_v);
   wxSize ret_c = self_c->GetVirtualSize();
-  ret_v = Val_wxSize( &ret_c );
+  ret_v = Val_wxSize(& ret_c);
   CAMLreturn(ret_v);
 }
 

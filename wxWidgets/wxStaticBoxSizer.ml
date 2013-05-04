@@ -9,6 +9,11 @@ external getStaticBox : wxStaticBoxSizer ->
    wxStaticBox option = "wxStaticBoxSizer_GetStaticBox_c"
 
 
+external createEx : 
+   int -> wxWindow -> wxString -> 
+      wxStaticBoxSizer = "wxStaticBoxSizer_CreateEx_c"
+
+
 (* Methods inherited from parents, if any *)
 
 external getOrientation : wxStaticBoxSizer ->
@@ -168,12 +173,12 @@ external getContainingWindow : wxStaticBoxSizer ->
 
 
 external getItemWindow : wxStaticBoxSizer ->
-   wxWindow option -> bool  -> 
+   wxWindow -> bool  -> 
       wxSizerItem option = "wxSizer_GetItemWindow_c"
 
 
 external getItemSizer : wxStaticBoxSizer ->
-   wxSizer option -> bool  -> 
+   wxSizer -> bool  -> 
       wxSizerItem option = "wxSizer_GetItemSizer_c"
 
 

@@ -19,7 +19,7 @@ value wxLog_HasPendingMessages_c(value self_v)
   CAMLlocal1(ret_v);
   wxLog* self_c = (wxLog*)Abstract_val(self_v);
   bool ret_c = self_c->wxLog::HasPendingMessages();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -154,7 +154,7 @@ value wxLog_GetVerbose_c()
   CAMLparam0();
   CAMLlocal1(ret_v);
   bool ret_c = wxLog::GetVerbose();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -164,7 +164,7 @@ value wxLog_GetTraceMask_c()
   CAMLparam0();
   CAMLlocal1(ret_v);
   int ret_c = wxLog::GetTraceMask();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -174,7 +174,7 @@ value wxLog_IsAllowedTraceMask_c(value mask_v)
   CAMLparam0();
   CAMLlocal1(ret_v);
   bool ret_c = wxLog::IsAllowedTraceMask(wxString( String_val(mask_v), wxConvUTF8 ) );
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -184,7 +184,7 @@ value wxLog_GetTimestamp_c()
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxString ret_c = wxLog::GetTimestamp();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 }

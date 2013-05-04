@@ -7,7 +7,7 @@ value wxSizer_GetDefaultBorder_c()
   CAMLparam0();
   CAMLlocal1(ret_v);
   int ret_c = wxSizerFlags::GetDefaultBorder();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -223,7 +223,7 @@ value wxSizer_RemoveSizer_c(value self_v, value sizer_v)
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   wxSizer* sizer_c = (wxSizer*)AbstractOption_val(sizer_v);
   bool ret_c = self_c->Remove(sizer_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -235,7 +235,7 @@ value wxSizer_Remove_c(value self_v, value pos_v)
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   int pos_c = Int_val(pos_v);
   bool ret_c = self_c->Remove(pos_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -301,7 +301,7 @@ value wxSizer_GetSize_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   wxSize ret_c = self_c->GetSize();
-  ret_v = Val_wxSize( &ret_c );
+  ret_v = Val_wxSize(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -312,7 +312,7 @@ value wxSizer_GetPosition_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   wxPoint ret_c = self_c->GetPosition();
-  ret_v = Val_wxPoint( &ret_c );
+  ret_v = Val_wxPoint(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -323,7 +323,7 @@ value wxSizer_GetMinSize_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   wxSize ret_c = self_c->GetMinSize();
-  ret_v = Val_wxSize( &ret_c );
+  ret_v = Val_wxSize(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -345,7 +345,7 @@ value wxSizer_CalcMin_c(value self_v)
   CAMLlocal1(ret_v);
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   wxSize ret_c = self_c->CalcMin();
-  ret_v = Val_wxSize( &ret_c );
+  ret_v = Val_wxSize(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -428,7 +428,7 @@ value wxSizer_DetachWindow_c(value self_v, value window_v)
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   wxWindow* window_c = (wxWindow*)AbstractOption_val(window_v);
   bool ret_c = self_c->Detach(window_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -440,7 +440,7 @@ value wxSizer_DetachSizer_c(value self_v, value sizer_v)
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   wxSizer* sizer_c = (wxSizer*)AbstractOption_val(sizer_v);
   bool ret_c = self_c->Detach(sizer_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -452,7 +452,7 @@ value wxSizer_Detach_c(value self_v, value index_v)
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   int index_c = Int_val(index_v);
   bool ret_c = self_c->Detach(index_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -485,7 +485,7 @@ value wxSizer_GetItemWindow_c(value self_v, value window_v, value recursive_v)
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
-  wxWindow* window_c = (wxWindow*)AbstractOption_val(window_v);
+  wxWindow* window_c = (wxWindow*)Abstract_val(window_v);
   bool recursive_c = Int_val(recursive_v);
   wxSizerItem * ret_c = self_c->GetItem(window_c, recursive_c);
   ret_v = Val_abstractOption( ret_c );
@@ -498,7 +498,7 @@ value wxSizer_GetItemSizer_c(value self_v, value sizer_v, value recursive_v)
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
-  wxSizer* sizer_c = (wxSizer*)AbstractOption_val(sizer_v);
+  wxSizer* sizer_c = (wxSizer*)Abstract_val(sizer_v);
   bool recursive_c = Int_val(recursive_v);
   wxSizerItem * ret_c = self_c->GetItem(sizer_c, recursive_c);
   ret_v = Val_abstractOption( ret_c );
@@ -525,7 +525,7 @@ value wxSizer_HideWindow_c(value self_v, value window_v)
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   wxWindow* window_c = (wxWindow*)AbstractOption_val(window_v);
   bool ret_c = self_c->Hide(window_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -537,7 +537,7 @@ value wxSizer_HideSizer_c(value self_v, value sizer_v)
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   wxSizer* sizer_c = (wxSizer*)AbstractOption_val(sizer_v);
   bool ret_c = self_c->Hide(sizer_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -549,7 +549,7 @@ value wxSizer_Hide_c(value self_v, value index_v)
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   int index_c = Int_val(index_v);
   bool ret_c = self_c->Hide(index_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -587,7 +587,7 @@ value wxSizer_IsShownWindow_c(value self_v, value window_v)
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   wxWindow* window_c = (wxWindow*)AbstractOption_val(window_v);
   bool ret_c = self_c->IsShown(window_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -599,7 +599,7 @@ value wxSizer_IsShownSizer_c(value self_v, value sizer_v)
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   wxSizer* sizer_c = (wxSizer*)AbstractOption_val(sizer_v);
   bool ret_c = self_c->IsShown(sizer_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -611,7 +611,7 @@ value wxSizer_IsShown_c(value self_v, value index_v)
   wxSizer* self_c = (wxSizer*)Abstract_val(self_v);
   int index_c = Int_val(index_v);
   bool ret_c = self_c->IsShown(index_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -649,7 +649,7 @@ value wxSizer_ReplaceWindow_c(value self_v, value oldwin_v, value newwin_v, valu
   wxWindow* newwin_c = (wxWindow*)Abstract_val(newwin_v);
   bool recursive_c = Int_val(recursive_v);
   bool ret_c = self_c->Replace(oldwin_c, newwin_c, recursive_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -663,7 +663,7 @@ value wxSizer_ReplaceSizer_c(value self_v, value oldsz_v, value newsz_v, value r
   wxSizer* newsz_c = (wxSizer*)Abstract_val(newsz_v);
   bool recursive_c = Int_val(recursive_v);
   bool ret_c = self_c->Replace(oldsz_c, newsz_c, recursive_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -676,7 +676,7 @@ value wxSizer_Replace_c(value self_v, value oldindex_v, value newsz_v)
   int oldindex_c = Int_val(oldindex_v);
   wxSizerItem* newsz_c = (wxSizerItem*)Abstract_val(newsz_v);
   bool ret_c = self_c->Replace(oldindex_c, newsz_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -702,7 +702,7 @@ value wxSizer_ShowWindow_c(value self_v, value window_v, value show_v, value rec
   bool show_c = Int_val(show_v);
   bool recursive_c = Int_val(recursive_v);
   bool ret_c = self_c->Show(window_c, show_c, recursive_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -716,7 +716,7 @@ value wxSizer_ShowSizer_c(value self_v, value sizer_v, value show_v, value recur
   bool show_c = Int_val(show_v);
   bool recursive_c = Int_val(recursive_v);
   bool ret_c = self_c->Show(sizer_c, show_c, recursive_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -729,7 +729,7 @@ value wxSizer_Show_c(value self_v, value index_v, value show_v)
   int index_c = Int_val(index_v);
   bool show_c = Int_val(show_v);
   bool ret_c = self_c->Show(index_c, show_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 

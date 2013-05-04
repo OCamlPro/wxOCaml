@@ -1,0 +1,31 @@
+
+(* Beware: these ones are encoded as wxString, BUT constants in wxValues.api
+    had to be defined as strings, because they were actually strings, 
+    not wxStrings ! *)
+type wxArtID = wxString
+type wxArtClient = wxString
+
+
+class wxArtProvider inherit wxObject begin
+
+  function(bool, wxArtProvider::Delete, DeleteProvider) (wxArtProvider *provider)
+  function(wxBitmap, wxArtProvider::GetBitmap) (
+         wxArtID &id, 
+         wxArtClient &client (* =wxART_OTHER *), 
+         wxSize &size (* =wxDefaultSize *))
+  function(wxIcon, wxArtProvider::GetIcon) (wxArtID &id, 
+                                  wxArtClient &client, 
+                                  wxSize &size)
+  function(wxSize, wxArtProvider::GetNativeSizeHint) (wxArtClient &client)
+  function(wxSize, wxArtProvider::GetSizeHint) (wxArtClient &client, 
+                                 bool platform_default (* =false *))
+  function(wxIconBundle, wxArtProvider::GetIconBundle) (wxArtID &id, 
+                                         wxArtClient &client)
+  function(bool,  wxArtProvider::HasNativeProvider) ()
+  function(void,  wxArtProvider::Insert) (wxArtProvider *provider)
+  function(bool,  wxArtProvider::Pop) ()
+  function(void,  wxArtProvider::Push) (wxArtProvider *provider)
+  function(void,  wxArtProvider::PushBack) (wxArtProvider *provider)
+  function(bool,  wxArtProvider::Remove) (wxArtProvider *provider)
+
+end

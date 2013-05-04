@@ -66,7 +66,7 @@ value wxGenericDragImage_GetImageRect_c(value self_v, value point_v)
   CAMLlocal1(ret_v);
   wxGenericDragImage* self_c = (wxGenericDragImage*)Abstract_val(self_v);
   wxRect ret_c = self_c->GetImageRect(WxPoint_val(point_v) );
-  ret_v = Val_wxRect( &ret_c );
+  ret_v = Val_wxRect(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -79,7 +79,7 @@ value wxGenericDragImage_UpdateBackingFromWindow_c(value self_v, value windowDC_
   wxDC* windowDC_c = (wxDC*)Abstract_val(windowDC_v);
   wxMemoryDC* destDC_c = (wxMemoryDC*)Abstract_val(destDC_v);
   bool ret_c = self_c->UpdateBackingFromWindow(*windowDC_c, *destDC_c, WxRect_val(rect_v) , WxRect_val(dest_rect_v) );
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 }

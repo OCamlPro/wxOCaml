@@ -34,7 +34,7 @@ value wxIcon_LoadFile_c(value self_v, value name_v, value type_v, value width_v,
   int width_c = Int_val(width_v);
   int height_c = Int_val(height_v);
   bool ret_c = self_c->LoadFile(wxString( String_val(name_v), wxConvUTF8 ) , type_c, width_c, height_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -57,7 +57,7 @@ value wxIcon_IsOk_c(value self_v)
   CAMLlocal1(ret_v);
   wxIcon* self_c = (wxIcon*)Abstract_val(self_v);
   bool ret_c = self_c->IsOk();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -68,7 +68,7 @@ value wxIcon_GetDepth_c(value self_v)
   CAMLlocal1(ret_v);
   wxIcon* self_c = (wxIcon*)Abstract_val(self_v);
   int ret_c = self_c->GetDepth();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -79,7 +79,7 @@ value wxIcon_GetWidth_c(value self_v)
   CAMLlocal1(ret_v);
   wxIcon* self_c = (wxIcon*)Abstract_val(self_v);
   int ret_c = self_c->GetWidth();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -90,7 +90,7 @@ value wxIcon_GetHeight_c(value self_v)
   CAMLlocal1(ret_v);
   wxIcon* self_c = (wxIcon*)Abstract_val(self_v);
   int ret_c = self_c->GetHeight();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 

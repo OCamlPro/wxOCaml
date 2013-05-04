@@ -1,5 +1,154 @@
 open WxClasses
 
+external create : 
+   wxWindow -> int -> wxPoint -> wxSize -> int -> 
+      wxToolBar = "wxToolBar_Create_c"
+
+
+external addControl : wxToolBar ->
+   wxControl -> 
+      wxToolBarToolBase option = "wxToolBar_AddControl_c"
+
+
+external addSeparator : wxToolBar ->
+   unit = "wxToolBar_AddSeparator_c"
+
+
+external addTool : wxToolBar ->
+   int -> wxString -> wxBitmap -> wxString -> int -> 
+      unit = "wxToolBar_AddTool_c_bytecode" "wxToolBar_AddTool_c"
+
+
+external addToolEx : wxToolBar ->
+   int -> wxString -> wxBitmap -> wxBitmap -> int -> wxString -> wxString -> wxObject option -> 
+      unit = "wxToolBar_AddToolEx_c_bytecode" "wxToolBar_AddToolEx_c"
+
+
+external deleteTool : wxToolBar ->
+   int -> 
+      bool  = "wxToolBar_DeleteTool_c"
+
+
+external deleteToolByPos : wxToolBar ->
+   int -> 
+      bool  = "wxToolBar_DeleteToolByPos_c"
+
+
+external enableTool : wxToolBar ->
+   int -> bool  -> 
+      unit = "wxToolBar_EnableTool_c"
+
+
+external getToolSize : wxToolBar ->
+   wxSize = "wxToolBar_GetToolSize_c"
+
+
+external getToolBitmapSize : wxToolBar ->
+   wxSize = "wxToolBar_GetToolBitmapSize_c"
+
+
+external getMargins : wxToolBar ->
+   wxSize = "wxToolBar_GetMargins_c"
+
+
+external getToolClientData : wxToolBar ->
+   int -> 
+      wxObject option = "wxToolBar_GetToolClientData_c"
+
+
+external getToolEnabled : wxToolBar ->
+   int -> 
+      bool  = "wxToolBar_GetToolEnabled_c"
+
+
+external getToolLongHelp : wxToolBar ->
+   int -> 
+      wxString = "wxToolBar_GetToolLongHelp_c"
+
+
+external getToolPacking : wxToolBar ->
+   int = "wxToolBar_GetToolPacking_c"
+
+
+external getToolShortHelp : wxToolBar ->
+   int -> 
+      wxString = "wxToolBar_GetToolShortHelp_c"
+
+
+external getToolState : wxToolBar ->
+   int -> 
+      bool  = "wxToolBar_GetToolState_c"
+
+
+external insertControl : wxToolBar ->
+   int -> wxControl -> 
+      unit = "wxToolBar_InsertControl_c"
+
+
+external insertSeparator : wxToolBar ->
+   int -> 
+      unit = "wxToolBar_InsertSeparator_c"
+
+
+external insertTool : wxToolBar ->
+   int -> int -> wxString -> wxBitmap -> wxBitmap -> int -> 
+      unit = "wxToolBar_InsertTool_c_bytecode" "wxToolBar_InsertTool_c"
+
+
+external insertToolEx : wxToolBar ->
+   int -> int -> wxString -> wxBitmap -> wxBitmap -> int -> wxString -> wxString -> wxObject option -> 
+      unit = "wxToolBar_InsertToolEx_c_bytecode" "wxToolBar_InsertToolEx_c"
+
+
+external realize : wxToolBar ->
+   bool  = "wxToolBar_Realize_c"
+
+
+external removeTool : wxToolBar ->
+   int -> 
+      unit = "wxToolBar_RemoveTool_c"
+
+
+external setMargins : wxToolBar ->
+   int -> int -> 
+      unit = "wxToolBar_SetMargins_c"
+
+
+external setToolBitmapSize : wxToolBar ->
+   wxSize -> 
+      unit = "wxToolBar_SetToolBitmapSize_c"
+
+
+external setToolClientData : wxToolBar ->
+   int -> wxObject option -> 
+      unit = "wxToolBar_SetToolClientData_c"
+
+
+external setToolLongHelp : wxToolBar ->
+   int -> wxString -> 
+      unit = "wxToolBar_SetToolLongHelp_c"
+
+
+external setToolPacking : wxToolBar ->
+   int -> 
+      unit = "wxToolBar_SetToolPacking_c"
+
+
+external setToolShortHelp : wxToolBar ->
+   int -> wxString -> 
+      unit = "wxToolBar_SetToolShortHelp_c"
+
+
+external setToolSeparation : wxToolBar ->
+   int -> 
+      unit = "wxToolBar_SetToolSeparation_c"
+
+
+external toggleTool : wxToolBar ->
+   int -> bool  -> 
+      unit = "wxToolBar_ToggleTool_c"
+
+
 (* Methods inherited from parents, if any *)
 
 external connect : wxToolBar ->

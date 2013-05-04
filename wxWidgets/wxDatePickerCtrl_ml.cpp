@@ -31,7 +31,7 @@ value wxDatePickerCtrl_GetRange_c(value self_v)
   wxDateTime* dt2_c = new wxDateTime();
   bool ret_c = self_c->GetRange( dt1_c,  dt2_c);
   ret_v = caml_alloc(3, 0);
-  caml_initialize(&Field(ret_v,0), Val_bool(ret_c));
+  caml_initialize(&Field(ret_v,0), Val_bool( ret_c));
   caml_initialize(&Field(ret_v,1), Val_abstract( dt1_c));
   caml_initialize(&Field(ret_v,2), Val_abstract( dt2_c));
   CAMLreturn(ret_v);
@@ -45,7 +45,7 @@ value wxDatePickerCtrl_GetValue_c(value self_v)
   wxDatePickerCtrl* self_c = (wxDatePickerCtrl*)Abstract_val(self_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = self_c->GetValue();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 

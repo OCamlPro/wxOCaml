@@ -69,7 +69,7 @@ value wxDragImage_BeginDragFullScreen_c(value self_v, value point_v, value windo
   bool fullScreen_c = Int_val(fullScreen_v);
   Begin_wxRectOption(rect_c, rect_v);
   bool ret_c = self_c->BeginDrag(WxPoint_val(point_v) , window_c, fullScreen_c, rect_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   End_wxRectOption(rect_c, rect_v);
   CAMLreturn(ret_v);
 }
@@ -83,7 +83,7 @@ value wxDragImage_BeginDrag_c(value self_v, value point_v, value window_v, value
   wxWindow* window_c = (wxWindow*)AbstractOption_val(window_v);
   wxWindow* boundingWindow_c = (wxWindow*)AbstractOption_val(boundingWindow_v);
   bool ret_c = self_c->BeginDrag(WxPoint_val(point_v) , window_c, boundingWindow_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -95,7 +95,7 @@ value wxDragImage_DoDrawImage_c(value self_v, value dc_v, value point_v)
   wxDragImage* self_c = (wxDragImage*)Abstract_val(self_v);
   wxDC* dc_c = (wxDC*)Abstract_val(dc_v);
   bool ret_c = self_c->DoDrawImage(*dc_c, WxPoint_val(point_v) );
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -106,7 +106,7 @@ value wxDragImage_EndDrag_c(value self_v)
   CAMLlocal1(ret_v);
   wxDragImage* self_c = (wxDragImage*)Abstract_val(self_v);
   bool ret_c = self_c->EndDrag();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -117,7 +117,7 @@ value wxDragImage_Hide_c(value self_v)
   CAMLlocal1(ret_v);
   wxDragImage* self_c = (wxDragImage*)Abstract_val(self_v);
   bool ret_c = self_c->Hide();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -128,7 +128,7 @@ value wxDragImage_Move_c(value self_v, value point_v)
   CAMLlocal1(ret_v);
   wxDragImage* self_c = (wxDragImage*)Abstract_val(self_v);
   bool ret_c = self_c->Move(WxPoint_val(point_v) );
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -139,7 +139,7 @@ value wxDragImage_Show_c(value self_v)
   CAMLlocal1(ret_v);
   wxDragImage* self_c = (wxDragImage*)Abstract_val(self_v);
   bool ret_c = self_c->Show();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 }

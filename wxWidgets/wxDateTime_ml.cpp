@@ -18,7 +18,7 @@ value wxDateTime_GetCountry_c()
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxDateTime::Country ret_c = wxDateTime::GetCountry();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -29,7 +29,7 @@ value wxDateTime_IsWestEuropeanCountry_c(value country_v)
   CAMLlocal1(ret_v);
   wxDateTime::Country country_c = (wxDateTime::Country)Int_val(country_v);
   bool ret_c = wxDateTime::IsWestEuropeanCountry(country_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -40,7 +40,7 @@ value wxDateTime_GetCurrentYear_c(value cal_v)
   CAMLlocal1(ret_v);
   wxDateTime::Calendar cal_c = (wxDateTime::Calendar)Int_val(cal_v);
   int ret_c = wxDateTime::GetCurrentYear(cal_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -51,7 +51,7 @@ value wxDateTime_ConvertYearToBC_c(value year_v)
   CAMLlocal1(ret_v);
   int year_c = Int_val(year_v);
   int ret_c = wxDateTime::ConvertYearToBC(year_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -62,7 +62,7 @@ value wxDateTime_GetCurrentMonth_c(value cal_v)
   CAMLlocal1(ret_v);
   wxDateTime::Calendar cal_c = (wxDateTime::Calendar)Int_val(cal_v);
   wxDateTime::Month ret_c = wxDateTime::GetCurrentMonth(cal_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -74,7 +74,7 @@ value wxDateTime_IsLeapYear_c(value year_v, value cal_v)
   int year_c = Int_val(year_v);
   wxDateTime::Calendar cal_c = (wxDateTime::Calendar)Int_val(cal_v);
   bool ret_c = wxDateTime::IsLeapYear(year_c, cal_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -85,7 +85,7 @@ value wxDateTime_GetCentury_c(value year_v)
   CAMLlocal1(ret_v);
   int year_c = Int_val(year_v);
   int ret_c = wxDateTime::GetCentury(year_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -97,7 +97,7 @@ value wxDateTime_GetNumberOfDays_c(value year_v, value cal_v)
   int year_c = Int_val(year_v);
   wxDateTime::Calendar cal_c = (wxDateTime::Calendar)Int_val(cal_v);
   int ret_c = wxDateTime::GetNumberOfDays(year_c, cal_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -110,7 +110,7 @@ value wxDateTime_GetNumberOfDaysMonth_c(value month_v, value year_v, value cal_v
   int year_c = Int_val(year_v);
   wxDateTime::Calendar cal_c = (wxDateTime::Calendar)Int_val(cal_v);
   int ret_c = wxDateTime::GetNumberOfDays(month_c, year_c, cal_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -122,7 +122,7 @@ value wxDateTime_GetMonthName_c(value month_v, value flags_v)
   wxDateTime::Month month_c = (wxDateTime::Month)Int_val(month_v);
   wxDateTime::NameFlags flags_c = (wxDateTime::NameFlags)Int_val(flags_v);
   wxString ret_c = wxDateTime::GetMonthName(month_c, flags_c);
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -134,7 +134,7 @@ value wxDateTime_GetWeekDayName_c(value weekday_v, value flags_v)
   wxDateTime::WeekDay weekday_c = (wxDateTime::WeekDay)Int_val(weekday_v);
   wxDateTime::NameFlags flags_c = (wxDateTime::NameFlags)Int_val(flags_v);
   wxString ret_c = wxDateTime::GetWeekDayName(weekday_c, flags_c);
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -159,7 +159,7 @@ value wxDateTime_Today_c()
   CAMLlocal1(ret_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = wxDateTime::Today();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -171,7 +171,7 @@ value wxDateTime_IsDSTApplicable_c(value year_v, value country_v)
   int year_c = Int_val(year_v);
   wxDateTime::Country country_c = (wxDateTime::Country)Int_val(country_v);
   bool ret_c = wxDateTime::IsDSTApplicable(year_c, country_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -184,7 +184,7 @@ value wxDateTime_GetBeginDST_c(value year_v, value country_v)
   wxDateTime::Country country_c = (wxDateTime::Country)Int_val(country_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = wxDateTime::GetBeginDST(year_c, country_c);
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -197,7 +197,7 @@ value wxDateTime_GetEndDST_c(value year_v, value country_v)
   wxDateTime::Country country_c = (wxDateTime::Country)Int_val(country_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = wxDateTime::GetEndDST(year_c, country_c);
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -208,7 +208,7 @@ value wxDateTime_Now_c()
   CAMLlocal1(ret_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = wxDateTime::Now();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -219,7 +219,7 @@ value wxDateTime_UNow_c()
   CAMLlocal1(ret_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = wxDateTime::UNow();
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -434,7 +434,7 @@ value wxDateTime_GetWeekDayInSameWeek_c(value self_v, value weekday_v)
   wxDateTime::WeekDay weekday_c = (wxDateTime::WeekDay)Int_val(weekday_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = self_c->GetWeekDayInSameWeek(weekday_c);
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -459,7 +459,7 @@ value wxDateTime_GetNextWeekDay_c(value self_v, value weekday_v)
   wxDateTime::WeekDay weekday_c = (wxDateTime::WeekDay)Int_val(weekday_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = self_c->GetNextWeekDay(weekday_c);
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -484,7 +484,7 @@ value wxDateTime_GetPrevWeekDay_c(value self_v, value weekday_v)
   wxDateTime::WeekDay weekday_c = (wxDateTime::WeekDay)Int_val(weekday_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = self_c->GetPrevWeekDay(weekday_c);
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -499,7 +499,7 @@ value wxDateTime_SetToWeekDay_c(value self_v, value weekday_v, value n_v, value 
   wxDateTime::Month month_c = (wxDateTime::Month)Int_val(month_v);
   int year_c = Int_val(year_v);
   bool ret_c = self_c->SetToWeekDay(weekday_c, n_c, month_c, year_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -515,7 +515,7 @@ value wxDateTime_GetWeekDay_c(value self_v, value weekday_v, value n_v, value mo
   int year_c = Int_val(year_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = self_c->GetWeekDay(weekday_c, n_c, month_c, year_c);
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -529,7 +529,7 @@ value wxDateTime_SetToLastWeekDay_c(value self_v, value weekday_v, value month_v
   wxDateTime::Month month_c = (wxDateTime::Month)Int_val(month_v);
   int year_c = Int_val(year_v);
   bool ret_c = self_c->SetToLastWeekDay(weekday_c, month_c, year_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -544,7 +544,7 @@ value wxDateTime_GetLastWeekDay_c(value self_v, value weekday_v, value month_v, 
   int year_c = Int_val(year_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = self_c->GetLastWeekDay(weekday_c, month_c, year_c);
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -571,7 +571,7 @@ value wxDateTime_GetLastMonthDay_c(value self_v, value month_v, value year_v)
   int year_c = Int_val(year_v);
   wxDateTime *ret_c = new wxDateTime();
   *ret_c = self_c->GetLastMonthDay(month_c, year_c);
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -607,7 +607,7 @@ value wxDateTime_IsDST_c(value self_v, value country_v)
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxDateTime::Country country_c = (wxDateTime::Country)Int_val(country_v);
   int ret_c = self_c->IsDST(country_c);
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -618,7 +618,7 @@ value wxDateTime_IsValid_c(value self_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   bool ret_c = self_c->IsValid();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -629,7 +629,7 @@ value wxDateTime_GetTicks_c(value self_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   time_t ret_c = self_c->GetTicks();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -640,7 +640,7 @@ value wxDateTime_GetMonth_c(value self_v, value tz_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   int ret_c = self_c->GetMonth(wxDateTime::TimeZone(Int_val(tz_v)));
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -651,7 +651,7 @@ value wxDateTime_GetYear_c(value self_v, value tz_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   int ret_c = self_c->GetYear(wxDateTime::TimeZone(Int_val(tz_v)));
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -662,7 +662,7 @@ value wxDateTime_GetWeekDayTZ_c(value self_v, value tz_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   int ret_c = self_c->GetWeekDay(wxDateTime::TimeZone(Int_val(tz_v)));
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -697,7 +697,7 @@ value wxDateTime_GetHour_c(value self_v, value tz_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   int ret_c = self_c->GetHour(wxDateTime::TimeZone(Int_val(tz_v)));
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -708,7 +708,7 @@ value wxDateTime_GetMinute_c(value self_v, value tz_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   int ret_c = self_c->GetMinute(wxDateTime::TimeZone(Int_val(tz_v)));
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -719,7 +719,7 @@ value wxDateTime_GetSecond_c(value self_v, value tz_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   int ret_c = self_c->GetSecond(wxDateTime::TimeZone(Int_val(tz_v)));
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -730,7 +730,7 @@ value wxDateTime_GetMillisecond_c(value self_v, value tz_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   int ret_c = self_c->GetMillisecond(wxDateTime::TimeZone(Int_val(tz_v)));
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -741,7 +741,7 @@ value wxDateTime_GetDayOfYear_c(value self_v, value tz_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   int ret_c = self_c->GetDayOfYear(wxDateTime::TimeZone(Int_val(tz_v)));
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -753,7 +753,7 @@ value wxDateTime_GetWeekOfYear_c(value self_v, value flags_v, value tz_v)
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxDateTime::WeekFlags flags_c = (wxDateTime::WeekFlags)Int_val(flags_v);
   int ret_c = self_c->GetWeekOfYear(flags_c, wxDateTime::TimeZone(Int_val(tz_v)));
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -765,7 +765,7 @@ value wxDateTime_GetWeekOfMonth_c(value self_v, value flags_v, value tz_v)
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxDateTime::WeekFlags flags_c = (wxDateTime::WeekFlags)Int_val(flags_v);
   int ret_c = self_c->GetWeekOfMonth(flags_c, wxDateTime::TimeZone(Int_val(tz_v)));
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -777,7 +777,7 @@ value wxDateTime_IsWorkDay_c(value self_v, value country_v)
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxDateTime::Country country_c = (wxDateTime::Country)Int_val(country_v);
   bool ret_c = self_c->IsWorkDay(country_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -789,7 +789,7 @@ value wxDateTime_IsEqualTo_c(value self_v, value datetime_v)
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxDateTime* datetime_c = (wxDateTime*)Abstract_val(datetime_v);
   bool ret_c = self_c->IsEqualTo(*datetime_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -801,7 +801,7 @@ value wxDateTime_IsEarlierThan_c(value self_v, value datetime_v)
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxDateTime* datetime_c = (wxDateTime*)Abstract_val(datetime_v);
   bool ret_c = self_c->IsEarlierThan(*datetime_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -813,7 +813,7 @@ value wxDateTime_IsLaterThan_c(value self_v, value datetime_v)
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxDateTime* datetime_c = (wxDateTime*)Abstract_val(datetime_v);
   bool ret_c = self_c->IsLaterThan(*datetime_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -826,7 +826,7 @@ value wxDateTime_IsStrictlyBetween_c(value self_v, value t1_v, value t2_v)
   wxDateTime* t1_c = (wxDateTime*)Abstract_val(t1_v);
   wxDateTime* t2_c = (wxDateTime*)Abstract_val(t2_v);
   bool ret_c = self_c->IsStrictlyBetween(*t1_c, *t2_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -839,7 +839,7 @@ value wxDateTime_IsBetween_c(value self_v, value t1_v, value t2_v)
   wxDateTime* t1_c = (wxDateTime*)Abstract_val(t1_v);
   wxDateTime* t2_c = (wxDateTime*)Abstract_val(t2_v);
   bool ret_c = self_c->IsBetween(*t1_c, *t2_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -851,7 +851,7 @@ value wxDateTime_IsSameDate_c(value self_v, value dt_v)
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxDateTime* dt_c = (wxDateTime*)Abstract_val(dt_v);
   bool ret_c = self_c->IsSameDate(*dt_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -863,7 +863,7 @@ value wxDateTime_IsSameTime_c(value self_v, value dt_v)
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxDateTime* dt_c = (wxDateTime*)Abstract_val(dt_v);
   bool ret_c = self_c->IsSameTime(*dt_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -874,7 +874,7 @@ value wxDateTime_Format_c(value self_v, value format_v, value tz_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxString ret_c = self_c->Format(wxString( String_val(format_v), wxConvUTF8 ) , wxDateTime::TimeZone(Int_val(tz_v)));
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -885,7 +885,7 @@ value wxDateTime_FormatDate_c(value self_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxString ret_c = self_c->FormatDate();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -896,7 +896,7 @@ value wxDateTime_FormatTime_c(value self_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxString ret_c = self_c->FormatTime();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -907,7 +907,7 @@ value wxDateTime_FormatISODate_c(value self_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxString ret_c = self_c->FormatISODate();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -918,7 +918,7 @@ value wxDateTime_FormatISOTime_c(value self_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   wxString ret_c = self_c->FormatISOTime();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -928,7 +928,7 @@ value wxDateTime_GetTimeNow_c()
   CAMLparam0();
   CAMLlocal1(ret_v);
   int ret_c = wxDateTime::GetTimeNow();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -939,7 +939,96 @@ value wxDateTime_GetDay_c(value self_v, value tz_v)
   CAMLlocal1(ret_v);
   wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
   int ret_c = self_c->GetDay(wxDateTime::TimeZone(Int_val(tz_v)));
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
+  CAMLreturn(ret_v);
+}
+
+
+value wxDateTime_IsEqualUpTo_c(value self_v, value dt_v, value ts_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
+  wxDateTime* dt_c = (wxDateTime*)Abstract_val(dt_v);
+  wxTimeSpan* ts_c = (wxTimeSpan*)Abstract_val(ts_v);
+  bool ret_c = self_c->IsEqualUpTo(*dt_c, *ts_c);
+  ret_v = Val_bool( ret_c);
+  CAMLreturn(ret_v);
+}
+
+
+value wxDateTime_AddTime_c(value self_v, value diff_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
+  wxTimeSpan* diff_c = (wxTimeSpan*)Abstract_val(diff_v);
+  wxDateTime *ret_c = new wxDateTime();
+  *ret_c = self_c->Add(*diff_c);
+  ret_v = Val_abstract( ret_c);
+  CAMLreturn(ret_v);
+}
+
+
+value wxDateTime_SubtractTime_c(value self_v, value diff_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
+  wxTimeSpan* diff_c = (wxTimeSpan*)Abstract_val(diff_v);
+  wxDateTime *ret_c = new wxDateTime();
+  *ret_c = self_c->Subtract(*diff_c);
+  ret_v = Val_abstract( ret_c);
+  CAMLreturn(ret_v);
+}
+
+
+value wxDateTime_AddDate_c(value self_v, value diff_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
+  wxDateSpan* diff_c = (wxDateSpan*)Abstract_val(diff_v);
+  wxDateTime *ret_c = new wxDateTime();
+  *ret_c = self_c->Add(*diff_c);
+  ret_v = Val_abstract( ret_c);
+  CAMLreturn(ret_v);
+}
+
+
+value wxDateTime_SubtractDate_c(value self_v, value diff_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
+  wxDateSpan* diff_c = (wxDateSpan*)Abstract_val(diff_v);
+  wxDateTime *ret_c = new wxDateTime();
+  *ret_c = self_c->Subtract(*diff_c);
+  ret_v = Val_abstract( ret_c);
+  CAMLreturn(ret_v);
+}
+
+
+value wxDateTime_AddTimeValues_c(value self_v, value ts_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
+  wxTimeSpan* ts_c = (wxTimeSpan*)Abstract_val(ts_v);
+  self_c->Add(*ts_c);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
+value wxDateTime_AddDateValues_c(value self_v, value ds_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
+  wxDateSpan* ds_c = (wxDateSpan*)Abstract_val(ds_v);
+  self_c->Add(*ds_c);
+  ret_v = Val_unit;
   CAMLreturn(ret_v);
 }
 }

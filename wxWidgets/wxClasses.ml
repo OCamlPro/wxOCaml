@@ -3,12 +3,36 @@ type wxPoint = int * int
 type wxSize = int * int
 type wxString = string
 type ints = int array
+type size_t = int
+type time_t = int
+type wxArtClient = wxString
+type wxArtClientstr = string
+type wxArtID = wxString
+type wxArtIDstr = string
+type wxBitmapType = int
+type wxCalendarDateBorder = int
+type wxEventCategory = int
+type wxEventType = int
+type wxFontEncoding = int
+type wxFontFamily = int
+type wxFontStyle = int
+type wxFontSymbolicSize = int
+type wxFontWeight = int
+type wxItemKind = int
+type wxLogLevel = int
+type wxLongLong = int64
+type wxSystemColour = int
+type wxSystemFont = int
+type wxSystemMetric = int
+type wxTraceMask = int
+type wxWindowID = int
 type wxAcceleratorTable
 type wxActivateEvent
 type wxAnyButton
 type wxApp
 type wxAppConsole
 type wxArrayString
+type wxArtProvider
 type wxBitmap
 type wxBitmapButton
 type wxBoxSizer
@@ -18,6 +42,7 @@ type wxCalendarCtrl
 type wxCalendarDateAttr
 type wxCalendarEvent
 type wxCaret
+type wxCheckBox
 type wxChildFocusEvent
 type wxClipboardTextEvent
 type wxCloseEvent
@@ -29,6 +54,7 @@ type wxCursor
 type wxDC
 type wxDateEvent
 type wxDatePickerCtrl
+type wxDateSpan
 type wxDateTime
 type wxDialog
 type wxDisplayChangedEvent
@@ -104,7 +130,9 @@ type wxTextCtrl
 type wxTextEntry
 type wxThreadEvent
 type wxTimePickerCtrl
+type wxTimeSpan
 type wxToolBar
+type wxToolBarToolBase
 type wxToolTip
 type wxTopLevelWindow
 type wxTopLevelWindowBase
@@ -117,3 +145,4 @@ type wxWindow
 type wxWindowBase
 type wxWindowCreateEvent
 type wxWindowDestroyEvent
+type wxWrapSizer

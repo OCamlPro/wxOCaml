@@ -242,7 +242,7 @@ value wxMenu_GetMenuItemCount_c(value self_v)
   CAMLlocal1(ret_v);
   wxMenu* self_c = (wxMenu*)Abstract_val(self_v);
   int ret_c = self_c->GetMenuItemCount();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -253,7 +253,7 @@ value wxMenu_FindItemByLabel_c(value self_v, value itemString_v)
   CAMLlocal1(ret_v);
   wxMenu* self_c = (wxMenu*)Abstract_val(self_v);
   int ret_c = self_c->FindItem(wxString( String_val(itemString_v), wxConvUTF8 ) );
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -290,7 +290,7 @@ value wxMenu_IsEnabled_c(value self_v, value id_v)
   wxMenu* self_c = (wxMenu*)Abstract_val(self_v);
   int id_c = Int_val(id_v);
   bool ret_c = self_c->IsEnabled(id_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -315,7 +315,7 @@ value wxMenu_IsChecked_c(value self_v, value id_v)
   wxMenu* self_c = (wxMenu*)Abstract_val(self_v);
   int id_c = Int_val(id_v);
   bool ret_c = self_c->IsChecked(id_c);
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -339,7 +339,7 @@ value wxMenu_GetLabel_c(value self_v, value id_v)
   wxMenu* self_c = (wxMenu*)Abstract_val(self_v);
   int id_c = Int_val(id_v);
   wxString ret_c = self_c->GetLabel(id_c);
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -363,7 +363,7 @@ value wxMenu_GetHelpString_c(value self_v, value id_v)
   wxMenu* self_c = (wxMenu*)Abstract_val(self_v);
   int id_c = Int_val(id_v);
   wxString ret_c = self_c->GetHelpString(id_c);
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -385,7 +385,7 @@ value wxMenu_GetTitle_c(value self_v)
   CAMLlocal1(ret_v);
   wxMenu* self_c = (wxMenu*)Abstract_val(self_v);
   wxString ret_c = self_c->GetTitle();
-  ret_v = Val_wxString( &ret_c );
+  ret_v = Val_wxString(& ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -431,7 +431,7 @@ value wxMenu_GetStyle_c(value self_v)
   CAMLlocal1(ret_v);
   wxMenu* self_c = (wxMenu*)Abstract_val(self_v);
   int ret_c = self_c->GetStyle();
-  ret_v = Val_int(ret_c);
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -454,7 +454,7 @@ value wxMenu_IsAttached_c(value self_v)
   CAMLlocal1(ret_v);
   wxMenu* self_c = (wxMenu*)Abstract_val(self_v);
   bool ret_c = self_c->IsAttached();
-  ret_v = Val_bool(ret_c);
+  ret_v = Val_bool( ret_c);
   CAMLreturn(ret_v);
 }
 

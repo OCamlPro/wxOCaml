@@ -452,26 +452,25 @@ let _ =
         ) 1 (* Country_Default *) )
     in
 
-    let onCalToggleResizable event = (* TODO *)
-(*
-{
-    wxSizer * const sizer = m_panel->GetSizer();
-    wxSizerItem * const item = sizer->GetItem(m_panel->GetCal());
-    if ( event.IsChecked() )
-    {
-        item->SetProportion(1);
-        item->SetFlag(wxEXPAND);
-    }
-    else // not resizable
-    {
-        item->SetProportion(0);
-        item->SetFlag(wxALIGN_CENTER);
-    }
-
-    sizer->Layout();
-}
-*)
-      ()
+    let onCalToggleResizable ( event : wxCommandEvent) =
+      let isChecked = WxCommandEvent.isChecked event in
+      match WxPanel.getSizer m_panel with
+      None ->
+        wxLogWarning "onCalToggleResizable: no sizer in panel !"
+      | Some sizer ->
+        match WxSizer.getItemWindow sizer
+            (WxCalendarCtrl.wxWindow !m_calendar) true with
+          None ->
+          wxLogWarning "onCalToggleResizable: no item for calendar !"
+      | Some item ->
+      if isChecked then begin
+        WxSizerItem.setProportion item 1;
+        WxSizerItem.setFlag item wxEXPAND;
+      end else begin
+        WxSizerItem.setProportion item 0;
+        WxSizerItem.setFlag item wxALIGN_CENTER;
+      end;
+      WxSizer.layout sizer
     in
 
       let new_MyTimeDialog (parent : wxWindow) =
