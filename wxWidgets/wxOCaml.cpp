@@ -125,7 +125,7 @@ extern "C" {
     wxGetApp().SetTopWindow (window_c);
   }
 
-  value wxApp_Main_c(value onInit_v, value argv_v){
+  value wxApp_wxEntry_c(value onInit_v, value argv_v){
     int argc = Wosize_val(argv_v);
     char **argv_c = argc == 0 ? NULL : (char**)argv_v;
 

@@ -52,6 +52,7 @@ typedef int intptr_t;
 #include "wx/artprov.h"
 #include "wx/sound.h"
 #include "wx/datectrl.h"
+#include "wx/timectrl.h"
 
 extern "C" {
 
@@ -60,9 +61,9 @@ extern "C" {
 #include <caml/memory.h>
 
 #define Abstract_val(s) Field(s, 0)
-extern value Val_abstract(void *ptr);
+extern value Val_abstract(const void *ptr);
 
-extern value Val_abstractOption(void* ptr);
+extern value Val_abstractOption(const void* ptr);
 #define AbstractOption_val(v)  \
   ((v == Val_int(0) ? NULL : Abstract_val(Field(v,0))))
 

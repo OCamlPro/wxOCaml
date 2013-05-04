@@ -49,8 +49,8 @@ let direct_return_types = [
   "wxRect"; "wxPoint"; "wxSize"; "wxString";
 ]
 
-let find_return_conversion arg =
-  match arg.arg_ctype with
+let find_return_conversion ctyp =
+  match ctyp with
   | Typ_ident wxClass ->
     let wxClass_equiv = find_cpp_equiv wxClass in
     begin match wxClass_equiv with
@@ -67,6 +67,8 @@ let find_return_conversion arg =
       | _ -> assert false
     end
   | _ -> assert false
+
+
 
 let generate_method_stub oc cl p =
   let proto_ret = match p.proto_ret with
@@ -85,9 +87,9 @@ let generate_method_stub oc cl p =
       match p.proto_kind with
         ProtoNew -> 0
       | ProtoMethod ->
-        fprintf oc "value self_v"; first_arg := false;
-        1
+        fprintf oc "value self_v"; first_arg := false; 1
       | ProtoFunction -> 0
+      | ProtoValue -> assert false
     )
   in
 
@@ -124,7 +126,7 @@ let generate_method_stub oc cl p =
     | ProtoMethod ->
       fprintf oc "  %s* self_c = (%s*)Abstract_val(self_v);\n"
         cl.class_name cl.class_name;
-
+      | ProtoValue -> assert false
   end;
 
   List.iter (fun { arg_name; arg_ctype; arg_direction } ->
@@ -140,6 +142,7 @@ let generate_method_stub oc cl p =
     | Out, _ -> assert false
 
     (* In direction *)
+    | In, Typ_ident "wxDateTime::TimeZone" -> ()
     | In, Typ_ident wxClass ->
       let wxClass_equiv, cast = find_cpp_equiv_with_cast wxClass in
 
@@ -230,7 +233,8 @@ let generate_method_stub oc cl p =
       ProtoNew -> fprintf oc "new %s(" cl.class_name
     | ProtoMethod -> fprintf oc "self_c->%s(" p.proto_name
     | ProtoFunction -> fprintf oc "%s(" p.proto_name
-  end;
+       | ProtoValue -> assert false
+ end;
   List.iter (fun arg ->
     if !first_args then first_args := false else
       fprintf oc ", ";
@@ -245,6 +249,9 @@ let generate_method_stub oc cl p =
         fprintf oc " %s_c" arg.arg_name;
 
     | Out, _ -> assert false
+
+    | In, Typ_ident "wxDateTime::TimeZone" ->
+      fprintf oc "wxDateTime::TimeZone(Int_val(%s_v))" arg.arg_name
 
     | In, Typ_ident wxClass ->
       let wxClass_equiv = find_cpp_equiv wxClass in
@@ -344,7 +351,7 @@ let generate_method_stub oc cl p =
         match arg.arg_direction with
         | In -> ()
         | Out ->
-          let conversion = find_return_conversion arg in
+          let conversion = find_return_conversion arg.arg_ctype in
           fprintf oc "  ret_v = %s %s_c);\n" conversion arg.arg_name
       ) p.proto_args
     else
@@ -361,7 +368,7 @@ let generate_method_stub oc cl p =
           match arg.arg_direction with
           | In -> ()
           | Out ->
-            let conversion = find_return_conversion arg in
+            let conversion = find_return_conversion arg.arg_ctype in
             fprintf oc "  caml_initialize(&Field(ret_v,%d), %s %s_c));\n" !pos
               conversion arg.arg_name;
             incr pos
@@ -413,11 +420,65 @@ let generate_method_stub oc cl p =
     fprintf oc ");\n}\n";
   end
 
+let find_value_conversion ctyp =
+  match ctyp with
+  | Typ_pointer (Typ_ident wxClass) ->
+    let wxClass_equiv = find_cpp_equiv wxClass in
+    begin match wxClass_equiv with
+      |  "wxRect" -> "Val_wxRect("
+      |  "wxPoint" -> "Val_wxPoint("
+      |  "wxSize" ->  "Val_wxSize("
+      |  "wxString" -> "Val_wxString("
+      |  ("int" | "long") -> "Val_int(*"
+      |  "int64" -> "caml_copy_int64(*"
+      |  "int32" -> "caml_copy_int32(*"
+      | _ when
+          wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->
+        "Val_abstract("
+      | _ -> assert false
+    end, ")"
+  | Typ_ident wxClass ->
+    let wxClass_equiv = find_cpp_equiv wxClass in
+    begin match wxClass_equiv with
+      |  "wxRect" -> "Val_wxRect(&", ")"
+      |  "wxPoint" -> "Val_wxPoint(&", ")"
+      |  "wxSize" ->  "Val_wxSize(&", ")"
+      |  "wxString" -> "Val_wxString(&", ")"
+      |  ("int" | "long") -> "Val_int(", ")"
+      |  "int64" -> "caml_copy_int64(", ")"
+      |  "int32" -> "caml_copy_int32(", ")"
+      | _ when
+          wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->
+        "Val_abstract(&", ")"
+      | _ -> assert false
+    end
+  | _ -> assert false
+
+let generate_values_stub oc cl values =
+  fprintf oc "\nvalue %s_VALUES_c(value unit_v)\n{\n" cl.class_name;
+  fprintf oc "  CAMLparam0();\n";
+  fprintf oc "  CAMLlocal1(ret_v);\n";
+  fprintf oc "  ret_v = caml_alloc(%d, 0);\n" (List.length values);
+  let pos = ref 0 in
+  List.iter (fun p ->
+    let ret_proto = match p.proto_ret with
+      None -> assert false
+      | Some ctyp -> ctyp
+    in
+    let conversion, end_conversion = find_value_conversion ret_proto in
+    fprintf oc "  caml_initialize(&Field(ret_v,%d), %s %s%s);\n" !pos
+      conversion p.proto_name end_conversion;
+
+    incr pos
+  ) values;
+  fprintf oc "  CAMLreturn(ret_v);\n}\n";
+  ()
+
 let generate_class_stubs source_dirname cl includes =
   let basename = cl.class_name ^ "_ml.cpp" in
   let filename = Filename.concat source_dirname
       (add_cplusplus_source basename) in
-  Printf.eprintf "Generating %S\n%!" filename;
+(*  Printf.eprintf "Generating %S\n%!" filename; *)
   let oc = open_out filename in
 
   fprintf oc "#include %S\n" "wxOCaml.h";
@@ -432,12 +493,17 @@ let generate_class_stubs source_dirname cl includes =
 
   fprintf oc "extern %S {\n" "C";
 
-
+  let values = ref [] in
   List.iter (fun p ->
-  if p.proto_options.fopt_gen_cpp then
-    generate_method_stub oc cl p
-
+    if p.proto_options.fopt_gen_cpp then
+      match p.proto_kind with
+      | ProtoValue -> values := p :: !values
+      | _ ->
+        generate_method_stub oc cl p
   ) cl.class_methods;
+
+  if !values <> [] then
+    generate_values_stub oc cl !values;
 
   fprintf oc "}\n";
 

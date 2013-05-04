@@ -24,7 +24,7 @@ let print_location filename lexbuf =
 let files = ref ([] : (string * file) list)
 
 let read filename =
-  Printf.eprintf "PARSING %S\n%!" filename;
+(*  Printf.eprintf "PARSING %S\n%!" filename; *)
   GenLexer.init ();
   let ic = open_in filename in
   let lexbuf = Lexing.from_channel ic in
@@ -46,7 +46,7 @@ let generate_sources source_directory (filename, components) =
     match comp with
     | Comp_include s -> includes := s :: !includes
     | Comp_class _ -> ()
-    | Comp_type typ -> types := StringMap.add typ.type_name typ !types
+    | Comp_type _ -> ()
   ) components;
 
   let includes = List.rev !includes in
@@ -73,7 +73,7 @@ let create_class_hierarchy files =
         if StringMap.mem cl.class_uname !classes then
           failwith (Printf.sprintf "class %S defined twice" cl.class_uname);
         classes := StringMap.add cl.class_uname cl !classes
-      | Comp_type _ -> ()
+      | Comp_type typ -> types := StringMap.add typ.type_name typ !types
       | Comp_include _ -> ()
     ) components;
   ) files;

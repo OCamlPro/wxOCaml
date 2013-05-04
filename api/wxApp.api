@@ -1,6 +1,7 @@
 
 class wxApp inherit wxAppConsole begin
-  function{ gen_cpp = false }(void, Main)(
+
+  function{ gen_cpp = false }(void, wxEntry)(
       "('a -> unit)" handler onInit,
       "(string array)" char** argv
   )

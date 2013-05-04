@@ -76,6 +76,6 @@ let _ =
     ignore_bool ( WxFrame.show frame );
     WxApp.setTopWindow (WxFrame.wxWindow frame)
   in
-  WxApp.main onInit Sys.argv
+  wxMain onInit
 
 

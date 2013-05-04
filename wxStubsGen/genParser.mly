@@ -52,6 +52,7 @@ let default_options = { fopt_gen_cpp = true; fopt_others = () }
 %token GEN_CPP
 %token FUNCTION
 %token TYPE
+%token VALUE
 
 %start file
 %type <GenTypes.file> file
@@ -115,6 +116,16 @@ meth:
       proto_name = $6;
       proto_mlname = $7;
       proto_args = $10;
+      proto_options = $2;
+    }
+  }
+| VALUE options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN
+  {
+    { proto_kind = ProtoValue;
+      proto_ret = Some $4;
+      proto_name = $6;
+      proto_mlname = $7;
+      proto_args = [];
       proto_options = $2;
     }
   }
@@ -194,5 +205,6 @@ genident:
 | FALSE   { "false" }
 | FUNCTION { "function" }
 | TYPE    { "type" }
+| VALUE   { "value" }
 ;
 

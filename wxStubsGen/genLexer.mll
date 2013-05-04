@@ -72,6 +72,7 @@ rule token = parse
   | "gen_cpp"    { GEN_CPP }
   | "function"  { FUNCTION }
   | "type"    { TYPE }
+  | "value"   { VALUE }
   | '_' { UNDERSCORE }
   | ident "::" ident { IDENT (Lexing.lexeme lexbuf) }
   | ident { IDENT (Lexing.lexeme lexbuf) }
@@ -146,6 +147,7 @@ let string_of_token token = match token with
   | GEN_CPP -> "GEN_CPP"
   | FUNCTION -> "FUNCTION"
   | TYPE -> "TYPE"
+  | VALUE -> "VALUE"
 
   let token lexbuf =
     let token = token lexbuf in

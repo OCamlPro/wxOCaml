@@ -104,3 +104,6 @@ let wxPanel_event_table win events =
   event_table (WxPanel.wxEvtHandler win) events
 let wxDialog_event_table win events =
   event_table (WxDialog.wxEvtHandler win) events
+
+let wxMain onInit =
+  WxApp.wxEntry onInit Sys.argv

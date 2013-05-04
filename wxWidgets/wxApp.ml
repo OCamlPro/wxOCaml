@@ -1,8 +1,8 @@
 open WxClasses
 
-external main : 
+external wxEntry : 
    ('a -> unit) -> (string array) -> 
-      unit = "wxApp_Main_c"
+      unit = "wxApp_wxEntry_c"
 
 
 external setTopWindow : 

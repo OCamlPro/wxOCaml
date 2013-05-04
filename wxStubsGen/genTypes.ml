@@ -44,6 +44,7 @@ and proto_kind =
   | ProtoNew
   | ProtoMethod
   | ProtoFunction
+  | ProtoValue
 
 and fun_arg = {
   arg_name : string;

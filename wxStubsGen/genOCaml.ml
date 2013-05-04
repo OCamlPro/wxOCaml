@@ -80,6 +80,7 @@ let generate_method_function ml_oc c_name cl p =
     | ProtoFunction -> fprintf ml_oc "\n   "; 0
     | ProtoMethod ->
       fprintf ml_oc "%s ->\n   " cl.class_name; 1
+    | ProtoValue -> assert false
   in
   let at_least_nargs = ref 0 in
   let out_nargs = ref 0 in
@@ -135,6 +136,22 @@ let generate_method_function ml_oc c_name cl p =
 
   ml_name
 
+let generate_values_stub ml_oc cl values =
+  fprintf ml_oc "\nexternal get_VALUES : unit -> (\n   ";
+  List.iter (fun p ->
+    ignore (fprintf_ml_of_ctype ml_oc (match p.proto_ret with
+      None -> assert false | Some ctyp -> ctyp));
+    fprintf ml_oc " *\n   "
+  ) values;
+  fprintf ml_oc "unit) = %S\n"
+    (Printf.sprintf "%s_VALUES_c" cl.class_name);
+  fprintf ml_oc "\nlet (\n";
+  List.iter (fun p ->
+    let ml_name = ml_function_name cl p in
+    fprintf ml_oc "%s,\n   " ml_name
+  ) values;
+  fprintf ml_oc "      ()) = get_VALUES()\n"
+
 let generate_class_module source_dirname cl =
   try
     let basename = add_ocaml_source (cl.class_name ^ ".ml") in
@@ -153,7 +170,12 @@ let generate_class_module source_dirname cl =
       ml_names := StringMap.add ml_name cl !ml_names
 
     in
+    let values = ref [] in
+
     List.iter (fun p ->
+      match p.proto_kind with
+      | ProtoValue -> values := p :: !values
+      | ProtoNew | ProtoFunction | ProtoMethod ->
       try
         let c_name = GenCplusplus.c_function_name cl p in
         let ml_name = generate_method_function ml_oc c_name cl p in
@@ -170,6 +192,7 @@ let generate_class_module source_dirname cl =
       List.iter (fun p ->
         match p.proto_kind with
         | ProtoNew -> ()
+        | ProtoValue -> ()
         | ProtoFunction
         | ProtoMethod ->
           try
@@ -182,13 +205,28 @@ let generate_class_module source_dirname cl =
       ) pcl.class_methods;
     ) cl.class_parents;
 
-
-    fprintf ml_oc "\n(* Cast functions to parents, if any *)\n";
+    if cl.class_parents <> StringMap.empty then begin
+      fprintf ml_oc "\n(* Cast functions to parents *)\n";
     StringMap.iter (fun _ pcl ->
       fprintf ml_oc "\nexternal %s : %s -> %s = %S\n"
         pcl.class_name cl.class_name pcl.class_name
         "%identity"
     ) cl.class_parents;
+    end;
+
+    if cl.class_children <> StringMap.empty then begin
+      fprintf ml_oc "module Unsafe = struct\n";
+    fprintf ml_oc "\n  (* Cast functions to children, if any *)\n";
+    StringMap.iter (fun _ pcl ->
+      fprintf ml_oc "\n  external %s : %s -> %s = %S\n"
+        pcl.class_name cl.class_name pcl.class_name
+        "%identity"
+    ) cl.class_children;
+      fprintf ml_oc "\nend\n";
+    end;
+
+    if !values <> [] then
+      generate_values_stub ml_oc cl !values;
 
     close_out ml_oc;
   with Exit ->

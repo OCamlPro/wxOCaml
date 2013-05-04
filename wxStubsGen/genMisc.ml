@@ -15,22 +15,30 @@ let open_out filename =
   } in
   maybe
 
+let debug_files = ref false
+
 let close_out maybe =
   close_out maybe.oc;
   if Sys.file_exists maybe.filename then begin
     let olddigest = Digest.file maybe.filename in
     let newdigest = Digest.file maybe.tmp in
     if olddigest = newdigest then begin
-      Printf.eprintf "%S did not change\n%!" maybe.filename;
+      if !debug_files then
+        Printf.eprintf "[%s skipped]\n%!" (Filename.basename maybe.filename);
       Sys.remove maybe.tmp
     end
     else
       begin
+        if !debug_files then
+          Printf.eprintf "[%s changed]\n%!" (Filename.basename maybe.filename);
         Sys.remove maybe.filename;
         Sys.rename maybe.tmp maybe.filename
       end
-  end else
+  end else begin
+    if !debug_files then
+      Printf.eprintf "[%s created]\n%!" (Filename.basename maybe.filename);
     Sys.rename maybe.tmp maybe.filename
+  end
 
 let fprintf oc = Printf.fprintf oc.oc
 

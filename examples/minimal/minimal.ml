@@ -68,5 +68,5 @@ let _ =
     WxApp.setTopWindow (WxFrame.wxWindow frame)
 
   in
-  WxApp.main onInit Sys.argv
+  wxMain onInit
 

@@ -129,3 +129,5 @@ val _CALENDAR_YEAR_CHANGED : wxCalendarEvent t
 val _CALENDAR_DOUBLECLICKED : wxCalendarEvent t
 val _CALENDAR_WEEKDAY_CLICKED : wxCalendarEvent t
 val _CALENDAR_WEEK_CLICKED : wxCalendarEvent t
+val _TIME_CHANGED : wxDateEvent t
+val _DATE_CHANGED : wxDateEvent t

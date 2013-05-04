@@ -30,34 +30,34 @@ let _ =
     in
 
     let m_parent = wxPanel
-        (Some (WxFrame.wxWindow frame)) WxID.any
+        (WxFrame.wxWindow frame) WxID.any
         (-1,-1) (-1,-1) wxTAB_TRAVERSAL ""
     in
     let hbox = wxBoxSizer wxHORIZONTAL in
 
     let m_lp  =
-      wxPanel (Some (WxPanel.wxWindow m_parent)) WxID.any
+      wxPanel (WxPanel.wxWindow m_parent) WxID.any
         (-1,-1) (-1,-1)
       wxBORDER_SUNKEN ""
     in
     let plus_id = wxID () in
     let minus_id = wxID () in
     let _m_plus =
-        wxButton (Some (WxPanel.wxWindow m_lp)) plus_id "+" (10, 10) (-1, -1) 0
+        wxButton (WxPanel.wxWindow m_lp) plus_id "+" (10, 10) (-1, -1) 0
     in
 
     let _m_minus =
-      wxButton (Some (WxPanel.wxWindow m_lp)) minus_id "-" (10, 60) (-1,-1) 0
+      wxButton (WxPanel.wxWindow m_lp) minus_id "-" (10, 60) (-1,-1) 0
     in
 
     let m_rp =
-      wxPanel (Some (WxPanel.wxWindow m_parent)) WxID.any
+      wxPanel (WxPanel.wxWindow m_parent) WxID.any
         (-1, -1) (270, 150)
       wxBORDER_SUNKEN ""
     in
 
     let m_text =
-      wxStaticText (Some (WxPanel.wxWindow m_rp))
+      wxStaticText (WxPanel.wxWindow m_rp)
         WxID.any "0" (40, 60) (-1,-1) 0  in
 
     let counter = ref 0 in
@@ -71,12 +71,12 @@ let _ =
       m_lp minus_id WxEVT._COMMAND_BUTTON_CLICKED (add (-1));
 
 
-    WxBoxSizer.addWindow hbox (Some (WxPanel.wxWindow m_lp)) 1
+    WxBoxSizer.addWindow hbox (WxPanel.wxWindow m_lp) 1
       (wxEXPAND lor wxALL) 5 None;
-    WxBoxSizer.addWindow hbox (Some (WxPanel.wxWindow m_rp)) 1
+    WxBoxSizer.addWindow hbox (WxPanel.wxWindow m_rp) 1
       (wxEXPAND lor wxALL) 5 None;
 
-    WxPanel.setSizer m_parent (Some (WxBoxSizer.wxSizer hbox));
+    WxPanel.setSizer m_parent (WxBoxSizer.wxSizer hbox);
     WxFrame.centre frame wxBOTH;
 
 
@@ -84,5 +84,5 @@ let _ =
     WxApp.setTopWindow (WxFrame.wxWindow frame)
 
   in
-  WxApp.main onInit Sys.argv
+  wxMain onInit
 
