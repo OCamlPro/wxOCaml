@@ -31,7 +31,7 @@ distclean: clean
 	rm -f config.ocp config/Makefile 
 	rm -f ocp-build.root*
 
-configure: config/configure.ac
+configure: config/configure.ac config/m4/*
 	cd config; \
 		aclocal -I m4; \
 		autoconf	
