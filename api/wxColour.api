@@ -1,4 +1,54 @@
+
+type wxUint32 = int32
+
 class wxColour inherit wxObject begin
 
+ 	new(Create) (int red, int green, int blue, int alpha (*=wxALPHA_OPAQUE *))
+ 	new(CreateName) (wxString &colourName)
+ 	new(CreateRGB) (long colRGB)
+
+	method(long, 	Alpha) ()
+        method(long, 	Blue) () 
+ 	method( wxString, GetAsString) (
+            long flags (*  =wxC2S_NAME|wxC2S_CSS_SYNTAX  *)
+	    )
+(*	wxIntPtr 	GetPixel ()  *)
+
+	method(long, Green) () 
+	method(bool,	IsOk) () 
+
+ 	method(long,	Red) () 
+	method(wxColour, ChangeLightness) (int ialpha) 
+(*
+	method(void,	SetRGB) (wxUint32 colRGB) 
+	method(void, 	SetRGBA) (wxUint32 colRGBA)
+	method(wxUint32, 	GetRGB) () 
+	method(wxUint32, 	GetRGBA) () 
+*)
+
+(*
+
+void 	Set (unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha=wxALPHA_OPAQUE)
+ 	Sets the RGB intensity values using the given values (first overload), extracting them from the packed long (second overload), using the given string (third overload). 
+void 	Set (unsigned long RGB)
+ 	Sets the RGB intensity values using the given values (first overload), extracting them from the packed long (second overload), using the given string (third overload). 
+bool 	Set (const wxString &str)
+ 	Sets the RGB intensity values using the given values (first overload), extracting them from the packed long (second overload), using the given string (third overload). 
+Static Public Member Functions
+
+static void 	MakeMono (unsigned char *r, unsigned char *g, unsigned char *b, bool on)
+ 	Assign 0 or 255 to rgb out parameters. 
+static void 	MakeDisabled (unsigned char *r, unsigned char *g, unsigned char *b, unsigned char brightness=255)
+ 	Create a disabled (dimmed) colour from (in/out) rgb parameters. 
+static void 	MakeGrey (unsigned char *r, unsigned char *g, unsigned char *b)
+ 	Create a grey colour from (in/out) rgb parameters using integer arithmetic. 
+static void 	MakeGrey (unsigned char *r, unsigned char *g, unsigned char *b, double weight_r, double weight_g, double weight_b)
+ 	Create a grey colour from (in/out) rgb parameters using floating point arithmetic. 
+static unsigned char 	AlphaBlend (unsigned char fg, unsigned char bg, double alpha)
+ 	Blend colour, taking alpha into account. 
+static void 	ChangeLightness (unsigned char *r, unsigned char *g, unsigned char *b, int ialpha)
+ 	ChangeLightness() is a utility function that simply darkens or lightens a color, based on the specified percentage ialpha of 0 would be completely black, 200 completely white an ialpha of 100 returns the same colour. 
+List of all members.
+*)
 
 end

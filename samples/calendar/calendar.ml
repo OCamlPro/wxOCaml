@@ -43,7 +43,7 @@ let doCreateCalendar panel dt style frame =
         dt (-1, -1) (-1, -1) style
   in
 
-  WxCalendarCtrl.connect calendar wxID_ANY WxEVT._RIGHT_DOWN
+  WxCalendarCtrl.connect calendar wxID_ANY wxID_ANY WxEVT._RIGHT_DOWN
     (onCalRClick frame calendar);
     calendar
 
@@ -78,14 +78,14 @@ let _ =
     let id_Calendar_File_Quit = wxID() in
 
     WxMenu.append menuFile id_Calendar_File_About "&About\tCtrl-A"
-      "Show about dialog" false; (* false = clickable *)
+      "Show about dialog" wxITEM_NORMAL; (* false = clickable *)
     WxMenu.appendSeparator menuFile;
     WxMenu.append  menuFile id_Calendar_File_ClearLog
-      "Clear log" "&Clear log\tCtrl-L" false;
+      "Clear log" "&Clear log\tCtrl-L" wxITEM_NORMAL;
     WxMenu.appendSeparator menuFile;
     WxMenu.append  menuFile id_Calendar_File_Quit
-      "E&xit\tAlt-X" "Quit this program" false;
-    ignore_bool (WxMenuBar.append m_menuBar (Some menuFile) "&File");
+      "E&xit\tAlt-X" "Quit this program" wxITEM_NORMAL;
+    ignore_bool (WxMenuBar.append m_menuBar menuFile "&File");
 
     let menuCal = wxMenu "" 0 in
 
@@ -124,48 +124,48 @@ let _ =
     WxMenu.append menuCal id_Calendar_Cal_Monday
       "Monday &first weekday\tCtrl-F"
       "Toggle between Mon and Sun as the first week day"
-      true;
+      wxITEM_CHECK;
     WxMenu.append menuCal id_Calendar_Cal_Holidays
       "Show &holidays\tCtrl-H"
       "Toggle highlighting the holidays"
-      true;
+      wxITEM_CHECK;
     WxMenu.append menuCal id_Calendar_Cal_Special
       "Highlight &special dates\tCtrl-S"
       "Test custom highlighting"
-      true;
+      wxITEM_CHECK;
     WxMenu.append menuCal id_Calendar_Cal_SurroundWeeks
       "Show s&urrounding weeks\tCtrl-W"
       "Show the neighbouring weeks in the prev/next month"
-      true;
+      wxITEM_CHECK;
     WxMenu.append menuCal id_Calendar_Cal_WeekNumbers
       "Show &week numbers"
       "Toggle week numbers"
-      true;
+      wxITEM_CHECK;
     WxMenu.appendSeparator menuCal;
     WxMenu.append menuCal id_Calendar_Cal_SeqMonth
       "Toggle month selector st&yle\tCtrl-Y"
       "Use another style for the calendar controls"
-      true;
+      wxITEM_CHECK;
     WxMenu.append menuCal id_Calendar_Cal_Month
       "&Month can be changed\tCtrl-M"
       "Allow changing the month in the calendar"
-      true;
+      wxITEM_CHECK;
     WxMenu.appendCheckItem menuCal id_Calendar_Cal_LimitDates
       "Toggle date ra&nge\tCtrl-N"
       "Limit the valid dates";
     WxMenu.appendSeparator menuCal;
     WxMenu.append menuCal id_Calendar_Cal_SetDate
       "Call &SetDate(2005-12-24)" "Set date to 2005-12-24."
-      false;
+      wxITEM_NORMAL;
     WxMenu.append menuCal id_Calendar_Cal_Today
       "Call &Today()" "Set to the current date."
-      false;
+      wxITEM_NORMAL;
     WxMenu.append menuCal id_Calendar_Cal_BeginDST
-      "Call SetDate(GetBeginDST())" "Call SetDate" false;
+      "Call SetDate(GetBeginDST())" "Call SetDate" wxITEM_NORMAL;
     WxMenu.appendSeparator menuCal;
     WxMenu.appendCheckItem menuCal id_Calendar_Cal_Resizable
       "Make &resizable\tCtrl-R" "make resizable";
-    ignore_bool (WxMenuBar.append m_menuBar (Some menuCal) "&Calendar");
+    ignore_bool (WxMenuBar.append m_menuBar menuCal "&Calendar");
 
 
     if wxUSE_DATEPICKCTRL then begin
@@ -186,8 +186,8 @@ let _ =
       WxMenu.appendSeparator menuDate;
       WxMenu.append menuDate id_Calendar_DatePicker_AskDate
         "&Choose date...\tCtrl-D"
-        "Show dialog with wxDatePickerCtrl" false;
-      ignore_bool (WxMenuBar.append m_menuBar (Some menuDate) "&Date picker");
+        "Show dialog with wxDatePickerCtrl" wxITEM_NORMAL;
+      ignore_bool (WxMenuBar.append m_menuBar menuDate "&Date picker");
     end;
 
     if wxUSE_TIMEPICKCTRL then begin
@@ -201,8 +201,8 @@ let _ =
 *)
       WxMenu.append menuTime id_Calendar_TimePicker_AskTime
         "&Choose time...\tCtrl-T"
-        "Show dialog with wxTimePickerCtrl" false;
-      ignore_bool (WxMenuBar.append m_menuBar (Some menuTime) "&Time picker");
+        "Show dialog with wxTimePickerCtrl" wxITEM_NORMAL;
+      ignore_bool (WxMenuBar.append m_menuBar menuTime "&Time picker");
     end;
 
     WxMenuBar.check m_menuBar id_Calendar_Cal_Monday true;
@@ -214,7 +214,7 @@ let _ =
       WxMenuBar.check m_menuBar id_Calendar_DatePicker_ShowCentury true;
     end;
 
-    WxFrame.setMenuBar m_frame (Some m_menuBar);
+    WxFrame.setMenuBar m_frame m_menuBar;
 
     let splitter = wxSplitterWindow w_frame wxID_ANY
         (-1, -1) (-1,-1)
@@ -531,9 +531,9 @@ let _ =
                  "(select first)")
           in
 
-          wxDialog_event_table this [
+          EVENT_TABLE.(wxDialog this [
             EVT_TIME_CHANGED(wxID_ANY, onTimeChange);
-          ];
+          ]);
 
           this, m_timePicker
 
@@ -646,9 +646,9 @@ let _ =
                else
                  "(select first)")
           in
-          wxDialog_event_table this [
+          EVENT_TABLE.(wxDialog this [
             EVT_DATE_CHANGED(wxID_ANY, onDateChange);
-          ];
+          ]);
           (this, m_datePicker)
         in
         let (dlg, m_datePicker) = new_MyDateDialog (WxFrame.wxWindow m_frame)
@@ -679,7 +679,7 @@ let _ =
         (WxMenuBar.isChecked m_menuBar id_Calendar_DatePicker_AllowNone)
     in
 
-    wxFrame_event_table m_frame (
+    EVENT_TABLE.(wxFrame m_frame (
       [ EVT_MENU (id_Calendar_File_About, onAbout);
         EVT_MENU(id_Calendar_File_ClearLog, onClearLog);
         EVT_MENU(id_Calendar_File_Quit,  onQuit);
@@ -712,7 +712,7 @@ let _ =
 
         EVT_MENU(id_Calendar_Cal_Resizable, onCalToggleResizable);
 
-      ]);
+      ]));
 
     let olddate = ref None in
     let onCalendar ev =
@@ -771,7 +771,7 @@ let _ =
       in wxLogStatus msg
     in
 
-    wxPanel_event_table m_panel
+    EVENT_TABLE.(wxPanel m_panel
       [
         EVT_CALENDAR(id_Calendar_CalCtrl, onCalendar);
         EVT_CALENDAR_SEL_CHANGED(id_Calendar_CalCtrl, onCalendarChange);
@@ -779,7 +779,7 @@ let _ =
         EVT_CALENDAR_WEEKDAY_CLICKED(id_Calendar_CalCtrl,
           onCalendarWeekDayClick);
         EVT_CALENDAR_WEEK_CLICKED(id_Calendar_CalCtrl,  onCalendarWeekClick);
-      ];
+      ]);
 
 
     ignore_bool ( WxFrame.show m_frame );

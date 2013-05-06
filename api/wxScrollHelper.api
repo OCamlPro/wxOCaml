@@ -1,0 +1,4 @@
+
+class wxScrollHelper inherit wxScrollHelperBase begin
+
+end

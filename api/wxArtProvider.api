@@ -13,6 +13,12 @@ class wxArtProvider inherit wxObject begin
          wxArtID &id, 
          wxArtClient &client (* =wxART_OTHER *), 
          wxSize &size (* =wxDefaultSize *))
+
+  function( wxIcon, wxArtProvider::GetIcon) (
+        wxArtID &id, 
+        wxArtClient &client (* =wxART_OTHER *), 
+        wxSize &size (* =wxDefaultSize *))
+
   function(wxIcon, wxArtProvider::GetIcon) (wxArtID &id, 
                                   wxArtClient &client, 
                                   wxSize &size)

@@ -2,12 +2,12 @@ class wxMenuBar inherit wxWindow begin
 
 new(Create)(int style)
 	
-method(bool, Append)(wxMenu? menu,wxString& title)
+method(bool, Append)(wxMenu* menu,wxString& title)
 	
-method(bool, Insert)(int pos,wxMenu? menu,wxString& title)
+method(bool, Insert)(int pos,wxMenu* menu,wxString& title)
 method(int, GetMenuCount)()
 method(wxMenu*, GetMenu)(int pos)
-method(wxMenu*, Replace)(int pos,wxMenu? menu,wxString& title)
+method(wxMenu*, Replace)(int pos,wxMenu* menu,wxString& title)
 method(wxMenu*, Remove)(int pos)
 method(void, EnableTop)(int pos,bool enable)
 method(void, SetLabelTop)(int pos,wxString& label)

@@ -1,5 +1,42 @@
 
 class wxBrush inherit wxObject begin
 
+  new(CreateDefault) ()
+
+(*
+ 	wxBrush (const wxColour &colour, wxBrushStyle style=wxBRUSHSTYLE_SOLID)
+ 	Constructs a brush from a colour object and style. 
+ 	wxBrush (const wxBitmap &stippleBitmap)
+ 	Constructs a stippled brush using a bitmap. 
+ 	wxBrush (const wxBrush &brush)
+ 	Copy constructor, uses reference counting. 
+virtual 	~wxBrush ()
+ 	Destructor. 
+virtual wxColour 	GetColour () const
+ 	Returns a reference to the brush colour. 
+virtual wxBitmap * 	GetStipple () const
+ 	Gets a pointer to the stipple bitmap. 
+virtual wxBrushStyle 	GetStyle () const
+ 	Returns the brush style, one of the wxBrushStyle values. 
+virtual bool 	IsHatch () const
+ 	Returns true if the style of the brush is any of hatched fills. 
+virtual bool 	IsOk () const
+ 	Returns true if the brush is initialised. 
+bool 	IsNonTransparent () const
+ 	Returns true if the brush is a valid non-transparent brush. 
+bool 	IsTransparent () const
+ 	Returns true if the brush is transparent. 
+virtual void 	SetStipple (const wxBitmap &bitmap)
+ 	Sets the stipple bitmap. 
+virtual void 	SetStyle (wxBrushStyle style)
+ 	Sets the brush style. 
+bool 	operator!= (const wxBrush &brush) const
+ 	Inequality operator. 
+bool 	operator== (const wxBrush &brush) const
+ 	Equality operator. 
+*)
+
+   method(void, SetColour) (wxColour &colour)
+   method(void,	SetColour, SetColourRGB)(int red, int green, int blue)
 
 end

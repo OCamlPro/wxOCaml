@@ -34,7 +34,7 @@ let _ =
 
     let menuFile = wxMenu "" 0 in
 
-    let checkable = false in
+    let checkable =  wxITEM_NORMAL in
 
     WxMenu.append menuFile about_id "&About"
       "About the application" checkable;
@@ -43,9 +43,9 @@ let _ =
     WxMenu.append  menuFile quit_id
       "E&xit" "Exit from the application" checkable;
 
-    ignore_bool (WxMenuBar.append menuBar (Some menuFile) "&File");
+    ignore_bool (WxMenuBar.append menuBar menuFile "&File");
 
-    WxFrame.setMenuBar frame (Some menuBar);
+    WxFrame.setMenuBar frame  menuBar;
 
     ignore_wxStatusBar (WxFrame.createStatusBar frame 1 0);
 
@@ -53,13 +53,13 @@ let _ =
 
     WxFrame.connect
       frame
-      quit_id
+      quit_id quit_id
       WxEVT._COMMAND_MENU_SELECTED
       (fun _ -> exit 0);
 
     WxFrame.connect
       frame
-      about_id
+      about_id about_id
       WxEVT._COMMAND_MENU_SELECTED
       (fun _ ->
         ignore_int (

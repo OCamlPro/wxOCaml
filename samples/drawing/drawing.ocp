@@ -1,0 +1,8 @@
+binannot = false
+
+(* enabled = false *)
+
+begin program "drawing"
+  requires = [ "wxWidgets" ]
+  files = [    "drawing.ml"  ]
+end

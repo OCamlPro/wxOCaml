@@ -1,0 +1,4 @@
+
+class wxPalette inherit wxPalette begin
+
+end

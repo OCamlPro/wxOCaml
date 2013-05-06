@@ -2,6 +2,9 @@ open WxClasses
 open WxDefs
 open WxMisc
 
+let wxT s = s
+
+
 let rec version_of_string version =
   try
     let pos = String.index version '.' in
@@ -54,10 +57,14 @@ let wxStaticBoxSizer = WxStaticBoxSizer.create
 let wxStaticBoxSizerEx = WxStaticBoxSizer.createEx
 let wxCheckBox = WxCheckBox.create
 let wxListBox = WxListBox.create
-
+let wxScrolledWindow = WxScrolledWindow.create
+let wxBitmap = WxBitmap.create
+let wxBitmapLoad = WxBitmap.createLoad
+let wxColourDialog = WxColourDialog.create
+let wxColourData = WxColourData.create
 let wxDate = WxDateTime.createDate
 let wxDateTime = WxDateTime.create
-
+let wxBrushDefault = WxBrush.createDefault
 
 let ignore_int (_ : int) = ()
 let ignore_bool (_ : bool) = ()
@@ -87,8 +94,11 @@ module WxOCP = struct
 
 end
 
-type eventHandler =
+module EVENT_TABLE = struct
+
+  type eventHandler =
   | EVT_MENU of int * (wxCommandEvent -> unit)
+  | EVT_MENU_RANGE of int * int * (wxCommandEvent -> unit)
   | EVT_UPDATE_UI of int * (wxUpdateUIEvent -> unit)
 
   | EVT_CALENDAR of int * (wxCalendarEvent -> unit)
@@ -104,41 +114,107 @@ type eventHandler =
   | EVT_DATE_CHANGED of int * (wxDateEvent -> unit)
 
 (* We should provide such a function for all children of wxEvtHandler *)
-let event_table (win: wxEvtHandler) (events : eventHandler list) =
+  let wxEvtHandler (win: wxEvtHandler) (events : eventHandler list) =
+    List.iter (fun eh ->
+      match eh with
+      | EVT_MENU (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._COMMAND_MENU_SELECTED handler
+      | EVT_MENU_RANGE (id1, id2, handler) ->
+        WxEvtHandler.connect win id1 id2 WxEVT._COMMAND_MENU_SELECTED handler
+      | EVT_UPDATE_UI (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._UPDATE_UI handler
+      | EVT_CALENDAR_SEL_CHANGED (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._CALENDAR_SEL_CHANGED handler
+      | EVT_CALENDAR (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._CALENDAR_DOUBLECLICKED handler
+      | EVT_CALENDAR_DAY (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._CALENDAR_DAY_CHANGED handler
+      | EVT_CALENDAR_MONTH (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._CALENDAR_MONTH_CHANGED handler
+      | EVT_CALENDAR_YEAR (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._CALENDAR_YEAR_CHANGED handler
+      | EVT_CALENDAR_PAGE_CHANGED (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._CALENDAR_PAGE_CHANGED handler
+      | EVT_CALENDAR_WEEKDAY_CLICKED (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._CALENDAR_WEEKDAY_CLICKED handler
+      | EVT_CALENDAR_WEEK_CLICKED (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._CALENDAR_WEEK_CLICKED handler
+      | EVT_TIME_CHANGED (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._TIME_CHANGED handler
+      | EVT_DATE_CHANGED (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._DATE_CHANGED handler
+    ) events
+
+  let wxFrame win events =
+    wxEvtHandler (WxFrame.wxEvtHandler win) events
+  let wxPanel win events =
+    wxEvtHandler (WxPanel.wxEvtHandler win) events
+  let wxDialog win events =
+    wxEvtHandler (WxDialog.wxEvtHandler win) events
+end
+
+
+module EVENT_TABLE2 = struct
+
+  type 'a eventHandler =
+  | EVT_MENU of int * ('a -> wxCommandEvent -> unit)
+  | EVT_MENU_RANGE of int * int * ('a -> wxCommandEvent -> unit)
+  | EVT_UPDATE_UI of int * ('a -> wxUpdateUIEvent -> unit)
+
+  | EVT_CALENDAR of int * ('a -> wxCalendarEvent -> unit)
+  | EVT_CALENDAR_SEL_CHANGED of int * ('a -> wxCalendarEvent -> unit)
+  | EVT_CALENDAR_PAGE_CHANGED of int * ('a -> wxCalendarEvent -> unit)
+  | EVT_CALENDAR_DAY of int * ('a -> wxCalendarEvent -> unit)
+  | EVT_CALENDAR_MONTH of int * ('a -> wxCalendarEvent -> unit)
+  | EVT_CALENDAR_YEAR of int * ('a -> wxCalendarEvent -> unit)
+  | EVT_CALENDAR_WEEK_CLICKED of int * ('a -> wxCalendarEvent -> unit)
+  | EVT_CALENDAR_WEEKDAY_CLICKED of int * ('a -> wxCalendarEvent -> unit)
+
+  | EVT_TIME_CHANGED of int * ('a -> wxDateEvent -> unit)
+  | EVT_DATE_CHANGED of int * ('a -> wxDateEvent -> unit)
+
+(* We should provide such a function for all children of wxEvtHandler *)
+let wxEvtHandler (win: wxEvtHandler) (data : 'a)
+    (events : 'a eventHandler list) =
   List.iter (fun eh ->
     match eh with
     | EVT_MENU (id, handler) ->
-      WxEvtHandler.connect win id WxEVT._COMMAND_MENU_SELECTED handler
+      WxEvtHandler.connect win id id WxEVT._COMMAND_MENU_SELECTED (handler data)
+    | EVT_MENU_RANGE (id1, id2, handler) ->
+      WxEvtHandler.connect win id1 id2 WxEVT._COMMAND_MENU_SELECTED (handler data)
     | EVT_UPDATE_UI (id, handler) ->
-      WxEvtHandler.connect win id WxEVT._UPDATE_UI handler
+      WxEvtHandler.connect win id id WxEVT._UPDATE_UI (handler data)
     | EVT_CALENDAR_SEL_CHANGED (id, handler) ->
-      WxEvtHandler.connect win id WxEVT._CALENDAR_SEL_CHANGED handler
+      WxEvtHandler.connect win id id WxEVT._CALENDAR_SEL_CHANGED (handler data)
     | EVT_CALENDAR (id, handler) ->
-      WxEvtHandler.connect win id WxEVT._CALENDAR_DOUBLECLICKED handler
+      WxEvtHandler.connect win id id WxEVT._CALENDAR_DOUBLECLICKED (handler data)
     | EVT_CALENDAR_DAY (id, handler) ->
-      WxEvtHandler.connect win id WxEVT._CALENDAR_DAY_CHANGED handler
+      WxEvtHandler.connect win id id WxEVT._CALENDAR_DAY_CHANGED (handler data)
     | EVT_CALENDAR_MONTH (id, handler) ->
-      WxEvtHandler.connect win id WxEVT._CALENDAR_MONTH_CHANGED handler
+      WxEvtHandler.connect win id id WxEVT._CALENDAR_MONTH_CHANGED (handler data)
     | EVT_CALENDAR_YEAR (id, handler) ->
-      WxEvtHandler.connect win id WxEVT._CALENDAR_YEAR_CHANGED handler
+      WxEvtHandler.connect win id id WxEVT._CALENDAR_YEAR_CHANGED (handler data)
     | EVT_CALENDAR_PAGE_CHANGED (id, handler) ->
-      WxEvtHandler.connect win id WxEVT._CALENDAR_PAGE_CHANGED handler
+      WxEvtHandler.connect win id id WxEVT._CALENDAR_PAGE_CHANGED (handler data)
     | EVT_CALENDAR_WEEKDAY_CLICKED (id, handler) ->
-      WxEvtHandler.connect win id WxEVT._CALENDAR_WEEKDAY_CLICKED handler
+      WxEvtHandler.connect win id id WxEVT._CALENDAR_WEEKDAY_CLICKED (handler data)
     | EVT_CALENDAR_WEEK_CLICKED (id, handler) ->
-      WxEvtHandler.connect win id WxEVT._CALENDAR_WEEK_CLICKED handler
+      WxEvtHandler.connect win id id WxEVT._CALENDAR_WEEK_CLICKED (handler data)
     | EVT_TIME_CHANGED (id, handler) ->
-      WxEvtHandler.connect win id WxEVT._TIME_CHANGED handler
+      WxEvtHandler.connect win id id WxEVT._TIME_CHANGED (handler data)
     | EVT_DATE_CHANGED (id, handler) ->
-      WxEvtHandler.connect win id WxEVT._DATE_CHANGED handler
+      WxEvtHandler.connect win id id WxEVT._DATE_CHANGED (handler data)
   ) events
 
-let wxFrame_event_table win events =
-  event_table (WxFrame.wxEvtHandler win) events
-let wxPanel_event_table win events =
-  event_table (WxPanel.wxEvtHandler win) events
-let wxDialog_event_table win events =
-  event_table (WxDialog.wxEvtHandler win) events
+ let wxFrame win data events =
+  wxEvtHandler (WxFrame.wxEvtHandler win) data events
+let wxPanel win data events =
+  wxEvtHandler (WxPanel.wxEvtHandler win) data events
+let wxDialog win data events =
+  wxEvtHandler (WxDialog.wxEvtHandler win) data events
+end
+
+
 
 let wxMain onInit =
   WxApp.wxEntry onInit Sys.argv

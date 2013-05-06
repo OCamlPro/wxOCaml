@@ -1,0 +1,12 @@
+
+class wxStaticBitmap inherit wxControl begin
+
+   new(Create)(wxWindow* _prt,int _id,wxBitmap& bitmap, wxPoint& pos, wxSize& size, int _stl)
+
+  method(void, SetIcon)(wxIcon& icon)
+  method(void, SetBitmap)(wxBitmap& bitmap)
+  method(wxIcon, GetIcon)()
+  method(wxBitmap, GetBitmap)()
+ (* delete(Delete) *)
+
+end

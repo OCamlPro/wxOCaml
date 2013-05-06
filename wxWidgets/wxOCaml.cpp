@@ -148,19 +148,20 @@ extern "C" {
   }
 
 
-value wxEvtHandler_Connect_c(value self_v, value first_v, 
+value wxEvtHandler_Connect_c(value self_v, value first_v, value last_v,
 			     value type_v, value closure_v)
 {
   value ret_v;
   wxEvtHandler* self_c = (wxEvtHandler*)Abstract_val(self_v);
   int first_c = Int_val(first_v);
+  int last_c = Int_val(last_v);
   int type_c = Int_val(type_v);
   
   // Don't bind fake events (-1)
   if( type_c >= 0 ) {
     OCamlCallback* callback_c = new OCamlCallback(closure_v);
     
-    self_c->Connect(first_c, -1, type_c, 
+    self_c->Connect(first_c, last_c, type_c, 
 		    (wxObjectEventFunction)
 		    &OCamlApp::HandleGenericEvent, callback_c);
   }

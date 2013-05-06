@@ -2,7 +2,7 @@
 class wxEvtHandler inherit wxObject begin
 
   new(Create)()
-  method{ gen_cpp = false }(void,Connect)(int evid,
+  method{ gen_cpp = false }(void,Connect)(int id1, int id2,
    "('a WxEVT.t)" int type,
    "('a -> unit)" ocaml_closure handler
      )

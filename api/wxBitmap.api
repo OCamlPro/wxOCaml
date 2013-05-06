@@ -1,3 +1,39 @@
+
+type wxBitmapType = int
+
 class wxBitmap inherit wxObject begin
+
+  new(Create)(string _data,int width,int height,int depth)
+(*  new(CreateFromXPM)(strings _data) *)
+  new(CreateEmpty)(int width,int height,int depth)
+  new(CreateLoad)(wxString& name,wxBitmapType type)
+
+  new(CreateDefault)()
+(*  delete(Delete)() *)
+
+  method(wxBitmap, GetSubBitmap)(wxRect& rect)
+  method(bool, LoadFile)(wxString& name,wxBitmapType type)
+  method(bool, SaveFile)(wxString& name,wxBitmapType type,wxPalette? cmap)
+  method(wxMask?, GetMask)()
+  method(void, SetMask)(wxMask? mask)
+(* TODO
+   function(void, AddHandler)(void* handler)
+   function(void, InsertHandler)(void* handler)
+   function(bool, RemoveHandler)(wxString& name)
+   function(void*, FindHandlerByName)(wxString& name)
+   function(void*, FindHandlerByExtension)(wxString& extension,int type)
+   function(void*, FindHandlerByType)(int type)
+*)
+
+  function(void, wxBitmap::InitStandardHandlers)()
+  function(void, wxBitmap::CleanUpHandlers)()
+
+  method(bool, IsOk)()
+  method(int, GetWidth)()
+  method(int, GetHeight)()
+  method(int, GetDepth)()
+  method(void, SetWidth)(int w)
+  method(void, SetHeight)(int h)
+  method(void, SetDepth)(int d)
 
 end

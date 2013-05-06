@@ -120,7 +120,7 @@ let onInit () =
     let  onButton _ =
       ignore_bool (WxFrame.close this false)
     in
-    WxFrame.connect this wxID_OK  WxEVT._COMMAND_BUTTON_CLICKED onButton;
+    WxFrame.connect this wxID_OK wxID_OK WxEVT._COMMAND_BUTTON_CLICKED onButton;
 
     (* Set sizer for the panel *)
     WxPanel.setSizer m_panel sizerRoot;

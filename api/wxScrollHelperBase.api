@@ -1,0 +1,10 @@
+
+class wxScrollHelperBase begin
+
+  method(void, SetScrollbars)(int pixelsPerUnitX, int pixelsPerUnitY,
+                               int noUnitsX, int noUnitsY,
+                               int xPos, int yPos,
+                               bool noRefresh (* = false *) )
+
+
+end

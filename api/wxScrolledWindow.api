@@ -1,0 +1,14 @@
+
+include "<wx/scrolwin.h>"
+
+class wxScrolledWindow inherit wxWindow inherit wxScrollHelper begin
+
+    new(Create)(wxWindow *parent,
+                     wxWindowID winid,
+                      wxPoint& pos,
+                      wxSize& size,
+                     long style (* = wxScrolledWindowStyle *),
+                      wxString& name (* = wxPanelNameStr *))
+ 
+
+end

@@ -8,7 +8,7 @@ class wxFrame inherit wxTopLevelWindow begin
  method(void,Restore)()
 	
  method(wxPoint,GetClientAreaOrigin)()
- method(void,SetMenuBar)(wxMenuBar? menubar)
+ method(void,SetMenuBar)(wxMenuBar* menubar)
  method(wxMenuBar?,GetMenuBar)()
  method(wxStatusBar?,GetStatusBar)()
  method(void,SetStatusBar)(wxStatusBar* statBar)

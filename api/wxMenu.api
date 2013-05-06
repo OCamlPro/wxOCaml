@@ -1,4 +1,6 @@
 
+type wxItemKind = int
+
 class wxMenu inherit wxEvtHandler begin
 
 
@@ -6,16 +8,16 @@ new(Create)(wxString& title,long style)
 	
 method(void,AppendSeparator)()
 	
-method(void,Append)(int id,wxString& text,wxString& help,bool isCheckable)
+method(void,Append)(int id,wxString& text,wxString& help,wxItemKind kind)
 method(void,Append,AppendSub)(int id,wxString& text,wxMenu* submenu,wxString& help)
 method(void,Append,AppendItem)(wxMenuItem* item)
 method(void,Break)()
 
-method(void,Insert)(int pos,int id,wxString& text,wxString& help,bool isCheckable)
+method(void,Insert)(int pos,int id,wxString& text,wxString& help,wxItemKind kind)
 method(void,Insert,InsertSub)(int pos,int id,wxString& text,wxMenu* submenu,wxString& help)
 method(void,Insert,InsertItem)(int pos,wxMenuItem* item)
 
-method(void,Prepend)(int id,wxString& text,wxString& help,bool isCheckable)
+method(void,Prepend)(int id,wxString& text,wxString& help,wxItemKind kind)
 method(void,Prepend,PrependSub)(int id,wxString& text,wxMenu* submenu,wxString& help)
 method(void,Prepend,PrependItem)(wxMenuItem* item)
 

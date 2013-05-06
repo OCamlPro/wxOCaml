@@ -1,0 +1,6 @@
+
+
+class wxColourDialog inherit wxDialog begin
+   new(Create) (wxWindow *parent, wxColourData? data)
+   method(wxColourData,	GetColourData) ()
+end

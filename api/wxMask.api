@@ -1,0 +1,4 @@
+
+class wxMask inherit wxPalette begin
+
+end

@@ -1,0 +1,13 @@
+
+
+class wxColourData inherit wxObject begin
+ 	new(Create) ()
+   method(bool,	GetChooseFull) () 
+   method(wxColour, GetColour) ()
+   method(wxColour, GetCustomColour) (int i) 
+   method(void,	SetChooseFull) (bool flag)
+   method(void,	SetColour) (wxColour &colour)
+   method(void,	SetCustomColour) (int i, wxColour &colour)
+   method(wxString, ToString) () 
+   method(bool,	FromString) (wxString &str)
+end
