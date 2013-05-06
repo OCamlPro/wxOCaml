@@ -269,11 +269,11 @@ let _ =
           (WxCalendarCtrl.getDate !m_calendar) style
           m_frame in
 
-(* TODO: this does not work. Why ??? We really have to delete the old calendar ? *)
+      (* TODO: this does not work. Why ??? We really have to delete the old calendar ? *)
       if not (
-        WxBoxSizer.replaceWindow m_sizer
-          (WxCalendarCtrl.wxWindow !m_calendar)
-          (WxCalendarCtrl.wxWindow calendar) true)
+          WxBoxSizer.replaceWindow m_sizer
+            (WxCalendarCtrl.wxWindow !m_calendar)
+            (WxCalendarCtrl.wxWindow calendar) true)
       then
         wxLogStatus "COULD NOT REPLACE CALENDAR !!!";
       (* TODO delete !m_calendar; *)
@@ -455,129 +455,131 @@ let _ =
     let onCalToggleResizable ( event : wxCommandEvent) =
       let isChecked = WxCommandEvent.isChecked event in
       match WxPanel.getSizer m_panel with
-      None ->
+        None ->
         wxLogWarning "onCalToggleResizable: no sizer in panel !"
       | Some sizer ->
         match WxSizer.getItemWindow sizer
             (WxCalendarCtrl.wxWindow !m_calendar) true with
           None ->
           wxLogWarning "onCalToggleResizable: no item for calendar !"
-      | Some item ->
-      if isChecked then begin
-        WxSizerItem.setProportion item 1;
-        WxSizerItem.setFlag item wxEXPAND;
-      end else begin
-        WxSizerItem.setProportion item 0;
-        WxSizerItem.setFlag item wxALIGN_CENTER;
-      end;
-      WxSizer.layout sizer
+        | Some item ->
+          if isChecked then begin
+            WxSizerItem.setProportion item 1;
+            WxSizerItem.setFlag item wxEXPAND;
+          end else begin
+            WxSizerItem.setProportion item 0;
+            WxSizerItem.setFlag item wxALIGN_CENTER;
+          end;
+          WxSizer.layout sizer
     in
 
-      let new_MyTimeDialog (parent : wxWindow) =
-        let this =
-          wxDialog parent wxID_ANY "Calendar: Choose time"
-            wxDefaultPosition wxDefaultSize 0
-        in
-        let w_this = WxDialog.wxWindow this in
+    let onAskTime event =
+      if wx_2_9 then begin
+        let new_MyTimeDialog (parent : wxWindow) =
+          let this =
+            wxDialog parent wxID_ANY "Calendar: Choose time"
+              wxDefaultPosition wxDefaultSize 0
+          in
+          let w_this = WxDialog.wxWindow this in
 
-        let m_timePicker = wxTimePickerCtrl w_this wxID_ANY
-            wxDefaultDateTime wxDefaultPosition wxDefaultSize
-            0 "time picker"
-        in
-        let m_timeText = WxOCP.wxStaticText w_this "" in
-        let w_timePicker = WxTimePickerCtrl.wxWindow m_timePicker in
-        let w_timeText = WxStaticText.wxWindow m_timeText in
+          let m_timePicker = wxTimePickerCtrl w_this wxID_ANY
+              wxDefaultDateTime wxDefaultPosition wxDefaultSize
+              0 "time picker"
+          in
+          let m_timeText = WxOCP.wxStaticText w_this "" in
+          let w_timePicker = WxTimePickerCtrl.wxWindow m_timePicker in
+          let w_timeText = WxStaticText.wxWindow m_timeText in
 
-        let flags = wxALIGN_CENTER lor wxALL in
-        let border = WxSizer.getDefaultBorder () in
-        (*        let (flags : wxSizerFlags) = wxSizerFlags().Centre().Border(); *)
+          let flags = wxALIGN_CENTER lor wxALL in
+          let border = WxSizer.getDefaultBorder () in
+          (*        let (flags : wxSizerFlags) = wxSizerFlags().Centre().Border(); *)
 
-        let sizerMain = wxFlexGridSizer 0 2 0 0 in
-        let s_sizerMain = WxFlexGridSizer.wxSizer sizerMain in
-        let m_text1 = WxOCP.wxStaticText w_this "Enter &time:" in
-        let m_text2 = WxOCP.wxStaticText w_this "Time in ISO format:" in
-        let w_text1 = WxStaticText.wxWindow m_text1 in
-        let w_text2 = WxStaticText.wxWindow m_text2 in
+          let sizerMain = wxFlexGridSizer 0 2 0 0 in
+          let s_sizerMain = WxFlexGridSizer.wxSizer sizerMain in
+          let m_text1 = WxOCP.wxStaticText w_this "Enter &time:" in
+          let m_text2 = WxOCP.wxStaticText w_this "Time in ISO format:" in
+          let w_text1 = WxStaticText.wxWindow m_text1 in
+          let w_text2 = WxStaticText.wxWindow m_text2 in
 
-        WxFlexGridSizer.addWindow sizerMain w_text1 0 flags border None;
-        WxFlexGridSizer.addWindow sizerMain w_timePicker 0 flags border None;
+          WxFlexGridSizer.addWindow sizerMain w_text1 0 flags border None;
+          WxFlexGridSizer.addWindow sizerMain w_timePicker 0 flags border None;
 
-        WxFlexGridSizer.addWindow sizerMain w_text2 0 flags border None;
-        WxFlexGridSizer.addWindow sizerMain w_timeText 0 flags border None;
+          WxFlexGridSizer.addWindow sizerMain w_text2 0 flags border None;
+          WxFlexGridSizer.addWindow sizerMain w_timeText 0 flags border None;
 
-        let sizerBtns = wxStdDialogButtonSizer () in
-        let s_sizerBtns = WxStdDialogButtonSizer.wxSizer sizerBtns in
-        WxStdDialogButtonSizer.addButton sizerBtns (
-          WxOCP.wxButton w_this wxID_OK);
-        WxStdDialogButtonSizer.addButton sizerBtns (
-          WxOCP.wxButton w_this wxID_CANCEL);
-        WxStdDialogButtonSizer.realize sizerBtns;
+          let sizerBtns = wxStdDialogButtonSizer () in
+          let s_sizerBtns = WxStdDialogButtonSizer.wxSizer sizerBtns in
+          WxStdDialogButtonSizer.addButton sizerBtns (
+            WxOCP.wxButton w_this wxID_OK);
+          WxStdDialogButtonSizer.addButton sizerBtns (
+            WxOCP.wxButton w_this wxID_CANCEL);
+          WxStdDialogButtonSizer.realize sizerBtns;
 
-        let sizerTop = wxBoxSizer wxVERTICAL in
-        let s_sizerTop = WxBoxSizer.wxSizer sizerTop in
-        WxBoxSizer.addSizer sizerTop s_sizerMain 0 flags border None;
-        WxBoxSizer.addSizer sizerTop s_sizerBtns 0 flags border None;
+          let sizerTop = wxBoxSizer wxVERTICAL in
+          let s_sizerTop = WxBoxSizer.wxSizer sizerTop in
+          WxBoxSizer.addSizer sizerTop s_sizerMain 0 flags border None;
+          WxBoxSizer.addSizer sizerTop s_sizerBtns 0 flags border None;
 
-        WxDialog.setSizerAndFit this s_sizerTop true;
+          WxDialog.setSizerAndFit this s_sizerTop true;
 
-        let onTimeChange (event : wxDateEvent) =
-          let dt = WxDateEvent.getDate event in
-          WxStaticText.setLabel m_timeText
-            (if WxDateTime.isValid dt then
-               WxDateTime.formatISODate dt
-             else
-               "(select first)")
+          let onTimeChange (event : wxDateEvent) =
+            let dt = WxDateEvent.getDate event in
+            WxStaticText.setLabel m_timeText
+              (if WxDateTime.isValid dt then
+                 WxDateTime.formatISODate dt
+               else
+                 "(select first)")
           in
 
           wxDialog_event_table this [
             EVT_TIME_CHANGED(wxID_ANY, onTimeChange);
           ];
 
-        this, m_timePicker
+          this, m_timePicker
 
-      in
+        in
 
-      let onAskTime event =
         let (dlg, m_timePicker) = new_MyTimeDialog w_frame in
         if WxDialog.showModal dlg = wxID_OK then
           wxLogMessage (
             Printf.sprintf "You entered %s"
               (WxDateTime.formatISOTime (WxTimePickerCtrl.getValue m_timePicker)))
-      in
-
+      end
+    in
     let onAskDate event =
-      let dt = WxCalendarCtrl.getDate !m_calendar in
+      if wx_2_9 then begin
+        let dt = WxCalendarCtrl.getDate !m_calendar in
 
-      let style =
-        wxDP_DEFAULT lor
-          (if WxMenuBar.isChecked m_menuBar id_Calendar_DatePicker_ShowCentury
-           then wxDP_SHOWCENTURY else 0) lor
-          (if WxMenuBar.isChecked m_menuBar id_Calendar_DatePicker_DropDown
-           then wxDP_DROPDOWN else 0) lor
-          (if WxMenuBar.isChecked m_menuBar id_Calendar_DatePicker_AllowNone
-           then wxDP_ALLOWNONE else 0)
-      in
-      let wxDefaultDateTime = WxDateTime.today () in
-      let dt =
-        if WxMenuBar.isChecked m_menuBar id_Calendar_DatePicker_StartWithNone
-        then
-          wxDefaultDateTime
-        else dt
-      in
-
-      let new_MyDateDialog (parent : wxWindow) dt dtpStyle =
-        let this = wxDialog parent wxID_ANY "Calendar: Choose a date"
-            wxDefaultPosition wxDefaultSize 0
+        let style =
+          wxDP_DEFAULT lor
+            (if WxMenuBar.isChecked m_menuBar id_Calendar_DatePicker_ShowCentury
+             then wxDP_SHOWCENTURY else 0) lor
+            (if WxMenuBar.isChecked m_menuBar id_Calendar_DatePicker_DropDown
+             then wxDP_DROPDOWN else 0) lor
+            (if WxMenuBar.isChecked m_menuBar id_Calendar_DatePicker_AllowNone
+             then wxDP_ALLOWNONE else 0)
+        in
+        let wxDefaultDateTime = WxDateTime.today () in
+        let dt =
+          if WxMenuBar.isChecked m_menuBar id_Calendar_DatePicker_StartWithNone
+          then
+            wxDefaultDateTime
+          else dt
         in
 
-        let m_datePicker =
-          match WxWindow.wxGetTopLevelParent parent with
-          | None -> None
-          | Some frame ->
-            let frame = WxWindow.Unsafe.wxFrame frame in
-            match WxFrame.getMenuBar frame with
-              None -> None
-            | Some menubar ->
+        let new_MyDateDialog (parent : wxWindow) dt dtpStyle =
+          let this = wxDialog parent wxID_ANY "Calendar: Choose a date"
+              wxDefaultPosition wxDefaultSize 0
+          in
+
+          let m_datePicker =
+            match WxWindow.wxGetTopLevelParent parent with
+            | None -> None
+            | Some frame ->
+              let frame = WxWindow.Unsafe.wxFrame frame in
+              match WxFrame.getMenuBar frame with
+                None -> None
+              | Some menubar ->
 (*
             if WxMenuBar.isChecked menubar id_Calendar_DatePicker_Generic then
               Some (wxDatePickerCtrlGeneric this wxID_ANY dt
@@ -586,90 +588,89 @@ let _ =
                   dtpStyle)
             else
 *)             None
+          in
+          let m_datePicker = match m_datePicker with
+              Some m_datePicker -> m_datePicker
+            | None ->
+              wxDatePickerCtrl (Some (WxDialog.wxWindow this)) wxID_ANY dt
+                wxDefaultPosition wxDefaultSize
+                dtpStyle "datePicker"
+          in
+          WxDatePickerCtrl.setRange m_datePicker
+            (wxDate 1 0 (* TODO Jan *) 1900)
+            wxDefaultDateTime;
+
+          let w_datePicker = WxDatePickerCtrl.wxWindow m_datePicker in
+
+          let w_this = WxDialog.wxWindow this in
+          let m_dateText = WxOCP.wxStaticText w_this "" in
+          let w_dateText = WxStaticText.wxWindow m_dateText in
+
+          let flags = wxALIGN_CENTER lor wxALL in
+          let border = WxSizer.getDefaultBorder () in
+          (*        let (flags : wxSizerFlags) = wxSizerFlags().Centre().Border(); *)
+
+          let sizerMain = wxFlexGridSizer 0 2 0 0 in
+          let s_sizerMain = WxFlexGridSizer.wxSizer sizerMain in
+          let m_text1 = WxOCP.wxStaticText w_this "Enter &date:" in
+          let m_text2 = WxOCP.wxStaticText w_this "Date in ISO format:" in
+          let w_text1 = WxStaticText.wxWindow m_text1 in
+          let w_text2 = WxStaticText.wxWindow m_text2 in
+
+          WxFlexGridSizer.addWindow sizerMain w_text1 0 flags border None;
+          WxFlexGridSizer.addWindow sizerMain w_datePicker 0 flags border None;
+
+          WxFlexGridSizer.addWindow sizerMain w_text2 0 flags border None;
+          WxFlexGridSizer.addWindow sizerMain w_dateText 0 flags border None;
+
+          let sizerBtns = wxStdDialogButtonSizer () in
+          let s_sizerBtns = WxStdDialogButtonSizer.wxSizer sizerBtns in
+          WxStdDialogButtonSizer.addButton sizerBtns (
+            WxOCP.wxButton w_this wxID_OK);
+          WxStdDialogButtonSizer.addButton sizerBtns (
+            WxOCP.wxButton w_this wxID_CANCEL);
+          WxStdDialogButtonSizer.realize sizerBtns;
+
+          let sizerTop = wxBoxSizer wxVERTICAL in
+          let s_sizerTop = WxBoxSizer.wxSizer sizerTop in
+          WxBoxSizer.addSizer sizerTop s_sizerMain 0 flags border None;
+          WxBoxSizer.addSizer sizerTop s_sizerBtns 0 flags border None;
+
+          WxDialog.setSizerAndFit this s_sizerTop true;
+
+          let onDateChange (event : wxDateEvent) =
+            let dt = WxDateEvent.getDate event in
+            WxStaticText.setLabel m_dateText
+              (if WxDateTime.isValid dt then
+                 WxDateTime.formatISODate dt
+               else
+                 "(select first)")
+          in
+          wxDialog_event_table this [
+            EVT_DATE_CHANGED(wxID_ANY, onDateChange);
+          ];
+          (this, m_datePicker)
         in
-        let m_datePicker = match m_datePicker with
-            Some m_datePicker -> m_datePicker
-          | None ->
-            wxDatePickerCtrl (Some (WxDialog.wxWindow this)) wxID_ANY dt
-              wxDefaultPosition wxDefaultSize
-              dtpStyle "datePicker"
+        let (dlg, m_datePicker) = new_MyDateDialog (WxFrame.wxWindow m_frame)
+            dt  style
         in
-        WxDatePickerCtrl.setRange m_datePicker
-          (wxDate 1 0 (* TODO Jan *) 1900)
-          wxDefaultDateTime;
 
-        let w_datePicker = WxDatePickerCtrl.wxWindow m_datePicker in
+        if WxDialog.showModal dlg = wxID_OK then
+          let dt = WxDatePickerCtrl.getValue m_datePicker in
+          if WxDateTime.isValid dt then
 
-        let w_this = WxDialog.wxWindow this in
-        let m_dateText = WxOCP.wxStaticText w_this "" in
-        let w_dateText = WxStaticText.wxWindow m_dateText in
+            let today = WxDateTime.today() in
 
-        let flags = wxALIGN_CENTER lor wxALL in
-        let border = WxSizer.getDefaultBorder () in
-        (*        let (flags : wxSizerFlags) = wxSizerFlags().Centre().Border(); *)
+            if WxDateTime.getDay dt 0 = WxDateTime.getDay today 0 &&
+               WxDateTime.getMonth dt 0 = WxDateTime.getMonth today 0 then
+              WxOCP.wxMessageBox "Happy birthday!" "Calendar Sample";
 
-        let sizerMain = wxFlexGridSizer 0 2 0 0 in
-        let s_sizerMain = WxFlexGridSizer.wxSizer sizerMain in
-        let m_text1 = WxOCP.wxStaticText w_this "Enter &date:" in
-        let m_text2 = WxOCP.wxStaticText w_this "Date in ISO format:" in
-        let w_text1 = WxStaticText.wxWindow m_text1 in
-        let w_text2 = WxStaticText.wxWindow m_text2 in
+            WxCalendarCtrl.setDate !m_calendar dt;
 
-        WxFlexGridSizer.addWindow sizerMain w_text1 0 flags border None;
-        WxFlexGridSizer.addWindow sizerMain w_datePicker 0 flags border None;
-
-        WxFlexGridSizer.addWindow sizerMain w_text2 0 flags border None;
-        WxFlexGridSizer.addWindow sizerMain w_dateText 0 flags border None;
-
-        let sizerBtns = wxStdDialogButtonSizer () in
-        let s_sizerBtns = WxStdDialogButtonSizer.wxSizer sizerBtns in
-        WxStdDialogButtonSizer.addButton sizerBtns (
-          WxOCP.wxButton w_this wxID_OK);
-        WxStdDialogButtonSizer.addButton sizerBtns (
-          WxOCP.wxButton w_this wxID_CANCEL);
-        WxStdDialogButtonSizer.realize sizerBtns;
-
-        let sizerTop = wxBoxSizer wxVERTICAL in
-        let s_sizerTop = WxBoxSizer.wxSizer sizerTop in
-        WxBoxSizer.addSizer sizerTop s_sizerMain 0 flags border None;
-        WxBoxSizer.addSizer sizerTop s_sizerBtns 0 flags border None;
-
-        WxDialog.setSizerAndFit this s_sizerTop true;
-
-        let onDateChange (event : wxDateEvent) =
-          let dt = WxDateEvent.getDate event in
-          WxStaticText.setLabel m_dateText
-            (if WxDateTime.isValid dt then
-               WxDateTime.formatISODate dt
-             else
-               "(select first)")
-        in
-        wxDialog_event_table this [
-          EVT_DATE_CHANGED(wxID_ANY, onDateChange);
-        ];
-        (this, m_datePicker)
-
-      in
-      let (dlg, m_datePicker) = new_MyDateDialog (WxFrame.wxWindow m_frame)
-          dt  style
-      in
-
-      if WxDialog.showModal dlg = wxID_OK then
-        let dt = WxDatePickerCtrl.getValue m_datePicker in
-        if WxDateTime.isValid dt then
-
-          let today = WxDateTime.today() in
-
-          if WxDateTime.getDay dt 0 = WxDateTime.getDay today 0 &&
-             WxDateTime.getMonth dt 0 = WxDateTime.getMonth today 0 then
-            WxOCP.wxMessageBox "Happy birthday!" "Calendar Sample";
-
-          WxCalendarCtrl.setDate !m_calendar dt;
-
-          wxLogStatus "Changed the date to your input"
-        else
-          wxLogStatus "No date entered"
-
+            wxLogStatus "Changed the date to your input"
+          else
+            wxLogStatus "No date entered"
+      end
     in
 
     let onUpdateUIStartWithNone (event: wxUpdateUIEvent) =
@@ -678,20 +679,21 @@ let _ =
         (WxMenuBar.isChecked m_menuBar id_Calendar_DatePicker_AllowNone)
     in
 
-    wxFrame_event_table m_frame
+    wxFrame_event_table m_frame (
       [ EVT_MENU (id_Calendar_File_About, onAbout);
         EVT_MENU(id_Calendar_File_ClearLog, onClearLog);
         EVT_MENU(id_Calendar_File_Quit,  onQuit);
 
-        EVT_MENU(id_Calendar_DatePicker_AskDate, onAskDate);
-
-        EVT_UPDATE_UI(id_Calendar_DatePicker_StartWithNone,
-          onUpdateUIStartWithNone);
-
-        EVT_MENU(id_Calendar_TimePicker_AskTime, onAskTime);
-
-        (*        EVT_MENU(id_Calendar_Cal_Generic, onCalGeneric); *)
-
+      ] @
+      (if wx_2_9 then
+         [
+           EVT_UPDATE_UI(id_Calendar_DatePicker_StartWithNone,
+             onUpdateUIStartWithNone);
+           EVT_MENU(id_Calendar_TimePicker_AskTime, onAskTime);
+           EVT_MENU(id_Calendar_DatePicker_AskDate, onAskDate);
+         ]
+       else [])
+      @ [
         EVT_MENU(id_Calendar_Cal_Monday, onCalMonday);
         EVT_MENU(id_Calendar_Cal_Holidays, onCalHolidays);
         EVT_MENU(id_Calendar_Cal_Special, onCalSpecial);
@@ -710,15 +712,7 @@ let _ =
 
         EVT_MENU(id_Calendar_Cal_Resizable, onCalToggleResizable);
 
-(*
-        EVT_UPDATE_UI(id_Calendar_Cal_SeqMonth, onUpdateUIGenericOnly);
-        EVT_UPDATE_UI(id_Calendar_Cal_Monday, onUpdateUIGenericOnly);
-        EVT_UPDATE_UI(id_Calendar_Cal_Holidays, onUpdateUIGenericOnly);
-        EVT_UPDATE_UI(id_Calendar_Cal_Special, onUpdateUIGenericOnly);
-        EVT_UPDATE_UI(id_Calendar_Cal_SurroundWeeks, onUpdateUIGenericOnly);
-*)
-
-      ];
+      ]);
 
     let olddate = ref None in
     let onCalendar ev =
@@ -765,8 +759,8 @@ let _ =
       let msg =
         Printf.sprintf
           "Clicked on %s"
-        (WxDateTime.getWeekDayName
-           (WxCalendarEvent.getWeekDay event) 0)
+          (WxDateTime.getWeekDayName
+             (WxCalendarEvent.getWeekDay event) 0)
       in wxLogStatus msg
     in
 

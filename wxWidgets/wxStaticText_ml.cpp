@@ -2,6 +2,18 @@
 extern "C" {
 
 
+value wxStaticText_Wrap_c(value self_v, value width_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxStaticText* self_c = (wxStaticText*)Abstract_val(self_v);
+  int width_c = Int_val(width_v);
+  self_c->Wrap(width_c);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
 value wxStaticText_Create_c(value _prt_v, value _id_v, value _txt_v, value pos_v, value sz_v, value _stl_v)
 {
   CAMLparam0();
@@ -18,17 +30,5 @@ value wxStaticText_Create_c(value _prt_v, value _id_v, value _txt_v, value pos_v
 value wxStaticText_Create_c_bytecode(value * argv, int argn)
 {
    return wxStaticText_Create_c( argv[0], argv[1], argv[2], argv[3], argv[4], argv[5]);
-}
-
-
-value wxStaticText_Wrap_c(value self_v, value width_v)
-{
-  CAMLparam0();
-  CAMLlocal1(ret_v);
-  wxStaticText* self_c = (wxStaticText*)Abstract_val(self_v);
-  int width_c = Int_val(width_v);
-  self_c->Wrap(width_c);
-  ret_v = Val_unit;
-  CAMLreturn(ret_v);
 }
 }

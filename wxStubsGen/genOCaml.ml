@@ -177,7 +177,7 @@ let generate_class_module source_dirname cl =
       | ProtoValue -> values := p :: !values
       | ProtoNew | ProtoFunction | ProtoMethod ->
       try
-        let c_name = GenCplusplus.c_function_name cl p in
+        let c_name = c_function_name cl p in
         let ml_name = generate_method_function ml_oc c_name cl p in
         check_ml_name ml_name cl
       with Exit ->
@@ -196,7 +196,7 @@ let generate_class_module source_dirname cl =
         | ProtoFunction
         | ProtoMethod ->
           try
-            let c_name = GenCplusplus.c_function_name pcl p in
+            let c_name = c_function_name pcl p in
             let ml_name = generate_method_function ml_oc c_name cl p in
             check_ml_name ml_name pcl
           with Exit ->

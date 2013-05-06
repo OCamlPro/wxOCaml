@@ -1,5 +1,7 @@
 binannot = false
 
+wx_version = "@WX_VERSION@"
+
 begin config "link-with-wxOCaml"
   custom = true
   bytelink += [ "-custom" ]

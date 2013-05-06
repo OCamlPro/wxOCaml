@@ -50,9 +50,11 @@ AC_SUBST(VERSION)
 
 #####################################################################
 
-WX_CONFIG_OPTIONS
-reqwx=2.9.0
-WX_CONFIG_CHECK([$reqwx], [wxWin=1],,[all])
+#WX_CONFIG_OPTIONS
+AM_OPTIONS_WXCONFIG
+reqwx=2.8.0
+#WX_CONFIG_CHECK([$reqwx], [wxWin=1],,[all])
+AM_PATH_WXCONFIG([$reqwx], [wxWin=1])
 if test "$wxWin" != 1; then
 	AC_MSG_ERROR([
 		wxWidgets must be installed on your system.

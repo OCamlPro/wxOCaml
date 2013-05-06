@@ -73,6 +73,21 @@ let method_name name =
     String.sub name (pos+1) (len-pos-1)
   with Not_found -> name
 
+
+let rec version_of_string version =
+  try
+    let pos = String.index version '.' in
+    let len = String.length version in
+    let before = String.sub version 0 pos in
+    let after = String.sub version (pos+1) (len-pos-1) in
+    int_of_string before :: (version_of_string after)
+  with Not_found -> [ int_of_string version ]
+
+
+let string_of_version wx_version =
+  String.concat "." (List.map string_of_int wx_version)
+
+
 let mkdir dirname =
   if Sys.file_exists dirname then begin
     if not (Sys.is_directory dirname) then begin

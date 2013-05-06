@@ -8,10 +8,13 @@ class wxEvent inherit wxObject begin
 
    method(wxObject?, GetEventObject) () 
    method(wxEventType,	GetEventType) () 
-   method(wxEventCategory,GetEventCategory) () 
    method(wxWindowID, 	GetId) () 
    method(bool, GetSkipped) () 
    method(long,	GetTimestamp) () 
+
+  version 2.9.0 begin
+     method(wxEventCategory,GetEventCategory) () 
+  end
 
  end
 
@@ -91,7 +94,9 @@ class wxCalendarEvent inherit wxDateEvent begin
 
 class wxKeyboardState begin end
 class wxMouseState begin 
-  method(wxPoint, GetPosition)()
+  version 2.9.0 begin
+    method(wxPoint, GetPosition)()
+  end
 end
 
 class wxMouseEvent inherit wxEvent inherit wxMouseState begin 

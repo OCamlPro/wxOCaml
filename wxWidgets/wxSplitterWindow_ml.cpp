@@ -2,72 +2,14 @@
 extern "C" {
 
 
-value wxSplitterWindow_Create_c(value _prt_v, value _id_v, value pos_v, value size_v, value _stl_v)
-{
-  CAMLparam0();
-  CAMLlocal1(ret_v);
-  wxWindow* _prt_c = (wxWindow*)Abstract_val(_prt_v);
-  int _id_c = Int_val(_id_v);
-  int _stl_c = Int_val(_stl_v);
-  wxSplitterWindow * ret_c = new wxSplitterWindow(_prt_c, _id_c, WxPoint_val(pos_v) , WxSize_val(size_v) , _stl_c);
-  ret_v = Val_abstract( ret_c );
-  CAMLreturn(ret_v);
-}
-
-
-value wxSplitterWindow_GetWindow1_c(value self_v)
+value wxSplitterWindow_Unsplit_c(value self_v, value toRemove_v)
 {
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  wxWindow * ret_c = self_c->GetWindow1();
-  ret_v = Val_abstract( ret_c );
-  CAMLreturn(ret_v);
-}
-
-
-value wxSplitterWindow_GetWindow2_c(value self_v)
-{
-  CAMLparam0();
-  CAMLlocal1(ret_v);
-  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  wxWindow * ret_c = self_c->GetWindow2();
-  ret_v = Val_abstract( ret_c );
-  CAMLreturn(ret_v);
-}
-
-
-value wxSplitterWindow_SetSplitMode_c(value self_v, value mode_v)
-{
-  CAMLparam0();
-  CAMLlocal1(ret_v);
-  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  int mode_c = Int_val(mode_v);
-  self_c->SetSplitMode(mode_c);
-  ret_v = Val_unit;
-  CAMLreturn(ret_v);
-}
-
-
-value wxSplitterWindow_GetSplitMode_c(value self_v)
-{
-  CAMLparam0();
-  CAMLlocal1(ret_v);
-  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  int ret_c = self_c->GetSplitMode();
+  wxWindow* toRemove_c = (wxWindow*)Abstract_val(toRemove_v);
+  int ret_c = self_c->Unsplit(toRemove_c);
   ret_v = Val_int( ret_c);
-  CAMLreturn(ret_v);
-}
-
-
-value wxSplitterWindow_Initialize_c(value self_v, value window_v)
-{
-  CAMLparam0();
-  CAMLlocal1(ret_v);
-  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  wxWindow* window_c = (wxWindow*)AbstractOption_val(window_v);
-  self_c->Initialize(window_c);
-  ret_v = Val_unit;
   CAMLreturn(ret_v);
 }
 
@@ -100,14 +42,75 @@ value wxSplitterWindow_SplitHorizontally_c(value self_v, value window1_v, value 
 }
 
 
-value wxSplitterWindow_Unsplit_c(value self_v, value toRemove_v)
+value wxSplitterWindow_SetSplitMode_c(value self_v, value mode_v)
 {
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  wxWindow* toRemove_c = (wxWindow*)Abstract_val(toRemove_v);
-  int ret_c = self_c->Unsplit(toRemove_c);
-  ret_v = Val_int( ret_c);
+  int mode_c = Int_val(mode_v);
+  self_c->SetSplitMode(mode_c);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
+value wxSplitterWindow_SetSashSize_c(value self_v, value width_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
+  int width_c = Int_val(width_v);
+  self_c->SetSashSize(width_c);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
+value wxSplitterWindow_SetSashPosition_c(value self_v, value position_v, value redraw_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
+  int position_c = Int_val(position_v);
+  bool redraw_c = Int_val(redraw_v);
+  self_c->SetSashPosition(position_c, redraw_c);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
+value wxSplitterWindow_SetSashGravity_c(value self_v, value gravity_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
+  double gravity_c = Double_val(gravity_v);
+  self_c->SetSashGravity(gravity_c);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
+value wxSplitterWindow_SetMinimumPaneSize_c(value self_v, value min_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
+  int min_c = Int_val(min_v);
+  self_c->SetMinimumPaneSize(min_c);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
+value wxSplitterWindow_SetBorderSize_c(value self_v, value width_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
+  int width_c = Int_val(width_v);
+  self_c->SetBorderSize(width_c);
+  ret_v = Val_unit;
   CAMLreturn(ret_v);
 }
 
@@ -136,26 +139,47 @@ value wxSplitterWindow_IsSplit_c(value self_v)
 }
 
 
-value wxSplitterWindow_SetSashSize_c(value self_v, value width_v)
+value wxSplitterWindow_Initialize_c(value self_v, value window_v)
 {
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  int width_c = Int_val(width_v);
-  self_c->SetSashSize(width_c);
+  wxWindow* window_c = (wxWindow*)AbstractOption_val(window_v);
+  self_c->Initialize(window_c);
   ret_v = Val_unit;
   CAMLreturn(ret_v);
 }
 
 
-value wxSplitterWindow_SetBorderSize_c(value self_v, value width_v)
+value wxSplitterWindow_GetWindow2_c(value self_v)
 {
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  int width_c = Int_val(width_v);
-  self_c->SetBorderSize(width_c);
-  ret_v = Val_unit;
+  wxWindow * ret_c = self_c->GetWindow2();
+  ret_v = Val_abstract( ret_c );
+  CAMLreturn(ret_v);
+}
+
+
+value wxSplitterWindow_GetWindow1_c(value self_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
+  wxWindow * ret_c = self_c->GetWindow1();
+  ret_v = Val_abstract( ret_c );
+  CAMLreturn(ret_v);
+}
+
+
+value wxSplitterWindow_GetSplitMode_c(value self_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
+  int ret_c = self_c->GetSplitMode();
+  ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
 
@@ -171,59 +195,12 @@ value wxSplitterWindow_GetSashSize_c(value self_v)
 }
 
 
-value wxSplitterWindow_GetBorderSize_c(value self_v)
-{
-  CAMLparam0();
-  CAMLlocal1(ret_v);
-  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  int ret_c = self_c->GetBorderSize();
-  ret_v = Val_int( ret_c);
-  CAMLreturn(ret_v);
-}
-
-
-value wxSplitterWindow_SetSashPosition_c(value self_v, value position_v, value redraw_v)
-{
-  CAMLparam0();
-  CAMLlocal1(ret_v);
-  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  int position_c = Int_val(position_v);
-  bool redraw_c = Int_val(redraw_v);
-  self_c->SetSashPosition(position_c, redraw_c);
-  ret_v = Val_unit;
-  CAMLreturn(ret_v);
-}
-
-
 value wxSplitterWindow_GetSashPosition_c(value self_v)
 {
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
   int ret_c = self_c->GetSashPosition();
-  ret_v = Val_int( ret_c);
-  CAMLreturn(ret_v);
-}
-
-
-value wxSplitterWindow_SetMinimumPaneSize_c(value self_v, value min_v)
-{
-  CAMLparam0();
-  CAMLlocal1(ret_v);
-  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  int min_c = Int_val(min_v);
-  self_c->SetMinimumPaneSize(min_c);
-  ret_v = Val_unit;
-  CAMLreturn(ret_v);
-}
-
-
-value wxSplitterWindow_GetMinimumPaneSize_c(value self_v)
-{
-  CAMLparam0();
-  CAMLlocal1(ret_v);
-  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  int ret_c = self_c->GetMinimumPaneSize();
   ret_v = Val_int( ret_c);
   CAMLreturn(ret_v);
 }
@@ -240,14 +217,37 @@ value wxSplitterWindow_GetSashGravity_c(value self_v)
 }
 
 
-value wxSplitterWindow_SetSashGravity_c(value self_v, value gravity_v)
+value wxSplitterWindow_GetMinimumPaneSize_c(value self_v)
 {
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
-  double gravity_c = Double_val(gravity_v);
-  self_c->SetSashGravity(gravity_c);
-  ret_v = Val_unit;
+  int ret_c = self_c->GetMinimumPaneSize();
+  ret_v = Val_int( ret_c);
+  CAMLreturn(ret_v);
+}
+
+
+value wxSplitterWindow_GetBorderSize_c(value self_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxSplitterWindow* self_c = (wxSplitterWindow*)Abstract_val(self_v);
+  int ret_c = self_c->GetBorderSize();
+  ret_v = Val_int( ret_c);
+  CAMLreturn(ret_v);
+}
+
+
+value wxSplitterWindow_Create_c(value _prt_v, value _id_v, value pos_v, value size_v, value _stl_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxWindow* _prt_c = (wxWindow*)Abstract_val(_prt_v);
+  int _id_c = Int_val(_id_v);
+  int _stl_c = Int_val(_stl_v);
+  wxSplitterWindow * ret_c = new wxSplitterWindow(_prt_c, _id_c, WxPoint_val(pos_v) , WxSize_val(size_v) , _stl_c);
+  ret_v = Val_abstract( ret_c );
   CAMLreturn(ret_v);
 }
 }

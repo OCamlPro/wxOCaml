@@ -1,6 +1,7 @@
 
 class wxTimePickerCtrl inherit wxControl begin
 
+  version 2.9.0 begin
  	new(Create) (
 	    wxWindow *parent, 
             wxWindowID id, 
@@ -16,4 +17,6 @@ class wxTimePickerCtrl inherit wxControl begin
 	method( wxDateTime, 	GetValue) () 
 	method (bool, 	SetTime) (int hour, int min, int sec)
 	method( void, 	SetValue) (wxDateTime &dt)
+
+  end
 end

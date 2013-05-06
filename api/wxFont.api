@@ -7,60 +7,68 @@ type wxFontSymbolicSize = int
 
 class wxFont inherit wxObject begin
 
-  new(Create)(int pointSize, wxFontFamily family, wxFontStyle style, 
-              wxFontWeight weight, bool underline (* =false *),
-              wxString &faceName (* =wxEmptyString *), 
-              wxFontEncoding encoding (* =wxFONTENCODING_DEFAULT *) )
-  new(CreateDefault)()
+ new(Create)(int pointSize, wxFontFamily family, wxFontStyle style, 
+       wxFontWeight weight, bool underline (* =false *),
+       wxString &faceName (* =wxEmptyString *), 
+       wxFontEncoding encoding (* =wxFONTENCODING_DEFAULT *) )
+ new(CreateDefault)()
 
-  (*  	wxFont (int pointSize, wxFontFamily family, int flags, 
-         const wxString &faceName=wxEmptyString, 
-         wxFontEncoding encoding=wxFONTENCODING_DEFAULT) *)
+ (*  wxFont (int pointSize, wxFontFamily family, int flags, 
+     const wxString &faceName=wxEmptyString, 
+     wxFontEncoding encoding=wxFONTENCODING_DEFAULT) *)
 
-   new(CreateFromString) (wxString &nativeInfoString)
+  new(CreateFromString) (wxString &nativeInfoString)
 
 
-   method( wxString, GetFaceName) () 
-   method( wxFontFamily, GetFamily) ()
-   method(wxString, GetNativeFontInfoDesc) ()
-   method(wxString, 	GetNativeFontInfoUserDesc) ()
-(*   wxNativeFontInfo * 	GetNativeFontInfo () *)
-   method(int, 	GetPointSize) ()
-   method(wxSize, 	GetPixelSize) ()
-   method(wxFontStyle, 	GetStyle) ()
-   method(bool, 	GetUnderlined) ()
-   method(bool, 	GetStrikethrough) ()
-   method(wxFontWeight, 	GetWeight) ()
-   method(bool, 	IsFixedWidth) ()
-   method(bool, 	IsOk) ()
+  method( wxString, GetFaceName) () 
+  method(wxString, GetNativeFontInfoDesc) ()
+  method(wxString,  GetNativeFontInfoUserDesc) ()
+(*  wxNativeFontInfo *  GetNativeFontInfo () *)
+  method(int,  GetPointSize) ()
+  method(wxSize,  GetPixelSize) ()
+  method(bool,  GetUnderlined) ()
+  method(bool,  IsFixedWidth) ()
+  method(bool,  IsOk) ()
 
-   method(wxFont, 	Bold) ()
-   method(wxFont, 	Italic) ()
-   method(wxFont, 	Larger) ()
-   method(wxFont, 	Smaller) ()
-   method(wxFont, 	Underlined) ()
-   method(wxFont, 	Strikethrough) ()
-   method(wxFont,  	MakeBold) ()
-   method(wxFont,  	MakeItalic) ()
-   method(wxFont,  	MakeLarger) ()
-   method(wxFont,  	MakeSmaller) ()
-   method(wxFont,  	MakeUnderlined) ()
-   method(wxFont,  	MakeStrikethrough) ()
-   method(wxFont,  	Scale) (float x)
-   method(wxFont, 	Scaled) (float x)
+  method(void,  SetEncoding) (wxFontEncoding encoding)
+  method(bool,  SetFaceName) (wxString &faceName)
+  method(void,  SetFamily) (wxFontFamily family)
+  method(bool,  SetNativeFontInfo) (wxString &info)
+  method(bool,  SetNativeFontInfoUserDesc) (wxString &info)
+  (* void,  SetNativeFontInfo (wxNativeFontInfo &info) *)
+  method(void,  SetPointSize) (int pointSize)
+  method(void,  SetPixelSize) (wxSize &pixelSize)
+  method(void,  SetStyle) (wxFontStyle style)
+  method(void,  SetUnderlined) (bool underlined)
+  method(void,  SetWeight) (wxFontWeight weight)
 
-   method(void, 	SetEncoding) (wxFontEncoding encoding)
-   method(bool, 	SetFaceName) (wxString &faceName)
-   method(void, 	SetFamily) (wxFontFamily family)
-   method(bool, 	SetNativeFontInfo) (wxString &info)
-   method(bool, 	SetNativeFontInfoUserDesc) (wxString &info)
-   (* void, 	SetNativeFontInfo (wxNativeFontInfo &info) *)
-   method(void, 	SetPointSize) (int pointSize)
-   method(void, 	SetPixelSize) (wxSize &pixelSize)
-   method(void, 	SetStyle) (wxFontStyle style)
-   method(void, 	SetSymbolicSize) (wxFontSymbolicSize size)
-   method(void, 	SetSymbolicSizeRelativeTo) (wxFontSymbolicSize size, int base)
-  method(void, 	SetUnderlined) (bool underlined)
-  method(void, 	SetStrikethrough) (bool strikethrough)
-  method(void, 	SetWeight) (wxFontWeight weight)
+  version 2.9.0 begin
+
+(* different args: TODO propose another alternative *)
+  method(wxFontFamily, GetFamily) ()
+  method(wxFontStyle,  GetStyle) ()
+  method(wxFontWeight,  GetWeight) ()
+
+
+(* don't exist: *)
+    method(void,  SetSymbolicSize) (wxFontSymbolicSize size)
+    method(void,  SetSymbolicSizeRelativeTo) (wxFontSymbolicSize size, int base)
+    method(bool, GetStrikethrough) ()
+    method(void,  SetStrikethrough) (bool strikethrough)
+    method(wxFont,  Bold) ()
+    method(wxFont,  Italic) ()
+    method(wxFont,  Larger) ()
+    method(wxFont,  Smaller) ()
+    method(wxFont,  Underlined) ()
+    method(wxFont,  Strikethrough) ()
+    method(wxFont,  MakeBold) ()
+    method(wxFont,  MakeItalic) ()
+    method(wxFont,  MakeLarger) ()
+    method(wxFont,  MakeSmaller) ()
+    method(wxFont,  MakeUnderlined) ()
+    method(wxFont,  MakeStrikethrough) ()
+    method(wxFont,  Scale) (float x)
+    method(wxFont,  Scaled) (float x)
+  end
+
 end

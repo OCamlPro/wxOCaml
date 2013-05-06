@@ -1,6 +1,8 @@
 begin program "wxStubsGen"
 
    files = [
+    "genVersion.ml" (ocp2ml = true env_strings = [ "wx_version" ])
+
     "genMisc.ml"
     "genTypes.ml";
 

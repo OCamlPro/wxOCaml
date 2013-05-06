@@ -6,8 +6,6 @@ class wxIcon inherit wxObject begin
   new(CreateLoad)(wxString& data, wxBitmapType type, int width,int height)
 (*  new(CreateFromXPM)(strings data) *)
 
-  method(bool, LoadFile)(wxString& name,wxBitmapType type,int width,int height)
-
   method(void, CopyFromBitmap)(wxBitmap& bmp)
 
   method(bool, IsOk)()
@@ -22,6 +20,12 @@ class wxIcon inherit wxObject begin
   method(bool,IsEqual)(wxIcon* other) COMPLEX
   method(void, Assign)(wxIcon& other)
 *)
+
+
+  version 2.9.0 begin
+    method(bool, LoadFile)
+        (wxString& name,wxBitmapType type,int width,int height)
+  end
 
 
 end

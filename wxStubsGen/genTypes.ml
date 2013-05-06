@@ -24,6 +24,7 @@ and class_descr = {
   mutable class_children : class_descr StringMap.t;
 
   class_methods : prototype list;
+  class_includes : string list;
 }
 
 and prototype = {
@@ -33,6 +34,7 @@ and prototype = {
   proto_mlname : string option;
   proto_args : fun_arg list;
   proto_options : proto_options;
+  proto_version : int list;
 }
 
 and proto_options = {
@@ -91,3 +93,11 @@ let find_ocaml_equiv wxClass =
     | _ -> assert false
   with Not_found -> wxClass
 
+let wx_version = GenMisc.version_of_string GenVersion.wx_version
+
+
+let c_function_name cl p =
+  Printf.sprintf "%s_%s_c" cl.class_name
+    (match p.proto_mlname with
+       None -> GenMisc.method_name p.proto_name
+     | Some name -> name)

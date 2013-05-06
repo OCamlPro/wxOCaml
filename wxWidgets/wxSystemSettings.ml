@@ -1,13 +1,7 @@
 open WxClasses
 
-external getColour : 
-   int -> 
-      wxColour = "wxSystemSettings_GetColour_c"
-
-
-external getFont : 
-   int -> 
-      wxFont = "wxSystemSettings_GetFont_c"
+external getScreenType : 
+    unit -> int = "wxSystemSettings_GetScreenType_c"
 
 
 external getMetric : 
@@ -15,8 +9,14 @@ external getMetric :
       int = "wxSystemSettings_GetMetric_c"
 
 
-external getScreenType : 
-    unit -> int = "wxSystemSettings_GetScreenType_c"
+external getFont : 
+   int -> 
+      wxFont = "wxSystemSettings_GetFont_c"
+
+
+external getColour : 
+   int -> 
+      wxColour = "wxSystemSettings_GetColour_c"
 
 
 (* Methods inherited from parents, if any *)

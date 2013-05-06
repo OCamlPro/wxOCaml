@@ -16,16 +16,19 @@ class wxArtProvider inherit wxObject begin
   function(wxIcon, wxArtProvider::GetIcon) (wxArtID &id, 
                                   wxArtClient &client, 
                                   wxSize &size)
-  function(wxSize, wxArtProvider::GetNativeSizeHint) (wxArtClient &client)
   function(wxSize, wxArtProvider::GetSizeHint) (wxArtClient &client, 
                                  bool platform_default (* =false *))
-  function(wxIconBundle, wxArtProvider::GetIconBundle) (wxArtID &id, 
-                                         wxArtClient &client)
-  function(bool,  wxArtProvider::HasNativeProvider) ()
   function(void,  wxArtProvider::Insert) (wxArtProvider *provider)
   function(bool,  wxArtProvider::Pop) ()
   function(void,  wxArtProvider::Push) (wxArtProvider *provider)
   function(void,  wxArtProvider::PushBack) (wxArtProvider *provider)
   function(bool,  wxArtProvider::Remove) (wxArtProvider *provider)
+
+  version 2.9.0 begin
+    function(wxSize, wxArtProvider::GetNativeSizeHint) (wxArtClient &client)
+    function(wxIconBundle, wxArtProvider::GetIconBundle) (wxArtID &id, 
+                                         wxArtClient &client)
+    function(bool,  wxArtProvider::HasNativeProvider) ()
+  end
 
 end

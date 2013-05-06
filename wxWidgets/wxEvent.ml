@@ -1,27 +1,27 @@
 open WxClasses
 
-external getEventObject : wxEvent ->
-   wxObject option = "wxEvent_GetEventObject_c"
-
-
-external getEventType : wxEvent ->
-   int = "wxEvent_GetEventType_c"
-
-
-external getEventCategory : wxEvent ->
-   int = "wxEvent_GetEventCategory_c"
-
-
-external getId : wxEvent ->
-   int = "wxEvent_GetId_c"
+external getTimestamp : wxEvent ->
+   int = "wxEvent_GetTimestamp_c"
 
 
 external getSkipped : wxEvent ->
    bool  = "wxEvent_GetSkipped_c"
 
 
-external getTimestamp : wxEvent ->
-   int = "wxEvent_GetTimestamp_c"
+external getId : wxEvent ->
+   int = "wxEvent_GetId_c"
+
+
+external getEventType : wxEvent ->
+   int = "wxEvent_GetEventType_c"
+
+
+external getEventObject : wxEvent ->
+   wxObject option = "wxEvent_GetEventObject_c"
+
+
+external getEventCategory : wxEvent ->
+   int = "wxEvent_GetEventCategory_c"
 
 
 (* Methods inherited from parents, if any *)

@@ -3,12 +3,6 @@ open GenMisc
 open GenTypes
 open GenProject
 
-let c_function_name cl p =
-  Printf.sprintf "%s_%s_c" cl.class_name
-    (match p.proto_mlname with
-       None -> method_name p.proto_name
-     | Some name -> name)
-
 let rec string_of_ctype ctype =
   match ctype with
   | Typ_ident id -> id
@@ -77,57 +71,16 @@ let find_return_conversion ctyp =
   | _ -> assert false
 
 
+let   generate_method_stub_body oc cl p  out_nargs =
 
-let generate_method_stub oc cl p =
   let proto_ret = match p.proto_ret with
       None -> Typ_pointer (Typ_ident cl.class_name)
     | Some ctype -> ctype in
 
   (**************************************)
-  (*              Prototype             *)
-  (**************************************)
-
-  let c_function_name = c_function_name cl p in
-
-  fprintf oc "\n\nvalue %s(" c_function_name;
-  let first_arg = ref true in
-  let function_nargs = ref (
-      match p.proto_kind with
-        ProtoNew -> 0
-      | ProtoMethod ->
-        fprintf oc "value self_v"; first_arg := false; 1
-      | ProtoFunction -> 0
-      | ProtoValue -> assert false
-    )
-  in
-
-  let out_nargs = ref 0 in
-  List.iter (fun arg ->
-    begin
-      match arg.arg_direction, arg.arg_ctype with
-        In, Typ_direct ->  ()
-      | Out, _ ->
-        incr out_nargs;
-      | _ ->
-        if !first_arg then
-          first_arg := false
-        else
-          fprintf oc ", ";
-        incr function_nargs;
-        fprintf oc "value %s_v" arg.arg_name
-    end;
-
-  ) p.proto_args;
-
-  fprintf oc ")\n{\n";
-
-
-  (**************************************)
   (*              Local storage         *)
   (**************************************)
 
-  fprintf oc "  CAMLparam0();\n";
-  fprintf oc "  CAMLlocal1(ret_v);\n";
   begin match p.proto_kind with
       ProtoNew
     | ProtoFunction -> ()
@@ -160,6 +113,8 @@ let generate_method_stub oc cl p =
           fprintf oc "  %s %s_c = %sInt_val(%s_v);\n" wxClass arg_name cast arg_name
         | "float" | "double" ->
           fprintf oc "  %s %s_c = %sDouble_val(%s_v);\n" wxClass arg_name cast arg_name
+        | "string" ->
+          fprintf oc "  %s %s_c = %sString_val(%s_v);\n" wxClass arg_name cast arg_name
         | _ -> ()
       end
 
@@ -268,7 +223,7 @@ let generate_method_stub oc cl p =
       let wxClass_equiv = find_cpp_equiv wxClass in
       begin match wxClass_equiv with
           "int" | "long" | "bool"
-        | "float" | "double" ->
+        | "float" | "double" | "string" ->
           fprintf oc "%s_c" arg.arg_name
         | _ ->
           Printf.eprintf "Error(1): don't know what to do with arg type (%s)\n  %s\n%!" arg.arg_name (string_of_ctype arg.arg_ctype);
@@ -358,12 +313,12 @@ let generate_method_stub oc cl p =
         exit_code := 2
 *)
   in
-  if !out_nargs = 0 then begin
+  if out_nargs = 0 then begin
     fprintf oc "  ret_v = ";
     convert_ret oc;
     fprintf oc ";\n";
   end else
-    if !out_nargs = 1 && ret_arg = 0 then
+    if out_nargs = 1 && ret_arg = 0 then
       List.iter (fun arg ->
         match arg.arg_direction with
         | In -> ()
@@ -373,7 +328,7 @@ let generate_method_stub oc cl p =
       ) p.proto_args
     else
       begin
-        let nrets = !out_nargs + ret_arg in
+        let nrets = out_nargs + ret_arg in
         fprintf oc "  ret_v = caml_alloc(%d, 0);\n" nrets;
         if ret_arg = 1 then begin
           fprintf oc "  caml_initialize(&Field(ret_v,0), ";
@@ -423,6 +378,61 @@ let generate_method_stub oc cl p =
       end
     | _ -> ()
   ) p.proto_args;
+    ()
+
+let generate_method_stub oc cl p =
+
+  (**************************************)
+  (*              Prototype             *)
+  (**************************************)
+
+  let c_function_name = c_function_name cl p in
+
+  fprintf oc "\n\nvalue %s(" c_function_name;
+  let first_arg = ref true in
+  let function_nargs = ref (
+      match p.proto_kind with
+        ProtoNew -> 0
+      | ProtoMethod ->
+        fprintf oc "value self_v"; first_arg := false; 1
+      | ProtoFunction -> 0
+      | ProtoValue -> assert false
+    )
+  in
+
+  let out_nargs = ref 0 in
+  List.iter (fun arg ->
+    begin
+      match arg.arg_direction, arg.arg_ctype with
+        In, Typ_direct ->  ()
+      | Out, _ ->
+        incr out_nargs;
+      | _ ->
+        if !first_arg then
+          first_arg := false
+        else
+          fprintf oc ", ";
+        incr function_nargs;
+        fprintf oc "value %s_v" arg.arg_name
+    end;
+
+  ) p.proto_args;
+
+  fprintf oc ")\n{\n";
+  fprintf oc "  CAMLparam0();\n";
+  fprintf oc "  CAMLlocal1(ret_v);\n";
+
+  if p.proto_version <= wx_version then
+    generate_method_stub_body oc cl p !out_nargs
+  else begin
+    fprintf oc "  caml_failwith(\"";
+    fprintf oc "WxWidgets stub %s not implemented (version %s > current %s)"
+      c_function_name
+      (string_of_version p.proto_version)
+      (string_of_version wx_version);
+    fprintf oc "\");\n"
+  end;
+
 
   fprintf oc "  CAMLreturn(ret_v);\n}\n";
 

@@ -13,6 +13,7 @@ let new_class class_name class_inherit class_methods =
     class_methods;
     class_parents;
     class_children;
+    class_includes = [];
   }
 
 let default_options = { fopt_gen_cpp = true; fopt_others = () }
@@ -24,6 +25,7 @@ let default_options = { fopt_gen_cpp = true; fopt_others = () }
 
 %token <string>STRING
 %token <string> IDENT
+%token <int>INT
 
 %token LBRACE
 %token RBRACE
@@ -39,6 +41,7 @@ let default_options = { fopt_gen_cpp = true; fopt_others = () }
 %token EQUAL
 %token LESSMINUS
 %token LESSGREATER
+%token DOT
 
 %token BEGIN
 %token END
@@ -53,6 +56,7 @@ let default_options = { fopt_gen_cpp = true; fopt_others = () }
 %token FUNCTION
 %token TYPE
 %token VALUE
+%token VERSION
 
 %start file
 %type <GenTypes.file> file
@@ -84,6 +88,14 @@ ancestors:
 methods:
   { [] }
 | meth methods { $1 :: $2 }
+| VERSION version BEGIN methods END methods {
+   (List.map (fun p -> { p with proto_version = $2 }) $4) @ $6
+}
+;
+
+version:
+| INT { [ $1 ] }
+| INT DOT version { $1 :: $3 }
 ;
 
 /* For Mantis: using "method" as a rule name triggers a weird error.
@@ -97,6 +109,7 @@ meth:
       proto_mlname = $5;
       proto_args = $8;
       proto_options = $2;
+      proto_version = [];
     }
   }
 | METHOD options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN LPAREN arguments RPAREN
@@ -107,6 +120,7 @@ meth:
       proto_mlname = $7;
       proto_args = $10;
       proto_options = $2;
+      proto_version = [];
     }
   }
 | FUNCTION options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN LPAREN arguments RPAREN
@@ -117,6 +131,7 @@ meth:
       proto_mlname = $7;
       proto_args = $10;
       proto_options = $2;
+      proto_version = [];
     }
   }
 | VALUE options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN
@@ -127,6 +142,7 @@ meth:
       proto_mlname = $7;
       proto_args = [];
       proto_options = $2;
+      proto_version = [];
     }
   }
 ;
@@ -206,5 +222,6 @@ genident:
 | FUNCTION { "function" }
 | TYPE    { "type" }
 | VALUE   { "value" }
+| VERSION { "version" }
 ;
 

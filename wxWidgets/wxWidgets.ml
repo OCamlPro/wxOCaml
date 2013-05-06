@@ -2,6 +2,33 @@ open WxClasses
 open WxDefs
 open WxMisc
 
+let rec version_of_string version =
+  try
+    let pos = String.index version '.' in
+    let len = String.length version in
+    let before = String.sub version 0 pos in
+    let after = String.sub version (pos+1) (len-pos-1) in
+    int_of_string before :: (version_of_string after)
+  with Not_found -> [ int_of_string version ]
+
+
+let string_of_version wx_version =
+  String.concat "." (List.map string_of_int wx_version)
+
+let wx_version = version_of_string WxVersion.wx_version
+let wx_config version = wx_version >= version
+
+let wx_check_config version =
+  if not (wx_config version) then begin
+    Printf.eprintf "This example only works with WxWidgets version %s\n%!"
+      (string_of_version version);
+    exit 2
+  end
+
+let wx_2_9 = wx_config [2;9]
+let wx_2_8 = wx_config [2;8] && not wx_2_9
+
+
 let wxID = WxID.create
 let wxFrame = WxFrame.create
 let wxPanel = WxPanel.create
@@ -17,12 +44,12 @@ let wxLogTextCtrl = WxLogTextCtrl.create
 let wxDialog = WxDialog.create
 let wxDatePickerCtrl = WxDatePickerCtrl.create
 let wxTimePickerCtrl = WxTimePickerCtrl.create
+let wxWrapSizer = WxWrapSizer.create
 let wxFlexGridSizer = WxFlexGridSizer.create
 let wxStdDialogButtonSizer = WxStdDialogButtonSizer.create
 let wxCalendarDateAttr = WxCalendarDateAttr.create
 let wxCalendarDateAttrBorder = WxCalendarDateAttr.createBorder
 let wxToolBar = WxToolBar.create
-let wxWrapSizer = WxWrapSizer.create
 let wxStaticBoxSizer = WxStaticBoxSizer.create
 let wxStaticBoxSizerEx = WxStaticBoxSizer.createEx
 let wxCheckBox = WxCheckBox.create
@@ -50,12 +77,14 @@ module WxOCP = struct
     wxButton win id "" wxDefaultPosition wxDefaultSize 0
   let wxMessageBox txt1 txt2 =
     ignore_int (wxMessageBox txt1 txt2 (wxOK lor wxCENTRE) None (-1) (-1))
+
   let wxGetSingleChoiceIndex msg caption choices =
     let array = WxArrayString.create () in
     Array.iter (fun s -> ignore_int (WxArrayString.add array s)) choices;
     wxGetSingleChoiceIndex msg caption array None
       wxDefaultCoord wxDefaultCoord true wxCHOICE_WIDTH wxCHOICE_HEIGHT
       0
+
 end
 
 type eventHandler =

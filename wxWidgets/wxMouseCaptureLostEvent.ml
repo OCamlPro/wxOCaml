@@ -2,28 +2,28 @@ open WxClasses
 
 (* Methods inherited from parents, if any *)
 
-external getEventObject : wxMouseCaptureLostEvent ->
-   wxObject option = "wxEvent_GetEventObject_c"
-
-
-external getEventType : wxMouseCaptureLostEvent ->
-   int = "wxEvent_GetEventType_c"
-
-
-external getEventCategory : wxMouseCaptureLostEvent ->
-   int = "wxEvent_GetEventCategory_c"
-
-
-external getId : wxMouseCaptureLostEvent ->
-   int = "wxEvent_GetId_c"
+external getTimestamp : wxMouseCaptureLostEvent ->
+   int = "wxEvent_GetTimestamp_c"
 
 
 external getSkipped : wxMouseCaptureLostEvent ->
    bool  = "wxEvent_GetSkipped_c"
 
 
-external getTimestamp : wxMouseCaptureLostEvent ->
-   int = "wxEvent_GetTimestamp_c"
+external getId : wxMouseCaptureLostEvent ->
+   int = "wxEvent_GetId_c"
+
+
+external getEventType : wxMouseCaptureLostEvent ->
+   int = "wxEvent_GetEventType_c"
+
+
+external getEventObject : wxMouseCaptureLostEvent ->
+   wxObject option = "wxEvent_GetEventObject_c"
+
+
+external getEventCategory : wxMouseCaptureLostEvent ->
+   int = "wxEvent_GetEventCategory_c"
 
 
 (* Cast functions to parents *)

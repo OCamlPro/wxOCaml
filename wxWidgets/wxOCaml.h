@@ -51,15 +51,62 @@ typedef int intptr_t;
 #include "wx/socket.h"
 #include "wx/artprov.h"
 #include "wx/sound.h"
+
+#if wxUSE_DATEPICKCTRL
 #include "wx/datectrl.h"
+#endif
+
+#if wxUSE_TIMEPICKCTRL
 #include "wx/timectrl.h"
+#endif
+
+#if wxCHECK_VERSION(2, 9, 0)
 #include "wx/wrapsizer.h"
+
+#else
+
+typedef int wxEventCategory;
+
+#define wxART_PLUS wxART_HELP
+#define wxART_MINUS wxART_HELP
+#define wxART_LIST wxART_HELP
+#define wxART_GOTO_LAST wxART_HELP
+#define wxART_GOTO_FIRST wxART_HELP
+#define wxART_CLOSE wxART_HELP
+
+#define wxCAL_SHOW_WEEK_NUMBERS 0
+#define wxEXTEND_LAST_ON_EACH_LINE 0
+#define wxREMOVE_LEADING_SPACES 0
+#define wxWRAPSIZER_DEFAULT_FLAGS 0
+
+#define wxEVT_TIME_CHANGED          (-1)
+#define wxEVT_CALENDAR_WEEK_CLICKED (-1)
+#define wxEVT_CALENDAR_PAGE_CHANGED (-1)
+#define wxEVT_SPIN             (-1)
+#define wxEVT_SPIN_DOWN             (-1)
+#define wxEVT_SPIN_UP             (-1)
+#define wxEVT_AFTER_CHAR             (-1)
+#define wxEVT_AUX2_DCLICK             (-1)
+#define wxEVT_AUX2_DOWN             (-1)
+#define wxEVT_AUX2_UP             (-1)
+#define wxEVT_AUX1_DCLICK             (-1)
+#define wxEVT_AUX1_UP             (-1)
+#define wxEVT_AUX1_DOWN             (-1)
+#define wxEVT_THREAD             (-1)
+#define wxEVT_COMMAND_COMBOBOX_CLOSEUP             (-1)
+#define wxEVT_COMMAND_COMBOBOX_DROPDOWN             (-1)
+#define wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED         (-1)
+#define wxEVT_MOVE_START             (-1)
+#define wxEVT_MOVE_END             (-1)
+#endif
 
 extern "C" {
 
 #include <caml/mlvalues.h>
 #include <caml/alloc.h>
 #include <caml/memory.h>
+#include <caml/fail.h>
+typedef char* string;
 
 #define Abstract_val(s) Field(s, 0)
 extern value Val_abstract(const void *ptr);

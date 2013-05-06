@@ -2,6 +2,30 @@
 extern "C" {
 
 
+value wxFlexGridSizer_RemoveGrowableRow_c(value self_v, value idx_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxFlexGridSizer* self_c = (wxFlexGridSizer*)Abstract_val(self_v);
+  int idx_c = Int_val(idx_v);
+  self_c->RemoveGrowableRow(idx_c);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
+value wxFlexGridSizer_RemoveGrowableCol_c(value self_v, value idx_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxFlexGridSizer* self_c = (wxFlexGridSizer*)Abstract_val(self_v);
+  int idx_c = Int_val(idx_v);
+  self_c->RemoveGrowableCol(idx_c);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
 value wxFlexGridSizer_Create_c(value rows_v, value cols_v, value vgap_v, value hgap_v)
 {
   CAMLparam0();
@@ -28,18 +52,6 @@ value wxFlexGridSizer_AddGrowableRow_c(value self_v, value idx_v)
 }
 
 
-value wxFlexGridSizer_RemoveGrowableRow_c(value self_v, value idx_v)
-{
-  CAMLparam0();
-  CAMLlocal1(ret_v);
-  wxFlexGridSizer* self_c = (wxFlexGridSizer*)Abstract_val(self_v);
-  int idx_c = Int_val(idx_v);
-  self_c->RemoveGrowableRow(idx_c);
-  ret_v = Val_unit;
-  CAMLreturn(ret_v);
-}
-
-
 value wxFlexGridSizer_AddGrowableCol_c(value self_v, value idx_v)
 {
   CAMLparam0();
@@ -47,18 +59,6 @@ value wxFlexGridSizer_AddGrowableCol_c(value self_v, value idx_v)
   wxFlexGridSizer* self_c = (wxFlexGridSizer*)Abstract_val(self_v);
   int idx_c = Int_val(idx_v);
   self_c->AddGrowableCol(idx_c);
-  ret_v = Val_unit;
-  CAMLreturn(ret_v);
-}
-
-
-value wxFlexGridSizer_RemoveGrowableCol_c(value self_v, value idx_v)
-{
-  CAMLparam0();
-  CAMLlocal1(ret_v);
-  wxFlexGridSizer* self_c = (wxFlexGridSizer*)Abstract_val(self_v);
-  int idx_c = Int_val(idx_v);
-  self_c->RemoveGrowableCol(idx_c);
   ret_v = Val_unit;
   CAMLreturn(ret_v);
 }

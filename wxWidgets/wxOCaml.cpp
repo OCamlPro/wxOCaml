@@ -91,7 +91,12 @@ class OCamlCallback: public wxObject
 static int terminating = 0;
 static OCamlCallback* initHandler = NULL;
 
+#if wxCHECK_VERSION(2, 9, 0)
 wxIMPLEMENT_APP_NO_MAIN(OCamlApp);
+#else
+IMPLEMENT_APP_NO_MAIN(OCamlApp);
+#endif
+
 bool OCamlApp::OnInit (void){ 
   wxInitAllImageHandlers();
   if(initHandler != NULL){
@@ -150,12 +155,15 @@ value wxEvtHandler_Connect_c(value self_v, value first_v,
   wxEvtHandler* self_c = (wxEvtHandler*)Abstract_val(self_v);
   int first_c = Int_val(first_v);
   int type_c = Int_val(type_v);
-  OCamlCallback* callback_c = new OCamlCallback(closure_v);
-
-  self_c->Connect(first_c, -1, type_c, 
-			      (wxObjectEventFunction)
-		  &OCamlApp::HandleGenericEvent, callback_c);
-
+  
+  // Don't bind fake events (-1)
+  if( type_c >= 0 ) {
+    OCamlCallback* callback_c = new OCamlCallback(closure_v);
+    
+    self_c->Connect(first_c, -1, type_c, 
+		    (wxObjectEventFunction)
+		    &OCamlApp::HandleGenericEvent, callback_c);
+  }
   return Val_unit;
 }
 

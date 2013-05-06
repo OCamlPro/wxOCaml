@@ -7,17 +7,6 @@ class wxMisc begin
      long style (* = wxOK|wxCENTRE *), 
      wxWindow? parent, int x, int y)
 
-  function(int, wxGetSingleChoiceIndex) (
-     wxString &message, 
-     wxString &caption, 
-     wxArrayString &aChoices, 
-     wxWindow? parent, int x, int y, bool centre, 
-     int width (* wxCHOICE_WIDTH *), int height (* wxCHOICE_HEIGHT *), 
-     int initialSelection (* =0 *))
-
-  function(wxColour, wxGetColourFromUser) (wxWindow? parent, wxColour &colInit,
-     wxString &caption, _ (* wxColourData *data= *) "NULL")
-
   function(wxString,  wxDirSelector) (
           wxString &message (* =wxDirSelectorPromptStr *), 
           wxString &default_path (* =wxEmptyString *), 
@@ -93,16 +82,49 @@ class wxMisc begin
    function(void, wxEndBusyCursor) ()
    function(bool, wxIsBusy) ()
    function(void, wxBell) ()
-   function(void, wxInfoMessageBox) (wxWindow? parent)
 
-   function(void,wxLogError)(wxString& _msg)
-   function(void,wxLogFatalError)(wxString& _msg)
-   function(void,wxLogWarning)(wxString& _msg)
-   function(void,wxLogMessage)(wxString& _msg)
-   function(void,wxLogVerbose)(wxString& _msg)
-   function(void,wxLogStatus)(wxString& _msg)
-   function(void,wxLogSysError)(wxString& _msg)
-   function(void,wxLogDebug)(wxString& _msg)
-   function(void,wxLogTrace)(wxString& mask,wxString& _msg)
+  version 2.8 begin
+    function(void,wxLogError)(_ "\"%s\"", string _msg)
+    function(void,wxLogStatus)(_ "\"%s\"", string _msg)
+    function(void,wxLogFatalError)(_ "\"%s\"", string _msg)
+    function(void,wxLogWarning)(_ "\"%s\"", string _msg)
+    function(void,wxLogMessage)(_ "\"%s\"", string _msg)
+    function(void,wxLogVerbose)(_ "\"%s\"", string _msg)
+    function(void,wxLogStatus)(_ "\"%s\"", string _msg)
+    function(void,wxLogSysError)(_ "\"%s\"", string _msg)
+  end
+
+  version 2.9.0 begin
+    function(int, wxGetSingleChoiceIndex) (
+        wxString &message, 
+        wxString &caption, 
+        wxArrayString &aChoices, 
+        wxWindow? parent, int x, int y, bool centre, 
+        int width (* wxCHOICE_WIDTH *), int height (* wxCHOICE_HEIGHT *), 
+        int initialSelection (* =0 *))
+
+
+
+    function(wxColour, wxGetColourFromUser) (wxWindow? parent, 
+              wxColour &colInit,
+              wxString &caption, _ (* wxColourData *data= *) "NULL")
+
+    function(void, wxInfoMessageBox) (wxWindow? parent)
+
+    function(void,wxLogError)(wxString& _msg)
+    function(void,wxLogFatalError)(wxString& _msg)
+    function(void,wxLogWarning)(wxString& _msg)
+    function(void,wxLogMessage)(wxString& _msg)
+    function(void,wxLogVerbose)(wxString& _msg)
+    function(void,wxLogStatus)(wxString& _msg)
+    function(void,wxLogSysError)(wxString& _msg)
+
+
+
+  end
+ 
+
+  function(void,wxLogDebug)(wxString& _msg)
+  function(void,wxLogTrace)(wxString& mask,wxString& _msg)
 
 end

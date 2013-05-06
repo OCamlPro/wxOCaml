@@ -11,7 +11,7 @@ all: $(TARGETS) $(DEFSGEN)
 	ocamlc -c ../$(SRC)/wxDefs.ml
 	rm -f ../$(SRC)/wxDefs.cm?
 
-$(DEFSGEN): gen_wxDefs.cpp ../api/wxDefs.dsc
+$(DEFSGEN): gen_wxDefs.cpp ../api/wxDefs.dsc  ../$(SRC)/wxOCaml.h
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -Wl,--hash-size=31 -Wl,--reduce-memory-overheads -DwxcREFUSE_MEDIACTRL -fPIC -o gen_wxDefs  gen_wxDefs.cpp $(LIBS)
 
 gen_wxDefs.cpp: ../_obuild/gen_wxDefs/gen_wxDefs.asm

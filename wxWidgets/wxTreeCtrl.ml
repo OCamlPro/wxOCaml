@@ -2,23 +2,13 @@ open WxClasses
 
 (* Methods inherited from parents, if any *)
 
-external connect : wxTreeCtrl ->
-   int -> ('a WxEVT.t) -> ('a -> unit) -> 
-      unit = "wxEvtHandler_Connect_c"
-
-
-external disconnect : wxTreeCtrl ->
-   int -> int -> int -> wxObject option -> 
-      int = "wxEvtHandler_Disconnect_c"
-
-
 external setEvtHandlerEnabled : wxTreeCtrl ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"
 
 
-external getEvtHandlerEnabled : wxTreeCtrl ->
-   bool  = "wxEvtHandler_GetEvtHandlerEnabled_c"
+external processPendingEvents : wxTreeCtrl ->
+   unit = "wxEvtHandler_ProcessPendingEvents_c"
 
 
 external processEvent : wxTreeCtrl ->
@@ -26,65 +16,97 @@ external processEvent : wxTreeCtrl ->
       bool  = "wxEvtHandler_ProcessEvent_c"
 
 
+external getEvtHandlerEnabled : wxTreeCtrl ->
+   bool  = "wxEvtHandler_GetEvtHandlerEnabled_c"
+
+
+external disconnect : wxTreeCtrl ->
+   int -> int -> int -> wxObject option -> 
+      int = "wxEvtHandler_Disconnect_c"
+
+
+external connect : wxTreeCtrl ->
+   int -> ('a WxEVT.t) -> ('a -> unit) -> 
+      unit = "wxEvtHandler_Connect_c"
+
+
 external addPendingEvent : wxTreeCtrl ->
    wxEvent -> 
       unit = "wxEvtHandler_AddPendingEvent_c"
 
 
-external processPendingEvents : wxTreeCtrl ->
-   unit = "wxEvtHandler_ProcessPendingEvents_c"
+external wxGetTopLevelParent : 
+   wxWindow -> 
+      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
 
 
-external close : wxTreeCtrl ->
-   bool  -> 
-      bool  = "wxWindow_Close_c"
+external warpPointer : wxTreeCtrl ->
+   int -> int -> 
+      unit = "wxWindow_WarpPointer_c"
 
 
-external destroy : wxTreeCtrl ->
-   bool  = "wxWindow_Destroy_c"
+external validate : wxTreeCtrl ->
+   bool  = "wxWindow_Validate_c"
 
 
-external clearBackground : wxTreeCtrl ->
-   unit = "wxWindow_ClearBackground_c"
+external updateWindowUI : wxTreeCtrl ->
+   unit = "wxWindow_UpdateWindowUI_c"
 
 
-external fit : wxTreeCtrl ->
-   unit = "wxWindow_Fit_c"
+external unsetConstraints : wxTreeCtrl ->
+   wxLayoutConstraints option -> 
+      unit = "wxWindow_UnsetConstraints_c"
 
 
-external destroyChildren : wxTreeCtrl ->
-   unit = "wxWindow_DestroyChildren_c"
+external transferDataToWindow : wxTreeCtrl ->
+   bool  = "wxWindow_TransferDataToWindow_c"
 
 
-external isBeingDeleted : wxTreeCtrl ->
-   bool  = "wxWindow_IsBeingDeleted_c"
+external transferDataFromWindow : wxTreeCtrl ->
+   bool  = "wxWindow_TransferDataFromWindow_c"
 
 
-external setLabel : wxTreeCtrl ->
-   wxString -> 
-      unit = "wxWindow_SetLabel_c"
+external thaw : wxTreeCtrl ->
+   unit = "wxWindow_Thaw_c"
 
 
-external getLabel : wxTreeCtrl ->
-   wxString = "wxWindow_GetLabel_c"
+external show : wxTreeCtrl ->
+   bool  = "wxWindow_Show_c"
 
 
-external setName : wxTreeCtrl ->
-   wxString -> 
-      unit = "wxWindow_SetName_c"
-
-
-external getName : wxTreeCtrl ->
-   wxString = "wxWindow_GetName_c"
-
-
-external setId : wxTreeCtrl ->
+external setWindowStyle : wxTreeCtrl ->
    int -> 
-      unit = "wxWindow_SetId_c"
+      unit = "wxWindow_SetWindowStyle_c"
 
 
-external getId : wxTreeCtrl ->
-   int = "wxWindow_GetId_c"
+external setWindowStyleFlag : wxTreeCtrl ->
+   int -> 
+      unit = "wxWindow_SetWindowStyleFlag_c"
+
+
+external setVirtualSize : wxTreeCtrl ->
+   int -> int -> 
+      unit = "wxWindow_SetVirtualSize_c"
+
+
+external setValidator : wxTreeCtrl ->
+   wxValidator -> 
+      unit = "wxWindow_SetValidator_c"
+
+
+external setToolTip : wxTreeCtrl ->
+   wxString -> 
+      unit = "wxWindow_SetToolTip_c"
+
+
+external setSizer : wxTreeCtrl ->
+   wxSizer -> 
+      unit = "wxWindow_SetSizer_c"
+
+
+external setSizerAndFit : wxTreeCtrl ->
+   wxSizer -> bool  -> 
+      unit = "wxWindow_SetSizerAndFit_c"
 
 
 external setSize : wxTreeCtrl ->
@@ -92,17 +114,78 @@ external setSize : wxTreeCtrl ->
       unit = "wxWindow_SetSize_c_bytecode" "wxWindow_SetSize_c"
 
 
-external move : wxTreeCtrl ->
-   int -> int -> 
-      unit = "wxWindow_Move_c"
+external setSizeHints : wxTreeCtrl ->
+   int -> int -> int -> int -> int -> int -> 
+      unit = "wxWindow_SetSizeHints_c_bytecode" "wxWindow_SetSizeHints_c"
 
 
-external raise : wxTreeCtrl ->
-   unit = "wxWindow_Raise_c"
+external setSizeConstraint : wxTreeCtrl ->
+   int -> int -> int -> int -> 
+      unit = "wxWindow_SetSizeConstraint_c"
 
 
-external lower : wxTreeCtrl ->
-   unit = "wxWindow_Lower_c"
+external setScrollbar : wxTreeCtrl ->
+   int -> int -> int -> int -> bool  -> 
+      unit = "wxWindow_SetScrollbar_c_bytecode" "wxWindow_SetScrollbar_c"
+
+
+external setScrollPos : wxTreeCtrl ->
+   int -> int -> bool  -> 
+      unit = "wxWindow_SetScrollPos_c"
+
+
+external setName : wxTreeCtrl ->
+   wxString -> 
+      unit = "wxWindow_SetName_c"
+
+
+external setLabel : wxTreeCtrl ->
+   wxString -> 
+      unit = "wxWindow_SetLabel_c"
+
+
+external setId : wxTreeCtrl ->
+   int -> 
+      unit = "wxWindow_SetId_c"
+
+
+external setForegroundColour : wxTreeCtrl ->
+   wxColour -> 
+      unit = "wxWindow_SetForegroundColour_c"
+
+
+external setFont : wxTreeCtrl ->
+   wxFont -> 
+      unit = "wxWindow_SetFont_c"
+
+
+external setFocus : wxTreeCtrl ->
+   unit = "wxWindow_SetFocus_c"
+
+
+external setExtraStyle : wxTreeCtrl ->
+   int -> 
+      unit = "wxWindow_SetExtraStyle_c"
+
+
+external setDropTarget : wxTreeCtrl ->
+   wxDropTarget option -> 
+      unit = "wxWindow_SetDropTarget_c"
+
+
+external setCursor : wxTreeCtrl ->
+   wxCursor -> 
+      unit = "wxWindow_SetCursor_c"
+
+
+external setConstraints : wxTreeCtrl ->
+   wxLayoutConstraints option -> 
+      unit = "wxWindow_SetConstraints_c"
+
+
+external setConstraintSizes : wxTreeCtrl ->
+   bool  -> 
+      unit = "wxWindow_SetConstraintSizes_c"
 
 
 external setClientSize : wxTreeCtrl ->
@@ -110,49 +193,219 @@ external setClientSize : wxTreeCtrl ->
       unit = "wxWindow_SetClientSize_c"
 
 
-external getPosition : wxTreeCtrl ->
-   wxPoint = "wxWindow_GetPosition_c"
+external setCaret : wxTreeCtrl ->
+   wxCaret option -> 
+      unit = "wxWindow_SetCaret_c"
+
+
+external setBackgroundColour : wxTreeCtrl ->
+   wxColour -> 
+      bool  = "wxWindow_SetBackgroundColour_c"
+
+
+external setAutoLayout : wxTreeCtrl ->
+   bool  -> 
+      unit = "wxWindow_SetAutoLayout_c"
+
+
+external setAcceleratorTable : wxTreeCtrl ->
+   wxAcceleratorTable -> 
+      unit = "wxWindow_SetAcceleratorTable_c"
+
+
+external scrollWindow : wxTreeCtrl ->
+   int -> int -> wxRect option -> 
+      unit = "wxWindow_ScrollWindow_c"
+
+
+external screenToClient : wxTreeCtrl ->
+   wxPoint -> 
+      wxPoint = "wxWindow_ScreenToClient_c"
+
+
+external resetConstraints : wxTreeCtrl ->
+   unit = "wxWindow_ResetConstraints_c"
+
+
+external reparent : wxTreeCtrl ->
+   wxWindow option -> 
+      bool  = "wxWindow_Reparent_c"
+
+
+external removeConstraintReference : wxTreeCtrl ->
+   wxWindowBase option -> 
+      unit = "wxWindow_RemoveConstraintReference_c"
+
+
+external removeChild : wxTreeCtrl ->
+   wxWindowBase option -> 
+      unit = "wxWindow_RemoveChild_c"
+
+
+external releaseMouse : wxTreeCtrl ->
+   unit = "wxWindow_ReleaseMouse_c"
+
+
+external refresh : wxTreeCtrl ->
+   bool  -> wxRect option -> 
+      unit = "wxWindow_Refresh_c"
+
+
+external raise : wxTreeCtrl ->
+   unit = "wxWindow_Raise_c"
+
+
+external pushEventHandler : wxTreeCtrl ->
+   wxEvtHandler option -> 
+      unit = "wxWindow_PushEventHandler_c"
+
+
+external prepareDC : wxTreeCtrl ->
+   wxDC -> 
+      unit = "wxWindow_PrepareDC_c"
+
+
+external popupMenu : wxTreeCtrl ->
+   wxMenu option -> int -> int -> 
+      bool  = "wxWindow_PopupMenu_c"
+
+
+external popEventHandler : wxTreeCtrl ->
+   bool  -> 
+      wxEvtHandler option = "wxWindow_PopEventHandler_c"
+
+
+external move : wxTreeCtrl ->
+   int -> int -> 
+      unit = "wxWindow_Move_c"
+
+
+external moveConstraint : wxTreeCtrl ->
+   int -> int -> 
+      unit = "wxWindow_MoveConstraint_c"
+
+
+external makeModal : wxTreeCtrl ->
+   bool  -> 
+      unit = "wxWindow_MakeModal_c"
+
+
+external lower : wxTreeCtrl ->
+   unit = "wxWindow_Lower_c"
+
+
+external layout : wxTreeCtrl ->
+   unit = "wxWindow_Layout_c"
+
+
+external isTopLevel : wxTreeCtrl ->
+   bool  = "wxWindow_IsTopLevel_c"
+
+
+external isShown : wxTreeCtrl ->
+   bool  = "wxWindow_IsShown_c"
+
+
+external isExposed : wxTreeCtrl ->
+   int -> int -> int -> int -> 
+      bool  = "wxWindow_IsExposed_c"
+
+
+external isEnabled : wxTreeCtrl ->
+   bool  = "wxWindow_IsEnabled_c"
+
+
+external isBeingDeleted : wxTreeCtrl ->
+   bool  = "wxWindow_IsBeingDeleted_c"
+
+
+external initDialog : wxTreeCtrl ->
+   unit = "wxWindow_InitDialog_c"
+
+
+external hide : wxTreeCtrl ->
+   bool  = "wxWindow_Hide_c"
+
+
+external hasFlag : wxTreeCtrl ->
+   int -> 
+      bool  = "wxWindow_HasFlag_c"
+
+
+external getWindowStyle : wxTreeCtrl ->
+   int = "wxWindow_GetWindowStyle_c"
+
+
+external getWindowStyleFlag : wxTreeCtrl ->
+   int = "wxWindow_GetWindowStyleFlag_c"
+
+
+external getVirtualSize : wxTreeCtrl ->
+   wxSize = "wxWindow_GetVirtualSize_c"
+
+
+external getValidator : wxTreeCtrl ->
+   wxValidator option = "wxWindow_GetValidator_c"
+
+
+external getUpdateRegion : wxTreeCtrl ->
+   wxRegion = "wxWindow_GetUpdateRegion_c"
+
+
+external getToolTip : wxTreeCtrl ->
+   wxToolTip option = "wxWindow_GetToolTip_c"
+
+
+external getTextExtent : wxTreeCtrl ->
+   wxString -> wxFont option -> 
+      unit * int * int * int * int = "wxWindow_GetTextExtent_c"
+
+
+external getSizer : wxTreeCtrl ->
+   wxSizer option = "wxWindow_GetSizer_c"
 
 
 external getSize : wxTreeCtrl ->
    wxSize = "wxWindow_GetSize_c"
 
 
+external getSizeConstraint : wxTreeCtrl ->
+   unit * int * int = "wxWindow_GetSizeConstraint_c"
+
+
+external getScrollThumb : wxTreeCtrl ->
+   int -> 
+      int = "wxWindow_GetScrollThumb_c"
+
+
+external getScrollRange : wxTreeCtrl ->
+   int -> 
+      int = "wxWindow_GetScrollRange_c"
+
+
+external getScrollPos : wxTreeCtrl ->
+   int -> 
+      int = "wxWindow_GetScrollPos_c"
+
+
 external getRect : wxTreeCtrl ->
    wxRect = "wxWindow_GetRect_c"
 
 
-external getClientSize : wxTreeCtrl ->
-   wxSize = "wxWindow_GetClientSize_c"
+external getPosition : wxTreeCtrl ->
+   wxPoint = "wxWindow_GetPosition_c"
 
 
-external getBestSize : wxTreeCtrl ->
-   wxSize = "wxWindow_GetBestSize_c"
+external getPositionConstraint : wxTreeCtrl ->
+   unit * int * int = "wxWindow_GetPositionConstraint_c"
 
 
-external center : wxTreeCtrl ->
-   int -> 
-      unit = "wxWindow_Center_c"
+external getParent : wxTreeCtrl ->
+   wxWindow option = "wxWindow_GetParent_c"
 
 
-external centre : wxTreeCtrl ->
-   int -> 
-      unit = "wxWindow_Centre_c"
-
-
-external centerOnParent : wxTreeCtrl ->
-   int -> 
-      unit = "wxWindow_CenterOnParent_c"
-
-
-external centreOnParent : wxTreeCtrl ->
-   int -> 
-      unit = "wxWindow_CentreOnParent_c"
-
-
-external setSizeHints : wxTreeCtrl ->
-   int -> int -> int -> int -> int -> int -> 
-      unit = "wxWindow_SetSizeHints_c_bytecode" "wxWindow_SetSizeHints_c"
+external getName : wxTreeCtrl ->
+   wxString = "wxWindow_GetName_c"
 
 
 external getMinWidth : wxTreeCtrl ->
@@ -171,73 +424,84 @@ external getMaxHeight : wxTreeCtrl ->
    int = "wxWindow_GetMaxHeight_c"
 
 
-external show : wxTreeCtrl ->
-   bool  = "wxWindow_Show_c"
+external getLabel : wxTreeCtrl ->
+   wxString = "wxWindow_GetLabel_c"
 
 
-external hide : wxTreeCtrl ->
-   bool  = "wxWindow_Hide_c"
+external getId : wxTreeCtrl ->
+   int = "wxWindow_GetId_c"
 
 
-external enable : wxTreeCtrl ->
-   bool  = "wxWindow_Enable_c"
+external getForegroundColour : wxTreeCtrl ->
+   wxColour = "wxWindow_GetForegroundColour_c"
 
 
-external enableBool : wxTreeCtrl ->
-   bool  -> 
-      unit = "wxWindow_EnableBool_c"
+external getFont : wxTreeCtrl ->
+   wxFont = "wxWindow_GetFont_c"
 
 
-external disable : wxTreeCtrl ->
-   bool  = "wxWindow_Disable_c"
+external getEventHandler : wxTreeCtrl ->
+   wxEvtHandler option = "wxWindow_GetEventHandler_c"
 
 
-external isShown : wxTreeCtrl ->
-   bool  = "wxWindow_IsShown_c"
+external getEffectiveMinSize : wxTreeCtrl ->
+   wxSize = "wxWindow_GetEffectiveMinSize_c"
 
 
-external isEnabled : wxTreeCtrl ->
-   bool  = "wxWindow_IsEnabled_c"
+external getDropTarget : wxTreeCtrl ->
+   wxDropTarget option = "wxWindow_GetDropTarget_c"
 
 
-external setWindowStyleFlag : wxTreeCtrl ->
-   int -> 
-      unit = "wxWindow_SetWindowStyleFlag_c"
+external getCursor : wxTreeCtrl ->
+   wxCursor = "wxWindow_GetCursor_c"
 
 
-external getWindowStyleFlag : wxTreeCtrl ->
-   int = "wxWindow_GetWindowStyleFlag_c"
+external getConstraints : wxTreeCtrl ->
+   wxLayoutConstraints option = "wxWindow_GetConstraints_c"
 
 
-external hasFlag : wxTreeCtrl ->
-   int -> 
-      bool  = "wxWindow_HasFlag_c"
+external getClientSize : wxTreeCtrl ->
+   wxSize = "wxWindow_GetClientSize_c"
 
 
-external setExtraStyle : wxTreeCtrl ->
-   int -> 
-      unit = "wxWindow_SetExtraStyle_c"
+external getClientSizeConstraint : wxTreeCtrl ->
+   unit * int * int = "wxWindow_GetClientSizeConstraint_c"
 
 
-external makeModal : wxTreeCtrl ->
-   bool  -> 
-      unit = "wxWindow_MakeModal_c"
+external getCharWidth : wxTreeCtrl ->
+   int = "wxWindow_GetCharWidth_c"
 
 
-external setFocus : wxTreeCtrl ->
-   unit = "wxWindow_SetFocus_c"
+external getCharHeight : wxTreeCtrl ->
+   int = "wxWindow_GetCharHeight_c"
 
 
-external findFocus : wxTreeCtrl ->
-   wxWindow option = "wxWindow_FindFocus_c"
+external getCaret : wxTreeCtrl ->
+   wxCaret option = "wxWindow_GetCaret_c"
 
 
-external getParent : wxTreeCtrl ->
-   wxWindow option = "wxWindow_GetParent_c"
+external getBestSize : wxTreeCtrl ->
+   wxSize = "wxWindow_GetBestSize_c"
 
 
-external isTopLevel : wxTreeCtrl ->
-   bool  = "wxWindow_IsTopLevel_c"
+external getBackgroundColour : wxTreeCtrl ->
+   wxColour = "wxWindow_GetBackgroundColour_c"
+
+
+external getAutoLayout : wxTreeCtrl ->
+   int = "wxWindow_GetAutoLayout_c"
+
+
+external freeze : wxTreeCtrl ->
+   unit = "wxWindow_Freeze_c"
+
+
+external fit : wxTreeCtrl ->
+   unit = "wxWindow_Fit_c"
+
+
+external fitInside : wxTreeCtrl ->
+   unit = "wxWindow_FitInside_c"
 
 
 external findWindow : wxTreeCtrl ->
@@ -250,58 +514,38 @@ external findWindowById : wxTreeCtrl ->
       wxWindow option = "wxWindow_FindWindowById_c"
 
 
-external addChild : wxTreeCtrl ->
-   wxWindowBase option -> 
-      unit = "wxWindow_AddChild_c"
+external findFocus : wxTreeCtrl ->
+   wxWindow option = "wxWindow_FindFocus_c"
 
 
-external removeChild : wxTreeCtrl ->
-   wxWindowBase option -> 
-      unit = "wxWindow_RemoveChild_c"
+external enable : wxTreeCtrl ->
+   bool  = "wxWindow_Enable_c"
 
 
-external getEventHandler : wxTreeCtrl ->
-   wxEvtHandler option = "wxWindow_GetEventHandler_c"
-
-
-external pushEventHandler : wxTreeCtrl ->
-   wxEvtHandler option -> 
-      unit = "wxWindow_PushEventHandler_c"
-
-
-external popEventHandler : wxTreeCtrl ->
+external enableBool : wxTreeCtrl ->
    bool  -> 
-      wxEvtHandler option = "wxWindow_PopEventHandler_c"
+      unit = "wxWindow_EnableBool_c"
 
 
-external setValidator : wxTreeCtrl ->
-   wxValidator -> 
-      unit = "wxWindow_SetValidator_c"
+external doPhase : wxTreeCtrl ->
+   int -> 
+      int = "wxWindow_DoPhase_c"
 
 
-external getValidator : wxTreeCtrl ->
-   wxValidator option = "wxWindow_GetValidator_c"
+external disable : wxTreeCtrl ->
+   bool  = "wxWindow_Disable_c"
 
 
-external validate : wxTreeCtrl ->
-   bool  = "wxWindow_Validate_c"
+external destroy : wxTreeCtrl ->
+   bool  = "wxWindow_Destroy_c"
 
 
-external transferDataToWindow : wxTreeCtrl ->
-   bool  = "wxWindow_TransferDataToWindow_c"
+external destroyChildren : wxTreeCtrl ->
+   unit = "wxWindow_DestroyChildren_c"
 
 
-external transferDataFromWindow : wxTreeCtrl ->
-   bool  = "wxWindow_TransferDataFromWindow_c"
-
-
-external initDialog : wxTreeCtrl ->
-   unit = "wxWindow_InitDialog_c"
-
-
-external setAcceleratorTable : wxTreeCtrl ->
-   wxAcceleratorTable -> 
-      unit = "wxWindow_SetAcceleratorTable_c"
+external deleteRelatedConstraints : wxTreeCtrl ->
+   unit = "wxWindow_DeleteRelatedConstraints_c"
 
 
 external convertPixelsToDialog : wxTreeCtrl ->
@@ -314,273 +558,9 @@ external convertDialogToPixels : wxTreeCtrl ->
       wxPoint = "wxWindow_ConvertDialogToPixels_c"
 
 
-external warpPointer : wxTreeCtrl ->
-   int -> int -> 
-      unit = "wxWindow_WarpPointer_c"
-
-
-external captureMouse : wxTreeCtrl ->
-   unit = "wxWindow_CaptureMouse_c"
-
-
-external releaseMouse : wxTreeCtrl ->
-   unit = "wxWindow_ReleaseMouse_c"
-
-
-external refresh : wxTreeCtrl ->
-   bool  -> wxRect option -> 
-      unit = "wxWindow_Refresh_c"
-
-
-external prepareDC : wxTreeCtrl ->
-   wxDC -> 
-      unit = "wxWindow_PrepareDC_c"
-
-
-external getUpdateRegion : wxTreeCtrl ->
-   wxRegion = "wxWindow_GetUpdateRegion_c"
-
-
-external isExposed : wxTreeCtrl ->
-   int -> int -> int -> int -> 
-      bool  = "wxWindow_IsExposed_c"
-
-
-external setBackgroundColour : wxTreeCtrl ->
-   wxColour -> 
-      bool  = "wxWindow_SetBackgroundColour_c"
-
-
-external setForegroundColour : wxTreeCtrl ->
-   wxColour -> 
-      unit = "wxWindow_SetForegroundColour_c"
-
-
-external getBackgroundColour : wxTreeCtrl ->
-   wxColour = "wxWindow_GetBackgroundColour_c"
-
-
-external getForegroundColour : wxTreeCtrl ->
-   wxColour = "wxWindow_GetForegroundColour_c"
-
-
-external setCursor : wxTreeCtrl ->
-   wxCursor -> 
-      unit = "wxWindow_SetCursor_c"
-
-
-external getCursor : wxTreeCtrl ->
-   wxCursor = "wxWindow_GetCursor_c"
-
-
-external setFont : wxTreeCtrl ->
-   wxFont -> 
-      unit = "wxWindow_SetFont_c"
-
-
-external getFont : wxTreeCtrl ->
-   wxFont = "wxWindow_GetFont_c"
-
-
-external setCaret : wxTreeCtrl ->
-   wxCaret option -> 
-      unit = "wxWindow_SetCaret_c"
-
-
-external getCaret : wxTreeCtrl ->
-   wxCaret option = "wxWindow_GetCaret_c"
-
-
-external getCharHeight : wxTreeCtrl ->
-   int = "wxWindow_GetCharHeight_c"
-
-
-external getCharWidth : wxTreeCtrl ->
-   int = "wxWindow_GetCharWidth_c"
-
-
-external getTextExtent : wxTreeCtrl ->
-   wxString -> wxFont option -> 
-      unit * int * int * int * int = "wxWindow_GetTextExtent_c"
-
-
-external screenToClient : wxTreeCtrl ->
-   wxPoint -> 
-      wxPoint = "wxWindow_ScreenToClient_c"
-
-
-external updateWindowUI : wxTreeCtrl ->
-   unit = "wxWindow_UpdateWindowUI_c"
-
-
-external popupMenu : wxTreeCtrl ->
-   wxMenu option -> int -> int -> 
-      bool  = "wxWindow_PopupMenu_c"
-
-
-external setScrollPos : wxTreeCtrl ->
-   int -> int -> bool  -> 
-      unit = "wxWindow_SetScrollPos_c"
-
-
-external getScrollPos : wxTreeCtrl ->
-   int -> 
-      int = "wxWindow_GetScrollPos_c"
-
-
-external getScrollThumb : wxTreeCtrl ->
-   int -> 
-      int = "wxWindow_GetScrollThumb_c"
-
-
-external getScrollRange : wxTreeCtrl ->
-   int -> 
-      int = "wxWindow_GetScrollRange_c"
-
-
-external scrollWindow : wxTreeCtrl ->
-   int -> int -> wxRect option -> 
-      unit = "wxWindow_ScrollWindow_c"
-
-
-external setToolTip : wxTreeCtrl ->
-   wxString -> 
-      unit = "wxWindow_SetToolTip_c"
-
-
-external getToolTip : wxTreeCtrl ->
-   wxToolTip option = "wxWindow_GetToolTip_c"
-
-
-external setDropTarget : wxTreeCtrl ->
-   wxDropTarget option -> 
-      unit = "wxWindow_SetDropTarget_c"
-
-
-external getDropTarget : wxTreeCtrl ->
-   wxDropTarget option = "wxWindow_GetDropTarget_c"
-
-
-external setConstraints : wxTreeCtrl ->
-   wxLayoutConstraints option -> 
-      unit = "wxWindow_SetConstraints_c"
-
-
-external getConstraints : wxTreeCtrl ->
-   wxLayoutConstraints option = "wxWindow_GetConstraints_c"
-
-
-external setAutoLayout : wxTreeCtrl ->
+external close : wxTreeCtrl ->
    bool  -> 
-      unit = "wxWindow_SetAutoLayout_c"
-
-
-external getAutoLayout : wxTreeCtrl ->
-   int = "wxWindow_GetAutoLayout_c"
-
-
-external layout : wxTreeCtrl ->
-   unit = "wxWindow_Layout_c"
-
-
-external unsetConstraints : wxTreeCtrl ->
-   wxLayoutConstraints option -> 
-      unit = "wxWindow_UnsetConstraints_c"
-
-
-external getWindowStyle : wxTreeCtrl ->
-   int = "wxWindow_GetWindowStyle_c"
-
-
-external setWindowStyle : wxTreeCtrl ->
-   int -> 
-      unit = "wxWindow_SetWindowStyle_c"
-
-
-external addConstraintReference : wxTreeCtrl ->
-   wxWindowBase option -> 
-      unit = "wxWindow_AddConstraintReference_c"
-
-
-external removeConstraintReference : wxTreeCtrl ->
-   wxWindowBase option -> 
-      unit = "wxWindow_RemoveConstraintReference_c"
-
-
-external deleteRelatedConstraints : wxTreeCtrl ->
-   unit = "wxWindow_DeleteRelatedConstraints_c"
-
-
-external resetConstraints : wxTreeCtrl ->
-   unit = "wxWindow_ResetConstraints_c"
-
-
-external setConstraintSizes : wxTreeCtrl ->
-   bool  -> 
-      unit = "wxWindow_SetConstraintSizes_c"
-
-
-external doPhase : wxTreeCtrl ->
-   int -> 
-      int = "wxWindow_DoPhase_c"
-
-
-external setSizeConstraint : wxTreeCtrl ->
-   int -> int -> int -> int -> 
-      unit = "wxWindow_SetSizeConstraint_c"
-
-
-external moveConstraint : wxTreeCtrl ->
-   int -> int -> 
-      unit = "wxWindow_MoveConstraint_c"
-
-
-external getSizeConstraint : wxTreeCtrl ->
-   unit * int * int = "wxWindow_GetSizeConstraint_c"
-
-
-external getClientSizeConstraint : wxTreeCtrl ->
-   unit * int * int = "wxWindow_GetClientSizeConstraint_c"
-
-
-external getPositionConstraint : wxTreeCtrl ->
-   unit * int * int = "wxWindow_GetPositionConstraint_c"
-
-
-external setSizer : wxTreeCtrl ->
-   wxSizer -> 
-      unit = "wxWindow_SetSizer_c"
-
-
-external setSizerAndFit : wxTreeCtrl ->
-   wxSizer -> bool  -> 
-      unit = "wxWindow_SetSizerAndFit_c"
-
-
-external getSizer : wxTreeCtrl ->
-   wxSizer option = "wxWindow_GetSizer_c"
-
-
-external setScrollbar : wxTreeCtrl ->
-   int -> int -> int -> int -> bool  -> 
-      unit = "wxWindow_SetScrollbar_c_bytecode" "wxWindow_SetScrollbar_c"
-
-
-external reparent : wxTreeCtrl ->
-   wxWindow option -> 
-      bool  = "wxWindow_Reparent_c"
-
-
-external getEffectiveMinSize : wxTreeCtrl ->
-   wxSize = "wxWindow_GetEffectiveMinSize_c"
-
-
-external freeze : wxTreeCtrl ->
-   unit = "wxWindow_Freeze_c"
-
-
-external thaw : wxTreeCtrl ->
-   unit = "wxWindow_Thaw_c"
+      bool  = "wxWindow_Close_c"
 
 
 external clientToScreen : wxTreeCtrl ->
@@ -588,22 +568,42 @@ external clientToScreen : wxTreeCtrl ->
       wxPoint = "wxWindow_ClientToScreen_c"
 
 
-external fitInside : wxTreeCtrl ->
-   unit = "wxWindow_FitInside_c"
+external clearBackground : wxTreeCtrl ->
+   unit = "wxWindow_ClearBackground_c"
 
 
-external setVirtualSize : wxTreeCtrl ->
-   int -> int -> 
-      unit = "wxWindow_SetVirtualSize_c"
+external centre : wxTreeCtrl ->
+   int -> 
+      unit = "wxWindow_Centre_c"
 
 
-external getVirtualSize : wxTreeCtrl ->
-   wxSize = "wxWindow_GetVirtualSize_c"
+external centreOnParent : wxTreeCtrl ->
+   int -> 
+      unit = "wxWindow_CentreOnParent_c"
 
 
-external wxGetTopLevelParent : 
-   wxWindow -> 
-      wxWindow option = "wxWindow_wxGetTopLevelParent_c"
+external center : wxTreeCtrl ->
+   int -> 
+      unit = "wxWindow_Center_c"
+
+
+external centerOnParent : wxTreeCtrl ->
+   int -> 
+      unit = "wxWindow_CenterOnParent_c"
+
+
+external captureMouse : wxTreeCtrl ->
+   unit = "wxWindow_CaptureMouse_c"
+
+
+external addConstraintReference : wxTreeCtrl ->
+   wxWindowBase option -> 
+      unit = "wxWindow_AddConstraintReference_c"
+
+
+external addChild : wxTreeCtrl ->
+   wxWindowBase option -> 
+      unit = "wxWindow_AddChild_c"
 
 
 (* Cast functions to parents *)

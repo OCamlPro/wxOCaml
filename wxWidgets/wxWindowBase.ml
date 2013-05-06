@@ -2,23 +2,13 @@ open WxClasses
 
 (* Methods inherited from parents, if any *)
 
-external connect : wxWindowBase ->
-   int -> ('a WxEVT.t) -> ('a -> unit) -> 
-      unit = "wxEvtHandler_Connect_c"
-
-
-external disconnect : wxWindowBase ->
-   int -> int -> int -> wxObject option -> 
-      int = "wxEvtHandler_Disconnect_c"
-
-
 external setEvtHandlerEnabled : wxWindowBase ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"
 
 
-external getEvtHandlerEnabled : wxWindowBase ->
-   bool  = "wxEvtHandler_GetEvtHandlerEnabled_c"
+external processPendingEvents : wxWindowBase ->
+   unit = "wxEvtHandler_ProcessPendingEvents_c"
 
 
 external processEvent : wxWindowBase ->
@@ -26,13 +16,23 @@ external processEvent : wxWindowBase ->
       bool  = "wxEvtHandler_ProcessEvent_c"
 
 
+external getEvtHandlerEnabled : wxWindowBase ->
+   bool  = "wxEvtHandler_GetEvtHandlerEnabled_c"
+
+
+external disconnect : wxWindowBase ->
+   int -> int -> int -> wxObject option -> 
+      int = "wxEvtHandler_Disconnect_c"
+
+
+external connect : wxWindowBase ->
+   int -> ('a WxEVT.t) -> ('a -> unit) -> 
+      unit = "wxEvtHandler_Connect_c"
+
+
 external addPendingEvent : wxWindowBase ->
    wxEvent -> 
       unit = "wxEvtHandler_AddPendingEvent_c"
-
-
-external processPendingEvents : wxWindowBase ->
-   unit = "wxEvtHandler_ProcessPendingEvents_c"
 
 
 (* Cast functions to parents *)

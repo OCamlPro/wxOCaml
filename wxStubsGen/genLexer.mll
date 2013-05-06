@@ -57,6 +57,7 @@ rule token = parse
   | '?' { QUESTION }
   | ',' { COMMA }
   | '=' { EQUAL }
+  | '.' { DOT }
   | '&' { AMPERSAND }
   | "<-" { LESSMINUS }
   | "<>" { LESSGREATER }
@@ -73,6 +74,8 @@ rule token = parse
   | "function"  { FUNCTION }
   | "type"    { TYPE }
   | "value"   { VALUE }
+  | "version"  { VERSION }
+  | ['0'-'9']+ { INT(int_of_string (Lexing.lexeme lexbuf)) }
   | '_' { UNDERSCORE }
   | ident "::" ident { IDENT (Lexing.lexeme lexbuf) }
   | ident { IDENT (Lexing.lexeme lexbuf) }
@@ -148,6 +151,9 @@ let string_of_token token = match token with
   | FUNCTION -> "FUNCTION"
   | TYPE -> "TYPE"
   | VALUE -> "VALUE"
+  | INT d -> Printf.sprintf "int[%d]" d
+  | VERSION -> "VERSION"
+  | DOT -> "DOT"
 
   let token lexbuf =
     let token = token lexbuf in

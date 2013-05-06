@@ -3,7 +3,7 @@ open WxClasses
 open WxWidgets
 open WxDefs
 
-
+let _ = wx_check_config [2;9]
 
 let onInit () =
 

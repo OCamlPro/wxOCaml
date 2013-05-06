@@ -13,8 +13,6 @@ TODO:
 open GenMisc
 open GenTypes
 
-
-
 let print_location filename lexbuf =
   Printf.eprintf "File %S, characters %d-%d\nSyntax error\n%!"
     filename
@@ -38,43 +36,57 @@ let read filename =
   end;
   close_in ic
 
-let generate_sources (cpp_directory, ocaml_directory) (filename, components) =
-
-  let includes = ref [] in
-  (* Includes first *)
-  List.iter (fun comp ->
-    match comp with
-    | Comp_include s -> includes := s :: !includes
-    | Comp_class _ -> ()
-    | Comp_type _ -> ()
-  ) components;
-
-  let includes = List.rev !includes in
+let generate_sources (cpp_directory, ocaml_directory) classes =
   (* Classes second *)
-  List.iter (fun comp ->
-    match comp with
-    | Comp_class cl ->
-      if cl.class_methods <> [] then
-        GenCplusplus.generate_class_stubs cpp_directory cl includes;
-      GenOCaml.generate_class_module ocaml_directory cl
-    | Comp_include _ -> ()
-    | Comp_type _ -> ()
-  ) components;
-
-  ()
+  StringMap.iter (fun _ cl ->
+    if cl.class_methods <> [] then
+      GenCplusplus.generate_class_stubs cpp_directory cl cl.class_includes;
+    GenOCaml.generate_class_module ocaml_directory cl
+  ) classes
 
 let create_class_hierarchy files =
   let classes = ref StringMap.empty in
 
   List.iter (fun (filename, components) ->
+  let includes = ref [] in
     List.iter (fun comp ->
       match comp with
       | Comp_class cl ->
         if StringMap.mem cl.class_uname !classes then
           failwith (Printf.sprintf "class %S defined twice" cl.class_uname);
+        let includes = List.rev !includes in
+
+        let methods = ref StringMap.empty in
+
+        List.iter (fun p ->
+          let name = c_function_name cl p in
+          let insert =
+            try
+              let p1 = StringMap.find name !methods in
+              (p.proto_version > p1.proto_version &&
+               p.proto_version <= wx_version) ||
+              (p.proto_version < p1.proto_version &&
+               p.proto_version <= wx_version &&
+               p1.proto_version > wx_version) ||
+              (p.proto_version > p1.proto_version &&
+               p1.proto_version > wx_version)
+            with Not_found -> true
+          in
+          if insert then
+            methods := StringMap.add name p !methods)
+          cl.class_methods;
+
+        let class_methods = ref [] in
+        StringMap.iter (fun _ p -> class_methods := p :: !class_methods)
+          !methods;
+        let cl = { cl with
+                   class_includes = includes;
+                   class_methods = !class_methods;
+                 }
+        in
         classes := StringMap.add cl.class_uname cl !classes
       | Comp_type typ -> types := StringMap.add typ.type_name typ !types
-      | Comp_include _ -> ()
+      | Comp_include s -> includes := s :: !includes
     ) components;
   ) files;
 
@@ -117,6 +129,8 @@ let cpp_directory = ref "sources"
 let api_directory = ref "api"
 
 let _ =
+  Printf.printf "Generate sources for version %S\n%!"
+    (string_of_version wx_version);
   Arg.parse [
     "-api", Arg.String (fun s -> api_directory := s),
       "dir set API directory";
@@ -130,15 +144,14 @@ let _ =
 
   let cpp_directory = !cpp_directory in
   let ocaml_directory = !ocaml_directory in
-  let files = !files in
-  let classes = create_class_hierarchy files in
+  let classes = create_class_hierarchy !files in
 
   try
     mkdir cpp_directory;
     mkdir ocaml_directory;
     GenOCaml.generate_types_module
       ocaml_directory "wxClasses" classes;
-    List.iter (generate_sources (cpp_directory, ocaml_directory)) files;
+    generate_sources (cpp_directory, ocaml_directory) classes;
     GenEvents.generate_events !api_directory (cpp_directory, ocaml_directory) "wxEVT";
 
     GenProject.generate_project_ocp

@@ -5,14 +5,16 @@ type wxWindowID = int
 
 class wxDatePickerCtrl inherit wxControl begin
 
-   new(Create) (wxWindow? parent, wxWindowID id, wxDateTime &dt, 
+  version 2.9.0 begin
+    new(Create) (wxWindow? parent, wxWindowID id, wxDateTime &dt, 
            wxPoint &pos, wxSize &size, 
 	   long style, _ "wxDefaultValidator", wxString &name)
 
-   method(bool,	GetRange) (wxDateTime <- dt1, wxDateTime <- dt2) 
+     method(bool,	GetRange) (wxDateTime <- dt1, wxDateTime <- dt2) 
 
-   method(wxDateTime, GetValue) ()
-   method(void, SetRange) (wxDateTime &dt1, wxDateTime &dt2)
-   method(void,	SetValue) (wxDateTime &dt)
+     method(wxDateTime, GetValue) ()
+     method(void, SetRange) (wxDateTime &dt1, wxDateTime &dt2)
+     method(void,	SetValue) (wxDateTime &dt)
+  end
 
 end

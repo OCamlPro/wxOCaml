@@ -25,5 +25,9 @@ class wxCalendarCtrl inherit wxControl begin
   method(int, HitTest)(wxPoint& pos,
     wxDateTime <- date, 
     wxDateTime::WeekDay <- wd)
-  method (void, Mark) (size_t day, bool mark)
+
+  version 2.9.0 begin
+    method (void, Mark) (size_t day, bool mark)
+  end
+
 end

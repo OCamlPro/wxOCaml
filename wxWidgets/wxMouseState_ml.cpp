@@ -6,9 +6,7 @@ value wxMouseState_GetPosition_c(value self_v)
 {
   CAMLparam0();
   CAMLlocal1(ret_v);
-  wxMouseState* self_c = (wxMouseState*)Abstract_val(self_v);
-  wxPoint ret_c = self_c->GetPosition();
-  ret_v = Val_wxPoint(& ret_c);
+  caml_failwith("WxWidgets stub wxMouseState_GetPosition_c not implemented (version 2.9.0 > current 2.8.12)");
   CAMLreturn(ret_v);
 }
 }

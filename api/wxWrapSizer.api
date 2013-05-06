@@ -1,8 +1,8 @@
 
 class wxWrapSizer inherit wxBoxSizer begin
 
-  new(Create) (int orient (* =wxHORIZONTAL *), 
-               int flags
- (* = *) )
-
+  version 2.9.0 begin
+     new(Create) (int orient (* =wxHORIZONTAL *), 
+               int flags )
+  end
 end

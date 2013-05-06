@@ -1,10 +1,10 @@
-# wxOCaml
+# ocplib-wxWidgets
 
 A binding to wxWidgets
 
 ## Dependencies
 
-* OCaml: 'ocp-build' (from GitHub) and 'camlidl'
+* OCaml: 'ocp-build' (from GitHub)
 * External: WxWidgets 2.9+
 
 ## Current Status
