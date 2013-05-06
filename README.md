@@ -72,11 +72,11 @@ If a method is overloaded for different arguments, then several functions
 can correspond to the different kinds of arguments:
 For example 
 
-    m_sizer->add(m_button)
+   m_sizer->add(m_button)
 
- will be translated into 
+will be translated into 
 
-    WxSizer.addWindow m_size m_button
+   WxSizer.addWindow m_size m_button
 
 For every class, there are cast functions to translate an object to any 
 of its ancestor types. For example, you might need to use:
