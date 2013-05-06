@@ -13,8 +13,9 @@ let add_cplusplus_source basename =
   generated_cplusplus_sources := basename :: !generated_cplusplus_sources;
   basename
 
-let generate_project_ocp filename =
-  let ocp_oc = open_out filename in
+let generate_project_files dirname =
+
+  let ocp_oc = open_out (Filename.concat dirname "wxWidgets.ocp") in
   Printf.fprintf ocp_oc.oc "begin library %S\n" "wxWidgets";
   Printf.fprintf ocp_oc.oc "  use \"link-with-wxOCaml\"\n";
   Printf.fprintf ocp_oc.oc "  files = [ ";
@@ -31,10 +32,9 @@ let generate_project_ocp filename =
   Printf.fprintf ocp_oc.oc "  ]\n";
   Printf.fprintf ocp_oc.oc "end";
   close_out ocp_oc;
-  ()
 
-let generate_project_Makefile filename =
-  let ocp_oc = open_out filename in
+
+  let ocp_oc = open_out (Filename.concat dirname "Makefile.project") in
   fprintf ocp_oc "GENERATED_CPP_SOURCES = \\\n";
   List.iter (fun file ->
     fprintf ocp_oc "    %s  \\\n" file
@@ -47,4 +47,21 @@ let generate_project_Makefile filename =
   fprintf ocp_oc "    %s  \\\n" "wxEVT.ml";
   fprintf ocp_oc "    %s  \\\n" "wxDefs.ml";
   fprintf ocp_oc "\n";
-  close_out ocp_oc
+  close_out ocp_oc;
+
+
+  let ocp_oc = open_out (Filename.concat dirname ".gitignore") in
+  List.iter (fun file ->
+    fprintf ocp_oc "%s\n" file
+  ) (
+    !generated_cplusplus_sources @
+    !generated_ocaml_sources @ [
+      "wxEVT.ml";
+      "wxDefs.ml";
+      "Makefile.project";
+      "wxWidgets.ocp";
+      ".gitignore"
+    ]);
+  close_out ocp_oc;
+
+

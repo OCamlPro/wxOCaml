@@ -5,18 +5,16 @@ A binding to wxWidgets
 ## Dependencies
 
 * OCaml: 'ocp-build' (from GitHub)
-* External: WxWidgets 2.9+
+* External: WxWidgets 2.8 or 2.9
 
 ## Current Status
 
 * Beta version
-* See examples/hello_world/hello.ml for a first example
+* See examples in samples/
 
 ## Author
 
-* Fabrice Le Fessant (current version)
-* SooHyoung Oh (previous version)
-* Based on wxHaskell (cloned from github, on Mar 27)
+* Fabrice Le Fessant (INRIA/OCamlPro)
 
 ## How to compile
 
@@ -25,46 +23,71 @@ A binding to wxWidgets
 
  To run examples:
 
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:`pwd`/elj
-    ./_obuild/hello_world/hello_world.asm
+  $ cd samples
+  $ for sample in *; do ../_obuild/$sample/$sample.asm; done
 
 ## How to use
 
-* Look at the examples in examples/
+* Look at the examples in samples/
 * The global architectures of modules (in wxWidgets/) is:
   - a module WxClasses with all the (abstract) types
   - a module WxWidgets with the constructors (useful to open)
-  - a module Wxdefs with the constants (useful to open too)
+  - a module WxDefs with the constants (useful to open too)
   - a module per class, with all the methods (including inherited ones)
-      Note that some "wx"+NAME classes are virtual in C++, so, in OCaml,
-      they have been made concrete under the name "ELJ"+NAME.
   - a module WxMisc with misc functions
-  - a module WxMain with the main
+  - a function wxMain with the main loop
 
 ## How is it done ?
 
-WxOCaml follows the same idea as WxHaskell, itself based on WxEiffel.
+This project is a complete rewritting of wxOCaml, that does not contain
+ any code from wxHaskell or wxEiffel anymore. It uses a specification of
+ wxWidget API, given in the api/ directory, and generates all the C++ stubs
+ and OCaml modules from that specification, using two specific generators,
+ wxDefsGen (constants in WxDefs, from api/wxDefs.dsc) and wxStubsGen
+ (stubs from api/*.api and events from api/events.dsc).
 
-* The 'elj' sub-directory contains the C++ files (and headers) from
-  WxHaskell/wxc sub-directory (with no modification)
-* The 'wxCamlidl' is a modification of camlidl (in particular the module
-     wxmore.ml) to generate the stubs as a hierarchy of modules.
-* The 'idl' sub-directory is the place where wxCamlidl is called on
-  ../elj/wxc.h to generate the stubs. To match the IDL format, "wxc_types.h"
-  is different. The 'typedef.idl' and 'extend.idl' files define the basic 
-  types ('typedef.idl' for basic classes, 'extend.idl' for extensions).
-* The 'generators' sub-directory contains a program that generates an OCaml
-  source files containing the content of WX constants. The 'defs1.h' file
-  was generated from the 'defs.cpp' file of 'elj', after commenting some
-  obsolete constants.
+Since the API language is very close to C++ prototypes, it is easy to
+add new bindings for missing classes, functions and methods. Check
+the files in api/ for examples.
 
-## TODO
+## How to use ?
 
-The official WxWidgets uses the interface/wx/*.h files to generate its own
-documentation. It would be interesting to be able to generate the 
-OCaml bindings and its documentation directly from there. Some volunteer ?
+Start your code with:
 
+   open WxDefs
+   open WxClasses
+   open WxWidgets
 
+The "main" of your code is a function "onInit" called from the WxWidgets loop:
 
+   let onInit _ = ...
+   let _ = wxMain oninit
 
+For every class of WxWidget, we define a module with the same name. The "new"
+constructor is called "create". There can be several "create*" functions
+corresponding to several constructors with different arguments.
 
+Methods are functions in the class module, taking the object as first argument.
+If a method is overloaded for different arguments, then several functions
+can correspond to the different kinds of arguments:
+For example 
+
+    m_sizer->add(m_button)
+
+ will be translated into 
+
+    WxSizer.addWindow m_size m_button
+
+For every class, there are cast functions to translate an object to any 
+of its ancestor types. For example, you might need to use:
+
+   WxSizer.addWindow (WxBoxSizer.wxSizer m_size) (WxButton.wxWindow m_button)
+
+Since methods from ancestors are redefined in children modules, this example
+can be simplified to:
+
+   WxBoxSizer.addWindow m_size (WxButton.wxWindow m_button)
+
+The WxWidgets module defines some useful helper functions that can be
+used to make the code less verbose. In particular, it defines a WxSizerFlags
+module that can be used to translate WxSizerFlags classes.

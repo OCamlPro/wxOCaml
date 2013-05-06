@@ -154,10 +154,7 @@ let _ =
     generate_sources (cpp_directory, ocaml_directory) classes;
     GenEvents.generate_events !api_directory (cpp_directory, ocaml_directory) "wxEVT";
 
-    GenProject.generate_project_ocp
-      (Filename.concat ocaml_directory "wxWidgets.ocp");
-    GenProject.generate_project_Makefile
-      (Filename.concat cpp_directory "Makefile.project");
+    GenProject.generate_project_files ocaml_directory;
     exit !exit_code
   with Exit ->
     exit !exit_code
