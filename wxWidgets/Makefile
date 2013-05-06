@@ -7,7 +7,7 @@ include Makefile.project
 SOURCES= \
     wxOCaml.cpp  \
     \
-    $(GENERATED_SOURCES)
+    $(GENERATED_CPP_SOURCES)
 
 NOT_SOURCES= \
     wxObject_ml.cpp \
@@ -36,7 +36,7 @@ lib$(NAME).a: $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -Wl,--hash-size=31 -Wl,--reduce-memory-overheads -DwxcREFUSE_MEDIACTRL -fPIC -c $< -o $@
 
 clean:
-	rm -f *.so *.o *~ generated
+	rm -f *.so *.o *~ generated $(GENERATED_CPP_SOURCES) $(GENERATED_OCAML_SOURCES) lib$(NAME).a wxWidgets.ocp Makefile.project
 
 test: hello.cpp
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -Wl,--hash-size=31 -Wl,--reduce-memory-overheads -DwxcREFUSE_MEDIACTRL -fPIC hello.cpp -o test $(LIBS)

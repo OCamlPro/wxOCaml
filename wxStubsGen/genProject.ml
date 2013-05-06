@@ -35,9 +35,16 @@ let generate_project_ocp filename =
 
 let generate_project_Makefile filename =
   let ocp_oc = open_out filename in
-  fprintf ocp_oc "GENERATED_SOURCES = \\\n";
+  fprintf ocp_oc "GENERATED_CPP_SOURCES = \\\n";
   List.iter (fun file ->
     fprintf ocp_oc "    %s  \\\n" file
   ) !generated_cplusplus_sources;
+  fprintf ocp_oc "\n";
+  fprintf ocp_oc "GENERATED_OCAML_SOURCES = \\\n";
+  List.iter (fun file ->
+    fprintf ocp_oc "    %s  \\\n" file
+  ) !generated_ocaml_sources;
+  fprintf ocp_oc "    %s  \\\n" "wxEVT.ml";
+  fprintf ocp_oc "    %s  \\\n" "wxDefs.ml";
   fprintf ocp_oc "\n";
   close_out ocp_oc
