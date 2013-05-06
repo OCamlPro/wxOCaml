@@ -47,6 +47,8 @@ module Unsafe = struct
 
   external wxControl : wxObject -> wxControl = "%identity"
 
+  external wxControlWithItems : wxObject -> wxControlWithItems = "%identity"
+
   external wxCursor : wxObject -> wxCursor = "%identity"
 
   external wxDC : wxObject -> wxDC = "%identity"
@@ -98,6 +100,8 @@ module Unsafe = struct
   external wxKeyEvent : wxObject -> wxKeyEvent = "%identity"
 
   external wxLayoutConstraints : wxObject -> wxLayoutConstraints = "%identity"
+
+  external wxListBox : wxObject -> wxListBox = "%identity"
 
   external wxListCtrl : wxObject -> wxListCtrl = "%identity"
 

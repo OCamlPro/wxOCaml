@@ -50,6 +50,7 @@ type wxColour
 type wxCommandEvent
 type wxContextMenuEvent
 type wxControl
+type wxControlWithItems
 type wxCursor
 type wxDC
 type wxDateEvent
@@ -76,10 +77,13 @@ type wxIconBundle
 type wxIconizeEvent
 type wxIdleEvent
 type wxInitDialogEvent
+type wxItemContainer
+type wxItemContainerImmutable
 type wxJoystickEvent
 type wxKeyEvent
 type wxKeyboardState
 type wxLayoutConstraints
+type wxListBox
 type wxListCtrl
 type wxLog
 type wxLogChain

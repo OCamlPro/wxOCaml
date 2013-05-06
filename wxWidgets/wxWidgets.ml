@@ -26,6 +26,7 @@ let wxWrapSizer = WxWrapSizer.create
 let wxStaticBoxSizer = WxStaticBoxSizer.create
 let wxStaticBoxSizerEx = WxStaticBoxSizer.createEx
 let wxCheckBox = WxCheckBox.create
+let wxListBox = WxListBox.create
 
 let wxDate = WxDateTime.createDate
 let wxDateTime = WxDateTime.create
@@ -112,3 +113,75 @@ let wxDialog_event_table win events =
 
 let wxMain onInit =
   WxApp.wxEntry onInit Sys.argv
+
+
+type wxSizerFlags =
+  | Proportion of int
+  | Expand
+  | Align of int
+  | Center | Centre
+  | Top
+  | Left
+  | Right
+  | Bottom
+  | Border
+  | Border1 of int
+  | Border2 of int * int
+  | DoubleBorder
+  | TripleBorder
+  | HorzBorder
+  | DoubleHorzBorder
+  | Shaped
+  | FixedMinSize
+  | ReserveSpaceEvenIfHidden
+
+module WxSizerFlags = struct
+
+  let defaultBorder = WxSizer.getDefaultBorder()
+
+  let wxSizerFlags f (flags : wxSizerFlags list) =
+    let m_flags = ref 0 in
+    let m_borderInPixels = ref 0 in
+    let m_proportion = ref 0 in
+
+    let flag flag = m_flags := !m_flags lor flag in
+    let unflag flag = m_flags := !m_flags land (lnot flag) in
+    let align alignment = unflag wxALIGN_MASK; flag alignment in
+    let border dir border =
+      m_borderInPixels := border;
+      unflag wxALL; flag dir
+    in
+    List.iter (function
+      | Proportion n -> m_proportion := n
+      | Expand -> flag wxEXPAND
+      | Align alignment -> align alignment
+      | Centre | Center -> align  wxALIGN_CENTRE
+      | Top -> unflag (wxALIGN_BOTTOM lor wxALIGN_CENTRE_VERTICAL)
+      | Left -> unflag (wxALIGN_RIGHT lor wxALIGN_CENTRE_HORIZONTAL);
+      | Right -> unflag wxALIGN_CENTRE_HORIZONTAL; flag wxALIGN_RIGHT
+      | Bottom -> unflag wxALIGN_CENTRE_VERTICAL; flag wxALIGN_BOTTOM
+      | Border -> border wxALL defaultBorder
+      | Border1 dir -> border dir defaultBorder
+      | Border2 (dir, size) -> border dir size
+      | DoubleBorder -> border wxALL (2 * defaultBorder)
+      | TripleBorder -> border wxALL (3 * defaultBorder)
+      | HorzBorder -> border (wxLEFT lor wxRIGHT) defaultBorder
+      | DoubleHorzBorder -> border (wxLEFT lor wxRIGHT) (2*defaultBorder)
+      | Shaped -> flag wxSHAPED
+      | FixedMinSize -> flag wxFIXED_MINSIZE
+      | ReserveSpaceEvenIfHidden -> flag wxRESERVE_SPACE_EVEN_IF_HIDDEN
+
+    ) flags;
+
+    f !m_proportion !m_flags !m_borderInPixels None
+
+  let addSizer sizer sizer_arg flags =
+    wxSizerFlags (WxSizer.addSizer sizer sizer_arg) flags
+
+  let addWindow sizer win_arg flags =
+    wxSizerFlags (WxSizer.addWindow sizer win_arg) flags
+
+  let add sizer x y flags =
+    wxSizerFlags (WxSizer.add sizer x y) flags
+
+end

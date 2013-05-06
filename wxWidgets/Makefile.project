@@ -28,6 +28,7 @@ GENERATED_SOURCES = \
     wxFrame_ml.cpp  \
     wxGridSizer_ml.cpp  \
     wxIcon_ml.cpp  \
+    wxListBox_ml.cpp  \
     wxLogWindow_ml.cpp  \
     wxLogTextCtrl_ml.cpp  \
     wxLogNull_ml.cpp  \

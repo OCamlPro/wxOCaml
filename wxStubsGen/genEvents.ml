@@ -3,7 +3,7 @@ open GenProject
 open GenTypes
 open GenMisc
 
-let generate_events api_directory source_directory wxEVT =
+let generate_events api_directory (cpp_directory, ocaml_directory) wxEVT =
   let events = ref [] in
   let ic = open_in (Filename.concat api_directory "events.dsc") in
   begin try
@@ -14,12 +14,12 @@ let generate_events api_directory source_directory wxEVT =
   end;
   let events = Array.of_list !events in
 
-  let ml_filename = Filename.concat source_directory (wxEVT ^ ".ml") in
+  let ml_filename = Filename.concat ocaml_directory (wxEVT ^ ".ml") in
   let ml_oc = open_out ml_filename in
 
   let c_name = "wxGetEvents_c" in
 
-  let c_filename = Filename.concat source_directory
+  let c_filename = Filename.concat cpp_directory
       (add_cplusplus_source (wxEVT ^ "_ml.cpp")) in
   let c_oc = open_out c_filename in
   fprintf ml_oc "type 'a t = int\n";

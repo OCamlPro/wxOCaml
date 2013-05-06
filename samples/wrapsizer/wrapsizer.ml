@@ -53,7 +53,7 @@ let onInit () =
     let sizerTop = WxWrapSizer.wxSizer
         (wxWrapSizer wxHORIZONTAL wxWRAPSIZER_DEFAULT_FLAGS) in
 
-    WxSizer.addWindow sizerTop (_MakeToolBar w_panel) 0 0 0 None;
+    WxSizerFlags.addWindow sizerTop (_MakeToolBar w_panel) [];
     WxSizer.add sizerTop 20 1 0 0 0 None;
 
     WxSizer.addWindow sizerTop (_MakeToolBar w_panel) 0 0 0 None;
@@ -61,11 +61,7 @@ let onInit () =
 
     WxSizer.addWindow sizerTop (_MakeToolBar w_panel) 0 0 0 None;
 
-    (* wxSizerFlags().Expand().Border() *)
-    let flags = wxALIGN_CENTER lor wxALL in
-    let border = WxSizer.getDefaultBorder () in
-
-    WxSizer.addSizer sizerRoot sizerTop 0 flags border None;
+    WxSizerFlags.addSizer sizerRoot sizerTop [ Expand; Border ];
 
     (* A number of checkboxes inside a wrap sizer *)
     let sizerMid =
@@ -84,35 +80,42 @@ let onInit () =
           wxDefaultPosition wxDefaultSize 0 ""
       in
       let w_chk = WxCheckBox.wxWindow chk in
-      WxSizer.addWindow sizerMidWrap w_chk 0 flags border None
+      WxSizerFlags.addWindow sizerMidWrap w_chk [ Expand; Border ]
     done;
 
-    WxSizer.addSizer sizerMid sizerMidWrap 100 flags 0 None;
-    WxSizer.addSizer sizerRoot sizerMid 100 flags border None;
+    WxSizerFlags.addSizer sizerMid sizerMidWrap [ Proportion 100; Expand ];
+    WxSizerFlags.addSizer sizerRoot sizerMid [Proportion 100; Expand; Border ];
 
-(*
-    // A shaped item inside a box sizer
-    wxSizer *sizerBottom = new wxStaticBoxSizer(wxVERTICAL, m_panel,
-                                                "With wxSHAPED item");
-    wxSizer *sizerBottomBox = new wxBoxSizer(wxHORIZONTAL);
-    sizerBottom->Add(sizerBottomBox, wxSizerFlags(100).Expand());
+    (* A shaped item inside a box sizer *)
+    let sizerBottom =
+       WxStaticBoxSizer.wxSizer
+         (wxStaticBoxSizerEx wxVERTICAL w_panel
+            "With wxSHAPED item") in
+    let sizerBottomBox =
+      WxBoxSizer.wxSizer (wxBoxSizer wxHORIZONTAL) in
+    WxSizerFlags.addSizer sizerBottom sizerBottomBox [ Proportion 100; Expand ];
 
-    sizerBottomBox->Add(new wxListBox(m_panel, wxID_ANY,
-                                        wxPoint(0, 0), wxSize(70, 70)),
-                        wxSizerFlags().Expand().Shaped());
-    sizerBottomBox->AddSpacer(10);
-    sizerBottomBox->Add(new wxCheckBox(m_panel, wxID_ANY,
-                                        "A much longer option..."),
-                        wxSizerFlags(100).Border());
-    sizerRoot->Add(sizerBottom, wxSizerFlags(100).Expand().Border());
-*)
+    WxSizerFlags.addWindow sizerBottomBox
+     (WxListBox.wxWindow (wxListBox w_panel wxID_ANY
+         (0, 0) (70, 70)
+         (WxArrayString.create ()) 0 ""
+      )) [ Expand;Shaped];
+    WxSizer.addSpacer sizerBottomBox 10;
+    WxSizerFlags.addWindow sizerBottomBox
+      (WxCheckBox.wxWindow (
+         wxCheckBox w_panel wxID_ANY "A much longer option..."
+         wxDefaultPosition wxDefaultSize 0 "")
+      )
+    [ Proportion 100; Border];
+    WxSizerFlags.addSizer sizerRoot sizerBottom [Proportion 100;Expand;Border];
+
 
     (* OK Button *)
-    WxSizer.addWindow sizerRoot (
+    WxSizerFlags.addWindow sizerRoot (
       WxButton.wxWindow (
         wxButton w_panel wxID_OK ""
          wxDefaultPosition wxDefaultSize 0
-      )) 0 flags (2*border) None;
+      )) [ Centre; DoubleBorder ];
 
     let  onButton _ =
       ignore_bool (WxFrame.close this false)

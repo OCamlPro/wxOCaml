@@ -38,7 +38,7 @@ let read filename =
   end;
   close_in ic
 
-let generate_sources source_directory (filename, components) =
+let generate_sources (cpp_directory, ocaml_directory) (filename, components) =
 
   let includes = ref [] in
   (* Includes first *)
@@ -55,8 +55,8 @@ let generate_sources source_directory (filename, components) =
     match comp with
     | Comp_class cl ->
       if cl.class_methods <> [] then
-        GenCplusplus.generate_class_stubs source_directory cl includes;
-      GenOCaml.generate_class_module source_directory cl
+        GenCplusplus.generate_class_stubs cpp_directory cl includes;
+      GenOCaml.generate_class_module ocaml_directory cl
     | Comp_include _ -> ()
     | Comp_type _ -> ()
   ) components;
@@ -112,33 +112,39 @@ let create_class_hierarchy files =
   !classes;
   !classes
 
-let source_directory = ref "sources"
+let ocaml_directory = ref "sources"
+let cpp_directory = ref "sources"
 let api_directory = ref "api"
 
 let _ =
   Arg.parse [
-    "-api", Arg.String (fun s -> api_directory := s), "dir set API directory";
-    "-target", Arg.String (fun s -> source_directory := s), "dir set target directory";
+    "-api", Arg.String (fun s -> api_directory := s),
+      "dir set API directory";
+    "-cpp", Arg.String (fun s -> cpp_directory := s),
+      "dir set target directory";
+    "-ocaml", Arg.String (fun s -> ocaml_directory := s),
+      "dir set target directory";
     "-tokens", Arg.Set GenLexer.debug, " Print Lexer Tokens";
   ]
     read  " ";
 
-  let source_directory = !source_directory in
-
+  let cpp_directory = !cpp_directory in
+  let ocaml_directory = !ocaml_directory in
   let files = !files in
   let classes = create_class_hierarchy files in
 
   try
-    mkdir source_directory;
+    mkdir cpp_directory;
+    mkdir ocaml_directory;
     GenOCaml.generate_types_module
-      source_directory "wxClasses" classes;
-    List.iter (generate_sources source_directory) files;
-    GenEvents.generate_events !api_directory source_directory "wxEVT";
+      ocaml_directory "wxClasses" classes;
+    List.iter (generate_sources (cpp_directory, ocaml_directory)) files;
+    GenEvents.generate_events !api_directory (cpp_directory, ocaml_directory) "wxEVT";
 
     GenProject.generate_project_ocp
-      (Filename.concat source_directory "wxWidgets.ocp");
+      (Filename.concat ocaml_directory "wxWidgets.ocp");
     GenProject.generate_project_Makefile
-      (Filename.concat source_directory "Makefile.project");
+      (Filename.concat cpp_directory "Makefile.project");
     exit !exit_code
   with Exit ->
     exit !exit_code

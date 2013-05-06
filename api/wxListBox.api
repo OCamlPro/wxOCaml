@@ -1,0 +1,7 @@
+
+class wxListBox inherit wxControlWithItems begin
+ 	new(Create) (wxWindow *parent, wxWindowID id, 
+	wxPoint &pos, wxSize &size, 
+	wxArrayString &choices, long style, _ "wxDefaultValidator",
+	 wxString &name)
+end

@@ -1,603 +1,608 @@
 open WxClasses
 
+external create : 
+   wxWindow -> int -> wxPoint -> wxSize -> wxArrayString -> int -> wxString -> 
+      wxListBox = "wxListBox_Create_c_bytecode" "wxListBox_Create_c"
+
+
 (* Methods inherited from parents, if any *)
 
-external connect : wxControl ->
+external connect : wxListBox ->
    int -> ('a WxEVT.t) -> ('a -> unit) -> 
       unit = "wxEvtHandler_Connect_c"
 
 
-external disconnect : wxControl ->
+external disconnect : wxListBox ->
    int -> int -> int -> wxObject option -> 
       int = "wxEvtHandler_Disconnect_c"
 
 
-external setEvtHandlerEnabled : wxControl ->
+external setEvtHandlerEnabled : wxListBox ->
    bool  -> 
       unit = "wxEvtHandler_SetEvtHandlerEnabled_c"
 
 
-external getEvtHandlerEnabled : wxControl ->
+external getEvtHandlerEnabled : wxListBox ->
    bool  = "wxEvtHandler_GetEvtHandlerEnabled_c"
 
 
-external processEvent : wxControl ->
+external processEvent : wxListBox ->
    wxEvent -> 
       bool  = "wxEvtHandler_ProcessEvent_c"
 
 
-external addPendingEvent : wxControl ->
+external addPendingEvent : wxListBox ->
    wxEvent -> 
       unit = "wxEvtHandler_AddPendingEvent_c"
 
 
-external processPendingEvents : wxControl ->
+external processPendingEvents : wxListBox ->
    unit = "wxEvtHandler_ProcessPendingEvents_c"
 
 
-external close : wxControl ->
+external close : wxListBox ->
    bool  -> 
       bool  = "wxWindow_Close_c"
 
 
-external destroy : wxControl ->
+external destroy : wxListBox ->
    bool  = "wxWindow_Destroy_c"
 
 
-external clearBackground : wxControl ->
+external clearBackground : wxListBox ->
    unit = "wxWindow_ClearBackground_c"
 
 
-external fit : wxControl ->
+external fit : wxListBox ->
    unit = "wxWindow_Fit_c"
 
 
-external destroyChildren : wxControl ->
+external destroyChildren : wxListBox ->
    unit = "wxWindow_DestroyChildren_c"
 
 
-external isBeingDeleted : wxControl ->
+external isBeingDeleted : wxListBox ->
    bool  = "wxWindow_IsBeingDeleted_c"
 
 
-external setLabel : wxControl ->
+external setLabel : wxListBox ->
    wxString -> 
       unit = "wxWindow_SetLabel_c"
 
 
-external getLabel : wxControl ->
+external getLabel : wxListBox ->
    wxString = "wxWindow_GetLabel_c"
 
 
-external setName : wxControl ->
+external setName : wxListBox ->
    wxString -> 
       unit = "wxWindow_SetName_c"
 
 
-external getName : wxControl ->
+external getName : wxListBox ->
    wxString = "wxWindow_GetName_c"
 
 
-external setId : wxControl ->
+external setId : wxListBox ->
    int -> 
       unit = "wxWindow_SetId_c"
 
 
-external getId : wxControl ->
+external getId : wxListBox ->
    int = "wxWindow_GetId_c"
 
 
-external setSize : wxControl ->
+external setSize : wxListBox ->
    int -> int -> int -> int -> int -> 
       unit = "wxWindow_SetSize_c_bytecode" "wxWindow_SetSize_c"
 
 
-external move : wxControl ->
+external move : wxListBox ->
    int -> int -> 
       unit = "wxWindow_Move_c"
 
 
-external raise : wxControl ->
+external raise : wxListBox ->
    unit = "wxWindow_Raise_c"
 
 
-external lower : wxControl ->
+external lower : wxListBox ->
    unit = "wxWindow_Lower_c"
 
 
-external setClientSize : wxControl ->
+external setClientSize : wxListBox ->
    int -> int -> 
       unit = "wxWindow_SetClientSize_c"
 
 
-external getPosition : wxControl ->
+external getPosition : wxListBox ->
    wxPoint = "wxWindow_GetPosition_c"
 
 
-external getSize : wxControl ->
+external getSize : wxListBox ->
    wxSize = "wxWindow_GetSize_c"
 
 
-external getRect : wxControl ->
+external getRect : wxListBox ->
    wxRect = "wxWindow_GetRect_c"
 
 
-external getClientSize : wxControl ->
+external getClientSize : wxListBox ->
    wxSize = "wxWindow_GetClientSize_c"
 
 
-external getBestSize : wxControl ->
+external getBestSize : wxListBox ->
    wxSize = "wxWindow_GetBestSize_c"
 
 
-external center : wxControl ->
+external center : wxListBox ->
    int -> 
       unit = "wxWindow_Center_c"
 
 
-external centre : wxControl ->
+external centre : wxListBox ->
    int -> 
       unit = "wxWindow_Centre_c"
 
 
-external centerOnParent : wxControl ->
+external centerOnParent : wxListBox ->
    int -> 
       unit = "wxWindow_CenterOnParent_c"
 
 
-external centreOnParent : wxControl ->
+external centreOnParent : wxListBox ->
    int -> 
       unit = "wxWindow_CentreOnParent_c"
 
 
-external setSizeHints : wxControl ->
+external setSizeHints : wxListBox ->
    int -> int -> int -> int -> int -> int -> 
       unit = "wxWindow_SetSizeHints_c_bytecode" "wxWindow_SetSizeHints_c"
 
 
-external getMinWidth : wxControl ->
+external getMinWidth : wxListBox ->
    int = "wxWindow_GetMinWidth_c"
 
 
-external getMinHeight : wxControl ->
+external getMinHeight : wxListBox ->
    int = "wxWindow_GetMinHeight_c"
 
 
-external getMaxWidth : wxControl ->
+external getMaxWidth : wxListBox ->
    int = "wxWindow_GetMaxWidth_c"
 
 
-external getMaxHeight : wxControl ->
+external getMaxHeight : wxListBox ->
    int = "wxWindow_GetMaxHeight_c"
 
 
-external show : wxControl ->
+external show : wxListBox ->
    bool  = "wxWindow_Show_c"
 
 
-external hide : wxControl ->
+external hide : wxListBox ->
    bool  = "wxWindow_Hide_c"
 
 
-external enable : wxControl ->
+external enable : wxListBox ->
    bool  = "wxWindow_Enable_c"
 
 
-external enableBool : wxControl ->
+external enableBool : wxListBox ->
    bool  -> 
       unit = "wxWindow_EnableBool_c"
 
 
-external disable : wxControl ->
+external disable : wxListBox ->
    bool  = "wxWindow_Disable_c"
 
 
-external isShown : wxControl ->
+external isShown : wxListBox ->
    bool  = "wxWindow_IsShown_c"
 
 
-external isEnabled : wxControl ->
+external isEnabled : wxListBox ->
    bool  = "wxWindow_IsEnabled_c"
 
 
-external setWindowStyleFlag : wxControl ->
+external setWindowStyleFlag : wxListBox ->
    int -> 
       unit = "wxWindow_SetWindowStyleFlag_c"
 
 
-external getWindowStyleFlag : wxControl ->
+external getWindowStyleFlag : wxListBox ->
    int = "wxWindow_GetWindowStyleFlag_c"
 
 
-external hasFlag : wxControl ->
+external hasFlag : wxListBox ->
    int -> 
       bool  = "wxWindow_HasFlag_c"
 
 
-external setExtraStyle : wxControl ->
+external setExtraStyle : wxListBox ->
    int -> 
       unit = "wxWindow_SetExtraStyle_c"
 
 
-external makeModal : wxControl ->
+external makeModal : wxListBox ->
    bool  -> 
       unit = "wxWindow_MakeModal_c"
 
 
-external setFocus : wxControl ->
+external setFocus : wxListBox ->
    unit = "wxWindow_SetFocus_c"
 
 
-external findFocus : wxControl ->
+external findFocus : wxListBox ->
    wxWindow option = "wxWindow_FindFocus_c"
 
 
-external getParent : wxControl ->
+external getParent : wxListBox ->
    wxWindow option = "wxWindow_GetParent_c"
 
 
-external isTopLevel : wxControl ->
+external isTopLevel : wxListBox ->
    bool  = "wxWindow_IsTopLevel_c"
 
 
-external findWindow : wxControl ->
+external findWindow : wxListBox ->
    wxString -> 
       wxWindow option = "wxWindow_FindWindow_c"
 
 
-external findWindowById : wxControl ->
+external findWindowById : wxListBox ->
    int -> 
       wxWindow option = "wxWindow_FindWindowById_c"
 
 
-external addChild : wxControl ->
+external addChild : wxListBox ->
    wxWindowBase option -> 
       unit = "wxWindow_AddChild_c"
 
 
-external removeChild : wxControl ->
+external removeChild : wxListBox ->
    wxWindowBase option -> 
       unit = "wxWindow_RemoveChild_c"
 
 
-external getEventHandler : wxControl ->
+external getEventHandler : wxListBox ->
    wxEvtHandler option = "wxWindow_GetEventHandler_c"
 
 
-external pushEventHandler : wxControl ->
+external pushEventHandler : wxListBox ->
    wxEvtHandler option -> 
       unit = "wxWindow_PushEventHandler_c"
 
 
-external popEventHandler : wxControl ->
+external popEventHandler : wxListBox ->
    bool  -> 
       wxEvtHandler option = "wxWindow_PopEventHandler_c"
 
 
-external setValidator : wxControl ->
+external setValidator : wxListBox ->
    wxValidator -> 
       unit = "wxWindow_SetValidator_c"
 
 
-external getValidator : wxControl ->
+external getValidator : wxListBox ->
    wxValidator option = "wxWindow_GetValidator_c"
 
 
-external validate : wxControl ->
+external validate : wxListBox ->
    bool  = "wxWindow_Validate_c"
 
 
-external transferDataToWindow : wxControl ->
+external transferDataToWindow : wxListBox ->
    bool  = "wxWindow_TransferDataToWindow_c"
 
 
-external transferDataFromWindow : wxControl ->
+external transferDataFromWindow : wxListBox ->
    bool  = "wxWindow_TransferDataFromWindow_c"
 
 
-external initDialog : wxControl ->
+external initDialog : wxListBox ->
    unit = "wxWindow_InitDialog_c"
 
 
-external setAcceleratorTable : wxControl ->
+external setAcceleratorTable : wxListBox ->
    wxAcceleratorTable -> 
       unit = "wxWindow_SetAcceleratorTable_c"
 
 
-external convertPixelsToDialog : wxControl ->
+external convertPixelsToDialog : wxListBox ->
    wxPoint -> 
       wxPoint = "wxWindow_ConvertPixelsToDialog_c"
 
 
-external convertDialogToPixels : wxControl ->
+external convertDialogToPixels : wxListBox ->
    wxPoint -> 
       wxPoint = "wxWindow_ConvertDialogToPixels_c"
 
 
-external warpPointer : wxControl ->
+external warpPointer : wxListBox ->
    int -> int -> 
       unit = "wxWindow_WarpPointer_c"
 
 
-external captureMouse : wxControl ->
+external captureMouse : wxListBox ->
    unit = "wxWindow_CaptureMouse_c"
 
 
-external releaseMouse : wxControl ->
+external releaseMouse : wxListBox ->
    unit = "wxWindow_ReleaseMouse_c"
 
 
-external refresh : wxControl ->
+external refresh : wxListBox ->
    bool  -> wxRect option -> 
       unit = "wxWindow_Refresh_c"
 
 
-external prepareDC : wxControl ->
+external prepareDC : wxListBox ->
    wxDC -> 
       unit = "wxWindow_PrepareDC_c"
 
 
-external getUpdateRegion : wxControl ->
+external getUpdateRegion : wxListBox ->
    wxRegion = "wxWindow_GetUpdateRegion_c"
 
 
-external isExposed : wxControl ->
+external isExposed : wxListBox ->
    int -> int -> int -> int -> 
       bool  = "wxWindow_IsExposed_c"
 
 
-external setBackgroundColour : wxControl ->
+external setBackgroundColour : wxListBox ->
    wxColour -> 
       bool  = "wxWindow_SetBackgroundColour_c"
 
 
-external setForegroundColour : wxControl ->
+external setForegroundColour : wxListBox ->
    wxColour -> 
       unit = "wxWindow_SetForegroundColour_c"
 
 
-external getBackgroundColour : wxControl ->
+external getBackgroundColour : wxListBox ->
    wxColour = "wxWindow_GetBackgroundColour_c"
 
 
-external getForegroundColour : wxControl ->
+external getForegroundColour : wxListBox ->
    wxColour = "wxWindow_GetForegroundColour_c"
 
 
-external setCursor : wxControl ->
+external setCursor : wxListBox ->
    wxCursor -> 
       unit = "wxWindow_SetCursor_c"
 
 
-external getCursor : wxControl ->
+external getCursor : wxListBox ->
    wxCursor = "wxWindow_GetCursor_c"
 
 
-external setFont : wxControl ->
+external setFont : wxListBox ->
    wxFont -> 
       unit = "wxWindow_SetFont_c"
 
 
-external getFont : wxControl ->
+external getFont : wxListBox ->
    wxFont = "wxWindow_GetFont_c"
 
 
-external setCaret : wxControl ->
+external setCaret : wxListBox ->
    wxCaret option -> 
       unit = "wxWindow_SetCaret_c"
 
 
-external getCaret : wxControl ->
+external getCaret : wxListBox ->
    wxCaret option = "wxWindow_GetCaret_c"
 
 
-external getCharHeight : wxControl ->
+external getCharHeight : wxListBox ->
    int = "wxWindow_GetCharHeight_c"
 
 
-external getCharWidth : wxControl ->
+external getCharWidth : wxListBox ->
    int = "wxWindow_GetCharWidth_c"
 
 
-external getTextExtent : wxControl ->
+external getTextExtent : wxListBox ->
    wxString -> wxFont option -> 
       unit * int * int * int * int = "wxWindow_GetTextExtent_c"
 
 
-external screenToClient : wxControl ->
+external screenToClient : wxListBox ->
    wxPoint -> 
       wxPoint = "wxWindow_ScreenToClient_c"
 
 
-external updateWindowUI : wxControl ->
+external updateWindowUI : wxListBox ->
    unit = "wxWindow_UpdateWindowUI_c"
 
 
-external popupMenu : wxControl ->
+external popupMenu : wxListBox ->
    wxMenu option -> int -> int -> 
       bool  = "wxWindow_PopupMenu_c"
 
 
-external setScrollPos : wxControl ->
+external setScrollPos : wxListBox ->
    int -> int -> bool  -> 
       unit = "wxWindow_SetScrollPos_c"
 
 
-external getScrollPos : wxControl ->
+external getScrollPos : wxListBox ->
    int -> 
       int = "wxWindow_GetScrollPos_c"
 
 
-external getScrollThumb : wxControl ->
+external getScrollThumb : wxListBox ->
    int -> 
       int = "wxWindow_GetScrollThumb_c"
 
 
-external getScrollRange : wxControl ->
+external getScrollRange : wxListBox ->
    int -> 
       int = "wxWindow_GetScrollRange_c"
 
 
-external scrollWindow : wxControl ->
+external scrollWindow : wxListBox ->
    int -> int -> wxRect option -> 
       unit = "wxWindow_ScrollWindow_c"
 
 
-external setToolTip : wxControl ->
+external setToolTip : wxListBox ->
    wxString -> 
       unit = "wxWindow_SetToolTip_c"
 
 
-external getToolTip : wxControl ->
+external getToolTip : wxListBox ->
    wxToolTip option = "wxWindow_GetToolTip_c"
 
 
-external setDropTarget : wxControl ->
+external setDropTarget : wxListBox ->
    wxDropTarget option -> 
       unit = "wxWindow_SetDropTarget_c"
 
 
-external getDropTarget : wxControl ->
+external getDropTarget : wxListBox ->
    wxDropTarget option = "wxWindow_GetDropTarget_c"
 
 
-external setConstraints : wxControl ->
+external setConstraints : wxListBox ->
    wxLayoutConstraints option -> 
       unit = "wxWindow_SetConstraints_c"
 
 
-external getConstraints : wxControl ->
+external getConstraints : wxListBox ->
    wxLayoutConstraints option = "wxWindow_GetConstraints_c"
 
 
-external setAutoLayout : wxControl ->
+external setAutoLayout : wxListBox ->
    bool  -> 
       unit = "wxWindow_SetAutoLayout_c"
 
 
-external getAutoLayout : wxControl ->
+external getAutoLayout : wxListBox ->
    int = "wxWindow_GetAutoLayout_c"
 
 
-external layout : wxControl ->
+external layout : wxListBox ->
    unit = "wxWindow_Layout_c"
 
 
-external unsetConstraints : wxControl ->
+external unsetConstraints : wxListBox ->
    wxLayoutConstraints option -> 
       unit = "wxWindow_UnsetConstraints_c"
 
 
-external getWindowStyle : wxControl ->
+external getWindowStyle : wxListBox ->
    int = "wxWindow_GetWindowStyle_c"
 
 
-external setWindowStyle : wxControl ->
+external setWindowStyle : wxListBox ->
    int -> 
       unit = "wxWindow_SetWindowStyle_c"
 
 
-external addConstraintReference : wxControl ->
+external addConstraintReference : wxListBox ->
    wxWindowBase option -> 
       unit = "wxWindow_AddConstraintReference_c"
 
 
-external removeConstraintReference : wxControl ->
+external removeConstraintReference : wxListBox ->
    wxWindowBase option -> 
       unit = "wxWindow_RemoveConstraintReference_c"
 
 
-external deleteRelatedConstraints : wxControl ->
+external deleteRelatedConstraints : wxListBox ->
    unit = "wxWindow_DeleteRelatedConstraints_c"
 
 
-external resetConstraints : wxControl ->
+external resetConstraints : wxListBox ->
    unit = "wxWindow_ResetConstraints_c"
 
 
-external setConstraintSizes : wxControl ->
+external setConstraintSizes : wxListBox ->
    bool  -> 
       unit = "wxWindow_SetConstraintSizes_c"
 
 
-external doPhase : wxControl ->
+external doPhase : wxListBox ->
    int -> 
       int = "wxWindow_DoPhase_c"
 
 
-external setSizeConstraint : wxControl ->
+external setSizeConstraint : wxListBox ->
    int -> int -> int -> int -> 
       unit = "wxWindow_SetSizeConstraint_c"
 
 
-external moveConstraint : wxControl ->
+external moveConstraint : wxListBox ->
    int -> int -> 
       unit = "wxWindow_MoveConstraint_c"
 
 
-external getSizeConstraint : wxControl ->
+external getSizeConstraint : wxListBox ->
    unit * int * int = "wxWindow_GetSizeConstraint_c"
 
 
-external getClientSizeConstraint : wxControl ->
+external getClientSizeConstraint : wxListBox ->
    unit * int * int = "wxWindow_GetClientSizeConstraint_c"
 
 
-external getPositionConstraint : wxControl ->
+external getPositionConstraint : wxListBox ->
    unit * int * int = "wxWindow_GetPositionConstraint_c"
 
 
-external setSizer : wxControl ->
+external setSizer : wxListBox ->
    wxSizer -> 
       unit = "wxWindow_SetSizer_c"
 
 
-external setSizerAndFit : wxControl ->
+external setSizerAndFit : wxListBox ->
    wxSizer -> bool  -> 
       unit = "wxWindow_SetSizerAndFit_c"
 
 
-external getSizer : wxControl ->
+external getSizer : wxListBox ->
    wxSizer option = "wxWindow_GetSizer_c"
 
 
-external setScrollbar : wxControl ->
+external setScrollbar : wxListBox ->
    int -> int -> int -> int -> bool  -> 
       unit = "wxWindow_SetScrollbar_c_bytecode" "wxWindow_SetScrollbar_c"
 
 
-external reparent : wxControl ->
+external reparent : wxListBox ->
    wxWindow option -> 
       bool  = "wxWindow_Reparent_c"
 
 
-external getEffectiveMinSize : wxControl ->
+external getEffectiveMinSize : wxListBox ->
    wxSize = "wxWindow_GetEffectiveMinSize_c"
 
 
-external freeze : wxControl ->
+external freeze : wxListBox ->
    unit = "wxWindow_Freeze_c"
 
 
-external thaw : wxControl ->
+external thaw : wxListBox ->
    unit = "wxWindow_Thaw_c"
 
 
-external clientToScreen : wxControl ->
+external clientToScreen : wxListBox ->
    wxPoint -> 
       wxPoint = "wxWindow_ClientToScreen_c"
 
 
-external fitInside : wxControl ->
+external fitInside : wxListBox ->
    unit = "wxWindow_FitInside_c"
 
 
-external setVirtualSize : wxControl ->
+external setVirtualSize : wxListBox ->
    int -> int -> 
       unit = "wxWindow_SetVirtualSize_c"
 
 
-external getVirtualSize : wxControl ->
+external getVirtualSize : wxListBox ->
    wxSize = "wxWindow_GetVirtualSize_c"
 
 
@@ -608,47 +613,18 @@ external wxGetTopLevelParent :
 
 (* Cast functions to parents *)
 
-external wxEvtHandler : wxControl -> wxEvtHandler = "%identity"
+external wxControl : wxListBox -> wxControl = "%identity"
 
-external wxObject : wxControl -> wxObject = "%identity"
+external wxControlWithItems : wxListBox -> wxControlWithItems = "%identity"
 
-external wxWindow : wxControl -> wxWindow = "%identity"
+external wxEvtHandler : wxListBox -> wxEvtHandler = "%identity"
 
-external wxWindowBase : wxControl -> wxWindowBase = "%identity"
-module Unsafe = struct
+external wxItemContainer : wxListBox -> wxItemContainer = "%identity"
 
-  (* Cast functions to children, if any *)
+external wxItemContainerImmutable : wxListBox -> wxItemContainerImmutable = "%identity"
 
-  external wxAnyButton : wxControl -> wxAnyButton = "%identity"
+external wxObject : wxListBox -> wxObject = "%identity"
 
-  external wxBitmapButton : wxControl -> wxBitmapButton = "%identity"
+external wxWindow : wxListBox -> wxWindow = "%identity"
 
-  external wxButton : wxControl -> wxButton = "%identity"
-
-  external wxCalendarCtrl : wxControl -> wxCalendarCtrl = "%identity"
-
-  external wxCheckBox : wxControl -> wxCheckBox = "%identity"
-
-  external wxControlWithItems : wxControl -> wxControlWithItems = "%identity"
-
-  external wxDatePickerCtrl : wxControl -> wxDatePickerCtrl = "%identity"
-
-  external wxListBox : wxControl -> wxListBox = "%identity"
-
-  external wxListCtrl : wxControl -> wxListCtrl = "%identity"
-
-  external wxStaticBox : wxControl -> wxStaticBox = "%identity"
-
-  external wxStaticText : wxControl -> wxStaticText = "%identity"
-
-  external wxStatusBar : wxControl -> wxStatusBar = "%identity"
-
-  external wxTextCtrl : wxControl -> wxTextCtrl = "%identity"
-
-  external wxTimePickerCtrl : wxControl -> wxTimePickerCtrl = "%identity"
-
-  external wxToolBar : wxControl -> wxToolBar = "%identity"
-
-  external wxTreeCtrl : wxControl -> wxTreeCtrl = "%identity"
-
-end
+external wxWindowBase : wxListBox -> wxWindowBase = "%identity"

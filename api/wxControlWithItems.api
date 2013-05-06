@@ -1,0 +1,4 @@
+
+class wxControlWithItems inherit wxControl inherit wxItemContainer begin
+
+end

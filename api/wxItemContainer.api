@@ -1,0 +1,4 @@
+
+class wxItemContainer inherit wxItemContainerImmutable begin
+
+end

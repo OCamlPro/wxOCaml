@@ -62,11 +62,15 @@ module Unsafe = struct
 
   external wxControl : wxEvtHandler -> wxControl = "%identity"
 
+  external wxControlWithItems : wxEvtHandler -> wxControlWithItems = "%identity"
+
   external wxDatePickerCtrl : wxEvtHandler -> wxDatePickerCtrl = "%identity"
 
   external wxDialog : wxEvtHandler -> wxDialog = "%identity"
 
   external wxFrame : wxEvtHandler -> wxFrame = "%identity"
+
+  external wxListBox : wxEvtHandler -> wxListBox = "%identity"
 
   external wxListCtrl : wxEvtHandler -> wxListCtrl = "%identity"
 
