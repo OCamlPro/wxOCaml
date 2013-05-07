@@ -1,45 +1,47 @@
 type wxCoord = int
 type wxMappingMode = int
 type wxRasterOperationMode = int
+type wxLayoutDirection = int
+
 
 class wxDC inherit wxObject begin
 
 (*
-void 	CopyAttributes (const wxDC &dc)
+  method(void,	CopyAttributes ( wxDC &dc)
  	Copy attributes from another DC. 
-int 	GetDepth () const
+int 	GetDepth () 
  	Returns the depth (number of bits/pixel) of this DC. 
-wxPoint 	GetDeviceOrigin () const
+wxPoint 	GetDeviceOrigin () 
  	Returns the current device origin. 
-wxRasterOperationMode 	GetLogicalFunction () const
+wxRasterOperationMode 	GetLogicalFunction () 
  	Gets the current logical function. 
-wxMappingMode 	GetMapMode () const
+wxMappingMode 	GetMapMode () 
  	Gets the current mapping mode for the device context. 
-bool 	GetPixel (wxCoord x, wxCoord y, wxColour *colour) const
+bool 	GetPixel (wxCoord x, wxCoord y, wxColour *colour) 
  	Gets in colour the colour at the specified location. 
-wxSize 	GetPPI () const
+wxSize 	GetPPI () 
  	Returns the resolution of the device in pixels per inch. 
-void 	GetSize (wxCoord *width, wxCoord *height) const
+  method(void,	GetSize (wxCoord *width, wxCoord *height) 
  	Gets the horizontal and vertical extent of this device context in device units. 
-wxSize 	GetSize () const
+wxSize 	GetSize () 
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	GetSizeMM (wxCoord *width, wxCoord *height) const
+  method(void,	GetSizeMM (wxCoord *width, wxCoord *height) 
  	Returns the horizontal and vertical resolution in millimetres. 
-wxSize 	GetSizeMM () const
+wxSize 	GetSizeMM () 
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	GetUserScale (double *x, double *y) const
+  method(void,	GetUserScale (double *x, double *y) 
  	Gets the current user scale factor. 
-bool 	IsOk () const
+bool 	IsOk () 
  	Returns true if the DC is ok to use. 
-void 	SetDeviceOrigin (wxCoord x, wxCoord y)
+  method(void,	SetDeviceOrigin (wxCoord x, wxCoord y)
  	Sets the device origin (i.e., the origin in pixels after scaling has been applied). 
 
-  void SetLogicalFunction (wxRasterOperationMode function)
+    method(void,SetLogicalFunction (wxRasterOperationMode function)
  	Sets the current logical function for the device context. 
-void 	SetPalette (const wxPalette &palette)
+  method(void,	SetPalette ( wxPalette &palette)
  	If this is a window DC or memory DC, assigns the given palette to the window or bitmap associated with the DC. 
-void 	SetLogicalScale (double x, double y)
-void 	GetLogicalScale (double *x, double *y) const
+  method(void,	SetLogicalScale (double x, double y)
+  method(void,	GetLogicalScale (double *x, double *y) 
 *)
 
 
@@ -51,83 +53,84 @@ void 	GetLogicalScale (double *x, double *y) const
   method(wxCoord,DeviceToLogicalY) (wxCoord y) 
 
 (*
-void 	GetLogicalOrigin (wxCoord *x, wxCoord *y) const
-wxPoint 	GetLogicalOrigin () const
+  method(void,	GetLogicalOrigin (wxCoord *x, wxCoord *y) 
+wxPoint 	GetLogicalOrigin () 
 Coordinate conversion functions
 
-wxCoord 	DeviceToLogicalXRel (wxCoord x) const
+wxCoord 	DeviceToLogicalXRel (wxCoord x) 
  	Convert device X coordinate to relative logical coordinate, using the current mapping mode and user scale factor but ignoring the axis orientation. 
-wxCoord 	DeviceToLogicalY (wxCoord y) const
+wxCoord 	DeviceToLogicalY (wxCoord y) 
  	Converts device Y coordinate to logical coordinate, using the current mapping mode, user scale factor, device origin and axis orientation. 
-wxCoord 	DeviceToLogicalYRel (wxCoord y) const
+wxCoord 	DeviceToLogicalYRel (wxCoord y) 
  	Convert device Y coordinate to relative logical coordinate, using the current mapping mode and user scale factor but ignoring the axis orientation. 
-wxCoord 	LogicalToDeviceX (wxCoord x) const
+wxCoord 	LogicalToDeviceX (wxCoord x) 
  	Converts logical X coordinate to device coordinate, using the current mapping mode, user scale factor, device origin and axis orientation. 
-wxCoord 	LogicalToDeviceXRel (wxCoord x) const
+wxCoord 	LogicalToDeviceXRel (wxCoord x) 
  	Converts logical X coordinate to relative device coordinate, using the current mapping mode and user scale factor but ignoring the axis orientation. 
-wxCoord 	LogicalToDeviceY (wxCoord y) const
+wxCoord 	LogicalToDeviceY (wxCoord y) 
  	Converts logical Y coordinate to device coordinate, using the current mapping mode, user scale factor, device origin and axis orientation. 
-wxCoord 	LogicalToDeviceYRel (wxCoord y) const
+wxCoord 	LogicalToDeviceYRel (wxCoord y) 
  	Converts logical Y coordinate to relative device coordinate, using the current mapping mode and user scale factor but ignoring the axis orientation. 
 Drawing functions
-void 	Clear ()
- 	Clears the device context using the current background brush. 
-void 	DrawArc (wxCoord xStart, wxCoord yStart, wxCoord xEnd, wxCoord yEnd, wxCoord xc, wxCoord yc)
- 	Draws an arc of a circle, centred on (xc, yc), with starting point (xStart, yStart) and ending at (xEnd, yEnd). 
-void 	DrawArc (const wxPoint &ptStart, const wxPoint &ptEnd, const wxPoint &centre)
- 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawBitmap (const wxBitmap &bitmap, wxCoord x, wxCoord y, bool useMask=false)
- 	Draw a bitmap on the device context at the specified point. 
-void 	DrawBitmap (const wxBitmap &bmp, const wxPoint &pt, bool useMask=false)
- 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawCheckMark (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
+*)
+
+  method(void,	Clear) ()
+  method(void,	DrawArc, 
+    DrawArcCoords) (wxCoord xStart, wxCoord yStart, wxCoord xEnd, wxCoord yEnd, wxCoord xc, wxCoord yc)
+  method(void,	DrawArc) ( wxPoint &ptStart,  wxPoint &ptEnd,  wxPoint &centre)
+  method(void,	DrawBitmap, DrawBitmapCoords)
+    ( wxBitmap &bitmap, wxCoord x, wxCoord y, bool useMask (*=false*))
+  method(void,	DrawBitmap) ( wxBitmap &bmp,  wxPoint &pt, bool useMask (*=false *))
+
+(*
+  method(void,	DrawCheckMark (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
  	Draws a check mark inside the given rectangle. 
-void 	DrawCheckMark (const wxRect &rect)
+  method(void,	DrawCheckMark ( wxRect &rect)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawCircle (wxCoord x, wxCoord y, wxCoord radius)
+  method(void,	DrawCircle (wxCoord x, wxCoord y, wxCoord radius)
  	Draws a circle with the given centre and radius. 
-void 	DrawCircle (const wxPoint &pt, wxCoord radius)
+  method(void,	DrawCircle ( wxPoint &pt, wxCoord radius)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawEllipse (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
+  method(void,	DrawEllipse (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
  	Draws an ellipse contained in the rectangle specified either with the given top left corner and the given size or directly. 
-void 	DrawEllipse (const wxPoint &pt, const wxSize &size)
+  method(void,	DrawEllipse ( wxPoint &pt,  wxSize &size)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawEllipse (const wxRect &rect)
+  method(void,	DrawEllipse ( wxRect &rect)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawEllipticArc (wxCoord x, wxCoord y, wxCoord width, wxCoord height, double start, double end)
+  method(void,	DrawEllipticArc (wxCoord x, wxCoord y, wxCoord width, wxCoord height, double start, double end)
  	Draws an arc of an ellipse. 
-void 	DrawEllipticArc (const wxPoint &pt, const wxSize &sz, double sa, double ea)
+  method(void,	DrawEllipticArc ( wxPoint &pt,  wxSize &sz, double sa, double ea)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawIcon (const wxIcon &icon, wxCoord x, wxCoord y)
+  method(void,	DrawIcon ( wxIcon &icon, wxCoord x, wxCoord y)
  	Draw an icon on the display (does nothing if the device context is PostScript). 
-void 	DrawIcon (const wxIcon &icon, const wxPoint &pt)
+  method(void,	DrawIcon ( wxIcon &icon,  wxPoint &pt)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawLabel (const wxString &text, const wxBitmap &bitmap, const wxRect &rect, int alignment=wxALIGN_LEFT|wxALIGN_TOP, int indexAccel=-1, wxRect *rectBounding=NULL)
+  method(void,	DrawLabel ( wxString &text,  wxBitmap &bitmap,  wxRect &rect, int alignment=wxALIGN_LEFT|wxALIGN_TOP, int indexAccel=-1, wxRect *rectBounding=NULL)
  	Draw optional bitmap and the text into the given rectangle and aligns it as specified by alignment parameter; it also will emphasize the character with the given index if it is != -1 and return the bounding rectangle if required. 
-void 	DrawLabel (const wxString &text, const wxRect &rect, int alignment=wxALIGN_LEFT|wxALIGN_TOP, int indexAccel=-1)
+  method(void,	DrawLabel ( wxString &text,  wxRect &rect, int alignment=wxALIGN_LEFT|wxALIGN_TOP, int indexAccel=-1)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawLine (wxCoord x1, wxCoord y1, wxCoord x2, wxCoord y2)
+  method(void,	DrawLine (wxCoord x1, wxCoord y1, wxCoord x2, wxCoord y2)
  	Draws a line from the first point to the second. 
-void 	DrawLine (const wxPoint &pt1, const wxPoint &pt2)
+  method(void,	DrawLine ( wxPoint &pt1,  wxPoint &pt2)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawLines (int n, wxPoint points[], wxCoord xoffset=0, wxCoord yoffset=0)
+  method(void,	DrawLines (int n, wxPoint points[], wxCoord xoffset=0, wxCoord yoffset=0)
  	Draws lines using an array of points of size n adding the optional offset coordinate. 
-void 	DrawLines (const wxPointList *points, wxCoord xoffset=0, wxCoord yoffset=0)
+  method(void,	DrawLines ( wxPointList *points, wxCoord xoffset=0, wxCoord yoffset=0)
  	This method uses a list of wxPoints, adding the optional offset coordinate. 
-void 	DrawPoint (wxCoord x, wxCoord y)
+  method(void,	DrawPoint (wxCoord x, wxCoord y)
  	Draws a point using the color of the current pen. 
-void 	DrawPoint (const wxPoint &pt)
+  method(void,	DrawPoint ( wxPoint &pt)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawPolygon (int n, wxPoint points[], wxCoord xoffset=0, wxCoord yoffset=0, wxPolygonFillMode fill_style=wxODDEVEN_RULE)
+  method(void,	DrawPolygon (int n, wxPoint points[], wxCoord xoffset=0, wxCoord yoffset=0, wxPolygonFillMode fill_style=wxODDEVEN_RULE)
  	Draws a filled polygon using an array of points of size n, adding the optional offset coordinate. 
-void 	DrawPolygon (const wxPointList *points, wxCoord xoffset=0, wxCoord yoffset=0, wxPolygonFillMode fill_style=wxODDEVEN_RULE)
+  method(void,	DrawPolygon ( wxPointList *points, wxCoord xoffset=0, wxCoord yoffset=0, wxPolygonFillMode fill_style=wxODDEVEN_RULE)
  	This method draws a filled polygon using a list of wxPoints, adding the optional offset coordinate. 
-void 	DrawPolyPolygon (int n, int count[], wxPoint points[], wxCoord xoffset=0, wxCoord yoffset=0, wxPolygonFillMode fill_style=wxODDEVEN_RULE)
+  method(void,	DrawPolyPolygon (int n, int count[], wxPoint points[], wxCoord xoffset=0, wxCoord yoffset=0, wxPolygonFillMode fill_style=wxODDEVEN_RULE)
  	Draws two or more filled polygons using an array of points, adding the optional offset coordinates. 
 
-void 	DrawRectangle (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
+  method(void,	DrawRectangle (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
  	Draws a rectangle with the given top left corner, and with the given size. 
-void 	DrawRectangle (const wxPoint &pt, const wxSize &sz)
+  method(void,	DrawRectangle ( wxPoint &pt,  wxSize &sz)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
 
 *)
@@ -136,145 +139,118 @@ void 	DrawRectangle (const wxPoint &pt, const wxSize &sz)
 	method(void, DrawRectangle, DrawRectangleRect) (wxRect &rect)
 
 (*
-void 	DrawRotatedText (const wxString &text, wxCoord x, wxCoord y, double angle)
+  method(void,	DrawRotatedText ( wxString &text, wxCoord x, wxCoord y, double angle)
  	Draws the text rotated by angle degrees (positive angles are counterclockwise; the full angle is 360 degrees). 
-void 	DrawRotatedText (const wxString &text, const wxPoint &point, double angle)
+  method(void,	DrawRotatedText ( wxString &text,  wxPoint &point, double angle)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawRoundedRectangle (wxCoord x, wxCoord y, wxCoord width, wxCoord height, double radius)
+  method(void,	DrawRoundedRectangle (wxCoord x, wxCoord y, wxCoord width, wxCoord height, double radius)
  	Draws a rectangle with the given top left corner, and with the given size. 
-void 	DrawRoundedRectangle (const wxPoint &pt, const wxSize &sz, double radius)
+  method(void,	DrawRoundedRectangle ( wxPoint &pt,  wxSize &sz, double radius)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawRoundedRectangle (const wxRect &rect, double radius)
+  method(void,	DrawRoundedRectangle ( wxRect &rect, double radius)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawSpline (int n, wxPoint points[])
+  method(void,	DrawSpline (int n, wxPoint points[])
  	Draws a spline between all given points using the current pen. 
-void 	DrawSpline (const wxPointList *points)
+  method(void,	DrawSpline ( wxPointList *points)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawSpline (wxCoord x1, wxCoord y1, wxCoord x2, wxCoord y2, wxCoord x3, wxCoord y3)
+  method(void,	DrawSpline (wxCoord x1, wxCoord y1, wxCoord x2, wxCoord y2, wxCoord x3, wxCoord y3)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawText (const wxString &text, wxCoord x, wxCoord y)
+  method(void,	DrawText ( wxString &text, wxCoord x, wxCoord y)
  	Draws a text string at the specified point, using the current text font, and the current text foreground and background colours. 
-void 	DrawText (const wxString &text, const wxPoint &pt)
+  method(void,	DrawText ( wxString &text,  wxPoint &pt)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	GradientFillConcentric (const wxRect &rect, const wxColour &initialColour, const wxColour &destColour)
+  method(void,	GradientFillConcentric ( wxRect &rect,  wxColour &initialColour,  wxColour &destColour)
  	Fill the area specified by rect with a radial gradient, starting from initialColour at the centre of the circle and fading to destColour on the circle outside. 
-void 	GradientFillConcentric (const wxRect &rect, const wxColour &initialColour, const wxColour &destColour, const wxPoint &circleCenter)
+  method(void,	GradientFillConcentric ( wxRect &rect,  wxColour &initialColour,  wxColour &destColour,  wxPoint &circleCenter)
  	Fill the area specified by rect with a radial gradient, starting from initialColour at the centre of the circle and fading to destColour on the circle outside. 
-void 	GradientFillLinear (const wxRect &rect, const wxColour &initialColour, const wxColour &destColour, wxDirection nDirection=wxRIGHT)
+  method(void,	GradientFillLinear ( wxRect &rect,  wxColour &initialColour,  wxColour &destColour, wxDirection nDirection=wxRIGHT)
  	Fill the area specified by rect with a linear gradient, starting from initialColour and eventually fading to destColour. 
-bool 	FloodFill (wxCoord x, wxCoord y, const wxColour &colour, wxFloodFillStyle style=wxFLOOD_SURFACE)
+bool 	FloodFill (wxCoord x, wxCoord y,  wxColour &colour, wxFloodFillStyle style=wxFLOOD_SURFACE)
  	Flood fills the device context starting from the given point, using the current brush colour, and using a style: 
-bool 	FloodFill (const wxPoint &pt, const wxColour &col, wxFloodFillStyle style=wxFLOOD_SURFACE)
+bool 	FloodFill ( wxPoint &pt,  wxColour &col, wxFloodFillStyle style=wxFLOOD_SURFACE)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	CrossHair (wxCoord x, wxCoord y)
+  method(void,	CrossHair (wxCoord x, wxCoord y)
  	Displays a cross hair using the current pen. 
-void 	CrossHair (const wxPoint &pt)
+  method(void,	CrossHair ( wxPoint &pt)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
 Clipping region functions
-void 	DestroyClippingRegion ()
- 	Destroys the current clipping region so that none of the DC is clipped. 
-void 	GetClippingBox (wxCoord *x, wxCoord *y, wxCoord *width, wxCoord *height) const
- 	Gets the rectangle surrounding the current clipping region. 
-void 	SetClippingRegion (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
- 	Sets the clipping region for this device context to the intersection of the given region described by the parameters of this method and the previously set clipping region. 
-void 	SetClippingRegion (const wxPoint &pt, const wxSize &sz)
- 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	SetClippingRegion (const wxRect &rect)
- 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	SetDeviceClippingRegion (const wxRegion &region)
- 	Sets the clipping region for this device context. 
-Text/character extent functions
-wxCoord 	GetCharHeight () const
- 	Gets the character height of the currently set font. 
-wxCoord 	GetCharWidth () const
- 	Gets the average character width of the currently set font. 
-wxFontMetrics 	GetFontMetrics () const
+*)
+
+  method(void,	DestroyClippingRegion) ()
+  method(void,	GetClippingBox) (wxCoord <-x, wxCoord <-y, wxCoord <-width, wxCoord <-height) 
+  method(void,	SetClippingRegion, 
+  SetClippingRegionCoords) (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
+  method(void,	SetClippingRegion) ( wxPoint &pt,  wxSize &sz)
+  method(void,	SetClippingRegion, SetClippingRegionRect) ( wxRect &rect)
+  method(void,	SetDeviceClippingRegion) ( wxRegion &region)
+  method(wxCoord, 	GetCharHeight) () 
+  method(wxCoord, 	GetCharWidth) () 
+
+(*  
+wxFontMetrics 	GetFontMetrics () 
  	Returns the various font characteristics. 
-void 	GetMultiLineTextExtent (const wxString &string, wxCoord *w, wxCoord *h, wxCoord *heightLine=NULL, const wxFont *font=NULL) const
+  method(void,	GetMultiLineTextExtent ( wxString &string, wxCoord *w, wxCoord *h, wxCoord *heightLine=NULL,  wxFont *font=NULL) 
  	Gets the dimensions of the string using the currently selected font. 
-wxSize 	GetMultiLineTextExtent (const wxString &string) const
+wxSize 	GetMultiLineTextExtent ( wxString &string) 
  	Gets the dimensions of the string using the currently selected font. 
-bool 	GetPartialTextExtents (const wxString &text, wxArrayInt &widths) const
+bool 	GetPartialTextExtents ( wxString &text, wxArrayInt &widths) 
  	Fills the widths array with the widths from the beginning of text to the corresponding character of text. 
-void 	GetTextExtent (const wxString &string, wxCoord *w, wxCoord *h, wxCoord *descent=NULL, wxCoord *externalLeading=NULL, const wxFont *font=NULL) const
+  method(void,	GetTextExtent ( wxString &string, wxCoord *w, wxCoord *h, wxCoord *descent=NULL, wxCoord *externalLeading=NULL,  wxFont *font=NULL) 
  	Gets the dimensions of the string using the currently selected font. 
-wxSize 	GetTextExtent (const wxString &string) const
+wxSize 	GetTextExtent ( wxString &string) 
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
 Text properties functions
-int 	GetBackgroundMode () const
+int 	GetBackgroundMode () 
  	Returns the current background mode: wxSOLID or wxTRANSPARENT. 
-const wxFont & 	GetFont () const
+ wxFont & 	GetFont () 
  	Gets the current font. 
-wxLayoutDirection 	GetLayoutDirection () const
+wxLayoutDirection 	GetLayoutDirection () 
  	Gets the current layout direction of the device context. 
-const wxColour & 	GetTextBackground () const
+ wxColour & 	GetTextBackground () 
  	Gets the current text background colour. 
-const wxColour & 	GetTextForeground () const
+ wxColour & 	GetTextForeground () 
  	Gets the current text foreground colour. 
-void 	SetBackgroundMode (int mode)
- 	mode may be one of wxSOLID and wxTRANSPARENT. 
-void 	SetFont (const wxFont &font)
- 	Sets the current font for the DC. 
-void 	SetTextBackground (const wxColour &colour)
- 	Sets the current text background colour for the DC. 
-void 	SetTextForeground (const wxColour &colour)
- 	Sets the current text foreground colour for the DC. 
-void 	SetLayoutDirection (wxLayoutDirection dir)
- 	Sets the current layout direction for the device context. 
-Bounding box functions
-void 	CalcBoundingBox (wxCoord x, wxCoord y)
- 	Adds the specified point to the bounding box which can be retrieved with MinX(), MaxX() and MinY(), MaxY() functions. 
-wxCoord 	MaxX () const
- 	Gets the maximum horizontal extent used in drawing commands so far. 
-wxCoord 	MaxY () const
- 	Gets the maximum vertical extent used in drawing commands so far. 
-wxCoord 	MinX () const
- 	Gets the minimum horizontal extent used in drawing commands so far. 
-wxCoord 	MinY () const
- 	Gets the minimum vertical extent used in drawing commands so far. 
-void 	ResetBoundingBox ()
- 	Resets the bounding box: after a call to this function, the bounding box doesn't contain anything. 
-Page and document start/end functions
-bool 	StartDoc (const wxString &message)
- 	Starts a document (only relevant when outputting to a printer). 
-void 	StartPage ()
- 	Starts a document page (only relevant when outputting to a printer). 
-void 	EndDoc ()
- 	Ends a document (only relevant when outputting to a printer). 
-void 	EndPage ()
- 	Ends a document page (only relevant when outputting to a printer). 
+*)
+
+  method(void,	SetBackgroundMode) (int mode)
+  method(void, 	SetFont) (wxFont &font)
+  method(void, 	SetTextBackground) ( wxColour &colour)
+  method(void, 	SetTextForeground) ( wxColour &colour)
+  method(void, 	SetLayoutDirection) (wxLayoutDirection dir)
+  method(void, 	CalcBoundingBox) (wxCoord x, wxCoord y)
+  method(wxCoord, 	MaxX) () 
+  method(wxCoord, 	MaxY) () 
+  method(wxCoord, 	MinX) () 
+  method(wxCoord, 	MinY) () 
+  method(void, 	ResetBoundingBox) ()
+
+  method(bool, 	StartDoc) ( wxString &message)
+  method(void, 	StartPage) ()
+  method(void,	EndDoc) ()
+  method(void,	EndPage) ()
+
+(*
 Bit-Block Transfer operations (blit)
 bool 	Blit (wxCoord xdest, wxCoord ydest, wxCoord width, wxCoord height, wxDC *source, wxCoord xsrc, wxCoord ysrc, wxRasterOperationMode logicalFunc=wxCOPY, bool useMask=false, wxCoord xsrcMask=wxDefaultCoord, wxCoord ysrcMask=wxDefaultCoord)
  	Copy from a source DC to this DC. 
 bool 	StretchBlit (wxCoord xdest, wxCoord ydest, wxCoord dstWidth, wxCoord dstHeight, wxDC *source, wxCoord xsrc, wxCoord ysrc, wxCoord srcWidth, wxCoord srcHeight, wxRasterOperationMode logicalFunc=wxCOPY, bool useMask=false, wxCoord xsrcMask=wxDefaultCoord, wxCoord ysrcMask=wxDefaultCoord)
  	Copy from a source DC to this DC possibly changing the scale. 
-Background/foreground brush and pen
-const wxBrush & 	GetBackground () const
- 	Gets the brush used for painting the background. 
-const wxBrush & 	GetBrush () const
- 	Gets the current brush. 
-const wxPen & 	GetPen () const
- 	Gets the current pen. 
-void 	SetBackground (const wxBrush &brush)
- 	Sets the current background brush for the DC. 
 *)
-
+  method( wxBrush,	GetBackground) () 
+  method( wxBrush, 	GetBrush) () 
+  method( wxPen, 	GetPen) () 
+  method(void,	SetBackground) ( wxBrush &brush)
 
    method(void, 	SetBrush) (wxBrush &brush)
    method(void, 	SetPen) (wxPen &pen)
 
+    method(bool, 	CanUseTransformMatrix) () 
 (*
- 	Sets the current pen for the DC. 
-Transformation matrix
-See the notes about the availability of these functions in the class documentation.
-
-bool 	CanUseTransformMatrix () const
- 	Check if the use of transformation matrix is supported by the current system. 
-bool 	SetTransformMatrix (const wxAffineMatrix2D &matrix)
+bool 	SetTransformMatrix ( wxAffineMatrix2D &matrix)
  	Set the transformation matrix. 
-wxAffineMatrix2D 	GetTransformMatrix () const
+wxAffineMatrix2D 	GetTransformMatrix () 
  	Return the transformation matrix used by this device context. 
-void 	ResetTransformMatrix ()
+  method(void,	ResetTransformMatrix ()
  	Revert the transformation matrix to identity matrix. 
 *)
 end

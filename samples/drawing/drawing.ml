@@ -941,7 +941,7 @@ let myCanvas_DrawWithLogicalOps frame (dc : wxDC) =
     static const wxCoord h = 60;
 
     (*  reuse the text colour here *)
-    dc.SetPen(wxPen(m_owner->m_colourForeground, 1, wxSOLID));
+    dc.SetPen(wxPen(frame.m_colourForeground, 1, wxSOLID));
     dc.SetBrush( *wxTRANSPARENT_BRUSH);
 
     size_t n;
@@ -958,7 +958,7 @@ let myCanvas_DrawWithLogicalOps frame (dc : wxDC) =
     }
 
     (*  now some filled rectangles *)
-    dc.SetBrush(wxBrush(m_owner->m_colourForeground, wxSOLID));
+    dc.SetBrush(wxBrush(frame.m_colourForeground, wxSOLID));
 
     for ( n = 0; n < WXSIZEOF(rasterOperations); n++ )
     {
@@ -1574,6 +1574,11 @@ let myFrame_PrepareDC frame dc =
   WxDC.setMapMode dc frame.m_mapMode;
   ()
 
+let rec switch id list =
+  match list with
+  [] -> ()
+  | (id2, handler) :: tail ->
+    if id = id2 then handler () else switch id tail
 
 let myCanvas_Draw frame pdc_kind =
   let gdc = wxGCDCEmpty () in
@@ -1603,29 +1608,31 @@ let myCanvas_Draw frame pdc_kind =
   WxScrolledWindow.prepareDC m_canvas dc;
 
   myFrame_PrepareDC frame dc;
+
+  WxDC.setBackgroundMode dc frame.m_backgroundMode;
+
+    if WxBrush.isOk frame.m_backgroundBrush then
+      WxDC.setBackground dc frame.m_backgroundBrush;
+    if WxColour.isOk frame.m_colourForeground then
+      WxDC.setTextForeground dc frame.m_colourForeground ;
+    if WxColour.isOk frame.m_colourBackground then
+      WxDC.setTextBackground dc frame.m_colourBackground;
+
+    if frame.m_textureBackground then begin
+        if not (WxBrush.isOk frame.m_backgroundBrush) then begin
+          let clr = wxColour 0 128 0 wxALPHA_OPAQUE in
+          let b = wxBrush clr  wxSOLID in
+          WxDC.setBackground dc b
+        end
+    end;
+
+    if canvas.m_clip then
+        WxDC.setClippingRegionCoords dc 100 100 100 100;
+
+    WxDC.clear dc;
 (*
-    dc.SetBackgroundMode( m_owner->m_backgroundMode );
-    if ( m_owner->m_backgroundBrush.IsOk() )
-        dc.SetBackground( m_owner->m_backgroundBrush );
-    if ( m_owner->m_colourForeground.IsOk() )
-        dc.SetTextForeground( m_owner->m_colourForeground );
-    if ( m_owner->m_colourBackground.IsOk() )
-        dc.SetTextBackground( m_owner->m_colourBackground );
 
-    if ( m_owner->m_textureBackground) {
-        if ( ! m_owner->m_backgroundBrush.IsOk() ) {
-            wxColour clr(0,128,0);
-            wxBrush b(clr, wxSOLID);
-            dc.SetBackground(b);
-        }
-    }
-
-    if ( m_clip )
-        dc.SetClippingRegion(100, 100, 100, 100);
-
-    dc.Clear();
-
-    if ( m_owner->m_textureBackground )
+    if ( frame.m_textureBackground )
     {
         dc.SetPen( *wxMEDIUM_GREY_PEN);
         for ( int i = 0; i < 200; i++ )
