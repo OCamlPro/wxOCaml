@@ -72,9 +72,36 @@ let wxBrushDefault = WxBrush.createDefault
 let wxPNGHandler = WxPNGHandler.create
 let wxOverlay = WxOverlay.create
 let wxMaskColour = WxMask.createColour
-let wxClientDC = WxClientDC.create
-let wxDCOverlay = WxDCOverlay.create
-let wxDCOverlayDefault = WxDCOverlay.createDefault
+let wxClientDC w = WxClientDC.wxDC (WxClientDC.create w)
+
+(* We MUST call the destructor of WxDCOverlay at the end ! *)
+let wxDCOverlay win dc x y dx dy f =
+  let o = WxDCOverlay.create win dc x y dx dy in
+  try
+    let res = f o in
+    WxDCOverlay.delete o;
+    res
+  with e ->
+    WxDCOverlay.delete o;
+    raise e
+
+let wxDCOverlayDefault win dc f =
+  let o = WxDCOverlay.createDefault win dc in
+  try
+    let res = f o in
+    WxDCOverlay.delete o;
+    res
+  with e ->
+    WxDCOverlay.delete o;
+    raise e
+
+let wxPen = WxPen.create
+let wxPenColour = WxPen.createColour
+
+let wxRectPoints (x,y) (xx,yy) =
+  let (x0,x1,true) | (x1, x0, false) = (x, xx, x < yy) in
+  let (y0,y1,true) | (y1, y0, false) = (y,yy, y < yy) in
+  (x0,y0, x1-x0, y1-y0)
 
 let ignore_int (_ : int) = ()
 let ignore_bool (_ : bool) = ()

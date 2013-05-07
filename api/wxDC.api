@@ -46,13 +46,14 @@ void 	GetLogicalScale (double *x, double *y) const
   method(void, 	SetAxisOrientation) (bool xLeftRight, bool yBottomUp)
   method(void, 	SetUserScale) (double xScale, double yScale)
   method(void, 	SetMapMode) (wxMappingMode mode)
+  method(wxCoord,DeviceToLogicalX) (wxCoord x) 
+  method(wxCoord,DeviceToLogicalY) (wxCoord y) 
 
 (*
 void 	GetLogicalOrigin (wxCoord *x, wxCoord *y) const
 wxPoint 	GetLogicalOrigin () const
 Coordinate conversion functions
-wxCoord 	DeviceToLogicalX (wxCoord x) const
- 	Convert device X coordinate to logical coordinate, using the current mapping mode, user scale factor, device origin and axis orientation. 
+
 wxCoord 	DeviceToLogicalXRel (wxCoord x) const
  	Convert device X coordinate to relative logical coordinate, using the current mapping mode and user scale factor but ignoring the axis orientation. 
 wxCoord 	DeviceToLogicalY (wxCoord y) const
@@ -122,12 +123,18 @@ void 	DrawPolygon (const wxPointList *points, wxCoord xoffset=0, wxCoord yoffset
  	This method draws a filled polygon using a list of wxPoints, adding the optional offset coordinate. 
 void 	DrawPolyPolygon (int n, int count[], wxPoint points[], wxCoord xoffset=0, wxCoord yoffset=0, wxPolygonFillMode fill_style=wxODDEVEN_RULE)
  	Draws two or more filled polygons using an array of points, adding the optional offset coordinates. 
+
 void 	DrawRectangle (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
  	Draws a rectangle with the given top left corner, and with the given size. 
 void 	DrawRectangle (const wxPoint &pt, const wxSize &sz)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	DrawRectangle (const wxRect &rect)
- 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+*)
+
+
+	method(void, DrawRectangle, DrawRectangleRect) (wxRect &rect)
+
+(*
 void 	DrawRotatedText (const wxString &text, wxCoord x, wxCoord y, double angle)
  	Draws the text rotated by angle degrees (positive angles are counterclockwise; the full angle is 360 degrees). 
 void 	DrawRotatedText (const wxString &text, const wxPoint &point, double angle)
@@ -249,9 +256,13 @@ const wxPen & 	GetPen () const
  	Gets the current pen. 
 void 	SetBackground (const wxBrush &brush)
  	Sets the current background brush for the DC. 
-void 	SetBrush (const wxBrush &brush)
- 	Sets the current brush for the DC. 
-void 	SetPen (const wxPen &pen)
+*)
+
+
+   method(void, 	SetBrush) (wxBrush &brush)
+   method(void, 	SetPen) (wxPen &pen)
+
+(*
  	Sets the current pen for the DC. 
 Transformation matrix
 See the notes about the availability of these functions in the class documentation.

@@ -1693,53 +1693,60 @@ let myFrame_PrepareDC frame dc =
 
 
 let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
-(*
-{
-#if wxUSE_STATUSBAR
-    {
-        wxClientDC dc(this);
-        PrepareDC(dc);
-        m_owner->PrepareDC(dc);
+(*  Printf.eprintf "myCanvas_OnMouseMove\n%!"; *)
+  let canvas = frame.canvas in
+  let m_canvas = canvas.m_canvas in
+  let w_canvas = WxScrolledWindow.wxWindow m_canvas in
+  (* #if wxUSE_STATUSBAR *)
+  begin
+    let dc = wxClientDC w_canvas in
+    WxScrolledWindow.prepareDC m_canvas dc;
+    myFrame_PrepareDC frame dc;
 
-        wxPoint pos = event.GetPosition();
-        long x = dc.DeviceToLogicalX( pos.x );
-        long y = dc.DeviceToLogicalY( pos.y );
-        wxString str;
-        str.Printf( "Current mouse position: %d,%d", (int)x, (int)y );
-        m_owner->SetStatusText( str );
-    }
+    let pos = WxMouseEvent.getPosition event in
+    let x = WxDC.deviceToLogicalX dc (fst pos) in
+    let y = WxDC.deviceToLogicalY dc (snd pos) in
 
-    if ( m_rubberBand )
-    {
-        int x,y, xx, yy ;
-        event.GetPosition(&x,&y);
-        CalcUnscrolledPosition( x, y, &xx, &yy );
-        m_currentpoint = wxPoint( xx , yy ) ;
-        wxRect newrect ( m_anchorpoint , m_currentpoint ) ;
+    let str = Printf.sprintf "Current mouse position: %d,%d" x y in
+    WxFrame.setStatusText frame.m_frame str 0;
+(*    Printf.eprintf "(%d,%d) -> (%d,%d)\n%!" (fst pos) (snd pos) x y; *)
+  end;
 
-        wxClientDC dc( this ) ;
-        PrepareDC( dc ) ;
+  if canvas.m_rubberBand  then begin
+    let (x,y) = WxMouseEvent.getPosition event in
+    let (xx,yy) = WxScrolledWindow.calcUnscrolledPosition
+        frame.canvas.m_canvas
+        x y in
+    canvas.m_currentpoint <- ( xx , yy ) ;
+    let newrect = wxRectPoints  canvas.m_anchorpoint canvas.m_currentpoint in
 
-        wxDCOverlay overlaydc( m_overlay, &dc );
-        overlaydc.Clear();
-#ifdef __WXMAC__
+(*    Printf.eprintf "m_rubberBand (%d,%d) (%d,%d)\n%!"
+      ( fst canvas.m_anchorpoint ) ( snd canvas.m_anchorpoint )
+      ( fst canvas.m_currentpoint ) ( snd canvas.m_currentpoint )
+  ;
+*)
+
+    let dc = wxClientDC w_canvas in
+    WxScrolledWindow.prepareDC m_canvas dc ;
+
+    wxDCOverlayDefault canvas.m_overlay dc (fun overlaydc ->
+      WxDCOverlay.clear overlaydc);
+
+(*#ifdef __WXMAC__
         dc.SetPen( *wxGREY_PEN );
         dc.SetBrush( wxColour( 192,192,192,64 ) );
-#else
-        dc.SetPen( wxPen( *wxLIGHT_GREY, 2, wxSOLID ) );
-        dc.SetBrush( *wxTRANSPARENT_BRUSH );
-#endif
-        dc.DrawRectangle( newrect );
-    }
-#else
-    wxUnusedVar(event);
-#endif (*  wxUSE_STATUSBAR *)
-}
-*)
-()
+#else *)
+        WxDC.setPen dc (wxPen wxLIGHT_GREY 2 wxSOLID);
+        WxDC.setBrush dc wxTRANSPARENT_BRUSH;
+(*#endif *)
+        WxDC.drawRectangleRect dc newrect;
+
+  end;
+  (* #endif (*  wxUSE_STATUSBAR *) *)
+  ()
 
 let myCanvas_OnMouseDown frame(event : wxMouseEvent) =
-  Printf.eprintf "myCanvas_OnMouseDown\n%!";
+(*  Printf.eprintf "myCanvas_OnMouseDown\n%!"; *)
   let canvas = frame.canvas in
   let (x,y) = WxMouseEvent.getPosition event in
   let (xx,yy) = WxScrolledWindow.calcUnscrolledPosition frame.canvas.m_canvas
@@ -1755,13 +1762,13 @@ let myCanvas_OnMouseUp frame (event : wxMouseEvent) =
   let m_canvas = canvas.m_canvas in
   if canvas.m_rubberBand then begin
     WxScrolledWindow.releaseMouse m_canvas;
-
-    let dc = wxClientDC (WxScrolledWindow.wxWindow m_canvas) in
-    WxScrolledWindow.prepareDC m_canvas (WxClientDC.wxDC dc);
-    let overlaydc = wxDCOverlayDefault canvas.m_overlay (WxClientDC.wxDC dc) in
-    WxDCOverlay.clear overlaydc;
+    begin
+      let dc = wxClientDC (WxScrolledWindow.wxWindow m_canvas) in
+      WxScrolledWindow.prepareDC m_canvas dc;
+      wxDCOverlayDefault canvas.m_overlay dc (fun overlaydc ->
+        WxDCOverlay.clear overlaydc)
+    end;
     WxOverlay.reset canvas.m_overlay;
-
     canvas.m_rubberBand <- false;
     let (x,y) = WxMouseEvent.getPosition event in
     let endpoint = WxScrolledWindow.calcUnscrolledPosition frame.canvas.m_canvas

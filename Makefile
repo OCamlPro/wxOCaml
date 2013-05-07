@@ -11,6 +11,10 @@ all:
 	ocp-build
 	(cd samples/resources; $(MAKE))
 
+debug:
+	(cd wxWidgets; $(MAKE) $(NJOBS))
+	ocp-build
+
 byte:
 	ocp-build -byte
 

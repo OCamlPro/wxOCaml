@@ -1,4 +1,7 @@
+type wxPenStyle = int
 
 class wxPen inherit wxObject begin
-
+  new(Create) (wxColour &colour, int width (* =1 *), 
+               wxPenStyle style (* =wxPENSTYLE_SOLID *) )
+  new(CreateColour) (wxColour &colour)
 end

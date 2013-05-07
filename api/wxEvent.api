@@ -94,10 +94,15 @@ class wxCalendarEvent inherit wxDateEvent begin
 
 class wxKeyboardState begin end
 class wxMouseState begin 
-  version 2.9.0 begin
-    method(wxPoint, GetPosition)()
-  end
+
+(*
+   method(void, GetPosition) (int <- x, int <- y)
+*)
 end
 
 class wxMouseEvent inherit wxEvent inherit wxMouseState begin 
+  version 2.9.0 begin
+    method(wxPoint, GetPosition)()
+  end
+
 end

@@ -188,4 +188,16 @@ value wxDateTime_GetValue_c(value self_v)
   CAMLreturn(ret_v);
 }
 
+
+value wxDCOverlay_Delete_c(value self_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxDCOverlay* self_c = (wxDCOverlay*)Abstract_val(self_v);
+  delete self_c;
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
 }
