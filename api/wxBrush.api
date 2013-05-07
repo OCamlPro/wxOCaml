@@ -4,11 +4,8 @@ class wxBrush inherit wxObject begin
 
   new(CreateDefault) ()
   new(Create) ( wxColour &colour, wxBrushStyle style (* =wxBRUSHSTYLE_SOLID *))
-
+  new(CreateBitmap) ( wxBitmap &stippleBitmap)
 (*
-
- 	ructs a brush from a colour object and style. 
- 	wxBrush ( wxBitmap &stippleBitmap)
  	ructs a stippled brush using a bitmap. 
  	wxBrush ( wxBrush &brush)
  	Copy ructor, uses reference counting. 

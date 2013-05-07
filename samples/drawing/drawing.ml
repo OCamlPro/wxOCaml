@@ -50,9 +50,11 @@ type canvas_state = {
 }
 
   type frame_state = {
+    app : app_state;
+    canvas : canvas_state;
+
     m_frame : wxFrame;
     m_backgroundBrush : wxBrush;
-    canvas : canvas_state;
     mutable m_mapMode : int; (* wxMappingMode *)
     mutable m_xUserScale : float;
     mutable m_yUserScale : float;
@@ -344,17 +346,7 @@ let find_in_path path name =
     in try_dir path
   end
 
-let myApp_LoadImages() =
-  let app = {
-        gs_bmpNoMask = wxBitmapDefault();
-        gs_bmpWithColMask = wxBitmapDefault();
-        gs_bmpMask = wxBitmapDefault();
-        gs_bmpWithMask = wxBitmapDefault();
-        gs_bmp4 = wxBitmapDefault();
-        gs_bmp4_mono = wxBitmapDefault();
-        gs_bmp36 = wxBitmapDefault();
-  }
-  in
+let myApp_LoadImages app =
 
   try
     let path = [
@@ -400,9 +392,9 @@ let myApp_LoadImages() =
     let mask = wxMaskColour app.gs_bmpWithColMask wxWHITE in
      WxBitmap.setMask app.gs_bmpWithColMask (Some mask);
 
-    Some app
+    true
 
-  with Not_found -> None
+  with Not_found -> false
 
 (*
 void MyApp::DeleteBitmaps()
@@ -449,69 +441,70 @@ let new_MyCanvas parent =
 
 
 let myCanvas_DrawTestBrushes frame (dc : wxDC) =
-(*
-{
-    static const wxCoord WIDTH = 200;
-    static const wxCoord HEIGHT = 80;
 
-    wxCoord x = 10,
-            y = 10;
+  let _WIDTH = 200 in
+  let _HEIGHT = 80 in
 
-    dc.SetBrush(wxBrush( *wxGREEN, wxSOLID));
-    dc.DrawRectangle(x, y, WIDTH, HEIGHT);
-    dc.DrawText("Solid green", x + 10, y + 10);
+  let x = ref 10 in
+  let y = ref 10 in
 
-    y += HEIGHT;
-    dc.SetBrush(wxBrush( *wxRED, wxCROSSDIAG_HATCH));
-    dc.DrawRectangle(x, y, WIDTH, HEIGHT);
-    dc.DrawText("Diagonally hatched red", x + 10, y + 10);
+  WxDC.setBrush dc  (wxBrush wxGREEN wxSOLID);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Solid green" (!x + 10) (!y + 10);
 
-    y += HEIGHT;
-    dc.SetBrush(wxBrush( *wxBLUE, wxCROSS_HATCH));
-    dc.DrawRectangle(x, y, WIDTH, HEIGHT);
-    dc.DrawText("Cross hatched blue", x + 10, y + 10);
+  y := !y + _HEIGHT;
+  WxDC.setBrush dc (wxBrush wxRED wxCROSSDIAG_HATCH);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Diagonally hatched red" (!x + 10) (!y + 10);
 
-    y += HEIGHT;
-    dc.SetBrush(wxBrush( *wxCYAN, wxVERTICAL_HATCH));
-    dc.DrawRectangle(x, y, WIDTH, HEIGHT);
-    dc.DrawText("Vertically hatched cyan", x + 10, y + 10);
+  y := !y + _HEIGHT;
+  WxDC.setBrush dc (wxBrush wxBLUE wxCROSS_HATCH);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Cross hatched blue" (!x + 10) (!y + 10);
 
-    y += HEIGHT;
-    dc.SetBrush(wxBrush( *wxBLACK, wxHORIZONTAL_HATCH));
-    dc.DrawRectangle(x, y, WIDTH, HEIGHT);
-    dc.DrawText("Horizontally hatched black", x + 10, y + 10);
+  y := !y + _HEIGHT;
+  WxDC.setBrush dc (wxBrush wxCYAN wxVERTICAL_HATCH);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Vertically hatched cyan" (!x + 10) (!y + 10);
 
-    y += HEIGHT;
-    dc.SetBrush(wxBrush( *app.gs_bmpMask));
-    dc.DrawRectangle(x, y, WIDTH, HEIGHT);
-    dc.DrawText("Stipple mono", x + 10, y + 10);
+  y := !y + _HEIGHT;
+  WxDC.setBrush dc (wxBrush wxBLACK wxHORIZONTAL_HATCH);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Horizontally hatched black" (!x + 10) (!y + 10);
 
-    y += HEIGHT;
-    dc.SetBrush(wxBrush( *app.gs_bmpNoMask));
-    dc.DrawRectangle(x, y, WIDTH, HEIGHT);
-    dc.DrawText("Stipple colour", x + 10, y + 10);
-}
+  let app = frame.app in
 
-let myCanvas_DrawTestPoly(wxDC& dc)
-{
-    wxBrush brushHatch( *wxRED, wxFDIAGONAL_HATCH);
-    dc.SetBrush(brushHatch);
+  y := !y + _HEIGHT;
+  WxDC.setBrush dc (wxBrushBitmap app.gs_bmpMask);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Stipple mono" (!x + 10) (!y + 10);
 
+  y := !y + _HEIGHT;
+  WxDC.setBrush dc (wxBrushBitmap app.gs_bmpNoMask);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Stipple colour" (!x + 10) (!y + 10);
+  ()
+
+let myCanvas_DrawTestPoly frame (dc : wxDC) =
+  let brushHatch = wxBrush wxRED wxFDIAGONAL_HATCH in
+  WxDC.setBrush dc brushHatch;
+
+(* TODO
     wxPoint star[5];
     star[0] = wxPoint(100, 60);
     star[1] = wxPoint(60, 150);
     star[2] = wxPoint(160, 100);
     star[3] = wxPoint(40, 100);
     star[4] = wxPoint(140, 150);
+*)
 
-    dc.DrawText("You should see two (irregular) stars below, the left one "
-                "hatched", 10, 10);
-    dc.DrawText("except for the central region and the right "
-                "one entirely hatched", 10, 30);
-    dc.DrawText("The third star only has a hatched outline", 10, 50);
+    WxDC.drawText dc "You should see two (irregular) stars below, the left one hatched" 10 10;
+    WxDC.drawText dc "except for the central region and the right one entirely hatched" 10 30;
+    WxDC.drawText dc "The third star only has a hatched outline" 10 50;
 
-    dc.DrawPolygon(WXSIZEOF(star), star, 0, 30);
-    dc.DrawPolygon(WXSIZEOF(star), star, 160, 30, wxWINDING_RULE);
+(*
+    WxDC.DrawPolygon(WXSIZEOF(star), star, 0, 30);
+    WxDC.DrawPolygon(WXSIZEOF(star), star, 160, 30, wxWINDING_RULE);
 
     wxPoint star2[10];
     star2[0] = wxPoint(0, 100);
@@ -526,47 +519,50 @@ let myCanvas_DrawTestPoly(wxDC& dc)
     star2[9] = wxPoint(47, -64);
     int count[2] = {5, 5};
 
-    dc.DrawPolyPolygon(WXSIZEOF(count), count, star2, 450, 150);
+    WxDC.DrawPolyPolygon(WXSIZEOF(count), count, star2, 450, 150);
 }
 *)
   ()
 
-let myCanvas_DrawTestLines frame x y width (dc : wxDC ) =
-(*
-{
-    dc.SetPen( wxPen( "black", width, wxSOLID) );
-    dc.SetBrush( *wxRED_BRUSH );
-    dc.DrawText(wxString::Format("Testing lines of width %d", width), x + 10, y - 10);
-    dc.DrawRectangle( x+10, y+10, 100, 190 );
+let myCanvas_DrawTestLines frame (x, y, width, dc) =
+  let black = wxColourName "black" in
+    WxDC.setPen dc ( wxPen black width wxSOLID );
+    WxDC.setBrush dc wxRED_BRUSH;
+    WxDC.drawText dc (Printf.sprintf "Testing lines of width %d" width)
+    (x + 10) (y - 10);
+    WxDC.drawRectangle dc ( x+10) (y+10) 100 190;
 
-    dc.DrawText("Solid/dot/short dash/long dash/dot dash", x + 150, y + 10);
-    dc.SetPen( wxPen( "black", width, wxSOLID) );
-    dc.DrawLine( x+20, y+20, 100, y+20 );
-    dc.SetPen( wxPen( "black", width, wxDOT) );
-    dc.DrawLine( x+20, y+30, 100, y+30 );
-    dc.SetPen( wxPen( "black", width, wxSHORT_DASH) );
-    dc.DrawLine( x+20, y+40, 100, y+40 );
-    dc.SetPen( wxPen( "black", width, wxLONG_DASH) );
-    dc.DrawLine( x+20, y+50, 100, y+50 );
-    dc.SetPen( wxPen( "black", width, wxDOT_DASH) );
-    dc.DrawLine( x+20, y+60, 100, y+60 );
+    WxDC.drawText dc
+      "Solid/dot/short dash/long dash/dot dash" ( x + 150 )  (y + 10);
 
-    dc.DrawText("Misc hatches", x + 150, y + 70);
-    dc.SetPen( wxPen( "black", width, wxBDIAGONAL_HATCH) );
-    dc.DrawLine( x+20, y+70, 100, y+70 );
-    dc.SetPen( wxPen( "black", width, wxCROSSDIAG_HATCH) );
-    dc.DrawLine( x+20, y+80, 100, y+80 );
-    dc.SetPen( wxPen( "black", width, wxFDIAGONAL_HATCH) );
-    dc.DrawLine( x+20, y+90, 100, y+90 );
-    dc.SetPen( wxPen( "black", width, wxCROSS_HATCH) );
-    dc.DrawLine( x+20, y+100, 100, y+100 );
-    dc.SetPen( wxPen( "black", width, wxHORIZONTAL_HATCH) );
-    dc.DrawLine( x+20, y+110, 100, y+110 );
-    dc.SetPen( wxPen( "black", width, wxVERTICAL_HATCH) );
-    dc.DrawLine( x+20, y+120, 100, y+120 );
+    WxDC.setPen dc ( wxPen( black) ( width) ( wxSOLID) );
+    WxDC.drawLine dc ( x+20) ( y+20) ( 100) ( y+20 );
+    WxDC.setPen dc ( wxPen( black) ( width) ( wxDOT) );
+    WxDC.drawLine dc ( x+20) ( y+30) ( 100) ( y+30 );
+    WxDC.setPen dc ( wxPen( black) ( width) ( wxSHORT_DASH) );
+    WxDC.drawLine dc ( x+20) ( y+40) ( 100) ( y+40 );
+    WxDC.setPen dc ( wxPen( black) ( width) ( wxLONG_DASH) );
+    WxDC.drawLine dc ( x+20) ( y+50) ( 100) ( y+50 );
+    WxDC.setPen dc ( wxPen( black) ( width) ( wxDOT_DASH) );
+    WxDC.drawLine dc ( x+20) ( y+60) ( 100) ( y+60 );
 
-    dc.DrawText("User dash", x + 150, y + 140);
-    wxPen ud( "black", width, wxUSER_DASH );
+    WxDC.drawText dc ("Misc hatches") ( x + 150) ( y + 70);
+    WxDC.setPen dc ( wxPen( black) ( width) ( wxBDIAGONAL_HATCH) );
+    WxDC.drawLine dc ( x+20) ( y+70) ( 100) ( y+70 );
+    WxDC.setPen dc ( wxPen( black) ( width) ( wxCROSSDIAG_HATCH) );
+    WxDC.drawLine dc ( x+20) ( y+80) ( 100) ( y+80 );
+    WxDC.setPen dc ( wxPen( black) ( width) ( wxFDIAGONAL_HATCH) );
+    WxDC.drawLine dc ( x+20) ( y+90) ( 100) ( y+90 );
+    WxDC.setPen dc ( wxPen( black) ( width) ( wxCROSS_HATCH) );
+    WxDC.drawLine dc ( x+20) ( y+100) ( 100) ( y+100 );
+    WxDC.setPen dc ( wxPen( black) ( width) ( wxHORIZONTAL_HATCH) );
+    WxDC.drawLine dc ( x+20) ( y+110) ( 100) ( y+110 );
+    WxDC.setPen dc ( wxPen( black) ( width) ( wxVERTICAL_HATCH) );
+    WxDC.drawLine dc ( x+20) ( y+120) ( 100) ( y+120 );
+
+(* TODO
+    WxDC.drawText dc ("User dash") ( x + 150) ( y + 140);
+    wxPen ud( black) ( width) ( wxUSER_DASH );
     wxDash dash1[6];
     dash1[0] = 8;  (*  Long dash  <---------+ *)
     dash1[1] = 2;  (*  Short gap            | *)
@@ -574,22 +570,21 @@ let myCanvas_DrawTestLines frame x y width (dc : wxDC ) =
     dash1[3] = 2;  (*  Short gap            | *)
     dash1[4] = 3;  (*  Short dash           | *)
     dash1[5] = 2;  (*  Short gap and repeat + *)
-    ud.SetDashes( 6, dash1 );
-    dc.SetPen( ud );
-    dc.DrawLine( x+20, y+140, 100, y+140 );
+    ud.SetDashes( 6) ( dash1 );
+    WxDC.setPen dc ( ud );
+    WxDC.drawLine dc ( x+20) ( y+140) ( 100) ( y+140 );
     dash1[0] = 5;  (*  Make first dash shorter *)
-    ud.SetDashes( 6, dash1 );
-    dc.SetPen( ud );
-    dc.DrawLine( x+20, y+150, 100, y+150 );
+    ud.SetDashes( 6) ( dash1 );
+    WxDC.setPen dc ( ud );
+    WxDC.drawLine dc ( x+20) ( y+150) ( 100) ( y+150 );
     dash1[2] = 5;  (*  Make second dash longer *)
-    ud.SetDashes( 6, dash1 );
-    dc.SetPen( ud );
-    dc.DrawLine( x+20, y+160, 100, y+160 );
+    ud.SetDashes( 6) ( dash1 );
+    WxDC.setPen dc ( ud );
+    WxDC.drawLine dc ( x+20) ( y+160) ( 100) ( y+160 );
     dash1[4] = 5;  (*  Make third dash longer *)
-    ud.SetDashes( 6, dash1 );
-    dc.SetPen( ud );
-    dc.DrawLine( x+20, y+170, 100, y+170 );
-}
+    ud.SetDashes( 6) ( dash1 );
+    WxDC.setPen dc ( ud );
+    dc.drawLine dc ( x+20) ( y+170) ( 100) ( y+170 );
 *)
   ()
 
@@ -898,7 +893,7 @@ let  rasterOperations = List.map (fun (name, rop) -> { name; rop })
     ( "wxXOR",          wxXOR           );
   ]
 
-let myCanvas_DrawImages frame (dc : wxDC)  (mode : _DrawMode) =
+let myCanvas_DrawImages frame (dc , mode ) =
 (*
       {
         dc.DrawText("original image", 0, 0);
@@ -1140,71 +1135,6 @@ let myCanvas_DrawGraphics frame (gc : wxGraphicsContext) =
 *)
  ()
 
-let myCanvas_DrawCircles frame (dc : wxDC) =
-(*
-{
-    int x = 100,
-        y = 100,
-        r = 20;
-
-    dc.SetPen( *wxRED_PEN );
-    dc.SetBrush( *wxGREEN_BRUSH );
-
-    dc.DrawText("Some circles", 0, y);
-    dc.DrawCircle(x, y, r);
-    dc.DrawCircle(x + 2*r, y, r);
-    dc.DrawCircle(x + 4*r, y, r);
-
-    y += 2*r;
-    dc.DrawText("And ellipses", 0, y);
-    dc.DrawEllipse(x - r, y, 2*r, r);
-    dc.DrawEllipse(x + r, y, 2*r, r);
-    dc.DrawEllipse(x + 3*r, y, 2*r, r);
-
-    y += 2*r;
-    dc.DrawText("And arcs", 0, y);
-    dc.DrawArc(x - r, y, x + r, y, x, y);
-    dc.DrawArc(x + 4*r, y, x + 2*r, y, x + 3*r, y);
-    dc.DrawArc(x + 5*r, y, x + 5*r, y, x + 6*r, y);
-
-    y += 2*r;
-    dc.DrawEllipticArc(x - r, y, 2*r, r, 0, 90);
-    dc.DrawEllipticArc(x + r, y, 2*r, r, 90, 180);
-    dc.DrawEllipticArc(x + 3*r, y, 2*r, r, 180, 270);
-    dc.DrawEllipticArc(x + 5*r, y, 2*r, r, 270, 360);
-
-    (*  same as above, just transparent brush *)
-
-    dc.SetPen( *wxRED_PEN );
-    dc.SetBrush( *wxTRANSPARENT_BRUSH );
-
-    y += 2*r;
-    dc.DrawText("Some circles", 0, y);
-    dc.DrawCircle(x, y, r);
-    dc.DrawCircle(x + 2*r, y, r);
-    dc.DrawCircle(x + 4*r, y, r);
-
-    y += 2*r;
-    dc.DrawText("And ellipses", 0, y);
-    dc.DrawEllipse(x - r, y, 2*r, r);
-    dc.DrawEllipse(x + r, y, 2*r, r);
-    dc.DrawEllipse(x + 3*r, y, 2*r, r);
-
-    y += 2*r;
-    dc.DrawText("And arcs", 0, y);
-    dc.DrawArc(x - r, y, x + r, y, x, y);
-    dc.DrawArc(x + 4*r, y, x + 2*r, y, x + 3*r, y);
-    dc.DrawArc(x + 5*r, y, x + 5*r, y, x + 6*r, y);
-
-    y += 2*r;
-    dc.DrawEllipticArc(x - r, y, 2*r, r, 0, 90);
-    dc.DrawEllipticArc(x + r, y, 2*r, r, 90, 180);
-    dc.DrawEllipticArc(x + 3*r, y, 2*r, r, 180, 270);
-    dc.DrawEllipticArc(x + 5*r, y, 2*r, r, 270, 360);
-}
-*)
-  ()
-
 let myCanvas_DrawSplines frame (dc : wxDC) =
 (*
 {
@@ -1242,7 +1172,7 @@ let myCanvas_DrawSplines frame (dc : wxDC) =
     }
 
     (*  background spline drawing *)
-    dc.SetPen( *wxRED_PEN);
+    WxDC.setPen( *wxRED_PEN);
     dc.DrawSpline(WXSIZEOF(pts), pts);
 
     (*  less detailed spline calculation *)
@@ -1283,9 +1213,9 @@ let myCanvas_DrawSplines frame (dc : wxDC) =
             letters[m][n].y = center.y + h[ letters[m][n].y ];
         }
 
-        dc.SetPen( wxPen( "blue", 1, wxDOT) );
+        WxDC.setPen( wxPen( "blue", 1, wxDOT) );
         dc.DrawLines(5, letters[m]);
-        dc.SetPen( wxPen( "black", 4, wxSOLID) );
+        WxDC.setPen( wxPen( black, 4, wxSOLID) );
         dc.DrawSpline(5, letters[m]);
     }
 
@@ -1362,7 +1292,7 @@ let myCanvas_DrawGradients frame (dc : wxDC) =
     r3.y += 60;
     wxRect r4 = r2;
     r4.y += 60;
-    dc.SetPen(wxPen(wxColour(255, 0, 0)));
+    WxDC.setPen(wxPen(wxColour(255, 0, 0)));
     dc.DrawRectangle(r);
     r.Deflate(1);
     dc.GradientFillLinear(r, wxColour(0,255,0), wxColour(0,0,0), wxNORTH);
@@ -1500,66 +1430,120 @@ let myCanvas_DrawGradients frame (dc : wxDC) =
 *)
  ()
 
-let myCanvas_DrawRegions frame (dc : wxDC) =
-(*
-{
-    dc.DrawText("You should see a red rect partly covered by a cyan one "
-                "on the left", 10, 5);
-    dc.DrawText("and 5 smileys from which 4 are partially clipped on the right",
-                10, 5 + dc.GetCharHeight());
-    dc.DrawText("The second copy should be identical but right part of it "
-                "should be offset by 10 pixels.",
-                10, 5 + 2*dc.GetCharHeight());
+let myCanvas_DrawCircles frame (dc : wxDC) =
+  let x = 100 in
+  let y = ref 100 in
+  let r = 20 in
 
-    DrawRegionsHelper(dc, 10, true);
-    DrawRegionsHelper(dc, 350, false);
-}
-*)
+  WxDC.setPen dc wxRED_PEN;
+  WxDC.setBrush dc wxGREEN_BRUSH;
+
+    WxDC.drawText dc ("Some circles") ( 0) ( !y);
+    WxDC.drawCircle dc (x) ( !y) ( r);
+    WxDC.drawCircle dc (x + 2*r) ( !y) ( r);
+    WxDC.drawCircle dc (x + 4*r) ( !y) ( r);
+
+    y := !y + 2*r;
+    WxDC.drawText dc ("And ellipses") ( 0) ( !y);
+    WxDC.drawEllipse dc (x - r) ( !y) ( 2*r) ( r);
+    WxDC.drawEllipse dc (x + r) ( !y) ( 2*r) ( r);
+    WxDC.drawEllipse dc (x + 3*r) ( !y) ( 2*r) ( r);
+
+    y := !y + 2*r;
+    WxDC.drawText dc ("And arcs") ( 0) ( !y);
+    WxDC.drawArc dc (x - r) ( !y) ( x + r) ( !y) ( x) ( !y);
+    WxDC.drawArc dc (x + 4*r) ( !y) ( x + 2*r) ( !y) ( x + 3*r) ( !y);
+    WxDC.drawArc dc (x + 5*r) ( !y) ( x + 5*r) ( !y) ( x + 6*r) ( !y);
+
+    y := !y + 2*r;
+    WxDC.drawEllipticArc dc (x - r) ( !y) ( 2*r) ( r) ( 0.) ( 90.);
+    WxDC.drawEllipticArc dc (x + r) ( !y) ( 2*r) ( r) ( 90.) ( 180.);
+    WxDC.drawEllipticArc dc (x + 3*r) ( !y) ( 2*r) ( r) ( 180.) ( 270.);
+    WxDC.drawEllipticArc dc (x + 5*r) ( !y) ( 2*r) ( r) ( 270.) ( 360.);
+
+    (*  same as above) ( just transparent brush *)
+
+    WxDC.setPen dc wxRED_PEN;
+    WxDC.setBrush dc wxTRANSPARENT_BRUSH;
+
+    y := !y + 2*r;
+    WxDC.drawText dc ("Some circles") ( 0) ( !y);
+    WxDC.drawCircle dc (x) ( !y) ( r);
+    WxDC.drawCircle dc (x + 2*r) ( !y) ( r);
+    WxDC.drawCircle dc (x + 4*r) ( !y) ( r);
+
+    y := !y + 2*r;
+    WxDC.drawText dc ("And ellipses") ( 0) ( !y);
+    WxDC.drawEllipse dc (x - r) ( !y) ( 2*r) ( r);
+    WxDC.drawEllipse dc (x + r) ( !y) ( 2*r) ( r);
+    WxDC.drawEllipse dc (x + 3*r) ( !y) ( 2*r) ( r);
+
+    y := !y + 2*r;
+    WxDC.drawText dc ("And arcs") ( 0) ( !y);
+    WxDC.drawArc dc (x - r) ( !y) ( x + r) ( !y) ( x) ( !y);
+    WxDC.drawArc dc (x + 4*r) ( !y) ( x + 2*r) ( !y) ( x + 3*r) ( !y);
+    WxDC.drawArc dc (x + 5*r) ( !y) ( x + 5*r) ( !y) ( x + 6*r) ( !y);
+
+    y := !y + 2*r;
+    WxDC.drawEllipticArc dc (x - r) ( !y) ( 2*r) ( r) ( 0.) ( 90.);
+    WxDC.drawEllipticArc dc (x + r) ( !y) ( 2*r) ( r) ( 90.) ( 180.);
+    WxDC.drawEllipticArc dc (x + 3*r) ( !y) ( 2*r) ( r) ( 180.) ( 270.);
+    WxDC.drawEllipticArc dc (x + 5*r) ( !y) ( 2*r) ( r) ( 270.) ( 360.);
   ()
 
-let myCanvas_DrawRegionsHelper frame (dc :wxDC ) x firstTime =
-(*
-{
-    wxCoord y = 100;
+let myCanvas_DrawRegionsHelper frame (dc , x,  firstTime) =
+  let canvas = frame.canvas in
+  let y = 100 in
 
-    dc.DestroyClippingRegion();
-    dc.SetBrush( *wxWHITE_BRUSH );
-    dc.SetPen( *wxTRANSPARENT_PEN );
-    dc.DrawRectangle( x, y, 310, 310 );
+    WxDC.destroyClippingRegion dc;
+    WxDC.setBrush dc ( wxWHITE_BRUSH );
+    WxDC.setPen dc ( wxTRANSPARENT_PEN );
+    WxDC.drawRectangle dc ( x) ( y) ( 310) ( 310 );
 
-    dc.SetClippingRegion( x + 10, y + 10, 100, 270 );
+    WxDC.setClippingRegion dc ( x + 10) ( y + 10) ( 100) ( 270 );
 
-    dc.SetBrush( *wxRED_BRUSH );
-    dc.DrawRectangle( x, y, 310, 310 );
+    WxDC.setBrush dc ( wxRED_BRUSH );
+    WxDC.drawRectangle dc ( x) ( y) ( 310) ( 310 );
 
-    dc.SetClippingRegion( x + 10, y + 10, 100, 100 );
+    WxDC.setClippingRegion dc ( x + 10) ( y + 10) ( 100) ( 100 );
 
-    dc.SetBrush( *wxCYAN_BRUSH );
-    dc.DrawRectangle( x, y, 310, 310 );
+    WxDC.setBrush dc ( wxCYAN_BRUSH );
+    WxDC.drawRectangle dc ( x) ( y) ( 310) ( 310 );
 
-    dc.DestroyClippingRegion();
+    WxDC.destroyClippingRegion dc;
 
-    wxRegion region(x + 110, y + 20, 100, 270);
-#if !defined(__WXMOTIF__)
+    let region =  wxRegion (x + 110) ( y + 20) ( 100) ( 270) in
+(*#if !defined(__WXMOTIF__)
     if ( !firstTime )
-        region.Offset(10, 10);
-#endif
-    dc.SetDeviceClippingRegion(region);
+        region.Offset(10) ( 10);
+#endif *)
+    WxDC.setDeviceClippingRegion dc (region);
 
-    dc.SetBrush( *wxGREY_BRUSH );
-    dc.DrawRectangle( x, y, 310, 310 );
+    WxDC.setBrush dc ( wxGREY_BRUSH );
+    WxDC.drawRectangle dc ( x) ( y) ( 310) ( 310 );
 
-    if (m_smile_bmp.IsOk())
-    {
-        dc.DrawBitmap( m_smile_bmp, x + 150, y + 150, true );
-        dc.DrawBitmap( m_smile_bmp, x + 130, y + 10,  true );
-        dc.DrawBitmap( m_smile_bmp, x + 130, y + 280, true );
-        dc.DrawBitmap( m_smile_bmp, x + 100, y + 70,  true );
-        dc.DrawBitmap( m_smile_bmp, x + 200, y + 70,  true );
-    }
-}
-*)
-()
+    if WxBitmap.isOk canvas.m_smile_bmp then begin
+        WxDC.drawBitmap dc ( canvas.m_smile_bmp) ( x + 150) ( y + 150) ( true );
+        WxDC.drawBitmap dc ( canvas.m_smile_bmp) ( x + 130) ( y + 10) (  true );
+        WxDC.drawBitmap dc ( canvas.m_smile_bmp) ( x + 130) ( y + 280) ( true );
+        WxDC.drawBitmap dc ( canvas.m_smile_bmp) ( x + 100) ( y + 70) (  true );
+        WxDC.drawBitmap dc ( canvas.m_smile_bmp) ( x + 200) ( y + 70) (  true );
+    end
+
+
+let myCanvas_DrawRegions frame (dc : wxDC) =
+    WxDC.drawText dc
+      "You should see a red rect partly covered by a cyan one on the left" 10 5;
+    WxDC.drawText dc
+      "and 5 smileys from which 4 are partially clipped on the right"
+                10 ( 5 + WxDC.getCharHeight dc);
+    WxDC.drawText dc
+      "The second copy should be identical but right part of it should be offset by 10 pixels."
+      10 (5 + 2* WxDC.getCharHeight dc);
+
+    myCanvas_DrawRegionsHelper frame (dc, 10, true);
+    myCanvas_DrawRegionsHelper frame (dc, 350, false);
+    ()
 
 type pdc_kind =
     WxPaintDC of wxPaintDC
@@ -1596,8 +1580,8 @@ let myCanvas_Draw frame pdc_kind =
     | WxMemoryDC pdc ->
       WxGraphicsRenderer.createContextMemoryDC renderer pdc,
       WxMemoryDC.wxDC pdc
-(*    | WxMetafileDC ->
-      WxGraphicsRenderer.createContextMetafileDC renderer pdc *)
+      (*    | WxMetafileDC ->
+            WxGraphicsRenderer.createContextMetafileDC renderer pdc *)
   in
 
   WxGCDC.setGraphicsContext gdc context;
@@ -1611,103 +1595,99 @@ let myCanvas_Draw frame pdc_kind =
 
   WxDC.setBackgroundMode dc frame.m_backgroundMode;
 
-    if WxBrush.isOk frame.m_backgroundBrush then
-      WxDC.setBackground dc frame.m_backgroundBrush;
-    if WxColour.isOk frame.m_colourForeground then
-      WxDC.setTextForeground dc frame.m_colourForeground ;
-    if WxColour.isOk frame.m_colourBackground then
-      WxDC.setTextBackground dc frame.m_colourBackground;
+  if WxBrush.isOk frame.m_backgroundBrush then
+    WxDC.setBackground dc frame.m_backgroundBrush;
+  if WxColour.isOk frame.m_colourForeground then
+    WxDC.setTextForeground dc frame.m_colourForeground ;
+  if WxColour.isOk frame.m_colourBackground then
+    WxDC.setTextBackground dc frame.m_colourBackground;
 
-    if frame.m_textureBackground then begin
-        if not (WxBrush.isOk frame.m_backgroundBrush) then begin
-          let clr = wxColour 0 128 0 wxALPHA_OPAQUE in
-          let b = wxBrush clr  wxSOLID in
-          WxDC.setBackground dc b
-        end
-    end;
+  if frame.m_textureBackground then begin
+    if not (WxBrush.isOk frame.m_backgroundBrush) then begin
+      let clr = wxColour 0 128 0 wxALPHA_OPAQUE in
+      let b = wxBrush clr  wxSOLID in
+      WxDC.setBackground dc b
+    end
+  end;
 
-    if canvas.m_clip then
-        WxDC.setClippingRegionCoords dc 100 100 100 100;
+  if canvas.m_clip then
+    WxDC.setClippingRegion dc 100 100 100 100;
 
-    WxDC.clear dc;
-(*
+  WxDC.clear dc;
 
-    if ( frame.m_textureBackground )
-    {
-        dc.SetPen( *wxMEDIUM_GREY_PEN);
-        for ( int i = 0; i < 200; i++ )
-            dc.DrawLine(0, i*10, i*10, 0);
-    }
+  if frame.m_textureBackground then begin
+        WxDC.setPen dc  wxMEDIUM_GREY_PEN;
+        for i = 0 to  200 do
+            WxDC.drawLine dc 0 ( i*10 ) ( i*10 ) 0
+        done
+  end;
 
-    switch ( m_show )
-    {
-        case File_ShowDefault:
-            DrawDefault(dc);
-            break;
+  switch canvas.m_show [
+    _File_ShowDefault, (fun _ ->
+            myCanvas_DrawDefault frame dc;
+            );
 
-        case File_ShowCircles:
-            DrawCircles(dc);
-            break;
+        _File_ShowCircles, (fun _ ->
+            myCanvas_DrawCircles  frame dc;
+            );
 
-        case File_ShowSplines:
-            DrawSplines(dc);
-            break;
+        _File_ShowSplines, (fun _ ->
+            myCanvas_DrawSplines frame dc;
+            );
 
-        case File_ShowRegions:
-            DrawRegions(dc);
-            break;
+        _File_ShowRegions, (fun _ ->
+            myCanvas_DrawRegions frame dc;
+            );
 
-        case File_ShowText:
-            DrawText(dc);
-            break;
+        _File_ShowText, (fun _ ->
+            myCanvas_DrawText frame dc;
+            );
 
-        case File_ShowLines:
-            DrawTestLines( 0, 100, 0, dc );
-            DrawTestLines( 0, 320, 1, dc );
-            DrawTestLines( 0, 540, 2, dc );
-            DrawTestLines( 0, 760, 6, dc );
-            break;
+        _File_ShowLines, (fun _ ->
+            myCanvas_DrawTestLines frame ( 0, 100, 0, dc );
+            myCanvas_DrawTestLines frame ( 0, 320, 1, dc );
+            myCanvas_DrawTestLines frame ( 0, 540, 2, dc );
+            myCanvas_DrawTestLines frame ( 0, 760, 6, dc );
+            );
 
-        case File_ShowBrushes:
-            DrawTestBrushes(dc);
-            break;
+        _File_ShowBrushes, (fun _ ->
+            myCanvas_DrawTestBrushes frame dc;
+            );
 
-        case File_ShowPolygons:
-            DrawTestPoly(dc);
-            break;
+        _File_ShowPolygons, (fun _ ->
+            myCanvas_DrawTestPoly frame dc;
+            );
 
-        case File_ShowMask:
-            DrawImages(dc, Draw_Normal);
-            break;
+        _File_ShowMask, (fun _ ->
+            myCanvas_DrawImages frame (dc, Draw_Normal);
+            );
 
-        case File_ShowMaskStretch:
-            DrawImages(dc, Draw_Stretch);
-            break;
+        _File_ShowMaskStretch, (fun _ ->
+            myCanvas_DrawImages frame (dc, Draw_Stretch);
+            );
 
-        case File_ShowOps:
-            DrawWithLogicalOps(dc);
-            break;
+        _File_ShowOps, (fun _ ->
+            myCanvas_DrawWithLogicalOps frame dc;
+            );
 
-#if wxUSE_GRAPHICS_CONTEXT
-        case File_ShowAlpha:
-            DrawAlpha(dc);
-            break;
-        case File_ShowGraphics:
-            DrawGraphics(gdc.GetGraphicsContext());
-            break;
-#endif
+(*#if wxUSE_GRAPHICS_CONTEXT *)
+        _File_ShowAlpha, (fun _ ->
+            myCanvas_DrawAlpha frame dc;
+            );
+        _File_ShowGraphics, (fun _ ->
+          match  WxGCDC.getGraphicsContext gdc with
+          | None -> ()
+          | Some context ->
+            myCanvas_DrawGraphics frame context
+        );
+(*#endif *)
 
-        case File_ShowGradients:
-            DrawGradients(dc);
-            break;
+        _File_ShowGradients, (fun _ ->
+            myCanvas_DrawGradients frame dc;
+            );
 
-        default:
-            break;
-    }
-}
+  ]
 
-*)
-  ()
 
 let myCanvas_OnPaint frame (event : wxPaintEvent) =
   let pdc = wxPaintDC frame.canvas.w_canvas in
@@ -1755,8 +1735,8 @@ let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
       WxDCOverlay.clear overlaydc);
 
 (*#ifdef __WXMAC__
-        dc.SetPen( *wxGREY_PEN );
-        dc.SetBrush( wxColour( 192,192,192,64 ) );
+        WxDC.setPen( *wxGREY_PEN );
+        WxDC.setBrush( wxColour( 192,192,192,64 ) );
 #else *)
         WxDC.setPen dc (wxPen wxLIGHT_GREY 2 wxSOLID);
         WxDC.setBrush dc wxTRANSPARENT_BRUSH;
@@ -1947,7 +1927,19 @@ let new_MyFrame title pos size =
   WxScrolledWindow.setScrollbars  canvas.m_canvas 10 10 100 240 0 0 false;
   WxScrolledWindow.refresh canvas.m_canvas true None;
 
+  let app = {
+        gs_bmpNoMask = wxBitmapDefault();
+        gs_bmpWithColMask = wxBitmapDefault();
+        gs_bmpMask = wxBitmapDefault();
+        gs_bmpWithMask = wxBitmapDefault();
+        gs_bmp4 = wxBitmapDefault();
+        gs_bmp4_mono = wxBitmapDefault();
+        gs_bmp36 = wxBitmapDefault();
+  }
+  in
+
   let frame_state = {
+    app = app;
     m_frame = this;
     canvas = canvas;
     m_backgroundBrush = wxBrushDefault();
@@ -2176,8 +2168,7 @@ BEGIN_EVENT_TABLE2.(wxScrolledWindow frame.canvas.m_canvas frame [
     (*  Show it *)
    ignore_bool (WxFrame.show frame.m_frame);
 
-  match myApp_LoadImages () with
-  None ->
+  if not ( myApp_LoadImages frame.app) then begin
     wxLogError("Can't load one of the bitmap files needed " ^
                "for this sample from the current or parent " ^
                "directory, please copy them there.");
@@ -2187,6 +2178,6 @@ BEGIN_EVENT_TABLE2.(wxScrolledWindow frame.canvas.m_canvas frame [
 (*#if wxUSE_LIBPNG *)
       WxImage.addHandler ( WxPNGHandler.wxImageHandler (wxPNGHandler () ))
 (* #endif *)
-  | Some app -> ()
+  end
 
 let _ = wxMain _OnInit

@@ -4,4 +4,60 @@ class wxPen inherit wxObject begin
   new(Create) (wxColour &colour, int width (* =1 *), 
                wxPenStyle style (* =wxPENSTYLE_SOLID *) )
   new(CreateColour) (wxColour &colour)
+
+(*
+ 	wxPen ()
+ 	Default constructor. 
+ 	wxPen (const wxColour &colour, int width=1, wxPenStyle style=wxPENSTYLE_SOLID)
+ 	Constructs a pen from a colour object, pen width and style. 
+ 	wxPen (const wxBitmap &stipple, int width)
+ 	Constructs a stippled pen from a stipple bitmap and a width. 
+ 	wxPen (const wxPen &pen)
+ 	Copy constructor, uses Reference Counting. 
+virtual 	~wxPen ()
+ 	Destructor. 
+virtual wxPenCap 	GetCap () const
+ 	Returns the pen cap style, which may be one of wxCAP_ROUND, wxCAP_PROJECTING and wxCAP_BUTT. 
+virtual wxColour 	GetColour () const
+ 	Returns a reference to the pen colour. 
+virtual int 	GetDashes (wxDash **dashes) const
+ 	Gets an array of dashes (defined as char in X, DWORD under Windows). 
+virtual wxPenJoin 	GetJoin () const
+ 	Returns the pen join style, which may be one of wxJOIN_BEVEL, wxJOIN_ROUND and wxJOIN_MITER. 
+virtual wxBitmap * 	GetStipple () const
+ 	Gets a pointer to the stipple bitmap. 
+virtual wxPenStyle 	GetStyle () const
+ 	Returns the pen style. 
+virtual int 	GetWidth () const
+ 	Returns the pen width. 
+virtual bool 	IsOk () const
+ 	Returns true if the pen is initialised. 
+bool 	IsNonTransparent () const
+ 	Returns true if the pen is a valid non-transparent pen. 
+bool 	IsTransparent () const
+ 	Returns true if the pen is transparent. 
+virtual void 	SetCap (wxPenCap capStyle)
+ 	Sets the pen cap style, which may be one of wxCAP_ROUND, wxCAP_PROJECTING and wxCAP_BUTT. 
+virtual void 	SetDashes (int n, const wxDash *dash)
+ 	Associates an array of dash values (defined as char in X, DWORD under Windows) with the pen. 
+virtual void 	SetJoin (wxPenJoin join_style)
+ 	Sets the pen join style, which may be one of wxJOIN_BEVEL, wxJOIN_ROUND and wxJOIN_MITER. 
+virtual void 	SetStipple (const wxBitmap &stipple)
+ 	Sets the bitmap for stippling. 
+virtual void 	SetStyle (wxPenStyle style)
+ 	Set the pen style. 
+virtual void 	SetWidth (int width)
+ 	Sets the pen width. 
+bool 	operator!= (const wxPen &pen) const
+ 	Inequality operator. 
+wxPen & 	operator= (const wxPen &pen)
+ 	Assignment operator, using Reference Counting. 
+bool 	operator== (const wxPen &pen) const
+ 	Equality operator. 
+virtual void 	SetColour (wxColour &colour)
+ 	The pen's colour is changed to the given colour. 
+virtual void 	SetColour (unsigned char red, unsigned char green, unsigned char blue)
+ 	The pen's colour is changed to the given colour. 
+*)
+
 end

@@ -69,6 +69,7 @@ let wxColourData = WxColourData.create
 let wxDate = WxDateTime.createDate
 let wxDateTime = WxDateTime.create
 let wxBrush = WxBrush.create
+let wxBrushBitmap = WxBrush.createBitmap
 let wxBrushDefault = WxBrush.createDefault
 let wxPNGHandler = WxPNGHandler.create
 let wxOverlay = WxOverlay.create
@@ -77,6 +78,8 @@ let wxClientDC = WxClientDC.create
 let wxPaintDC = WxPaintDC.create
 let wxGCDCEmpty = WxGCDC.createEmpty
 let wxColour = WxColour.create
+let wxColourName = WxColour.createName
+let wxRegion = WxRegion.create
 
 (* We MUST call the destructor of WxDCOverlay at the end ! *)
 let wxDCOverlay win dc x y dx dy f =

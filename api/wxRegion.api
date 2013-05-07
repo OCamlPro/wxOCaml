@@ -1,3 +1,78 @@
 class wxRegion inherit wxObject begin
 
+  new(Create)(int x, int y, int dx, int dy)
+
+(*
+ 	wxRegion ()
+ 	Default constructor. 
+ 	wxRegion (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
+ 	Constructs a rectangular region with the given position and size. 
+ 	wxRegion (const wxPoint &topLeft, const wxPoint &bottomRight)
+ 	Constructs a rectangular region from the top left point and the bottom right point. 
+ 	wxRegion (const wxRect &rect)
+ 	Constructs a rectangular region a wxRect object. 
+ 	wxRegion (const wxRegion &region)
+ 	Copy constructor, uses Reference Counting. 
+ 	wxRegion (size_t n, const wxPoint *points, wxPolygonFillMode fillStyle=wxODDEVEN_RULE)
+ 	Constructs a region corresponding to the polygon made of n points in the provided array. 
+ 	wxRegion (const wxBitmap &bmp)
+ 	Constructs a region using a bitmap. 
+ 	wxRegion (const wxBitmap &bmp, const wxColour &transColour, int tolerance=0)
+ 	Constructs a region using the non-transparent pixels of a bitmap. 
+virtual 	~wxRegion ()
+ 	Destructor. 
+virtual void 	Clear ()
+ 	Clears the current region. 
+wxRegionContain 	Contains (wxCoord x, wxCoord y) const
+ 	Returns a value indicating whether the given point is contained within the region. 
+wxRegionContain 	Contains (const wxPoint &pt) const
+ 	Returns a value indicating whether the given point is contained within the region. 
+wxRegionContain 	Contains (wxCoord x, wxCoord y, wxCoord width, wxCoord height) const
+ 	Returns a value indicating whether the given rectangle is contained within the region. 
+wxRegionContain 	Contains (const wxRect &rect) const
+ 	Returns a value indicating whether the given rectangle is contained within the region. 
+wxBitmap 	ConvertToBitmap () const
+ 	Convert the region to a black and white bitmap with the white pixels being inside the region. 
+bool 	Intersect (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
+ 	Finds the intersection of this region and another, rectangular region, specified using position and size. 
+bool 	Intersect (const wxRect &rect)
+ 	Finds the intersection of this region and another, rectangular region. 
+bool 	Intersect (const wxRegion &region)
+ 	Finds the intersection of this region and another region. 
+virtual bool 	IsEmpty () const
+ 	Returns true if the region is empty, false otherwise. 
+bool 	IsEqual (const wxRegion &region) const
+ 	Returns true if the region is equal to, i.e. 
+bool 	Subtract (const wxRect &rect)
+ 	Subtracts a rectangular region from this region. 
+bool 	Subtract (const wxRegion &region)
+ 	Subtracts a region from this region. 
+bool 	Union (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
+ 	Finds the union of this region and another, rectangular region, specified using position and size. 
+bool 	Union (const wxRect &rect)
+ 	Finds the union of this region and another, rectangular region. 
+bool 	Union (const wxRegion &region)
+ 	Finds the union of this region and another region. 
+bool 	Union (const wxBitmap &bmp)
+ 	Finds the union of this region and the non-transparent pixels of a bitmap. 
+bool 	Union (const wxBitmap &bmp, const wxColour &transColour, int tolerance=0)
+ 	Finds the union of this region and the non-transparent pixels of a bitmap. 
+bool 	Xor (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
+ 	Finds the Xor of this region and another, rectangular region, specified using position and size. 
+bool 	Xor (const wxRect &rect)
+ 	Finds the Xor of this region and another, rectangular region. 
+bool 	Xor (const wxRegion &region)
+ 	Finds the Xor of this region and another region. 
+wxRegion & 	operator= (const wxRegion &region)
+ 	Assignment operator, using Reference Counting. 
+void 	GetBox (wxCoord &x, wxCoord &y, wxCoord &width, wxCoord &height) const
+ 	Returns the outer bounds of the region. 
+wxRect 	GetBox () const
+ 	Returns the outer bounds of the region. 
+bool 	Offset (wxCoord x, wxCoord y)
+ 	Moves the region by the specified offsets in horizontal and vertical directions. 
+bool 	Offset (const wxPoint &pt)
+ 	Moves the region by the specified offsets in horizontal and vertical directions. 
+*)
+
 end
