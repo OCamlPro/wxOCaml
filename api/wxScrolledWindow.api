@@ -1,7 +1,9 @@
 
 include "<wx/scrolwin.h>"
 
-class wxScrolledWindow inherit wxWindow inherit wxScrollHelper begin
+(* TODO: we have to find a way to compile efficiently templates. Here,
+  we cannot use inheritance to wxPanel. *)
+class wxScrolledWindow inherit wxPanel (* inherit wxScrollHelper *) begin
 
     new(Create)(wxWindow *parent,
                      wxWindowID winid,
@@ -9,6 +11,33 @@ class wxScrolledWindow inherit wxWindow inherit wxScrollHelper begin
                       wxSize& size,
                      long style (* = wxScrolledWindowStyle *),
                       wxString& name (* = wxPanelNameStr *))
- 
+(*  method{ gen_cpp = false }(wxEvtHandler*, WxEvtHandler)() *)
+
+
+  method(void, SetScrollbars)(int pixelsPerUnitX, int pixelsPerUnitY,
+                               int noUnitsX, int noUnitsY,
+                               int xPos, int yPos,
+                               bool noRefresh (* = false *) )
 
 end
+
+(*
+class wxScrolledWindow2 (* inherit wxPanel inherit wxScrollHelper *) begin
+
+    new(Create)(wxWindow *parent,
+                     wxWindowID winid,
+                      wxPoint& pos,
+                      wxSize& size,
+                     long style (* = wxScrolledWindowStyle *),
+                      wxString& name (* = wxPanelNameStr *))
+
+  method(void,Refresh)(bool eraseBackground, wxRect? rect) 
+  method{ gen_cpp = false }(wxEvtHandler*, WxEvtHandler)()
+
+  method(void, SetScrollbars)(int pixelsPerUnitX, int pixelsPerUnitY,
+                               int noUnitsX, int noUnitsY,
+                               int xPos, int yPos,
+                               bool noRefresh (* = false *) )
+
+end
+*)

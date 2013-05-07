@@ -4,7 +4,23 @@ open WxClasses
 open WxID
 open WxValues
 
+(* TODO: the class wxscrolledwindow does not work properly. I need to
+  understand if this is related to the fact that wxscrolledwindow is
+  a C++ template class on wxpanel. For now, we will just replace it
+  by wxpanel and not benefit from scrollbars. *)
 
+(*
+module WxScrolledWindow = struct
+  include WxPanel
+  let setScrollbars _ _ _ _ _ _ _ _ = ()
+end
+type wxScrolledWindow = wxPanel
+let wxScrolledWindow = wxPanel
+module BEGIN_EVENT_TABLE2 = struct
+  include BEGIN_EVENT_TABLE2
+  let wxScrolledWindow = wxPanel
+end
+*)
 
 type canvas_state = {
   m_canvas : wxScrolledWindow;
@@ -370,15 +386,6 @@ void MyApp::DeleteBitmaps()
 (*  MyCanvas *)
 (*  ---------------------------------------------------------------------------- *)
 
-(*  the event tables connect the wxWidgets events with the functions (event *)
-(*  handlers) which process them. *)
-BEGIN_EVENT_TABLE(MyCanvas, wxScrolledWindow)
-    EVT_PAINT  (MyCanvas::OnPaint)
-    EVT_MOTION (MyCanvas::OnMouseMove)
-    EVT_LEFT_DOWN (MyCanvas::OnMouseDown)
-    EVT_LEFT_UP (MyCanvas::OnMouseUp)
-END_EVENT_TABLE()
-
 #include "smile.xpm"
 
 *)
@@ -394,7 +401,7 @@ let new_MyCanvas parent =
    {
     m_canvas = this;
     m_show = _File_ShowDefault;
-    m_smile_bmp = wxBitmapLoad "smile_xpm" wxBITMAP_DEFAULT_TYPE;
+    m_smile_bmp = WxBitmap.createFromXPM Smile_xpm.smile_xpm;
     m_std_icon = WxArtProvider.getIcon wxART_INFORMATION wxART_OTHER wxDefaultSize;
     m_clip = false;
     m_rubberBand = false;
@@ -1492,13 +1499,18 @@ void MyCanvas::DrawRegionsHelper(wxDC& dc, wxCoord x, bool firstTime)
         dc.DrawBitmap( m_smile_bmp, x + 200, y + 70,  true );
     }
 }
+*)
 
-void MyCanvas::OnPaint(wxPaintEvent &WXUNUSED(event))
+let myCanvas_OnPaint frame (event : wxPaintEvent) =
+(*
 {
     wxPaintDC pdc(this);
     Draw(pdc);
 }
+*)
+()
 
+(*
 void MyCanvas::Draw(wxDC& pdc)
 {
 #if wxUSE_GRAPHICS_CONTEXT
@@ -1638,7 +1650,9 @@ void MyCanvas::Draw(wxDC& pdc)
     }
 }
 
-void MyCanvas::OnMouseMove(wxMouseEvent &event)
+*)
+let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
+(*
 {
 #if wxUSE_STATUSBAR
     {
@@ -1680,8 +1694,11 @@ void MyCanvas::OnMouseMove(wxMouseEvent &event)
     wxUnusedVar(event);
 #endif (*  wxUSE_STATUSBAR *)
 }
+*)
+()
 
-void MyCanvas::OnMouseDown(wxMouseEvent &event)
+let myCanvas_OnMouseDown frame(event : wxMouseEvent) =
+(*
 {
     int x,y,xx,yy ;
     event.GetPosition(&x,&y);
@@ -1691,8 +1708,11 @@ void MyCanvas::OnMouseDown(wxMouseEvent &event)
     m_rubberBand = true ;
     CaptureMouse() ;
 }
+*)
+()
 
-void MyCanvas::OnMouseUp(wxMouseEvent &event)
+let myCanvas_OnMouseUp frame (event : wxMouseEvent) =
+(*
 {
     if ( m_rubberBand )
     {
@@ -1717,14 +1737,8 @@ void MyCanvas::OnMouseUp(wxMouseEvent &event)
         }
     }
 }
-
-(*  ---------------------------------------------------------------------------- *)
-(*  MyFrame *)
-(*  ---------------------------------------------------------------------------- *)
-
 *)
-
-(*  frame constructor *)
+()
 
 type menu_item =
   | Append of int * string
@@ -1762,8 +1776,7 @@ let new_MyFrame title pos size =
       (wxDEFAULT_FRAME_STYLE lor wxNO_FULL_REPAINT_ON_RESIZE) in
 
   (*  set the frame icon *)
-  WxFrame.setIcon this (
-    WxIcon.createLoad "sample.xpm" wxBITMAP_TYPE_XPM 32 32);
+  WxFrame.setIcon this (WxIcon.createFromXPM Sample_xpm.sample_xpm);
 
   let menuFile = make_wxMenu
       [ Append (_File_ShowDefault, "&Default screen\tF1");
@@ -1868,6 +1881,7 @@ let new_MyFrame title pos size =
 
   let canvas = new_MyCanvas this in
   WxScrolledWindow.setScrollbars  canvas.m_canvas 10 10 100 240 0 0 false;
+  WxScrolledWindow.refresh canvas.m_canvas true None;
 
   let frame_state = {
     m_frame = this;
@@ -2098,7 +2112,7 @@ let _OnInit () =
 (*  the event tables connect the wxWidgets events with the functions (event *)
 (*  handlers) which process them. It can be also done at run-time, but for the *)
 (*  simple menu events like this the static method is much simpler. *)
-  EVENT_TABLE2.(wxFrame frame.m_frame frame [
+  BEGIN_EVENT_TABLE2.(wxFrame frame.m_frame frame [
     EVT_MENU      (_File_Quit,     myFrame_OnQuit);
     EVT_MENU      (_File_About,    myFrame_OnAbout);
     EVT_MENU      (_File_Clip,     myFrame_OnClip);
@@ -2112,6 +2126,19 @@ let _OnInit () =
 
     EVT_MENU_RANGE(_MenuOption_First, _MenuOption_Last, myFrame_OnOption);
   ]);
+
+
+
+(*  the event tables connect the wxWidgets events with the functions (event *)
+(*  handlers) which process them. *)
+BEGIN_EVENT_TABLE2.(wxScrolledWindow frame.canvas.m_canvas frame [
+    EVT_PAINT  (myCanvas_OnPaint);
+    EVT_MOTION (myCanvas_OnMouseMove);
+    EVT_LEFT_DOWN (myCanvas_OnMouseDown);
+    EVT_LEFT_UP (myCanvas_OnMouseUp);
+  ]);
+
+    WxFrame.setIcon frame.m_frame (WxIcon.createFromXPM Sample_xpm.sample_xpm);
 
     (*  Show it *)
    ignore_bool (WxFrame.show frame.m_frame);

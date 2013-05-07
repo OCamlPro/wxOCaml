@@ -29,6 +29,8 @@ let _ =
             wxDEFAULT_FRAME_STYLE
     in
 
+    WxFrame.setIcon frame (WxIcon.createFromXPM Sample_xpm.sample_xpm);
+
     let m_parent = wxPanel
         (WxFrame.wxWindow frame) WxID.any
         (-1,-1) (-1,-1) wxTAB_TRAVERSAL ""

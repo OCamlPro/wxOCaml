@@ -37,7 +37,7 @@ let onInit () =
     in
     let w_this = WxFrame.wxWindow this in
 
-    (*   SetIcon(wxICON(sample)); *)
+    WxFrame.setIcon this (WxIcon.createFromXPM Sample_xpm.sample_xpm);
 
     let m_panel = wxPanel w_this
         (* defaults: *)

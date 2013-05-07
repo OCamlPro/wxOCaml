@@ -4,7 +4,7 @@ class wxIcon inherit wxObject begin
   new(CreateDefault)()
   (* delete *)
   new(CreateLoad)(wxString& data, wxBitmapType type, int width,int height)
-(*  new(CreateFromXPM)(strings data) *)
+  new(CreateFromXPM)(strings* data) 
 
   method(void, CopyFromBitmap)(wxBitmap& bmp)
 

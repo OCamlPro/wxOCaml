@@ -63,11 +63,7 @@ let _ =
     in
     let w_frame = WxFrame.wxWindow m_frame in
 
-
-    if Sys.file_exists "sample.xpm" then
-      WxFrame.setIcon m_frame (
-        WxIcon.createLoad "sample.xpm"
-          wxBITMAP_TYPE_XPM 32 32);
+    WxFrame.setIcon m_frame (WxIcon.createFromXPM Sample_xpm.sample_xpm);
 
     let m_menuBar = wxMenuBar 0 in
 
@@ -531,7 +527,7 @@ let _ =
                  "(select first)")
           in
 
-          EVENT_TABLE.(wxDialog this [
+          BEGIN_EVENT_TABLE.(wxDialog this [
             EVT_TIME_CHANGED(wxID_ANY, onTimeChange);
           ]);
 
@@ -646,7 +642,7 @@ let _ =
                else
                  "(select first)")
           in
-          EVENT_TABLE.(wxDialog this [
+          BEGIN_EVENT_TABLE.(wxDialog this [
             EVT_DATE_CHANGED(wxID_ANY, onDateChange);
           ]);
           (this, m_datePicker)
@@ -679,7 +675,7 @@ let _ =
         (WxMenuBar.isChecked m_menuBar id_Calendar_DatePicker_AllowNone)
     in
 
-    EVENT_TABLE.(wxFrame m_frame (
+    BEGIN_EVENT_TABLE.(wxFrame m_frame (
       [ EVT_MENU (id_Calendar_File_About, onAbout);
         EVT_MENU(id_Calendar_File_ClearLog, onClearLog);
         EVT_MENU(id_Calendar_File_Quit,  onQuit);
@@ -771,7 +767,7 @@ let _ =
       in wxLogStatus msg
     in
 
-    EVENT_TABLE.(wxPanel m_panel
+    BEGIN_EVENT_TABLE.(wxPanel m_panel
       [
         EVT_CALENDAR(id_Calendar_CalCtrl, onCalendar);
         EVT_CALENDAR_SEL_CHANGED(id_Calendar_CalCtrl, onCalendarChange);

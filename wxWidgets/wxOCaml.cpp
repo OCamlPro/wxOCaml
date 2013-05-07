@@ -58,6 +58,16 @@ int* Ints_val(value ints_v)
   return ints_c;
 }
 
+char** Strings_val(value strings_v)
+{
+  int i;
+  int len = Wosize_val(strings_v);
+  char* *strings_c = (char* *)malloc(sizeof(char*) * (len+1));
+  for(i = 0; i < len; i++) strings_c[i] = String_val(Field(strings_v, i));
+  strings_c[len] = NULL;
+  return strings_c;
+}
+
 
 
 value Val_wxSize(wxSize *point_c)
@@ -177,4 +187,5 @@ value wxDateTime_GetValue_c(value self_v)
   ret_v = caml_copy_int64(ret_c.GetValue());
   CAMLreturn(ret_v);
 }
+
 }

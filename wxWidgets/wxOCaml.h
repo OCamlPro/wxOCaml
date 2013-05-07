@@ -156,6 +156,13 @@ extern int* Ints_val(value point_v);
   if(name_c != NULL) free(name_c); }while(0)
 
 
+extern char* * Strings_val(value point_v);
+#define Begin_Strings(name_c, name_v) \
+  do{ char* *name_c = Strings_val(name_v);
+#define End_Strings(name_c, name_v)		\
+  free(name_c); }while(0)
+
+
 
 extern value Val_wxSize(wxSize *point_c);
 #define WxSize_val(point_v) \

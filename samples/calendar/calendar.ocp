@@ -3,6 +3,6 @@ binannot = false
 (* enabled = false *)
 
 begin program "calendar"
-  requires = [ "wxWidgets" ]
+  requires = [ "wxWidgets"  "wxSamples-resources"  ]
   files = [    "calendar.ml"  ]
 end

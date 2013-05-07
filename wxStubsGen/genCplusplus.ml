@@ -143,6 +143,9 @@ let   generate_method_stub_body oc cl p  out_nargs =
           fprintf oc "  wxRect %s_cc = WxRect_val(%s_v);\n  wxRect* %s_c = &%s_cc;\n" arg_name arg_name arg_name arg_name ;
         | "wxString" ->
           fprintf oc "  wxString %s_cc = wxString( String_val(%s_v), wxConvUTF8 );\n   wxString* %s_c = &%s_cc;\n" arg_name arg_name arg_name arg_name
+        | "strings" ->
+          fprintf oc "  Begin_Strings(%s_c, %s_v);\n"
+            arg_name arg_name
         | _ ->
           fprintf oc "  %s* %s_c = (%s*)Abstract_val(%s_v);\n"
             wxClass arg_name
@@ -358,7 +361,14 @@ let   generate_method_stub_body oc cl p  out_nargs =
     | Typ_ident _ -> ()
     | Typ_reference (Typ_ident wxClass)
     | Typ_pointer (Typ_ident wxClass)
-      -> ()
+      ->
+             begin match wxClass with
+               | "strings" ->
+                 fprintf oc "  End_Strings(%s_c, %s_v);\n"
+                   arg_name arg_name
+               | _ -> ()
+             end
+
     | Typ_option (Typ_ident wxClass)
       ->
       begin match wxClass with

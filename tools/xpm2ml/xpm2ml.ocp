@@ -1,0 +1,4 @@
+
+begin program "xpm2ml"
+  files = [ "xpm2ml.ml" ]
+end

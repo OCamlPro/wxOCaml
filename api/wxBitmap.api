@@ -4,7 +4,7 @@ type wxBitmapType = int
 class wxBitmap inherit wxObject begin
 
   new(Create)(string _data,int width,int height,int depth)
-(*  new(CreateFromXPM)(strings _data) *)
+  new(CreateFromXPM)(strings* data) 
   new(CreateEmpty)(int width,int height,int depth)
   new(CreateLoad)(wxString& name,wxBitmapType type)
 

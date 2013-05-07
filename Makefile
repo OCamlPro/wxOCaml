@@ -9,6 +9,7 @@ all:
 	(cd wxStubsGen; $(MAKE))
 	(cd wxWidgets; $(MAKE) $(NJOBS))
 	ocp-build
+	(cd samples/resources; $(MAKE))
 
 byte:
 	ocp-build -byte

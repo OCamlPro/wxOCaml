@@ -40,6 +40,7 @@ let fprintf_ml_of_ctype ml_oc ctype =
     | Typ_pointer (Typ_ident wxClass)
       ->
       begin match wxClass with
+        | "strings" -> fprintf ml_oc "string array"; true
         | "wxPoint"
         | "wxSize"
         | "wxRect"
