@@ -72,7 +72,9 @@ let wxBrushDefault = WxBrush.createDefault
 let wxPNGHandler = WxPNGHandler.create
 let wxOverlay = WxOverlay.create
 let wxMaskColour = WxMask.createColour
-let wxClientDC w = WxClientDC.wxDC (WxClientDC.create w)
+let wxClientDC = WxClientDC.create
+let wxPaintDC = WxPaintDC.create
+let wxGCDCEmpty = WxGCDC.createEmpty
 
 (* We MUST call the destructor of WxDCOverlay at the end ! *)
 let wxDCOverlay win dc x y dx dy f =

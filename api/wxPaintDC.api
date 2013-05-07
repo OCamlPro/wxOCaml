@@ -1,3 +1,4 @@
 
 class wxPaintDC inherit wxClientDC begin
+ 	new(Create)(wxWindow *window)
 end

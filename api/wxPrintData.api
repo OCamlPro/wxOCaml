@@ -1,0 +1,57 @@
+
+class wxPrintData inherit wxObject begin
+
+(*
+ 	wxPrintData ()
+ 	Default constructor. 
+ 	wxPrintData (const wxPrintData &data)
+ 	Copy constructor. 
+virtual 	~wxPrintData ()
+ 	Destructor. 
+wxPrintBin 	GetBin () const
+ 	Returns the current bin (papersource). 
+bool 	GetCollate () const
+ 	Returns true if collation is on. 
+bool 	GetColour () const
+ 	Returns true if colour printing is on. 
+wxDuplexMode 	GetDuplex () const
+ 	Returns the duplex mode. 
+int 	GetNoCopies () const
+ 	Returns the number of copies requested by the user. 
+wxPrintOrientation 	GetOrientation () const
+ 	Gets the orientation. 
+wxPaperSize 	GetPaperId () const
+ 	Returns the paper size id. 
+const wxString & 	GetPrinterName () const
+ 	Returns the printer name. 
+wxPrintQuality 	GetQuality () const
+ 	Returns the current print quality. 
+bool 	IsOk () const
+ 	Returns true if the print data is valid for using in print dialogs. 
+void 	SetBin (wxPrintBin flag)
+ 	Sets the current bin. 
+void 	SetCollate (bool flag)
+ 	Sets collation to on or off. 
+void 	SetColour (bool flag)
+ 	Sets colour printing on or off. 
+void 	SetDuplex (wxDuplexMode mode)
+ 	Returns the duplex mode. 
+void 	SetNoCopies (int n)
+ 	Sets the default number of copies to be printed out. 
+void 	SetOrientation (wxPrintOrientation orientation)
+ 	Sets the orientation. 
+void 	SetPaperId (wxPaperSize paperId)
+ 	Sets the paper id. 
+void 	SetPrinterName (const wxString &printerName)
+ 	Sets the printer name. 
+void 	SetQuality (wxPrintQuality quality)
+ 	Sets the desired print quality. 
+wxPrintData & 	operator= (const wxPrintData &data)
+ 	Assigns print data to this object. 
+wxString 	GetFilename () const
+void 	SetFilename (const wxString &filename)
+wxPrintMode 	GetPrintMode () const
+void 	SetPrintMode (wxPrintMode printMode)
+*)
+
+end

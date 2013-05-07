@@ -1,0 +1,8 @@
+include "<wx/graphics.h>"
+
+
+class wxGraphicsObject inherit wxObject begin
+
+  method(wxGraphicsRenderer?,GetRenderer) () 
+  method(bool, 	IsNull) () 
+end

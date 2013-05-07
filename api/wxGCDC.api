@@ -1,0 +1,22 @@
+include "<wx/dcgraph.h>"
+
+
+class wxGCDC inherit wxDC begin
+(*
+ 	wxGCDC (const wxWindowDC &windowDC)
+ 	Constructs a wxGCDC from a wxWindowDC. 
+ 	wxGCDC (const wxMemoryDC &memoryDC)
+ 	Constructs a wxGCDC from a wxMemoryDC. 
+ 	wxGCDC (const wxPrinterDC &printerDC)
+ 	Constructs a wxGCDC from a wxPrinterDC. 
+ 	wxGCDC (wxGraphicsContext *context)
+ 	Construct a wxGCDC from an existing grtaphics context. 
+ 	wxGCDC (const wxEnhMetaFileDC &emfDC)
+ 	Constructs a wxGCDC from a wxEnhMetaFileDC. 
+*)
+ 	new(CreateEmpty) ()
+(* virtual 	~wxGCDC () *)
+    method(wxGraphicsContext?, 	GetGraphicsContext) () 
+    method(void,	SetGraphicsContext) (wxGraphicsContext *ctx)
+
+end

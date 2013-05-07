@@ -1,0 +1,5 @@
+
+class wxPrinterDC inherit wxDC begin
+  new(Create) (wxPrintData &printData)
+  method(wxRect,GetPaperRect) () 
+end

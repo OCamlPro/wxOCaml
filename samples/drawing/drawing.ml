@@ -35,6 +35,7 @@ type app_state = {
 
 type canvas_state = {
   m_canvas : wxScrolledWindow;
+  w_canvas : wxWindow;
   mutable m_show : int;
   mutable m_smile_bmp : wxBitmap;
   mutable m_std_icon : wxIcon;
@@ -431,6 +432,7 @@ let new_MyCanvas parent =
 
    {
     m_canvas = this;
+    w_canvas= WxScrolledWindow.wxWindow this;
     m_show = _File_ShowDefault;
     m_smile_bmp = WxBitmap.createFromXPM Smile_xpm.smile_xpm;
     m_std_icon = WxArtProvider.getIcon wxART_INFORMATION wxART_OTHER wxDefaultSize;
@@ -445,9 +447,9 @@ let new_MyCanvas parent =
    }
 
 
-(*
 
-void MyCanvas::DrawTestBrushes(wxDC& dc)
+let myCanvas_DrawTestBrushes frame (dc : wxDC) =
+(*
 {
     static const wxCoord WIDTH = 200;
     static const wxCoord HEIGHT = 80;
@@ -490,7 +492,7 @@ void MyCanvas::DrawTestBrushes(wxDC& dc)
     dc.DrawText("Stipple colour", x + 10, y + 10);
 }
 
-void MyCanvas::DrawTestPoly(wxDC& dc)
+let myCanvas_DrawTestPoly(wxDC& dc)
 {
     wxBrush brushHatch( *wxRED, wxFDIAGONAL_HATCH);
     dc.SetBrush(brushHatch);
@@ -526,8 +528,11 @@ void MyCanvas::DrawTestPoly(wxDC& dc)
 
     dc.DrawPolyPolygon(WXSIZEOF(count), count, star2, 450, 150);
 }
+*)
+  ()
 
-void MyCanvas::DrawTestLines( int x, int y, int width, wxDC &dc )
+let myCanvas_DrawTestLines frame x y width (dc : wxDC ) =
+(*
 {
     dc.SetPen( wxPen( "black", width, wxSOLID) );
     dc.SetBrush( *wxRED_BRUSH );
@@ -585,8 +590,11 @@ void MyCanvas::DrawTestLines( int x, int y, int width, wxDC &dc )
     dc.SetPen( ud );
     dc.DrawLine( x+20, y+170, 100, y+170 );
 }
+*)
+  ()
 
-void MyCanvas::DrawDefault(wxDC& dc)
+let myCanvas_DrawDefault frame (dc :wxDC) =
+(*
 {
     (*  Draw circle centered at the origin, then flood fill it with a different *)
     (*  color. Done with a wxMemoryDC because Blit (used by generic *)
@@ -802,8 +810,11 @@ void MyCanvas::DrawDefault(wxDC& dc)
 
     dc.DrawRectangle(x, y, totalWidth, totalHeight);
 }
+*)
+  ()
 
-void MyCanvas::DrawText(wxDC& dc)
+let myCanvas_DrawText frame (dc : wxDC) =
+(*
 {
     (*  set underlined font for testing *)
     dc.SetFont( wxFont(12, wxMODERN, wxNORMAL, wxNORMAL, true) );
@@ -860,65 +871,71 @@ void MyCanvas::DrawText(wxDC& dc)
     y += height;
     dc.DrawText("And\nmore\ntext on\nmultiple\nlines", 110, y);
 }
+*)
+  ()
 
-static const struct
-{
-    const wxChar *name;
-    wxRasterOperationMode rop;
-} rasterOperations[] =
-{
-    { "wxAND",          wxAND           },
-    { "wxAND_INVERT",   wxAND_INVERT    },
-    { "wxAND_REVERSE",  wxAND_REVERSE   },
-    { "wxCLEAR",        wxCLEAR         },
-    { "wxCOPY",         wxCOPY          },
-    { "wxEQUIV",        wxEQUIV         },
-    { "wxINVERT",       wxINVERT        },
-    { "wxNAND",         wxNAND          },
-    { "wxNO_OP",        wxNO_OP         },
-    { "wxOR",           wxOR            },
-    { "wxOR_INVERT",    wxOR_INVERT     },
-    { "wxOR_REVERSE",   wxOR_REVERSE    },
-    { "wxSET",          wxSET           },
-    { "wxSRC_INVERT",   wxSRC_INVERT    },
-    { "wxXOR",          wxXOR           },
-};
-
-void MyCanvas::DrawImages(wxDC& dc, DrawMode mode)
-{
-    dc.DrawText("original image", 0, 0);
-    dc.DrawBitmap( *app.gs_bmpNoMask, 0, 20, 0);
-    dc.DrawText("with colour mask", 0, 100);
-    dc.DrawBitmap( *app.gs_bmpWithColMask, 0, 120, true);
-    dc.DrawText("the mask image", 0, 200);
-    dc.DrawBitmap( *app.gs_bmpMask, 0, 220, 0);
-    dc.DrawText("masked image", 0, 300);
-    dc.DrawBitmap( *app.gs_bmpWithMask, 0, 320, true);
-
-    int cx = app.gs_bmpWithColMask->GetWidth(),
-        cy = app.gs_bmpWithColMask->GetHeight();
-
-    wxMemoryDC memDC;
-    for ( size_t n = 0; n < WXSIZEOF(rasterOperations); n++ )
-    {
-        wxCoord x = 120 + 150*(n%4),
-                y =  20 + 100*(n/4);
-
-        dc.DrawText(rasterOperations[n].name, x, y - 20);
-        memDC.SelectObject( *app.gs_bmpWithColMask);
-        if ( mode == Draw_Stretch )
-        {
-            dc.StretchBlit(x, y, cx, cy, &memDC, 0, 0, cx/2, cy/2,
-                           rasterOperations[n].rop, true);
-        }
-        else
-        {
-            dc.Blit(x, y, cx, cy, &memDC, 0, 0, rasterOperations[n].rop, true);
-        }
-    }
+type rop = {
+  name : string;
+  rop : wxRasterOperationMode;
 }
 
-void MyCanvas::DrawWithLogicalOps(wxDC& dc)
+let  rasterOperations = List.map (fun (name, rop) -> { name; rop })
+  [
+    ( "wxAND",          wxAND           );
+    ( "wxAND_INVERT",   wxAND_INVERT    );
+    ( "wxAND_REVERSE",  wxAND_REVERSE   );
+    ( "wxCLEAR",        wxCLEAR         );
+    ( "wxCOPY",         wxCOPY          );
+    ( "wxEQUIV",        wxEQUIV         );
+    ( "wxINVERT",       wxINVERT        );
+    ( "wxNAND",         wxNAND          );
+    ( "wxNO_OP",        wxNO_OP         );
+    ( "wxOR",           wxOR            );
+    ( "wxOR_INVERT",    wxOR_INVERT     );
+    ( "wxOR_REVERSE",   wxOR_REVERSE    );
+    ( "wxSET",          wxSET           );
+    ( "wxSRC_INVERT",   wxSRC_INVERT    );
+    ( "wxXOR",          wxXOR           );
+  ]
+
+let myCanvas_DrawImages frame (dc : wxDC)  (mode : _DrawMode) =
+(*
+      {
+        dc.DrawText("original image", 0, 0);
+        dc.DrawBitmap( *app.gs_bmpNoMask, 0, 20, 0);
+        dc.DrawText("with colour mask", 0, 100);
+        dc.DrawBitmap( *app.gs_bmpWithColMask, 0, 120, true);
+        dc.DrawText("the mask image", 0, 200);
+        dc.DrawBitmap( *app.gs_bmpMask, 0, 220, 0);
+        dc.DrawText("masked image", 0, 300);
+        dc.DrawBitmap( *app.gs_bmpWithMask, 0, 320, true);
+
+        int cx = app.gs_bmpWithColMask->GetWidth(),
+        cy = app.gs_bmpWithColMask->GetHeight();
+
+        wxMemoryDC memDC;
+        for ( size_t n = 0; n < WXSIZEOF(rasterOperations); n++ )
+            {
+              wxCoord x = 120 + 150*(n%4),
+              y =  20 + 100*(n/4);
+
+              dc.DrawText(rasterOperations[n].name, x, y - 20);
+              memDC.SelectObject( *app.gs_bmpWithColMask);
+              if ( mode == Draw_Stretch )
+                  {
+                    dc.StretchBlit(x, y, cx, cy, &memDC, 0, 0, cx/2, cy/2,
+                      rasterOperations[n].rop, true);
+                  }
+else
+  {
+    dc.Blit(x, y, cx, cy, &memDC, 0, 0, rasterOperations[n].rop, true);
+  }
+}
+*)
+()
+
+let myCanvas_DrawWithLogicalOps frame (dc : wxDC) =
+(*
 {
     static const wxCoord w = 60;
     static const wxCoord h = 60;
@@ -953,14 +970,11 @@ void MyCanvas::DrawWithLogicalOps(wxDC& dc)
         dc.DrawRectangle(x, y, w, h);
     }
 }
+*)
+()
 
-#if wxUSE_GRAPHICS_CONTEXT
-#ifdef __WXGTK20__
-void MyCanvas::DrawAlpha(wxDC& WXUNUSED(dummyDC))
-#else
-void MyCanvas::DrawAlpha(wxDC& dc)
-#endif
-{
+let myCanvas_DrawAlpha frame (dc : wxDC) =
+(*
 #ifdef __WXGTK__
     wxGCDC dc( this );
     PrepareDC( dc );
@@ -998,22 +1012,22 @@ void MyCanvas::DrawAlpha(wxDC& dc)
     dc.SetTextForeground( wxColour(255,255,0,128) );
     dc.SetFont( wxFont( 40, wxFONTFAMILY_SWISS, wxFONTSTYLE_ITALIC, wxFONTWEIGHT_NORMAL ) );
     dc.DrawText( "Hello!", 120, 80 );
-}
+*)
+  ()
 
-#endif
+(*#if wxUSE_GRAPHICS_CONTEXT *)
 
-#if wxUSE_GRAPHICS_CONTEXT
+let _BASE  = 80
+let _BASE2 = _BASE / 2
+let _BASE4 = _BASE / 4
+let _M_PI = 4.0 *. atan 1.0
 
-const int BASE  = 80.0;
-const int BASE2 = BASE/2;
-const int BASE4 = BASE/4;
-
-static inline double DegToRad(double deg) { return (deg * M_PI) / 180.0; }
-
+let _DegToRad deg = (deg *. _M_PI) /. 180.0
 
 (*  modeled along Robin Dunn's GraphicsContext.py sample *)
 
-void MyCanvas::DrawGraphics(wxGraphicsContext* gc)
+let myCanvas_DrawGraphics frame (gc : wxGraphicsContext) =
+(*
 {
     wxFont font = wxSystemSettings::GetFont(wxSYS_DEFAULT_GUI_FONT);
     gc->SetFont(font,*wxBLACK);
@@ -1123,8 +1137,11 @@ void MyCanvas::DrawGraphics(wxGraphicsContext* gc)
     gc->PopState();
 }
 #endif (*  wxUSE_GRAPHICS_CONTEXT *)
+*)
+ ()
 
-void MyCanvas::DrawCircles(wxDC& dc)
+let myCanvas_DrawCircles frame (dc : wxDC) =
+(*
 {
     int x = 100,
         y = 100,
@@ -1184,10 +1201,12 @@ void MyCanvas::DrawCircles(wxDC& dc)
     dc.DrawEllipticArc(x + r, y, 2*r, r, 90, 180);
     dc.DrawEllipticArc(x + 3*r, y, 2*r, r, 180, 270);
     dc.DrawEllipticArc(x + 5*r, y, 2*r, r, 270, 360);
-
 }
+*)
+  ()
 
-void MyCanvas::DrawSplines(wxDC& dc)
+let myCanvas_DrawSplines frame (dc : wxDC) =
+(*
 {
 #if wxUSE_SPLINES
     dc.DrawText("Some splines", 10, 5);
@@ -1274,8 +1293,11 @@ void MyCanvas::DrawSplines(wxDC& dc)
     dc.DrawText("Splines not supported.", 10, 5);
 #endif
 }
+*)
+  ()
 
-void MyCanvas::DrawGradients(wxDC& dc)
+let myCanvas_DrawGradients frame (dc : wxDC) =
+  (*
 {
     static const int TEXT_HEIGHT = 15;
 
@@ -1475,8 +1497,11 @@ void MyCanvas::DrawGradients(wxDC& dc)
     }
 #endif (*  wxUSE_GRAPHICS_CONTEXT *)
 }
+*)
+ ()
 
-void MyCanvas::DrawRegions(wxDC& dc)
+let myCanvas_DrawRegions frame (dc : wxDC) =
+(*
 {
     dc.DrawText("You should see a red rect partly covered by a cyan one "
                 "on the left", 10, 5);
@@ -1489,8 +1514,11 @@ void MyCanvas::DrawRegions(wxDC& dc)
     DrawRegionsHelper(dc, 10, true);
     DrawRegionsHelper(dc, 350, false);
 }
+*)
+  ()
 
-void MyCanvas::DrawRegionsHelper(wxDC& dc, wxCoord x, bool firstTime)
+let myCanvas_DrawRegionsHelper frame (dc :wxDC ) x firstTime =
+(*
 {
     wxCoord y = 100;
 
@@ -1531,61 +1559,51 @@ void MyCanvas::DrawRegionsHelper(wxDC& dc, wxCoord x, bool firstTime)
     }
 }
 *)
-
-let myCanvas_OnPaint frame (event : wxPaintEvent) =
-(*
-{
-    wxPaintDC pdc(this);
-    Draw(pdc);
-}
-*)
 ()
 
+type pdc_kind =
+    WxPaintDC of wxPaintDC
+  | WxMemoryDC of wxMemoryDC
+  (* | WxMetafileDC *)
+
+
+let myFrame_PrepareDC frame dc =
+  WxDC.setLogicalOrigin dc frame.m_xLogicalOrigin frame.m_yLogicalOrigin;
+  WxDC.setAxisOrientation dc (not frame.m_xAxisReversed) frame.m_yAxisReversed;
+  WxDC.setUserScale dc frame.m_xUserScale frame.m_yUserScale;
+  WxDC.setMapMode dc frame.m_mapMode;
+  ()
+
+
+let myCanvas_Draw frame pdc_kind =
+  let gdc = wxGCDCEmpty () in
+  let renderer = match WxGraphicsRenderer.getCairoRenderer ()with
+      None ->  WxGraphicsRenderer.getDefaultRenderer ()
+    | Some renderer -> renderer in
+
+
+  let (context , pdc) =
+    match pdc_kind with
+    | WxPaintDC pdc ->
+      WxGraphicsRenderer.createContextWindowDC renderer
+        (WxPaintDC.wxWindowDC pdc),
+      WxPaintDC.wxDC pdc
+    | WxMemoryDC pdc ->
+      WxGraphicsRenderer.createContextMemoryDC renderer pdc,
+      WxMemoryDC.wxDC pdc
+(*    | WxMetafileDC ->
+      WxGraphicsRenderer.createContextMetafileDC renderer pdc *)
+  in
+
+  WxGCDC.setGraphicsContext gdc context;
+
+  let canvas = frame.canvas in
+  let m_canvas = canvas.m_canvas in
+  let dc = if canvas.m_useContext then WxGCDC.wxDC gdc else pdc in
+  WxScrolledWindow.prepareDC m_canvas dc;
+
+  myFrame_PrepareDC frame dc;
 (*
-void MyCanvas::Draw(wxDC& pdc)
-{
-#if wxUSE_GRAPHICS_CONTEXT
-    wxGCDC gdc;
-    wxGraphicsRenderer* const renderer = wxGraphicsRenderer::
-#if TEST_CAIRO_EVERYWHERE
-        GetCairoRenderer()
-#else
-        GetDefaultRenderer()
-#endif
-        ;
-
-    wxGraphicsContext* context;
-    if ( wxPaintDC *paintdc = wxDynamicCast(&pdc, wxPaintDC) )
-    {
-        context = renderer->CreateContext( *paintdc);
-    }
-    else if ( wxMemoryDC *memdc = wxDynamicCast(&pdc, wxMemoryDC) )
-    {
-        context = renderer->CreateContext( *memdc);
-    }
-#if wxUSE_METAFILE && defined(wxMETAFILE_IS_ENH)
-    else if ( wxMetafileDC *metadc = wxDynamicCast(&pdc, wxMetafileDC) )
-    {
-        context = renderer->CreateContext( *metadc);
-    }
-#endif
-    else
-    {
-        wxFAIL_MSG( "Unknown wxDC kind" );
-        return;
-    }
-
-    gdc.SetGraphicsContext(context);
-
-    wxDC &dc = m_useContext ? (wxDC&) gdc : (wxDC&) pdc ;
-#else
-    wxDC &dc = pdc ;
-#endif
-
-    PrepareDC(dc);
-
-    m_owner->PrepareDC(dc);
-
     dc.SetBackgroundMode( m_owner->m_backgroundMode );
     if ( m_owner->m_backgroundBrush.IsOk() )
         dc.SetBackground( m_owner->m_backgroundBrush );
@@ -1682,14 +1700,11 @@ void MyCanvas::Draw(wxDC& pdc)
 }
 
 *)
-
-
-let myFrame_PrepareDC frame dc =
-  WxDC.setLogicalOrigin dc frame.m_xLogicalOrigin frame.m_yLogicalOrigin;
-  WxDC.setAxisOrientation dc (not frame.m_xAxisReversed) frame.m_yAxisReversed;
-  WxDC.setUserScale dc frame.m_xUserScale frame.m_yUserScale;
-  WxDC.setMapMode dc frame.m_mapMode;
   ()
+
+let myCanvas_OnPaint frame (event : wxPaintEvent) =
+  let pdc = wxPaintDC frame.canvas.w_canvas in
+  myCanvas_Draw frame (WxPaintDC pdc)
 
 
 let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
@@ -1699,7 +1714,7 @@ let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
   let w_canvas = WxScrolledWindow.wxWindow m_canvas in
   (* #if wxUSE_STATUSBAR *)
   begin
-    let dc = wxClientDC w_canvas in
+    let dc = WxClientDC.wxDC (wxClientDC w_canvas) in
     WxScrolledWindow.prepareDC m_canvas dc;
     myFrame_PrepareDC frame dc;
 
@@ -1726,7 +1741,7 @@ let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
   ;
 *)
 
-    let dc = wxClientDC w_canvas in
+    let dc = WxClientDC.wxDC (wxClientDC w_canvas) in
     WxScrolledWindow.prepareDC m_canvas dc ;
 
     wxDCOverlayDefault canvas.m_overlay dc (fun overlaydc ->
@@ -1763,7 +1778,8 @@ let myCanvas_OnMouseUp frame (event : wxMouseEvent) =
   if canvas.m_rubberBand then begin
     WxScrolledWindow.releaseMouse m_canvas;
     begin
-      let dc = wxClientDC (WxScrolledWindow.wxWindow m_canvas) in
+      let dc = WxClientDC.wxDC (
+          wxClientDC (WxScrolledWindow.wxWindow m_canvas)) in
       WxScrolledWindow.prepareDC m_canvas dc;
       wxDCOverlayDefault canvas.m_overlay dc (fun overlaydc ->
         WxDCOverlay.clear overlaydc)

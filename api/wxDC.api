@@ -1,5 +1,6 @@
 type wxCoord = int
 type wxMappingMode = int
+type wxRasterOperationMode = int
 
 class wxDC inherit wxObject begin
 

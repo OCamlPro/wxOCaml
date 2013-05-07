@@ -1,0 +1,72 @@
+include "<wx/dcgraph.h>"
+include "<wx/graphics.h>"
+include "<wx/dcprint.h>"
+
+
+
+
+class wxGraphicsRenderer inherit wxObject begin
+
+(*
+
+virtual wxGraphicsBitmap 	CreateBitmap (const wxBitmap &bitmap)=0
+ 	Creates wxGraphicsBitmap from an existing wxBitmap. 
+virtual wxGraphicsBitmap 	CreateBitmapFromImage (const wxImage &image)=0
+ 	Creates wxGraphicsBitmap from an existing wxImage. 
+virtual wxImage 	CreateImageFromBitmap (const wxGraphicsBitmap &bmp)=0
+ 	Creates a wxImage from a wxGraphicsBitmap. 
+virtual wxGraphicsBitmap 	CreateBitmapFromNativeBitmap (void *bitmap)=0
+ 	Creates wxGraphicsBitmap from a native bitmap handle. 
+virtual wxGraphicsContext * 	CreateContext (wxWindow *window)=0
+ 	Creates a wxGraphicsContext from a wxWindow. 
+*)
+
+
+  method(wxGraphicsContext *, 	CreateContext,
+    CreateContextWindowDC) (wxWindowDC &windowDC)
+  method( wxGraphicsContext *, 	CreateContext,
+    CreateContextMemoryDC) (wxMemoryDC &memoryDC)
+  method( wxGraphicsContext *, 	CreateContext,
+     CreateContextPrinterDC) (wxPrinterDC &printerDC)
+
+(* only if wxUSE_METAFILE
+  method( wxGraphicsContext *, 	CreateContext,
+     CreateContextMetafileDC) (wxMetafileDC &metaFileDC)
+*)
+
+(*
+ 	Creates a wxGraphicsContext from a wxEnhMetaFileDC. 
+wxGraphicsContext * 	CreateContextFromImage (wxImage &image)
+ 	Creates a wxGraphicsContext associated with a wxImage. 
+virtual wxGraphicsBrush 	CreateBrush (const wxBrush &brush)=0
+ 	Creates a native brush from a wxBrush. 
+virtual wxGraphicsContext * 	CreateContextFromNativeContext (void *context)=0
+ 	Creates a wxGraphicsContext from a native context. 
+virtual wxGraphicsContext * 	CreateContextFromNativeWindow (void *window)=0
+ 	Creates a wxGraphicsContext from a native window. 
+virtual wxGraphicsContext * 	CreateMeasuringContext ()=0
+ 	Creates a wxGraphicsContext that can be used for measuring texts only. 
+virtual wxGraphicsFont 	CreateFont (const wxFont &font, const wxColour &col=*wxBLACK)=0
+ 	Creates a native graphics font from a wxFont and a text colour. 
+virtual wxGraphicsFont 	CreateFont (double sizeInPixels, const wxString &facename, int flags=wxFONTFLAG_DEFAULT, const wxColour &col=*wxBLACK)=0
+ 	Creates a graphics font with the given characteristics. 
+virtual wxGraphicsBrush 	CreateLinearGradientBrush (wxDouble x1, wxDouble y1, wxDouble x2, wxDouble y2, const wxGraphicsGradientStops &stops)=0
+ 	Creates a native brush with a linear gradient. 
+virtual wxGraphicsMatrix 	CreateMatrix (wxDouble a=1.0, wxDouble b=0.0, wxDouble c=0.0, wxDouble d=1.0, wxDouble tx=0.0, wxDouble ty=0.0)=0
+ 	Creates a native affine transformation matrix from the passed in values. 
+virtual wxGraphicsPath 	CreatePath ()=0
+ 	Creates a native graphics path which is initially empty. 
+virtual wxGraphicsPen 	CreatePen (const wxPen &pen)=0
+ 	Creates a native pen from a wxPen. 
+virtual wxGraphicsBrush 	CreateRadialGradientBrush (wxDouble xo, wxDouble yo, wxDouble xc, wxDouble yc, wxDouble radius, const wxGraphicsGradientStops &stops)=0
+ 	Creates a native brush with a radial gradient. 
+virtual wxGraphicsBitmap 	CreateSubBitmap (const wxGraphicsBitmap &bitmap, wxDouble x, wxDouble y, wxDouble w, wxDouble h)=0
+ 	Extracts a sub-bitmap from an existing bitmap. 
+Static Public Member Functions
+
+*)
+
+  function(wxGraphicsRenderer*,	wxGraphicsRenderer::GetDefaultRenderer) ()
+  function(wxGraphicsRenderer?,	wxGraphicsRenderer::GetCairoRenderer) ()
+
+end
