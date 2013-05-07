@@ -51,6 +51,8 @@ typedef int intptr_t;
 #include "wx/socket.h"
 #include "wx/artprov.h"
 #include "wx/sound.h"
+#include <wx/overlay.h>
+
 
 #if wxUSE_DATEPICKCTRL
 #include "wx/datectrl.h"

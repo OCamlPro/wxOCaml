@@ -120,12 +120,17 @@ let generate_method_function ml_oc c_name cl p =
           ignore_bool (fprintf_ml_of_ctype ml_oc arg.arg_ctype)
       ) p.proto_args
     else begin
-      ignore (fprintf_ml_of_ctype ml_oc proto_ret);
+      let pos = ref 0 in
+      if ret_arg = 1 then begin
+        ignore (fprintf_ml_of_ctype ml_oc proto_ret);
+        incr pos
+      end;
       List.iter (fun arg ->
         match arg.arg_direction with
         | In -> ()
         | Out ->
-          fprintf ml_oc " * ";
+          if !pos > 0 then fprintf ml_oc " * ";
+          incr pos;
           ignore_bool (fprintf_ml_of_ctype ml_oc arg.arg_ctype)
       ) p.proto_args
     end

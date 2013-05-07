@@ -1,0 +1,4 @@
+
+class wxClientDC inherit wxWindowDC begin
+  new(Create)(wxWindow* win)
+end

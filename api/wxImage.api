@@ -1,0 +1,4 @@
+
+class wxImage inherit wxObject begin
+  function(void, wxImage::AddHandler)(wxImageHandler* handler)
+end

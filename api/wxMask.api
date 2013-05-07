@@ -1,4 +1,6 @@
 
 class wxMask inherit wxPalette begin
-
+  new(CreateIndex) (wxBitmap &bitmap, int index)
+  new(Create) ( wxBitmap &bitmap)
+  new(CreateColour) (wxBitmap &bitmap, wxColour &colour)
 end

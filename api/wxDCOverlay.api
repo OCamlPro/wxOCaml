@@ -1,0 +1,7 @@
+
+class wxDCOverlay begin
+
+   new(Create) (wxOverlay &overlay, wxDC *dc, int x, int y, int width, int height)
+   new(CreateDefault) (wxOverlay &overlay, wxDC *dc)
+   method(void, Clear)()
+end

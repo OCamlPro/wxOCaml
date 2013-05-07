@@ -1,3 +1,4 @@
+open WxMisc
 open WxWidgets
 open WxDefs
 open WxClasses
@@ -22,13 +23,23 @@ module BEGIN_EVENT_TABLE2 = struct
 end
 *)
 
+type app_state = {
+  mutable gs_bmpNoMask : wxBitmap;
+  mutable gs_bmpWithColMask : wxBitmap;
+  mutable gs_bmpMask : wxBitmap;
+  mutable gs_bmpWithMask : wxBitmap;
+  mutable gs_bmp4 : wxBitmap;
+  mutable gs_bmp4_mono : wxBitmap;
+  mutable gs_bmp36 : wxBitmap;
+}
+
 type canvas_state = {
   m_canvas : wxScrolledWindow;
   mutable m_show : int;
   mutable m_smile_bmp : wxBitmap;
   mutable m_std_icon : wxIcon;
   mutable m_clip : bool;
-  mutable m_overlay : int; (* wxOverlay; *)
+  mutable m_overlay : wxOverlay;
   mutable m_rubberBand : bool;
   mutable m_anchorpoint : wxPoint;
   mutable m_currentpoint : wxPoint;
@@ -160,11 +171,18 @@ public:
     void OnMouseMove(wxMouseEvent &event);
     void OnMouseDown(wxMouseEvent &event);
     void OnMouseUp(wxMouseEvent &event);
+*)
 
-    void ToShow(int show) { m_show = show; Refresh(); }
+let myCanvas_ToShow canvas show =
+  canvas.m_show <- show;
+  WxScrolledWindow.refresh canvas.m_canvas true None
 
     (*  set or remove the clipping region *)
-    void Clip(bool clip) { m_clip = clip; Refresh(); }
+let myCanvas_Clip canvas clip =
+  canvas.m_clip <- clip;
+  WxScrolledWindow.refresh canvas.m_canvas true None
+
+(*
 #if wxUSE_GRAPHICS_CONTEXT
 *)
 
@@ -174,15 +192,17 @@ let myCanvas_UseGraphicContext canvas use =
 
 (*
 #endif
+*)
+
+
+(*
     void Draw(wxDC& dc);
+*)
 
-protected:
-    enum DrawMode
-    {
-        Draw_Normal,
-        Draw_Stretch
-    };
+type _DrawMode =
+        Draw_Normal |     Draw_Stretch
 
+(*
     void DrawTestLines( int x, int y, int width, wxDC &dc );
     void DrawTestPoly(wxDC& dc);
     void DrawTestBrushes(wxDC& dc);
@@ -233,60 +253,60 @@ let _File_About = wxID_ABOUT
 let _MenuShow_First = wxID_HIGHEST
 let _File_ShowDefault = _MenuShow_First
 let _File_ShowText = wxID ()
-    let _File_ShowLines = wxID ()
-    let _File_ShowBrushes = wxID ()
-    let _File_ShowPolygons = wxID ()
-    let _File_ShowMask = wxID ()
-    let _File_ShowMaskStretch = wxID ()
-    let _File_ShowOps = wxID ()
-    let _File_ShowRegions = wxID ()
-    let _File_ShowCircles = wxID ()
-    let _File_ShowSplines = wxID ()
+let _File_ShowLines = wxID ()
+let _File_ShowBrushes = wxID ()
+let _File_ShowPolygons = wxID ()
+let _File_ShowMask = wxID ()
+let _File_ShowMaskStretch = wxID ()
+let _File_ShowOps = wxID ()
+let _File_ShowRegions = wxID ()
+let _File_ShowCircles = wxID ()
+let _File_ShowSplines = wxID ()
 (*#if wxUSE_GRAPHICS_CONTEXT *)
-    let _File_ShowAlpha = wxID ()
-    let _File_ShowGraphics = wxID ()
+let _File_ShowAlpha = wxID ()
+let _File_ShowGraphics = wxID ()
 (*#endif *)
-    let _File_ShowGradients = wxID ()
+let _File_ShowGradients = wxID ()
 let _MenuShow_Last =  _File_ShowGradients
 
 let _File_Clip = wxID ()
 (*#if wxUSE_GRAPHICS_CONTEXT *)
-    let _File_GraphicContext = wxID ()
+let _File_GraphicContext = wxID ()
 (*#endif *)
-    let _File_Copy = wxID ()
-    let _File_Save = wxID ()
+let _File_Copy = wxID ()
+let _File_Save = wxID ()
 
-    let _MenuOption_First = wxID ()
+let _MenuOption_First = wxID ()
 
-    let _MapMode_Text = _MenuOption_First
-    let _MapMode_Lometric = wxID ()
-    let _MapMode_Twips = wxID ()
-    let _MapMode_Points = wxID ()
-    let _MapMode_Metric = wxID ()
+let _MapMode_Text = _MenuOption_First
+let _MapMode_Lometric = wxID ()
+let _MapMode_Twips = wxID ()
+let _MapMode_Points = wxID ()
+let _MapMode_Metric = wxID ()
 
-    let _UserScale_StretchHoriz = wxID ()
-    let _UserScale_ShrinkHoriz = wxID ()
-    let _UserScale_StretchVertic = wxID ()
-    let _UserScale_ShrinkVertic = wxID ()
-    let _UserScale_Restore = wxID ()
+let _UserScale_StretchHoriz = wxID ()
+let _UserScale_ShrinkHoriz = wxID ()
+let _UserScale_StretchVertic = wxID ()
+let _UserScale_ShrinkVertic = wxID ()
+let _UserScale_Restore = wxID ()
 
 let _AxisMirror_Horiz = wxID ()
 let _AxisMirror_Vertic = wxID ()
 
-    let _LogicalOrigin_MoveDown = wxID ()
-      let _LogicalOrigin_MoveUp = wxID ()
-      let _LogicalOrigin_MoveLeft = wxID ()
-      let _LogicalOrigin_MoveRight = wxID ()
-      let _LogicalOrigin_Set = wxID ()
+let _LogicalOrigin_MoveDown = wxID ()
+let _LogicalOrigin_MoveUp = wxID ()
+let _LogicalOrigin_MoveLeft = wxID ()
+let _LogicalOrigin_MoveRight = wxID ()
+let _LogicalOrigin_Set = wxID ()
 let _LogicalOrigin_Restore = wxID ()
 
 (*#if wxUSE_COLOURDLG *)
 let _Colour_TextForeground = wxID ()
 let _Colour_TextBackground = wxID ()
-    let _Colour_Background = wxID ()
+let _Colour_Background = wxID ()
 (*#endif (*  wxUSE_COLOURDLG *) *)
-    let _Colour_BackgroundMode = wxID ()
-    let _Colour_TextureBackgound = wxID ()
+let _Colour_BackgroundMode = wxID ()
+let _Colour_TextureBackgound = wxID ()
 
 let _MenuOption_Last = _Colour_TextureBackgound
 
@@ -310,83 +330,94 @@ let _MenuOption_Last = _Colour_TextureBackgound
     (*  ---------------------------------------------------------------------------- *)
     (*  the application class *)
     (*  ---------------------------------------------------------------------------- *)
+*)
+let find_in_path path name =
+  if not (Filename.is_implicit name) then
+    if Sys.file_exists name then name else raise Not_found
+  else begin
+    let rec try_dir = function
+      [] -> raise Not_found
+    | dir::rem ->
+        let fullname = Filename.concat dir name in
+        if Sys.file_exists fullname then fullname else try_dir rem
+    in try_dir path
+  end
 
-    bool MyApp::LoadImages()
-      {
-        gs_bmpNoMask = new wxBitmap;
-        gs_bmpWithColMask = new wxBitmap;
-        gs_bmpMask = new wxBitmap;
-        gs_bmpWithMask = new wxBitmap;
-        gs_bmp4 = new wxBitmap;
-        gs_bmp4_mono = new wxBitmap;
-        gs_bmp36 = new wxBitmap;
+let myApp_LoadImages() =
+  let app = {
+        gs_bmpNoMask = wxBitmapDefault();
+        gs_bmpWithColMask = wxBitmapDefault();
+        gs_bmpMask = wxBitmapDefault();
+        gs_bmpWithMask = wxBitmapDefault();
+        gs_bmp4 = wxBitmapDefault();
+        gs_bmp4_mono = wxBitmapDefault();
+        gs_bmp36 = wxBitmapDefault();
+  }
+  in
 
-        wxPathList pathList;
-        (*  special hack for Unix in-tree sample build, don't do this in real *)
-        (*  programs, use wxStandardPaths instead *)
-        pathList.Add(wxFileName(argv[0]).GetPath());
-        pathList.Add(".");
-        pathList.Add("..");
-        pathList.Add("../..");
+  try
+    let path = [
+      Filename.dirname Sys.argv.(0);
+      ".";
+      "..";
+      "../..";
+      "samples/drawing";
+    ] in
+    let path_pat4 = find_in_path path "pat4.bmp" in
+    let path = Filename.dirname path_pat4 in
 
-        wxString path = pathList.FindValidPath("pat4.bmp");
-        if ( !path )
-            return false;
+    (* 4 colour bitmap *)
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmp4 path_pat4 wxBITMAP_TYPE_BMP);
+          (* turn into mono-bitmap *)
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmp4_mono path_pat4 wxBITMAP_TYPE_BMP);
+    let mask4 = wxMaskColour app.gs_bmp4_mono wxBLACK in
+    WxBitmap.setMask app.gs_bmp4_mono (Some mask4);
 
-          /* 4 colour bitmap */
-            gs_bmp4->LoadFile(path, wxBITMAP_TYPE_BMP);
-          /* turn into mono-bitmap */
-              gs_bmp4_mono->LoadFile(path, wxBITMAP_TYPE_BMP);
-          wxMask* mask4 = new wxMask( *gs_bmp4_mono, *wxBLACK);
-          gs_bmp4_mono->SetMask(mask4);
+    let path_pat36 = Filename.concat path "pat36.bmp" in
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmp36 path_pat36 wxBITMAP_TYPE_BMP);
+    let mask36 = wxMaskColour app.gs_bmp36 wxBLACK in
+    WxBitmap.setMask app.gs_bmp36  (Some mask36);
 
-          path = pathList.FindValidPath("pat36.bmp");
-          if ( !path )
-              return false;
-            gs_bmp36->LoadFile(path, wxBITMAP_TYPE_BMP);
-            wxMask* mask36 = new wxMask( *gs_bmp36, *wxBLACK);
-            gs_bmp36->SetMask(mask36);
+    let path_image = Filename.concat path "image.bmp" in
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmpNoMask path_image wxBITMAP_TYPE_BMP);
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmpWithMask path_image wxBITMAP_TYPE_BMP);
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmpWithColMask path_image wxBITMAP_TYPE_BMP);
 
-            path = pathList.FindValidPath("image.bmp");
-            if ( !path )
-                return false;
-              gs_bmpNoMask->LoadFile(path, wxBITMAP_TYPE_BMP);
-              gs_bmpWithMask->LoadFile(path, wxBITMAP_TYPE_BMP);
-              gs_bmpWithColMask->LoadFile(path, wxBITMAP_TYPE_BMP);
+    let path_mask = Filename.concat path "mask.bmp" in
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmpMask path_mask wxBITMAP_TYPE_BMP);
 
-              path = pathList.FindValidPath("mask.bmp");
-              if ( !path )
-                  return false;
-                gs_bmpMask->LoadFile(path, wxBITMAP_TYPE_BMP);
+    let mask = wxMaskColour app.gs_bmpMask wxBLACK in
+    WxBitmap.setMask app.gs_bmpWithMask (Some mask);
 
-                wxMask *mask = new wxMask( *gs_bmpMask, *wxBLACK);
-                gs_bmpWithMask->SetMask(mask);
+    let mask = wxMaskColour app.gs_bmpWithColMask wxWHITE in
+     WxBitmap.setMask app.gs_bmpWithColMask (Some mask);
 
-                mask = new wxMask( *gs_bmpWithColMask, *wxWHITE);
-                gs_bmpWithColMask->SetMask(mask);
+    Some app
 
-                return true;
-      }
-
-    *)
+  with Not_found -> None
 
 (*
 void MyApp::DeleteBitmaps()
 {
-    wxDELETE(gs_bmpNoMask);
-    wxDELETE(gs_bmpWithColMask);
-    wxDELETE(gs_bmpMask);
-    wxDELETE(gs_bmpWithMask);
-    wxDELETE(gs_bmp4);
-    wxDELETE(gs_bmp4_mono);
-    wxDELETE(gs_bmp36);
+    wxDELETE(app.gs_bmpNoMask);
+    wxDELETE(app.gs_bmpWithColMask);
+    wxDELETE(app.gs_bmpMask);
+    wxDELETE(app.gs_bmpWithMask);
+    wxDELETE(app.gs_bmp4);
+    wxDELETE(app.gs_bmp4_mono);
+    wxDELETE(app.gs_bmp36);
 }
 
 (*  ---------------------------------------------------------------------------- *)
 (*  MyCanvas *)
 (*  ---------------------------------------------------------------------------- *)
-
-#include "smile.xpm"
 
 *)
 
@@ -408,7 +439,7 @@ let new_MyCanvas parent =
 (*#if wxUSE_GRAPHICS_CONTEXT *)
     m_useContext = false;
     (* #endif *)
-    m_overlay = 0;
+    m_overlay = wxOverlay ();
     m_anchorpoint = (0,0);
     m_currentpoint = (0,0);
    }
@@ -449,12 +480,12 @@ void MyCanvas::DrawTestBrushes(wxDC& dc)
     dc.DrawText("Horizontally hatched black", x + 10, y + 10);
 
     y += HEIGHT;
-    dc.SetBrush(wxBrush( *gs_bmpMask));
+    dc.SetBrush(wxBrush( *app.gs_bmpMask));
     dc.DrawRectangle(x, y, WIDTH, HEIGHT);
     dc.DrawText("Stipple mono", x + 10, y + 10);
 
     y += HEIGHT;
-    dc.SetBrush(wxBrush( *gs_bmpNoMask));
+    dc.SetBrush(wxBrush( *app.gs_bmpNoMask));
     dc.DrawRectangle(x, y, WIDTH, HEIGHT);
     dc.DrawText("Stipple colour", x + 10, y + 10);
 }
@@ -856,16 +887,16 @@ static const struct
 void MyCanvas::DrawImages(wxDC& dc, DrawMode mode)
 {
     dc.DrawText("original image", 0, 0);
-    dc.DrawBitmap( *gs_bmpNoMask, 0, 20, 0);
+    dc.DrawBitmap( *app.gs_bmpNoMask, 0, 20, 0);
     dc.DrawText("with colour mask", 0, 100);
-    dc.DrawBitmap( *gs_bmpWithColMask, 0, 120, true);
+    dc.DrawBitmap( *app.gs_bmpWithColMask, 0, 120, true);
     dc.DrawText("the mask image", 0, 200);
-    dc.DrawBitmap( *gs_bmpMask, 0, 220, 0);
+    dc.DrawBitmap( *app.gs_bmpMask, 0, 220, 0);
     dc.DrawText("masked image", 0, 300);
-    dc.DrawBitmap( *gs_bmpWithMask, 0, 320, true);
+    dc.DrawBitmap( *app.gs_bmpWithMask, 0, 320, true);
 
-    int cx = gs_bmpWithColMask->GetWidth(),
-        cy = gs_bmpWithColMask->GetHeight();
+    int cx = app.gs_bmpWithColMask->GetWidth(),
+        cy = app.gs_bmpWithColMask->GetHeight();
 
     wxMemoryDC memDC;
     for ( size_t n = 0; n < WXSIZEOF(rasterOperations); n++ )
@@ -874,7 +905,7 @@ void MyCanvas::DrawImages(wxDC& dc, DrawMode mode)
                 y =  20 + 100*(n/4);
 
         dc.DrawText(rasterOperations[n].name, x, y - 20);
-        memDC.SelectObject( *gs_bmpWithColMask);
+        memDC.SelectObject( *app.gs_bmpWithColMask);
         if ( mode == Draw_Stretch )
         {
             dc.StretchBlit(x, y, cx, cy, &memDC, 0, 0, cx/2, cy/2,
@@ -1651,6 +1682,16 @@ void MyCanvas::Draw(wxDC& pdc)
 }
 
 *)
+
+
+let myFrame_PrepareDC frame dc =
+  WxDC.setLogicalOrigin dc frame.m_xLogicalOrigin frame.m_yLogicalOrigin;
+  WxDC.setAxisOrientation dc (not frame.m_xAxisReversed) frame.m_yAxisReversed;
+  WxDC.setUserScale dc frame.m_xUserScale frame.m_yUserScale;
+  WxDC.setMapMode dc frame.m_mapMode;
+  ()
+
+
 let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
 (*
 {
@@ -1698,47 +1739,40 @@ let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
 ()
 
 let myCanvas_OnMouseDown frame(event : wxMouseEvent) =
-(*
-{
-    int x,y,xx,yy ;
-    event.GetPosition(&x,&y);
-    CalcUnscrolledPosition( x, y, &xx, &yy );
-    m_anchorpoint = wxPoint( xx , yy ) ;
-    m_currentpoint = m_anchorpoint ;
-    m_rubberBand = true ;
-    CaptureMouse() ;
-}
-*)
-()
+  Printf.eprintf "myCanvas_OnMouseDown\n%!";
+  let canvas = frame.canvas in
+  let (x,y) = WxMouseEvent.getPosition event in
+  let (xx,yy) = WxScrolledWindow.calcUnscrolledPosition frame.canvas.m_canvas
+      x y in
+  canvas.m_anchorpoint <- (xx,yy);
+  canvas.m_currentpoint <- canvas.m_anchorpoint ;
+  canvas.m_rubberBand <- true ;
+  WxScrolledWindow.captureMouse canvas.m_canvas ;
+  ()
 
 let myCanvas_OnMouseUp frame (event : wxMouseEvent) =
-(*
-{
-    if ( m_rubberBand )
-    {
-        ReleaseMouse();
-        {
-            wxClientDC dc( this );
-            PrepareDC( dc );
-            wxDCOverlay overlaydc( m_overlay, &dc );
-            overlaydc.Clear();
-        }
-        m_overlay.Reset();
-        m_rubberBand = false;
+  let canvas = frame.canvas in
+  let m_canvas = canvas.m_canvas in
+  if canvas.m_rubberBand then begin
+    WxScrolledWindow.releaseMouse m_canvas;
 
-        wxPoint endpoint = CalcUnscrolledPosition(event.GetPosition());
+    let dc = wxClientDC (WxScrolledWindow.wxWindow m_canvas) in
+    WxScrolledWindow.prepareDC m_canvas (WxClientDC.wxDC dc);
+    let overlaydc = wxDCOverlayDefault canvas.m_overlay (WxClientDC.wxDC dc) in
+    WxDCOverlay.clear overlaydc;
+    WxOverlay.reset canvas.m_overlay;
 
-        (*  Don't pop up the message box if nothing was actually selected. *)
-        if ( endpoint != m_anchorpoint )
-        {
-            wxLogMessage("Selected rectangle from (%d, %d) to (%d, %d)",
-                         m_anchorpoint.x, m_anchorpoint.y,
-                         endpoint.x, endpoint.y);
-        }
-    }
-}
-*)
-()
+    canvas.m_rubberBand <- false;
+    let (x,y) = WxMouseEvent.getPosition event in
+    let endpoint = WxScrolledWindow.calcUnscrolledPosition frame.canvas.m_canvas
+        x y in
+    (*  Don't pop up the message box if nothing was actually selected. *)
+    if endpoint <> canvas.m_anchorpoint  then
+        wxLogMessage (Printf.sprintf
+          "Selected rectangle from (%d, %d) to (%d, %d)"
+          (fst canvas.m_anchorpoint) (snd canvas.m_anchorpoint)
+            (fst endpoint) (snd endpoint))
+  end
 
 type menu_item =
   | Append of int * string
@@ -1910,36 +1944,22 @@ let new_MyFrame title pos size =
 
 
 let myFrame_OnQuit frame (event : wxCommandEvent) =
-(* TODO
-{
     (*  true is to force the frame to close *)
-    Close(true);
-}
-*)
-    ()
+    ignore_bool (WxFrame.close frame.m_frame true)
 
 let myFrame_OnAbout frame (event : wxCommandEvent) =
-(*
-{
-    wxString msg;
-    msg.Printf( "This is the about dialog of the drawing sample.\n"
-                "This sample tests various primitive drawing functions\n"
-                "(without any attempts to prevent flicker).\n"
-                "Copyright (c) Robert Roebling 1999"
-              );
-
-    wxMessageBox(msg, "About Drawing", wxOK | wxICON_INFORMATION, this);
-}
-*)
-()
+  let msg = Printf.sprintf "%s%s%s%s"
+      "This is the about dialog of the drawing sample.\n"
+      "This sample tests various primitive drawing functions\n"
+      "(without any attempts to prevent flicker).\n"
+      "Copyright (c) Robert Roebling 1999"
+  in
+  ignore_int (
+    wxMessageBox msg "About Drawing" (wxOK lor wxICON_INFORMATION)
+      (Some (WxFrame.wxWindow frame.m_frame)) (-1) (-1))
 
 let  myFrame_OnClip frame (event : wxCommandEvent) =
-(*
-{
-    m_canvas->Clip(event.IsChecked());
-}
-*)
-()
+  myCanvas_Clip frame.canvas (WxCommandEvent.isChecked event)
 
 (* #if wxUSE_GRAPHICS_CONTEXT *)
 let myFrame_OnGraphicContext frame (event : wxCommandEvent) =
@@ -1985,12 +2005,7 @@ let myFrame_OnSave frame (event : wxCommandEvent) =
 ()
 
 let myFrame_OnShow frame (event :wxCommandEvent) =
-(*
-{
-    m_canvas->ToShow(event.GetId());
-}
-*)
-()
+  myCanvas_ToShow frame.canvas (WxCommandEvent.getId event)
 
 
 let  myFrame_SelectColour frame =
@@ -2087,18 +2102,6 @@ let myFrame_OnOption frame (event : wxCommandEvent) =
 
   WxScrolledWindow.refresh frame.canvas.m_canvas true None
 
-(*
-let myFrame_PrepareDC(wxDC& dc)
-{
-    dc.SetLogicalOrigin( m_xLogicalOrigin, m_yLogicalOrigin );
-    dc.SetAxisOrientation( !m_xAxisReversed, m_yAxisReversed );
-    dc.SetUserScale( m_xUserScale, m_yUserScale );
-    dc.SetMapMode( m_mapMode );
-}
-
-*)
-
-
 
 
 let _OnInit () =
@@ -2143,21 +2146,17 @@ BEGIN_EVENT_TABLE2.(wxScrolledWindow frame.canvas.m_canvas frame [
     (*  Show it *)
    ignore_bool (WxFrame.show frame.m_frame);
 
+  match myApp_LoadImages () with
+  None ->
+    wxLogError("Can't load one of the bitmap files needed " ^
+               "for this sample from the current or parent " ^
+               "directory, please copy them there.");
 
-(*
-    if ( !LoadImages() )
-    {
-        wxLogError("Can't load one of the bitmap files needed "
-                   "for this sample from the current or parent "
-                   "directory, please copy them there.");
-
-        (*  still continue, the sample can be used without images too if they're *)
+    (*  still continue, the sample can be used without images too if they're *)
         (*  missing for whatever reason *)
-    }
-#if wxUSE_LIBPNG
-      wxImage::AddHandler( new wxPNGHandler );
-#endif
-*)
-   ()
+(*#if wxUSE_LIBPNG *)
+      WxImage.addHandler ( WxPNGHandler.wxImageHandler (wxPNGHandler () ))
+(* #endif *)
+  | Some app -> ()
 
 let _ = wxMain _OnInit

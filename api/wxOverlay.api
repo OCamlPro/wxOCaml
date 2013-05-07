@@ -1,0 +1,5 @@
+
+class wxOverlay begin
+   new(Create)()
+   method(void, Reset)()
+end

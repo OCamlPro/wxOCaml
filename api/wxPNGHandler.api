@@ -1,0 +1,3 @@
+class wxPNGHandler inherit wxImageHandler begin
+   new(Create)()
+end

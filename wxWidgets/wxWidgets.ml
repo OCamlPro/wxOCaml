@@ -31,7 +31,10 @@ let wx_check_config version =
 let wx_2_9 = wx_config [2;9]
 let wx_2_8 = wx_config [2;8] && not wx_2_9
 
-
+(* TODO: creating all these handlers is bad, as it forces to link everything.
+  We should probably only keep the external, maybe even generate it
+  in WxClasses
+*)
 let wxID = WxID.create
 let wxFrame = WxFrame.create
 let wxPanel = WxPanel.create
@@ -59,12 +62,19 @@ let wxCheckBox = WxCheckBox.create
 let wxListBox = WxListBox.create
 let wxScrolledWindow = WxScrolledWindow.create
 let wxBitmap = WxBitmap.create
+let wxBitmapDefault = WxBitmap.createDefault
 let wxBitmapLoad = WxBitmap.createLoad
 let wxColourDialog = WxColourDialog.create
 let wxColourData = WxColourData.create
 let wxDate = WxDateTime.createDate
 let wxDateTime = WxDateTime.create
 let wxBrushDefault = WxBrush.createDefault
+let wxPNGHandler = WxPNGHandler.create
+let wxOverlay = WxOverlay.create
+let wxMaskColour = WxMask.createColour
+let wxClientDC = WxClientDC.create
+let wxDCOverlay = WxDCOverlay.create
+let wxDCOverlayDefault = WxDCOverlay.createDefault
 
 let ignore_int (_ : int) = ()
 let ignore_bool (_ : bool) = ()

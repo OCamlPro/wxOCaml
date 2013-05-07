@@ -1,0 +1,4 @@
+
+class wxImageHandler inherit wxObject begin
+
+end
