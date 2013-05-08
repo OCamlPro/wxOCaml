@@ -1,4 +1,4 @@
-# ocplib-wxWidgets
+# ocplib-wxOCaml
 
 A binding to wxWidgets
 
@@ -28,14 +28,20 @@ A binding to wxWidgets
 
 ## How to use
 
-* Look at the examples in samples/
+* Look at the code of examples in samples/:
+    * "minimal" is the most simple application
+    * "two_panels" shows buttons and labels widgets
+    * "calendar" shows the calendar widgets
+    * "drawing" shows how to draw on widgets
+    * "wrapsizer" shows toolbox and options widgetds
+
 * The global architectures of modules (in wxWidgets/) is:
-  - a module WxClasses with all the (abstract) types
-  - a module WxWidgets with the constructors (useful to open)
-  - a module WxDefs with the constants (useful to open too)
-  - a module per class, with all the methods (including inherited ones)
-  - a module WxMisc with misc functions
-  - a function wxMain with the main loop
+  * a module WxClasses with all the (abstract) types
+  * a module WxWidgets with the constructors (useful to open)
+  * a module WxDefs with the constants (useful to open too)
+  * a module per class, with all the methods (including inherited ones)
+  * a module WxMisc with misc functions
+  * a function wxMain with the main loop
 
 ## How is it done ?
 

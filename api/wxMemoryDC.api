@@ -1,3 +1,7 @@
 class wxMemoryDC inherit wxDC begin
+  new(Create) ()
+  new(CreateBitmap) (wxBitmap &bitmap)
 
+  method(void, 	SelectObject) (wxBitmap &bitmap)
+  method(void, 	SelectObjectAsSource) (wxBitmap &bitmap)
 end
