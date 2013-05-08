@@ -60,14 +60,14 @@ the files in api/ for examples.
 
 Start your code with:
 
-   open WxDefs
-   open WxClasses
-   open WxWidgets
+     open WxDefs
+     open WxClasses
+     open WxWidgets
 
 The "main" of your code is a function "onInit" called from the WxWidgets loop:
 
-   let onInit _ = ...
-   let _ = wxMain oninit
+     let onInit _ = ...
+     let _ = wxMain oninit
 
 For every class of WxWidget, we define a module with the same name. The "new"
 constructor is called "create". There can be several "create*" functions
@@ -78,21 +78,21 @@ If a method is overloaded for different arguments, then several functions
 can correspond to the different kinds of arguments:
 For example 
 
-    m_sizer->add(m_button)
+     m_sizer->add(m_button)
 
- will be translated into 
+will be translated into 
 
-    WxSizer.addWindow m_size m_button
+     WxSizer.addWindow m_size m_button
 
 For every class, there are cast functions to translate an object to any 
 of its ancestor types. For example, you might need to use:
 
-   WxSizer.addWindow (WxBoxSizer.wxSizer m_size) (WxButton.wxWindow m_button)
+     WxSizer.addWindow (WxBoxSizer.wxSizer m_size) (WxButton.wxWindow m_button)
 
 Since methods from ancestors are redefined in children modules, this example
 can be simplified to:
 
-   WxBoxSizer.addWindow m_size (WxButton.wxWindow m_button)
+     WxBoxSizer.addWindow m_size (WxButton.wxWindow m_button)
 
 The WxWidgets module defines some useful helper functions that can be
 used to make the code less verbose. In particular, it defines a WxSizerFlags
