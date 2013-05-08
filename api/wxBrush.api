@@ -17,12 +17,16 @@ virtual 	~wxBrush ()
    method(wxBrushStyle, 	GetStyle) () 
    method(bool, 	IsHatch) () 
    method(bool, 	IsOk) () 
-   method(bool, 	IsNonTransparent) () 
-   method(bool, 	IsTransparent) () 
    method(void, 	SetStipple) ( wxBitmap &bitmap)
    method(void, 	SetStyle) (wxBrushStyle style)
 
    method(void, SetColour) (wxColour &colour)
    method(void,	SetColour, SetColourRGB)(int red, int green, int blue)
+
+   version 2.9 begin
+      method(bool, 	IsNonTransparent) () 
+      method(bool, 	IsTransparent) () 
+
+   end
 
 end

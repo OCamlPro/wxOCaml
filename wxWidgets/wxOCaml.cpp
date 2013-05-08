@@ -199,5 +199,19 @@ value wxDCOverlay_Delete_c(value self_v)
   CAMLreturn(ret_v);
 }
 
+#if !wxCHECK_VERSION(2, 9, 0)
+
+value wxGCDC_CreateCopy_c(value context_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxGCDC * ret_c = new wxGCDC();
+  wxGraphicsContext* context_c = (wxGraphicsContext*)Abstract_val(context_v);
+  ret_c->SetGraphicsContext(context_c);
+  ret_v = Val_abstract( ret_c );
+  CAMLreturn(ret_v);
+}
+
+#endif
 
 }

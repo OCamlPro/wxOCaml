@@ -63,13 +63,21 @@ let create_class_hierarchy files =
           let insert =
             try
               let p1 = StringMap.find name !methods in
-              (p.proto_version > p1.proto_version &&
-               p.proto_version <= wx_version) ||
-              (p.proto_version < p1.proto_version &&
-               p.proto_version <= wx_version &&
-               p1.proto_version > wx_version) ||
-              (p.proto_version > p1.proto_version &&
-               p1.proto_version > wx_version)
+              let insert =
+                (p.proto_version > p1.proto_version &&
+                 p.proto_version <= wx_version) ||
+                (p.proto_version < p1.proto_version &&
+                 p.proto_version <= wx_version &&
+                 p1.proto_version > wx_version) ||
+                (p.proto_version > p1.proto_version &&
+                 p1.proto_version > wx_version)
+              in
+(*              Printf.eprintf "Replace %s version %s by version %s ? %b\n%!"
+                name
+                (string_of_version p1.proto_version)
+                (string_of_version p.proto_version)
+                insert; *)
+              insert
             with Not_found -> true
           in
           if insert then

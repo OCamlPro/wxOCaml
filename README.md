@@ -6,6 +6,7 @@ A binding to wxWidgets
 
 * OCaml: 'ocp-build' (from GitHub)
 * External: WxWidgets 2.8 or 2.9
+    compiled with --enable-graphics-context
 
 ## Current Status
 

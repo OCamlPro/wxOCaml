@@ -18,7 +18,11 @@ class wxColour inherit wxObject begin
 	method(bool,	IsOk) () 
 
  	method(long,	Red) () 
-	method(wxColour, ChangeLightness) (int ialpha) 
+
+  version 2.9 begin
+     method(wxColour, ChangeLightness) (int ialpha) 
+  end
+
 (*
 	method(void,	SetRGB) (wxUint32 colRGB) 
 	method(void, 	SetRGBA) (wxUint32 colRGBA)

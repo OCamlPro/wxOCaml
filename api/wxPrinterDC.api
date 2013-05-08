@@ -1,5 +1,8 @@
+include "<wx/dcprint.h>"
 
 class wxPrinterDC inherit wxDC begin
-  new(Create) (wxPrintData &printData)
-  method(wxRect,GetPaperRect) () 
+  version 2.9 begin (* should be something like wxUSE_PRINTING_ARCHITECTURE *)
+    new(Create) (wxPrintData &printData)
+    method(wxRect,GetPaperRect) () 
+  end
 end

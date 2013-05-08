@@ -68,6 +68,12 @@ typedef int intptr_t;
 #else
 
 typedef int wxEventCategory;
+typedef int wxPenStyle;
+typedef int wxRasterOperationMode;
+typedef int wxMappingMode;
+typedef int wxFloodFillStyle;
+typedef int wxBrushStyle;
+
 
 #define wxART_PLUS wxART_HELP
 #define wxART_MINUS wxART_HELP
@@ -80,6 +86,17 @@ typedef int wxEventCategory;
 #define wxEXTEND_LAST_ON_EACH_LINE 0
 #define wxREMOVE_LEADING_SPACES 0
 #define wxWRAPSIZER_DEFAULT_FLAGS 0
+
+#define wxBITMAP_DEFAULT_TYPE wxBITMAP_TYPE_XPM
+#define wxBRUSHSTYLE_SOLID 0
+#define wxFONTSIZE_XX_SMALL 0
+#define wxFONTSIZE_X_SMALL 0
+#define wxFONTSIZE_SMALL 0
+#define wxFONTSIZE_MEDIUM 0
+#define wxFONTSIZE_LARGE 0
+#define wxFONTSIZE_X_LARGE  0
+#define wxFONTSIZE_XX_LARGE 0
+
 
 #define wxEVT_TIME_CHANGED          (-1)
 #define wxEVT_CALENDAR_WEEK_CLICKED (-1)

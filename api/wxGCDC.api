@@ -1,13 +1,20 @@
 include "<wx/dcgraph.h>"
-
+include "<wx/dcprint.h>"
 
 class wxGCDC inherit wxDC begin
 
  	new(Create) ( wxWindowDC &windowDC)
 
+  version 2.9 begin
  	new(CreateMemoryDC) ( wxMemoryDC &memoryDC)
  	new(CreatePrinterDC) ( wxPrinterDC &printerDC)
  	new(CreateCopy) (wxGraphicsContext *context)
+  end
+
+  version 2.8 begin
+ 	new{ gen_cpp = false }(CreateCopy) (wxGraphicsContext *context)
+  end
+
 (*
  	ruct a wxGCDC from an existing grtaphics context. 
  	wxGCDC ( wxEnhMetaFileDC &emfDC)

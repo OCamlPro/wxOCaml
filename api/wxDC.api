@@ -210,14 +210,6 @@ bool 	GetPartialTextExtents ( wxString &text, wxArrayInt &widths)
          wxCoord xsrcMask (* =wxDefaultCoord *), 
          wxCoord ysrcMask (* =wxDefaultCoord *) )
 
-  method(bool, 	StretchBlit) (wxCoord xdest, wxCoord ydest, wxCoord dstWidth, wxCoord dstHeight, wxDC *source, wxCoord xsrc, wxCoord ysrc, wxCoord srcWidth, wxCoord srcHeight)
-
-  method(bool, 	StretchBlit, StretchBlitAll) (wxCoord xdest, wxCoord ydest, wxCoord dstWidth, wxCoord dstHeight, wxDC *source, wxCoord xsrc, wxCoord ysrc, wxCoord srcWidth, wxCoord srcHeight, 
-        wxRasterOperationMode logicalFunc (* =wxCOPY *), 
-        bool useMask (* =false *), 
-        wxCoord xsrcMask (* =wxDefaultCoord *), 
-        wxCoord ysrcMask (* =wxDefaultCoord *) )
-
   method( wxBrush,	GetBackground) () 
   method( wxBrush, 	GetBrush) () 
   method( wxPen, 	GetPen) () 
@@ -226,7 +218,6 @@ bool 	GetPartialTextExtents ( wxString &text, wxArrayInt &widths)
    method(void, 	SetBrush) (wxBrush &brush)
    method(void, 	SetPen) (wxPen &pen)
 
-    method(bool, 	CanUseTransformMatrix) () 
 (*
 bool 	SetTransformMatrix ( wxAffineMatrix2D &matrix)
  	Set the transformation matrix. 
@@ -235,4 +226,25 @@ wxAffineMatrix2D 	GetTransformMatrix ()
   method(void,	ResetTransformMatrix ()
  	Revert the transformation matrix to identity matrix. 
 *)
+
+
+
+  version 2.9 begin
+
+     method(bool, CanUseTransformMatrix) () 
+     method(bool, StretchBlit) (wxCoord xdest, wxCoord ydest, 
+            wxCoord dstWidth, wxCoord dstHeight, wxDC *source, 
+            wxCoord xsrc, wxCoord ysrc, wxCoord srcWidth, wxCoord srcHeight)
+
+     method(bool, StretchBlit, StretchBlitAll)(wxCoord xdest, wxCoord ydest, 
+            wxCoord dstWidth, wxCoord dstHeight, wxDC *source, 
+            wxCoord xsrc, wxCoord ysrc, wxCoord srcWidth, wxCoord srcHeight, 
+            wxRasterOperationMode logicalFunc (* =wxCOPY *), 
+            bool useMask (* =false *), 
+            wxCoord xsrcMask (* =wxDefaultCoord *), 
+            wxCoord ysrcMask (* =wxDefaultCoord *) )
+
+  end
+
+
 end

@@ -3,8 +3,17 @@ class wxDCOverlay begin
 
 (* WARNING: you MUST use EndDrawing to call the destructor !!! *)
 
-   new(Create) (wxOverlay &overlay, wxDC *dc, int x, int y, int width, int height)
-   new(CreateDefault) (wxOverlay &overlay, wxDC *dc)
+   version 2.8 begin
+     new(Create) (wxOverlay &overlay, wxWindowDC *dc, int x, int y, int width, int height)
+     new(CreateDefault) (wxOverlay &overlay, wxWindowDC *dc)
+   end
+
+(*   version 2.9 begin
+     new(Create) (wxOverlay &overlay, wxDC *dc, int x, int y, int width, int height)
+     new(CreateDefault) (wxOverlay &overlay, wxDC *dc)
+   end
+*)
+
    method(void, Clear)()
    method{ gen_cpp = false }(void, Delete)()
 end

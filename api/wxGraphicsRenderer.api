@@ -26,8 +26,11 @@ virtual wxGraphicsContext * 	CreateContext (wxWindow *window)=0
     CreateContextWindowDC) (wxWindowDC &windowDC)
   method( wxGraphicsContext *, 	CreateContext,
     CreateContextMemoryDC) (wxMemoryDC &memoryDC)
-  method( wxGraphicsContext *, 	CreateContext,
-     CreateContextPrinterDC) (wxPrinterDC &printerDC)
+
+  version 2.9 begin
+    method( wxGraphicsContext *, 	CreateContext,
+       CreateContextPrinterDC) (wxPrinterDC &printerDC)
+  end
 
 (* only if wxUSE_METAFILE
   method( wxGraphicsContext *, 	CreateContext,

@@ -881,16 +881,16 @@ let myCanvas_DrawImages frame (dc , mode ) =
 
   WxDC.drawText dc rasterOperations.(n).name ( x) ( y - 20);
   WxMemoryDC.selectObject memDC app.gs_bmpWithColMask;
-  if mode = Draw_Stretch then
-    ignore_bool (
-      WxDC.stretchBlitAll dc x  y cx cy
-        (WxMemoryDC.wxDC memDC) 0 0 ( cx/2) ( cy/2)
-        rasterOperations.(n).rop  true wxDefaultCoord wxDefaultCoord)
+  if wx_2_9 && mode = Draw_Stretch then
+        ignore_bool (
+          WxDC.stretchBlitAll dc x  y cx cy
+            (WxMemoryDC.wxDC memDC) 0 0 ( cx/2) ( cy/2)
+            rasterOperations.(n).rop  true wxDefaultCoord wxDefaultCoord)
   else
     ignore_bool (
       WxDC.blitAll dc (x) ( y) ( cx) ( cy)
-        (WxMemoryDC.wxDC memDC) 0 0 rasterOperations.(n).rop true
-        wxDefaultCoord wxDefaultCoord
+          (WxMemoryDC.wxDC memDC) 0 0 rasterOperations.(n).rop true
+          wxDefaultCoord wxDefaultCoord
     )
  done
 
@@ -1701,10 +1701,12 @@ let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
  ;
 *)
 
-  let dc = WxClientDC.wxDC (wxClientDC w_canvas) in
+  let cdc = wxClientDC w_canvas in
+  let dc = WxClientDC.wxDC cdc in
   WxScrolledWindow.prepareDC m_canvas dc ;
 
-  wxDCOverlayDefault canvas.m_overlay dc (fun overlaydc ->
+  wxDCOverlayDefault canvas.m_overlay
+    (WxClientDC.wxWindowDC cdc) (fun overlaydc ->
    WxDCOverlay.clear overlaydc);
 
 (*#ifdef __WXMAC__
@@ -1738,10 +1740,11 @@ let myCanvas_OnMouseUp frame (event : wxMouseEvent) =
  if canvas.m_rubberBand then begin
   WxScrolledWindow.releaseMouse m_canvas;
   begin
-   let dc = WxClientDC.wxDC (
-     wxClientDC (WxScrolledWindow.wxWindow m_canvas)) in
+    let cdc = wxClientDC (WxScrolledWindow.wxWindow m_canvas) in
+    let dc = WxClientDC.wxDC cdc in
    WxScrolledWindow.prepareDC m_canvas dc;
-   wxDCOverlayDefault canvas.m_overlay dc (fun overlaydc ->
+   wxDCOverlayDefault canvas.m_overlay
+     (WxClientDC.wxWindowDC cdc) (fun overlaydc ->
     WxDCOverlay.clear overlaydc)
   end;
   WxOverlay.reset canvas.m_overlay;
