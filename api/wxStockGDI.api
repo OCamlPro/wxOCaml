@@ -1,0 +1,18 @@
+(* include "<wx/gdicmn.h>" *)
+
+type wxStockGDI::Item = int
+
+class wxStockGDI begin
+
+(* TODO: we need to be able to add the "const" attribute on return types 
+    function(void, DeleteAll)()
+    function(wxBrush*, wxStockGDI::GetBrush)(wxStockGDI::Item item)
+    function(wxColour* ,wxStockGDI::GetColour)(wxStockGDI::Item item)
+    function(wxCursor* ,wxStockGDI::GetCursor ) (wxStockGDI::Item item)
+
+    function( wxPen*, wxStockGDI::GetPen ) (wxStockGDI::Item item)
+*)
+
+    function{ gen_cpp = false }( wxFont*, GetFont )(wxStockGDI::Item item)
+
+end

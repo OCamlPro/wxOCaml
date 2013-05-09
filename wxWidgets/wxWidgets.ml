@@ -62,6 +62,7 @@ let wxCheckBox = WxCheckBox.create
 let wxListBox = WxListBox.create
 let wxScrolledWindow = WxScrolledWindow.create
 let wxBitmap = WxBitmap.create
+let wxBitmapImage = WxBitmap.createImage
 let wxBitmapDefault = WxBitmap.createDefault
 let wxBitmapLoad = WxBitmap.createLoad
 let wxColourDialog = WxColourDialog.create
@@ -84,6 +85,8 @@ let wxRegion = WxRegion.create
 let wxFont = WxFont.create
 let wxFontAll = WxFont.createAll
 let wxMemoryDC = WxMemoryDC.create
+let wxMemoryDCBitmap = WxMemoryDC.createBitmap
+let wxImage = WxImage.create
 
 (* We MUST call the destructor of WxDCOverlay at the end ! *)
 let wxDCOverlay win dc x y dx dy f =

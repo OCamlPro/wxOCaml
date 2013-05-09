@@ -555,41 +555,42 @@ let myCanvas_DrawTestLines frame (x, y, width, dc) =
  ()
 
 let myCanvas_DrawDefault frame (dc :wxDC) =
-(*
-{
   (* Draw circle centered at the origin, then flood fill it with a different *)
   (* color. Done with a wxMemoryDC because Blit (used by generic *)
   (* wxDoFloodFill) from a window that is being painted gives unpredictable *)
   (* results on wxGTK *)
-  {
-    wxImage img(21, 21, false);
-    img.Clear 1 ;
-    wxBitmap bmp img ;
-    {
-      wxMemoryDC mdc bmp ;
-      mdc.SetBrush(dc.GetBrush());
-      mdc.SetPen(dc.GetPen());
-      mWxDC.drawCircle(10, 10, 10);
-      wxColour c;
-      if (mdc.GetPixel(11, 11, &c))
-      {
-        mdc.SetBrush(wxColour(128, 128, 0));
-        mdc.FloodFill(11, 11, c, wxFLOOD_SURFACE);
-      }
-    }
-    bmp.SetMask(new wxMask(bmp, wxColour(1, 1, 1)));
-    WxDC.drawBitmap(bmp, -10, -10, true);
-  }
+  begin
+    let img = wxImage 21 21 false in
+    WxImage.clear img 1 ;
+    let bmp = wxBitmapImage img wxBITMAP_SCREEN_DEPTH in
+    begin
+      let mdc = wxMemoryDCBitmap bmp in
+      WxMemoryDC.setBrush mdc ( WxDC.getBrush dc );
+      WxMemoryDC.setPen mdc ( WxDC.getPen dc );
+      WxMemoryDC.drawCircle mdc 10 10 10;
+      let (bool, c) = WxMemoryDC.getPixel mdc 11 11 in
+      if bool then
+      begin
+        WxMemoryDC.setBrush mdc
+          (wxBrush (wxColour 128 128 0 wxALPHA_OPAQUE) wxBRUSHSTYLE_SOLID);
+        ignore_bool (WxMemoryDC.floodFill mdc 11 11 c wxFLOOD_SURFACE);
+      end
+    end;
+    WxBitmap.setMask bmp (Some (
+      wxMaskColour bmp ( wxColour 1 1 1 wxALPHA_OPAQUE)));
+    WxDC.drawBitmap dc bmp (-10) (-10) true;
+  end;
 
-  WxDC.drawCheckMark(5, 80, 15, 15);
-  WxDC.drawCheckMark(25, 80, 30, 30);
-  WxDC.drawCheckMark(60, 80, 60, 60);
+  WxDC.drawCheckMark dc 5 80 15 15;
+  WxDC.drawCheckMark dc 25 80 30 30;
+  WxDC.drawCheckMark dc 60 80 60 60;
 
+ (*
   (* this is the test for "blitting bitmap into DC damages selected brush" bug *)
   wxCoord rectSize = m_std_icon.GetWidth() + 10;
   wxCoord x = 100;
-  dc.SetPen( *wxTRANSPARENT_PEN);
-  dc.SetBrush( *wxGREEN_BRUSH );
+  WxDC.SetPen( *wxTRANSPARENT_PEN);
+  WxDC.SetBrush( *wxGREEN_BRUSH );
   WxDC.drawRectangle(x, 10, rectSize, rectSize);
   WxDC.drawBitmap(m_std_icon, x + 5, 15, true);
   x += rectSize + 10;
@@ -770,70 +771,73 @@ let myCanvas_DrawDefault frame (dc :wxDC) =
   dc.SetBrush( *wxWHITE_BRUSH);
 
   WxDC.drawRectangle(x, y, totalWidth, totalHeight);
-}
+end
 *)
  ()
 
+let (+=) a b = a := !a + b
+
 let myCanvas_DrawText frame (dc : wxDC) =
-(*
-{
+
   (* set underlined font for testing *)
-  WxDC.setFont( wxFont(12, wxMODERN, wxNORMAL, wxNORMAL, true) );
-  WxDC.drawText( "This is text", 110, 10 );
-  WxDC.drawRotatedText( "That is text", 20, 10, -45 );
+  WxDC.setFont dc (
+    wxFontAll 12 wxMODERN wxNORMAL wxNORMAL true "" wxFONTENCODING_DEFAULT );
+  WxDC.drawText dc ( "This is text") ( 110) ( 10 );
+  WxDC.drawRotatedText dc ( "That is text") ( 20) ( 10) ( -45. );
 
   (* use wxSWISS_FONT and not wxNORMAL_FONT as the latter can't be rotated *)
   (* under Win9x (it is not TrueType) *)
-  WxDC.setFont( *wxSWISS_FONT );
+  WxDC.setFont dc ( WxStockGDI.getFont wxStockGDI_FONT_SWISS );
 
-  wxString text;
-  WxDC.setBackgroundMode wxTRANSPARENT ;
+  WxDC.setBackgroundMode dc wxTRANSPARENT ;
 
-  for ( int n = -180; n < 180; n += 30 )
-  {
-    text.Printf("   %d rotated text", n);
-    WxDC.drawRotatedText(text , 400, 400, n);
-  }
+  for n = -6 to 6 do
+    let n = float n *. 30. in
+    let text = Printf.sprintf ("   %.0f rotated text") n in
+    WxDC.drawRotatedText dc (text ) ( 400) ( 400) ( n);
+  done;
 
-  WxDC.setFont( wxFont( 18, wxSWISS, wxNORMAL, wxNORMAL ) );
+  WxDC.setFont dc ( wxFont( 18) ( wxSWISS) ( wxNORMAL) ( wxNORMAL ) );
 
-  WxDC.drawText( "This is Swiss 18pt text.", 110, 40 );
+  WxDC.drawText dc ( "This is Swiss 18pt text.") ( 110) ( 40 );
 
-  wxCoord length;
-  wxCoord height;
-  wxCoord descent;
-  dc.GetTextExtent( "This is Swiss 18pt text.", &length, &height, &descent );
-  text.Printf( "Dimensions are length %d, height %d, descent %d", length, height, descent );
-  WxDC.drawText( text, 110, 80 );
+  let ( length, height,  descent, _, _) =
+    WxDC.getTextExtent dc "This is Swiss 18pt text."
+  in
+  let text = Printf.sprintf
+      "Dimensions are length %d, height %d, descent %d"
+      length height descent
+  in
+  WxDC.drawText dc ( text) ( 110) ( 80 );
 
-  text.Printf( "CharHeight() returns: %d", dc.GetCharHeight() );
-  WxDC.drawText( text, 110, 120 );
+  let text = Printf.sprintf( "CharHeight() returns: %d") (
+      WxDC.getCharHeight dc ) in
+  WxDC.drawText dc ( text) ( 110) ( 120 );
 
-  WxDC.drawRectangle( 100, 40, 4, height );
+  WxDC.drawRectangle dc ( 100) ( 40) ( 4) ( height );
 
   (* test the logical function effect *)
-  wxCoord y = 150;
-  WxDC.setLogicalFunction wxINVERT ;
+  let  y = ref 150 in
+  WxDC.setLogicalFunction dc wxINVERT ;
   (* text drawing should ignore logical function *)
-  WxDC.drawText( "There should be a text below", 110, 150 );
-  WxDC.drawRectangle( 110, y, 100, height );
+  WxDC.drawText dc ( "There should be a text below") ( 110) ( 150 );
+  WxDC.drawRectangle dc ( 110) ( !y) ( 100) ( height );
 
   y += height;
-  WxDC.drawText( "Visible text", 110, y );
-  WxDC.drawRectangle( 110, y, 100, height );
-  WxDC.drawText( "Visible text", 110, y );
-  WxDC.drawRectangle( 110, y, 100, height );
-  WxDC.setLogicalFunction wxCOPY ;
+  WxDC.drawText dc ( "Visible text") ( 110) ( !y );
+  WxDC.drawRectangle dc ( 110) ( !y) ( 100) ( height );
+  WxDC.drawText dc ( "Visible text") ( 110) ( !y );
+  WxDC.drawRectangle dc ( 110) ( !y) ( 100) ( height );
+  WxDC.setLogicalFunction dc wxCOPY ;
 
   y += height;
-  WxDC.drawRectangle( 110, y, 100, height );
-  WxDC.drawText( "Another visible text", 110, y );
+  WxDC.drawRectangle dc ( 110) ( !y) ( 100) ( height );
+  WxDC.drawText dc ( "Another visible text") ( 110) ( !y );
 
   y += height;
-  WxDC.drawText("And\nmore\ntext on\nmultiple\nlines", 110, y);
-}
-*)
- ()
+  WxDC.drawText dc ("And\nmore\ntext on\nmultiple\nlines") ( 110) ( !y);
+  ()
+
 
 type rop = {
  name : string;

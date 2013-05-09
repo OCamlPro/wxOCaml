@@ -214,4 +214,18 @@ value wxGCDC_CreateCopy_c(value context_v)
 
 #endif
 
+
+
+
+value wxStockGDI_GetFont_c(value item_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxStockGDI::Item item_c = (wxStockGDI::Item)Int_val(item_v);
+  const wxFont * ret_c = wxStockGDI::instance().GetFont(item_c);
+  ret_v = Val_abstract( ret_c );
+  CAMLreturn(ret_v);
+}
+
+
 }

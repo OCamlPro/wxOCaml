@@ -56,12 +56,8 @@ class wxDC inherit wxObject begin
   method(void,	DrawBitmap, 
       DrawBitmap2) ( wxBitmap &bmp,  wxPoint &pt, bool useMask (*=false *))
 
-(*
-  method(void,	DrawCheckMark (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
- 	Draws a check mark inside the given rectangle. 
-  method(void,	DrawCheckMark ( wxRect &rect)
- 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-*)
+  method(void,	DrawCheckMark) (wxCoord x, wxCoord y, wxCoord width, wxCoord height)
+  method(void,	DrawCheckMark, DrawCheckMarkRect) ( wxRect &rect)
 
   method(void,	DrawCircle) (wxCoord x, wxCoord y, wxCoord radius)
   method(void,	DrawCircle, DrawCircle2) ( wxPoint &pt, wxCoord radius)

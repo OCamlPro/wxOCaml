@@ -3,7 +3,7 @@ type wxUint32 = int32
 
 class wxColour inherit wxObject begin
 
- 	new(Create) (int red, int green, int blue, int alpha (*=wxALPHA_OPAQUE *))
+  new(Create) (int red, int green, int blue, int alpha (*=wxALPHA_OPAQUE *))
  	new(CreateName) (wxString &colourName)
  	new(CreateRGB) (long colRGB)
 

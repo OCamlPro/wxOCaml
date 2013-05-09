@@ -7,6 +7,7 @@ class wxBitmap inherit wxObject begin
   new(CreateFromXPM)(strings* data) 
   new(CreateEmpty)(int width,int height,int depth)
   new(CreateLoad)(wxString& name,wxBitmapType type)
+  new(CreateImage) (wxImage &img, int depth (* =wxBITMAP_SCREEN_DEPTH *) )
 
   new(CreateDefault)()
 (*  delete(Delete)() *)
