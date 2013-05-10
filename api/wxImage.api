@@ -1,3 +1,4 @@
+type wxImageResizeQuality = int
 
 class wxImage inherit wxObject begin
   function(void, wxImage::AddHandler)(wxImageHandler* handler)
@@ -8,42 +9,42 @@ class wxImage inherit wxObject begin
  	wxImage ()
  	Creates an empty wxImage object without an alpha channel. 
  	Creates an image with the given size and clears it if requested. 
- 	wxImage (const wxSize &sz, bool clear=true)
+ 	wxImage ( wxSize &sz, bool clear=true)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
  	wxImage (int width, int height, unsigned char *data, bool static_data=false)
  	Creates an image from data in memory. 
- 	wxImage (const wxSize &sz, unsigned char *data, bool static_data=false)
+ 	wxImage ( wxSize &sz, unsigned char *data, bool static_data=false)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
  	wxImage (int width, int height, unsigned char *data, unsigned char *alpha, bool static_data=false)
  	Creates an image from data in memory. 
- 	wxImage (const wxSize &sz, unsigned char *data, unsigned char *alpha, bool static_data=false)
+ 	wxImage ( wxSize &sz, unsigned char *data, unsigned char *alpha, bool static_data=false)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
- 	wxImage (const char *const *xpmData)
+ 	wxImage ( char * *xpmData)
  	Creates an image from XPM data. 
- 	wxImage (const wxString &name, wxBitmapType type=wxBITMAP_TYPE_ANY, int index=-1)
+ 	wxImage ( wxString &name, wxBitmapType type=wxBITMAP_TYPE_ANY, int index=-1)
  	Creates an image from a file. 
- 	wxImage (const wxString &name, const wxString &mimetype, int index=-1)
+ 	wxImage ( wxString &name,  wxString &mimetype, int index=-1)
  	Creates an image from a file using MIME-types to specify the type. 
  	wxImage (wxInputStream &stream, wxBitmapType type=wxBITMAP_TYPE_ANY, int index=-1)
  	Creates an image from a stream. 
- 	wxImage (wxInputStream &stream, const wxString &mimetype, int index=-1)
+ 	wxImage (wxInputStream &stream,  wxString &mimetype, int index=-1)
  	Creates an image from a stream using MIME-types to specify the type. 
 virtual 	~wxImage ()
  	Destructor. 
 Image creation, initialization and deletion functions
-wxImage 	Copy () const
+wxImage 	Copy () 
  	Returns an identical copy of this image. 
 bool 	Create (int width, int height, bool clear=true)
  	Creates a fresh image. 
-bool 	Create (const wxSize &sz, bool clear=true)
+bool 	Create ( wxSize &sz, bool clear=true)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
 bool 	Create (int width, int height, unsigned char *data, bool static_data=false)
  	Creates a fresh image. 
-bool 	Create (const wxSize &sz, unsigned char *data, bool static_data=false)
+bool 	Create ( wxSize &sz, unsigned char *data, bool static_data=false)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
 bool 	Create (int width, int height, unsigned char *data, unsigned char *alpha, bool static_data=false)
  	Creates a fresh image. 
-bool 	Create (const wxSize &sz, unsigned char *data, unsigned char *alpha, bool static_data=false)
+bool 	Create ( wxSize &sz, unsigned char *data, unsigned char *alpha, bool static_data=false)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
 *)
 
@@ -57,119 +58,129 @@ void 	Destroy ()
 void 	InitAlpha ()
  	Initializes the image alpha channel data. 
 Image manipulation functions
-wxImage 	Blur (int blurRadius) const
+wxImage 	Blur (int blurRadius) 
  	Blurs the image in both horizontal and vertical directions by the specified pixel blurRadius. 
-wxImage 	BlurHorizontal (int blurRadius) const
+wxImage 	BlurHorizontal (int blurRadius) 
  	Blurs the image in the horizontal direction only. 
-wxImage 	BlurVertical (int blurRadius) const
+wxImage 	BlurVertical (int blurRadius) 
  	Blurs the image in the vertical direction only. 
-wxImage 	Mirror (bool horizontally=true) const
+wxImage 	Mirror (bool horizontally=true) 
  	Returns a mirrored copy of the image. 
-void 	Paste (const wxImage &image, int x, int y)
+void 	Paste ( wxImage &image, int x, int y)
  	Copy the data of the given image to the specified position in this image. 
 void 	Replace (unsigned char r1, unsigned char g1, unsigned char b1, unsigned char r2, unsigned char g2, unsigned char b2)
  	Replaces the colour specified by r1,g1,b1 by the colour r2,g2,b2. 
-wxImage & 	Rescale (int width, int height, wxImageResizeQuality quality=wxIMAGE_QUALITY_NORMAL)
+*)
+
+
+	method( (* wxImage *) void,  	Rescale) (int width, int height, 
+            wxImageResizeQuality quality (* = wxIMAGE_QUALITY_NORMAL *) )
+
+(*
  	Changes the size of the image in-place by scaling it: after a call to this function,the image will have the given width and height. 
-wxImage & 	Resize (const wxSize &size, const wxPoint &pos, int red=-1, int green=-1, int blue=-1)
+wxImage & 	Resize ( wxSize &size,  wxPoint &pos, int red=-1, int green=-1, int blue=-1)
  	Changes the size of the image in-place without scaling it by adding either a border with the given colour or cropping as necessary. 
-wxImage 	Rotate (double angle, const wxPoint &rotationCentre, bool interpolating=true, wxPoint *offsetAfterRotation=NULL) const
+wxImage 	Rotate (double angle,  wxPoint &rotationCentre, bool interpolating=true, wxPoint *offsetAfterRotation=NULL) 
  	Rotates the image about the given point, by angle radians. 
-wxImage 	Rotate90 (bool clockwise=true) const
+wxImage 	Rotate90 (bool clockwise=true) 
  	Returns a copy of the image rotated 90 degrees in the direction indicated by clockwise. 
-wxImage 	Rotate180 () const
+wxImage 	Rotate180 () 
  	Returns a copy of the image rotated by 180 degrees. 
 void 	RotateHue (double angle)
  	Rotates the hue of each pixel in the image by angle, which is a double in the range of -1.0 to +1.0, where -1.0 corresponds to -360 degrees and +1.0 corresponds to +360 degrees. 
-wxImage 	Scale (int width, int height, wxImageResizeQuality quality=wxIMAGE_QUALITY_NORMAL) const
+wxImage 	Scale (int width, int height, wxImageResizeQuality quality=wxIMAGE_QUALITY_NORMAL) 
  	Returns a scaled version of the image. 
-wxImage 	Size (const wxSize &size, const wxPoint &pos, int red=-1, int green=-1, int blue=-1) const
+wxImage 	Size ( wxSize &size,  wxPoint &pos, int red=-1, int green=-1, int blue=-1) 
  	Returns a resized version of this image without scaling it by adding either a border with the given colour or cropping as necessary. 
 Conversion functions
 bool 	ConvertAlphaToMask (unsigned char threshold=wxIMAGE_ALPHA_THRESHOLD)
  	If the image has alpha channel, this method converts it to mask. 
 bool 	ConvertAlphaToMask (unsigned char mr, unsigned char mg, unsigned char mb, unsigned char threshold=wxIMAGE_ALPHA_THRESHOLD)
  	If the image has alpha channel, this method converts it to mask using the specified colour as the mask colour. 
-wxImage 	ConvertToGreyscale (double weight_r, double weight_g, double weight_b) const
+wxImage 	ConvertToGreyscale (double weight_r, double weight_g, double weight_b) 
  	Returns a greyscale version of the image. 
-wxImage 	ConvertToGreyscale () const
+wxImage 	ConvertToGreyscale () 
  	Returns a greyscale version of the image. 
-wxImage 	ConvertToMono (unsigned char r, unsigned char g, unsigned char b) const
+wxImage 	ConvertToMono (unsigned char r, unsigned char g, unsigned char b) 
  	Returns monochromatic version of the image. 
-wxImage 	ConvertToDisabled (unsigned char brightness=255) const
+wxImage 	ConvertToDisabled (unsigned char brightness=255) 
  	Returns disabled (dimmed) version of the image. 
 Miscellaneous functions
-unsigned long 	ComputeHistogram (wxImageHistogram &histogram) const
+unsigned long 	ComputeHistogram (wxImageHistogram &histogram) 
  	Computes the histogram of the image. 
-bool 	FindFirstUnusedColour (unsigned char *r, unsigned char *g, unsigned char *b, unsigned char startR=1, unsigned char startG=0, unsigned char startB=0) const
+bool 	FindFirstUnusedColour (unsigned char *r, unsigned char *g, unsigned char *b, unsigned char startR=1, unsigned char startG=0, unsigned char startB=0) 
  	Finds the first colour that is never used in the image. 
-wxImage & 	operator= (const wxImage &image)
+wxImage & 	operator= ( wxImage &image)
  	Assignment operator, using reference counting. 
 Getters
-unsigned char * 	GetAlpha () const
+unsigned char * 	GetAlpha () 
  	Returns pointer to the array storing the alpha values for this image. 
-unsigned char * 	GetData () const
+unsigned char * 	GetData () 
  	Returns the image data as an array. 
-unsigned char 	GetAlpha (int x, int y) const
+unsigned char 	GetAlpha (int x, int y) 
  	Return alpha value at given pixel location. 
-unsigned char 	GetRed (int x, int y) const
+unsigned char 	GetRed (int x, int y) 
  	Returns the red intensity at the given coordinate. 
-unsigned char 	GetGreen (int x, int y) const
+unsigned char 	GetGreen (int x, int y) 
  	Returns the green intensity at the given coordinate. 
-unsigned char 	GetBlue (int x, int y) const
+unsigned char 	GetBlue (int x, int y) 
  	Returns the blue intensity at the given coordinate. 
-unsigned char 	GetMaskRed () const
+unsigned char 	GetMaskRed () 
  	Gets the red value of the mask colour. 
-unsigned char 	GetMaskGreen () const
+unsigned char 	GetMaskGreen () 
  	Gets the green value of the mask colour. 
-unsigned char 	GetMaskBlue () const
+unsigned char 	GetMaskBlue () 
  	Gets the blue value of the mask colour. 
-int 	GetWidth () const
+int 	GetWidth () 
  	Gets the width of the image in pixels. 
-int 	GetHeight () const
+int 	GetHeight () 
  	Gets the height of the image in pixels. 
-wxSize 	GetSize () const
+wxSize 	GetSize () 
  	Returns the size of the image in pixels. 
-wxString 	GetOption (const wxString &name) const
+wxString 	GetOption ( wxString &name) 
  	Gets a user-defined string-valued option. 
-int 	GetOptionInt (const wxString &name) const
+int 	GetOptionInt ( wxString &name) 
  	Gets a user-defined integer-valued option. 
-bool 	GetOrFindMaskColour (unsigned char *r, unsigned char *g, unsigned char *b) const
+bool 	GetOrFindMaskColour (unsigned char *r, unsigned char *g, unsigned char *b) 
  	Get the current mask colour or find a suitable unused colour that could be used as a mask colour. 
-const wxPalette & 	GetPalette () const
+ wxPalette & 	GetPalette () 
  	Returns the palette associated with the image. 
-wxImage 	GetSubImage (const wxRect &rect) const
+wxImage 	GetSubImage ( wxRect &rect) 
  	Returns a sub image of the current one as long as the rect belongs entirely to the image. 
-wxBitmapType 	GetType () const
+wxBitmapType 	GetType () 
  	Gets the type of image found by LoadFile() or specified with SaveFile(). 
-bool 	HasAlpha () const
+bool 	HasAlpha () 
  	Returns true if this image has alpha channel, false otherwise. 
-bool 	HasMask () const
+bool 	HasMask () 
  	Returns true if there is a mask active, false otherwise. 
-bool 	HasOption (const wxString &name) const
+bool 	HasOption ( wxString &name) 
  	Returns true if the given option is present. 
-bool 	IsOk () const
+bool 	IsOk () 
  	Returns true if image data is present. 
-bool 	IsTransparent (int x, int y, unsigned char threshold=wxIMAGE_ALPHA_THRESHOLD) const
+bool 	IsTransparent (int x, int y, unsigned char threshold=wxIMAGE_ALPHA_THRESHOLD) 
  	Returns true if the given pixel is transparent, i.e. 
 Loading and saving functions
 virtual bool 	LoadFile (wxInputStream &stream, wxBitmapType type=wxBITMAP_TYPE_ANY, int index=-1)
  	Loads an image from an input stream. 
-virtual bool 	LoadFile (const wxString &name, wxBitmapType type=wxBITMAP_TYPE_ANY, int index=-1)
+virtual bool 	LoadFile ( wxString &name, wxBitmapType type=wxBITMAP_TYPE_ANY, int index=-1)
  	Loads an image from a file. 
-virtual bool 	LoadFile (const wxString &name, const wxString &mimetype, int index=-1)
+virtual bool 	LoadFile ( wxString &name,  wxString &mimetype, int index=-1)
  	Loads an image from a file. 
-virtual bool 	LoadFile (wxInputStream &stream, const wxString &mimetype, int index=-1)
+virtual bool 	LoadFile (wxInputStream &stream,  wxString &mimetype, int index=-1)
  	Loads an image from an input stream. 
-virtual bool 	SaveFile (wxOutputStream &stream, const wxString &mimetype) const
+virtual bool 	SaveFile (wxOutputStream &stream,  wxString &mimetype) cont
  	Saves an image in the given stream. 
-virtual bool 	SaveFile (const wxString &name, wxBitmapType type) const
+*)
+
+  method( bool, 	SaveFile, SaveFileByType) ( wxString &name, wxBitmapType type) 
+ method( bool, 	SaveFile, SaveFileByExtension) ( wxString &name) 
+
+
+(*
+
+virtual bool 	SaveFile ( wxString &name,  wxString &mimetype) 
  	Saves an image in the named file. 
-virtual bool 	SaveFile (const wxString &name, const wxString &mimetype) const
- 	Saves an image in the named file. 
-virtual bool 	SaveFile (const wxString &name) const
- 	Saves an image in the named file. 
-virtual bool 	SaveFile (wxOutputStream &stream, wxBitmapType type) const
+virtual bool 	SaveFile (wxOutputStream &stream, wxBitmapType type) 
  	Saves an image in the given stream. 
 Setters
 void 	SetAlpha (unsigned char *alpha=NULL, bool static_data=false)
@@ -186,42 +197,42 @@ void 	SetMask (bool hasMask=true)
  	Specifies whether there is a mask or not. 
 void 	SetMaskColour (unsigned char red, unsigned char green, unsigned char blue)
  	Sets the mask colour for this image (and tells the image to use the mask). 
-bool 	SetMaskFromImage (const wxImage &mask, unsigned char mr, unsigned char mg, unsigned char mb)
+bool 	SetMaskFromImage ( wxImage &mask, unsigned char mr, unsigned char mg, unsigned char mb)
  	Sets image's mask so that the pixels that have RGB value of mr,mg,mb in mask will be masked in the image. 
-void 	SetOption (const wxString &name, const wxString &value)
+void 	SetOption ( wxString &name,  wxString &value)
  	Sets a user-defined option. 
-void 	SetOption (const wxString &name, int value)
+void 	SetOption ( wxString &name, int value)
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
-void 	SetPalette (const wxPalette &palette)
+void 	SetPalette ( wxPalette &palette)
  	Associates a palette with the image. 
-void 	SetRGB (const wxRect &rect, unsigned char red, unsigned char green, unsigned char blue)
+void 	SetRGB ( wxRect &rect, unsigned char red, unsigned char green, unsigned char blue)
  	Sets the colour of the pixels within the given rectangle. 
 void 	SetType (wxBitmapType type)
  	Set the type of image returned by GetType(). 
 Static Public Member Functions
 
-static bool 	CanRead (const wxString &filename)
+static bool 	CanRead ( wxString &filename)
  	Returns true if at least one of the available image handlers can read the file with the given name. 
 static bool 	CanRead (wxInputStream &stream)
  	Returns true if at least one of the available image handlers can read the data in the given stream. 
 static wxString 	GetImageExtWildcard ()
  	Iterates all registered wxImageHandler objects, and returns a string containing file extension masks suitable for passing to file open/save dialog boxes. 
-static wxImage::HSVValue 	RGBtoHSV (const wxImage::RGBValue &rgb)
+static wxImage::HSVValue 	RGBtoHSV ( wxImage::RGBValue &rgb)
  	Converts a color in RGB color space to HSV color space. 
-static wxImage::RGBValue 	HSVtoRGB (const wxImage::HSVValue &hsv)
+static wxImage::RGBValue 	HSVtoRGB ( wxImage::HSVValue &hsv)
  	Converts a color in HSV color space to RGB color space. 
 Handler management functions
 static void 	AddHandler (wxImageHandler *handler)
  	Register an image handler. 
 static void 	CleanUpHandlers ()
  	Deletes all image handlers. 
-static wxImageHandler * 	FindHandler (const wxString &name)
+static wxImageHandler * 	FindHandler ( wxString &name)
  	Finds the handler with the given name. 
-static wxImageHandler * 	FindHandler (const wxString &extension, wxBitmapType imageType)
+static wxImageHandler * 	FindHandler ( wxString &extension, wxBitmapType imageType)
  	Finds the handler associated with the given extension and type. 
 static wxImageHandler * 	FindHandler (wxBitmapType imageType)
  	Finds the handler associated with the given image type. 
-static wxImageHandler * 	FindHandlerMime (const wxString &mimetype)
+static wxImageHandler * 	FindHandlerMime ( wxString &mimetype)
  	Finds the handler associated with the given MIME type. 
 static wxList & 	GetHandlers ()
  	Returns the static list of image format handlers. 
@@ -229,9 +240,9 @@ static void 	InitStandardHandlers ()
  	Internal use only. 
 static void 	InsertHandler (wxImageHandler *handler)
  	Adds a handler at the start of the static list of format handlers. 
-static bool 	RemoveHandler (const wxString &name)
+static bool 	RemoveHandler ( wxString &name)
  	Finds the handler with the given name, and removes it. 
-static int 	GetImageCount (const wxString &filename, wxBitmapType type=wxBITMAP_TYPE_ANY)
+static int 	GetImageCount ( wxString &filename, wxBitmapType type=wxBITMAP_TYPE_ANY)
  	If the image file contains more than one image and the image handler is capable of retrieving these individually, this function will return the number of available images. 
 static int 	GetImageCount (wxInputStream &stream, wxBitmapType type=wxBITMAP_TYPE_ANY)
  	If the image file contains more than one image and the image handler is capable of retrieving these individually, this function will return the number of available images. 

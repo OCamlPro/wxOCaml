@@ -65,6 +65,7 @@ let wxBitmap = WxBitmap.create
 let wxBitmapImage = WxBitmap.createImage
 let wxBitmapDefault = WxBitmap.createDefault
 let wxBitmapLoad = WxBitmap.createLoad
+let wxBitmapEmpty = WxBitmap.createEmpty
 let wxColourDialog = WxColourDialog.create
 let wxColourData = WxColourData.create
 let wxDate = WxDateTime.createDate
@@ -87,6 +88,8 @@ let wxFontAll = WxFont.createAll
 let wxMemoryDC = WxMemoryDC.create
 let wxMemoryDCBitmap = WxMemoryDC.createBitmap
 let wxImage = WxImage.create
+let wxFileDialog = WxFileDialog.create
+let wxFileDialogAll = WxFileDialog.createAll
 
 (* We MUST call the destructor of WxDCOverlay at the end ! *)
 let wxDCOverlay win dc x y dx dy f =

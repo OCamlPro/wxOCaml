@@ -1,0 +1,94 @@
+
+class wxFileDialog inherit wxDialog begin
+
+  new(Create) (wxWindow *parent,  
+       wxString &message (* =wxFileSelectorPromptStr *),	
+       wxString &defaultDir (* =wxEmptyString *),  
+       wxString &defaultFile (* =wxEmptyString *),	
+       wxString &wildcard (* =wxFileSelectorDefaultWildcardStr *),	
+       long style (* =wxFD_DEFAULT_STYLE *)
+  )
+
+  new(CreateAll) (wxWindow *parent,  
+       wxString &message (* =wxFileSelectorPromptStr *),	
+       wxString &defaultDir (* =wxEmptyString *),  
+       wxString &defaultFile (* =wxEmptyString *),	
+       wxString &wildcard (* =wxFileSelectorDefaultWildcardStr *),	
+       long style (* =wxFD_DEFAULT_STYLE *),  
+       wxPoint &pos (* =wxDefaultPosition *),  
+       wxSize &size (* =wxDefaultSize *),	
+       wxString &name (* =wxFileDialogNameStr *)
+  )
+
+
+
+
+(*
+ 	ructor. 
+ 
+virtual 	~wxFileDialog ()
+ 	Destructor. 
+ 
+virtual wxString 	GetDirectory () 
+ 	Returns the default directory. 
+ 
+wxWindow * 	GetExtraControl () 
+ 	If functions SetExtraControlCreator() and ShowModal() were called, returns the extra window. 
+ 
+virtual wxString 	GetFilename () 
+ 	Returns the default filename. 
+ 
+virtual void 	GetFilenames (wxArrayString &filenames) 
+ 	Fills the array filenames with the names of the files chosen. 
+ 
+virtual int 	GetFilterIndex () 
+ 	Returns the index into the list of filters supplied, optionally, in the wildcard parameter. 
+ 
+virtual wxString 	GetMessage () 
+ 	Returns the message that will be displayed on the dialog. 
+ 
+*)
+
+
+  method( wxString, 	GetPath) () 
+
+
+(* 
+virtual void 	GetPaths (wxArrayString &paths) 
+ 	Fills the array paths with the full paths of the files chosen. 
+ 
+virtual wxString 	GetWildcard () 
+ 	Returns the file dialog wildcard. 
+ 
+virtual void 	SetDirectory ( wxString &directory)
+ 	Sets the default directory. 
+ 
+bool 	SetExtraControlCreator (ExtraControlCreatorFunction creator)
+ 	Customize file dialog by adding extra window, which is typically placed below the list of files and above the buttons. 
+ 
+virtual void 	SetFilename ( wxString &setfilename)
+ 	Sets the default filename. 
+ 
+virtual void 	SetFilterIndex (int filterIndex)
+ 	Sets the default filter index, starting from zero. 
+ 
+virtual void 	SetMessage ( wxString &message)
+ 	Sets the message that will be displayed on the dialog. 
+ 
+virtual void 	SetPath ( wxString &path)
+ 	Sets the path (the combined directory and filename that will be returned when the dialog is dismissed). 
+ 
+virtual void 	SetWildcard ( wxString &wildCard)
+ 	Sets the wildcard, which can contain multiple file types, for example: "BMP files (*.bmp)|*.bmp|GIF files (*.gif)|*.gif". 
+ 
+virtual int 	ShowModal ()
+ 	Shows the dialog, returning wxID_OK if the user pressed OK, and wxID_CANCEL otherwise. 
+ 
+ Public Member Functions inherited from wxDialog
+ Public Member Functions inherited from wxTopLevelWindow
+ Public Member Functions inherited from wxNonOwnedWindow
+ Public Member Functions inherited from wxWindow
+ Public Member Functions inherited from wxEvtHandler
+ Public Member Functions inherited from wxObject
+*)
+end

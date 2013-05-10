@@ -228,4 +228,21 @@ value wxStockGDI_GetFont_c(value item_v)
 }
 
 
+
+value wxPen_SetDashes_c(value self_v, value dash_v)
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxPen* self_c = (wxPen*)Abstract_val(self_v);
+  char* dash_c = String_val(dash_v);
+  int n_c = caml_string_length(dash_v);
+  wxDash *dashes = new wxDash[n_c];
+  for(int i = 0; i < n_c; i++)    dashes[i] = dash_c[i];
+  self_c->SetDashes(n_c, dashes);
+  ret_v = Val_unit;
+  CAMLreturn(ret_v);
+}
+
+
+
 }

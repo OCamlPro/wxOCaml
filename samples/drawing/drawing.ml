@@ -9,6 +9,8 @@
 (* Licence:   wxWindows licence *)
 (* //////////////////////////////////////////////////////////////////////// *)
 
+let (+=) a b = a := !a + b
+
 
 open WxMisc
 open WxWidgets
@@ -18,9 +20,9 @@ open WxID
 open WxValues
 
 (* TODO: the class wxscrolledwindow does not work properly. I need to
- understand if this is related to the fact that wxscrolledwindow is
- a C++ template class on wxpanel. For now, we will just replace it
- by wxpanel and not benefit from scrollbars. *)
+   understand if this is related to the fact that wxscrolledwindow is
+   a C++ template class on wxpanel. For now, we will just replace it
+   by wxpanel and not benefit from scrollbars. *)
 
 (*
 module WxScrolledWindow = struct
@@ -36,32 +38,32 @@ end
 *)
 
 type app_state = {
- mutable gs_bmpNoMask : wxBitmap;
- mutable gs_bmpWithColMask : wxBitmap;
- mutable gs_bmpMask : wxBitmap;
- mutable gs_bmpWithMask : wxBitmap;
- mutable gs_bmp4 : wxBitmap;
- mutable gs_bmp4_mono : wxBitmap;
- mutable gs_bmp36 : wxBitmap;
+  mutable gs_bmpNoMask : wxBitmap;
+  mutable gs_bmpWithColMask : wxBitmap;
+  mutable gs_bmpMask : wxBitmap;
+  mutable gs_bmpWithMask : wxBitmap;
+  mutable gs_bmp4 : wxBitmap;
+  mutable gs_bmp4_mono : wxBitmap;
+  mutable gs_bmp36 : wxBitmap;
 }
 
 type canvas_state = {
- m_canvas : wxScrolledWindow;
- w_canvas : wxWindow;
- mutable m_show : int;
- mutable m_smile_bmp : wxBitmap;
- mutable m_std_icon : wxIcon;
- mutable m_clip : bool;
- mutable m_overlay : wxOverlay;
- mutable m_rubberBand : bool;
- mutable m_anchorpoint : wxPoint;
- mutable m_currentpoint : wxPoint;
- (* #if wxUSE_GRAPHICS_CONTEXT *)
- mutable m_useContext : bool;
- (* #endif *)
+  m_canvas : wxScrolledWindow;
+  w_canvas : wxWindow;
+  mutable m_show : int;
+  mutable m_smile_bmp : wxBitmap;
+  mutable m_std_icon : wxIcon;
+  mutable m_clip : bool;
+  mutable m_overlay : wxOverlay;
+  mutable m_rubberBand : bool;
+  mutable m_anchorpoint : wxPoint;
+  mutable m_currentpoint : wxPoint;
+  (* #if wxUSE_GRAPHICS_CONTEXT *)
+  mutable m_useContext : bool;
+  (* #endif *)
 }
 
- type frame_state = {
+type frame_state = {
   app : app_state;
   canvas : canvas_state;
 
@@ -78,7 +80,7 @@ type canvas_state = {
   mutable m_colourForeground : wxColour;
   mutable m_colourBackground : wxColour;
   mutable m_textureBackground : bool;
- }
+}
 
 (*
 
@@ -166,21 +168,21 @@ public:
 *)
 
 let myCanvas_ToShow canvas show =
- canvas.m_show <- show;
- WxScrolledWindow.refresh canvas.m_canvas true None
+  canvas.m_show <- show;
+  WxScrolledWindow.refresh canvas.m_canvas true None
 
-  (* set or remove the clipping region *)
+(* set or remove the clipping region *)
 let myCanvas_Clip canvas clip =
- canvas.m_clip <- clip;
- WxScrolledWindow.refresh canvas.m_canvas true None
+  canvas.m_clip <- clip;
+  WxScrolledWindow.refresh canvas.m_canvas true None
 
 (*
 #if wxUSE_GRAPHICS_CONTEXT
 *)
 
 let myCanvas_UseGraphicContext canvas use =
- canvas.m_useContext <- use;
- WxScrolledWindow.refresh canvas.m_canvas true None
+  canvas.m_useContext <- use;
+  WxScrolledWindow.refresh canvas.m_canvas true None
 
 (*
 #endif
@@ -233,7 +235,7 @@ private:
 *)
 (* IDs for the controls and the menu commands *)
 
-  (* menu items *)
+(* menu items *)
 let _File_Quit = wxID_EXIT
 let _File_About = wxID_ABOUT
 
@@ -301,66 +303,66 @@ let _MenuOption_Last = _Colour_TextureBackgound
 
 
 let find_in_path path name =
- if not (Filename.is_implicit name) then
-  if Sys.file_exists name then name else raise Not_found
- else begin
-  let rec try_dir = function
-   [] -> raise Not_found
-  | dir::rem ->
-    let fullname = Filename.concat dir name in
-    if Sys.file_exists fullname then fullname else try_dir rem
-  in try_dir path
- end
+  if not (Filename.is_implicit name) then
+    if Sys.file_exists name then name else raise Not_found
+  else begin
+    let rec try_dir = function
+        [] -> raise Not_found
+      | dir::rem ->
+        let fullname = Filename.concat dir name in
+        if Sys.file_exists fullname then fullname else try_dir rem
+    in try_dir path
+  end
 
 let myApp_LoadImages app =
 
- try
-  let path = [
-   Filename.dirname Sys.argv.( 0 ) ;
-   ".";
-   "..";
-   "../..";
-   "samples/drawing";
-  ] in
-  let path_pat4 = find_in_path path "pat4.bmp" in
-  let path = Filename.dirname path_pat4 in
+  try
+    let path = [
+      Filename.dirname Sys.argv.( 0 ) ;
+      ".";
+      "..";
+      "../..";
+      "samples/drawing";
+    ] in
+    let path_pat4 = find_in_path path "pat4.bmp" in
+    let path = Filename.dirname path_pat4 in
 
-  (* 4 colour bitmap *)
-  ignore_bool (
-   WxBitmap.loadFile app.gs_bmp4 path_pat4 wxBITMAP_TYPE_BMP);
-     (* turn into mono-bitmap *)
-  ignore_bool (
-   WxBitmap.loadFile app.gs_bmp4_mono path_pat4 wxBITMAP_TYPE_BMP);
-  let mask4 = wxMaskColour app.gs_bmp4_mono wxBLACK in
-  WxBitmap.setMask app.gs_bmp4_mono (Some mask4);
+    (* 4 colour bitmap *)
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmp4 path_pat4 wxBITMAP_TYPE_BMP);
+    (* turn into mono-bitmap *)
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmp4_mono path_pat4 wxBITMAP_TYPE_BMP);
+    let mask4 = wxMaskColour app.gs_bmp4_mono wxBLACK in
+    WxBitmap.setMask app.gs_bmp4_mono (Some mask4);
 
-  let path_pat36 = Filename.concat path "pat36.bmp" in
-  ignore_bool (
-   WxBitmap.loadFile app.gs_bmp36 path_pat36 wxBITMAP_TYPE_BMP);
-  let mask36 = wxMaskColour app.gs_bmp36 wxBLACK in
-  WxBitmap.setMask app.gs_bmp36 (Some mask36);
+    let path_pat36 = Filename.concat path "pat36.bmp" in
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmp36 path_pat36 wxBITMAP_TYPE_BMP);
+    let mask36 = wxMaskColour app.gs_bmp36 wxBLACK in
+    WxBitmap.setMask app.gs_bmp36 (Some mask36);
 
-  let path_image = Filename.concat path "image.bmp" in
-  ignore_bool (
-   WxBitmap.loadFile app.gs_bmpNoMask path_image wxBITMAP_TYPE_BMP);
-  ignore_bool (
-   WxBitmap.loadFile app.gs_bmpWithMask path_image wxBITMAP_TYPE_BMP);
-  ignore_bool (
-   WxBitmap.loadFile app.gs_bmpWithColMask path_image wxBITMAP_TYPE_BMP);
+    let path_image = Filename.concat path "image.bmp" in
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmpNoMask path_image wxBITMAP_TYPE_BMP);
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmpWithMask path_image wxBITMAP_TYPE_BMP);
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmpWithColMask path_image wxBITMAP_TYPE_BMP);
 
-  let path_mask = Filename.concat path "mask.bmp" in
-  ignore_bool (
-   WxBitmap.loadFile app.gs_bmpMask path_mask wxBITMAP_TYPE_BMP);
+    let path_mask = Filename.concat path "mask.bmp" in
+    ignore_bool (
+      WxBitmap.loadFile app.gs_bmpMask path_mask wxBITMAP_TYPE_BMP);
 
-  let mask = wxMaskColour app.gs_bmpMask wxBLACK in
-  WxBitmap.setMask app.gs_bmpWithMask (Some mask);
+    let mask = wxMaskColour app.gs_bmpMask wxBLACK in
+    WxBitmap.setMask app.gs_bmpWithMask (Some mask);
 
-  let mask = wxMaskColour app.gs_bmpWithColMask wxWHITE in
-   WxBitmap.setMask app.gs_bmpWithColMask (Some mask);
+    let mask = wxMaskColour app.gs_bmpWithColMask wxWHITE in
+    WxBitmap.setMask app.gs_bmpWithColMask (Some mask);
 
-  true
+    true
 
- with Not_found -> false
+  with Not_found -> false
 
 (*
 void MyApp::DeleteBitmaps()
@@ -374,132 +376,142 @@ void MyApp::DeleteBitmaps()
   wxDELETE(app.gs_bmp36);
 }
 
-(* ---------------------------------------------------------------------------- *)
-(* MyCanvas *)
-(* ---------------------------------------------------------------------------- *)
-
 *)
+
+(*----------------------------------------------------------------------------*)
+(* MyCanvas *)
+(*----------------------------------------------------------------------------*)
 
 let new_MyCanvas parent =
 
   let this =
-     wxScrolledWindow (WxFrame.wxWindow parent) wxID_ANY
+    wxScrolledWindow (WxFrame.wxWindow parent) wxID_ANY
       wxDefaultPosition wxDefaultSize
-              (wxHSCROLL lor wxVSCROLL lor wxNO_FULL_REPAINT_ON_RESIZE) ""
+      (wxHSCROLL lor wxVSCROLL lor wxNO_FULL_REPAINT_ON_RESIZE) ""
   in
 
   {
-  m_canvas = this;
-  w_canvas= WxScrolledWindow.wxWindow this;
-  m_show = _File_ShowDefault;
-  m_smile_bmp = WxBitmap.createFromXPM Smile_xpm.smile_xpm;
-  m_std_icon = WxArtProvider.getIcon wxART_INFORMATION wxART_OTHER wxDefaultSize;
-  m_clip = false;
-  m_rubberBand = false;
-(*#if wxUSE_GRAPHICS_CONTEXT *)
-  m_useContext = false;
-  (* #endif *)
-  m_overlay = wxOverlay ();
-  m_anchorpoint = (0,0);
-  m_currentpoint = (0,0);
+    m_canvas = this;
+    w_canvas= WxScrolledWindow.wxWindow this;
+    m_show = _File_ShowDefault;
+    m_smile_bmp = WxBitmap.createFromXPM Smile_xpm.smile_xpm;
+    m_std_icon = WxArtProvider.getIcon wxART_INFORMATION wxART_OTHER wxDefaultSize;
+    m_clip = false;
+    m_rubberBand = false;
+    (*#if wxUSE_GRAPHICS_CONTEXT *)
+    m_useContext = false;
+    (* #endif *)
+    m_overlay = wxOverlay ();
+    m_anchorpoint = (0,0);
+    m_currentpoint = (0,0);
   }
 
 
 
 let myCanvas_DrawTestBrushes frame (dc : wxDC) =
 
- let _WIDTH = 200 in
- let _HEIGHT = 80 in
+  let _WIDTH = 200 in
+  let _HEIGHT = 80 in
 
- let x = ref 10 in
- let y = ref 10 in
+  let x = ref 10 in
+  let y = ref 10 in
 
- WxDC.setBrush dc (wxBrush wxGREEN wxSOLID);
- WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
- WxDC.drawText dc "Solid green" (!x + 10) (!y + 10);
+  WxDC.setBrush dc (wxBrush wxGREEN wxSOLID);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Solid green" (!x + 10) (!y + 10);
 
- y := !y + _HEIGHT;
- WxDC.setBrush dc (wxBrush wxRED wxCROSSDIAG_HATCH);
- WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
- WxDC.drawText dc "Diagonally hatched red" (!x + 10) (!y + 10);
+  y := !y + _HEIGHT;
+  WxDC.setBrush dc (wxBrush wxRED wxCROSSDIAG_HATCH);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Diagonally hatched red" (!x + 10) (!y + 10);
 
- y := !y + _HEIGHT;
- WxDC.setBrush dc (wxBrush wxBLUE wxCROSS_HATCH);
- WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
- WxDC.drawText dc "Cross hatched blue" (!x + 10) (!y + 10);
+  y := !y + _HEIGHT;
+  WxDC.setBrush dc (wxBrush wxBLUE wxCROSS_HATCH);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Cross hatched blue" (!x + 10) (!y + 10);
 
- y := !y + _HEIGHT;
- WxDC.setBrush dc (wxBrush wxCYAN wxVERTICAL_HATCH);
- WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
- WxDC.drawText dc "Vertically hatched cyan" (!x + 10) (!y + 10);
+  y := !y + _HEIGHT;
+  WxDC.setBrush dc (wxBrush wxCYAN wxVERTICAL_HATCH);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Vertically hatched cyan" (!x + 10) (!y + 10);
 
- y := !y + _HEIGHT;
- WxDC.setBrush dc (wxBrush wxBLACK wxHORIZONTAL_HATCH);
- WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
- WxDC.drawText dc "Horizontally hatched black" (!x + 10) (!y + 10);
+  y := !y + _HEIGHT;
+  WxDC.setBrush dc (wxBrush wxBLACK wxHORIZONTAL_HATCH);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Horizontally hatched black" (!x + 10) (!y + 10);
 
- let app = frame.app in
+  let app = frame.app in
 
- y := !y + _HEIGHT;
- WxDC.setBrush dc (wxBrushBitmap app.gs_bmpMask);
- WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
- WxDC.drawText dc "Stipple mono" (!x + 10) (!y + 10);
+  y := !y + _HEIGHT;
+  WxDC.setBrush dc (wxBrushBitmap app.gs_bmpMask);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Stipple mono" (!x + 10) (!y + 10);
 
- y := !y + _HEIGHT;
- WxDC.setBrush dc (wxBrushBitmap app.gs_bmpNoMask);
- WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
- WxDC.drawText dc "Stipple colour" (!x + 10) (!y + 10);
- ()
+  y := !y + _HEIGHT;
+  WxDC.setBrush dc (wxBrushBitmap app.gs_bmpNoMask);
+  WxDC.drawRectangle dc !x !y _WIDTH _HEIGHT;
+  WxDC.drawText dc "Stipple colour" (!x + 10) (!y + 10);
+  ()
+
+(*
+  ( dc/WxDC. ) => (let module of dc = WxDC in ... )
+  dc->setBrush  =>  (module of dc).setBrush dc
+
+( dc -> WxDC ).{
+  dc->setBrush
+}
+
+*)
 
 let myCanvas_DrawTestPoly frame (dc : wxDC) =
- let brushHatch = wxBrush wxRED wxFDIAGONAL_HATCH in
- WxDC.setBrush dc brushHatch;
+  let brushHatch = wxBrush wxRED wxFDIAGONAL_HATCH in
+  WxDC.setBrush dc brushHatch;
 
-(* TODO
-  wxPoint star[5];
-  star[0] = wxPoint(100, 60);
-  star[1] = wxPoint(60, 150);
-  star[2] = wxPoint(160, 100);
-  star[3] = wxPoint(40, 100);
-  star[4] = wxPoint(140, 150);
-*)
+  (* TODO
+     wxPoint star[5];
+     star[0] = wxPoint(100, 60);
+     star[1] = wxPoint(60, 150);
+     star[2] = wxPoint(160, 100);
+     star[3] = wxPoint(40, 100);
+     star[4] = wxPoint(140, 150);
+  *)
 
   WxDC.drawText dc "You should see two irregular stars below, the left one hatched" 10 10;
   WxDC.drawText dc "except for the central region and the right one entirely hatched" 10 30;
   WxDC.drawText dc "The third star only has a hatched outline" 10 50;
 
-(* TODO
-  WxDC.DrawPolygon(WXSIZEOF star , star, 0, 30);
-  WxDC.DrawPolygon(WXSIZEOF star , star, 160, 30, wxWINDING_RULE);
+  (* TODO
+     WxDC.DrawPolygon(WXSIZEOF star , star, 0, 30);
+     WxDC.DrawPolygon(WXSIZEOF star , star, 160, 30, wxWINDING_RULE);
 
-  wxPoint star2[10];
-  star2[0] = wxPoint(0, 100);
-  star2[1] = wxPoint(-59, -81);
-  star2[2] = wxPoint(95, 31);
-  star2[3] = wxPoint(-95, 31);
-  star2[4] = wxPoint(59, -81);
-  star2[5] = wxPoint(0, 80);
-  star2[6] = wxPoint(-47, -64);
-  star2[7] = wxPoint(76, 24);
-  star2[8] = wxPoint(-76, 24);
-  star2[9] = wxPoint(47, -64);
-  int count[2] = {5, 5};
+     wxPoint star2[10];
+     star2[0] = wxPoint(0, 100);
+     star2[1] = wxPoint(-59, -81);
+     star2[2] = wxPoint(95, 31);
+     star2[3] = wxPoint(-95, 31);
+     star2[4] = wxPoint(59, -81);
+     star2[5] = wxPoint(0, 80);
+     star2[6] = wxPoint(-47, -64);
+     star2[7] = wxPoint(76, 24);
+     star2[8] = wxPoint(-76, 24);
+     star2[9] = wxPoint(47, -64);
+     int count[2] = {5, 5};
 
-  WxDC.DrawPolyPolygon(WXSIZEOF count , count, star2, 450, 150);
-}
-*)
- ()
+     WxDC.DrawPolyPolygon(WXSIZEOF count , count, star2, 450, 150);
+     }
+  *)
+  ()
 
 let myCanvas_DrawTestLines frame (x, y, width, dc) =
- let black = wxColourName "black" in
+  let black = wxColourName "black" in
   WxDC.setPen dc ( wxPen black width wxSOLID );
   WxDC.setBrush dc wxRED_BRUSH;
   WxDC.drawText dc (Printf.sprintf "Testing lines of width %d" width)
-  (x + 10) (y - 10);
+    (x + 10) (y - 10);
   WxDC.drawRectangle dc ( x+10) (y+10) 100 190;
 
   WxDC.drawText dc
-   "Solid/dot/short dash/long dash/dot dash" ( x + 150 ) (y + 10);
+    "Solid/dot/short dash/long dash/dot dash" ( x + 150 ) (y + 10);
 
   WxDC.setPen dc ( wxPen black  width  wxSOLID );
   WxDC.drawLine dc ( x+20) ( y+20) 100 ( y+20 );
@@ -526,39 +538,41 @@ let myCanvas_DrawTestLines frame (x, y, width, dc) =
   WxDC.setPen dc ( wxPen black  width  wxVERTICAL_HATCH );
   WxDC.drawLine dc ( x+20) ( y+120) 100 ( y+120 );
 
-(* TODO
   WxDC.drawText dc ("User dash") ( x + 150) ( y + 140);
-  wxPen ud black  width  wxUSER_DASH ;
-  wxDash dash1[6];
-  dash1[0] = 8; (* Long dash <---------+ *)
-  dash1[1] = 2; (* Short gap      | *)
-  dash1[2] = 3; (* Short dash      | *)
-  dash1[3] = 2; (* Short gap      | *)
-  dash1[4] = 3; (* Short dash      | *)
-  dash1[5] = 2; (* Short gap and repeat + *)
-  ud.SetDashes 6  dash1 ;
+  let ud = wxPen black  width  wxUSER_DASH in
+  let dash1 = String.create 6 in
+  dash1.[0] <- Char.chr 8; (* Long dash <---------+ *)
+  dash1.[1] <- Char.chr 2; (* Short gap      | *)
+  dash1.[2] <- Char.chr 3; (* Short dash      | *)
+  dash1.[3] <- Char.chr 2; (* Short gap      | *)
+  dash1.[4] <- Char.chr 3; (* Short dash      | *)
+  dash1.[5] <- Char.chr 2; (* Short gap and repeat + *)
+  WxPen.setDashes ud dash1 ;
   WxDC.setPen dc ud ;
   WxDC.drawLine dc ( x+20) ( y+140) 100 ( y+140 );
-  dash1[0] = 5; (* Make first dash shorter *)
-  ud.SetDashes 6  dash1 ;
+  dash1.[0] <- Char.chr 5; (* Make first dash shorter *)
+  WxPen.setDashes ud dash1 ;
+
   WxDC.setPen dc ud ;
   WxDC.drawLine dc ( x+20) ( y+150) 100 ( y+150 );
-  dash1[2] = 5; (* Make second dash longer *)
-  ud.SetDashes 6  dash1 ;
+  dash1.[2] <- Char.chr 5; (* Make second dash longer *)
+  WxPen.setDashes ud  dash1 ;
   WxDC.setPen dc ud ;
   WxDC.drawLine dc ( x+20) ( y+160) 100 ( y+160 );
-  dash1[4] = 5; (* Make third dash longer *)
-  ud.SetDashes 6  dash1 ;
+  dash1.[4] <- Char.chr 5; (* Make third dash longer *)
+  WxPen.setDashes ud  dash1 ;
   WxDC.setPen dc ud ;
-  dc.drawLine dc ( x+20) ( y+170) 100 ( y+170 );
-*)
- ()
+  WxDC.drawLine dc ( x+20) ( y+170) 100 ( y+170 );
+  ()
+
+
 
 let myCanvas_DrawDefault frame (dc :wxDC) =
   (* Draw circle centered at the origin, then flood fill it with a different *)
   (* color. Done with a wxMemoryDC because Blit (used by generic *)
   (* wxDoFloodFill) from a window that is being painted gives unpredictable *)
   (* results on wxGTK *)
+  let canvas = frame.canvas in
   begin
     let img = wxImage 21 21 false in
     WxImage.clear img 1 ;
@@ -570,14 +584,14 @@ let myCanvas_DrawDefault frame (dc :wxDC) =
       WxMemoryDC.drawCircle mdc 10 10 10;
       let (bool, c) = WxMemoryDC.getPixel mdc 11 11 in
       if bool then
-      begin
-        WxMemoryDC.setBrush mdc
-          (wxBrush (wxColour 128 128 0 wxALPHA_OPAQUE) wxBRUSHSTYLE_SOLID);
-        ignore_bool (WxMemoryDC.floodFill mdc 11 11 c wxFLOOD_SURFACE);
-      end
+        begin
+          WxMemoryDC.setBrush mdc
+            (wxBrush (wxColour 128 128 0 wxALPHA_OPAQUE) wxBRUSHSTYLE_SOLID);
+          ignore_bool (WxMemoryDC.floodFill mdc 11 11 c wxFLOOD_SURFACE);
+        end
     end;
     WxBitmap.setMask bmp (Some (
-      wxMaskColour bmp ( wxColour 1 1 1 wxALPHA_OPAQUE)));
+        wxMaskColour bmp ( wxColour 1 1 1 wxALPHA_OPAQUE)));
     WxDC.drawBitmap dc bmp (-10) (-10) true;
   end;
 
@@ -585,197 +599,196 @@ let myCanvas_DrawDefault frame (dc :wxDC) =
   WxDC.drawCheckMark dc 25 80 30 30;
   WxDC.drawCheckMark dc 60 80 60 60;
 
- (*
   (* this is the test for "blitting bitmap into DC damages selected brush" bug *)
-  wxCoord rectSize = m_std_icon.GetWidth() + 10;
-  wxCoord x = 100;
-  WxDC.SetPen( *wxTRANSPARENT_PEN);
-  WxDC.SetBrush( *wxGREEN_BRUSH );
-  WxDC.drawRectangle(x, 10, rectSize, rectSize);
-  WxDC.drawBitmap(m_std_icon, x + 5, 15, true);
-  x += rectSize + 10;
-  WxDC.drawRectangle(x, 10, rectSize, rectSize);
-  WxDC.drawIcon(m_std_icon, x + 5, 15);
-  x += rectSize + 10;
-  WxDC.drawRectangle(x, 10, rectSize, rectSize);
+  let m_std_icon = canvas.m_std_icon in
+  let rectSize = WxIcon.getWidth m_std_icon + 10 in
+  let x = ref 100 in
+  WxDC.setPen dc ( wxTRANSPARENT_PEN);
+  WxDC.setBrush dc ( wxGREEN_BRUSH );
+  WxDC.drawRectangle dc (!x) ( 10) ( rectSize) ( rectSize);
+  let m_std_icon_bitmap = wxBitmapDefault () in
+  ignore_bool (WxBitmap.copyFromIcon m_std_icon_bitmap m_std_icon);
+  WxDC.drawBitmap dc (m_std_icon_bitmap) (!x + 5) ( 15) ( true);
+  x += (rectSize + 10);
+  WxDC.drawRectangle dc (!x) ( 10) ( rectSize) ( rectSize);
+  WxDC.drawIcon dc (m_std_icon) ( !x + 5) ( 15);
+  x += (rectSize + 10);
+  WxDC.drawRectangle dc (!x) ( 10) ( rectSize) ( rectSize);
 
   (* test for "transparent" bitmap drawing (it intersects with the last *)
   (* rectangle above) *)
-  (* dc.SetBrush( *wxTRANSPARENT_BRUSH ); *)
+  (* dc.setBrush( wxTRANSPARENT_BRUSH ); *)
 
-  if (m_smile_bmp.IsOk())
-    WxDC.drawBitmap(m_smile_bmp, x + rectSize - 20, rectSize - 10, true);
+  if WxBitmap.isOk canvas.m_smile_bmp then
+    WxDC.drawBitmap dc (canvas.m_smile_bmp) ( !x + rectSize - 20) ( rectSize - 10) ( true);
 
-  dc.SetBrush( *wxBLACK_BRUSH );
-  WxDC.drawRectangle( 0, 160, 1000, 300 );
+  WxDC.setBrush dc ( wxBLACK_BRUSH );
+  WxDC.drawRectangle dc ( 0) ( 160) ( 1000) ( 300 );
 
   (* draw lines *)
-  wxBitmap bitmap(20,70);
-  wxMemoryDC memdc;
-  memdc.SelectObject bitmap ;
-  memdc.SetBrush( *wxBLACK_BRUSH );
-  memdc.SetPen( *wxWHITE_PEN );
-  memdc.DrawRectangle(0,0,20,70);
-  memdc.DrawLine( 10,0,10,70 );
+  let bitmap = wxBitmapEmpty (20) (70) wxBITMAP_SCREEN_DEPTH in
+  let m_memdc = wxMemoryDC () in
+  let memdc = WxMemoryDC.wxDC m_memdc in
+  WxMemoryDC.selectObject m_memdc  bitmap ;
+  WxDC.setBrush memdc ( wxBLACK_BRUSH );
+  WxDC.setPen memdc ( wxWHITE_PEN );
+  WxDC.drawRectangle memdc (0) (0) (20) (70);
+  WxDC.drawLine memdc ( 10) (0) (10) (70 );
 
   (* to the right *)
-  wxPen pen = *wxRED_PEN;
-  memdc.SetPen pen ;
-  memdc.DrawLine( 10, 5,10, 5 );
-  memdc.DrawLine( 10,10,11,10 );
-  memdc.DrawLine( 10,15,12,15 );
-  memdc.DrawLine( 10,20,13,20 );
+  let pen =  wxRED_PEN in
+  WxDC.setPen memdc  pen ;
+  WxDC.drawLine memdc ( 10) ( 5) (10) ( 5 );
+  WxDC.drawLine memdc ( 10) (10) (11) (10 );
+  WxDC.drawLine memdc ( 10) (15) (12) (15 );
+  WxDC.drawLine memdc ( 10) (20) (13) (20 );
 
-/*
-  memdc.SetPen( *wxRED_PEN);
-  memdc.DrawLine( 12, 5,12, 5 );
-  memdc.DrawLine( 12,10,13,10 );
-  memdc.DrawLine( 12,15,14,15 );
-  memdc.DrawLine( 12,20,15,20 );
-*/
+  WxDC.setPen memdc ( wxRED_PEN);
+  WxDC.drawLine memdc ( 12) ( 5) (12) ( 5 );
+  WxDC.drawLine memdc ( 12) (10) (13) (10 );
+  WxDC.drawLine memdc ( 12) (15) (14) (15 );
+  WxDC.drawLine memdc ( 12) (20) (15) (20 );
 
   (* same to the left *)
-  memdc.DrawLine( 10,25,10,25 );
-  memdc.DrawLine( 10,30, 9,30 );
-  memdc.DrawLine( 10,35, 8,35 );
-  memdc.DrawLine( 10,40, 7,40 );
+  WxDC.drawLine memdc ( 10) (25) (10) (25 );
+  WxDC.drawLine memdc ( 10) (30) ( 9) (30 );
+  WxDC.drawLine memdc ( 10) (35) ( 8) (35 );
+  WxDC.drawLine memdc ( 10) (40) ( 7) (40 );
 
   (* XOR draw lines *)
-  dc.SetPen( *wxWHITE_PEN);
-  memdc.SetLogicalFunction wxINVERT ;
-  memdc.SetPen( *wxWHITE_PEN );
-  memdc.DrawLine( 10,50,10,50 );
-  memdc.DrawLine( 10,55,11,55 );
-  memdc.DrawLine( 10,60,12,60 );
-  memdc.DrawLine( 10,65,13,65 );
+  WxDC.setPen dc ( wxWHITE_PEN);
+  WxDC.setLogicalFunction memdc  wxINVERT ;
+  WxDC.setPen memdc ( wxWHITE_PEN );
+  WxDC.drawLine memdc ( 10) (50) (10) (50 );
+  WxDC.drawLine memdc ( 10) (55) (11) (55 );
+  WxDC.drawLine memdc ( 10) (60) (12) (60 );
+  WxDC.drawLine memdc ( 10) (65) (13) (65 );
 
-  memdc.DrawLine( 12,50,12,50 );
-  memdc.DrawLine( 12,55,13,55 );
-  memdc.DrawLine( 12,60,14,60 );
-  memdc.DrawLine( 12,65,15,65 );
+  WxDC.drawLine memdc ( 12) (50) (12) (50 );
+  WxDC.drawLine memdc ( 12) (55) (13) (55 );
+  WxDC.drawLine memdc ( 12) (60) (14) (60 );
+  WxDC.drawLine memdc ( 12) (65) (15) (65 );
 
-  memdc.SelectObject wxNullBitmap ;
-  dc.DrawBitmap( bitmap, 10, 170 );
-  wxImage image = bitmap.ConvertToImage();
-  image.Rescale( 60,210 );
-  bitmap = wxBitmap image ;
-  WxDC.drawBitmap( bitmap, 50, 170 );
+  WxMemoryDC.selectObject m_memdc  wxNullBitmap ;
+  WxDC.drawBitmap dc( bitmap) ( 10) ( 170 ) false;
+  let image = WxBitmap.convertToImage bitmap in
+  WxImage.rescale image ( 60) (210 ) wxIMAGE_QUALITY_NORMAL;
+  let bitmap = wxBitmapImage image wxBITMAP_SCREEN_DEPTH in
+  WxDC.drawBitmap dc ( bitmap) ( 50) ( 170 ) false;
 
   (* test the rectangle outline drawing - there should be one pixel between *)
   (* the rect and the lines *)
-  dc.SetPen( *wxWHITE_PEN);
-  dc.SetBrush( *wxTRANSPARENT_BRUSH );
-  WxDC.drawRectangle(150, 170, 49, 29);
-  WxDC.drawRectangle(200, 170, 49, 29);
-  dc.SetPen( *wxWHITE_PEN);
-  WxDC.drawLine(250, 210, 250, 170);
-  WxDC.drawLine(260, 200, 150, 200);
+  WxDC.setPen dc ( wxWHITE_PEN);
+  WxDC.setBrush dc ( wxTRANSPARENT_BRUSH );
+  WxDC.drawRectangle dc (150) ( 170) ( 49) ( 29);
+  WxDC.drawRectangle dc (200) ( 170) ( 49) ( 29);
+  WxDC.setPen dc ( wxWHITE_PEN);
+  WxDC.drawLine dc (250) ( 210) ( 250) ( 170);
+  WxDC.drawLine dc (260) ( 200) ( 150) ( 200);
 
   (* test the rectangle filled drawing - there should be one pixel between *)
   (* the rect and the lines *)
-  dc.SetPen( *wxTRANSPARENT_PEN);
-  dc.SetBrush( *wxWHITE_BRUSH );
-  WxDC.drawRectangle(300, 170, 49, 29);
-  WxDC.drawRectangle(350, 170, 49, 29);
-  dc.SetPen( *wxWHITE_PEN);
-  WxDC.drawLine(400, 170, 400, 210);
-  WxDC.drawLine(300, 200, 410, 200);
+  WxDC.setPen dc ( wxTRANSPARENT_PEN);
+  WxDC.setBrush dc ( wxWHITE_BRUSH );
+  WxDC.drawRectangle dc (300) ( 170) ( 49) ( 29);
+  WxDC.drawRectangle dc (350) ( 170) ( 49) ( 29);
+  WxDC.setPen dc ( wxWHITE_PEN);
+  WxDC.drawLine dc (400) ( 170) ( 400) ( 210);
+  WxDC.drawLine dc (300) ( 200) ( 410) ( 200);
 
   (* a few more tests of this kind *)
-  dc.SetPen( *wxRED_PEN);
-  dc.SetBrush( *wxWHITE_BRUSH );
-  WxDC.drawRectangle(300, 220, 1, 1);
-  WxDC.drawRectangle(310, 220, 2, 2);
-  WxDC.drawRectangle(320, 220, 3, 3);
-  WxDC.drawRectangle(330, 220, 4, 4);
+  WxDC.setPen dc ( wxRED_PEN);
+  WxDC.setBrush dc ( wxWHITE_BRUSH );
+  WxDC.drawRectangle dc (300) ( 220) ( 1) ( 1);
+  WxDC.drawRectangle dc (310) ( 220) ( 2) ( 2);
+  WxDC.drawRectangle dc (320) ( 220) ( 3) ( 3);
+  WxDC.drawRectangle dc (330) ( 220) ( 4) ( 4);
 
-  dc.SetPen( *wxTRANSPARENT_PEN);
-  dc.SetBrush( *wxWHITE_BRUSH );
-  WxDC.drawRectangle(300, 230, 1, 1);
-  WxDC.drawRectangle(310, 230, 2, 2);
-  WxDC.drawRectangle(320, 230, 3, 3);
-  WxDC.drawRectangle(330, 230, 4, 4);
+  WxDC.setPen dc ( wxTRANSPARENT_PEN);
+  WxDC.setBrush dc ( wxWHITE_BRUSH );
+  WxDC.drawRectangle dc (300) ( 230) ( 1) ( 1);
+  WxDC.drawRectangle dc (310) ( 230) ( 2) ( 2);
+  WxDC.drawRectangle dc (320) ( 230) ( 3) ( 3);
+  WxDC.drawRectangle dc (330) ( 230) ( 4) ( 4);
 
   (* and now for filled rect with outline *)
-  dc.SetPen( *wxRED_PEN);
-  dc.SetBrush( *wxWHITE_BRUSH );
-  WxDC.drawRectangle(500, 170, 49, 29);
-  WxDC.drawRectangle(550, 170, 49, 29);
-  dc.SetPen( *wxWHITE_PEN);
-  WxDC.drawLine(600, 170, 600, 210);
-  WxDC.drawLine(500, 200, 610, 200);
+  WxDC.setPen dc ( wxRED_PEN);
+  WxDC.setBrush dc ( wxWHITE_BRUSH );
+  WxDC.drawRectangle dc (500) ( 170) ( 49) ( 29);
+  WxDC.drawRectangle dc (550) ( 170) ( 49) ( 29);
+  WxDC.setPen dc ( wxWHITE_PEN);
+  WxDC.drawLine dc (600) ( 170) ( 600) ( 210);
+  WxDC.drawLine dc (500) ( 200) ( 610) ( 200);
 
   (* test the rectangle outline drawing - there should be one pixel between *)
   (* the rect and the lines *)
-  dc.SetPen( *wxWHITE_PEN);
-  dc.SetBrush( *wxTRANSPARENT_BRUSH );
-  WxDC.drawRoundedRectangle(150, 270, 49, 29, 6);
-  WxDC.drawRoundedRectangle(200, 270, 49, 29, 6);
-  dc.SetPen( *wxWHITE_PEN);
-  WxDC.drawLine(250, 270, 250, 310);
-  WxDC.drawLine(150, 300, 260, 300);
+  WxDC.setPen dc ( wxWHITE_PEN);
+  WxDC.setBrush dc ( wxTRANSPARENT_BRUSH );
+  WxDC.drawRoundedRectangle dc (150) ( 270) ( 49) ( 29) ( 6.);
+  WxDC.drawRoundedRectangle dc (200) ( 270) ( 49) ( 29) ( 6.);
+  WxDC.setPen dc ( wxWHITE_PEN);
+  WxDC.drawLine dc (250) ( 270) ( 250) ( 310);
+  WxDC.drawLine dc (150) ( 300) ( 260) ( 300);
 
   (* test the rectangle filled drawing - there should be one pixel between *)
   (* the rect and the lines *)
-  dc.SetPen( *wxTRANSPARENT_PEN);
-  dc.SetBrush( *wxWHITE_BRUSH );
-  WxDC.drawRoundedRectangle(300, 270, 49, 29, 6);
-  WxDC.drawRoundedRectangle(350, 270, 49, 29, 6);
-  dc.SetPen( *wxWHITE_PEN);
-  WxDC.drawLine(400, 270, 400, 310);
-  WxDC.drawLine(300, 300, 410, 300);
+  WxDC.setPen dc ( wxTRANSPARENT_PEN);
+  WxDC.setBrush dc ( wxWHITE_BRUSH );
+  WxDC.drawRoundedRectangle dc (300) ( 270) ( 49) ( 29) ( 6.);
+  WxDC.drawRoundedRectangle dc (350) ( 270) ( 49) ( 29) ( 6.);
+  WxDC.setPen dc ( wxWHITE_PEN);
+  WxDC.drawLine dc (400) ( 270) ( 400) ( 310);
+  WxDC.drawLine dc (300) ( 300) ( 410) ( 300);
 
   (* Added by JACS to demonstrate bizarre behaviour. *)
-  (* With a size of 70, we get a missing red RHS, *)
-  (* and the height is too small, so we get yellow *)
-  (* showing. With a size of 40, it draws as expected: *)
+  (* With a size of 70) ( we get a missing red RHS) ( *)
+  (* and the height is too small) ( so we get yellow *)
+  (* showing. With a size of 40) ( it draws as expected: *)
   (* it just shows a white rectangle with red outline. *)
-  int totalWidth = 70;
-  int totalHeight = 70;
-  wxBitmap bitmap2(totalWidth, totalHeight);
+  let totalWidth = 70 in
+  let totalHeight = 70 in
+  let bitmap2 = wxBitmapEmpty (totalWidth) ( totalHeight) wxBITMAP_SCREEN_DEPTH in
 
-  wxMemoryDC memdc2;
-  memdc2.SelectObject bitmap2 ;
+  let m_memdc= wxMemoryDC () in
+  WxMemoryDC.selectObject m_memdc  bitmap2 ;
 
-  wxColour clr(255, 255, 0);
-  wxBrush yellowBrush(clr, wxSOLID);
-  memdc2.SetBackground yellowBrush ;
-  memdc2.Clear();
+  let memdc = WxMemoryDC.wxDC m_memdc in
+  let clr = wxColour(255) ( 255) ( 0) wxALPHA_OPAQUE in
+  let yellowBrush =  wxBrush(clr) ( wxSOLID) in
+  WxDC.setBackground memdc  yellowBrush ;
+  WxDC.clear memdc;
 
-  wxPen yellowPen(clr, 1, wxSOLID);
+  let yellowPen = wxPen(clr) ( 1) ( wxSOLID) in
 
   (* Now draw a white rectangle with red outline. It should *)
   (* entirely eclipse the yellow background. *)
-  memdc2.SetPen( *wxRED_PEN);
-  memdc2.SetBrush( *wxWHITE_BRUSH);
+  WxDC.setPen memdc ( wxRED_PEN);
+  WxDC.setBrush memdc ( wxWHITE_BRUSH);
 
-  memdc2.DrawRectangle(0, 0, totalWidth, totalHeight);
+  WxDC.drawRectangle memdc (0) ( 0) ( totalWidth) ( totalHeight);
 
-  memdc2.SetPen wxNullPen ;
-  memdc2.SetBrush wxNullBrush ;
-  memdc2.SelectObject wxNullBitmap ;
+  WxDC.setPen memdc  wxNullPen ;
+  WxDC.setBrush memdc  wxNullBrush ;
+  WxMemoryDC.selectObject m_memdc  wxNullBitmap ;
 
-  WxDC.drawBitmap(bitmap2, 500, 270);
+  WxDC.drawBitmap dc (bitmap2) ( 500) ( 270) false;
 
-  (* Repeat, but draw directly on dc *)
+  (* Repeat) ( but draw directly on dc *)
   (* Draw a yellow rectangle filling the bitmap *)
 
-  x = 600; int y = 270;
-  dc.SetPen yellowPen ;
-  dc.SetBrush yellowBrush ;
-  WxDC.drawRectangle(x, y, totalWidth, totalHeight);
+  let x = 600 in
+  let y = 270 in
+  WxDC.setPen dc yellowPen ;
+  WxDC.setBrush dc yellowBrush ;
+  WxDC.drawRectangle dc (x) ( y) ( totalWidth) ( totalHeight);
 
   (* Now draw a white rectangle with red outline. It should *)
   (* entirely eclipse the yellow background. *)
-  dc.SetPen( *wxRED_PEN);
-  dc.SetBrush( *wxWHITE_BRUSH);
+  WxDC.setPen dc ( wxRED_PEN);
+  WxDC.setBrush  dc ( wxWHITE_BRUSH);
 
-  WxDC.drawRectangle(x, y, totalWidth, totalHeight);
-end
-*)
- ()
-
-let (+=) a b = a := !a + b
+  WxDC.drawRectangle dc (x) ( y) ( totalWidth) ( totalHeight);
+  ()
 
 let myCanvas_DrawText frame (dc : wxDC) =
 
@@ -957,7 +970,7 @@ let myCanvas_DrawGraphics frame (gc : wxGraphicsContext) =
 (*
 {
   wxFont font = wxSystemSettings::GetFont wxSYS_DEFAULT_GUI_FONT ;
-  gc->SetFont(font,*wxBLACK);
+  gc->SetFont(font,wxBLACK);
 
   (* make a path that contains a circle and some lines, centered at 0,0 *)
   wxGraphicsPath path = gc->CreatePath() ;
@@ -1104,7 +1117,7 @@ let myCanvas_DrawSplines frame (dc : wxDC) =
   }
 
   (* background spline drawing *)
-  WxDC.setPen( *wxRED_PEN);
+  WxDC.setPen( wxRED_PEN);
   WxDC.drawSpline(WXSIZEOF pts , pts);
 
   (* less detailed spline calculation *)
@@ -1167,22 +1180,22 @@ let myCanvas_DrawGradients frame (dc : wxDC) =
   wxRect r(10, 10, 50, 50);
   WxDC.drawText("wxRIGHT", r.x, r.y);
   r.Offset(0, TEXT_HEIGHT);
-  dc.GradientFillLinear(r, *wxWHITE, *wxBLUE, wxRIGHT);
+  dc.GradientFillLinear(r, wxWHITE, wxBLUE, wxRIGHT);
 
   r.Offset(0, r.height + 10);
   WxDC.drawText("wxLEFT", r.x, r.y);
   r.Offset(0, TEXT_HEIGHT);
-  dc.GradientFillLinear(r, *wxWHITE, *wxBLUE, wxLEFT);
+  dc.GradientFillLinear(r, wxWHITE, wxBLUE, wxLEFT);
 
   r.Offset(0, r.height + 10);
   WxDC.drawText("wxDOWN", r.x, r.y);
   r.Offset(0, TEXT_HEIGHT);
-  dc.GradientFillLinear(r, *wxWHITE, *wxBLUE, wxDOWN);
+  dc.GradientFillLinear(r, wxWHITE, wxBLUE, wxDOWN);
 
   r.Offset(0, r.height + 10);
   WxDC.drawText("wxUP", r.x, r.y);
   r.Offset(0, TEXT_HEIGHT);
-  dc.GradientFillLinear(r, *wxWHITE, *wxBLUE, wxUP);
+  dc.GradientFillLinear(r, wxWHITE, wxBLUE, wxUP);
 
   wxRect gfr = wxRect r ;
 
@@ -1190,22 +1203,22 @@ let myCanvas_DrawGradients frame (dc : wxDC) =
   r = wxRect(200, 10, 50, 50);
   WxDC.drawText("Blue inside", r.x, r.y);
   r.Offset(0, TEXT_HEIGHT);
-  dc.GradientFillConcentric(r, *wxBLUE, *wxWHITE);
+  dc.GradientFillConcentric(r, wxBLUE, wxWHITE);
 
   r.Offset(0, r.height + 10);
   WxDC.drawText("White inside", r.x, r.y);
   r.Offset(0, TEXT_HEIGHT);
-  dc.GradientFillConcentric(r, *wxWHITE, *wxBLUE);
+  dc.GradientFillConcentric(r, wxWHITE, wxBLUE);
 
   r.Offset(0, r.height + 10);
   WxDC.drawText("Blue in top left corner", r.x, r.y);
   r.Offset(0, TEXT_HEIGHT);
-  dc.GradientFillConcentric(r, *wxBLUE, *wxWHITE, wxPoint(0, 0));
+  dc.GradientFillConcentric(r, wxBLUE, wxWHITE, wxPoint(0, 0));
 
   r.Offset(0, r.height + 10);
   WxDC.drawText("Blue in bottom right corner", r.x, r.y);
   r.Offset(0, TEXT_HEIGHT);
-  dc.GradientFillConcentric(r, *wxBLUE, *wxWHITE, wxPoint(r.width, r.height));
+  dc.GradientFillConcentric(r, wxBLUE, wxWHITE, wxPoint(r.width, r.height));
 
   (* check that the area filled by the gradient is exactly the interior of *)
   (* the rectangle *)
@@ -1226,16 +1239,16 @@ let myCanvas_DrawGradients frame (dc : wxDC) =
   r4.y += 60;
   WxDC.setPen(wxPen(wxColour(255, 0, 0)));
   WxDC.drawRectangle r ;
-  r.Deflate 1 ;
+  r.deflate 1 ;
   dc.GradientFillLinear(r, wxColour(0,255,0), wxColour(0,0,0), wxNORTH);
   WxDC.drawRectangle r2 ;
-  r2.Deflate 1 ;
+  r2.deflate 1 ;
   dc.GradientFillLinear(r2, wxColour(0,0,0), wxColour(0,255,0), wxSOUTH);
   WxDC.drawRectangle r3 ;
-  r3.Deflate 1 ;
+  r3.deflate 1 ;
   dc.GradientFillLinear(r3, wxColour(0,255,0), wxColour(0,0,0), wxEAST);
   WxDC.drawRectangle r4 ;
-  r4.Deflate 1 ;
+  r4.deflate 1 ;
   dc.GradientFillLinear(r4, wxColour(0,0,0), wxColour(0,255,0), wxWEST);
 
 #if wxUSE_GRAPHICS_CONTEXT
@@ -1714,7 +1727,7 @@ let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
    WxDCOverlay.clear overlaydc);
 
 (*#ifdef __WXMAC__
-    WxDC.setPen( *wxGREY_PEN );
+    WxDC.setPen( wxGREY_PEN );
     WxDC.setBrush( wxColour( 192,192,192,64 ) );
 #else *)
     WxDC.setPen dc (wxPen wxLIGHT_GREY 2 wxSOLID);
@@ -1987,24 +2000,22 @@ let myFrame_OnCopy frame (event : wxCommandEvent) =
 ()
 
 let myFrame_OnSave frame (event : wxCommandEvent) =
-(*
-{
-  wxFileDialog dlg(this, "Save as bitmap", wxT(""), wxT(""),
-#if wxUSE_LIBPNG
+  let dlg = wxFileDialog (WxFrame.wxWindow frame.m_frame)
+      "Save as bitmap" "" ""
+(* #if wxUSE_LIBPNG
            "PNG image ( *.png)|*.png;*.PNG|"
-#endif
-           "Bitmap image ( *.bmp)|*.bmp;*.BMP",
-           wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
-  if (dlg.ShowModal() == wxID_OK)
-  {
-    wxBitmap bmp(500, 800);
-    wxMemoryDC mdc bmp ;
-    m_canvas->Draw mdc ;
-    bmp.ConvertToImage().SaveFile(dlg.GetPath());
-  }
-}
-*)
-()
+ #endif *)
+           "Bitmap image ( *.bmp)|*.bmp;*.BMP"
+           (wxFD_SAVE lor wxFD_OVERWRITE_PROMPT)
+  in
+  if WxFileDialog.showModal dlg = wxID_OK then
+    begin
+      let bmp = wxBitmapEmpty 500 800 wxBITMAP_SCREEN_DEPTH in
+      let mdc = wxMemoryDCBitmap bmp in
+      myCanvas_Draw frame (WxMemoryDC mdc);
+      let image = WxBitmap.convertToImage bmp in
+      ignore_bool (WxImage.saveFileByExtension image (WxFileDialog.getPath dlg))
+    end
 
 let myFrame_OnShow frame (event :wxCommandEvent) =
  myCanvas_ToShow frame.canvas (WxCommandEvent.getId event)

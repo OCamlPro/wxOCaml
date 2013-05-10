@@ -5,7 +5,7 @@ class wxBitmap inherit wxObject begin
 
   new(Create)(string _data,int width,int height,int depth)
   new(CreateFromXPM)(strings* data) 
-  new(CreateEmpty)(int width,int height,int depth)
+  new(CreateEmpty)(int width,int height,int depth (*=wxBITMAP_SCREEN_DEPTH *))
   new(CreateLoad)(wxString& name,wxBitmapType type)
   new(CreateImage) (wxImage &img, int depth (* =wxBITMAP_SCREEN_DEPTH *) )
 
@@ -36,5 +36,90 @@ class wxBitmap inherit wxObject begin
   method(void, SetWidth)(int w)
   method(void, SetHeight)(int h)
   method(void, SetDepth)(int d)
+
+  method(bool, 	CopyFromIcon) (wxIcon &icon)
+  method( wxImage, 	ConvertToImage) ()
+
+
+(*
+ 	wxBitmap ()
+ 	Default constructor. 
+ 	wxBitmap (const wxBitmap &bitmap)
+ 	Copy constructor, uses reference counting. 
+ 	wxBitmap (const char bits[], int width, int height, int depth=1)
+ 	Creates a bitmap from the given array bits. 
+ 	wxBitmap (int width, int height, int depth=wxBITMAP_SCREEN_DEPTH)
+ 	Creates a new bitmap. 
+ 	wxBitmap (const wxSize &sz, int depth=wxBITMAP_SCREEN_DEPTH)
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+ 	wxBitmap (const char *const *bits)
+ 	Creates a bitmap from XPM data. 
+ 	wxBitmap (const wxString &name, wxBitmapType type=wxBITMAP_DEFAULT_TYPE)
+ 	Loads a bitmap from a file or resource. 
+ 	wxBitmap (const wxImage &img, int depth=wxBITMAP_SCREEN_DEPTH)
+ 	Creates this bitmap object from the given image. 
+virtual 	~wxBitmap ()
+ 	Destructor. 
+ 	Creates an image from a platform-dependent bitmap. 
+
+ 	Creates the bitmap from an icon. 
+virtual bool 	Create (int width, int height, int depth=wxBITMAP_SCREEN_DEPTH)
+ 	Creates a fresh bitmap. 
+virtual bool 	Create (const wxSize &sz, int depth=wxBITMAP_SCREEN_DEPTH)
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+virtual int 	GetDepth () const
+ 	Gets the colour depth of the bitmap. 
+virtual int 	GetHeight () const
+ 	Gets the height of the bitmap in pixels. 
+virtual wxMask * 	GetMask () const
+ 	Gets the associated mask (if any) which may have been loaded from a file or set for the bitmap. 
+virtual wxPalette * 	GetPalette () const
+ 	Gets the associated palette (if any) which may have been loaded from a file or set for the bitmap. 
+virtual wxBitmap 	GetSubBitmap (const wxRect &rect) const
+ 	Returns a sub bitmap of the current one as long as the rect belongs entirely to the bitmap. 
+wxSize 	GetSize () const
+ 	Returns the size of the bitmap in pixels. 
+wxBitmap 	ConvertToDisabled (unsigned char brightness=255) const
+ 	Returns disabled (dimmed) version of the bitmap. 
+virtual int 	GetWidth () const
+ 	Gets the width of the bitmap in pixels. 
+virtual bool 	IsOk () const
+ 	Returns true if bitmap data is present. 
+virtual bool 	LoadFile (const wxString &name, wxBitmapType type=wxBITMAP_DEFAULT_TYPE)
+ 	Loads a bitmap from a file or resource. 
+virtual bool 	SaveFile (const wxString &name, wxBitmapType type, const wxPalette *palette=NULL) const
+ 	Saves a bitmap in the named file. 
+virtual void 	SetDepth (int depth)
+ 	Sets the depth member (does not affect the bitmap data). 
+virtual void 	SetHeight (int height)
+ 	Sets the height member (does not affect the bitmap data). 
+virtual void 	SetMask (wxMask *mask)
+ 	Sets the mask for this bitmap. 
+virtual void 	SetPalette (const wxPalette &palette)
+ 	Sets the associated palette. 
+virtual void 	SetWidth (int width)
+ 	Sets the width member (does not affect the bitmap data). 
+Static Public Member Functions
+
+static void 	AddHandler (wxBitmapHandler *handler)
+ 	Adds a handler to the end of the static list of format handlers. 
+static void 	CleanUpHandlers ()
+ 	Deletes all bitmap handlers. 
+static wxBitmapHandler * 	FindHandler (const wxString &name)
+ 	Finds the handler with the given name. 
+static wxBitmapHandler * 	FindHandler (const wxString &extension, wxBitmapType bitmapType)
+ 	Finds the handler associated with the given extension and type. 
+static wxBitmapHandler * 	FindHandler (wxBitmapType bitmapType)
+ 	Finds the handler associated with the given bitmap type. 
+static wxList & 	GetHandlers ()
+ 	Returns the static list of bitmap format handlers. 
+static void 	InitStandardHandlers ()
+ 	Adds the standard bitmap format handlers, which, depending on wxWidgets configuration, can be handlers for Windows bitmap, Windows bitmap resource, and XPM. 
+static void 	InsertHandler (wxBitmapHandler *handler)
+ 	Adds a handler at the start of the static list of format handlers. 
+static bool 	RemoveHandler (const wxString &name)
+ 	Finds the handler with the given name, and removes it. 
+
+*)
 
 end

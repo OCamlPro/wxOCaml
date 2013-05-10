@@ -39,7 +39,10 @@ class wxValues begin
   value(wxFont* , wxSMALL_FONT)
   value(wxFont* , wxSWISS_FONT)
 *)
+  value(wxPen, wxNullPen)  
+  value(wxBrush, wxNullBrush)
   value(wxFont, wxNullFont)
+  value(wxBitmap, wxNullBitmap)
 
   value(wxDateTime, wxDefaultDateTime)
 

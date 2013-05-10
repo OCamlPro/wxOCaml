@@ -13,7 +13,7 @@ class wxIcon inherit wxObject begin
   method(int, GetWidth)()
   method(int, GetHeight)()
   method(void, SetDepth)(int depth)
-  method(void, SetWidth)(int width)
+  method(void, SetWidth)(int width) 
   method(void, SetHeight)(int height)
 
 (* TODO:

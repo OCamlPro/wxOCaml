@@ -38,8 +38,12 @@ bool 	IsTransparent () const
  	Returns true if the pen is transparent. 
 virtual void 	SetCap (wxPenCap capStyle)
  	Sets the pen cap style, which may be one of wxCAP_ROUND, wxCAP_PROJECTING and wxCAP_BUTT. 
-virtual void 	SetDashes (int n, const wxDash *dash)
- 	Associates an array of dash values (defined as char in X, DWORD under Windows) with the pen. 
+*)
+
+
+	method{ gen_cpp = false }(void, 	SetDashes) (string dash)
+
+(*
 virtual void 	SetJoin (wxPenJoin join_style)
  	Sets the pen join style, which may be one of wxJOIN_BEVEL, wxJOIN_ROUND and wxJOIN_MITER. 
 virtual void 	SetStipple (const wxBitmap &stipple)
