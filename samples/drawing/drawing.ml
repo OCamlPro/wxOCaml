@@ -575,7 +575,8 @@ let myCanvas_DrawDefault frame (dc :wxDC) =
   let canvas = frame.canvas in
   begin
     let img = wxImage 21 21 false in
-    WxImage.clear img 1 ;
+    if wx_2_9 then  (* not available on 2.8 *)
+      WxImage.clear img 1 ;
     let bmp = wxBitmapImage img wxBITMAP_SCREEN_DEPTH in
     begin
       let mdc = wxMemoryDCBitmap bmp in

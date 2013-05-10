@@ -48,9 +48,9 @@ bool 	Create ( wxSize &sz, unsigned char *data, unsigned char *alpha, bool stati
  	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
 *)
 
-
-  method(void, 	Clear) (int value (* =0 *) )
-
+  version 2.9 begin
+    method(void, 	Clear) (int value (* =0 *) )
+  end
 
 (*
 void 	Destroy ()

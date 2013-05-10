@@ -73,7 +73,7 @@ typedef int wxRasterOperationMode;
 typedef int wxMappingMode;
 typedef int wxFloodFillStyle;
 typedef int wxBrushStyle;
-
+typedef int wxImageResizeQuality;
 
 #define wxART_PLUS wxART_HELP
 #define wxART_MINUS wxART_HELP
@@ -87,6 +87,7 @@ typedef int wxBrushStyle;
 #define wxREMOVE_LEADING_SPACES 0
 #define wxWRAPSIZER_DEFAULT_FLAGS 0
 
+#define wxBITMAP_SCREEN_DEPTH (-1)
 #define wxBITMAP_DEFAULT_TYPE wxBITMAP_TYPE_XPM
 #define wxBRUSHSTYLE_SOLID 0
 #define wxFONTSIZE_XX_SMALL 0
@@ -97,6 +98,10 @@ typedef int wxBrushStyle;
 #define wxFONTSIZE_X_LARGE  0
 #define wxFONTSIZE_XX_LARGE 0
 
+#define wxIMAGE_QUALITY_NEAREST wxIMAGE_QUALITY_NORMAL
+#define wxIMAGE_QUALITY_BILINEAR wxIMAGE_QUALITY_NORMAL
+#define wxIMAGE_QUALITY_BICUBIC wxIMAGE_QUALITY_NORMAL
+#define wxIMAGE_QUALITY_BOX_AVERAGE wxIMAGE_QUALITY_NORMAL
 
 #define wxEVT_TIME_CHANGED          (-1)
 #define wxEVT_CALENDAR_WEEK_CLICKED (-1)
