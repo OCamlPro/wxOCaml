@@ -53,7 +53,7 @@ let _ =
 
     let frame_id = wxID () in
 
-    let m_frame = wxFrame
+    let m_frame = wxFrameAll
         None
         frame_id
         "Calendar wxWidgets sample"

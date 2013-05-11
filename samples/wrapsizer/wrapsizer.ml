@@ -32,9 +32,7 @@ let onInit () =
   in
 
   let new_MyFrame () =
-    let this = wxFrame None wxID_ANY "wxWrapSizer Sample"
-        wxDefaultPosition wxDefaultSize wxDEFAULT_FRAME_STYLE
-    in
+    let this = wxFrame None wxID_ANY "wxWrapSizer Sample" in
     let w_this = WxFrame.wxWindow this in
 
     WxFrame.setIcon this (WxIcon.createFromXPM Sample_xpm.sample_xpm);
@@ -45,6 +43,86 @@ let onInit () =
 
     in
     let w_panel = WxPanel.wxWindow m_panel in
+
+(*
+    SIZER.(wxPanel m_panel
+        (wxBoxSizer wxVERTICAL,
+         [
+
+           AddSizer ([ Expand; Border ],
+             wxWrapSizer wxHORIZONTAL wxWRAPSIZER_DEFAULT_FLAGS,
+             [
+               AddWindow ([], _MakeToolBar w_panel);
+               Add (20, 1, 0, 0, 0, None);
+               AddWindow ([], _MakeToolBar w_panel);
+               Add (20, 1, 0, 0, 0, None);
+               AddWindow ([], _MakeToolBar w_panel);
+             ]
+           );
+
+           AddSizer ([Proportion 100; Expand; Border ],
+             wxStaticBoxSizerEx wxVERTICAL w_panel "With check-boxes",
+             [
+              AddSizer ([ Proportion 100; Expand ],
+                wxWrapSizer wxHORIZONTAL wxWRAPSIZER_DEFAULT_FLAGS,
+                List.map (fun nCheck ->
+                  let chk = wxCheckBox
+                      w_panel
+                      wxID_ANY
+                      (Printf.sprintf "Option %d" nCheck)
+                      wxDefaultPosition wxDefaultSize 0 ""
+                  in
+                 AddWindow ( [ Expand; Border ],
+                   WxCheckBox.wxWindow chk)
+                ) [0;1;2;3;4;5]
+              );
+             ]
+           );
+
+           AddSizer ([ Proportion 100; Expand ],
+             wxStaticBoxSizerEx wxVERTICAL w_panel "With wxSHAPED item",
+             [
+               AddSizer ([Proportion 100;Expand;Border],
+                 wxBoxSizer wxHORIZONTAL,
+                 [
+                   AddWindow ([ Expand;Shaped],
+                     WxListBox.wxWindow (wxListBox w_panel wxID_ANY
+                         (0, 0) (70, 70)
+                         (WxArrayString.create ()) 0 ""
+                     )
+                   );
+                   AddSpacer 10;
+                   AddWindow ([ Proportion 100; Border],
+                     WxCheckBox.wxWindow (
+                       wxCheckBox w_panel wxID_ANY "A much longer option..."
+                         wxDefaultPosition wxDefaultSize 0 "")
+                   );
+                 ]
+               )
+             ]);
+
+           AddWindow ([ Centre; DoubleBorder ],
+             WxButton.wxWindow (
+               wxButton w_panel wxID_OK ""
+                 wxDefaultPosition wxDefaultSize 0
+             ) )
+         ]
+        )
+    );
+*)
+
+    let  onButton _ =
+      ignore_bool (WxFrame.close this false)
+    in
+    WxFrame.connect this wxID_OK wxID_OK WxEVT._COMMAND_BUTTON_CLICKED onButton;
+
+
+
+
+
+
+
+
 
     (* Root sizer, vertical *)
     let sizerRoot = WxBoxSizer.wxSizer (wxBoxSizer wxVERTICAL) in

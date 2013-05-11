@@ -37,6 +37,7 @@ let wx_2_8 = wx_config [2;8] && not wx_2_9
 *)
 let wxID = WxID.create
 let wxFrame = WxFrame.create
+let wxFrameAll = WxFrame.createAll
 let wxPanel = WxPanel.create
 let wxMenuBar = WxMenuBar.create
 let wxMenu = WxMenu.create
@@ -90,6 +91,7 @@ let wxMemoryDCBitmap = WxMemoryDC.createBitmap
 let wxImage = WxImage.create
 let wxFileDialog = WxFileDialog.create
 let wxFileDialogAll = WxFileDialog.createAll
+let wxWindow = WxWindow.create
 
 (* We MUST call the destructor of WxDCOverlay at the end ! *)
 let wxDCOverlay win dc x y dx dy f =
@@ -381,3 +383,102 @@ module WxSizerFlags = struct
     wxSizerFlags (WxSizer.add sizer x y) flags
 
 end
+
+module MENU_BAR = struct
+  type menu_item =
+    | Append of int * string
+    | Append2 of int * string * string
+    | AppendSeparator of unit
+    | AppendCheckItem of int * string * string
+    | Check of int * bool
+
+  let make_wxMenu items =
+    let menuFile = wxMenu "" 0 in
+    List.iter (fun option ->
+      match option with
+        Append (id, txt) ->
+        WxMenu.append menuFile id txt "" wxITEM_NORMAL
+      | Append2 (id, t1, t2) ->
+        WxMenu.append menuFile id t1 t2 wxITEM_NORMAL
+      | AppendSeparator _ ->
+        WxMenu.appendSeparator menuFile
+      | AppendCheckItem (id, t1, t2) ->
+        WxMenu.appendCheckItem menuFile id t1 t2
+      | Check (id, bool) ->
+        WxMenu.check menuFile id bool
+    ) items;
+    menuFile
+
+  let wxFrame frame menus =
+    (* now append the freshly created menu to the menu bar... *)
+    let menuBar = wxMenuBar 0 in
+    List.iter (fun (name, menu) ->
+      ignore_bool (WxMenuBar.append menuBar (make_wxMenu menu) name)
+    ) menus;
+    WxFrame.setMenuBar frame menuBar
+end
+
+
+module SIZER = struct
+
+  type sizer = (wxSizer * sizer_content list)
+  and sizer_content =
+    | AddWindow of  wxSizerFlags list * wxWindow
+    | Add of int * int * int * int * int * wxObject option
+    | AddSpacer of int
+    | AddSizer of  wxSizerFlags list * wxSizer * sizer_content list
+    | AddWrapSizer of  wxSizerFlags list * wxWrapSizer * sizer_content list
+    | AddBoxSizer of  wxSizerFlags list * wxBoxSizer * sizer_content list
+    | AddStaticBoxSizer of
+        wxSizerFlags list * wxStaticBoxSizer * sizer_content list
+
+  let wxBoxSizer v = WxBoxSizer.wxSizer (wxBoxSizer v)
+  let wxStaticBoxSizer x y = WxStaticBoxSizer.wxSizer (wxStaticBoxSizer x y)
+  let wxStaticBoxSizerEx x y z = WxStaticBoxSizer.wxSizer (wxStaticBoxSizerEx x y z)
+  let wxWrapSizer x y = WxWrapSizer.wxSizer (wxWrapSizer x y)
+
+  let wxWindow m_panel fit (sizer, items) =
+    let rec add_items sizer items =
+      match items with
+      [] -> ()
+      | item :: items ->
+        begin
+          match item with
+          | AddWindow (flags, window) ->
+            WxSizerFlags.addWindow sizer window flags
+          | AddSpacer space ->
+            WxSizer.addSpacer sizer space
+          | Add (a,b,c,d,e,f) ->
+            WxSizer.add sizer a b c d e f
+          | AddSizer (flags, sizer_in, items_in) ->
+            add_items sizer_in items_in;
+            WxSizerFlags.addSizer sizer sizer_in flags
+          | AddWrapSizer (flags, sizer_in, items_in) ->
+            let sizer_in = WxWrapSizer.wxSizer sizer_in in
+            add_items sizer_in items_in;
+            WxSizerFlags.addSizer sizer sizer_in flags
+          | AddBoxSizer (flags, sizer_in, items_in) ->
+            let sizer_in = WxBoxSizer.wxSizer sizer_in in
+            add_items sizer_in items_in;
+            WxSizerFlags.addSizer sizer sizer_in flags
+          | AddStaticBoxSizer (flags, sizer_in, items_in) ->
+            let sizer_in = WxStaticBoxSizer.wxSizer sizer_in in
+            add_items sizer_in items_in;
+            WxSizerFlags.addSizer sizer sizer_in flags
+
+        end;
+        add_items sizer items
+    in
+    add_items sizer items;
+    if fit then
+      WxWindow.setSizerAndFit m_panel sizer true
+    else
+      WxWindow.setSizer m_panel sizer
+
+  let wxPanel m_panel fit sizers =
+    wxWindow (WxPanel.wxWindow m_panel) fit sizers
+  let wxFrame m_panel fit sizers =
+    wxWindow (WxFrame.wxWindow m_panel) fit sizers
+end
+
+let wxSWISS_FONT () = WxStockGDI.getFont wxStockGDI_FONT_SWISS

@@ -21,7 +21,7 @@ let _ =
     let quit_id = wxID() in
     let about_id = wxID() in
 
-    let frame = wxFrame
+    let frame = wxFrameAll
         None
         frame_id
         "Hello World"
@@ -47,7 +47,7 @@ let _ =
 
     WxFrame.setMenuBar frame  menuBar;
 
-    ignore_wxStatusBar (WxFrame.createStatusBar frame 1 0);
+    ignore_wxStatusBar (WxFrame.createStatusBar frame);
 
     WxFrame.setStatusText frame  "Welcome to wxWidgets!" 0;
 

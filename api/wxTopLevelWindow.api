@@ -27,4 +27,100 @@ class wxTopLevelWindow inherit wxTopLevelWindowBase begin
  method(void,SetMinSize)(wxSize& sz)
  method(void,SetTitle)(wxString& _str)
 
+(*
+ 	wxTopLevelWindow ()
+ 	Default ctor. 
+ 	wxTopLevelWindow (wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint &pos=wxDefaultPosition, const wxSize &size=wxDefaultSize, long style=wxDEFAULT_FRAME_STYLE, const wxString &name=wxFrameNameStr)
+ 	Constructor creating the top level window. 
+virtual 	~wxTopLevelWindow ()
+ 	Destructor. 
+bool 	Create (wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint &pos=wxDefaultPosition, const wxSize &size=wxDefaultSize, long style=wxDEFAULT_FRAME_STYLE, const wxString &name=wxFrameNameStr)
+ 	Creates the top level window. 
+virtual bool 	CanSetTransparent ()
+ 	Returns true if the platform supports making the window translucent. 
+*)
+
+   method(void, 	CenterOnScreen) (int direction)
+   method(void, 	CentreOnScreen) (int direction (* =wxBOTH *))
+
+(*
+ 	Centres the window on screen. 
+virtual bool 	EnableCloseButton (bool enable=true)
+ 	Enables or disables the Close button (most often in the right upper corner of a dialog) and the Close entry of the system menu (most often in the left upper corner of the dialog). 
+wxWindow * 	GetDefaultItem () const
+ 	Returns a pointer to the button which is the default for this window, or NULL. 
+wxIcon 	GetIcon () const
+ 	Returns the standard icon of the window. 
+const wxIconBundle & 	GetIcons () const
+ 	Returns all icons associated with the window, there will be none of them if neither SetIcon() nor SetIcons() had been called before. 
+virtual wxString 	GetTitle () const
+ 	Gets a string containing the window title. 
+virtual bool 	HandleSettingChange (WXWPARAM wParam, WXLPARAM lParam)
+ 	Unique to the wxWinCE port. 
+virtual void 	Iconize (bool iconize=true)
+ 	Iconizes or restores the window. 
+virtual bool 	IsActive ()
+ 	Returns true if this window is currently active, i.e. 
+virtual bool 	IsAlwaysMaximized () const
+ 	Returns true if this window is expected to be always maximized, either due to platform policy or due to local policy regarding particular class. 
+virtual bool 	IsFullScreen () const
+ 	Returns true if the window is in fullscreen mode. 
+virtual bool 	IsIconized () const
+ 	Returns true if the window is iconized. 
+virtual bool 	IsMaximized () const
+ 	Returns true if the window is maximized. 
+bool 	IsUsingNativeDecorations () const
+ 	This method is specific to wxUniversal port. 
+virtual bool 	Layout ()
+ 	See wxWindow::SetAutoLayout(): when auto layout is on, this function gets called automatically when the window is resized. 
+virtual void 	Maximize (bool maximize=true)
+ 	Maximizes or restores the window. 
+wxMenu * 	MSWGetSystemMenu () const
+ 	MSW-specific function for accessing the system menu. 
+virtual void 	RequestUserAttention (int flags=wxUSER_ATTENTION_INFO)
+ 	Use a system-dependent way to attract users attention to the window when it is in background. 
+wxWindow * 	SetDefaultItem (wxWindow *win)
+ 	Changes the default item for the panel, usually win is a button. 
+wxWindow * 	SetTmpDefaultItem (wxWindow *win)
+wxWindow * 	GetTmpDefaultItem () const
+void 	SetIcon (const wxIcon &icon)
+ 	Sets the icon for this window. 
+virtual void 	SetIcons (const wxIconBundle &icons)
+ 	Sets several icons of different sizes for this window: this allows to use different icons for different situations (e.g. 
+void 	SetLeftMenu (int id=wxID_ANY, const wxString &label=wxEmptyString, wxMenu *subMenu=NULL)
+ 	Sets action or menu activated by pressing left hardware button on the smart phones. 
+virtual void 	SetMaxSize (const wxSize &size)
+ 	A simpler interface for setting the size hints than SetSizeHints(). 
+virtual void 	SetMinSize (const wxSize &size)
+ 	A simpler interface for setting the size hints than SetSizeHints(). 
+void 	SetRightMenu (int id=wxID_ANY, const wxString &label=wxEmptyString, wxMenu *subMenu=NULL)
+ 	Sets action or menu activated by pressing right hardware button on the smart phones. 
+virtual void 	SetSizeHints (int minW, int minH, int maxW=-1, int maxH=-1, int incW=-1, int incH=-1)
+ 	Allows specification of minimum and maximum window sizes, and window size increments. 
+void 	SetSizeHints (const wxSize &minSize, const wxSize &maxSize=wxDefaultSize, const wxSize &incSize=wxDefaultSize)
+ 	Allows specification of minimum and maximum window sizes, and window size increments. 
+virtual void 	SetTitle (const wxString &title)
+ 	Sets the window title. 
+virtual bool 	SetTransparent (wxByte alpha)
+ 	If the platform supports it will set the window to be translucent. 
+virtual bool 	ShouldPreventAppExit () const
+ 	This virtual function is not meant to be called directly but can be overridden to return false (it returns true by default) to allow the application to close even if this, presumably not very important, window is still opened. 
+virtual void 	OSXSetModified (bool modified)
+ 	This function sets the wxTopLevelWindow's modified state on OS X, which currently draws a black dot in the wxTopLevelWindow's close button. 
+virtual bool 	OSXIsModified () const
+ 	Returns the current modified state of the wxTopLevelWindow on OS X. 
+virtual void 	SetRepresentedFilename (const wxString &filename)
+ 	Sets the file name represented by this wxTopLevelWindow. 
+virtual bool 	ShowFullScreen (bool show, long style=wxFULLSCREEN_ALL)
+ 	Depending on the value of show parameter the window is either shown full screen or restored to its normal state. 
+void 	UseNativeDecorations (bool native=true)
+ 	This method is specific to wxUniversal port. 
+void 	UseNativeDecorationsByDefault (bool native=true)
+ 	This method is specific to wxUniversal port. 
+Static Public Member Functions
+
+static wxSize 	GetDefaultSize ()
+ 	Get the default size for a new top level window. 
+*)
+
 end

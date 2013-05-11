@@ -21,7 +21,9 @@ class wxWindow inherit wxWindowBase begin
   method(wxString,GetName)()
   method(void,SetId)(int _id)
   method(int,GetId)()
-  method(void,SetSize)(int x,int y,int width,int height,int sizeFlags)
+  method(void,SetSize)(int width,int height)
+  method(void,SetSize, SetSizeAll)(int x,int y,int width,int height,
+     int sizeFlags  (* = wxSIZE_AUTO *) )
   method(void,Move)(int x,int y)
   method(void,Raise)()
   method(void,Lower)()
@@ -108,27 +110,30 @@ class wxWindow inherit wxWindowBase begin
   method(wxToolTip?,GetToolTip)()
   method(void,SetDropTarget)(wxDropTarget? dropTarget)
   method(wxDropTarget?,GetDropTarget)()
-  method(void,SetConstraints)(wxLayoutConstraints? constraints)
-  method(wxLayoutConstraints?,GetConstraints)()
   method(void,SetAutoLayout)(bool autoLayout)
   method(int,GetAutoLayout)()
   method(void,Layout)()
 
-  method(void,UnsetConstraints)(wxLayoutConstraints? c)
+(*
+  method(void,Setraints)(wxLayoutraints? raints)
+  method(wxLayoutraints?,Getraints)()
+  method(void,Unsetraints)(wxLayoutraints? c) 
+  method(void,Resetraints)()
+  method(void,SetraintSizes)(bool recurse)
+  method(void,AddraintReference)(wxWindowBase? otherWin)
+  method(void,RemoveraintReference)(wxWindowBase? otherWin)
+  method(void,DeleteRelatedraints)()
+  method(int,DoPhase)(int phase)
+  method(void,SetSizeraint)(int x,int y,int w,int h)
+  method(void,Moveraint)(int x,int y)
+  method(void,GetSizeraint)(int <- w,int <- h)
+  method(void,GetClientSizeraint)(int <- w,int <- h)
+  method(void,GetPositionraint)(int <- x,int <- y)
+*)
+
 
   method(long,GetWindowStyle)()
   method(void,SetWindowStyle)(long style)
-  method(void,AddConstraintReference)(wxWindowBase? otherWin)
-  method(void,RemoveConstraintReference)(wxWindowBase? otherWin)
-  method(void,DeleteRelatedConstraints)()
-  method(void,ResetConstraints)()
-  method(void,SetConstraintSizes)(bool recurse)
-  method(int,DoPhase)(int phase)
-  method(void,SetSizeConstraint)(int x,int y,int w,int h)
-  method(void,MoveConstraint)(int x,int y)
-  method(void,GetSizeConstraint)(int <- w,int <- h)
-  method(void,GetClientSizeConstraint)(int <- w,int <- h)
-  method(void,GetPositionConstraint)(int <- x,int <- y)
   method(void,SetSizer)(wxSizer* sizer)
   method(void,SetSizerAndFit) (wxSizer *sizer, bool deleteOld)
   method(wxSizer?,GetSizer)()
@@ -161,7 +166,7 @@ class wxWindow inherit wxWindowBase begin
 
   We need more info, is it really optional the return value ?
   we also need a converter from wxWindowList to wxWindow array:
-  method(wxWindowList?,GetConstraintsInvolvedIn)()
+  method(wxWindowList?,GetraintsInvolvedIn)()
 
   method(void,SetClientData)(void* data)
   method(void*,GetClientData)()
@@ -172,5 +177,593 @@ class wxWindow inherit wxWindowBase begin
 *)
   function(wxWindow?, wxGetTopLevelParent)(wxWindow* win)
 
+
+
+
+(*
+
+
+ 	wxWindow ()
+ 	Default ructor. 
+ 	wxWindow (wxWindow *parent, wxWindowID id,  wxPoint &pos=wxDefaultPosition,  wxSize &size=wxDefaultSize, long style=0,  wxString &name=wxPanelNameStr)
+ 	ructs a window, which can be a child of a frame, dialog or any other non-control window. 
+virtual 	~wxWindow ()
+ 	Destructor. 
+bool 	Create (wxWindow *parent, wxWindowID id,  wxPoint &pos=wxDefaultPosition,  wxSize &size=wxDefaultSize, long style=0,  wxString &name=wxPanelNameStr)
+Focus functions
+See also the static function FindFocus().
+
+virtual bool 	AcceptsFocus () 
+ 	This method may be overridden in the derived classes to return false to indicate that this control doesn't accept input at all (i.e. 
+virtual bool 	AcceptsFocusFromKeyboard () 
+ 	This method may be overridden in the derived classes to return false to indicate that while this control can, in principle, have focus if the user clicks it with the mouse, it shouldn't be included in the TAB traversal chain when using the keyboard. 
+virtual bool 	AcceptsFocusRecursively () 
+ 	Overridden to indicate whether this window or one of its children accepts focus. 
+virtual bool 	HasFocus () 
+ 	Returns true if the window (or in case of composite controls, its main child window) has focus. 
+virtual void 	SetCanFocus (bool canFocus)
+ 	This method is only implemented by ports which have support for native TAB traversal (such as GTK+ 2.0). 
+virtual void 	SetFocus ()
+ 	This sets the window to receive keyboard input. 
+virtual void 	SetFocusFromKbd ()
+ 	This function is called by wxWidgets keyboard navigation code when the user gives the focus to this window from keyboard (e.g. 
+Child management functions
+virtual void 	AddChild (wxWindow *child)
+ 	Adds a child window. 
+bool 	DestroyChildren ()
+ 	Destroys all children of a window. 
+wxWindow * 	FindWindow (long id) 
+ 	Find a child of this window, by id. 
+wxWindow * 	FindWindow ( wxString &name) 
+ 	Find a child of this window, by name. 
+wxWindowList & 	GetChildren ()
+ 	Returns a reference to the list of the window's children. 
+ wxWindowList & 	GetChildren () 
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+virtual void 	RemoveChild (wxWindow *child)
+ 	Removes a child window. 
+Sibling and parent management functions
+wxWindow * 	GetGrandParent () 
+ 	Returns the grandparent of a window, or NULL if there isn't one. 
+wxWindow * 	GetNextSibling () 
+ 	Returns the next window after this one among the parent's children or NULL if this window is the last child. 
+wxWindow * 	GetParent () 
+ 	Returns the parent of the window, or NULL if there is no parent. 
+wxWindow * 	GetPrevSibling () 
+ 	Returns the previous window before this one among the parent's children or NULL if this window is the first child. 
+bool 	IsDescendant (wxWindowBase *win) 
+ 	Check if the specified window is a descendant of this one. 
+virtual bool 	Reparent (wxWindow *newParent)
+ 	Reparents the window, i.e. 
+Scrolling and scrollbars functions
+Note that these methods don't work with native controls which don't use wxWidgets scrolling framework (i.e.
+
+don't derive from wxScrolledWindow).
+
+virtual void 	AlwaysShowScrollbars (bool hflag=true, bool vflag=true)
+ 	Call this function to force one or both scrollbars to be always shown, even if the window is big enough to show its entire contents without scrolling. 
+virtual int 	GetScrollPos (int orientation) 
+ 	Returns the built-in scrollbar position. 
+virtual int 	GetScrollRange (int orientation) 
+ 	Returns the built-in scrollbar range. 
+virtual int 	GetScrollThumb (int orientation) 
+ 	Returns the built-in scrollbar thumb size. 
+bool 	CanScroll (int orient) 
+ 	Returns true if this window can have a scroll bar in this orientation. 
+bool 	HasScrollbar (int orient) 
+ 	Returns true if this window currently has a scroll bar for this orientation. 
+virtual bool 	IsScrollbarAlwaysShown (int orient) 
+ 	Return whether a scrollbar is always shown. 
+virtual bool 	ScrollLines (int lines)
+ 	Scrolls the window by the given number of lines down (if lines is positive) or up. 
+virtual bool 	ScrollPages (int pages)
+ 	Scrolls the window by the given number of pages down (if pages is positive) or up. 
+virtual void 	ScrollWindow (int dx, int dy,  wxRect *rect=NULL)
+ 	Physically scrolls the pixels in the window and move child windows accordingly. 
+bool 	LineUp ()
+ 	Same as ScrollLines (-1). 
+bool 	LineDown ()
+ 	Same as ScrollLines (1). 
+bool 	PageUp ()
+ 	Same as ScrollPages (-1). 
+bool 	PageDown ()
+ 	Same as ScrollPages (1). 
+virtual void 	SetScrollPos (int orientation, int pos, bool refresh=true)
+ 	Sets the position of one of the built-in scrollbars. 
+virtual void 	SetScrollbar (int orientation, int position, int thumbSize, int range, bool refresh=true)
+ 	Sets the scrollbar properties of a built-in scrollbar. 
+Sizing functions
+See also the protected functions DoGetBestSize() and DoGetBestClientSize().
+
+void 	CacheBestSize ( wxSize &size) 
+ 	Sets the cached best size value. 
+virtual wxSize 	ClientToWindowSize ( wxSize &size) 
+ 	Converts client area size size to corresponding window size. 
+virtual wxSize 	WindowToClientSize ( wxSize &size) 
+ 	Converts window size size to corresponding client area size In other words, the returned value is what would GetClientSize() return if this window had given window size. 
+virtual void 	Fit ()
+ 	Sizes the window so that it fits around its subwindows. 
+virtual void 	FitInside ()
+ 	Similar to Fit(), but sizes the interior (virtual) size of a window. 
+wxSize 	GetBestSize () 
+ 	This functions returns the best acceptable minimal size for the window. 
+int 	GetBestHeight (int width) 
+ 	Returns the best height needed by this window if it had the given width. 
+int 	GetBestWidth (int height) 
+ 	Returns the best width needed by this window if it had the given height. 
+void 	GetClientSize (int *width, int *height) 
+ 	Returns the size of the window 'client area' in pixels. 
+wxSize 	GetClientSize () 
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+virtual wxSize 	GetEffectiveMinSize () 
+ 	Merges the window's best size into the min size and returns the result. 
+virtual wxSize 	GetMaxClientSize () 
+ 	Returns the maximum size of window's client area. 
+virtual wxSize 	GetMaxSize () 
+ 	Returns the maximum size of the window. 
+virtual wxSize 	GetMinClientSize () 
+ 	Returns the minimum size of window's client area, an indication to the sizer layout mechanism that this is the minimum required size of its client area. 
+virtual wxSize 	GetMinSize () 
+ 	Returns the minimum size of the window, an indication to the sizer layout mechanism that this is the minimum required size. 
+int 	GetMinWidth () 
+ 	Sets the cached best size value. 
+int 	GetMinHeight () 
+ 	Sets the cached best size value. 
+int 	GetMaxWidth () 
+ 	Sets the cached best size value. 
+int 	GetMaxHeight () 
+ 	Sets the cached best size value. 
+void 	GetSize (int *width, int *height) 
+ 	Returns the size of the entire window in pixels, including title bar, border, scrollbars, etc. 
+wxSize 	GetSize () 
+ 	See the GetSize(int*,int* ) overload for more info. 
+wxSize 	GetVirtualSize () 
+ 	This gets the virtual size of the window in pixels. 
+void 	GetVirtualSize (int *width, int *height) 
+ 	Like the other GetVirtualSize() overload but uses pointers instead. 
+virtual wxSize 	GetBestVirtualSize () 
+ 	Return the largest of ClientSize and BestSize (as determined by a sizer, interior children, or other means) 
+virtual wxSize 	GetWindowBorderSize () 
+ 	Returns the size of the left/right and top/bottom borders of this window in x and y components of the result respectively. 
+virtual bool 	InformFirstDirection (int direction, int size, int availableOtherDir)
+ 	wxSizer and friends use this to give a chance to a component to recalc its min size once one of the final size components is known. 
+void 	InvalidateBestSize ()
+ 	Resets the cached best size value so it will be recalculated the next time it is needed. 
+void 	PostSizeEvent ()
+ 	Posts a size event to the window. 
+void 	PostSizeEventToParent ()
+ 	Posts a size event to the parent of this window. 
+virtual void 	SendSizeEvent (int flags=0)
+ 	This function sends a dummy size event to the window allowing it to re-layout its children positions. 
+void 	SendSizeEventToParent (int flags=0)
+ 	Safe wrapper for GetParent()->SendSizeEvent(). 
+void 	SetClientSize (int width, int height)
+ 	This sets the size of the window client area in pixels. 
+void 	SetClientSize ( wxSize &size)
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+void 	SetClientSize ( wxRect &rect)
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+void 	SetContainingSizer (wxSizer *sizer)
+ 	This normally does not need to be called by user code. 
+void 	SetInitialSize ( wxSize &size=wxDefaultSize)
+ 	A smart SetSize that will fill in default size components with the window's best size values. 
+virtual void 	SetMaxClientSize ( wxSize &size)
+ 	Sets the maximum client size of the window, to indicate to the sizer layout mechanism that this is the maximum possible size of its client area. 
+virtual void 	SetMaxSize ( wxSize &size)
+ 	Sets the maximum size of the window, to indicate to the sizer layout mechanism that this is the maximum possible size. 
+virtual void 	SetMinClientSize ( wxSize &size)
+ 	Sets the minimum client size of the window, to indicate to the sizer layout mechanism that this is the minimum required size of window's client area. 
+virtual void 	SetMinSize ( wxSize &size)
+ 	Sets the minimum size of the window, to indicate to the sizer layout mechanism that this is the minimum required size. 
+void 	SetSize (int x, int y, int width, int height, int sizeFlags=wxSIZE_AUTO)
+ 	Sets the size of the window in pixels. 
+void 	SetSize ( wxRect &rect)
+ 	Sets the size of the window in pixels. 
+void 	SetSize ( wxSize &size)
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+void 	SetSize (int width, int height)
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+virtual void 	SetSizeHints ( wxSize &minSize,  wxSize &maxSize=wxDefaultSize,  wxSize &incSize=wxDefaultSize)
+ 	Use of this function for windows which are not toplevel windows (such as wxDialog or wxFrame) is discouraged. 
+virtual void 	SetSizeHints (int minW, int minH, int maxW=-1, int maxH=-1, int incW=-1, int incH=-1)
+ 	Sets the cached best size value. 
+void 	SetVirtualSize (int width, int height)
+ 	Sets the virtual size of the window in pixels. 
+void 	SetVirtualSize ( wxSize &size)
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+Positioning functions
+void 	Center (int dir=wxBOTH)
+ 	A synonym for Centre(). 
+void 	CenterOnParent (int dir=wxBOTH)
+ 	A synonym for CentreOnParent(). 
+void 	Centre (int direction=wxBOTH)
+ 	Centres the window. 
+void 	CentreOnParent (int direction=wxBOTH)
+ 	Centres the window on its parent. 
+void 	GetPosition (int *x, int *y) 
+ 	This gets the position of the window in pixels, relative to the parent window for the child windows or relative to the display origin for the top level windows. 
+wxPoint 	GetPosition () 
+ 	This gets the position of the window in pixels, relative to the parent window for the child windows or relative to the display origin for the top level windows. 
+wxRect 	GetRect () 
+ 	Returns the position and size of the window as a wxRect object. 
+void 	GetScreenPosition (int *x, int *y) 
+ 	Returns the window position in screen coordinates, whether the window is a child window or a top level one. 
+wxPoint 	GetScreenPosition () 
+ 	Returns the window position in screen coordinates, whether the window is a child window or a top level one. 
+wxRect 	GetScreenRect () 
+ 	Returns the position and size of the window on the screen as a wxRect object. 
+virtual wxPoint 	GetClientAreaOrigin () 
+ 	Get the origin of the client area of the window relative to the window top left corner (the client area may be shifted because of the borders, scrollbars, other decorations...) 
+*)
+
+  method(wxRect, 	GetClientRect) () 
+
+
+  method(void, 	Move) (int x, int y)
+  method(void, 	Move, MoveAll) (
+                int x, int y, 
+                int flags (* =wxSIZE_USE_EXISTING *))
+  method(void, 	SetPosition) ( wxPoint &pt)
+  method(void, 	ClientToScreen) (int <- x, int <-y) 
+  method(wxPoint, 	ConvertDialogToPixels) ( wxPoint &pt) 
+(*  method(wxSize, 	ConvertDialogToPixels) ( wxSize &sz)  *)
+
+(*
+wxPoint 	ConvertPixelsToDialog ( wxPoint &pt) 
+ 	Converts a point or size from pixels to dialog units. 
+wxSize 	ConvertPixelsToDialog ( wxSize &sz) 
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+void 	ScreenToClient (int *x, int *y) 
+ 	Converts from screen to client window coordinates. 
+wxPoint 	ScreenToClient ( wxPoint &pt) 
+ 	Converts from screen to client window coordinates. 
+Drawing-related functions
+virtual void 	ClearBackground ()
+ 	Clears the window by filling it with the current background colour. 
+void 	Freeze ()
+ 	Freezes the window or, in other words, prevents any updates from taking place on screen, the window is not redrawn at all. 
+void 	Thaw ()
+ 	Re-enables window updating after a previous call to Freeze(). 
+bool 	IsFrozen () 
+ 	Returns true if the window is currently frozen by a call to Freeze(). 
+wxColour 	GetBackgroundColour () 
+ 	Returns the background colour of the window. 
+virtual wxBackgroundStyle 	GetBackgroundStyle () 
+ 	Returns the background style of the window. 
+virtual int 	GetCharHeight () 
+ 	Returns the character height for this window. 
+virtual int 	GetCharWidth () 
+ 	Returns the average character width for this window. 
+virtual wxVisualAttributes 	GetDefaultAttributes () 
+ 	Currently this is the same as calling wxWindow::GetClassDefaultAttributes(wxWindow::GetWindowVariant()). 
+wxFont 	GetFont () 
+ 	Returns the font for this window. 
+wxColour 	GetForegroundColour () 
+ 	Returns the foreground colour of the window. 
+void 	GetTextExtent ( wxString &string, int *w, int *h, int *descent=NULL, int *externalLeading=NULL,  wxFont *font=NULL) 
+ 	Gets the dimensions of the string as it would be drawn on the window with the currently selected font. 
+wxSize 	GetTextExtent ( wxString &string) 
+ 	Gets the dimensions of the string as it would be drawn on the window with the currently selected font. 
+ wxRegion & 	GetUpdateRegion () 
+ 	Returns the region specifying which parts of the window have been damaged. 
+wxRect 	GetUpdateClientRect () 
+ 	Get the update rectangle bounding box in client coords. 
+virtual bool 	HasTransparentBackground ()
+ 	Returns true if this window background is transparent (as, for example, for wxStaticText) and should show the parent window background. 
+virtual void 	Refresh (bool eraseBackground=true,  wxRect *rect=NULL)
+ 	Causes this window, and all of its children recursively (except under wxGTK1 where this is not implemented), to be repainted. 
+void 	RefreshRect ( wxRect &rect, bool eraseBackground=true)
+ 	Redraws the contents of the given rectangle: only the area inside it will be repainted. 
+virtual void 	Update ()
+ 	Calling this method immediately repaints the invalidated area of the window and all of its children recursively (this normally only happens when the flow of control returns to the event loop). 
+virtual bool 	SetBackgroundColour ( wxColour &colour)
+ 	Sets the background colour of the window. 
+virtual bool 	SetBackgroundStyle (wxBackgroundStyle style)
+ 	Sets the background style of the window. 
+virtual bool 	IsTransparentBackgroundSupported (wxString *reason=NULL) 
+ 	Checks whether using transparent background might work. 
+virtual bool 	SetFont ( wxFont &font)
+ 	Sets the font for this window. 
+virtual bool 	SetForegroundColour ( wxColour &colour)
+ 	Sets the foreground colour of the window. 
+void 	SetOwnBackgroundColour ( wxColour &colour)
+ 	Sets the background colour of the window but prevents it from being inherited by the children of this window. 
+void 	SetOwnFont ( wxFont &font)
+ 	Sets the font of the window but prevents it from being inherited by the children of this window. 
+void 	SetOwnForegroundColour ( wxColour &colour)
+ 	Sets the foreground colour of the window but prevents it from being inherited by the children of this window. 
+void 	SetPalette ( wxPalette &pal)
+virtual bool 	ShouldInheritColours () 
+ 	Return true from here to allow the colours of this window to be changed by InheritAttributes(). 
+virtual void 	SetThemeEnabled (bool enable)
+ 	This function tells a window if it should use the system's "theme" code to draw the windows' background instead of its own background drawing code. 
+virtual bool 	GetThemeEnabled () 
+ 	Clears the window by filling it with the current background colour. 
+virtual bool 	CanSetTransparent ()
+ 	Returns true if the system supports transparent windows and calling SetTransparent() may succeed. 
+virtual bool 	SetTransparent (wxByte alpha)
+ 	Set the transparency of the window. 
+Event-handling functions
+wxWindow allows you to build a (sort of) stack of event handlers which can be used to override the window's own event handling.
+
+wxEvtHandler * 	GetEventHandler () 
+ 	Returns the event handler for this window. 
+bool 	HandleAsNavigationKey ( wxKeyEvent &event)
+ 	This function will generate the appropriate call to Navigate() if the key event is one normally used for keyboard navigation and return true in this case. 
+bool 	HandleWindowEvent (wxEvent &event) 
+ 	Shorthand for: 
+bool 	ProcessWindowEvent (wxEvent &event)
+ 	Convenient wrapper for ProcessEvent(). 
+bool 	ProcessWindowEventLocally (wxEvent &event)
+ 	Wrapper for wxEvtHandler::ProcessEventLocally(). 
+wxEvtHandler * 	PopEventHandler (bool deleteHandler=false)
+ 	Removes and returns the top-most event handler on the event handler stack. 
+void 	PushEventHandler (wxEvtHandler *handler)
+ 	Pushes this event handler onto the event stack for the window. 
+bool 	RemoveEventHandler (wxEvtHandler *handler)
+ 	Find the given handler in the windows event handler stack and removes (but does not delete) it from the stack. 
+void 	SetEventHandler (wxEvtHandler *handler)
+ 	Sets the event handler for this window. 
+virtual void 	SetNextHandler (wxEvtHandler *handler)
+ 	wxWindows cannot be used to form event handler chains; this function thus will assert when called. 
+virtual void 	SetPreviousHandler (wxEvtHandler *handler)
+ 	wxWindows cannot be used to form event handler chains; this function thus will assert when called. 
+Window styles functions
+long 	GetExtraStyle () 
+ 	Returns the extra style bits for the window. 
+virtual long 	GetWindowStyleFlag () 
+ 	Gets the window style that was passed to the ructor or Create() method. 
+long 	GetWindowStyle () 
+ 	See GetWindowStyleFlag() for more info. 
+bool 	HasExtraStyle (int exFlag) 
+ 	Returns true if the window has the given exFlag bit set in its extra styles. 
+bool 	HasFlag (int flag) 
+ 	Returns true if the window has the given flag bit set. 
+virtual void 	SetExtraStyle (long exStyle)
+ 	Sets the extra style bits for the window. 
+virtual void 	SetWindowStyleFlag (long style)
+ 	Sets the style of the window. 
+void 	SetWindowStyle (long style)
+ 	See SetWindowStyleFlag() for more info. 
+bool 	ToggleWindowStyle (int flag)
+ 	Turns the given flag on if it's currently turned off and vice versa. 
+Tab order functions
+void 	MoveAfterInTabOrder (wxWindow *win)
+ 	Moves this window in the tab navigation order after the specified win. 
+void 	MoveBeforeInTabOrder (wxWindow *win)
+ 	Same as MoveAfterInTabOrder() except that it inserts this window just before win instead of putting it right after it. 
+bool 	Navigate (int flags=wxNavigationKeyEvent::IsForward)
+ 	Performs a keyboard navigation action starting from this window. 
+bool 	NavigateIn (int flags=wxNavigationKeyEvent::IsForward)
+ 	Performs a keyboard navigation action inside this window. 
+Z order functions
+virtual void 	Lower ()
+ 	Lowers the window to the bottom of the window hierarchy (Z-order). 
+virtual void 	Raise ()
+ 	Raises the window to the top of the window hierarchy (Z-order). 
+Window status functions
+bool 	Hide ()
+ 	Equivalent to calling wxWindow::Show(false). 
+virtual bool 	HideWithEffect (wxShowEffect effect, unsigned int timeout=0)
+ 	This function hides a window, like Hide(), but using a special visual effect if possible. 
+bool 	IsEnabled () 
+ 	Returns true if the window is enabled, i.e. 
+bool 	IsExposed (int x, int y) 
+ 	Returns true if the given point or rectangle area has been exposed since the last repaint. 
+bool 	IsExposed (wxPoint &pt) 
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+bool 	IsExposed (int x, int y, int w, int h) 
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+bool 	IsExposed (wxRect &rect) 
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+virtual bool 	IsShown () 
+ 	Returns true if the window is shown, false if it has been hidden. 
+virtual bool 	IsShownOnScreen () 
+ 	Returns true if the window is physically visible on the screen, i.e. 
+bool 	Disable ()
+ 	Disables the window. 
+virtual bool 	Enable (bool enable=true)
+ 	Enable or disable the window for user input. 
+virtual bool 	Show (bool show=true)
+ 	Shows or hides the window. 
+virtual bool 	ShowWithEffect (wxShowEffect effect, unsigned int timeout=0)
+ 	This function shows a window, like Show(), but using a special visual effect if possible. 
+Context-sensitive help functions
+wxString 	GetHelpText () 
+ 	Gets the help text to be used as context-sensitive help for this window. 
+void 	SetHelpText ( wxString &helpText)
+ 	Sets the help text to be used as context-sensitive help for this window. 
+virtual wxString 	GetHelpTextAtPoint ( wxPoint &point, wxHelpEvent::Origin origin) 
+ 	Gets the help text to be used as context-sensitive help for this window. 
+wxToolTip * 	GetToolTip () 
+ 	Get the associated tooltip or NULL if none. 
+wxString 	GetToolTipText () 
+ 	Get the text of the associated tooltip or empty string if none. 
+void 	SetToolTip ( wxString &tipString)
+ 	Attach a tooltip to the window. 
+void 	SetToolTip (wxToolTip *tip)
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+void 	UnsetToolTip ()
+ 	Unset any existing tooltip. 
+Popup/context menu functions
+int 	GetPopupMenuSelectionFromUser (wxMenu &menu,  wxPoint &pos=wxDefaultPosition)
+ 	This function shows a popup menu at the given position in this window and returns the selected id. 
+int 	GetPopupMenuSelectionFromUser (wxMenu &menu, int x, int y)
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+bool 	PopupMenu (wxMenu *menu,  wxPoint &pos=wxDefaultPosition)
+ 	Pops up the given menu at the specified coordinates, relative to this window, and returns control when the user has dismissed the menu. 
+bool 	PopupMenu (wxMenu *menu, int x, int y)
+ 	This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+virtual wxValidator * 	GetValidator ()
+ 	Validator functions. 
+virtual void 	SetValidator ( wxValidator &validator)
+ 	Deletes the current validator (if any) and sets the window validator, having called wxValidator::Clone to create a new validator of this type. 
+virtual bool 	TransferDataFromWindow ()
+ 	Transfers values from child controls to data areas specified by their validators. 
+virtual bool 	TransferDataToWindow ()
+ 	Transfers values to child controls from data areas specified by their validators. 
+virtual bool 	Validate ()
+ 	Validates the current values of the child controls using their validators. 
+wxWindow properties functions
+wxWindowID 	GetId () 
+ 	Returns the identifier of the window. 
+virtual wxString 	GetLabel () 
+ 	Generic way of getting a label from any window, for identification purposes. 
+virtual wxLayoutDirection 	GetLayoutDirection () 
+ 	Returns the layout direction for this window, Note that wxLayout_Default is returned if layout direction is not supported. 
+virtual wxString 	GetName () 
+ 	Returns the window's name. 
+wxWindowVariant 	GetWindowVariant () 
+ 	Returns the value previously passed to SetWindowVariant(). 
+void 	SetId (wxWindowID winid)
+ 	Sets the identifier of the window. 
+virtual void 	SetLabel ( wxString &label)
+ 	Sets the window's label. 
+virtual void 	SetLayoutDirection (wxLayoutDirection dir)
+ 	Sets the layout direction for this window. 
+virtual void 	SetName ( wxString &name)
+ 	Sets the window's name. 
+void 	SetWindowVariant (wxWindowVariant variant)
+ 	This function can be called under all platforms but only does anything under Mac OS X 10.3+ currently. 
+wxAcceleratorTable * 	GetAcceleratorTable ()
+ 	Gets the accelerator table for this window. 
+wxAccessible * 	GetAccessible ()
+ 	Returns the accessible object for this window, if any. 
+virtual void 	SetAcceleratorTable ( wxAcceleratorTable &accel)
+ 	Sets the accelerator table for this window. 
+void 	SetAccessible (wxAccessible *accessible)
+ 	Sets the accessible for this window. 
+Window deletion functions
+bool 	Close (bool force=false)
+ 	This function simply generates a wxCloseEvent whose handler usually tries to close the window. 
+virtual bool 	Destroy ()
+ 	Destroys the window safely. 
+bool 	IsBeingDeleted () 
+ 	Returns true if this window is in process of being destroyed. 
+Drag and drop functions
+virtual wxDropTarget * 	GetDropTarget () 
+ 	Returns the associated drop target, which may be NULL. 
+virtual void 	SetDropTarget (wxDropTarget *target)
+ 	Associates a drop target with this window. 
+virtual void 	DragAcceptFiles (bool accept)
+ 	Enables or disables eligibility for drop file events (OnDropFiles). 
+raints, sizers and window layout functions
+wxSizer * 	GetContainingSizer () 
+ 	Returns the sizer of which this window is a member, if any, otherwise NULL. 
+wxSizer * 	GetSizer () 
+ 	Returns the sizer associated with the window by a previous call to SetSizer(), or NULL. 
+void 	SetSizer (wxSizer *sizer, bool deleteOld=true)
+ 	Sets the window to have the given layout sizer. 
+void 	SetSizerAndFit (wxSizer *sizer, bool deleteOld=true)
+ 	This method calls SetSizer() and then wxSizer::SetSizeHints which sets the initial window size to the size needed to accommodate all sizer elements and sets the size hints which, if this window is a top level one, prevent the user from resizing it to be less than this minimal size. 
+wxLayoutraints * 	Getraints () 
+ 	Returns a pointer to the window's layout raints, or NULL if there are none. 
+void 	Setraints (wxLayoutraints *raints)
+ 	Sets the window to have the given layout raints. 
+virtual bool 	Layout ()
+ 	Invokes the raint-based layout algorithm or the sizer-based algorithm for this window. 
+void 	SetAutoLayout (bool autoLayout)
+ 	Determines whether the Layout() function will be called automatically when the window is resized. 
+bool 	GetAutoLayout () 
+ 	Returns the sizer of which this window is a member, if any, otherwise NULL. 
+Mouse functions
+*)
+
+      method(void, CaptureMouse) ()
+      method(wxCaret?, 	GetCaret) () 
+      method(wxCursor, 	GetCursor) () 
+      method(bool, 	HasCapture) () 
+      method(void, 	ReleaseMouse) ()
+      method(void, 	SetCaret) (wxCaret *caret)
+      method(bool, 	SetCursor) ( wxCursor &cursor)
+      method(void, 	WarpPointer) (int x, int y)
+
+(*
+Miscellaneous functions
+wxHitTest 	HitTest (wxCoord x, wxCoord y) 
+ 	Get the window border style from the given flags: this is different from simply doing flags & wxBORDER_MASK because it uses GetDefaultBorder() to translate wxBORDER_DEFAULT to something reasonable. 
+wxHitTest 	HitTest ( wxPoint &pt) 
+ 	Get the window border style from the given flags: this is different from simply doing flags & wxBORDER_MASK because it uses GetDefaultBorder() to translate wxBORDER_DEFAULT to something reasonable. 
+wxBorder 	GetBorder (long flags) 
+ 	Get the window border style from the given flags: this is different from simply doing flags & wxBORDER_MASK because it uses GetDefaultBorder() to translate wxBORDER_DEFAULT to something reasonable. 
+wxBorder 	GetBorder () 
+ 	Get border for the flags of this window. 
+virtual void 	DoUpdateWindowUI (wxUpdateUIEvent &event)
+ 	Does the window-specific updating after processing the update event. 
+virtual WXWidget 	GetHandle () 
+ 	Returns the platform-specific handle of the physical window. 
+virtual bool 	HasMultiplePages () 
+ 	This method should be overridden to return true if this window has multiple pages. 
+virtual void 	InheritAttributes ()
+ 	This function is (or should be, in case of custom controls) called during window creation to intelligently set up the window visual attributes, that is the font and the foreground and background colours. 
+virtual void 	InitDialog ()
+ 	Sends an wxEVT_INIT_DIALOG event, whose handler usually transfers data to the dialog via validators. 
+virtual bool 	IsDoubleBuffered () 
+ 	Returns true if the window contents is double-buffered by the system, i.e. 
+void 	SetDoubleBuffered (bool on)
+ 	Turn on or off double buffering of the window if the system supports it. 
+virtual bool 	IsRetained () 
+ 	Returns true if the window is retained, false otherwise. 
+bool 	IsThisEnabled () 
+ 	Returns true if this window is intrinsically enabled, false otherwise, i.e. 
+virtual bool 	IsTopLevel () 
+ 	Returns true if the given window is a top-level one. 
+virtual void 	OnInternalIdle ()
+ 	This virtual function is normally only used internally, but sometimes an application may need it to implement functionality that should not be disabled by an application defining an OnIdle handler in a derived class. 
+virtual bool 	RegisterHotKey (int hotkeyId, int modifiers, int virtualKeyCode)
+ 	Registers a system wide hotkey. 
+virtual bool 	UnregisterHotKey (int hotkeyId)
+ 	Unregisters a system wide hotkey. 
+virtual void 	UpdateWindowUI (long flags=wxUPDATE_UI_NONE)
+ 	This function sends one or more wxUpdateUIEvent to the window. 
+Static Public Member Functions
+
+Miscellaneous static functions
+static wxVisualAttributes 	GetClassDefaultAttributes (wxWindowVariant variant=wxWINDOW_VARIANT_NORMAL)
+ 	Returns the default font and colours which are used by the control. 
+static wxWindow * 	FindFocus ()
+ 	Finds the window or control which currently has the keyboard focus. 
+static wxWindow * 	FindWindowById (long id,  wxWindow *parent=0)
+ 	Find the first window with the given id. 
+static wxWindow * 	FindWindowByLabel ( wxString &label,  wxWindow *parent=0)
+ 	Find a window by its label. 
+static wxWindow * 	FindWindowByName ( wxString &name,  wxWindow *parent=0)
+ 	Find a window by its name (as given in a window ructor or Create() function call). 
+static wxWindow * 	GetCapture ()
+ 	Returns the currently captured window. 
+static wxWindowID 	NewControlId (int count=1)
+ 	Create a new ID or range of IDs that are not currently in use. 
+static void 	UnreserveControlId (wxWindowID id, int count=1)
+ 	Unreserve an ID or range of IDs that was reserved by NewControlId(). 
+Protected Member Functions
+
+virtual void 	DoCentre (int direction)
+ 	Centres the window. 
+virtual wxSize 	DoGetBestSize () 
+ 	Implementation of GetBestSize() that can be overridden. 
+virtual wxSize 	DoGetBestClientSize () 
+ 	Override this method to return the best size for a custom control. 
+virtual int 	DoGetBestClientHeight (int width) 
+ 	Override this method to implement height-for-width best size calculation. 
+virtual int 	DoGetBestClientWidth (int height) 
+ 	Override this method to implement width-for-height best size calculation. 
+virtual void 	SetInitialBestSize ( wxSize &size)
+ 	Sets the initial window size if none is given (i.e. 
+void 	SendDestroyEvent ()
+ 	Generate wxWindowDestroyEvent for this window. 
+virtual bool 	ProcessEvent (wxEvent &event)
+ 	This function is public in wxEvtHandler but protected in wxWindow because for wxWindows you should always call ProcessEvent() on the pointer returned by GetEventHandler() and not on the wxWindow object itself. 
+bool 	SafelyProcessEvent (wxEvent &event)
+ 	See ProcessEvent() for more info about why you shouldn't use this function and the reason for making this function protected in wxWindow. 
+virtual void 	QueueEvent (wxEvent *event)
+ 	See ProcessEvent() for more info about why you shouldn't use this function and the reason for making this function protected in wxWindow. 
+virtual void 	AddPendingEvent ( wxEvent &event)
+ 	See ProcessEvent() for more info about why you shouldn't use this function and the reason for making this function protected in wxWindow. 
+void 	ProcessPendingEvents ()
+ 	See ProcessEvent() for more info about why you shouldn't use this function and the reason for making this function protected in wxWindow. 
+bool 	ProcessThreadEvent ( wxEvent &event)
+ 	See ProcessEvent() for more info about why you shouldn't use this function and the reason for making this function protected in wxWindow. 
+
+*)
 
 end

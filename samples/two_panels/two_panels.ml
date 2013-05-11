@@ -20,11 +20,11 @@ let _ =
     let frame_id = wxID () in
 
     let frame =
-      wxFrame
+      wxFrameAll
         None
             frame_id
             "Counter"
-            (-1,-1)
+            wxDefaultPosition
             (290, 150)
             wxDEFAULT_FRAME_STYLE
     in

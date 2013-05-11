@@ -801,7 +801,7 @@ let myCanvas_DrawText frame (dc : wxDC) =
 
   (* use wxSWISS_FONT and not wxNORMAL_FONT as the latter can't be rotated *)
   (* under Win9x (it is not TrueType) *)
-  WxDC.setFont dc ( WxStockGDI.getFont wxStockGDI_FONT_SWISS );
+  WxDC.setFont dc ( wxSWISS_FONT () );
 
   WxDC.setBackgroundMode dc wxTRANSPARENT ;
 
@@ -968,114 +968,105 @@ let _DegToRad deg = (deg *. _M_PI) /. 180.0
 (* modeled along Robin Dunn's GraphicsContext.py sample *)
 
 let myCanvas_DrawGraphics frame (gc : wxGraphicsContext) =
-(*
-{
-  wxFont font = wxSystemSettings::GetFont wxSYS_DEFAULT_GUI_FONT ;
-  gc->SetFont(font,wxBLACK);
 
+  let font = WxSystemSettings.getFont wxSYS_DEFAULT_GUI_FONT in
+  WxGraphicsContext.setFont gc (font) (wxBLACK);
+
+(*
   (* make a path that contains a circle and some lines, centered at 0,0 *)
-  wxGraphicsPath path = gc->CreatePath() ;
-  path.AddCircle( 0, 0, BASE2 );
-  path.MoveToPoint(0, -BASE2);
-  path.AddLineToPoint(0, BASE2);
-  path.MoveToPoint(-BASE2, 0);
-  path.AddLineToPoint(BASE2, 0);
-  path.CloseSubpath();
-  path.AddRectangle(-BASE4, -BASE4/2, BASE2, BASE4);
+  wxGraphicsPath path = WxGraphicsContext.createPath gc () ;
+  WxGraphicsPath.addCircle path ( 0) ( 0) ( BASE2 );
+  WxGraphicsPath.moveToPoint path (0) ( -BASE2);
+  WxGraphicsPath.addLineToPoint path (0) ( BASE2);
+  WxGraphicsPath.moveToPoint path (-BASE2) ( 0);
+  WxGraphicsPath.addLineToPoint path (BASE2) ( 0);
+  WxGraphicsPath.closeSubpath path ();
+  WxGraphicsPath.addRectangle path (-BASE4) ( -BASE4/2) ( BASE2) ( BASE4);
 
   (* Now use that path to demonstrate various capbilites of the grpahics context *)
-  gc->PushState(); (* save current translation/scale/other state *)
-  gc->Translate(60, 75); (* reposition the context origin *)
+  WxGraphicsContext.pushState gc; (* save current translation/scale/other state *)
+  WxGraphicsContext.translate gc (60) ( 75); (* reposition the context origin *)
 
-  gc->SetPen(wxPen("navy", 1));
-  gc->SetBrush(wxBrush("pink"));
+  WxGraphicsContext.setPen gc (wxPen("navy") ( 1));
+  WxGraphicsContext.setBrush gc (wxBrush("pink"));
 
-  for( int i = 0 ; i < 3 ; ++i )
-  {
-    wxString label;
-    switch i
-    {
-      case 0 :
-        label = "StrokePath";
-        break;
-      case 1 :
-        label = "FillPath";
-        break;
-      case 2 :
-        label = "DrawPath";
-        break;
-    }
-    wxDouble w, h;
-    gc->GetTextExtent(label, &w, &h, NULL, NULL);
-    gc->DrawText(label, -w/2, -BASE2-h-4);
-    switch i
-    {
-      case 0 :
-        gc->StrokePath path ;
-        break;
-      case 1 :
-        gc->FillPath path ;
-        break;
-      case 2 :
-        gc->DrawPath path ;
-        break;
-    }
-    gc->Translate(2*BASE, 0);
-  }
+  for i = 0 to 2 do
+    let label = match i with
+        0 -> "StrokePath"
+      | 1 -> "FillPath"
+      | 2 -> "DrawPath"
+      | _ -> assert false
+    in
+    let (w,h,_,_) =
+      WxGraphicsContext.getTextExtent gc (label) in
+    WxGraphicsContext.drawText gc (label) ( -w/2) ( -_BASE2-h-4);
+    begin match i with
+      | 0 ->
+        WxGraphicsContext.strokePath gc  path ;
+      | 1 ->
+        WxGraphicsContext.fillPath gc  path ;
+      | 2 ->
+        WxGraphicsContext.drawPath gc  path ;
+      | _ -> assert false
+    end;
+    WxGraphicsContext.translate gc (2*_BASE) ( 0);
+  done;
 
-  gc->PopState(); (* restore saved state *)
-  gc->PushState(); (* save it again *)
-  gc->Translate(60, 200); (* offset to the lower part of the window *)
+  WxGraphicsContext.popState gc (); (* restore saved state *)
+  WxGraphicsContext.pushState gc (); (* save it again *)
+  WxGraphicsContext.translate gc (60) ( 200); (* offset to the lower part of the window *)
+*)
 
-  gc->DrawText("Scale", 0, -BASE2);
-  gc->Translate(0, 20);
+(*
+  WxGraphicsContext.drawText gc ("Scale") ( 0) ( -BASE2);
+  WxGraphicsContext.translate gc (0) ( 20);
 
-  gc->SetBrush(wxBrush(wxColour(178, 34, 34, 128)));(* 128 == half transparent *)
+  WxGraphicsContext.setBrush gc (wxBrush(wxColour(178) ( 34) ( 34) ( 128)));(* 128 == half transparent *)
   for( int i = 0 ; i < 8 ; ++i )
   {
-    gc->Scale(1.08, 1.08); (* increase scale by 8% *)
-    gc->Translate(5,5);
-    gc->DrawPath path ;
+    WxGraphicsContext.scale gc (1.08) ( 1.08); (* increase scale by 8% *)
+    WxGraphicsContext.translate gc (5) (5);
+    WxGraphicsContext.drawPath gc  path ;
   }
 
-  gc->PopState(); (* restore saved state *)
-  gc->PushState(); (* save it again *)
-  gc->Translate(400, 200);
+  WxGraphicsContext.popState gc (); (* restore saved state *)
+  WxGraphicsContext.pushState gc (); (* save it again *)
+  WxGraphicsContext.translate gc (400) ( 200);
 
-  gc->DrawText("Rotate", 0, -BASE2);
+  WxGraphicsContext.drawText gc ("Rotate") ( 0) ( -BASE2);
 
   (* Move the origin over to the next location *)
-  gc->Translate(0, 75);
+  WxGraphicsContext.translate gc (0) ( 75);
 
-  (* draw our path again, rotating it about the central point, *)
+  (* draw our path again) ( rotating it about the central point) ( *)
   (* and changing colors as we go *)
   for ( int angle = 0 ; angle < 360 ; angle += 30 )
   {
-    gc->PushState(); (* save this new current state so we can *)
+    WxGraphicsContext.pushState gc (); (* save this new current state so we can *)
     (*  pop back to it at the end of the loop *)
-    wxImage::RGBValue val = wxImage::HSVtoRGB(wxImage::HSVValue(float angle /360, 1, 1));
-    gc->SetBrush(wxBrush(wxColour(val.red, val.green, val.blue, 64)));
-    gc->SetPen(wxPen(wxColour(val.red, val.green, val.blue, 128)));
+    wxImage::RGBValue val = wxImage::HSVtoRGB(wxImage::HSVValue(float angle /360) ( 1) ( 1));
+    WxGraphicsContext.setBrush gc (wxBrush(wxColour(val.red) ( val.green) ( val.blue) ( 64)));
+    WxGraphicsContext.setPen gc (wxPen(wxColour(val.red) ( val.green) ( val.blue) ( 128)));
 
     (* use translate to artfully reposition each drawn path *)
-    gc->Translate(1.5 * BASE2 * cos(DegToRad angle ),
+    WxGraphicsContext.translate gc (1.5 * BASE2 * cos(DegToRad angle )) (
            1.5 * BASE2 * sin(DegToRad angle ));
 
     (* use Rotate to rotate the path *)
-    gc->Rotate(DegToRad angle );
+    WxGraphicsContext.Rotate gc (DegToRad angle );
 
     (* now draw it *)
-    gc->DrawPath path ;
-    gc->PopState();
+    WxGraphicsContext.drawPath gc  path ;
+    WxGraphicsContext.popState gc ();
   }
-  gc->PopState();
+  WxGraphicsContext.popState gc ();
 
-  gc->PushState();
-  gc->Translate(60, 400);
-  gc->DrawText("Scaled smiley inside a square", 0, 0);
-  gc->DrawRectangle(BASE2, BASE2, 100, 100);
-  gc->DrawBitmap(m_smile_bmp, BASE2, BASE2, 100, 100);
-  gc->PopState();
+  WxGraphicsContext.pushState gc ();
+  WxGraphicsContext.translate gc (60) ( 400);
+  WxGraphicsContext.drawText gc ("Scaled smiley inside a square") ( 0) ( 0);
+  WxGraphicsContext.drawRectangle gc (BASE2) ( BASE2) ( 100) ( 100);
+  WxGraphicsContext.drawBitmap gc (m_smile_bmp) ( BASE2) ( BASE2) ( 100) ( 100);
+  WxGraphicsContext.popState gc ();
 }
 #endif (* wxUSE_GRAPHICS_CONTEXT *)
 *)
@@ -1265,111 +1256,111 @@ let myCanvas_DrawGradients frame (dc : wxDC) =
     gfr.Offset(0, TEXT_HEIGHT);
 
     stops = wxGraphicsGradientStops(wxColour(255,0,0), wxColour(0,0,255));
-    stops.Add(wxColour(255,255,0), 0.33f);
-    stops.Add(wxColour(0,255,0), 0.67f);
+    stops.add(wxColour(255,255,0), 0.33f);
+    stops.add(wxColour(0,255,0), 0.67f);
 
-    gc->SetBrush(gc->CreateLinearGradientBrush(gfr.x, gfr.y,
+    WxGraphicsContext.setBrush gc (WxGraphicsContext.createLinearGradientBrush gc (gfr.x, gfr.y,
                           gfr.x + gfr.width, gfr.y + gfr.height,
                           stops));
-    pth = gc->CreatePath();
-    pth.MoveToPoint(gfr.x,gfr.y);
-    pth.AddLineToPoint(gfr.x + gfr.width,gfr.y);
-    pth.AddLineToPoint(gfr.x + gfr.width,gfr.y+gfr.height);
-    pth.AddLineToPoint(gfr.x,gfr.y+gfr.height);
-    pth.CloseSubpath();
-    gc->FillPath pth ;
+    pth = WxGraphicsContext.createPath gc ();
+    pth.moveToPoint(gfr.x,gfr.y);
+    pth.addLineToPoint(gfr.x + gfr.width,gfr.y);
+    pth.addLineToPoint(gfr.x + gfr.width,gfr.y+gfr.height);
+    pth.addLineToPoint(gfr.x,gfr.y+gfr.height);
+    pth.closeSubpath();
+    WxGraphicsContext.FillPath gc  pth ;
 
     gfr.Offset(0, gfr.height + 10);
     WxDC.drawText("Radial Gradient with Stops", gfr.x, gfr.y);
     gfr.Offset(0, TEXT_HEIGHT);
 
-    gc->SetBrush(gc->CreateRadialGradientBrush(gfr.x + gfr.width / 2,
+    WxGraphicsContext.setBrush gc (WxGraphicsContext.createRadialGradientBrush gc (gfr.x + gfr.width / 2,
                           gfr.y + gfr.height / 2,
                           gfr.x + gfr.width / 2,
                           gfr.y + gfr.height / 2,
                           gfr.width / 2,
                           stops));
-    pth = gc->CreatePath();
-    pth.MoveToPoint(gfr.x,gfr.y);
-    pth.AddLineToPoint(gfr.x + gfr.width,gfr.y);
-    pth.AddLineToPoint(gfr.x + gfr.width,gfr.y+gfr.height);
-    pth.AddLineToPoint(gfr.x,gfr.y+gfr.height);
-    pth.CloseSubpath();
-    gc->FillPath pth ;
+    pth = WxGraphicsContext.createPath gc ();
+    pth.moveToPoint(gfr.x,gfr.y);
+    pth.addLineToPoint(gfr.x + gfr.width,gfr.y);
+    pth.addLineToPoint(gfr.x + gfr.width,gfr.y+gfr.height);
+    pth.addLineToPoint(gfr.x,gfr.y+gfr.height);
+    pth.closeSubpath();
+    WxGraphicsContext.FillPath gc  pth ;
 
     gfr.Offset(0, gfr.height + 10);
     WxDC.drawText("Linear Gradient with Stops and Gaps", gfr.x, gfr.y);
     gfr.Offset(0, TEXT_HEIGHT);
 
     stops = wxGraphicsGradientStops(wxColour(255,0,0), wxColour(0,0,255));
-    stops.Add(wxColour(255,255,0), 0.33f);
-    stops.Add(wxTransparentColour, 0.33f);
-    stops.Add(wxTransparentColour, 0.67f);
-    stops.Add(wxColour(0,255,0), 0.67f);
+    stops.add(wxColour(255,255,0), 0.33f);
+    stops.add(wxTransparentColour, 0.33f);
+    stops.add(wxTransparentColour, 0.67f);
+    stops.add(wxColour(0,255,0), 0.67f);
 
-    gc->SetBrush(gc->CreateLinearGradientBrush(gfr.x, gfr.y + gfr.height,
+    WxGraphicsContext.setBrush gc (WxGraphicsContext.createLinearGradientBrush gc (gfr.x, gfr.y + gfr.height,
                           gfr.x + gfr.width, gfr.y,
                           stops));
-    pth = gc->CreatePath();
-    pth.MoveToPoint(gfr.x,gfr.y);
-    pth.AddLineToPoint(gfr.x + gfr.width,gfr.y);
-    pth.AddLineToPoint(gfr.x + gfr.width,gfr.y+gfr.height);
-    pth.AddLineToPoint(gfr.x,gfr.y+gfr.height);
-    pth.CloseSubpath();
-    gc->FillPath pth ;
+    pth = WxGraphicsContext.createPath gc ();
+    pth.moveToPoint(gfr.x,gfr.y);
+    pth.addLineToPoint(gfr.x + gfr.width,gfr.y);
+    pth.addLineToPoint(gfr.x + gfr.width,gfr.y+gfr.height);
+    pth.addLineToPoint(gfr.x,gfr.y+gfr.height);
+    pth.closeSubpath();
+    WxGraphicsContext.FillPath gc  pth ;
 
     gfr.Offset(0, gfr.height + 10);
     WxDC.drawText("Radial Gradient with Stops and Gaps", gfr.x, gfr.y);
     gfr.Offset(0, TEXT_HEIGHT);
 
-    gc->SetBrush(gc->CreateRadialGradientBrush(gfr.x + gfr.width / 2,
+    WxGraphicsContext.setBrush gc (WxGraphicsContext.createRadialGradientBrush gc (gfr.x + gfr.width / 2,
                           gfr.y + gfr.height / 2,
                           gfr.x + gfr.width / 2,
                           gfr.y + gfr.height / 2,
                           gfr.width / 2,
                           stops));
-    pth = gc->CreatePath();
-    pth.MoveToPoint(gfr.x,gfr.y);
-    pth.AddLineToPoint(gfr.x + gfr.width,gfr.y);
-    pth.AddLineToPoint(gfr.x + gfr.width,gfr.y+gfr.height);
-    pth.AddLineToPoint(gfr.x,gfr.y+gfr.height);
-    pth.CloseSubpath();
-    gc->FillPath pth ;
+    pth = WxGraphicsContext.createPath gc ();
+    pth.moveToPoint(gfr.x,gfr.y);
+    pth.addLineToPoint(gfr.x + gfr.width,gfr.y);
+    pth.addLineToPoint(gfr.x + gfr.width,gfr.y+gfr.height);
+    pth.addLineToPoint(gfr.x,gfr.y+gfr.height);
+    pth.closeSubpath();
+    WxGraphicsContext.FillPath gc  pth ;
 
     gfr.Offset(0, gfr.height + 10);
     WxDC.drawText("Gradients with Stops and Transparency", gfr.x, gfr.y);
     gfr.Offset(0, TEXT_HEIGHT);
 
     stops = wxGraphicsGradientStops(wxColour(255,0,0), wxTransparentColour);
-    stops.Add(wxColour(255,0,0), 0.33f);
-    stops.Add(wxTransparentColour, 0.33f);
-    stops.Add(wxTransparentColour, 0.67f);
-    stops.Add(wxColour(0,0,255), 0.67f);
-    stops.Add(wxColour(0,0,255), 1.0f);
+    stops.add(wxColour(255,0,0), 0.33f);
+    stops.add(wxTransparentColour, 0.33f);
+    stops.add(wxTransparentColour, 0.67f);
+    stops.add(wxColour(0,0,255), 0.67f);
+    stops.add(wxColour(0,0,255), 1.0f);
 
-    pth = gc->CreatePath();
-    pth.MoveToPoint(gfr.x,gfr.y);
-    pth.AddLineToPoint(gfr.x + gfr.width,gfr.y);
-    pth.AddLineToPoint(gfr.x + gfr.width,gfr.y+gfr.height);
-    pth.AddLineToPoint(gfr.x,gfr.y+gfr.height);
-    pth.CloseSubpath();
+    pth = WxGraphicsContext.createPath gc ();
+    pth.moveToPoint(gfr.x,gfr.y);
+    pth.addLineToPoint(gfr.x + gfr.width,gfr.y);
+    pth.addLineToPoint(gfr.x + gfr.width,gfr.y+gfr.height);
+    pth.addLineToPoint(gfr.x,gfr.y+gfr.height);
+    pth.closeSubpath();
 
-    gc->SetBrush(gc->CreateRadialGradientBrush(gfr.x + gfr.width / 2,
+    WxGraphicsContext.setBrush gc (WxGraphicsContext.createRadialGradientBrush gc (gfr.x + gfr.width / 2,
                           gfr.y + gfr.height / 2,
                           gfr.x + gfr.width / 2,
                           gfr.y + gfr.height / 2,
                           gfr.width / 2,
                           stops));
-    gc->FillPath pth ;
+    WxGraphicsContext.FillPath gc  pth ;
 
     stops = wxGraphicsGradientStops(wxColour(255,0,0, 128), wxColour(0,0,255, 128));
-    stops.Add(wxColour(255,255,0,128), 0.33f);
-    stops.Add(wxColour(0,255,0,128), 0.67f);
+    stops.add(wxColour(255,255,0,128), 0.33f);
+    stops.add(wxColour(0,255,0,128), 0.67f);
 
-    gc->SetBrush(gc->CreateLinearGradientBrush(gfr.x, gfr.y,
+    WxGraphicsContext.setBrush gc (WxGraphicsContext.createLinearGradientBrush gc (gfr.x, gfr.y,
                           gfr.x + gfr.width, gfr.y,
                           stops));
-    gc->FillPath pth ;
+    WxGraphicsContext.FillPath gc  pth ;
   }
 #endif (* wxUSE_GRAPHICS_CONTEXT *)
 }
@@ -1555,6 +1546,18 @@ let rec switch id list =
  | (id2, handler) :: tail ->
   if id = id2 then handler () else switch id tail
 
+let rec switch1 id x list =
+ match list with
+ [] -> ()
+ | (id2, handler) :: tail ->
+  if id = id2 then handler x else switch1 id x tail
+
+let rec switch2 id x y list =
+ match list with
+ [] -> ()
+ | (id2, handler) :: tail ->
+  if id = id2 then handler x y else switch2 id x y tail
+
 let myCanvas_Draw frame pdc_kind =
  let gdc = wxGCDCEmpty () in
  let renderer = match WxGraphicsRenderer.getCairoRenderer ()with
@@ -1613,59 +1616,33 @@ let myCanvas_Draw frame pdc_kind =
     done
  end;
 
- switch canvas.m_show [
-  _File_ShowDefault, (fun _ ->
-      myCanvas_DrawDefault frame dc;
-      );
-
-    _File_ShowCircles, (fun _ ->
-      myCanvas_DrawCircles frame dc;
-      );
-
-    _File_ShowSplines, (fun _ ->
-      myCanvas_DrawSplines frame dc;
-      );
-
-    _File_ShowRegions, (fun _ ->
-      myCanvas_DrawRegions frame dc;
-      );
-
-    _File_ShowText, (fun _ ->
-      myCanvas_DrawText frame dc;
-      );
-
-    _File_ShowLines, (fun _ ->
+ switch2 canvas.m_show frame dc
+   [
+  _File_ShowDefault, myCanvas_DrawDefault;
+  _File_ShowCircles, myCanvas_DrawCircles;
+  _File_ShowSplines, myCanvas_DrawSplines;
+  _File_ShowRegions, myCanvas_DrawRegions;
+  _File_ShowText, myCanvas_DrawText;
+  _File_ShowLines, (fun frame dc ->
       myCanvas_DrawTestLines frame ( 0, 100, 0, dc );
       myCanvas_DrawTestLines frame ( 0, 320, 1, dc );
       myCanvas_DrawTestLines frame ( 0, 540, 2, dc );
       myCanvas_DrawTestLines frame ( 0, 760, 6, dc );
-      );
+  );
 
-    _File_ShowBrushes, (fun _ ->
-      myCanvas_DrawTestBrushes frame dc;
-      );
-
-    _File_ShowPolygons, (fun _ ->
-      myCanvas_DrawTestPoly frame dc;
-      );
-
-    _File_ShowMask, (fun _ ->
-      myCanvas_DrawImages frame (dc, Draw_Normal);
-      );
-
-    _File_ShowMaskStretch, (fun _ ->
+  _File_ShowBrushes, myCanvas_DrawTestBrushes;
+  _File_ShowPolygons, myCanvas_DrawTestPoly;
+  _File_ShowMask, (fun frame dc ->
+    myCanvas_DrawImages frame (dc, Draw_Normal));
+  _File_ShowMaskStretch, (fun frame dc ->
       myCanvas_DrawImages frame (dc, Draw_Stretch);
-      );
-
-    _File_ShowOps, (fun _ ->
-      myCanvas_DrawWithLogicalOps frame dc;
-      );
+  );
+  _File_ShowOps, myCanvas_DrawWithLogicalOps;
 
 (*#if wxUSE_GRAPHICS_CONTEXT *)
-    _File_ShowAlpha, (fun _ ->
-      myCanvas_DrawAlpha frame dc;
-      );
-    _File_ShowGraphics, (fun _ ->
+  _File_ShowAlpha, myCanvas_DrawAlpha;
+
+  _File_ShowGraphics, (fun frame dc ->
      match WxGCDC.getGraphicsContext gdc with
      | None -> ()
      | Some context ->
@@ -1673,11 +1650,8 @@ let myCanvas_Draw frame pdc_kind =
     );
 (*#endif *)
 
-    _File_ShowGradients, (fun _ ->
-      myCanvas_DrawGradients frame dc;
-      );
-
- ]
+  _File_ShowGradients, myCanvas_DrawGradients;
+   ]
 
 
 let myCanvas_OnPaint frame (event : wxPaintEvent) =
@@ -1778,150 +1752,110 @@ let myCanvas_OnMouseUp frame (event : wxMouseEvent) =
       (fst endpoint) (snd endpoint))
  end
 
-type menu_item =
- | Append of int * string
- | Append2 of int * string * string
- | AppendSeparator of unit
- | AppendCheckItem of int * string * string
-
-let make_wxMenu items =
- let menuFile = wxMenu "" 0 in
- List.iter (fun option ->
-  match option with
-   Append (id, txt) ->
-   WxMenu.append menuFile id txt "" wxITEM_NORMAL
-  | Append2 (id, t1, t2) ->
-   WxMenu.append menuFile id t1 t2 wxITEM_NORMAL
-  | AppendSeparator _ ->
-   WxMenu.appendSeparator menuFile
-  | AppendCheckItem (id, t1, t2) ->
-   WxMenu.appendCheckItem menuFile id t1 t2
- ) items;
- menuFile
-
-let make_wxMenuBar frame menus =
- (* now append the freshly created menu to the menu bar... *)
- let menuBar = wxMenuBar 0 in
- List.iter (fun (menu, name) ->
-  ignore_bool (WxMenuBar.append menuBar menu name)
- ) menus;
- WxFrame.setMenuBar frame menuBar
-
 
 let new_MyFrame title pos size =
 
- let this = wxFrame None wxID_ANY title pos size
-   (wxDEFAULT_FRAME_STYLE lor wxNO_FULL_REPAINT_ON_RESIZE) in
+  let this = wxFrameAll None wxID_ANY title pos size
+      (wxDEFAULT_FRAME_STYLE lor wxNO_FULL_REPAINT_ON_RESIZE) in
 
- (* set the frame icon *)
- WxFrame.setIcon this (WxIcon.createFromXPM Sample_xpm.sample_xpm);
+  (* set the frame icon *)
+  WxFrame.setIcon this (WxIcon.createFromXPM Sample_xpm.sample_xpm);
 
- let menuFile = make_wxMenu
-   [ Append (_File_ShowDefault, "&Default screen\tF1");
-    Append (_File_ShowText, "&Text screen\tF2");
-    Append (_File_ShowLines, "&Lines screen\tF3");
-    Append (_File_ShowBrushes, "&Brushes screen\tF4");
-    Append (_File_ShowPolygons, "&Polygons screen\tF5");
-    Append (_File_ShowMask, "&Mask screen\tF6");
-    Append (_File_ShowMaskStretch, "1/&2 scaled mask\tShift-F6");
-    Append (_File_ShowOps, "&Raster operations screen\tF7");
-    Append (_File_ShowRegions, "Re&gions screen\tF8");
-    Append (_File_ShowCircles, "&Circles screen\tF9");
-    (* #if wxUSE_GRAPHICS_CONTEXT *)
-    Append (_File_ShowAlpha, "&Alpha screen\tF10");
-    (*#endif *)
-    Append (_File_ShowSplines, "Spl&ines screen\tF11");
-    Append (_File_ShowGradients, "&Gradients screen\tF12");
-    (*#if wxUSE_GRAPHICS_CONTEXT *)
-    Append (_File_ShowGraphics, "&Graphics screen");
-    (*#endif *)
-    AppendSeparator();
-    AppendCheckItem (_File_Clip, "&Clip\tCtrl-C", "Clip/unclip drawing");
-    (*#if wxUSE_GRAPHICS_CONTEXT *)
-    AppendCheckItem (_File_GraphicContext, "&Use GraphicContext\tCtrl-Y", "Use GraphicContext");
-    (*#endif *)
-    AppendSeparator();
-    (*#if wxUSE_METAFILE && defined wxMETAFILE_IS_ENH *)
-    Append (_File_Copy, "Copy to clipboard");
-    (*#endif *)
-    Append2 (_File_Save, "&Save...\tCtrl-S", "Save drawing to file");
-    AppendSeparator();
-    Append2 (_File_About, "&About\tCtrl-A", "Show about dialog");
-    AppendSeparator();
-    Append2 (_File_Quit, "E&xit\tAlt-X", "Quit this program");
-   ]
- in
+  MENU_BAR.(wxFrame this [
+      "&File",
+      [ Append (_File_ShowDefault, "&Default screen\tF1");
+        Append (_File_ShowText, "&Text screen\tF2");
+        Append (_File_ShowLines, "&Lines screen\tF3");
+        Append (_File_ShowBrushes, "&Brushes screen\tF4");
+        Append (_File_ShowPolygons, "&Polygons screen\tF5");
+        Append (_File_ShowMask, "&Mask screen\tF6");
+        Append (_File_ShowMaskStretch, "1/&2 scaled mask\tShift-F6");
+        Append (_File_ShowOps, "&Raster operations screen\tF7");
+        Append (_File_ShowRegions, "Re&gions screen\tF8");
+        Append (_File_ShowCircles, "&Circles screen\tF9");
+        (* #if wxUSE_GRAPHICS_CONTEXT *)
+        Append (_File_ShowAlpha, "&Alpha screen\tF10");
+        (*#endif *)
+        Append (_File_ShowSplines, "Spl&ines screen\tF11");
+        Append (_File_ShowGradients, "&Gradients screen\tF12");
+        (*#if wxUSE_GRAPHICS_CONTEXT *)
+        Append (_File_ShowGraphics, "&Graphics screen");
+        (*#endif *)
+        AppendSeparator();
+        AppendCheckItem (_File_Clip, "&Clip\tCtrl-C", "Clip/unclip drawing");
+        (*#if wxUSE_GRAPHICS_CONTEXT *)
+        AppendCheckItem (_File_GraphicContext, "&Use GraphicContext\tCtrl-Y", "Use GraphicContext");
+        (*#endif *)
+        AppendSeparator();
+        (*#if wxUSE_METAFILE && defined wxMETAFILE_IS_ENH *)
+        Append (_File_Copy, "Copy to clipboard");
+        (*#endif *)
+        Append2 (_File_Save, "&Save...\tCtrl-S", "Save drawing to file");
+        AppendSeparator();
+        Append2 (_File_About, "&About\tCtrl-A", "Show about dialog");
+        AppendSeparator();
+        Append2 (_File_Quit, "E&xit\tAlt-X", "Quit this program");
+      ];
 
- let menuMapMode = make_wxMenu [
-   Append(
-    _MapMode_Text, "&TEXT map mode" );
-   Append(
-    _MapMode_Lometric, "&LOMETRIC map mode" );
-   Append(
-    _MapMode_Twips, "T&WIPS map mode" );
-   Append(
-    _MapMode_Points, "&POINTS map mode" );
-   Append(
-    _MapMode_Metric, "&METRIC map mode" );
-  ]
- in
+      "&Mode", [
+        Append(
+          _MapMode_Text, "&TEXT map mode" );
+        Append(
+          _MapMode_Lometric, "&LOMETRIC map mode" );
+        Append(
+          _MapMode_Twips, "T&WIPS map mode" );
+        Append(
+          _MapMode_Points, "&POINTS map mode" );
+        Append(
+          _MapMode_Metric, "&METRIC map mode" );
+      ];
 
- let menuUserScale = make_wxMenu [
-   Append( _UserScale_StretchHoriz, "Stretch &horizontally\tCtrl-H" );
-   Append( _UserScale_ShrinkHoriz, "Shrin&k horizontally\tCtrl-G" );
-   Append( _UserScale_StretchVertic, "Stretch &vertically\tCtrl-V" );
-   Append( _UserScale_ShrinkVertic, "&Shrink vertically\tCtrl-W" );
-   AppendSeparator();
-   Append( _UserScale_Restore, "&Restore to normal\tCtrl-0" );
-  ]
- in
- let menuAxis = make_wxMenu [
-   AppendCheckItem( _AxisMirror_Horiz, "Mirror horizontally\tCtrl-M", "" );
-   AppendCheckItem( _AxisMirror_Vertic, "Mirror vertically\tCtrl-N", "" );
-  ] in
+      "&Scale", [
+        Append( _UserScale_StretchHoriz, "Stretch &horizontally\tCtrl-H" );
+        Append( _UserScale_ShrinkHoriz, "Shrin&k horizontally\tCtrl-G" );
+        Append( _UserScale_StretchVertic, "Stretch &vertically\tCtrl-V" );
+        Append( _UserScale_ShrinkVertic, "&Shrink vertically\tCtrl-W" );
+        AppendSeparator();
+        Append( _UserScale_Restore, "&Restore to normal\tCtrl-0" );
+      ];
 
- let menuLogical = make_wxMenu [
-   Append( _LogicalOrigin_MoveDown, "Move &down\tCtrl-D" );
-   Append( _LogicalOrigin_MoveUp, "Move &up\tCtrl-U" );
-   Append( _LogicalOrigin_MoveLeft, "Move &right\tCtrl-L" );
-   Append( _LogicalOrigin_MoveRight, "Move &left\tCtrl-R" );
-   AppendSeparator();
-   Append( _LogicalOrigin_Set, "Set to (&100, 100)\tShift-Ctrl-1" );
-   Append( _LogicalOrigin_Restore, "&Restore to normal\tShift-Ctrl-0" );
-  ] in
+      "&Axis", [
+        AppendCheckItem( _AxisMirror_Horiz, "Mirror horizontally\tCtrl-M", "" );
+        AppendCheckItem( _AxisMirror_Vertic, "Mirror vertically\tCtrl-N", "" );
+      ];
 
+      "&Origin",  [
+        Append( _LogicalOrigin_MoveDown, "Move &down\tCtrl-D" );
+        Append( _LogicalOrigin_MoveUp, "Move &up\tCtrl-U" );
+        Append( _LogicalOrigin_MoveLeft, "Move &right\tCtrl-L" );
+        Append( _LogicalOrigin_MoveRight, "Move &left\tCtrl-R" );
+        AppendSeparator();
+        Append( _LogicalOrigin_Set, "Set to (&100, 100)\tShift-Ctrl-1" );
+        Append( _LogicalOrigin_Restore, "&Restore to normal\tShift-Ctrl-0" );
+      ];
 
- let menuColour = make_wxMenu [
-   (*    #if wxUSE_COLOURDLG *)
-   Append( _Colour_TextForeground, "Text &foreground..." );
-   Append( _Colour_TextBackground, "Text &background..." );
-   Append( _Colour_Background, "Background &colour..." );
-   (*    #endif (* wxUSE_COLOURDLG *) *)
-   AppendCheckItem( _Colour_BackgroundMode, "&Opaque/transparent\tCtrl-B", "" );
-   AppendCheckItem( _Colour_TextureBackgound, "Draw textured back&ground\tCtrl-T", "" );
-  ]
- in
-
- make_wxMenuBar this [
-  (menuFile, "&File");
-  (menuMapMode, "&Mode");
-  (menuUserScale, "&Scale");
-  (menuAxis, "&Axis");
-  (menuLogical, "&Origin");
-  (menuColour, "&Colours");
- ];
+      "&Colours", [
+        (*    #if wxUSE_COLOURDLG *)
+        Append( _Colour_TextForeground, "Text &foreground..." );
+        Append( _Colour_TextBackground, "Text &background..." );
+        Append( _Colour_Background, "Background &colour..." );
+        (*    #endif (* wxUSE_COLOURDLG *) *)
+        AppendCheckItem( _Colour_BackgroundMode, "&Opaque/transparent\tCtrl-B", "" );
+        AppendCheckItem( _Colour_TextureBackgound, "Draw textured back&ground\tCtrl-T", "" );
+      ];
+    ]);
 
   (* ... and attach this menu bar to the frame *)
-(*#if wxUSE_STATUSBAR *)
-  ignore_wxStatusBar (WxFrame.createStatusBar this 2 0);
+  (*#if wxUSE_STATUSBAR *)
+  ignore_wxStatusBar (WxFrame.createStatusBar this);
   WxFrame.setStatusText this "Welcome to wxWidgets!" 0;
-(*#endif (* wxUSE_STATUSBAR *) *)
+  (*#endif (* wxUSE_STATUSBAR *) *)
 
- let canvas = new_MyCanvas this in
- WxScrolledWindow.setScrollbars canvas.m_canvas 10 10 100 240 0 0 false;
- WxScrolledWindow.refresh canvas.m_canvas true None;
+  let canvas = new_MyCanvas this in
+  WxScrolledWindow.setScrollbars canvas.m_canvas 10 10 100 240 0 0 false;
+  WxScrolledWindow.refresh canvas.m_canvas true None;
 
- let app = {
+  let app = {
     gs_bmpNoMask = wxBitmapDefault();
     gs_bmpWithColMask = wxBitmapDefault();
     gs_bmpMask = wxBitmapDefault();
@@ -1929,32 +1863,32 @@ let new_MyFrame title pos size =
     gs_bmp4 = wxBitmapDefault();
     gs_bmp4_mono = wxBitmapDefault();
     gs_bmp36 = wxBitmapDefault();
- }
- in
+  }
+  in
 
- let frame_state = {
-  app = app;
-  m_frame = this;
-  canvas = canvas;
-  m_backgroundBrush = wxBrushDefault();
-  m_mapMode = wxMM_TEXT;
-  m_xUserScale = 1.0;
-  m_yUserScale = 1.0;
-  m_xLogicalOrigin = 0;
-  m_yLogicalOrigin = 0;
-  m_xAxisReversed = false;
-  m_yAxisReversed = false;
-  m_backgroundMode = wxSOLID;
-  m_colourForeground = wxBLACK;
-  m_colourBackground = wxLIGHT_GREY;
-  m_textureBackground = false;
- }
- in
-
-
+  let frame_state = {
+    app = app;
+    m_frame = this;
+    canvas = canvas;
+    m_backgroundBrush = wxBrushDefault();
+    m_mapMode = wxMM_TEXT;
+    m_xUserScale = 1.0;
+    m_yUserScale = 1.0;
+    m_xLogicalOrigin = 0;
+    m_yLogicalOrigin = 0;
+    m_xAxisReversed = false;
+    m_yAxisReversed = false;
+    m_backgroundMode = wxSOLID;
+    m_colourForeground = wxBLACK;
+    m_colourBackground = wxLIGHT_GREY;
+    m_textureBackground = false;
+  }
+  in
 
 
- frame_state
+
+
+  frame_state
 
 (* event handlers *)
 
@@ -1990,7 +1924,7 @@ let myFrame_OnCopy frame (event : wxCommandEvent) =
   if (!dc.IsOk())
     return;
   m_canvas->Draw dc ;
-  wxMetafile *mf = dc.Close();
+  wxMetafile *mf = dc.close();
   if (!mf)
     return;
   mf->SetClipboard();

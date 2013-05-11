@@ -16,6 +16,44 @@ class wxEvent inherit wxObject begin
      method(wxEventCategory,GetEventCategory) () 
   end
 
+(*
+ 	wxEvent (int id=0, wxEventType eventType=wxEVT_NULL)
+ 	Constructor. 
+virtual wxEvent * 	Clone () const =0
+ 	Returns a copy of the event. 
+wxObject * 	GetEventObject () const
+ 	Returns the object (usually a window) associated with the event, if any. 
+wxEventType 	GetEventType () const
+ 	Returns the identifier of the given event type, such as wxEVT_COMMAND_BUTTON_CLICKED. 
+virtual wxEventCategory 	GetEventCategory () const
+ 	Returns a generic category for this event. 
+bool 	GetSkipped () const
+ 	Returns true if the event handler should be skipped, false otherwise. 
+long 	GetTimestamp () const
+ 	Gets the timestamp for the event. 
+bool 	IsCommandEvent () const
+ 	Returns true if the event is or is derived from wxCommandEvent else it returns false. 
+void 	ResumePropagation (int propagationLevel)
+ 	Sets the propagation level to the given value (for example returned from an earlier call to wxEvent::StopPropagation). 
+void 	SetEventObject (wxObject *object)
+ 	Sets the originating object. 
+void 	SetEventType (wxEventType type)
+ 	Sets the event type. 
+void 	SetId (int id)
+ 	Sets the identifier associated with this event, such as a button command id. 
+void 	SetTimestamp (long timeStamp=0)
+ 	Sets the timestamp for the event. 
+bool 	ShouldPropagate () const
+ 	Test if this event should be propagated or not, i.e. 
+*)
+	method(void, 	Skip) (bool skip (* =true *))
+
+(*
+ 	This method can be used inside an event handler to control whether further event handlers bound to this event will be called after the current one returns. 
+int 	StopPropagation ()
+ 	Stop the event from propagating to its parent window. 
+*)
+
  end
 
 
@@ -45,7 +83,6 @@ class wxIconizeEvent inherit wxEvent begin end
 class wxIdleEvent inherit wxEvent begin end
 class wxInitDialogEvent inherit wxEvent begin end
 class wxJoystickEvent inherit wxEvent begin end
-class wxKeyEvent inherit wxEvent begin end
 class wxMaximizeEvent inherit wxEvent begin end
 class wxMenuEvent inherit wxEvent begin end
 class wxMouseCaptureChangedEvent inherit wxEvent begin end
@@ -92,7 +129,6 @@ class wxCalendarEvent inherit wxDateEvent begin
  end
 
 
-class wxKeyboardState begin end
 class wxMouseState begin 
 
 end
@@ -105,4 +141,51 @@ class wxMouseEvent inherit wxEvent inherit wxMouseState begin
     method(void, GetPosition) (int <- x, int <- y)
   end
 
+end
+
+
+class wxKeyboardState begin
+
+(*
+ 	wxKeyboardState (bool controlDown=false, bool shiftDown=false, bool altDown=false, bool metaDown=false)
+ 	Constructor initializes the modifier key settings. 
+*)
+
+end
+
+class wxKeyEvent inherit wxEvent inherit wxKeyboardState begin 
+
+
+(* In 2.9, they are in wxKeyboardState *)
+
+(* BEGIN wxKeyboardState *)
+   method(int, 	GetModifiers) () 
+   method(bool, HasModifiers) () 
+   method(bool, ControlDown) () 
+   method(bool, ShiftDown) () 
+   method(bool, MetaDown) () 
+   method(bool, AltDown) () 
+   method(bool, CmdDown) () 
+
+  version 2.9 begin
+      method(bool, RawControlDown) () 
+  end
+
+(* END wxKeyboardState *)
+
+
+
+  method(int, 	GetKeyCode) () 
+  method(int32, GetRawKeyCode) () 
+  method(int32, GetRawKeyFlags) () 
+  method(wxCoord, GetX) () 
+  method(wxCoord, GetY) () 
+  method(void, 	GetPosition) (long <-x, long <-y) 
+  version 2.9 begin
+    method(void, 	DoAllowNextEvent) ()
+    method(bool, 	IsKeyInCategory) (int category) 
+    method(int, 	GetUnicodeKey) () 
+    method(bool, 	IsNextEventAllowed) () 
+    method(wxPoint, GetPosition) ()
+  end
 end
