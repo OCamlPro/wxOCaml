@@ -2,7 +2,7 @@
 class wxFrame inherit wxTopLevelWindow begin
 
   new(Create)(wxWindow? _prt,int _id, wxString& _txt)
-  new(CreateAll)(wxWindow? _prt,int _id, wxString& _txt, wxPoint& point, wxSize& size,int _stl)
+  new(CreateAll)(wxWindow? _prt,int _id, wxString& _txt, wxPoint& point, wxSize& size,int _stl (* = wxDEFAULT_FRAME_STYLE *))
 
   method(wxStatusBar*,CreateStatusBar)()
   method(wxStatusBar*,CreateStatusBar, CreateStatusBarAll)(

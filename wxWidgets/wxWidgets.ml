@@ -175,6 +175,9 @@ module BEGIN_EVENT_TABLE = struct
   | EVT_LEFT_DOWN of (wxMouseEvent -> unit)
   | EVT_LEFT_UP of (wxMouseEvent -> unit)
 
+  | EVT_WIZARD_CANCEL of int * (wxWizardEvent -> unit)
+  | EVT_WIZARD_FINISHED of int * (wxWizardEvent -> unit)
+
 (* We should provide such a function for all children of wxEvtHandler *)
   let wxEvtHandler (win: wxEvtHandler) (events : eventHandler list) =
     List.iter (fun eh ->
@@ -214,6 +217,10 @@ module BEGIN_EVENT_TABLE = struct
         WxEvtHandler.connect win id id WxEVT._LEFT_UP handler
       | EVT_LEFT_DOWN handler -> let id = wxID_ANY in
         WxEvtHandler.connect win id id WxEVT._LEFT_DOWN handler
+       | EVT_WIZARD_CANCEL (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._WIZARD_CANCEL handler
+       | EVT_WIZARD_FINISHED (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._WIZARD_FINISHED handler
 
     ) events
 
@@ -252,6 +259,9 @@ module BEGIN_EVENT_TABLE2 = struct
   | EVT_MOTION of ('a -> wxMouseEvent -> unit)
   | EVT_LEFT_DOWN of ('a -> wxMouseEvent -> unit)
   | EVT_LEFT_UP of ('a -> wxMouseEvent -> unit)
+
+  | EVT_WIZARD_CANCEL of int * ('a -> wxWizardEvent -> unit)
+  | EVT_WIZARD_FINISHED of int * ('a -> wxWizardEvent -> unit)
 
 
 (* We should provide such a function for all children of wxEvtHandler *)
@@ -294,6 +304,11 @@ module BEGIN_EVENT_TABLE2 = struct
         WxEvtHandler.connect win id id WxEVT._LEFT_UP (handler data)
       | EVT_LEFT_DOWN handler -> let id = wxID_ANY in
         WxEvtHandler.connect win id id WxEVT._LEFT_DOWN (handler data)
+       | EVT_WIZARD_CANCEL (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._WIZARD_CANCEL (handler data)
+       | EVT_WIZARD_FINISHED (id, handler) ->
+        WxEvtHandler.connect win id id WxEVT._WIZARD_FINISHED (handler data)
+
     ) events
 
   let wxFrame win events =
@@ -389,7 +404,8 @@ module MENU_BAR = struct
     | Append of int * string
     | Append2 of int * string * string
     | AppendSeparator of unit
-    | AppendCheckItem of int * string * string
+    | AppendCheckItem of int * string
+    | AppendCheckItem2 of int * string * string
     | Check of int * bool
 
   let make_wxMenu items =
@@ -402,7 +418,9 @@ module MENU_BAR = struct
         WxMenu.append menuFile id t1 t2 wxITEM_NORMAL
       | AppendSeparator _ ->
         WxMenu.appendSeparator menuFile
-      | AppendCheckItem (id, t1, t2) ->
+      | AppendCheckItem (id, t1) ->
+        WxMenu.appendCheckItem menuFile id t1 ""
+      | AppendCheckItem2 (id, t1, t2) ->
         WxMenu.appendCheckItem menuFile id t1 t2
       | Check (id, bool) ->
         WxMenu.check menuFile id bool

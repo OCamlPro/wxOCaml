@@ -355,11 +355,11 @@ let myFrame title =
         Append(idTestAccelEsc, "Test accelerator &3\tEsc");
         AppendSeparator();
 
-        AppendCheckItem(idSkipHook, "Skip CHAR_HOOK event",
+        AppendCheckItem2(idSkipHook, "Skip CHAR_HOOK event",
           "Not skipping this event disables both KEY_DOWN and CHAR events"
         );
         Check(idSkipHook, true);
-        AppendCheckItem(idSkipDown, "Skip KEY_DOWN event",
+        AppendCheckItem2(idSkipDown, "Skip KEY_DOWN event",
           "Not skipping this event disables CHAR event generation"
         );
         Check(idSkipDown, true);

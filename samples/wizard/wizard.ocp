@@ -1,0 +1,8 @@
+binannot = false
+
+(* enabled = false *)
+
+begin program "wizard"
+  requires = [ "wxWidgets"  "wxSamples-resources"  ]
+  files = [    "wizard.ml"  ]
+end

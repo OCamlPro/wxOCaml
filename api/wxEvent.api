@@ -189,3 +189,24 @@ class wxKeyEvent inherit wxEvent inherit wxKeyboardState begin
     method(wxPoint, GetPosition) ()
   end
 end
+
+class wxNotifyEvent inherit wxCommandEvent begin
+
+(*
+bookctrl.h:class WXDLLIMPEXP_CORE wxBookCtrlEvent : public wxNotifyEvent
+dataview.h:class WXDLLIMPEXP_ADV wxDataViewEvent : public wxNotifyEvent
+headerctrl.h:class WXDLLIMPEXP_CORE wxHeaderCtrlEvent : public wxNotifyEvent
+listbase.h:class WXDLLIMPEXP_CORE wxListEvent : public wxNotifyEvent
+mediactrl.h:class WXDLLIMPEXP_MEDIA wxMediaEvent : public wxNotifyEvent
+spinbutt.h:class WXDLLIMPEXP_CORE wxSpinEvent : public wxNotifyEvent
+spinctrl.h:class WXDLLIMPEXP_CORE wxSpinDoubleEvent : public wxNotifyEvent
+treebase.h:class WXDLLIMPEXP_CORE wxTreeEvent : public wxNotifyEvent
+treelist.h:class WXDLLIMPEXP_ADV wxTreeListEvent : public wxNotifyEvent
+webview.h:class WXDLLIMPEXP_WEBVIEW wxWebViewEvent : public wxNotifyEvent
+*)
+
+end
+
+class wxWizardEvent inherit wxNotifyEvent begin
+
+end

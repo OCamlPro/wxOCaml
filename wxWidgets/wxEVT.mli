@@ -131,3 +131,15 @@ val _CALENDAR_WEEKDAY_CLICKED : wxCalendarEvent t
 val _CALENDAR_WEEK_CLICKED : wxCalendarEvent t
 val _TIME_CHANGED : wxDateEvent t
 val _DATE_CHANGED : wxDateEvent t
+
+val _WIZARD_PAGE_CHANGED : wxWizardEvent t
+val _WIZARD_PAGE_CHANGING : wxWizardEvent t
+val _WIZARD_CANCEL : wxWizardEvent t
+val _WIZARD_HELP : wxWizardEvent t
+val _WIZARD_FINISHED : wxWizardEvent t
+val _WIZARD_PAGE_SHOWN : wxWizardEvent t
+
+(* TODO: This one is an alias for _BEFORE_PAGE_CHANGED with a different
+event type. We MUST do something about it !
+val _WIZARD_BEFORE_PAGE_CHANGED : wxWizardEvent t
+*)

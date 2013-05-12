@@ -53,6 +53,7 @@ typedef int intptr_t;
 #include "wx/sound.h"
 #include <wx/overlay.h>
 #include <wx/gdicmn.h>
+#include <wx/wizard.h>
 
 #if wxUSE_DATEPICKCTRL
 #include "wx/datectrl.h"

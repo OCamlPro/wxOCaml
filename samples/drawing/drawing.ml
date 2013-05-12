@@ -1782,9 +1782,9 @@ let new_MyFrame title pos size =
         Append (_File_ShowGraphics, "&Graphics screen");
         (*#endif *)
         AppendSeparator();
-        AppendCheckItem (_File_Clip, "&Clip\tCtrl-C", "Clip/unclip drawing");
+        AppendCheckItem2 (_File_Clip, "&Clip\tCtrl-C", "Clip/unclip drawing");
         (*#if wxUSE_GRAPHICS_CONTEXT *)
-        AppendCheckItem (_File_GraphicContext, "&Use GraphicContext\tCtrl-Y", "Use GraphicContext");
+        AppendCheckItem2 (_File_GraphicContext, "&Use GraphicContext\tCtrl-Y", "Use GraphicContext");
         (*#endif *)
         AppendSeparator();
         (*#if wxUSE_METAFILE && defined wxMETAFILE_IS_ENH *)
@@ -1820,8 +1820,8 @@ let new_MyFrame title pos size =
       ];
 
       "&Axis", [
-        AppendCheckItem( _AxisMirror_Horiz, "Mirror horizontally\tCtrl-M", "" );
-        AppendCheckItem( _AxisMirror_Vertic, "Mirror vertically\tCtrl-N", "" );
+        AppendCheckItem2( _AxisMirror_Horiz, "Mirror horizontally\tCtrl-M", "" );
+        AppendCheckItem2( _AxisMirror_Vertic, "Mirror vertically\tCtrl-N", "" );
       ];
 
       "&Origin",  [
@@ -1840,8 +1840,8 @@ let new_MyFrame title pos size =
         Append( _Colour_TextBackground, "Text &background..." );
         Append( _Colour_Background, "Background &colour..." );
         (*    #endif (* wxUSE_COLOURDLG *) *)
-        AppendCheckItem( _Colour_BackgroundMode, "&Opaque/transparent\tCtrl-B", "" );
-        AppendCheckItem( _Colour_TextureBackgound, "Draw textured back&ground\tCtrl-T", "" );
+        AppendCheckItem2( _Colour_BackgroundMode, "&Opaque/transparent\tCtrl-B", "" );
+        AppendCheckItem2( _Colour_TextureBackgound, "Draw textured back&ground\tCtrl-T", "" );
       ];
     ]);
 
