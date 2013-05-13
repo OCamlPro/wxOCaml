@@ -3,6 +3,10 @@ class wxMisc begin
 
   function(int, wxMessageBox) (
      wxString& message, 
+     wxString& caption)
+
+  function(int, wxMessageBox, wxMessageBoxAll) (
+     wxString& message, 
      wxString& caption, 
      long style (* = wxOK|wxCENTRE *), 
      wxWindow? parent, int x, int y)

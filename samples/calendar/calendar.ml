@@ -373,7 +373,7 @@ let _ =
 
     let onAbout _ =
       ignore_int (
-        wxMessageBox "wxCalendarCtrl sample\n(c) 2000--2008 Vadim Zeitlin"
+        wxMessageBoxAll "wxCalendarCtrl sample\n(c) 2000--2008 Vadim Zeitlin"
           "About Calendar"
           (wxOK lor wxICON_INFORMATION)
           (Some (WxFrame.wxWindow m_frame)) (-1) (-1)
@@ -659,7 +659,7 @@ let _ =
 
             if WxDateTime.getDay dt 0 = WxDateTime.getDay today 0 &&
                WxDateTime.getMonth dt 0 = WxDateTime.getMonth today 0 then
-              WxOCP.wxMessageBox "Happy birthday!" "Calendar Sample";
+              ignore_int (wxMessageBox "Happy birthday!" "Calendar Sample");
 
             WxCalendarCtrl.setDate !m_calendar dt;
 

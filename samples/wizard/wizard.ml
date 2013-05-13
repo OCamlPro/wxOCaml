@@ -22,6 +22,11 @@ let wxT s = s
 (* declarations*)
 (* =========================================================================*)
 
+type wizard_state = {
+  m_wizard : wxWizard;
+  mutable m_page1 : wxWizardPage;
+}
+
 (*--------------------------------------------------------------------------*)
 (* headers*)
 (*--------------------------------------------------------------------------*)
@@ -45,54 +50,17 @@ let id_Wizard_ExpandBitmap = wxID ()
 (* private classes*)
 (*--------------------------------------------------------------------------*)
 
-(*
-(* Define a new application type, each program should derive a class from wxApp*)
-class MyApp : public wxApp
-{
-public:
-    (* override base class virtuals*)
-    virtual bool OnInit();
-};
-
-class MyFrame : public wxFrame
-{
-public:
-    (* ctor(s)*)
-    MyFrame(const wxString& title);
-
-    (* event handlers (these functions should _not_ be virtual)*)
-    let OnQuit(wxCommandEvent& event);
-    let OnAbout(wxCommandEvent& event);
-    let OnRunWizard(wxCommandEvent& event);
-    let OnRunWizardNoSizer(wxCommandEvent& event);
-    let OnRunWizardModeless(wxCommandEvent& event);
-    let OnWizardCancel(wxWizardEvent& event);
-    let OnWizardFinished(wxWizardEvent& event);
-
-private:
-    (* any class wishing to process wxWidgets events must use this macro*)
-    DECLARE_EVENT_TABLE()
-};
-
 (*--------------------------------------------------------------------------*)
 (* our wizard*)
 (*--------------------------------------------------------------------------*)
 
-class MyWizard : public wxWizard
-{
-public:
-    MyWizard(wxFrame *frame, bool useSizer = true);
-
-    wxWizardPage *GetFirstPage() const { return m_page1; }
-
-private:
-    wxWizardPageSimple *m_page1;
-};
+let myWizard_GetFirstPage state = Some state.m_page1
 
 (*--------------------------------------------------------------------------*)
 (* some pages for our wizard*)
 (*--------------------------------------------------------------------------*)
 
+(* TODO
 (* This shows how to simply control the validity of the user input by just*)
 (* overriding TransferDataFromWindow() - of course, in a real program, the*)
 (* check wouldn't be so trivial and the data will be probably saved somewhere*)
@@ -324,20 +292,26 @@ BEGIN_EVENT_TABLE(wxRadioboxPage, wxWizardPageSimple)
 END_EVENT_TABLE()
 
 IMPLEMENT_APP(MyApp)
+*)
 
 (*--------------------------------------------------------------------------*)
 (* MyWizard*)
 (*--------------------------------------------------------------------------*)
 
-myWizard_MyWizard(wxFrame *frame, bool useSizer)
-{
-    SetExtraStyle(wxWIZARD_EX_HELPBUTTON);
+let myWizard_MyWizard frame useSizer =
 
-    Create(frame,wxID_ANY,wxT("Absolutely Useless Wizard"),
-                   wxBitmap(wiztest_xpm),wxDefaultPosition,
-                   wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER);
-    SetIcon(wxICON(sample));
+    WxFrame.setExtraStyle frame wxWIZARD_EX_HELPBUTTON;
 
+    let wizard = wxWizardAll (WxFrame.wxWindow frame) wxID_ANY
+      (wxT("Absolutely Useless Wizard"))
+      (WxBitmap.createFromXPM Wiztest_xpm.wiztest_xpm)
+      wxDefaultPosition
+      (wxDEFAULT_DIALOG_STYLE lor wxRESIZE_BORDER)
+    in
+
+    WxFrame.setIcon frame (WxIcon.createFromXPM Sample_xpm.sample_xpm);
+
+(* TODO
     (* Allow the bitmap to be expanded to fit the page height*)
     if (frame->GetMenuBar()->IsChecked(Wizard_ExpandBitmap))
         SetBitmapPlacement(wxWIZARD_VALIGN_CENTRE);
@@ -345,10 +319,12 @@ myWizard_MyWizard(wxFrame *frame, bool useSizer)
     (* Enable scrolling adaptation*)
     if (frame->GetMenuBar()->IsChecked(Wizard_LargeWizard))
         SetLayoutAdaptationMode(wxDIALOG_ADAPTATION_MODE_ENABLED);
+*)
 
     (* a wizard page may be either an object of predefined class*)
-    m_page1 = new wxWizardPageSimple(this);
+    let m_page1 = wxWizardPageSimple (Some wizard) in
 
+(* TODO
     /* wxStaticText *text = */ new wxStaticText(m_page1, wxID_ANY,
              wxT("This wizard doesn't help you\nto do anything at all.\n")
              wxT("\n")
@@ -377,6 +353,9 @@ myWizard_MyWizard(wxFrame *frame, bool useSizer)
     }
 }
 *)
+    { m_wizard = wizard;
+      m_page1 = WxWizardPageSimple.wxWizardPage m_page1;
+    }
 
 let myFrame_OnQuit m_frame (event : wxCommandEvent) =
     (* true is to force the frame to close*)
@@ -385,7 +364,7 @@ let myFrame_OnQuit m_frame (event : wxCommandEvent) =
 
 let myFrame_OnAbout m_frame (event : wxCommandEvent) =
     ignore_int (
-      wxMessageBox (wxT("Demo of wxWizard class\n" ^
+      wxMessageBoxAll (wxT("Demo of wxWizard class\n" ^
                       "(c) 1999, 2000 Vadim Zeitlin"))
                  (wxT("About wxWizard sample"))
       (wxOK lor wxICON_INFORMATION)
@@ -393,38 +372,40 @@ let myFrame_OnAbout m_frame (event : wxCommandEvent) =
       wxDefaultCoord wxDefaultCoord
     )
 
-(*
-let myFrame_OnRunWizard (event : wxCommandEvent) =
-{
-    MyWizard wizard(this);
+let myFrame_OnRunWizard m_frame (event : wxCommandEvent) =
+  let wizard = myWizard_MyWizard m_frame true in
+  ignore_bool (
+    WxWizard.runWizard wizard.m_wizard (myWizard_GetFirstPage wizard)
+  );
+()
 
-    wizard.RunWizard(wizard.GetFirstPage());
-}
+let myFrame_OnRunWizardNoSizer m_frame (event : wxCommandEvent) =
+  let wizard = myWizard_MyWizard m_frame false in
+  ignore_bool (
+    WxWizard.runWizard wizard.m_wizard (myWizard_GetFirstPage wizard)
+  );
+  ()
 
-let myFrame_OnRunWizardNoSizer (event : wxCommandEvent) =
-{
-    MyWizard wizard(this, false);
+let myFrame_OnRunWizardModeless  m_frame (event : wxCommandEvent) =
+  let wizard = myWizard_MyWizard m_frame true in
+  ignore_bool (
+    WxWizard.showPage wizard.m_wizard (myWizard_GetFirstPage wizard)
+      true);
+  ignore_bool (WxWizard.show wizard.m_wizard);
+  ()
 
-    wizard.RunWizard(wizard.GetFirstPage());
-}
+let myFrame_OnWizardFinished  m_frame (event : wxWizardEvent) =
 
-let myFrame_OnRunWizardModeless (event : wxCommandEvent) =
-{
-    MyWizard *wizard = new MyWizard(this);
-    wizard->ShowPage(wizard->GetFirstPage());
-    wizard->Show(true);
-}
+  ignore_int (
+    wxMessageBox (wxT("The wizard finished successfully."))
+      (wxT("Wizard notification"))
+  );
+  ()
 
-let myFrame_OnWizardFinished (event : wxWizardEvent) =
-{
-    wxMessageBox(wxT("The wizard finished successfully."), wxT("Wizard notification"));
-}
-
-let myFrame_OnWizardCancel (event : wxWizardEvent) =
-{
-    wxMessageBox(wxT("The wizard was cancelled."), wxT("Wizard notification"));
-}
-*)
+let myFrame_OnWizardCancel m_frame (event : wxWizardEvent) =
+  wxMessageBox
+    (wxT("The wizard was cancelled.")) (wxT("Wizard notification"));
+  ()
 
 
 
@@ -465,14 +446,14 @@ let myFrame_MyFrame title=
   BEGIN_EVENT_TABLE2.(wxFrame m_frame m_frame [
       EVT_MENU(id_Wizard_Quit,         myFrame_OnQuit);
       EVT_MENU(id_Wizard_About,        myFrame_OnAbout);
-(* TODO
+
       EVT_MENU(id_Wizard_RunModal,     myFrame_OnRunWizard);
       EVT_MENU(id_Wizard_RunNoSizer,   myFrame_OnRunWizardNoSizer);
       EVT_MENU(id_Wizard_RunModeless,  myFrame_OnRunWizardModeless);
 
       EVT_WIZARD_CANCEL(wxID_ANY,   myFrame_OnWizardCancel);
       EVT_WIZARD_FINISHED(wxID_ANY, myFrame_OnWizardFinished);
-*)
+
     ]);
 
   m_frame

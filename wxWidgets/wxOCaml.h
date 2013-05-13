@@ -123,6 +123,19 @@ typedef int wxImageResizeQuality;
 #define wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED         (-1)
 #define wxEVT_MOVE_START             (-1)
 #define wxEVT_MOVE_END             (-1)
+
+
+// Placement flags
+#define wxWIZARD_VALIGN_TOP       0x01
+#define wxWIZARD_VALIGN_CENTRE    0x02
+#define wxWIZARD_VALIGN_BOTTOM    0x04
+#define wxWIZARD_HALIGN_LEFT      0x08
+#define wxWIZARD_HALIGN_CENTRE    0x10
+#define wxWIZARD_HALIGN_RIGHT     0x20
+#define wxWIZARD_TILE             0x40
+
+
+
 #endif
 
 extern "C" {

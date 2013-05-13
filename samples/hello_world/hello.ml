@@ -63,7 +63,7 @@ let _ =
       WxEVT._COMMAND_MENU_SELECTED
       (fun _ ->
         ignore_int (
-          WxMisc.wxMessageBox
+          WxMisc.wxMessageBoxAll
             "wxWidgets Hello World example."
             "About Hello World"
             (wxOK lor wxICON_INFORMATION)

@@ -113,7 +113,8 @@ IMPLEMENT_APP(MyApp)
 let myFrame_OnAbout frame event =
 
   ignore_int (
-      wxMessageBox("Demonstrates keyboard event processing in wxWidgets\n" ^
+      wxMessageBoxAll
+        ("Demonstrates keyboard event processing in wxWidgets\n" ^
           "(c) 2002 Vadim Zeitlin\n" ^
           "(c) 2008 Marcin Wojdyr")
         "About wxWidgets Keyboard Sample"

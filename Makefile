@@ -5,14 +5,14 @@ NJOBS=-j 10
 # apply the -no-color switch to use the old behavior.
 
 all:
-	(cd wxDefsGen; $(MAKE))
-	(cd wxStubsGen; $(MAKE))
-	(cd wxWidgets; $(MAKE) $(NJOBS))
+	$(MAKE) -C wxDefsGen
+	$(MAKE) -C wxStubsGen
+	$(MAKE) -C  wxWidgets $(NJOBS)
 	ocp-build
-	(cd samples/resources; $(MAKE))
+	$(MAKE) -C samples/wxSamples-resources
 
 debug:
-	(cd wxWidgets; $(MAKE) $(NJOBS))
+	$(MAKE) -C wxWidgets $(NJOBS)
 	ocp-build
 
 byte:
@@ -26,9 +26,9 @@ partialclean:
 
 clean:
 	rm -f *~
-	(cd wxDefsGen; $(MAKE) clean)
-	(cd wxStubsGen; $(MAKE) clean)
-	(cd wxWidgets; $(MAKE) clean)
+	$(MAKE) -C wxDefsGen clean
+	$(MAKE) -C wxStubsGen clean
+	$(MAKE) -C wxWidgets clean
 	ocp-build -clean
 
 distclean: clean

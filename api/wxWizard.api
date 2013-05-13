@@ -1,0 +1,75 @@
+class wxWizardPage inherit wxPanel begin
+
+    method( wxBitmap, GetBitmap)()
+    method( wxWizardPage?, GetPrev)() 
+    method( wxWizardPage?, GetNext)()
+(* 
+(* NOTE: since virtual has non-optional elements, this constructor
+   will be only available in the generated class with virtual
+   initializers. *)
+    new(Create)(wxWizard? parent,
+                wxBitmap& bitmap (*  = wxNullBitmap *))
+
+
+   (* In OCaml, all of these functions should take 'this', the C++
+      object, and an OCaml state provided to the constructor. *)
+    virtual [ 
+      (* These ones MUST be instantiated ! *)
+             GetPrev; 
+              GetNext; 
+      (* These ones CAN be instantiated *)
+              GetBitmap?; 
+              TransferDataFromWindow?; 
+              TransferDataToWindow?;
+	      Validate? (* from wxWindow *)
+           ]
+*)
+end
+
+class wxWizardPageSimple inherit wxWizardPage begin
+   new(Create)(wxWizard? parent)
+   new(CreateAll)(wxWizard? parent, 
+                wxWizardPage? prev, (*= NULL *)
+                wxWizardPage? next,  (*= NULL *)
+                wxBitmap& bitmap (*  = wxNullBitmap *)
+                (* wxChar* resource = NULL *))
+   method(void, SetPrev)(wxWizardPage* prev)
+   method(void, SetNext)(wxWizardPage* next)
+
+   function(void, wxWizardPageSimple::Chain)
+      (wxWizardPageSimple *first, wxWizardPageSimple *second)
+
+(* (* all the virtuals here CAN be instantiated *)
+   virtual [  GetBitmap?; 
+              TransferDataFromWindow?; TransferDataToWindow?;
+	      Validate? ]
+*)
+end
+
+
+
+class wxWizard inherit wxDialog begin (* wxWizardBase *)
+
+  new(Create)(wxWindow *parent,
+                 int id (* = wxID_ANY *),
+                 wxString& title (* = wxEmptyString *)
+)
+
+  new(CreateAll)(wxWindow *parent,
+                 int id (* = wxID_ANY *),
+                  wxString& title, (* = wxEmptyString *)
+                  wxBitmap& bitmap, (*  = wxNullBitmap, *)
+                  wxPoint& pos, (*  = wxDefaultPosition, *)
+                 long style (*  = wxDEFAULT_DIALOG_STYLE *)
+  )
+
+    method(bool, RunWizard)(wxWizardPage? firstPage)
+    method(wxWizardPage?, GetCurrentPage)() 
+    method(void, SetPageSize)(wxSize& size) 
+    method(wxSize, GetPageSize)() 
+    method(void, FitToPage)(wxWizardPage* firstPage) 
+    method(wxSizer *,GetPageAreaSizer)()
+    method(void, SetBorder)(int border)
+
+    method(bool, ShowPage)(wxWizardPage? page, bool goingForward (* = true*) )
+end

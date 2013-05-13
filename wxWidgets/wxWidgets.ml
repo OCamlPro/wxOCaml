@@ -92,6 +92,11 @@ let wxImage = WxImage.create
 let wxFileDialog = WxFileDialog.create
 let wxFileDialogAll = WxFileDialog.createAll
 let wxWindow = WxWindow.create
+let wxWizard = WxWizard.create
+let wxWizardAll = WxWizard.createAll
+let wxWizardPageSimple = WxWizardPageSimple.create
+let wxWizardPageSimpleAll = WxWizardPageSimple.createAll
+
 
 (* We MUST call the destructor of WxDCOverlay at the end ! *)
 let wxDCOverlay win dc x y dx dy f =
@@ -138,8 +143,6 @@ module WxOCP = struct
     wxStaticText win wxID_ANY txt wxDefaultPosition wxDefaultSize 0
   let wxButton win id =
     wxButton win id "" wxDefaultPosition wxDefaultSize 0
-  let wxMessageBox txt1 txt2 =
-    ignore_int (wxMessageBox txt1 txt2 (wxOK lor wxCENTRE) None (-1) (-1))
 
   let wxGetSingleChoiceIndex msg caption choices =
     let array = WxArrayString.create () in

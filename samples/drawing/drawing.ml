@@ -1905,7 +1905,7 @@ let myFrame_OnAbout frame (event : wxCommandEvent) =
    "Copyright c Robert Roebling 1999"
  in
  ignore_int (
-  wxMessageBox msg "About Drawing" (wxOK lor wxICON_INFORMATION)
+  wxMessageBoxAll msg "About Drawing" (wxOK lor wxICON_INFORMATION)
    (Some (WxFrame.wxWindow frame.m_frame)) (-1) (-1))
 
 let myFrame_OnClip frame (event : wxCommandEvent) =
@@ -1917,7 +1917,7 @@ let myFrame_OnGraphicContext frame (event : wxCommandEvent) =
   (WxCommandEvent.isChecked event)
 
 let myFrame_OnCopy frame (event : wxCommandEvent) =
-(*
+(* TODO
 {
 #if wxUSE_METAFILE && defined wxMETAFILE_IS_ENH
   wxMetafileDC dc;
