@@ -1,0 +1,555 @@
+(**************************************************************************)
+(*                                                                        *)
+(*                        TypeRex OCaml Tools                             *)
+(*                                                                        *)
+(*                             OCamlPro                                   *)
+(*                                                                        *)
+(*  Copyright 2011-2012 OCamlPro                                          *)
+(*  All rights reserved.  See accompanying files for the terms under      *)
+(*  which this file is distributed. In doubt, contact us at               *)
+(*  contact@ocamlpro.com (http://www.ocamlpro.com/)                       *)
+(**************************************************************************)
+
+begin
+  version = "[distributed with Ocaml]"
+  generated = true
+  dirname = [ "%{OCAMLLIB}%" "camlp4" ]
+
+   begin library "camlp4lib"
+     link = [ "-I" "+camlp4" ]
+     requires = [ "dynlink" ]
+   end
+
+   begin objects "Camlp4Bin"
+     files = [ "Camlp4Bin.ml" ]
+     requires = [ "camlp4lib" ]
+   end
+
+   begin objects "Camlp4OCamlRevisedParser"
+     files = [ "Camlp4Parsers/Camlp4OCamlRevisedParser.ml" ]
+     requires = [ "camlp4lib" ]
+   end
+
+   begin objects "camlp4-pa-r"
+     requires = [ "camlp4lib" "Camlp4OCamlRevisedParser" ]
+   end
+
+   begin objects "Camlp4OCamlRevisedParserParser"
+     files = [ "Camlp4Parsers/Camlp4OCamlRevisedParserParser.ml" ]
+     requires = [ "camlp4-pa-r" ]
+   end
+
+   begin objects "camlp4-pa-rp"
+     requires = [ "camlp4-pa-r" "Camlp4OCamlRevisedParserParser" ]
+   end
+
+
+
+   begin objects "Camlp4OCamlParser"
+     files = [ "Camlp4Parsers/Camlp4OCamlParser.ml" ]
+     requires = [ "camlp4lib" "camlp4-pa-r" ]
+   end
+
+   begin objects "camlp4-pa-o"
+     requires = [ "camlp4lib" "Camlp4OCamlParser" ]
+   end
+
+   begin objects "Camlp4OCamlParserParser"
+     files = [ "Camlp4Parsers/Camlp4OCamlParserParser.ml" ]
+     requires = [ "camlp4-pa-o" "Camlp4OCamlRevisedParserParser" ]
+   end
+
+   begin objects "camlp4-pa-op"
+     requires = [ "camlp4-pa-o" "Camlp4OCamlParserParser" ]
+   end
+
+   begin objects "Camlp4QuotationCommon"
+    files = [ "Camlp4Parsers/Camlp4QuotationCommon.ml"]
+     requires = [ "camlp4lib" ]
+  end
+
+   begin objects "Camlp4OCamlRevisedQuotationExpander"
+    files = [ "Camlp4Parsers/Camlp4OCamlRevisedQuotationExpander.ml"]
+     requires = [ "camlp4lib" "Camlp4OCamlRevisedParser" "Camlp4QuotationCommon" ]
+  end
+
+   begin objects "Camlp4GrammarParser"
+    files = [ "Camlp4Parsers/Camlp4GrammarParser.ml"]
+     requires = [ "camlp4lib" "camlp4-pa-o" ]
+  end
+
+  begin objects "Camlp4AutoPrinter"
+    files = [ "Camlp4Printers/Camlp4AutoPrinter.ml" ]
+     requires = [ "camlp4lib" "unix" ]
+  end
+
+  begin objects "camlp4-pr-p"
+    requires = [ "Camlp4AutoPrinter" ]
+  end
+
+  begin objects "pa_macro"
+    files = [ "Camlp4Parsers/Camlp4MacroParser.ml" ]
+    requires = [ "camlp4-pa-o" ]
+  end
+
+  begin program "camlp4o"
+      requires = [ "camlp4lib" "camlp4-pa-op" "Camlp4Bin" ]
+  end
+
+end
+
+(*
+
+begin program "x"
+  requires = [ "Camlp4AutoPrinter" ]
+end
+
+
+camlp4 = "camlp4lib.cma" + "Camlp4Bin.cmo"
+
+camlp4r =
+... +
+  "Camlp4Parsers/Camlp4OCamlRevisedParser.cmo"
+  "Camlp4Parsers/Camlp4OCamlRevisedParserParser.cmo"
+  "Camlp4Printers/Camlp4AutoPrinter.cmo"
++...
+
+camlp4rf = ... +
+         Camlp4Parsers/Camlp4OCamlRevisedParser.cmo
+         Camlp4Parsers/Camlp4QuotationCommon.cmo
+         Camlp4Parsers/Camlp4QuotationExpander.cmo
+         Camlp4Parsers/Camlp4OCamlRevisedParserParser.cmo
+         Camlp4Parsers/Camlp4GrammarParser.cmo
+         Camlp4Parsers/Camlp4MacroParser.cmo
+         Camlp4Parsers/Camlp4ListComprehension.cmo
+         Camlp4Printers/Camlp4AutoPrinter.cmo
++...
+
+camlp4o = ...+
+        Camlp4Parsers/Camlp4OCamlRevisedParser.cmo
+        Camlp4Parsers/Camlp4OCamlParser.cmo
+        Camlp4Parsers/Camlp4OCamlRevisedParserParser.cmo
+        Camlp4Parsers/Camlp4OCamlParserParser.cmo
+        Camlp4Printers/Camlp4AutoPrinter.cmo
++...
+
+../ocamlcomp.sh -I ../otherlibs/dynlink dynlink.cma -I
+../otherlibs/unix unix.cma -I stdlib camlp4/camlp4lib.cma -linkall
+camlp4/Camlp4Parsers/Camlp4OCamlRevisedParser.cmo
+camlp4/Camlp4Parsers/Camlp4QuotationCommon.cmo
+camlp4/Camlp4Parsers/Camlp4QuotationExpander.cmo
+camlp4/Camlp4Parsers/Camlp4OCamlParser.cmo
+camlp4/Camlp4Parsers/Camlp4OCamlRevisedParserParser.cmo
+camlp4/Camlp4Parsers/Camlp4OCamlParserParser.cmo
+camlp4/Camlp4Parsers/Camlp4GrammarParser.cmo
+camlp4/Camlp4Parsers/Camlp4MacroParser.cmo
+camlp4/Camlp4Parsers/Camlp4ListComprehension.cmo
+camlp4/Camlp4Printers/Camlp4AutoPrinter.cmo camlp4/Camlp4Bin.cmo -o
+camlp4/camlp4of.byte # cached
+
+
+../ocamlcomp.sh -I ../otherlibs/dynlink dynlink.cma -I
+../otherlibs/unix unix.cma -I stdlib camlp4/camlp4lib.cma -linkall
+camlp4/Camlp4Parsers/Camlp4OCamlRevisedParser.cmo
+camlp4/Camlp4Parsers/Camlp4OCamlParser.cmo
+camlp4/Camlp4Parsers/Camlp4OCamlRevisedParserParser.cmo
+camlp4/Camlp4Parsers/Camlp4OCamlParserParser.cmo
+camlp4/Camlp4Parsers/Camlp4QuotationCommon.cmo
+camlp4/Camlp4Parsers/Camlp4OCamlOriginalQuotationExpander.cmo
+camlp4/Camlp4Parsers/Camlp4GrammarParser.cmo
+camlp4/Camlp4Parsers/Camlp4MacroParser.cmo
+camlp4/Camlp4Parsers/Camlp4ListComprehension.cmo
+camlp4/Camlp4Printers/Camlp4AutoPrinter.cmo camlp4/Camlp4Bin.cmo -o
+camlp4/camlp4oof.byte # cached
+
+
+../ocamlcomp.sh -I ../otherlibs/dynlink dynlink.cma -I
+../otherlibs/unix unix.cma -I stdlib camlp4/camlp4lib.cma -linkall
+camlp4/Camlp4Parsers/Camlp4OCamlRevisedParser.cmo
+camlp4/Camlp4Parsers/Camlp4OCamlParser.cmo
+camlp4/Camlp4Parsers/Camlp4OCamlRevisedParserParser.cmo
+camlp4/Camlp4Parsers/Camlp4OCamlParserParser.cmo
+camlp4/Camlp4Parsers/Camlp4QuotationCommon.cmo
+camlp4/Camlp4Parsers/Camlp4OCamlRevisedQuotationExpander.cmo
+camlp4/Camlp4Parsers/Camlp4GrammarParser.cmo
+camlp4/Camlp4Parsers/Camlp4MacroParser.cmo
+camlp4/Camlp4Parsers/Camlp4ListComprehension.cmo
+camlp4/Camlp4Printers/Camlp4AutoPrinter.cmo camlp4/Camlp4Bin.cmo -o
+camlp4/camlp4orf.byte # cached
+
+
+
+
+
+
+
+
+
+
+
+begin objects "camlp4-env"
+  files = [
+     pack "Camlp4_import.ml" [
+       "utils/misc.ml";
+       "utils/terminfo.ml";
+       "parsing/linenum.ml";
+       "utils/warnings.ml";
+       "parsing/location.ml";
+       "parsing/longident.ml";
+       "parsing/asttypes.mli";
+       "parsing/parsetree.mli";
+       "typing/outcometree.mli";
+       "typing/oprint.ml" (no_mli = true)
+       "myocamlbuild_config.ml";
+       "utils/config.ml"
+     ]
+     "camlp4/Camlp4_config.ml"
+  ]
+  has_asm = false
+  requires = [ "dynlink-byte" ]
+end
+
+begin program "camlp4boot"
+  files = [
+     "camlp4-env.objects"
+     "camlp4/boot/Camlp4.ml"
+     "camlp4/boot/camlp4boot.ml"
+  ]
+  has_asm = false
+  requires = [ "dynlink-byte" "camlp4-env" ]
+end
+
+begin
+  pp = [ "$camlp4boot_DST_DIR/camlp4boot.byte" ]
+  pp_requires = [ "camlp4boot:byte" ]
+  requires = [ "camlp4boot" "camlp4-env" ]
+  has_asm = false
+
+begin objects "camlp4-boot"
+  dirname += [ "camlp4" "boot"]
+end
+begin objects "camlp4"
+  dirname += [ "camlp4" "Camlp4" ]
+  files = [
+    pack Camlp4 [
+      "Debug.ml"; "Sig.ml"; "ErrorHandler.ml"
+      "OCamlInitSyntax.ml"; "Options.ml"
+      pack Struct (subdir += [ "Struct"]) [
+         "AstFilters.ml"
+         "Camlp4Ast.ml" (package = "camlp4-boot" subdir = [])
+         "Loc.ml";
+         "Token.ml";         "Camlp4Ast2OCamlAst.ml";
+         "CleanAst.ml";      "CommentFilter.ml";
+         "DynLoader.ml";     "EmptyError.ml";
+         "EmptyPrinter.ml";  "FreeVars.ml";
+         "Lexer.mll" (pp = []);
+         "DynAst.ml";        "Quotation.ml";
+         pack Grammar (subdir += [ "Grammar" ]) [
+           "Structure.ml";   "Print.ml";
+           "Search.ml";      "Tools.ml";
+           "Failed.ml";      "Parser.ml";
+           "Delete.ml";      "Entry.ml";
+           "Fold.ml";        "Insert.ml";
+           "Dynamic.ml";     "Find.ml";
+           "Static.ml"
+         ]
+      ]
+      pack Printers (subdir += [ "Printers"]) [
+            "DumpCamlp4Ast.ml"
+            "DumpOCamlAst.ml"
+            "Null.ml" "OCaml.ml" "OCamlr.ml"
+           ]
+      "PreCast.ml" "Register.ml"
+    ]
+  ]
+  requires = [ "camlp4-boot" ]
+end
+
+  begin program "camlp4prof"
+    files = [ "camlp4/camlp4prof.ml" ]
+  end
+
+  begin library "camlp4lib"
+    files = [
+       "camlp4-env.objects"
+       "camlp4.objects"
+    ]
+    requires = [ "camlp4-env" "camlp4" ]
+  end
+
+  begin program "mkcamlp4"
+    files = [
+      "camlp4/mkcamlp4.ml"
+    ]
+    requires = [ "camlp4lib" ]
+  end
+
+
+  begin objects "camlp4-bin"
+    requires = [ "unix-byte" "camlp4lib" ]
+    files = [  "camlp4/Camlp4Bin.ml" ]
+  end
+  begin program "camlp4-byte"
+    files = [  "camlp4-bin.objects" ]
+    requires = [ "unix-byte" "camlp4lib" "camlp4-bin" ]
+  end
+
+  begin objects "camlp4-m"
+    subdir += [ "camlp4" "Camlp4Parsers" ]
+    files = [
+         "Camlp4QuotationCommon.ml"
+         "Camlp4GrammarParser.ml"
+         "Camlp4MacroParser.ml"
+         "Camlp4DebugParser.ml"
+         "Camlp4ListComprehension.ml"
+    ]
+    requires = [ "camlp4" ]
+  end
+
+  begin objects "camlp4-r"
+    files = [
+         "camlp4/Camlp4Parsers/Camlp4OCamlRevisedParser.ml"
+         "camlp4/Camlp4Parsers/Camlp4OCamlRevisedParserParser.ml"
+    ]
+    requires = [ "camlp4" ]
+  end
+
+  begin objects "camlp4-o"
+    files = [
+      "camlp4-r.objects"
+
+      "camlp4/Camlp4Parsers/Camlp4OCamlParser.ml"
+      "camlp4/Camlp4Parsers/Camlp4OCamlParserParser.ml"
+    ]
+    requires = [ "camlp4" "camlp4-r" ]
+
+  end
+
+  begin objects "camlp4-rf"
+    files = [
+         "camlp4-m.objects"
+         "camlp4-r.objects"
+         "camlp4/Camlp4Parsers/Camlp4QuotationExpander.ml"
+    ]
+    requires = [ "camlp4" "camlp4-r" "camlp4-m" ]
+  end
+
+  begin objects "camlp4-of"
+    files = [
+         "camlp4-m.objects"
+         "camlp4-o.objects"
+         "camlp4/Camlp4Parsers/Camlp4QuotationExpander.ml"
+    ]
+    requires = [ "camlp4" "camlp4-o" "camlp4-m" ]
+  end
+
+  begin objects "camlp4-orf"
+    files = [
+         "camlp4-m.objects"
+         "camlp4-o.objects"
+         "camlp4/Camlp4Parsers/Camlp4OCamlRevisedQuotationExpander.ml"
+    ]
+    requires = [ "camlp4" "camlp4-m" "camlp4-o" ]
+  end
+
+  begin objects "camlp4-oof"
+    files = [
+         "camlp4-m.objects"
+         "camlp4-o.objects"
+         "camlp4/Camlp4Parsers/Camlp4OCamlOriginalQuotationExpander.ml"
+    ]
+    requires = [ "camlp4" "camlp4-m" "camlp4-o" ]
+  end
+
+  begin objects "camlp4-auto"
+    files = [
+         "camlp4/Camlp4Printers/Camlp4AutoPrinter.ml"
+    ]
+    requires = [ "camlp4" ]
+  end
+
+
+  begin library "camlp4fulllib"
+    requires = [ "camlp4-env" "camlp4" "camlp4-o" "camlp4-m" ]
+
+    files = [
+         "camlp4-env.objects"
+         "camlp4.objects"
+
+         "camlp4-m.objects"
+         "camlp4/Camlp4Parsers/Camlp4AstLoader.ml"
+         "camlp4/Camlp4Parsers/Camlp4OCamlRevisedQuotationExpander.ml"
+
+         "camlp4-o.objects"
+         "camlp4/Camlp4Parsers/Camlp4OCamlOriginalQuotationExpander.ml"
+
+         "camlp4/Camlp4Printers/Camlp4AstDumper.ml"
+         "camlp4-auto.objects"
+         "camlp4/Camlp4Printers/Camlp4NullDumper.ml"
+         "camlp4/Camlp4Printers/Camlp4OCamlAstDumper.ml"
+         "camlp4/Camlp4Printers/Camlp4OCamlPrinter.ml"
+         "camlp4/Camlp4Printers/Camlp4OCamlRevisedPrinter.ml"
+
+         "camlp4/Camlp4Filters/Camlp4AstLifter.ml"
+         "camlp4/Camlp4Filters/Camlp4ExceptionTracer.ml"
+         "camlp4/Camlp4Filters/Camlp4FoldGenerator.ml"
+         "camlp4/Camlp4Filters/Camlp4LocationStripper.ml"
+         "camlp4/Camlp4Filters/Camlp4MapGenerator.ml"
+         "camlp4/Camlp4Filters/Camlp4MetaGenerator.ml"
+         "camlp4/Camlp4Filters/Camlp4Profiler.ml"
+         "camlp4/Camlp4Filters/Camlp4TrashRemover.ml"
+
+         pack Camlp4Top [
+             "camlp4/Camlp4Top/Top.ml"
+             "camlp4/Camlp4Top/Rprint.ml"
+         ]
+       ]
+     end
+
+     (* We should factorize as "objects" sets of files so
+         we can use them again, especially as they all already
+         appear in camlp4fulllib *)
+
+     begin program "camlp4boot-again"
+       link = [ "-linkall" ]
+       requires = [ "camlp4lib" "camlp4-rf" "camlp4-bin" ]
+       files = [
+         "camlp4-rf.objects"
+         "camlp4/Camlp4Printers/Camlp4OCamlAstDumper.ml"
+         "camlp4-bin.objects"
+       ]
+   end
+
+   begin objects "camlp4-top"
+     requires = [ "camlp4lib" ]
+     files = [  "camlp4/Camlp4Top/Top.ml" ]
+   end
+
+   begin objects "camlp4-rtop"
+     requires = [ "camlp4-top" ]
+     files = [  "camlp4-top.objects" "camlp4/Camlp4Top/Rprint.ml"]
+   end
+
+   begin library "camlp4boot-lib"
+         link = [ "-linkall" ]
+         requires = [ "camlp4lib" "camlp4-rf" "camlp4-rtop" ]
+         files = [
+          "camlp4-rf.objects"
+          "camlp4-rtop.objects"
+        ]
+   end
+
+   begin program "camlp4r"
+     link = [ "-linkall" ]
+     requires = [ "unix-byte" "camlp4lib" "camlp4-r" "camlp4-bin" "camlp4-auto"]
+     files = [
+      "camlp4-r.objects"
+      "camlp4-auto.objects"
+      "camlp4-bin.objects";
+     ]
+  end
+
+  begin library "camlp4r-lib"
+    requires = [ "camlp4lib" "camlp4-r" "camlp4-rtop" ]
+    link = [ "-linkall" ]
+    files = [
+      "camlp4-r.objects" "camlp4-rtop.objects"
+      ]
+  end
+
+  begin program "camlp4rf"
+     requires = [ "camlp4lib"  "unix-byte" "camlp4-rf" "camlp4-bin" ]
+     link = [ "-linkall" ]
+    files = [ "camlp4-rf.objects" "camlp4-bin.objects"; ]
+  end
+
+  begin library "camlp4rf-lib"
+     requires = [ "camlp4lib" "camlp4-rf" "camlp4-rtop" ]
+     link = [ "-linkall" ]
+     files = [ "camlp4-rf.objects" "camlp4-rtop.objects" ]
+  end
+
+  begin program "camlp4o"
+     requires = [ "camlp4lib" "unix-byte" "camlp4-o" "camlp4-bin"  "camlp4-auto"]
+     link = [ "-linkall" ]
+     files = [
+      "camlp4-o.objects"
+      "camlp4-auto.objects"
+      "camlp4-bin.objects";
+       ]
+  end
+ library "camlp4o-lib"
+    requires = [ "camlp4lib" "camlp4-o" "camlp4-top" ]
+    link = [ "-linkall" ]
+    files = [
+      "camlp4-o.objects" "camlp4-top.objects"
+
+     ]
+  end
+
+  begin program "camlp4of"
+     requires = [ "camlp4lib"  "unix-byte" "camlp4-of" "camlp4-bin" "camlp4-auto" ]
+     link = [ "-linkall" ]
+    files = [
+      "camlp4-of.objects"
+      "camlp4-auto.objects"
+      "camlp4-bin.objects";
+    ]
+  end
+
+  begin library "camlp4of-lib"
+    requires = [ "camlp4lib" "camlp4-of" "unix-byte" "camlp4-top" ]
+    link = [ "-linkall" ]
+    files = [ "camlp4-of.objects" "camlp4-top.objects" ]
+  end
+
+  begin program "camlp4oof"
+     requires = [ "camlp4lib" "unix-byte" "camlp4-oof" "camlp4-bin"  "camlp4-auto"]
+     link = [ "-linkall" ]
+     files = [
+      "camlp4-oof.objects"
+      "camlp4-auto.objects"
+      "camlp4-bin.objects";
+     ]
+  end
+
+  begin library "camlp4oof-lib"
+    requires = [ "camlp4lib" "unix-byte" "camlp4-oof" "camlp4-top" ]
+    link = [ "-linkall" ]
+    files = [ "camlp4-oof.objects" "camlp4-top.objects" ]
+  end
+
+  begin program "camlp4orf"
+    requires = [ "camlp4lib" "unix-byte" "camlp4-orf" "camlp4-bin"  "camlp4-auto"]
+     link = [ "-linkall" ]
+     files = [
+         "camlp4-orf.objects"
+         "camlp4-auto.objects"
+         "camlp4-bin.objects";
+         ]
+  end
+
+  begin library "camlp4orf-lib"
+    requires = [ "camlp4lib" "unix-byte" "camlp4-orf" "camlp4-top" ]
+     link = [ "-linkall" ]
+    files = [ "camlp4-orf.objects" "camlp4-top.objects" ]
+  end
+
+(*
+ocamlc -c -g -warn-error A -w Z -pp 'boot/ocamlrun camlp4/boot/camlp4boot.byte' -I "camlp4/Camlp4Parsers -I camlp4 -I stdlib -o "camlp4/Camlp4Parsers/Camlp4OCamlReloadedParser.ml"; "camlp4/Camlp4Parsers/Camlp4OCamlReloadedParser.ml
+  end
+*)
+
+end
+
+------------------------------------
+
+For each package file, take the "camlp4" attribute, and
+
+begin camlp4 "camlp4o"
+
+end
+
+pp = [ "camlp4o"; "-printer"; "p" ]
+
+*)

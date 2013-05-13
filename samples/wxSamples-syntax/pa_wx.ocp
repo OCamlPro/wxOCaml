@@ -1,0 +1,52 @@
+begin program "camlp4"
+    generated = true
+    requires = [ "dynlink" "camlp4lib" ]
+end
+
+begin library "use-camlp4"
+    requires = [
+      "camlp4" "camlp4-pr-p"
+    ]
+end
+
+begin library "syntax-for-camlp4"
+    has_asm = false
+    requires = [
+      "camlp4lib" "camlp4-pa-o" "camlp4-pa-op" "camlp4-pr-p"
+    ]
+end
+
+begin syntax "camlp4-extensions.syntax"
+    has_asm = false
+    requires = [
+      "camlp4"
+        "syntax-for-camlp4"
+        "Camlp4QuotationCommon"
+        "Camlp4OCamlRevisedQuotationExpander"
+        "Camlp4GrammarParser"
+    ]
+end
+
+
+begin library "pa_wx"
+    requires = [   "camlp4lib" "camlp4-pa-o"
+                   "camlp4-pa-op" "camlp4-extensions.syntax" ]
+    comp = [ "-I" "+camlp4" ]
+    files = [ "pa_wx.ml" ( syntax = [ "camlp4-extensions.syntax" ] ) ]
+end
+
+begin syntax "pa_wx.syntax"
+    requires = [ "pa_wx" ]
+end
+
+begin syntax "wxSamples.syntax"
+    requires =  [
+      "use-camlp4" "pa_wx"
+    ]
+end
+
+(* To use this syntax, you just need to add the two lines:
+  syntax = "wxSamples.syntax"
+  requires += [ "wxSamples.syntax" ]
+to your package description.
+*)

@@ -1,0 +1,9 @@
+binannot = false
+
+(* same as drawing, with pa_wx syntax *)
+
+begin program "drawing2"
+    syntax = "wxSamples.syntax"
+  requires = [ "wxWidgets"  "wxSamples-resources" "wxSamples.syntax" ]
+  files = [    "drawing.ml"  ]
+end
