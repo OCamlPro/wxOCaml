@@ -243,6 +243,70 @@ value wxPen_SetDashes_c(value self_v, value dash_v)
   CAMLreturn(ret_v);
 }
 
-
-
 }
+/* TODO:
+Instead of using caml_register_global_root() and caml_remove_global_root(),
+we should use a list of roots, where adding/removing would be performed
+in O(1).
+ */
+class OCamlObject 
+{
+public:
+  value m_callbacks_v;
+  value m_state_v;
+  value m_this_v;
+public:
+  OCamlObject(value callbacks_v, value state_v)
+  {
+    m_callbacks_v = callbacks_v;
+    m_state_v = state_v;
+    caml_register_global_root(&m_state_v);    
+    caml_register_global_root(&m_callbacks_v);
+
+    m_this_v = Val_abstract(this);
+    caml_register_global_root(&m_this_v);        
+  }
+  ~OCamlObject()
+  {
+    caml_remove_global_root(&m_callbacks_v);
+    caml_remove_global_root(&m_state_v);
+    caml_remove_global_root(&m_this_v);
+  }
+};
+
+class OCamlWizardPage : public wxWizardPage, OCamlObject
+{
+public:
+  OCamlWizardPage(value callbacks_v, value state_v, 
+		  wxWizard* parent_c, wxBitmap& bitmap_c):
+    OCamlObject(callbacks_v, state_v), wxWizardPage(parent_c, bitmap_c)
+  { }
+
+
+  wxWizardPage* GetPrev()
+  {
+    value ret_v = caml_callback2(Field(m_callbacks_v, 0), 
+				 m_this_v, 
+				 m_state_v);
+    return (wxWizardPage*)AbstractOption_val(ret_v);
+  }
+
+  wxWizardPage* GetNext()
+  {
+    value ret_v = caml_callback2(Field(m_callbacks_v, 1), 
+				 m_this_v, 
+				 m_state_v);
+    return (wxWizardPage*)AbstractOption_val(ret_v);
+  }
+
+  wxBitmap& GetBitmap()
+  {
+    wxBitmap* ret_c;
+    value ret_v = caml_callback2(Field(m_callbacks_v, 1), 
+				 m_this_v, 
+				 m_state_v);
+    ret_c = (wxBitmap*)AbstractOption_val(ret_v);
+    return *ret_c;
+  }
+
+};
