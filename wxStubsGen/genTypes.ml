@@ -18,6 +18,7 @@ and type_descr = {
 and class_descr = {
   class_name : string;
   class_uname : string;
+  class_num : int;
 
   class_inherit : string list;
   mutable class_parents : class_descr StringMap.t;
@@ -68,6 +69,7 @@ and ctype =
 
 let exit_code = ref 0
 let types = ref (StringMap.empty : type_descr StringMap.t)
+let nclasses = ref 0
 
 let find_cpp_equiv_with_cast wxClass =
   try

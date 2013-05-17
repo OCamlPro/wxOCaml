@@ -6,6 +6,7 @@ let new_class class_name class_inherit class_methods =
 
   let class_parents = StringMap.empty in
   let class_children = StringMap.empty in
+  incr nclasses;
   {
     class_name;
     class_uname;
@@ -14,6 +15,7 @@ let new_class class_name class_inherit class_methods =
     class_parents;
     class_children;
     class_includes = [];
+    class_num = !nclasses;
   }
 
 let default_options = { fopt_gen_cpp = true; fopt_others = () }

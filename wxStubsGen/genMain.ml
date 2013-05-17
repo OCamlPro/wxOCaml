@@ -159,6 +159,7 @@ let _ =
     mkdir ocaml_directory;
     GenOCaml.generate_types_module
       ocaml_directory "wxClasses" classes;
+    GenCplusplus.generate_classes_files cpp_directory classes;
     generate_sources (cpp_directory, ocaml_directory) classes;
     GenEvents.generate_events !api_directory (cpp_directory, ocaml_directory) "wxEVT";
 

@@ -3,6 +3,11 @@ open GenMisc
 open GenTypes
 open GenProject
 
+
+
+let val_abstract wxClass =
+  Printf.sprintf "Val_abstract(WXCLASS_%s, (%s*) " wxClass wxClass
+
 let rec string_of_ctype ctype =
   match ctype with
   | Typ_ident id -> id
@@ -37,7 +42,7 @@ let rec fprintf_ctype oc ctype var =
 
 
 let direct_return_types = [
-  "int"; "char"; "bool"; "int64"; "int32"; "double"; "float";
+  "int"; "char"; "bool"; "int64"; "int32"; "double"; "float"; "value";
 
   (* Allocate them on the stack, and make a copy later *)
   "wxRect"; "wxPoint"; "wxSize"; "wxString";
@@ -61,7 +66,7 @@ let find_return_conversion ctyp =
       | ("double" | "float") -> "caml_copy_double("
       | _ when
           wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->
-        "Val_abstract("
+        val_abstract wxClass
       | _ ->
         Printf.eprintf "Error(4): no retrurn conversion for %S\n%!"
           wxClass_equiv;
@@ -85,8 +90,8 @@ let   generate_method_stub_body oc cl p  out_nargs =
       ProtoNew
     | ProtoFunction -> ()
     | ProtoMethod ->
-      fprintf oc "  %s* self_c = (%s*)Abstract_val(self_v);\n"
-        cl.class_name cl.class_name;
+      fprintf oc "  %s* self_c = (%s*)Abstract_val(WXCLASS_%s, self_v);\n"
+        cl.class_name cl.class_name cl.class_name;
       | ProtoValue -> assert false
   end;
 
@@ -126,9 +131,9 @@ let   generate_method_stub_body oc cl p  out_nargs =
         | "wxRect" -> ()
         | "wxString" -> ()
         | _ ->
-          fprintf oc "  %s* %s_c = (%s*)Abstract_val(%s_v);\n"
+          fprintf oc "  %s* %s_c = (%s*)Abstract_val(WXCLASS_%s, %s_v);\n"
             wxClass arg_name
-            wxClass arg_name;
+            wxClass wxClass arg_name;
       end
 
     | In, Typ_pointer (Typ_ident wxClass)
@@ -147,9 +152,9 @@ let   generate_method_stub_body oc cl p  out_nargs =
           fprintf oc "  Begin_Strings(%s_c, %s_v);\n"
             arg_name arg_name
         | _ ->
-          fprintf oc "  %s* %s_c = (%s*)Abstract_val(%s_v);\n"
+          fprintf oc "  %s* %s_c = (%s*)Abstract_val(WXCLASS_%s, %s_v);\n"
             wxClass arg_name
-            wxClass arg_name;
+            wxClass wxClass arg_name;
       end
     | In, Typ_option (Typ_ident wxClass)
       ->
@@ -168,9 +173,9 @@ let   generate_method_stub_body oc cl p  out_nargs =
           fprintf oc "  Begin_IntsOption(%s_c, %s_v);\n"
             arg_name arg_name
         | _ ->
-          fprintf oc "  %s* %s_c = (%s*)AbstractOption_val(%s_v);\n"
-            wxClass arg_name
-            wxClass arg_name;
+          fprintf oc "  %s* %s_c = (%s*)AbstractOption_val(WXCLASS_%s, %s_v);\n"
+            wxClass  arg_name
+            wxClass wxClass arg_name;
       end
     | _ -> ()
   ) p.proto_args;
@@ -271,16 +276,16 @@ let   generate_method_stub_body oc cl p  out_nargs =
   let convert_ret oc =
     match proto_ret with
       | Typ_pointer (Typ_ident wxClass) ->
-        fprintf oc "Val_abstract( ret_c )"
+        fprintf oc "%s ret_c )" (val_abstract wxClass)
       | Typ_reference (Typ_ident wxClass) ->
         begin match wxClass with
           | "wxString" ->
             fprintf oc "Val_wxString( &ret_c )"
           | _ ->
-            fprintf oc "Val_abstract( &ret_c )"
+            fprintf oc "%s &ret_c )" (val_abstract wxClass)
         end
       | Typ_option (Typ_ident wxClass) ->
-        fprintf oc "Val_abstractOption( ret_c )"
+        fprintf oc "Val_abstractOption(WXCLASS_%s, ret_c )" wxClass
       | Typ_ident "void" ->
         fprintf oc "Val_unit";
       | _ ->
@@ -471,7 +476,7 @@ let find_value_conversion ctyp =
       |  "int32" -> "caml_copy_int32(*"
       | _ when
           wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->
-        "Val_abstract("
+        val_abstract wxClass
       | _ -> assert false
     end, ")"
   | Typ_ident wxClass ->
@@ -487,7 +492,7 @@ let find_value_conversion ctyp =
       |  "string" -> "caml_copy_string(", ")"
       | _ when
           wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->
-        "Val_abstract(&", ")"
+        Printf.sprintf "%s &" (val_abstract wxClass), ")"
       | _ -> assert false
     end
   | _ -> assert false
@@ -528,6 +533,7 @@ let generate_class_stubs source_dirname cl includes =
     else
       fprintf oc "#include %S\n" s
   ) includes;
+  fprintf oc "#include \"wxClasses.h\"\n";
 
   fprintf oc "extern %S {\n" "C";
 
@@ -551,3 +557,39 @@ let generate_class_stubs source_dirname cl includes =
   fprintf oc "}\n";
 
   close_out oc
+
+let generate_classes_files source_dirname classes =
+  let filename = Filename.concat source_dirname
+      (add_cplusplus_header "wxClasses.h") in
+  let oc = open_out filename in
+  StringMap.iter (fun _ cl ->
+    Printf.fprintf oc.oc "#define WXCLASS_%s %d\n" cl.class_name
+      cl.class_num
+  ) classes;
+  close_out oc;
+
+  let filename = Filename.concat source_dirname
+      (add_cplusplus_source "wxClasses_ml.cpp") in
+  let oc = open_out filename in
+
+  Printf.fprintf oc.oc "#include %S\n" "wxOCaml.h";
+  Printf.fprintf oc.oc "extern %S {\n" "C";
+  Printf.fprintf oc.oc "void* wxOCaml_cast(int dest_id, int src_id, void* ptr)\n";
+  Printf.fprintf oc.oc "{\n";
+  Printf.fprintf oc.oc "  switch(dest_id * %d + src_id){\n" !nclasses;
+  StringMap.iter (fun _ src ->
+    StringMap.iter (fun _ dest ->
+      Printf.fprintf oc.oc "  case %d : return (%s*)(%s*)ptr;\n"
+        (dest.class_num * !nclasses + src.class_num)
+        dest.class_name src.class_name
+    ) src.class_parents
+  ) classes;
+
+
+  Printf.fprintf oc.oc "    default: return ptr;\n";
+  Printf.fprintf oc.oc "  }\n";
+
+  Printf.fprintf oc.oc "}\n";
+  Printf.fprintf oc.oc "}\n";
+  close_out oc
+

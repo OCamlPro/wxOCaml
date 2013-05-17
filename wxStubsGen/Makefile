@@ -8,7 +8,7 @@ all: $(STUBSGEN)
 		../api/*.api
 
 $(STUBSGEN): *.ml *.mll *.mly
-	ocp-build -no-color -asm wxStubsGen
+	ocp-build -asm wxStubsGen
 
 clean:
 	rm -f *~

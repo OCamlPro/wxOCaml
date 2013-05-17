@@ -33,7 +33,8 @@ lib$(NAME).a: $(OBJECTS)
 #	$(CXX) $(CXXFLAGS)  -g -Wl,--hash-size=31 -Wl,--reduce-memory-overheads -shared -Wl,-soname,lib$(NAME).so -o lib$(NAME).so $(OBJECTS) $(LIBS)
 
 .cpp.o:
-	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -Wl,--hash-size=31 -Wl,--reduce-memory-overheads -DwxcREFUSE_MEDIACTRL -fPIC -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -O1 -fPIC -c $< -o $@
+#	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -Wl,--hash-size=31 -Wl,--reduce-memory-overheads -DwxcREFUSE_MEDIACTRL -fPIC -c $< -o $@
 
 clean:
 	rm -f *.so *.o *~ generated $(GENERATED_CPP_SOURCES) $(GENERATED_OCAML_SOURCES) lib$(NAME).a wxWidgets.ocp Makefile.project

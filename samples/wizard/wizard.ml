@@ -323,6 +323,26 @@ let myWizard_MyWizard frame useSizer =
 
     (* a wizard page may be either an object of predefined class*)
     let m_page1 = wxWizardPageSimple (Some wizard) in
+    let m_page1 = WxWizardPageSimple.wxWizardPage m_page1 in
+
+    let methods = WxVirtuals.WxOCamlWizardPage.({
+        getPrev = (fun this state ->
+          Printf.eprintf "getPrev\n%!";
+          let this = WxOCamlWizardPage.wxWizardPage this in
+          Some this);
+        getNext = (fun this state ->
+          Printf.eprintf "getNext\n%!";
+          None);
+        getBitmap = Some (fun this state ->
+            Printf.eprintf "getBitmap\n%!";
+            wxNullBitmap);
+        transferDataFromWindow = None;
+        transferDataToWindow = None;
+        validate = None;
+      }) in
+    let m_page1 = WxOCamlWizardPage.create methods "m_page1" (Some wizard)
+        wxNullBitmap in
+    let m_page1 = WxOCamlWizardPage.wxWizardPage m_page1 in
 
 (* TODO
     /* wxStaticText *text = */ new wxStaticText(m_page1, wxID_ANY,
@@ -354,7 +374,7 @@ let myWizard_MyWizard frame useSizer =
 }
 *)
     { m_wizard = wizard;
-      m_page1 = WxWizardPageSimple.wxWizardPage m_page1;
+      m_page1 =  m_page1;
     }
 
 let myFrame_OnQuit m_frame (event : wxCommandEvent) =
@@ -403,8 +423,9 @@ let myFrame_OnWizardFinished  m_frame (event : wxWizardEvent) =
   ()
 
 let myFrame_OnWizardCancel m_frame (event : wxWizardEvent) =
-  wxMessageBox
-    (wxT("The wizard was cancelled.")) (wxT("Wizard notification"));
+  ignore_int (wxMessageBox
+    (wxT("The wizard was cancelled.")) (wxT("Wizard notification"))
+  );
   ()
 
 

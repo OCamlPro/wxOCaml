@@ -1,3 +1,4 @@
+
 class wxWizardPage inherit wxPanel begin
 
     method( wxBitmap, GetBitmap)()
@@ -24,6 +25,15 @@ class wxWizardPage inherit wxPanel begin
 	      Validate? (* from wxWindow *)
            ]
 *)
+end
+
+class wxOCamlWizardPage inherit wxWizardPage begin
+
+  new{ gen_cpp = false }(Create)(
+     "'a WxVirtuals.WxOCamlWizardPage.methods" value  callback, 
+     "'a"  value state, 
+              wxWizard? parent, wxBitmap& bitmap)
+            
 end
 
 class wxWizardPageSimple inherit wxWizardPage begin

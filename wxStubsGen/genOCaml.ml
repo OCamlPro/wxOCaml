@@ -164,6 +164,7 @@ let generate_class_module source_dirname cl =
     let filename = Filename.concat source_dirname basename in
     let ml_oc = open_out filename in
     fprintf ml_oc "open WxClasses\n";
+    fprintf ml_oc "open WxVirtuals\n";
 
     let ml_names = ref StringMap.empty in
     let check_ml_name ml_name cl =
@@ -213,10 +214,15 @@ let generate_class_module source_dirname cl =
 
     if cl.class_parents <> StringMap.empty then begin
       fprintf ml_oc "\n(* Cast functions to parents *)\n";
-    StringMap.iter (fun _ pcl ->
+      StringMap.iter (fun _ pcl ->
+        fprintf ml_oc "\nlet %s (x : %s) =\n   (WxClasses.wxCast %d %d x : %s)\n"
+          pcl.class_name cl.class_name pcl.class_num cl.class_num
+          pcl.class_name
+(*
       fprintf ml_oc "\nexternal %s : %s -> %s = %S\n"
         pcl.class_name cl.class_name pcl.class_name
-        "%identity"
+        "%"
+*)
     ) cl.class_parents;
     end;
 
@@ -224,12 +230,16 @@ let generate_class_module source_dirname cl =
       fprintf ml_oc "module Unsafe = struct\n";
     fprintf ml_oc "\n  (* Cast functions to children, if any *)\n";
     StringMap.iter (fun _ pcl ->
+      fprintf ml_oc "\n  let %s _ = assert false\n" pcl.class_name
+(*
       fprintf ml_oc "\n  external %s : %s -> %s = %S\n"
         pcl.class_name cl.class_name pcl.class_name
         "%identity"
+*)
     ) cl.class_children;
       fprintf ml_oc "\nend\n";
     end;
+
 
     if !values <> [] then
       generate_values_stub ml_oc cl !values;
@@ -243,6 +253,7 @@ let generate_types_module source_dirname modname classes =
   let basename = add_ocaml_source (modname ^ ".ml") in
   let filename = Filename.concat source_dirname basename in
   let ml_oc = open_out filename in
+  fprintf ml_oc "type 'a wx\n";
   fprintf ml_oc "type wxRect = int * int * int * int\n";
   fprintf ml_oc "type wxPoint = int * int\n";
   fprintf ml_oc "type wxSize = int * int\n";
@@ -260,7 +271,13 @@ let generate_types_module source_dirname modname classes =
   ) !types;
 
   StringMap.iter (fun _ cl ->
-    fprintf ml_oc "type %s\n" cl.class_name
+    fprintf ml_oc "type %s_class\n" cl.class_name;
+    fprintf ml_oc "type %s = %s_class wx\n" cl.class_name cl.class_name
   ) classes;
+
+  fprintf ml_oc "external wxCast : int -> int -> 'a wx -> 'b wx = %S\n"
+    "wxOCaml_cast_ml";
+
   close_out ml_oc;
+
   ()
