@@ -11,7 +11,7 @@ let ml_function_name cl p =
 
 let fprintf_ml_of_ctype ml_oc ctype =
   try
-    match ctype with
+    match snd ctype with
     | Typ_ident wxClass ->
       let wxClass_equiv = find_ocaml_equiv wxClass in
       begin match wxClass_equiv with
@@ -27,7 +27,7 @@ let fprintf_ml_of_ctype ml_oc ctype =
           fprintf ml_oc "%s" wxClass; true
         | _ -> raise Not_found
       end
-    | Typ_reference (Typ_ident wxClass) ->
+    | Typ_reference (_, Typ_ident wxClass) ->
       begin match wxClass with
         | "wxPoint"
         | "wxSize"
@@ -37,7 +37,7 @@ let fprintf_ml_of_ctype ml_oc ctype =
           fprintf ml_oc "%s" wxClass; true
       end
 
-    | Typ_pointer (Typ_ident wxClass)
+    | Typ_pointer (_, Typ_ident wxClass)
       ->
       begin match wxClass with
         | "strings" -> fprintf ml_oc "string array"; true
@@ -48,7 +48,7 @@ let fprintf_ml_of_ctype ml_oc ctype =
         | _ ->
           fprintf ml_oc "%s" wxClass; true
       end
-    | Typ_option (Typ_ident wxClass)
+    | Typ_option (_, Typ_ident wxClass)
       ->
       begin match wxClass with
         | "wxPoint"
@@ -72,6 +72,9 @@ let fprintf_ml_of_ctype ml_oc ctype =
 
 let generate_method_function ml_oc c_name cl p =
   let ml_name = ml_function_name cl p in
+
+  cl.class_defs <- StringMap.add p.proto_name p cl.class_defs;
+
 
   fprintf ml_oc "\nexternal %s : " ml_name;
 
@@ -100,11 +103,11 @@ let generate_method_function ml_oc c_name cl p =
     fprintf ml_oc " unit -> ";
 
   let proto_ret = match p.proto_ret with
-      None -> Typ_pointer (Typ_ident cl.class_name)
+      None -> MUTABLE, Typ_pointer (MUTABLE, Typ_ident cl.class_name)
     | Some ctype -> ctype in
   if !at_least_nargs > 0 then
     fprintf ml_oc "\n      ";
-  let ret_arg = if proto_ret = Typ_ident "void" then 0 else 1 in
+  let ret_arg = if snd proto_ret = Typ_ident "void" then 0 else 1 in
   begin
     if !out_nargs = 0 then
       ignore (fprintf_ml_of_ctype ml_oc proto_ret)
@@ -182,7 +185,10 @@ let generate_class_module source_dirname cl =
     List.iter (fun p ->
       match p.proto_kind with
       | ProtoValue -> values := p :: !values
-      | ProtoNew | ProtoFunction | ProtoMethod ->
+      | ProtoNew when cl.class_virtual = VIRTUAL -> ()
+      | ProtoNew
+      | ProtoFunction
+      | ProtoMethod ->
       try
         let c_name = c_function_name cl p in
         let ml_name = generate_method_function ml_oc c_name cl p in
@@ -215,14 +221,16 @@ let generate_class_module source_dirname cl =
     if cl.class_parents <> StringMap.empty then begin
       fprintf ml_oc "\n(* Cast functions to parents *)\n";
       StringMap.iter (fun _ pcl ->
+(* We don't need this, since objects are dynamically typed by the stubs
+   when calling the methods.
+
         fprintf ml_oc "\nlet %s (x : %s) =\n   (WxClasses.wxCast %d %d x : %s)\n"
           pcl.class_name cl.class_name pcl.class_num cl.class_num
           pcl.class_name
-(*
+*)
       fprintf ml_oc "\nexternal %s : %s -> %s = %S\n"
         pcl.class_name cl.class_name pcl.class_name
-        "%"
-*)
+        "%identity"
     ) cl.class_parents;
     end;
 
@@ -230,7 +238,10 @@ let generate_class_module source_dirname cl =
       fprintf ml_oc "module Unsafe = struct\n";
     fprintf ml_oc "\n  (* Cast functions to children, if any *)\n";
     StringMap.iter (fun _ pcl ->
-      fprintf ml_oc "\n  let %s _ = assert false\n" pcl.class_name
+
+        fprintf ml_oc "\nlet %s (x : %s) =\n   (WxClasses.wxCast %d %d x : %s)\n"
+          pcl.class_name cl.class_name pcl.class_num cl.class_num
+          pcl.class_name
 (*
       fprintf ml_oc "\n  external %s : %s -> %s = %S\n"
         pcl.class_name cl.class_name pcl.class_name
@@ -248,6 +259,7 @@ let generate_class_module source_dirname cl =
   with Exit ->
     Printf.eprintf "while printing OCaml of class %S\n" cl.class_name;
     raise Exit
+
 
 let generate_types_module source_dirname modname classes =
   let basename = add_ocaml_source (modname ^ ".ml") in
@@ -270,9 +282,15 @@ let generate_types_module source_dirname modname classes =
     end
   ) !types;
 
+
+  let declare_class_type class_name =
+    fprintf ml_oc "type %s_class\n" class_name;
+    fprintf ml_oc "type %s = %s_class wx\n" class_name class_name
+  in
   StringMap.iter (fun _ cl ->
-    fprintf ml_oc "type %s_class\n" cl.class_name;
-    fprintf ml_oc "type %s = %s_class wx\n" cl.class_name cl.class_name
+    declare_class_type  cl.class_name;
+(*    if cl.class_virtuals <> [] then
+      declare_class_type (ocaml_class_name cl.class_name) *)
   ) classes;
 
   fprintf ml_oc "external wxCast : int -> int -> 'a wx -> 'b wx = %S\n"
@@ -281,3 +299,28 @@ let generate_types_module source_dirname modname classes =
   close_out ml_oc;
 
   ()
+
+let generate_virtuals_module source_dirname modname classes =
+  let basename = add_ocaml_source (modname ^ ".ml") in
+  let filename = Filename.concat source_dirname basename in
+  let ml_oc = open_out filename in
+  fprintf ml_oc "open WxClasses\n";
+  StringMap.iter (fun _ cl ->
+    if cl.class_virtuals <> [] then begin
+      let (_, pcl) = StringMap.min_binding cl.class_parents in
+      fprintf ml_oc "module %s = struct\n" cl.class_uname;
+      fprintf ml_oc "  type 'a methods\n";
+      fprintf ml_oc "(*\n";
+      List.iter (fun (name, must, version) ->
+        try
+          let p = StringMap.find name cl.class_defs in
+          fprintf ml_oc "%s : _;\n" name;
+        with Not_found ->
+          Printf.eprintf "Virtual method %s not found\n%!" name
+      ) cl.class_virtuals;
+      fprintf ml_oc "*)\n";
+      fprintf ml_oc "end\n";
+    end
+  ) classes;
+  close_out ml_oc
+

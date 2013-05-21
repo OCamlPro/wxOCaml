@@ -321,6 +321,16 @@ value wxOCaml_init_ml(value unit_v)
   scan_roots_hook = ocaml_wx_scan_roots;
 }
 
+  value wxOCaml_cast_ml(value dest_id_v, value src_id_v, value ptr_v)
+  {
+    int src_id = Int_val(src_id_v);
+    int dest_id = Int_val(dest_id_v);
+    void *ptr = Abstract_val(src_id, ptr_v);
+    void *ptr2 = wxOCaml_cast(dest_id, src_id, ptr);
+    if( ptr == ptr2 ) return ptr_v;
+    return Val_abstract(dest_id, ptr2);
+  }
+
 }
 
 /* TODO
@@ -341,6 +351,20 @@ virtual method if the types don't match exactly.
 
  */
 
+
+class wxOCamlWizardPage : public wxWizardPage, wxOCamlObject
+{ 
+ public:
+   wxOCamlWizardPage(value callbacks_v, value state_v, 
+		     wxWizard* parent_c, wxBitmap& bitmap_c);
+
+   wxWizardPage* GetPrev() const;
+  wxWizardPage* GetNext() const;
+  wxBitmap GetBitmap() const;
+  bool TransferDataFromWindow();
+  bool TransferDataToWindow();
+  bool Validate();   
+};
 
 wxOCamlWizardPage::wxOCamlWizardPage(value callbacks_v, value state_v, 
 		  wxWizard* parent_c, wxBitmap& bitmap_c):
@@ -458,16 +482,6 @@ value wxOCamlWizardPage_Create_c(value callback_v, value state_v, value parent_v
   ret_v = Val_abstract(WXCLASS_wxWizardPage, (wxWizardPage*) ret_c );
   CAMLreturn(ret_v);
 }
-
-  value wxOCaml_cast_ml(value dest_id_v, value src_id_v, value ptr_v)
-  {
-    int src_id = Int_val(src_id_v);
-    int dest_id = Int_val(dest_id_v);
-    void *ptr = Abstract_val(src_id, ptr_v);
-    void *ptr2 = wxOCaml_cast(dest_id, src_id, ptr);
-    if( ptr == ptr2 ) return ptr_v;
-    return Val_abstract(dest_id, ptr2);
-  }
 
 }
 

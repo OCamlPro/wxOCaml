@@ -261,17 +261,7 @@ public:
   ~wxOCamlObject();
 };
 
-class wxOCamlWizardPage : public wxWizardPage, wxOCamlObject
-{ 
- public:
-   wxOCamlWizardPage(value callbacks_v, value state_v, 
-		     wxWizard* parent_c, wxBitmap& bitmap_c);
+class wxOCamlWizardPage;
 
-   wxWizardPage* GetPrev() const;
-  wxWizardPage* GetNext() const;
-  wxBitmap GetBitmap() const;
-  bool TransferDataFromWindow();
-  bool TransferDataToWindow();
-  bool Validate();   
-};
+
 #endif

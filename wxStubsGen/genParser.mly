@@ -1,23 +1,6 @@
 %{
 open GenTypes
 
-let new_class class_name class_inherit class_methods =
-  let class_uname = String.capitalize class_name in
-
-  let class_parents = StringMap.empty in
-  let class_children = StringMap.empty in
-  incr nclasses;
-  {
-    class_name;
-    class_uname;
-    class_inherit;
-    class_methods;
-    class_parents;
-    class_children;
-    class_includes = [];
-    class_num = !nclasses;
-  }
-
 let default_options = { fopt_gen_cpp = true; fopt_others = () }
 
 %}
@@ -44,7 +27,9 @@ let default_options = { fopt_gen_cpp = true; fopt_others = () }
 %token LESSMINUS
 %token LESSGREATER
 %token DOT
+%token CONST
 
+%token VIRTUAL
 %token BEGIN
 %token END
 %token INCLUDE
@@ -74,8 +59,16 @@ components:
 
 component:
   | INCLUDE STRING                          { Comp_include $2 }
-  | CLASS IDENT ancestors BEGIN methods END { Comp_class (new_class  $2 $3 $5) }
-  | TYPE genident maybe_string EQUAL ctype               { Comp_type {
+  | CLASS IDENT ancestors BEGIN methods
+    maybe_virtuals
+    END {
+    let class_virtuals = $6 in
+    let class_virtual =
+      List.exists (fun (_,m,_) -> m = MUST) class_virtuals in
+    let class_virtual = if class_virtual then VIRTUAL else MANIFEST in
+    Comp_class (new_class  $2 $3 $5 class_virtual class_virtuals)
+  }
+  | TYPE genident maybe_string EQUAL ctype { Comp_type {
                                                 type_name = $2;
                                                 type_ocaml = $3;
                                                 type_ctype = $5;
@@ -100,6 +93,11 @@ version:
 | INT DOT version { $1 :: $3 }
 ;
 
+const_or_mutable:
+| CONST { CONSTANT }
+|       { MUTABLE }
+;
+
 /* For Mantis: using "method" as a rule name triggers a weird error.
       There should be some substitution done for keywords in ocamlyacc, no ? */
 meth:
@@ -112,9 +110,10 @@ meth:
       proto_args = $8;
       proto_options = $2;
       proto_version = [];
+      proto_const = MUTABLE;
     }
   }
-| METHOD options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN LPAREN arguments RPAREN
+| METHOD options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN LPAREN arguments RPAREN const_or_mutable
   {
     { proto_kind = ProtoMethod;
       proto_ret = Some $4;
@@ -123,9 +122,10 @@ meth:
       proto_args = $10;
       proto_options = $2;
       proto_version = [];
+      proto_const = $12;
     }
   }
-| FUNCTION options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN LPAREN arguments RPAREN
+| FUNCTION options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN LPAREN arguments RPAREN const_or_mutable
   {
     { proto_kind = ProtoFunction;
       proto_ret = Some $4;
@@ -134,6 +134,7 @@ meth:
       proto_args = $10;
       proto_options = $2;
       proto_version = [];
+      proto_const = $12;
     }
   }
 | VALUE options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN
@@ -145,8 +146,32 @@ meth:
       proto_args = [];
       proto_options = $2;
       proto_version = [];
+      proto_const = MUTABLE;
     }
   }
+;
+
+maybe_virtuals :
+|  VIRTUAL LBRACKET virtuals RBRACKET { $3 }
+|  { [] }
+;
+
+virtuals:
+| virtual_method maybe_comma virtuals { $1 :: $3 }
+| VERSION version BEGIN virtuals END maybe_comma virtuals {
+     (List.map (fun (m,o,_) -> (m,o,$2)) $4) @ $7
+}
+|         { [] }
+;
+
+maybe_comma:
+  | COMMA { () }
+|         { () }
+;
+
+virtual_method:
+  | genident QUESTION { $1, CAN, [] }
+  | genident  { $1, MUST, [] }
 ;
 
 options_maybe:
@@ -170,12 +195,13 @@ maybe_mlname:
 ;
 
 ctype:
-  | ctype STAR { Typ_pointer $1 }
-  | genident { Typ_ident $1 }
-  | ctype AMPERSAND { Typ_reference $1 }
-  | ctype QUESTION { Typ_option $1 }
-  | UNDERSCORE { Typ_direct }
-  | ctype LBRACKET RBRACKET { Typ_array ($1, None) }
+  | ctype STAR const_or_mutable { ($3, Typ_pointer $1) }
+  | genident const_or_mutable { $2, Typ_ident $1 }
+  | CONST genident  { CONSTANT, Typ_ident $2 }
+  | ctype AMPERSAND { MUTABLE, Typ_reference $1 }
+  | ctype QUESTION const_or_mutable { $3, Typ_option $1 }
+  | UNDERSCORE { MUTABLE, Typ_direct }
+  | ctype LBRACKET RBRACKET const_or_mutable { $4, Typ_array ($1, None) }
 ;
 
 arguments:
@@ -190,7 +216,7 @@ more_arguments:
 
 argument:
   maybe_string UNDERSCORE STRING
-    { { arg_name = $3; arg_ctype = Typ_direct; arg_direction = In;
+    { { arg_name = $3; arg_ctype = (MUTABLE, Typ_direct); arg_direction = In;
         arg_ocaml = $1} }
 | maybe_string ctype maybe_direction maybe_string genident
     { { arg_ocaml = $1; arg_ctype = $2; arg_direction = $3;

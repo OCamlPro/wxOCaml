@@ -8,7 +8,8 @@ open GenProject
 let val_abstract wxClass =
   Printf.sprintf "Val_abstract(WXCLASS_%s, (%s*) " wxClass wxClass
 
-let rec string_of_ctype ctype =
+let rec string_of_ctype (mut, ctype) =
+  let s =
   match ctype with
   | Typ_ident id -> id
   | Typ_pointer ctype -> (string_of_ctype ctype) ^ "*"
@@ -18,27 +19,36 @@ let rec string_of_ctype ctype =
   | Typ_array (ctype, Some len) ->
     Printf.sprintf "%s[%d]" (string_of_ctype ctype) len
   | Typ_direct -> "_"
+  in
+  match mut with
+  | CONSTANT -> s ^ " const"
+  | MUTABLE -> s
 
-let rec fprintf_ctype oc ctype var =
-  match ctype with
-  | Typ_pointer ctype ->
-    fprintf_ctype oc ctype "";
-    fprintf oc "* %s" var
-  | Typ_option ctype ->
-    fprintf_ctype oc ctype "";
-    fprintf oc "* %s" var
-  | Typ_ident ident ->
-    fprintf oc "%s %s" ident var
-  | Typ_reference ctype ->
-    fprintf_ctype oc ctype "";
-    fprintf oc "& %s" var
-  | Typ_array (ctype, None) ->
-    fprintf_ctype oc ctype "";
-    fprintf oc " %s[]" var
-  | Typ_array (ctype, Some len) ->
-    fprintf_ctype oc ctype "";
-    fprintf oc " %s[%d]" var len
-  | Typ_direct -> assert false
+let rec fprintf_ctype oc (mut, ctype) var =
+  begin
+    match ctype with
+    | Typ_pointer ctype ->
+      fprintf_ctype oc ctype "";
+      fprintf oc "* %s" var
+    | Typ_option ctype ->
+      fprintf_ctype oc ctype "";
+      fprintf oc "* %s" var
+    | Typ_ident ident ->
+      fprintf oc "%s %s" ident var
+    | Typ_reference ctype ->
+      fprintf_ctype oc ctype "";
+      fprintf oc "& %s" var
+    | Typ_array (ctype, None) ->
+      fprintf_ctype oc ctype "";
+      fprintf oc " %s[]" var
+    | Typ_array (ctype, Some len) ->
+      fprintf_ctype oc ctype "";
+      fprintf oc " %s[%d]" var len
+    | Typ_direct -> assert false
+  end;
+  match mut with
+  | CONSTANT -> fprintf oc " const"
+  | MUTABLE -> ()
 
 
 let direct_return_types = [
@@ -79,7 +89,7 @@ let find_return_conversion ctyp =
 let   generate_method_stub_body oc cl p  out_nargs =
 
   let proto_ret = match p.proto_ret with
-      None -> Typ_pointer (Typ_ident cl.class_name)
+      None -> MUTABLE, Typ_pointer (MUTABLE, Typ_ident cl.class_name)
     | Some ctype -> ctype in
 
   (**************************************)
@@ -96,7 +106,7 @@ let   generate_method_stub_body oc cl p  out_nargs =
   end;
 
   List.iter (fun { arg_name; arg_ctype; arg_direction } ->
-    match arg_direction, arg_ctype with
+    match arg_direction, snd arg_ctype with
 
     | Out, Typ_ident wxClass ->
       let wxClass_equiv = find_cpp_equiv wxClass in
@@ -123,7 +133,7 @@ let   generate_method_stub_body oc cl p  out_nargs =
         | _ -> ()
       end
 
-    | In, Typ_reference (Typ_ident wxClass) ->
+    | In, Typ_reference (_, Typ_ident wxClass) ->
       let wxClass_equiv = find_cpp_equiv wxClass in
       begin match wxClass_equiv with
         | "wxPoint" -> ()
@@ -136,7 +146,7 @@ let   generate_method_stub_body oc cl p  out_nargs =
             wxClass wxClass arg_name;
       end
 
-    | In, Typ_pointer (Typ_ident wxClass)
+    | In, Typ_pointer (_, Typ_ident wxClass)
       ->
       let wxClass_equiv = find_cpp_equiv wxClass in
       begin match wxClass_equiv with
@@ -156,7 +166,7 @@ let   generate_method_stub_body oc cl p  out_nargs =
             wxClass arg_name
             wxClass wxClass arg_name;
       end
-    | In, Typ_option (Typ_ident wxClass)
+    | In, Typ_option (_, Typ_ident wxClass)
       ->
       let wxClass_equiv = find_cpp_equiv wxClass in
       begin match wxClass_equiv with
@@ -186,7 +196,7 @@ let   generate_method_stub_body oc cl p  out_nargs =
 
   fprintf oc "  ";
   begin
-    match proto_ret with
+    match snd proto_ret with
     | Typ_ident "void" -> ()
     | Typ_ident wxClass ->
       let wxClass_equiv = find_cpp_equiv wxClass in
@@ -212,7 +222,7 @@ let   generate_method_stub_body oc cl p  out_nargs =
   List.iter (fun arg ->
     if !first_args then first_args := false else
       fprintf oc ", ";
-    match arg.arg_direction, arg.arg_ctype with
+    match arg.arg_direction, snd arg.arg_ctype with
 
     | Out, Typ_ident wxClass ->
       let wxClass_equiv = find_cpp_equiv wxClass in
@@ -239,7 +249,7 @@ let   generate_method_stub_body oc cl p  out_nargs =
           raise Exit
       end
 
-    | In, Typ_reference (Typ_ident wxClass) ->
+    | In, Typ_reference (_, Typ_ident wxClass) ->
       begin
         let wxClass_equiv = find_cpp_equiv wxClass in
         match wxClass_equiv with
@@ -255,8 +265,8 @@ let   generate_method_stub_body oc cl p  out_nargs =
         | _ ->
           fprintf oc "*%s_c" arg.arg_name
       end
-    | In, Typ_pointer (Typ_ident wxClass)
-    | In, Typ_option (Typ_ident wxClass) ->
+    | In, Typ_pointer (_, Typ_ident wxClass)
+    | In, Typ_option (_, Typ_ident wxClass) ->
       fprintf oc "%s_c" arg.arg_name
 
 
@@ -272,24 +282,24 @@ let   generate_method_stub_body oc cl p  out_nargs =
   (*              Save return value     *)
   (**************************************)
 
-  let ret_arg = if proto_ret = Typ_ident "void" then 0 else 1 in
+  let ret_arg = if snd proto_ret = Typ_ident "void" then 0 else 1 in
   let convert_ret oc =
-    match proto_ret with
-      | Typ_pointer (Typ_ident wxClass) ->
+    match snd proto_ret with
+      | Typ_pointer (_, Typ_ident wxClass) ->
         fprintf oc "%s ret_c )" (val_abstract wxClass)
-      | Typ_reference (Typ_ident wxClass) ->
+      | Typ_reference (_, Typ_ident wxClass) ->
         begin match wxClass with
           | "wxString" ->
             fprintf oc "Val_wxString( &ret_c )"
           | _ ->
             fprintf oc "%s &ret_c )" (val_abstract wxClass)
         end
-      | Typ_option (Typ_ident wxClass) ->
+      | Typ_option (_, Typ_ident wxClass) ->
         fprintf oc "Val_abstractOption(WXCLASS_%s, ret_c )" wxClass
       | Typ_ident "void" ->
         fprintf oc "Val_unit";
       | _ ->
-        let conversion = find_return_conversion proto_ret in
+        let conversion = find_return_conversion (snd proto_ret) in
         fprintf oc "%s ret_c)" conversion
 (*
       | Typ_ident wxClass ->
@@ -331,7 +341,7 @@ let   generate_method_stub_body oc cl p  out_nargs =
         match arg.arg_direction with
         | In -> ()
         | Out ->
-          let conversion = find_return_conversion arg.arg_ctype in
+          let conversion = find_return_conversion (snd arg.arg_ctype) in
           fprintf oc "  ret_v = %s %s_c);\n" conversion arg.arg_name
       ) p.proto_args
     else
@@ -348,7 +358,7 @@ let   generate_method_stub_body oc cl p  out_nargs =
           match arg.arg_direction with
           | In -> ()
           | Out ->
-            let conversion = find_return_conversion arg.arg_ctype in
+            let conversion = find_return_conversion (snd arg.arg_ctype) in
             fprintf oc "  caml_initialize(&Field(ret_v,%d), %s %s_c));\n" !pos
               conversion arg.arg_name;
             incr pos
@@ -362,10 +372,10 @@ let   generate_method_stub_body oc cl p  out_nargs =
   (**************************************)
 
   List.iter (fun { arg_name; arg_ctype } ->
-    match arg_ctype with
+    match snd arg_ctype with
     | Typ_ident _ -> ()
-    | Typ_reference (Typ_ident wxClass)
-    | Typ_pointer (Typ_ident wxClass)
+    | Typ_reference (_, Typ_ident wxClass)
+    | Typ_pointer (_, Typ_ident wxClass)
       ->
              begin match wxClass with
                | "strings" ->
@@ -374,7 +384,7 @@ let   generate_method_stub_body oc cl p  out_nargs =
                | _ -> ()
              end
 
-    | Typ_option (Typ_ident wxClass)
+    | Typ_option (_, Typ_ident wxClass)
       ->
       begin match wxClass with
         | "wxPoint" ->
@@ -418,7 +428,7 @@ let generate_method_stub oc cl p =
   let out_nargs = ref 0 in
   List.iter (fun arg ->
     begin
-      match arg.arg_direction, arg.arg_ctype with
+      match arg.arg_direction, snd arg.arg_ctype with
         In, Typ_direct ->  ()
       | Out, _ ->
         incr out_nargs;
@@ -464,7 +474,7 @@ let generate_method_stub oc cl p =
 
 let find_value_conversion ctyp =
   match ctyp with
-  | Typ_pointer (Typ_ident wxClass) ->
+  | Typ_pointer (_, Typ_ident wxClass) ->
     let wxClass_equiv = find_cpp_equiv wxClass in
     begin match wxClass_equiv with
       |  "wxRect" -> "Val_wxRect("
@@ -508,7 +518,7 @@ let generate_values_stub oc cl values =
       None -> assert false
       | Some ctyp -> ctyp
     in
-    let conversion, end_conversion = find_value_conversion ret_proto in
+    let conversion, end_conversion = find_value_conversion (snd ret_proto) in
     fprintf oc "  caml_initialize(&Field(ret_v,%d), %s %s%s);\n" !pos
       conversion p.proto_name end_conversion;
 
@@ -542,6 +552,9 @@ let generate_class_stubs source_dirname cl includes =
     if p.proto_options.fopt_gen_cpp then
       match p.proto_kind with
       | ProtoValue -> values := p :: !values
+      | ProtoNew when cl.class_virtual = VIRTUAL ->
+        (* TODO: care about versions ! *)
+        () (* No constructor when class is purely virtual *)
       | _ ->
         try
           generate_method_stub oc cl p
@@ -564,7 +577,9 @@ let generate_classes_files source_dirname classes =
   let oc = open_out filename in
   StringMap.iter (fun _ cl ->
     Printf.fprintf oc.oc "#define WXCLASS_%s %d\n" cl.class_name
-      cl.class_num
+      cl.class_num;
+    if cl.class_virtuals <> [] then
+      fprintf oc "class %s;\n" cl.class_name
   ) classes;
   close_out oc;
 
@@ -576,6 +591,9 @@ let generate_classes_files source_dirname classes =
   Printf.fprintf oc.oc "extern %S {\n" "C";
   Printf.fprintf oc.oc "void* wxOCaml_cast(int dest_id, int src_id, void* ptr)\n";
   Printf.fprintf oc.oc "{\n";
+  Printf.fprintf oc.oc "  if( dest_id == src_id) return ptr;\n";
+(* TODO: We should print a warning in this case, no ? *)
+  Printf.fprintf oc.oc "  if( ptr == NULL) return ptr;\n";
   Printf.fprintf oc.oc "  switch(dest_id * %d + src_id){\n" !nclasses;
   StringMap.iter (fun _ src ->
     StringMap.iter (fun _ dest ->
@@ -585,7 +603,28 @@ let generate_classes_files source_dirname classes =
     ) src.class_parents
   ) classes;
 
+  StringMap.iter (fun _ dest ->
+    StringMap.iter (fun _ src ->
 
+      Printf.fprintf oc.oc "  case %d : return (%s*)(%s*)ptr;\n"
+        (dest.class_num * !nclasses + src.class_num)
+        dest.class_name src.class_name
+
+(* TODO; use this code when we will be able to conditionnally define
+  the inheritance between classes.
+      Printf.fprintf oc.oc "  case %d : {\n"
+        (dest.class_num * !nclasses + src.class_num);
+      Printf.fprintf oc.oc "    %s* ptr2 = dynamic_cast<%s*>((%s)ptr);\n"
+        dest.class_name dest.class_name src.class_name;
+      Printf.fprintf oc.oc "    if( ptr2 == NULL ) caml_failwith(\"mlcast %s -> %s\")\n;" src.class_name dest.class_name;
+      Printf.fprintf oc.oc "    return ptr2;\n";
+      Printf.fprintf oc.oc "  }\n";
+*)
+    ) dest.class_parents
+  ) classes;
+
+(* TODO: we should issue a warning here too, this is probably not
+an authorized case ! *)
   Printf.fprintf oc.oc "    default: return ptr;\n";
   Printf.fprintf oc.oc "  }\n";
 

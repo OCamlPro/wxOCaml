@@ -31,7 +31,7 @@ let generate_project_files dirname =
 
 
   fprintf ocp_oc "  %S\n" "wxDefs.ml";
-  fprintf ocp_oc "  %S\n" "wxVirtuals.ml";
+(*  fprintf ocp_oc "  %S\n" "wxVirtuals.ml"; *)
   Printf.fprintf ocp_oc.oc "  %S\n" "wxEVT.ml";
   Printf.fprintf ocp_oc.oc "  %S\n" "wxID.ml";
   List.iter (fun file ->
