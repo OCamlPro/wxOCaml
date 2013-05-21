@@ -18,7 +18,7 @@ gen_wxDefs.cpp: ../_obuild/gen_wxDefs/gen_wxDefs.asm
 	../_obuild/gen_wxDefs/gen_wxDefs.asm
 
 ../_obuild/gen_wxDefs/gen_wxDefs.asm: gen_wxDefs.ml
-	ocp-build -no-color -asm gen_wxDefs
+	ocp-build -asm gen_wxDefs
 
 clean:
 	rm -f *~ gen_wxDefs gen_wxDefs.cpp gen.o *.cm?

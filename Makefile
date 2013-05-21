@@ -8,8 +8,8 @@ all:
 	$(MAKE) -C wxDefsGen
 	$(MAKE) -C wxStubsGen
 	$(MAKE) -C  wxWidgets $(NJOBS)
-	ocp-build
 	$(MAKE) -C samples/wxSamples-resources
+	ocp-build
 
 debug:
 	$(MAKE) -C wxWidgets $(NJOBS)

@@ -2,7 +2,7 @@
 include ../config/Makefile
 
 all:
-	ocp-build -no-color -asm wxStubsGen
+	ocp-build -asm wxStubsGen
 	$(MAKE) new_sources/lib$(NAME).so
 
 STUBSGEN=../_obuild/wxStubsGen/wxStubsGen.asm
