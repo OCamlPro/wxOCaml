@@ -1,3 +1,4 @@
+type wxHelpEvent::Origin = int
 
 class wxWindowBase inherit wxEvtHandler begin
 
@@ -572,8 +573,11 @@ Context-sensitive help functions
 wxString 	GetHelpText () 
  	Gets the help text to be used as context-sensitive help for this window. 
 void 	SetHelpText ( wxString &helpText)
- 	Sets the help text to be used as context-sensitive help for this window. 
-virtual wxString 	GetHelpTextAtPoint ( wxPoint &point, wxHelpEvent::Origin origin) 
+ 	Sets the help text to be used as context-sensitive help for this window.*) 
+
+   method(wxString, 	GetHelpTextAtPoint) ( wxPoint &point, wxHelpEvent::Origin origin) 
+
+(*
  	Gets the help text to be used as context-sensitive help for this window. 
 wxToolTip * 	GetToolTip () 
  	Get the associated tooltip or NULL if none. 

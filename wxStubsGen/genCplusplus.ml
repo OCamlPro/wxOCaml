@@ -7,6 +7,8 @@ open GenProject
 
 let val_abstract wxClass =
   Printf.sprintf "Val_abstract(WXCLASS_%s, (%s*) " wxClass wxClass
+let abstract_val wxClass =
+  Printf.sprintf "(%s*)Abstract_val(WXCLASS_%s, " wxClass wxClass
 
 let rec string_of_ctype (mut, ctype) =
   let s =
@@ -100,8 +102,8 @@ let   generate_method_stub_body oc cl p  out_nargs =
       ProtoNew
     | ProtoFunction -> ()
     | ProtoMethod ->
-      fprintf oc "  %s* self_c = (%s*)Abstract_val(WXCLASS_%s, self_v);\n"
-        cl.class_name cl.class_name cl.class_name;
+      fprintf oc "  %s* self_c = %s self_v);\n"
+        cl.class_name (abstract_val cl.class_name);
       | ProtoValue -> assert false
   end;
 
@@ -141,9 +143,9 @@ let   generate_method_stub_body oc cl p  out_nargs =
         | "wxRect" -> ()
         | "wxString" -> ()
         | _ ->
-          fprintf oc "  %s* %s_c = (%s*)Abstract_val(WXCLASS_%s, %s_v);\n"
+          fprintf oc "  %s* %s_c = %s %s_v);\n"
             wxClass arg_name
-            wxClass wxClass arg_name;
+            (abstract_val wxClass) arg_name;
       end
 
     | In, Typ_pointer (_, Typ_ident wxClass)
@@ -157,14 +159,14 @@ let   generate_method_stub_body oc cl p  out_nargs =
         | "wxRect" ->
           fprintf oc "  wxRect %s_cc = WxRect_val(%s_v);\n  wxRect* %s_c = &%s_cc;\n" arg_name arg_name arg_name arg_name ;
         | "wxString" ->
-          fprintf oc "  wxString %s_cc = wxString( String_val(%s_v), wxConvUTF8 );\n   wxString* %s_c = &%s_cc;\n" arg_name arg_name arg_name arg_name
+          fprintf oc "  wxString %s_cc = WxString_val(%s_v );\n   wxString* %s_c = &%s_cc;\n" arg_name arg_name arg_name arg_name
         | "strings" ->
           fprintf oc "  Begin_Strings(%s_c, %s_v);\n"
             arg_name arg_name
         | _ ->
-          fprintf oc "  %s* %s_c = (%s*)Abstract_val(WXCLASS_%s, %s_v);\n"
+          fprintf oc "  %s* %s_c = %s %s_v);\n"
             wxClass arg_name
-            wxClass wxClass arg_name;
+            (abstract_val  wxClass) arg_name;
       end
     | In, Typ_option (_, Typ_ident wxClass)
       ->
@@ -243,6 +245,8 @@ let   generate_method_stub_body oc cl p  out_nargs =
           "int" | "long" | "bool"
         | "float" | "double" | "string" ->
           fprintf oc "%s_c" arg.arg_name
+        | "value" ->
+          fprintf oc "%s_v" arg.arg_name
         | _ ->
           Printf.eprintf "Error(1): don't know what to do with arg type (%s)\n  %s\n%!" arg.arg_name (string_of_ctype arg.arg_ctype);
           exit_code := 2;
@@ -260,7 +264,7 @@ let   generate_method_stub_body oc cl p  out_nargs =
         | "wxRect" ->
           fprintf oc "WxRect_val(%s_v) " arg.arg_name
         | "wxString" ->
-          fprintf oc "wxString( String_val(%s_v), wxConvUTF8 ) "
+          fprintf oc "WxString_val( %s_v ) "
             arg.arg_name
         | _ ->
           fprintf oc "*%s_c" arg.arg_name
@@ -527,6 +531,208 @@ let generate_values_stub oc cl values =
   fprintf oc "  CAMLreturn(ret_v);\n}\n";
   ()
 
+let print_prototype_c_args oc first_arg p =
+  let first_arg = ref first_arg in
+  List.iter (fun arg ->
+    if !first_arg then first_arg := false else fprintf oc "      ,";
+    fprintf_ctype oc arg.arg_ctype (arg.arg_name ^ "_c");
+    fprintf oc " \n";
+  ) p.proto_args;
+  ()
+
+let print_call_c_args oc first_arg p =
+  let first_arg = ref first_arg in
+  List.iter (fun arg ->
+    if not !first_arg then fprintf oc ", " else first_arg := false;
+    fprintf oc "%s_c" arg.arg_name
+  ) p.proto_args;
+  ()
+
+let generate_virtual_class oc cl =
+  begin match cl.class_virtual with
+      VIRTUAL | MANIFEST -> ()
+    | IMPLEMENT pcl ->
+      fprintf oc "class %s : public %s, wxOCamlObject\n"
+        cl.class_name pcl.class_name;
+      fprintf oc "{ public:\n";
+
+
+      (* Define constructors *)
+      List.iter (fun p ->
+        match p.proto_kind with
+          ProtoNew ->
+          fprintf oc "    %s(value methods_v \n" cl.class_name;
+          fprintf oc "      ,value state_v \n";
+          print_prototype_c_args oc false p;
+          fprintf oc "      )\n";
+          fprintf oc "    :wxOCamlObject(WXCLASS_%s, methods_v, state_v,\n"
+            pcl.class_name;
+          fprintf oc "                 (%s*) this)\n" pcl.class_name;
+          fprintf oc "    ,%s(" pcl.class_name;
+          print_call_c_args oc true p;
+          fprintf oc " )\n";
+          fprintf oc "    {}\n";
+        | _ -> ()
+      ) pcl.class_methods;
+
+      let method_slot = ref (-1) in
+      (* Define overloaded methods *)
+      List.iter (fun (name, must, version) ->
+        incr method_slot;
+        try
+          let p = StringMap.find name cl.class_defs in
+          match p.proto_kind with
+            ProtoMethod ->
+            fprintf oc "     /* %s */\n    " name;
+            let proto_ret =
+              match p.proto_ret with
+              | None -> assert false
+              | Some ctyp ->
+                fprintf_ctype oc ctyp name;
+                ctyp
+            in
+            fprintf oc "(";
+            print_prototype_c_args oc true p;
+            fprintf oc ")";
+            if p.proto_const = CONSTANT then fprintf oc " const ";
+            fprintf oc "{\n";
+
+            (* TODO: extend to Out values *)
+            let nargs = ref 0 in
+            List.iter (fun arg ->
+              assert (arg.arg_direction = In);
+              nargs := !nargs +
+                  match snd arg.arg_ctype with
+                  | Typ_reference (_, Typ_ident wxClass) ->
+                    begin match wxClass with
+                        "wxPoint"|"wxSize" -> 2
+                      | "wxRect" -> 4
+                      | _ -> 1
+                    end
+                  | _ -> 1
+            ) p.proto_args;
+
+            fprintf oc "      value meth_v = Field(m_callbacks_v, %d);\n"
+              !method_slot;
+            if must = CAN then begin
+              fprintf oc "      if(meth_v == Val_unit)\n";
+              fprintf oc "        return %s::%s("
+                pcl.class_name name;
+              print_call_c_args oc true p;
+              fprintf oc ");\n";
+              fprintf oc "      else meth_v = Field(meth_v, 0);\n";
+            end;
+            let callback_nargs = !nargs+2 in
+            if callback_nargs < 4 then
+
+              fprintf oc "      value ret_v = caml_callback%d(meth_v, m_state_v, m_this_v\n" callback_nargs
+            else
+              fprintf oc "      value args[] = { m_state_v, m_this_v\n";
+
+            List.iter (fun arg ->
+              match snd arg.arg_ctype with
+              | Typ_reference (_, Typ_ident wxClass) ->
+                let wxClass_equiv = find_cpp_equiv wxClass in
+                begin match wxClass_equiv with
+                  |  "wxPoint" ->
+                    fprintf oc "        , Val_int(%s_c.x), Val_int(%s_c.y)\n"
+                      arg.arg_name arg.arg_name
+                  |  "wxSize" ->
+                    fprintf oc
+                      "        , Val_int(%s_c.width), Val_int(%s_c.height)\n"
+                      arg.arg_name arg.arg_name
+
+            (*
+                  |  "wxRect" -> "Val_wxRect("
+                  |  "wxString" -> "Val_wxString("
+                  |  "int64" -> "caml_copy_int64( *"
+                  |  "int32" -> "caml_copy_int32( *"
+           *)
+                  |  "wxString" ->
+                    fprintf oc "     ,Val_wxString( %s_r)\n" arg.arg_name
+                  | _ when
+                      wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->
+                    fprintf oc ", %s %s_c \n" (val_abstract wxClass)
+                      arg.arg_name
+                  | _ ->
+                    Printf.eprintf "Error(c1): don't know what to do with arg type (%s)\n  %s\n%!" arg.arg_name (string_of_ctype arg.arg_ctype);
+                    exit_code := 2
+                end
+
+              | Typ_ident wxClass ->
+                let wxClass_equiv = find_cpp_equiv wxClass in
+                begin match wxClass_equiv with
+                  |  ("int" | "long") ->
+                    fprintf oc "         ,Val_int(%s_c) \n" arg.arg_name
+                       | _ ->
+                    Printf.eprintf "Error(c2): don't know what to do with arg type (%s)\n  %s\n%!" arg.arg_name (string_of_ctype arg.arg_ctype);
+                    exit_code := 2
+
+                end
+              | _ ->
+                Printf.eprintf "Error(c0): don't know what to do with arg type (%s)\n  %s\n%!" arg.arg_name (string_of_ctype arg.arg_ctype);
+                exit_code := 2
+            ) p.proto_args;
+
+           if callback_nargs < 4 then
+            fprintf oc "         );\n"
+           else begin
+             fprintf oc "      };\n";
+             fprintf oc "      value ret_v = caml_callbackN(meth_v, %d, args);\n" callback_nargs;
+           end;
+
+            fprintf oc "     return ";
+            begin
+              match snd proto_ret with
+              | Typ_ident wxClass -> begin
+                  let wxClass_equiv = find_cpp_equiv wxClass in
+                  match wxClass_equiv with
+                    "bool"|"int"|"long" ->
+                    fprintf oc "Int_val(ret_v)";
+                  | "wxString" ->
+                    fprintf oc "WxString_val(ret_v)";
+                  | "wxPoint" | "wxSize" | "wxRect" -> assert false
+                  |  _ when
+                      wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->
+                    fprintf oc "*%s ret_v)" (abstract_val wxClass)
+                  | _ ->
+                    Printf.eprintf "Error(ret1): don't know what to do with return type\n  %s\n%!"  (string_of_ctype proto_ret);
+                    exit_code := 2
+                end
+              | Typ_option (_, Typ_ident wxClass) ->
+                let wxClass_equiv = find_cpp_equiv wxClass in
+                begin match wxClass_equiv with
+                  | "wxPoint" | "wxSize" | "wxRect" -> assert false
+                  | _ when
+                      wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->
+                    fprintf oc "(%s*)AbstractOption_val(WXCLASS_%s, ret_v)"
+                      wxClass wxClass
+                  | _ ->
+                    Printf.eprintf "Error(ret2): don't know what to do with return type\n  %s\n%!"  (string_of_ctype proto_ret);
+                    exit_code := 2
+                end
+
+              | _ ->
+                Printf.eprintf "Error(ret0): don't know what to do with return type\n  %s\n%!"  (string_of_ctype proto_ret);
+                exit_code := 2
+            end;
+
+            fprintf oc ";\n";
+            fprintf oc "    }\n";
+            ()
+          | ProtoValue -> assert false
+          | ProtoNew -> assert false
+          | ProtoFunction -> assert false
+        with Not_found ->
+          Printf.eprintf "Virtual method %s::%s not found\n%!"
+            pcl.class_name name;
+exit 2
+      ) cl.class_virtuals;
+      fprintf oc "};\n";
+
+  end;
+()
+
 let generate_class_stubs source_dirname cl includes =
   let basename = cl.class_name ^ "_ml.cpp" in
   let filename = Filename.concat source_dirname
@@ -545,6 +751,8 @@ let generate_class_stubs source_dirname cl includes =
   ) includes;
   fprintf oc "#include \"wxClasses.h\"\n";
 
+  generate_virtual_class oc cl;
+
   fprintf oc "extern %S {\n" "C";
 
   let values = ref [] in
@@ -554,7 +762,9 @@ let generate_class_stubs source_dirname cl includes =
       | ProtoValue -> values := p :: !values
       | ProtoNew when cl.class_virtual = VIRTUAL ->
         (* TODO: care about versions ! *)
-        () (* No constructor when class is purely virtual *)
+         (* No constructor when class is purely virtual *)
+        Printf.eprintf "Don't generate %s::create\n%!"
+          cl.class_name
       | _ ->
         try
           generate_method_stub oc cl p
@@ -569,7 +779,9 @@ let generate_class_stubs source_dirname cl includes =
 
   fprintf oc "}\n";
 
-  close_out oc
+  close_out oc;
+
+  ()
 
 let generate_classes_files source_dirname classes =
   let filename = Filename.concat source_dirname

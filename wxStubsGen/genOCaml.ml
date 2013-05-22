@@ -70,14 +70,8 @@ let fprintf_ml_of_ctype ml_oc ctype =
     exit_code := 2;
     raise Exit
 
-let generate_method_function ml_oc c_name cl p =
-  let ml_name = ml_function_name cl p in
 
-  cl.class_defs <- StringMap.add p.proto_name p cl.class_defs;
-
-
-  fprintf ml_oc "\nexternal %s : " ml_name;
-
+  let mltype_of_prototype ml_oc cl p =
   let self_arg =
     match p.proto_kind with
       ProtoNew -> fprintf ml_oc "\n   "; 0
@@ -138,8 +132,20 @@ let generate_method_function ml_oc c_name cl p =
       ) p.proto_args
     end
   end;
+  !at_least_nargs + self_arg
+
+let generate_method_function ml_oc c_name cl p =
+  let ml_name = ml_function_name cl p in
+
+(*  Printf.eprintf "add_defs %s::%s\n%!" cl.class_name p.proto_name; *)
+  cl.class_defs <- StringMap.add p.proto_name p cl.class_defs;
+
+
+  fprintf ml_oc "\nexternal %s : " ml_name;
+  let ml_nargs = mltype_of_prototype ml_oc cl p in
+
   fprintf ml_oc " = ";
-  if !at_least_nargs + self_arg > 5 then
+  if ml_nargs > 5 then
     fprintf ml_oc "\"%s_bytecode\" " c_name;
   fprintf ml_oc "%S\n\n" c_name;
 
@@ -307,18 +313,20 @@ let generate_virtuals_module source_dirname modname classes =
   fprintf ml_oc "open WxClasses\n";
   StringMap.iter (fun _ cl ->
     if cl.class_virtuals <> [] then begin
-      let (_, pcl) = StringMap.min_binding cl.class_parents in
+(*      let (_, pcl) = StringMap.min_binding cl.class_parents in *)
       fprintf ml_oc "module %s = struct\n" cl.class_uname;
-      fprintf ml_oc "  type 'a methods\n";
-      fprintf ml_oc "(*\n";
+      fprintf ml_oc "  type 'a methods = {\n";
       List.iter (fun (name, must, version) ->
         try
           let p = StringMap.find name cl.class_defs in
-          fprintf ml_oc "%s : _;\n" name;
+          fprintf ml_oc "     %s : ( 'a -> " (String.uncapitalize name);
+          let _ml_nargs = mltype_of_prototype ml_oc cl p in
+          fprintf ml_oc ") %s;\n"
+            (match must with MUST -> "" | CAN -> "option");
         with Not_found ->
           Printf.eprintf "Virtual method %s not found\n%!" name
       ) cl.class_virtuals;
-      fprintf ml_oc "*)\n";
+      fprintf ml_oc "    }\n";
       fprintf ml_oc "end\n";
     end
   ) classes;

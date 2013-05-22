@@ -8,9 +8,6 @@ class wxWizardPage inherit wxPanel begin
     new(Create)(wxWizard? parent,
                 const wxBitmap& bitmap (*  = wxNullBitmap *))
 
-
-   (* In OCaml, all of these functions should take 'this', the C++
-      object, and an OCaml state provided to the constructor. *)
     virtual [ 
       (* These ones MUST be instantiated ! *)
              GetPrev,
@@ -22,17 +19,6 @@ class wxWizardPage inherit wxPanel begin
 	      Validate? (* from wxWindow *)
            ]
 end
-
-(*
-class wxOCamlWizardPage inherit wxWizardPage begin
-
-  new{ gen_cpp = false }(Create)(
-     "'a WxVirtuals.WxOCamlWizardPage.methods" value  callback, 
-     "'a"  value state, 
-              wxWizard? parent, const wxBitmap& bitmap)
-            
-end
-*)
 
 class wxWizardPageSimple inherit wxWizardPage begin
    new(Create)(wxWizard? parent)
@@ -53,8 +39,6 @@ class wxWizardPageSimple inherit wxWizardPage begin
               TransferDataToWindow?,
 	      Validate? ]
 end
-
-
 
 class wxWizard inherit wxDialog begin (* wxWizardBase *)
 

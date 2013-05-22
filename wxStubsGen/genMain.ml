@@ -39,9 +39,12 @@ let read filename =
 let generate_sources (cpp_directory, ocaml_directory) classes =
   (* Classes second *)
   StringMap.iter (fun _ cl ->
+
+    (* We must call this one first to fill the class_defs *)
+    GenOCaml.generate_class_module ocaml_directory cl;
+
     if cl.class_methods <> [] then
       GenCplusplus.generate_class_stubs cpp_directory cl cl.class_includes;
-    GenOCaml.generate_class_module ocaml_directory cl
   ) classes
 
 let ocaml_class_name name =
@@ -125,7 +128,7 @@ let create_class_hierarchy files =
               { p with
                 proto_args;
                 proto_options = {
-                  fopt_gen_cpp = false;
+                  fopt_gen_cpp = true;
                   fopt_others = ();
                 }
               }
@@ -133,7 +136,7 @@ let create_class_hierarchy files =
           let cl = new_class ( ocaml_class_name cl.class_name )
               [ cl.class_name ]
               class_methods
-              MANIFEST cl.class_virtuals in
+              (IMPLEMENT cl) cl.class_virtuals in
           declare_class cl includes
         end
       | Comp_type typ -> types := StringMap.add typ.type_name typ !types
@@ -202,9 +205,9 @@ let _ =
     mkdir ocaml_directory;
     GenOCaml.generate_types_module
       ocaml_directory "wxClasses" classes;
-    GenOCaml.generate_virtuals_module ocaml_directory "wxVirtuals" classes;
     GenCplusplus.generate_classes_files cpp_directory classes;
     generate_sources (cpp_directory, ocaml_directory) classes;
+    GenOCaml.generate_virtuals_module ocaml_directory "wxVirtuals" classes;
     GenEvents.generate_events !api_directory (cpp_directory, ocaml_directory) "wxEVT";
 
     GenProject.generate_project_files ocaml_directory;

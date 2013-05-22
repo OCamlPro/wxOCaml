@@ -158,6 +158,8 @@ extern "C" {
 #include <caml/alloc.h>
 #include <caml/memory.h>
 #include <caml/fail.h>
+#include "caml/callback.h"
+
 typedef char* string;
 
   /* wxClassID = the class of the pointer that we are storing */
@@ -230,6 +232,7 @@ extern value Val_wxSize(wxSize *point_c);
   if(name_c != NULL) delete(name_c); }while(0)
 
 #define Val_wxString(s)  copy_string((s)->utf8_str().data())
+#define WxString_val(v) wxString( String_val(v), wxConvUTF8 )
 
 #define Val_wxLongLong(l) \
   caml_copy_int64((l).GetValue())

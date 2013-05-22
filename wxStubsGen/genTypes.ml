@@ -32,8 +32,9 @@ and class_descr = {
 }
 
 and virtual_or_manifest =
-  | VIRTUAL
   | MANIFEST
+  | VIRTUAL
+  | IMPLEMENT of class_descr
 
 and must_or_can = MUST | CAN
 

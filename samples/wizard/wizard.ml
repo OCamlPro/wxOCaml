@@ -326,14 +326,14 @@ let myWizard_MyWizard frame useSizer =
     let m_page1 = WxWizardPageSimple.wxWizardPage m_page1 in
 
     let methods = WxVirtuals.WxOCamlWizardPage.({
-        getPrev = (fun this state ->
+        getPrev = (fun state this ->
           Printf.eprintf "getPrev\n%!";
           let this = WxOCamlWizardPage.wxWizardPage this in
           Some this);
-        getNext = (fun this state ->
+        getNext = (fun state this ->
           Printf.eprintf "getNext\n%!";
           None);
-        getBitmap = Some (fun this state ->
+        getBitmap = Some (fun state this ->
             Printf.eprintf "getBitmap\n%!";
             wxNullBitmap);
         transferDataFromWindow = None;
