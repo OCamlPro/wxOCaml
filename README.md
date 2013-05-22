@@ -98,3 +98,11 @@ can be simplified to:
 The WxWidgets module defines some useful helper functions that can be
 used to make the code less verbose. In particular, it defines a WxSizerFlags
 module that can be used to translate WxSizerFlags classes.
+
+## TODO
+
+* Translate more examples from WxWidgets
+* Bind more classes !
+* Bind more methods per class !
+* Generate OCaml stubs to call superclass methods (useful when overloading
+    virtual methods from OCaml)
