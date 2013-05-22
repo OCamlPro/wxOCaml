@@ -1,29 +1,23 @@
+
 class wxWizardPage inherit wxPanel begin
 
-    method( wxBitmap, GetBitmap)()
-    method( wxWizardPage?, GetPrev)() 
-    method( wxWizardPage?, GetNext)()
-(* 
-(* NOTE: since virtual has non-optional elements, this constructor
-   will be only available in the generated class with virtual
-   initializers. *)
+    method( wxBitmap, GetBitmap)() const
+    method( wxWizardPage?, GetPrev)() const
+    method( wxWizardPage?, GetNext)() const
+
     new(Create)(wxWizard? parent,
-                wxBitmap& bitmap (*  = wxNullBitmap *))
+                const wxBitmap& bitmap (*  = wxNullBitmap *))
 
-
-   (* In OCaml, all of these functions should take 'this', the C++
-      object, and an OCaml state provided to the constructor. *)
     virtual [ 
       (* These ones MUST be instantiated ! *)
-             GetPrev; 
-              GetNext; 
+             GetPrev,
+              GetNext,
       (* These ones CAN be instantiated *)
-              GetBitmap?; 
-              TransferDataFromWindow?; 
-              TransferDataToWindow?;
+              GetBitmap?,
+              TransferDataFromWindow?,
+              TransferDataToWindow?,
 	      Validate? (* from wxWindow *)
            ]
-*)
 end
 
 class wxWizardPageSimple inherit wxWizardPage begin
@@ -31,7 +25,7 @@ class wxWizardPageSimple inherit wxWizardPage begin
    new(CreateAll)(wxWizard? parent, 
                 wxWizardPage? prev, (*= NULL *)
                 wxWizardPage? next,  (*= NULL *)
-                wxBitmap& bitmap (*  = wxNullBitmap *)
+                const wxBitmap& bitmap (*  = wxNullBitmap *)
                 (* wxChar* resource = NULL *))
    method(void, SetPrev)(wxWizardPage* prev)
    method(void, SetNext)(wxWizardPage* next)
@@ -39,14 +33,12 @@ class wxWizardPageSimple inherit wxWizardPage begin
    function(void, wxWizardPageSimple::Chain)
       (wxWizardPageSimple *first, wxWizardPageSimple *second)
 
-(* (* all the virtuals here CAN be instantiated *)
-   virtual [  GetBitmap?; 
-              TransferDataFromWindow?; TransferDataToWindow?;
+(* all the virtuals here CAN be instantiated *)
+   virtual [  GetBitmap?,
+              TransferDataFromWindow?,
+              TransferDataToWindow?,
 	      Validate? ]
-*)
 end
-
-
 
 class wxWizard inherit wxDialog begin (* wxWizardBase *)
 
@@ -57,18 +49,18 @@ class wxWizard inherit wxDialog begin (* wxWizardBase *)
 
   new(CreateAll)(wxWindow *parent,
                  int id (* = wxID_ANY *),
-                  wxString& title, (* = wxEmptyString *)
-                  wxBitmap& bitmap, (*  = wxNullBitmap, *)
-                  wxPoint& pos, (*  = wxDefaultPosition, *)
+                  const wxString& title, (* = wxEmptyString *)
+                  const wxBitmap& bitmap, (*  = wxNullBitmap, *)
+                  const wxPoint& pos, (*  = wxDefaultPosition, *)
                  long style (*  = wxDEFAULT_DIALOG_STYLE *)
   )
 
     method(bool, RunWizard)(wxWizardPage? firstPage)
-    method(wxWizardPage?, GetCurrentPage)() 
-    method(void, SetPageSize)(wxSize& size) 
-    method(wxSize, GetPageSize)() 
-    method(void, FitToPage)(wxWizardPage* firstPage) 
-    method(wxSizer *,GetPageAreaSizer)()
+    method(wxWizardPage?, GetCurrentPage)() const
+    method(void, SetPageSize)(const wxSize& size) 
+    method(wxSize, GetPageSize)() const
+    method(void, FitToPage)(const wxWizardPage* firstPage) 
+    method(wxSizer *,GetPageAreaSizer)() const
     method(void, SetBorder)(int border)
 
     method(bool, ShowPage)(wxWizardPage? page, bool goingForward (* = true*) )

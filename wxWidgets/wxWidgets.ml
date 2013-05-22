@@ -326,6 +326,8 @@ module BEGIN_EVENT_TABLE2 = struct
 end
 
 
+external wxOCamlInit_c : unit -> unit = "wxOCaml_init_ml"
+let _ = wxOCamlInit_c ()
 
 let wxMain onInit =
   WxApp.wxEntry onInit Sys.argv

@@ -75,6 +75,8 @@ rule token = parse
   | "type"    { TYPE }
   | "value"   { VALUE }
   | "version"  { VERSION }
+  | "const"   { CONST }
+  | "virtual" { VIRTUAL }
   | ['0'-'9']+ { INT(int_of_string (Lexing.lexeme lexbuf)) }
   | '_' { UNDERSCORE }
   | ident "::" ident { IDENT (Lexing.lexeme lexbuf) }
@@ -154,6 +156,8 @@ let string_of_token token = match token with
   | INT d -> Printf.sprintf "int[%d]" d
   | VERSION -> "VERSION"
   | DOT -> "DOT"
+  | CONST -> "CONST"
+  | VIRTUAL -> "VIRTUAL"
 
   let token lexbuf =
     let token = token lexbuf in

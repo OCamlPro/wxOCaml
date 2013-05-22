@@ -54,6 +54,7 @@ typedef int intptr_t;
 #include <wx/overlay.h>
 #include <wx/gdicmn.h>
 #include <wx/wizard.h>
+#include <wx/dragimag.h>
 
 #if wxUSE_DATEPICKCTRL
 #include "wx/datectrl.h"
@@ -67,6 +68,17 @@ typedef int intptr_t;
 #include "wx/wrapsizer.h"
 
 #else
+
+#define wxAnyButton wxButton
+#define wxKeyboardState wxKeyEvent
+#define wxMouseState wxMouseEvent
+#define wxLogInterposer void
+#define wxPrinterDC void
+#define wxTextEntry void
+#define wxThreadEvent void
+#define wxNonOwnedWindowBase void
+#define wxTimePickerCtrl void
+#define wxWrapSizer void
 
 typedef int wxEventCategory;
 typedef int wxPenStyle;
@@ -138,20 +150,27 @@ typedef int wxImageResizeQuality;
 
 #endif
 
+#include "wxClasses.h"
+
 extern "C" {
 
 #include <caml/mlvalues.h>
 #include <caml/alloc.h>
 #include <caml/memory.h>
 #include <caml/fail.h>
+#include "caml/callback.h"
+
 typedef char* string;
 
-#define Abstract_val(s) Field(s, 0)
-extern value Val_abstract(const void *ptr);
+  /* wxClassID = the class of the pointer that we are storing */
+extern value Val_abstract(const int wxClassID, const void *ptr);
 
-extern value Val_abstractOption(const void* ptr);
-#define AbstractOption_val(v)  \
-  ((v == Val_int(0) ? NULL : Abstract_val(Field(v,0))))
+  /* wxClassID = the class of the pointer that we are expecting to get */
+extern void* Abstract_val(const int wxClassID, value ptr_v);
+
+extern value Val_abstractOption(const int wxClassID, const void* ptr);
+#define AbstractOption_val(wxClassID, v)			\
+  ((v == Val_int(0) ? NULL : Abstract_val(wxClassID, Field(v,0))))
 
 
 
@@ -213,6 +232,7 @@ extern value Val_wxSize(wxSize *point_c);
   if(name_c != NULL) delete(name_c); }while(0)
 
 #define Val_wxString(s)  copy_string((s)->utf8_str().data())
+#define WxString_val(v) wxString( String_val(v), wxConvUTF8 )
 
 #define Val_wxLongLong(l) \
   caml_copy_int64((l).GetValue())
@@ -229,5 +249,22 @@ class OCamlApp: public wxApp
     int  OnExit (void);
     void HandleGenericEvent(wxEvent& event);
 };
+
+class wxOCamlObject 
+{
+public:
+  wxOCamlObject **prev;
+  value m_callbacks_v;
+  value m_state_v;
+  value m_this_v;
+  wxOCamlObject *next;
+public:
+  wxOCamlObject(const int wxClassID,  value callbacks_v, 
+		value state_v, void* wxThis);
+  ~wxOCamlObject();
+};
+
+class wxOCamlWizardPage;
+
 
 #endif

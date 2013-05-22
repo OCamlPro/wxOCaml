@@ -1,20 +1,36 @@
 #include "wxOCaml.h"
 
 extern "C" {
-  #include "caml/callback.h"
+
+#ifndef CAML_ROOTS_H
+typedef void (*scanning_action) (value, value *);
+extern void (*caml_scan_roots_hook) (scanning_action);
+#endif
+
+  extern void* wxOCaml_cast(int dest_id, int src_id, void* ptr);
+
 }
 
 extern "C"
 {
 
-value Val_abstract(const void* ptr)
+  void* Abstract_val(const int wxClassID, value v)
+  {
+    //    fprintf(stderr, "Abstract_val(%d, %ld, %lX)\n",
+    //	    wxClassID, Field(v, 0), (void*)Field(v, 1));	    
+    return wxOCaml_cast(wxClassID, Field(v, 0), (void*)Field(v, 1));
+  }
+
+  value Val_abstract(const int wxClassID, const void* ptr)
 {
-  value v = caml_alloc_small(1, Abstract_tag);
-  Field(v, 0) = (value)ptr;
+  value v = caml_alloc_small(2, Abstract_tag);
+  Field(v, 0) = wxClassID;
+  Field(v, 1) = (value)ptr;
+  //  fprintf(stderr, "Val_abstract(%d, %lX)\n", wxClassID, ptr);
   return v;
 }
 
-value Val_abstractOption(const void* ptr)
+value Val_abstractOption(const int wxClassID, const void* ptr)
 {
   CAMLparam0();
   CAMLlocal1(abstract_v);
@@ -23,7 +39,7 @@ value Val_abstractOption(const void* ptr)
   if( ptr == NULL){
     ret_v = Val_int(0);
   } else {
-    abstract_v = Val_abstract(ptr);
+    abstract_v = Val_abstract(wxClassID, ptr);
     ret_v = caml_alloc_small(1, 0);
     Field( ret_v, 0 ) = abstract_v;
   }
@@ -123,7 +139,7 @@ int OCamlApp::OnExit (void){
 void OCamlApp::HandleGenericEvent(wxEvent& _evt)
   {
     wxEvent* event_c = &_evt;
-    value event_v = Val_abstract(event_c);
+    value event_v = Val_abstract(WXCLASS_wxEvent, (wxEvent*) event_c);
     value callback_v = ((OCamlCallback*)(_evt.m_callbackUserData))->get();
     caml_callback( callback_v, event_v );
   }
@@ -136,7 +152,7 @@ void OCamlApp::HandleGenericEvent(wxEvent& _evt)
 extern "C" {
   
   value wxApp_SetTopWindow_c(value window_v){
-    wxWindow* window_c = (wxWindow*) Abstract_val(window_v);
+    wxWindow* window_c = (wxWindow*) Abstract_val(WXCLASS_wxWindow, window_v);
     wxGetApp().SetTopWindow (window_c);
   }
 
@@ -162,7 +178,7 @@ value wxEvtHandler_Connect_c(value self_v, value first_v, value last_v,
 			     value type_v, value closure_v)
 {
   value ret_v;
-  wxEvtHandler* self_c = (wxEvtHandler*)Abstract_val(self_v);
+  wxEvtHandler* self_c = (wxEvtHandler*)Abstract_val(WXCLASS_wxEvtHandler, self_v);
   int first_c = Int_val(first_v);
   int last_c = Int_val(last_v);
   int type_c = Int_val(type_v);
@@ -182,7 +198,7 @@ value wxDateTime_GetValue_c(value self_v)
 {
   CAMLparam0();
   CAMLlocal1(ret_v);
-  wxDateTime* self_c = (wxDateTime*)Abstract_val(self_v);
+  wxDateTime* self_c = (wxDateTime*)Abstract_val(WXCLASS_wxDateTime, self_v);
   wxLongLong ret_c = self_c->GetValue();
   ret_v = caml_copy_int64(ret_c.GetValue());
   CAMLreturn(ret_v);
@@ -193,7 +209,7 @@ value wxDCOverlay_Delete_c(value self_v)
 {
   CAMLparam0();
   CAMLlocal1(ret_v);
-  wxDCOverlay* self_c = (wxDCOverlay*)Abstract_val(self_v);
+  wxDCOverlay* self_c = (wxDCOverlay*)Abstract_val(WXCLASS_wxDCOverlay,self_v);
   delete self_c;
   ret_v = Val_unit;
   CAMLreturn(ret_v);
@@ -206,9 +222,9 @@ value wxGCDC_CreateCopy_c(value context_v)
   CAMLparam0();
   CAMLlocal1(ret_v);
   wxGCDC * ret_c = new wxGCDC();
-  wxGraphicsContext* context_c = (wxGraphicsContext*)Abstract_val(context_v);
+  wxGraphicsContext* context_c = (wxGraphicsContext*)Abstract_val(WXCLASS_wxGraphicsContext, context_v);
   ret_c->SetGraphicsContext(context_c);
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( WXCLASS_wxGCDC, (wxGCDC*) ret_c );
   CAMLreturn(ret_v);
 }
 
@@ -223,7 +239,7 @@ value wxStockGDI_GetFont_c(value item_v)
   CAMLlocal1(ret_v);
   wxStockGDI::Item item_c = (wxStockGDI::Item)Int_val(item_v);
   const wxFont * ret_c = wxStockGDI::instance().GetFont(item_c);
-  ret_v = Val_abstract( ret_c );
+  ret_v = Val_abstract( WXCLASS_wxFont, (wxFont*) ret_c );
   CAMLreturn(ret_v);
 }
 
@@ -233,7 +249,7 @@ value wxPen_SetDashes_c(value self_v, value dash_v)
 {
   CAMLparam0();
   CAMLlocal1(ret_v);
-  wxPen* self_c = (wxPen*)Abstract_val(self_v);
+  wxPen* self_c = (wxPen*)Abstract_val(WXCLASS_wxPen, self_v);
   char* dash_c = String_val(dash_v);
   int n_c = caml_string_length(dash_v);
   wxDash *dashes = new wxDash[n_c];
@@ -242,7 +258,76 @@ value wxPen_SetDashes_c(value self_v, value dash_v)
   ret_v = Val_unit;
   CAMLreturn(ret_v);
 }
+}
 
 
+class wxOCamlObject;
+
+wxOCamlObject *wx_ocaml_root = NULL;
+
+wxOCamlObject::wxOCamlObject(const int wxClassID,  
+			     value callbacks_v, 
+			     value state_v, 
+			     void* wxThis)
+  {
+    /*    fprintf(stderr, "wxOCamlObject: %lX\n", this); */
+    next = wx_ocaml_root;
+    wx_ocaml_root = this;
+    m_callbacks_v = callbacks_v;
+    /*
+    fprintf(stderr, "setting m_callbacks_v to %lX\n", callbacks_v);
+    for(int i = 0; i < 5; i++){
+      fprintf(stderr, "i = %d\n", i);
+      fprintf(stderr, "Field(_, %d) = %lX\n", i, Field(callbacks_v, i));
+      fprintf(stderr, "Field(_, %d) = %lX\n", i, Field(m_callbacks_v, i));
+    }
+    */
+    m_state_v = state_v;
+    m_this_v = Val_unit;
+    prev = &wx_ocaml_root;
+
+    m_this_v = Val_abstract(wxClassID, wxThis);
+  }
+wxOCamlObject::~wxOCamlObject()
+  {
+    *prev = next;
+  }
+
+
+extern "C" {
+static void (*prev_scan_roots_hook) (scanning_action);
+
+static void ocaml_wx_scan_roots(scanning_action action)
+{  
+  //  fprintf(stderr, "ocaml_wx_scan_roots\n");
+  wxOCamlObject *root = wx_ocaml_root;
+  while( root != NULL ){
+    (*action)(root->m_callbacks_v, &root->m_callbacks_v);
+    (*action)(root->m_state_v, &root->m_state_v);
+    (*action)(root->m_this_v, &root->m_this_v);
+    root = root->next;
+  }
+
+/* Hook */
+  if (prev_scan_roots_hook != NULL) (*prev_scan_roots_hook)(action);
+}
+
+value wxOCaml_init_ml(value unit_v)
+{
+  //  fprintf(stderr, "wxOCaml_init_ml\n");
+  /* Set up the hooks */
+  prev_scan_roots_hook = scan_roots_hook;
+  scan_roots_hook = ocaml_wx_scan_roots;
+}
+
+  value wxOCaml_cast_ml(value dest_id_v, value src_id_v, value ptr_v)
+  {
+    int src_id = Int_val(src_id_v);
+    int dest_id = Int_val(dest_id_v);
+    void *ptr = Abstract_val(src_id, ptr_v);
+    void *ptr2 = wxOCaml_cast(dest_id, src_id, ptr);
+    if( ptr == ptr2 ) return ptr_v;
+    return Val_abstract(dest_id, ptr2);
+  }
 
 }

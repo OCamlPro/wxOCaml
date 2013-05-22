@@ -39,60 +39,106 @@ let read filename =
 let generate_sources (cpp_directory, ocaml_directory) classes =
   (* Classes second *)
   StringMap.iter (fun _ cl ->
+
+    (* We must call this one first to fill the class_defs *)
+    GenOCaml.generate_class_module ocaml_directory cl;
+
     if cl.class_methods <> [] then
       GenCplusplus.generate_class_stubs cpp_directory cl cl.class_includes;
-    GenOCaml.generate_class_module ocaml_directory cl
   ) classes
+
+let ocaml_class_name name =
+  "wxOCaml" ^ String.sub name 2 (String.length name - 2)
 
 let create_class_hierarchy files =
   let classes = ref StringMap.empty in
 
+  let declare_class cl includes =
+    if StringMap.mem cl.class_uname !classes then
+      failwith (Printf.sprintf "class %S defined twice" cl.class_uname);
+    let includes = List.rev !includes in
+
+    let methods = ref StringMap.empty in
+
+    List.iter (fun p ->
+      let name = c_function_name cl p in
+      let insert =
+        try
+          let p1 = StringMap.find name !methods in
+          let insert =
+            (p.proto_version > p1.proto_version &&
+             p.proto_version <= wx_version) ||
+            (p.proto_version < p1.proto_version &&
+             p.proto_version <= wx_version &&
+             p1.proto_version > wx_version) ||
+            (p.proto_version > p1.proto_version &&
+             p1.proto_version > wx_version)
+          in
+          (*              Printf.eprintf "Replace %s version %s by version %s ? %b\n%!"
+                          name
+                          (string_of_version p1.proto_version)
+                          (string_of_version p.proto_version)
+                          insert; *)
+          insert
+        with Not_found -> true
+      in
+      if insert then
+        methods := StringMap.add name p !methods)
+      cl.class_methods;
+
+    let class_methods = ref [] in
+    StringMap.iter (fun _ p -> class_methods := p :: !class_methods)
+      !methods;
+    let cl = { cl with
+               class_includes = includes;
+               class_methods = !class_methods;
+             }
+    in
+    classes := StringMap.add cl.class_uname cl !classes
+  in
+
   List.iter (fun (filename, components) ->
-  let includes = ref [] in
+    let includes = ref [] in
     List.iter (fun comp ->
       match comp with
       | Comp_class cl ->
-        if StringMap.mem cl.class_uname !classes then
-          failwith (Printf.sprintf "class %S defined twice" cl.class_uname);
-        let includes = List.rev !includes in
-
-        let methods = ref StringMap.empty in
-
-        List.iter (fun p ->
-          let name = c_function_name cl p in
-          let insert =
-            try
-              let p1 = StringMap.find name !methods in
-              let insert =
-                (p.proto_version > p1.proto_version &&
-                 p.proto_version <= wx_version) ||
-                (p.proto_version < p1.proto_version &&
-                 p.proto_version <= wx_version &&
-                 p1.proto_version > wx_version) ||
-                (p.proto_version > p1.proto_version &&
-                 p1.proto_version > wx_version)
-              in
-(*              Printf.eprintf "Replace %s version %s by version %s ? %b\n%!"
-                name
-                (string_of_version p1.proto_version)
-                (string_of_version p.proto_version)
-                insert; *)
-              insert
-            with Not_found -> true
+        declare_class { cl with class_virtuals = [] } includes;
+        if cl.class_virtuals <> [] then begin
+          let class_methods =
+            List.filter (fun p -> p.proto_kind = ProtoNew) cl.class_methods
           in
-          if insert then
-            methods := StringMap.add name p !methods)
-          cl.class_methods;
-
-        let class_methods = ref [] in
-        StringMap.iter (fun _ p -> class_methods := p :: !class_methods)
-          !methods;
-        let cl = { cl with
-                   class_includes = includes;
-                   class_methods = !class_methods;
-                 }
-        in
-        classes := StringMap.add cl.class_uname cl !classes
+          let class_name = ocaml_class_name cl.class_name in
+          let class_uname = String.capitalize class_name in
+          let class_methods = List.map (fun p ->
+              let proto_args =
+                {
+                  arg_name = "methods";
+                  arg_ctype = (MUTABLE, Typ_ident "value");
+                  arg_direction = In;
+                  arg_ocaml = Some (Printf.sprintf
+                      "'a WxVirtuals.%s.methods" class_uname)
+                } ::
+                {
+                  arg_name = "state";
+                  arg_ctype = (MUTABLE, Typ_ident "value");
+                  arg_direction = In;
+                  arg_ocaml = Some "'a";
+                } ::
+                  p.proto_args in
+              { p with
+                proto_args;
+                proto_options = {
+                  fopt_gen_cpp = true;
+                  fopt_others = ();
+                }
+              }
+            ) class_methods in
+          let cl = new_class ( ocaml_class_name cl.class_name )
+              [ cl.class_name ]
+              class_methods
+              (IMPLEMENT cl) cl.class_virtuals in
+          declare_class cl includes
+        end
       | Comp_type typ -> types := StringMap.add typ.type_name typ !types
       | Comp_include s -> includes := s :: !includes
     ) components;
@@ -129,7 +175,7 @@ let create_class_hierarchy files =
     if cl.class_parents = StringMap.empty then
       set_parents [cl] cl.class_children
   )
-  !classes;
+    !classes;
   !classes
 
 let ocaml_directory = ref "sources"
@@ -159,7 +205,9 @@ let _ =
     mkdir ocaml_directory;
     GenOCaml.generate_types_module
       ocaml_directory "wxClasses" classes;
+    GenCplusplus.generate_classes_files cpp_directory classes;
     generate_sources (cpp_directory, ocaml_directory) classes;
+    GenOCaml.generate_virtuals_module ocaml_directory "wxVirtuals" classes;
     GenEvents.generate_events !api_directory (cpp_directory, ocaml_directory) "wxEVT";
 
     GenProject.generate_project_files ocaml_directory;

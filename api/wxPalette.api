@@ -1,4 +1,4 @@
 
-class wxPalette inherit wxPalette begin
+class wxPalette inherit wxObject begin
 
 end
