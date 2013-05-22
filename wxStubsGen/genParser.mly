@@ -218,9 +218,22 @@ argument:
   maybe_string UNDERSCORE STRING
     { { arg_name = $3; arg_ctype = (MUTABLE, Typ_direct); arg_direction = In;
         arg_ocaml = $1} }
-| maybe_string ctype maybe_direction maybe_string genident
+| maybe_string ctype maybe_direction maybe_string genident LBRACKET RBRACKET maybe_default
+    { { arg_ocaml = $1; arg_ctype = (MUTABLE, Typ_pointer $2); arg_direction = $3;
+        arg_name = $5; } }
+| maybe_string ctype maybe_direction maybe_string genident maybe_default
     { { arg_ocaml = $1; arg_ctype = $2; arg_direction = $3;
         arg_name = $5; } }
+;
+
+maybe_default:
+| EQUAL default_value { () }
+|                    { () }
+;
+
+default_value:
+| genident  { () }
+| INT       { () }
 ;
 
 maybe_string:

@@ -1,0 +1,58 @@
+
+class wxRadioBox inherit wxControl inherit wxItemContainerImmutable begin
+
+(*
+ 	new(CreateAll) (wxWindow *parent, wxWindowID id, const wxString &label, const wxPoint &pos=wxDefaultPosition, const wxSize &size=wxDefaultSize, int n=0, const wxString choices[]=NULL, int majorDimension=0, long style=wxRA_SPECIFY_COLS, const wxValidator &validator=wxDefaultValidator, const wxString &name=wxRadioBoxNameStr)
+*)
+
+ 	new(CreateAll)(wxWindow *parent, wxWindowID id, const wxString
+ 	&label, const wxPoint &pos, const wxSize &size, const
+ 	wxArrayString &choices, int majorDimension=0, long
+ 	style=wxRA_SPECIFY_COLS, const wxValidator
+ 	&validator=wxDefaultValidator, const wxString
+ 	&name=wxRadioBoxNameStr)
+
+(*
+ 	Constructor, creating and showing a radiobox. 
+virtual 	~wxRadioBox ()
+ 	Destructor, destroying the radiobox item. 
+bool 	Create (wxWindow *parent, wxWindowID id, const wxString &label, const wxPoint &pos=wxDefaultPosition, const wxSize &size=wxDefaultSize, int n=0, const wxString choices[]=NULL, int majorDimension=0, long style=wxRA_SPECIFY_COLS, const wxValidator &validator=wxDefaultValidator, const wxString &name=wxRadioBoxNameStr)
+ 	Creates the radiobox for two-step construction. 
+bool 	Create (wxWindow *parent, wxWindowID id, const wxString &label, const wxPoint &pos, const wxSize &size, const wxArrayString &choices, int majorDimension=0, long style=wxRA_SPECIFY_COLS, const wxValidator &validator=wxDefaultValidator, const wxString &name=wxRadioBoxNameStr)
+ 	Creates the radiobox for two-step construction. 
+virtual bool 	Enable (unsigned int n, bool enable=true)
+ 	Enables or disables an individual button in the radiobox. 
+virtual int 	FindString (const wxString &string, bool bCase=false) const
+ 	Finds a button matching the given string, returning the position if found, or wxNOT_FOUND if not found. 
+unsigned int 	GetColumnCount () const
+ 	Returns the number of columns in the radiobox. 
+virtual int 	GetItemFromPoint (const wxPoint &pt) const
+ 	Returns a radio box item under the point, a zero-based item index, or wxNOT_FOUND if no item is under the point. 
+wxString 	GetItemHelpText (unsigned int item) const
+ 	Returns the helptext associated with the specified item if any or wxEmptyString. 
+wxToolTip * 	GetItemToolTip (unsigned int item) const
+ 	Returns the tooltip associated with the specified item if any or NULL. 
+unsigned int 	GetRowCount () const
+ 	Returns the number of rows in the radiobox. 
+virtual bool 	IsItemEnabled (unsigned int n) const
+ 	Returns true if the item is enabled or false if it was disabled using Enable(n, false). 
+virtual bool 	IsItemShown (unsigned int n) const
+ 	Returns true if the item is currently shown or false if it was hidden using Show(n, false). 
+void 	SetItemHelpText (unsigned int item, const wxString &helptext)
+ 	Sets the helptext for an item. 
+void 	SetItemToolTip (unsigned int item, const wxString &text)
+ 	Sets the tooltip text for the specified item in the radio group. 
+virtual bool 	Show (unsigned int item, bool show=true)
+ 	Shows or hides individual buttons. 
+virtual unsigned int 	GetCount () const
+ 	Returns the number of items in the control. 
+virtual wxString 	GetString (unsigned int n) const
+ 	Returns the label of the item with the given index. 
+virtual void 	SetString (unsigned int n, const wxString &string)
+ 	Sets the label for the given item. 
+*)
+ method(void, 	SetSelection) (int n)
+(* 	Sets the selection to the given item n or removes the selection entirely if n == wxNOT_FOUND.  *)
+ method( int, 	GetSelection) () const
+
+end

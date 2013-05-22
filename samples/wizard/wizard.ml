@@ -111,18 +111,41 @@ public:
 private:
     wxCheckBox *m_checkbox;
 };
+*)
 
 (* This is a more complicated example of validity checking: using events we may*)
 (* allow to return to the previous page, but not to proceed. It also*)
 (* demonstrates how to intercept [Cancel] button press.*)
-class wxRadioboxPage : public wxWizardPageSimple
+
+    (* directions in which we allow the user to proceed from this page*)
+type direction =
+  | Forward | Backward | Both | Neither
+
+
+let wxRadioboxPage_methods =
+  WxVirtuals.WxOCamlWizardPageSimple.(
+    {
+      getBitmap = None;
+      transferDataFromWindow = None;
+      transferDataToWindow = None;
+      validate = None;
+    }
+  )
+
+type wxRadioboxPage = {
+  mutable m_radio : wxRadioBox option;
+}
+
+let new_wxRadioboxPage wxWizard =
+
+  let state = { m_radio = None } in
+  let this = WxOCamlWizardPageSimple.create
+      wxRadioboxPage_methods
+      state (Some wxWizard) in
+
+(*
 {
 public:
-    (* directions in which we allow the user to proceed from this page*)
-    enum
-    {
-        Forward, Backward, Both, Neither
-    };
 
     wxRadioboxPage(wxWizard *parent) : wxWizardPageSimple(parent)
     {
@@ -151,7 +174,10 @@ public:
 
         SetSizerAndFit(mainSizer);
     }
+*)
+  this
 
+(*
     (* wizard event handlers*)
     let OnWizardCancel(wxWizardEvent& event)
     {
@@ -311,7 +337,7 @@ let myWizard_MyWizard frame useSizer =
 
     WxFrame.setIcon frame (WxIcon.createFromXPM Sample_xpm.sample_xpm);
 
-(* TODO
+(* TODO 2.9
     (* Allow the bitmap to be expanded to fit the page height*)
     if (frame->GetMenuBar()->IsChecked(Wizard_ExpandBitmap))
         SetBitmapPlacement(wxWIZARD_VALIGN_CENTRE);
@@ -325,6 +351,7 @@ let myWizard_MyWizard frame useSizer =
     let m_page1 = wxWizardPageSimple (Some wizard) in
     let m_page1 = WxWizardPageSimple.wxWizardPage m_page1 in
 
+(*
     let methods = WxVirtuals.WxOCamlWizardPage.({
         getPrev = (fun state this ->
           Printf.eprintf "getPrev\n%!";
@@ -343,17 +370,20 @@ let myWizard_MyWizard frame useSizer =
     let m_page1 = WxOCamlWizardPage.create methods "m_page1" (Some wizard)
         wxNullBitmap in
     let m_page1 = WxOCamlWizardPage.wxWizardPage m_page1 in
+*)
 
-(* TODO
-    /* wxStaticText *text = */ new wxStaticText(m_page1, wxID_ANY,
-             wxT("This wizard doesn't help you\nto do anything at all.\n")
-             wxT("\n")
-             wxT("The next pages will present you\nwith more useless controls."),
-             wxPoint(5,5)
-        );
+    let text =  wxStaticText (WxWizardPage.wxWindow m_page1)
+        wxID_ANY
+        ("This wizard doesn't help you\nto do anything at all.\n" ^
+             "\n" ^
+             "The next pages will present you\nwith more useless controls.")
+             (5, 5) wxDefaultSize 0
+
+    in
 
     (* ... or a derived class*)
-    wxRadioboxPage *page3 = new wxRadioboxPage(this);
+    let page3 = new_wxRadioboxPage wizard in
+(*
     wxValidationPage *page4 = new wxValidationPage(this);
 
     (* set the page order using a convenience function - could also use*)
