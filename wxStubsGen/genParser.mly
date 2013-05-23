@@ -137,7 +137,7 @@ meth:
       proto_const = $12;
     }
   }
-| VALUE options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN
+| VALUE options_maybe LPAREN ctype COMMA genident_or_string maybe_mlname RPAREN
   {
     { proto_kind = ProtoValue;
       proto_ret = Some $4;
@@ -149,6 +149,11 @@ meth:
       proto_const = MUTABLE;
     }
   }
+;
+
+genident_or_string:
+  genident { $1 }
+| STRING { $1 }
 ;
 
 maybe_virtuals :

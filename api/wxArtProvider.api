@@ -2,7 +2,8 @@
 (* Beware: these ones are encoded as wxString, BUT constants in wxValues.api
     had to be defined as strings, because they were actually strings, 
     not wxStrings ! *)
-type wxArtID = wxString
+
+type wxArtID = wxString 
 type wxArtClient = wxString
 
 

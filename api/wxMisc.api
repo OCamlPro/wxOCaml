@@ -88,14 +88,14 @@ class wxMisc begin
    function(void, wxBell) ()
 
   version 2.8 begin
-    function(void,wxLogError)(_ "\"%s\"", string _msg)
-    function(void,wxLogStatus)(_ "\"%s\"", string _msg)
-    function(void,wxLogFatalError)(_ "\"%s\"", string _msg)
-    function(void,wxLogWarning)(_ "\"%s\"", string _msg)
-    function(void,wxLogMessage)(_ "\"%s\"", string _msg)
-    function(void,wxLogVerbose)(_ "\"%s\"", string _msg)
-    function(void,wxLogStatus)(_ "\"%s\"", string _msg)
-    function(void,wxLogSysError)(_ "\"%s\"", string _msg)
+    function(void,wxLogError)(_ "wxT(\"%s\")", string _msg)
+    function(void,wxLogStatus)(_ "wxT(\"%s\")", string _msg)
+    function(void,wxLogFatalError)(_ "wxT(\"%s\")", string _msg)
+    function(void,wxLogWarning)(_ "wxT(\"%s\")", string _msg)
+    function(void,wxLogMessage)(_ "wxT(\"%s\")", string _msg)
+    function(void,wxLogVerbose)(_ "wxT(\"%s\")", string _msg)
+    function(void,wxLogStatus)(_ "wxT(\"%s\")", string _msg)
+    function(void,wxLogSysError)(_ "wxT(\"%s\")", string _msg)
   end
 
   version 2.9.0 begin
