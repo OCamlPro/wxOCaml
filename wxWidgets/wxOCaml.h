@@ -55,6 +55,8 @@ typedef int intptr_t;
 #include <wx/gdicmn.h>
 #include <wx/wizard.h>
 #include <wx/dragimag.h>
+#include <wx/dcgraph.h>
+#include <wx/dcprint.h>
 
 #if wxUSE_DATEPICKCTRL
 #include "wx/datectrl.h"
