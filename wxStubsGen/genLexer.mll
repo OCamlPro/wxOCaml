@@ -51,6 +51,7 @@ rule token = parse
   | '}' { RBRACE }
   | '(' { LPAREN }
   | ')' { RPAREN }
+  | ')'  ' '* "const"   { CONSTEND }
   | '[' { LBRACKET }
   | ']' { RBRACKET }
   | '*' { STAR }
@@ -58,6 +59,7 @@ rule token = parse
   | ',' { COMMA }
   | '=' { EQUAL }
   | '.' { DOT }
+  | '/' { SLASH }
   | '&' { AMPERSAND }
   | "<-" { LESSMINUS }
   | "<>" { LESSGREATER }
@@ -77,6 +79,9 @@ rule token = parse
   | "version"  { VERSION }
   | "const"   { CONST }
   | "virtual" { VIRTUAL }
+  | "virtuals" { VIRTUALS }
+  | "static"  { STATIC }
+  | "events"  { EVENTS }
   | ['0'-'9']+ { INT(int_of_string (Lexing.lexeme lexbuf)) }
   | '_' { UNDERSCORE }
   | ident "::" ident { IDENT (Lexing.lexeme lexbuf) }
@@ -157,7 +162,12 @@ let string_of_token token = match token with
   | VERSION -> "VERSION"
   | DOT -> "DOT"
   | CONST -> "CONST"
+  | CONSTEND -> "RPAREN + CONST"
   | VIRTUAL -> "VIRTUAL"
+  | VIRTUALS -> "VIRTUALS"
+  | SLASH -> "SLASH"
+  | STATIC -> "STATIC"
+  | EVENTS -> "EVENTS"
 
   let token lexbuf =
     let token = token lexbuf in

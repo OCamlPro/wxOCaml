@@ -2063,7 +2063,7 @@ let _OnInit () =
 (* the event tables connect the wxWidgets events with the functions (event *)
 (* handlers) which process them. It can be also done at run-time, but for the *)
 (* simple menu events like this the static method is much simpler. *)
- BEGIN_EVENT_TABLE2.(wxFrame frame.m_frame frame [
+ WxEVENT_TABLE.(wxFrame frame.m_frame frame [
   EVT_MENU   (_File_Quit,   myFrame_OnQuit);
   EVT_MENU   (_File_About,  myFrame_OnAbout);
   EVT_MENU   (_File_Clip,   myFrame_OnClip);
@@ -2082,12 +2082,12 @@ let _OnInit () =
 
 (* the event tables connect the wxWidgets events with the functions (event *)
 (* handlers) which process them. *)
-BEGIN_EVENT_TABLE2.(wxScrolledWindow frame.canvas.m_canvas frame [
-  EVT_PAINT  myCanvas_OnPaint ;
-  EVT_MOTION myCanvas_OnMouseMove ;
-  EVT_LEFT_DOWN myCanvas_OnMouseDown ;
-  EVT_LEFT_UP myCanvas_OnMouseUp ;
- ]);
+ WxEVENT_TABLE.(wxScrolledWindow frame.canvas.m_canvas frame [
+     EVT_PAINT  myCanvas_OnPaint ;
+     EVT_MOTION myCanvas_OnMouseMove ;
+     EVT_LEFT_DOWN myCanvas_OnMouseDown ;
+     EVT_LEFT_UP myCanvas_OnMouseUp ;
+   ]);
 
   WxFrame.setIcon frame.m_frame (WxIcon.createFromXPM Sample_xpm.sample_xpm);
 

@@ -8,7 +8,7 @@ class wxWizardPage inherit wxPanel begin
     new(Create)(wxWizard? parent,
                 const wxBitmap& bitmap (*  = wxNullBitmap *))
 
-    virtual [ 
+    virtuals [ 
       (* These ones MUST be instantiated ! *)
              GetPrev,
               GetNext,
@@ -34,7 +34,7 @@ class wxWizardPageSimple inherit wxWizardPage begin
       (wxWizardPageSimple *first, wxWizardPageSimple *second)
 
 (* all the virtuals here CAN be instantiated *)
-   virtual [  GetBitmap?,
+   virtuals [  GetBitmap?,
               TransferDataFromWindow?,
               TransferDataToWindow?,
 	      Validate? ]

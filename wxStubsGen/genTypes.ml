@@ -2,12 +2,16 @@
 module StringMap = Map.Make(String)
 module StringSet = Set.Make(String)
 
+type event_range = RANGE_ANY | RANGE_ONE | RANGE_TWO
+
 type file = component list
 
 and component =
   | Comp_include of string
   | Comp_class of class_descr
   | Comp_type of type_descr
+  | Comp_events of string * (string *
+          string list * string list * string list) list
 
 and type_descr = {
   type_name : string;
@@ -20,7 +24,6 @@ and class_descr = {
   class_uname : string;
   class_num : int;
   class_virtual : virtual_or_manifest;
-
   class_inherit : string list;
   mutable class_parents : class_descr StringMap.t;
   mutable class_children : class_descr StringMap.t;

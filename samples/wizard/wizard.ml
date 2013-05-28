@@ -372,7 +372,7 @@ let myWizard_MyWizard frame useSizer =
     let m_page1 = WxOCamlWizardPage.wxWizardPage m_page1 in
 *)
 
-    let text =  wxStaticText (WxWizardPage.wxWindow m_page1)
+    let _text =  wxStaticText (WxWizardPage.wxWindow m_page1)
         wxID_ANY
         ("This wizard doesn't help you\nto do anything at all.\n" ^
              "\n" ^
@@ -382,7 +382,7 @@ let myWizard_MyWizard frame useSizer =
     in
 
     (* ... or a derived class*)
-    let page3 = new_wxRadioboxPage wizard in
+    let _page3 = new_wxRadioboxPage wizard in
 (*
     wxValidationPage *page4 = new wxValidationPage(this);
 
@@ -494,7 +494,7 @@ let myFrame_MyFrame title=
   (*#endif *)
 
 
-  BEGIN_EVENT_TABLE2.(wxFrame m_frame m_frame [
+  WxEVENT_TABLE.(wxFrame m_frame m_frame [
       EVT_MENU(id_Wizard_Quit,         myFrame_OnQuit);
       EVT_MENU(id_Wizard_About,        myFrame_OnAbout);
 

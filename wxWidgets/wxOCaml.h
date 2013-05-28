@@ -66,7 +66,13 @@ typedef int intptr_t;
 #include "wx/timectrl.h"
 #endif
 
+// TODO: we should test in the configure for this
+// #if wxUSE_STC
+#include "wx/stc/stc.h"
+// #endif
+
 #if wxCHECK_VERSION(2, 9, 0)
+
 #include "wx/wrapsizer.h"
 
 #else
@@ -137,6 +143,11 @@ typedef int wxImageResizeQuality;
 #define wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED         (-1)
 #define wxEVT_MOVE_START             (-1)
 #define wxEVT_MOVE_END             (-1)
+
+#define wxEVT_STC_INDICATOR_RELEASE     (-1)
+#define wxEVT_STC_INDICATOR_CLICK       (-1)
+#define wxEVT_STC_AUTOCOMP_CHAR_DELETED (-1)
+#define wxEVT_STC_AUTOCOMP_CANCELLED    (-1)
 
 
 // Placement flags

@@ -28,8 +28,11 @@ let default_options = { fopt_gen_cpp = true; fopt_others = () }
 %token LESSGREATER
 %token DOT
 %token CONST
+%token CONSTEND
+%token SLASH
 
 %token VIRTUAL
+%token VIRTUALS
 %token BEGIN
 %token END
 %token INCLUDE
@@ -44,6 +47,8 @@ let default_options = { fopt_gen_cpp = true; fopt_others = () }
 %token TYPE
 %token VALUE
 %token VERSION
+%token STATIC
+%token EVENTS
 
 %start file
 %type <GenTypes.file> file
@@ -59,21 +64,43 @@ components:
 
 component:
   | INCLUDE STRING                          { Comp_include $2 }
-  | CLASS IDENT ancestors BEGIN methods
+  | CLASS IDENT ancestors BEGIN
+    methods
     maybe_virtuals
     END {
+    let class_name = $2 in
+    let class_parents = $3 in
+    let class_methods = $5 in
     let class_virtuals = $6 in
     let class_virtual =
       List.exists (fun (_,m,_) -> m = MUST) class_virtuals in
     let class_virtual = if class_virtual then VIRTUAL else MANIFEST in
-    Comp_class (new_class  $2 $3 $5 class_virtual class_virtuals)
+    Comp_class (new_class class_name class_parents class_methods class_virtual class_virtuals)
   }
   | TYPE genident maybe_string EQUAL ctype { Comp_type {
                                                 type_name = $2;
                                                 type_ocaml = $3;
                                                 type_ctype = $5;
                                               } }
+  | EVENTS genident LBRACKET events RBRACKET { Comp_events ($2, $4) }
 ;
+
+events:
+ genident maybe_other_names maybe_other_names maybe_other_names  events {
+   ($1,$2,$3,$4) :: $5 }
+|                { [] }
+;
+
+maybe_other_names:
+  LPAREN other_names RPAREN  { $2 }
+|                            { [] }
+;
+
+other_names:
+genident other_names { $1 :: $2 }
+|                    { [] }
+;
+
 
 ancestors:
   { [] }
@@ -93,9 +120,14 @@ version:
 | INT DOT version { $1 :: $3 }
 ;
 
+rparen_and_const:
+| CONSTEND { CONSTANT }
+| RPAREN   { MUTABLE }
+;
+
 const_or_mutable:
-| CONST { CONSTANT }
-|       { MUTABLE }
+| CONST    { CONSTANT }
+|          { MUTABLE }
 ;
 
 /* For Mantis: using "method" as a rule name triggers a weird error.
@@ -113,7 +145,7 @@ meth:
       proto_const = MUTABLE;
     }
   }
-| METHOD options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN LPAREN arguments RPAREN const_or_mutable
+| METHOD options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN LPAREN arguments rparen_and_const
   {
     { proto_kind = ProtoMethod;
       proto_ret = Some $4;
@@ -122,10 +154,10 @@ meth:
       proto_args = $10;
       proto_options = $2;
       proto_version = [];
-      proto_const = $12;
+      proto_const = $11;
     }
   }
-| FUNCTION options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN LPAREN arguments RPAREN const_or_mutable
+| FUNCTION options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN LPAREN arguments rparen_and_const
   {
     { proto_kind = ProtoFunction;
       proto_ret = Some $4;
@@ -134,7 +166,7 @@ meth:
       proto_args = $10;
       proto_options = $2;
       proto_version = [];
-      proto_const = $12;
+      proto_const = $11;
     }
   }
 | VALUE options_maybe LPAREN ctype COMMA genident_or_string maybe_mlname RPAREN
@@ -149,6 +181,38 @@ meth:
       proto_const = MUTABLE;
     }
   }
+
+/* Using direct C++ notation */
+| static_or_nor options_maybe ctype genident maybe_slash_mlname LPAREN arguments rparen_and_const
+  {
+    { proto_kind = $1;
+      proto_ret = Some $3;
+      proto_name = $4;
+      proto_mlname = $5;
+      proto_args = $7;
+      proto_options = $2;
+      proto_version = [];
+      proto_const = $8;
+    }
+  }
+| NEW options_maybe genident LPAREN arguments RPAREN
+  {
+    { proto_kind = ProtoNew;
+      proto_ret = None;
+      proto_name = $3;
+      proto_mlname = None;
+      proto_args = $5;
+      proto_options = $2;
+      proto_version = [];
+      proto_const = MUTABLE;
+    }
+  }
+;
+
+static_or_nor:
+  STATIC  { ProtoFunction }
+| VIRTUAL { ProtoMethod }
+|         { ProtoMethod }
 ;
 
 genident_or_string:
@@ -157,7 +221,7 @@ genident_or_string:
 ;
 
 maybe_virtuals :
-|  VIRTUAL LBRACKET virtuals RBRACKET { $3 }
+|  VIRTUALS LBRACKET virtuals RBRACKET { $3 }
 |  { [] }
 ;
 
@@ -197,6 +261,11 @@ options:
 maybe_mlname:
                  { None }
 | COMMA genident { Some $2 }
+;
+
+maybe_slash_mlname:
+                 { None }
+| SLASH genident { Some $2 }
 ;
 
 ctype:
@@ -269,5 +338,7 @@ genident:
 | TYPE    { "type" }
 | VALUE   { "value" }
 | VERSION { "version" }
+| VIRTUALS { "virtuals" }
+| EVENTS  { "events" }
 ;
 

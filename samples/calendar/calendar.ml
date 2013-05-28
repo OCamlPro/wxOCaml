@@ -371,7 +371,7 @@ let _ =
 
 
 
-    let onAbout _ =
+    let onAbout _ _ =
       ignore_int (
         wxMessageBoxAll "wxCalendarCtrl sample\n(c) 2000--2008 Vadim Zeitlin"
           "About Calendar"
@@ -380,75 +380,75 @@ let _ =
       )
     in
 
-    let onQuit _ =
+    let onQuit _ _ =
       ignore_bool (WxFrame.close m_frame true)
     in
-    let onClearLog _ =
+    let onClearLog _ _ =
       WxTextCtrl.clear m_logWindow;
     in
 
-    let onCalMonday event =
+    let onCalMonday _ event =
       toggleCalStyle
         (WxCommandEvent.isChecked event) wxCAL_MONDAY_FIRST
     in
 
-    let onCalHolidays event =
+    let onCalHolidays _ event =
       WxCalendarCtrl.enableHolidayDisplay !m_calendar
         (WxCommandEvent.isChecked event)
     in
 
-    let onCalSpecial event =
+    let onCalSpecial _ event =
       highlightSpecial (WxMenuBar.isChecked m_menuBar
           (WxCommandEvent.getId event))
     in
 
-    let onCalLimitDates event =
+    let onCalLimitDates _ event =
       limitDateRange (WxMenuBar.isChecked m_menuBar
           (WxCommandEvent.getId event))
     in
 
-    let onCalAllowMonth event =
+    let onCalAllowMonth _ event =
       WxCalendarCtrl.enableMonthChange !m_calendar
         (WxCommandEvent.isChecked event)
     in
 
-    let onCalSeqMonth event =
+    let onCalSeqMonth _ event =
       toggleCalStyle
         (WxCommandEvent.isChecked event)
         wxCAL_SEQUENTIAL_MONTH_SELECTION
     in
 
 
-    let onCalShowSurroundingWeeks event =
+    let onCalShowSurroundingWeeks _ event =
       toggleCalStyle
         (WxCommandEvent.isChecked event)
         wxCAL_SHOW_SURROUNDING_WEEKS
     in
 
-    let onCalShowWeekNumbers event =
+    let onCalShowWeekNumbers _ event =
       toggleCalStyle
         (WxCommandEvent.isChecked event)
         wxCAL_SHOW_WEEK_NUMBERS
     in
 
-    let onSetDate event =
+    let onSetDate _ event =
       WxCalendarCtrl.setDate !m_calendar
         (wxDateTime 24 11 (* wxDateTime::Dec *) 2005 22 00 00)
     in
 
 
-    let onToday event =
+    let onToday _ event =
       WxCalendarCtrl.setDate !m_calendar (WxDateTime.today())
     in
 
-    let onBeginDST event =
+    let onBeginDST _ event =
       WxCalendarCtrl.setDate !m_calendar (
         WxDateTime.getBeginDST(
           WxDateTime.getYear (WxCalendarCtrl.getDate !m_calendar) 0
         ) 1 (* Country_Default *) )
     in
 
-    let onCalToggleResizable ( event : wxCommandEvent) =
+    let onCalToggleResizable _ ( event : wxCommandEvent) =
       let isChecked = WxCommandEvent.isChecked event in
       match WxPanel.getSizer m_panel with
         None ->
@@ -469,7 +469,7 @@ let _ =
           WxSizer.layout sizer
     in
 
-    let onAskTime event =
+    let onAskTime _ event =
       if wx_2_9 then begin
         let new_MyTimeDialog (parent : wxWindow) =
           let this =
@@ -518,7 +518,7 @@ let _ =
 
           WxDialog.setSizerAndFit this s_sizerTop true;
 
-          let onTimeChange (event : wxDateEvent) =
+          let onTimeChange _ (event : wxDateEvent) =
             let dt = WxDateEvent.getDate event in
             WxStaticText.setLabel m_timeText
               (if WxDateTime.isValid dt then
@@ -527,7 +527,7 @@ let _ =
                  "(select first)")
           in
 
-          BEGIN_EVENT_TABLE.(wxDialog this [
+          WxEVENT_TABLE.(wxDialog this () [
             EVT_TIME_CHANGED(wxID_ANY, onTimeChange);
           ]);
 
@@ -542,7 +542,7 @@ let _ =
               (WxDateTime.formatISOTime (WxTimePickerCtrl.getValue m_timePicker)))
       end
     in
-    let onAskDate event =
+    let onAskDate _ event =
       if wx_2_9 then begin
         let dt = WxCalendarCtrl.getDate !m_calendar in
 
@@ -634,7 +634,7 @@ let _ =
 
           WxDialog.setSizerAndFit this s_sizerTop true;
 
-          let onDateChange (event : wxDateEvent) =
+          let onDateChange () (event : wxDateEvent) =
             let dt = WxDateEvent.getDate event in
             WxStaticText.setLabel m_dateText
               (if WxDateTime.isValid dt then
@@ -642,7 +642,7 @@ let _ =
                else
                  "(select first)")
           in
-          BEGIN_EVENT_TABLE.(wxDialog this [
+          WxEVENT_TABLE.(wxDialog this () [
             EVT_DATE_CHANGED(wxID_ANY, onDateChange);
           ]);
           (this, m_datePicker)
@@ -669,13 +669,13 @@ let _ =
       end
     in
 
-    let onUpdateUIStartWithNone (event: wxUpdateUIEvent) =
+    let onUpdateUIStartWithNone _ (event: wxUpdateUIEvent) =
       (*  it only makes sense to start with invalid date if we can have no date *)
       WxUpdateUIEvent.enable event
         (WxMenuBar.isChecked m_menuBar id_Calendar_DatePicker_AllowNone)
     in
 
-    BEGIN_EVENT_TABLE.(wxFrame m_frame (
+    WxEVENT_TABLE.(wxFrame m_frame () (
       [ EVT_MENU (id_Calendar_File_About, onAbout);
         EVT_MENU(id_Calendar_File_ClearLog, onClearLog);
         EVT_MENU(id_Calendar_File_Quit,  onQuit);
@@ -711,7 +711,7 @@ let _ =
       ]));
 
     let olddate = ref None in
-    let onCalendar ev =
+    let onCalendar _ ev =
       let newdate = WxCalendarEvent.getDate ev in
       let mark = match !olddate with
           None -> true
@@ -731,7 +731,7 @@ let _ =
     in
 
 
-    let onCalendarChange ev =
+    let onCalendarChange _ ev =
       let s = Printf.sprintf "Selected date: %s"
           (WxDateTime.formatISODate (WxCalendarEvent.getDate ev))
       in
@@ -741,7 +741,7 @@ let _ =
 
 
 
-    let onCalMonthChange (event :wxCalendarEvent) =
+    let onCalMonthChange _ (event :wxCalendarEvent) =
       let date = WxCalendarEvent.getDate event in
       let msg = Printf.sprintf
           "Calendar month changed to %s %d"
@@ -751,7 +751,7 @@ let _ =
       in wxLogStatus msg
     in
 
-    let onCalendarWeekDayClick (event : wxCalendarEvent) =
+    let onCalendarWeekDayClick _ (event : wxCalendarEvent) =
       let msg =
         Printf.sprintf
           "Clicked on %s"
@@ -760,14 +760,14 @@ let _ =
       in wxLogStatus msg
     in
 
-    let onCalendarWeekClick (event : wxCalendarEvent) =
+    let onCalendarWeekClick _ (event : wxCalendarEvent) =
       let date = WxCalendarEvent.getDate event in
       let msg = Printf.sprintf "Clicked on week %d"
           (WxDateTime.getWeekOfYear date 0 0)
       in wxLogStatus msg
     in
 
-    BEGIN_EVENT_TABLE.(wxPanel m_panel
+    WxEVENT_TABLE.(wxPanel m_panel ()
       [
         EVT_CALENDAR(id_Calendar_CalCtrl, onCalendar);
         EVT_CALENDAR_SEL_CHANGED(id_Calendar_CalCtrl, onCalendarChange);

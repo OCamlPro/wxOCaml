@@ -52,6 +52,7 @@ let ocaml_class_name name =
 
 let create_class_hierarchy files =
   let classes = ref StringMap.empty in
+  let events = ref StringMap.empty in
 
   let declare_class cl includes =
     if StringMap.mem cl.class_uname !classes then
@@ -141,6 +142,29 @@ let create_class_hierarchy files =
         end
       | Comp_type typ -> types := StringMap.add typ.type_name typ !types
       | Comp_include s -> includes := s :: !includes
+      | Comp_events (event_class, event_names) ->
+          let declare_names names event_class range =
+            List.iter (fun ev_name ->
+              try
+                let (s, _) = StringMap.find ev_name !events in
+                Printf.eprintf "Error: event %S has two types %S and %S\n%!"
+                  ev_name event_class s;
+                exit_code := 2;
+              with Not_found ->
+                events := StringMap.add ev_name (event_class, range) !events
+            ) names
+          in
+        List.iter (fun ( ev_name,  item0_names, item1_names, item2_names ) ->
+          let event = String.sub ev_name 3 (String.length ev_name - 3) in
+          declare_names item0_names event_class (Some (event, RANGE_ANY));
+          declare_names item1_names event_class (Some (event, RANGE_ONE));
+          declare_names item2_names event_class (Some (event, RANGE_TWO));
+
+          if not (List.mem ev_name (item0_names @ item1_names @ item2_names))
+          then
+            declare_names [ev_name] event_class None;
+        ) event_names
+
     ) components;
   ) files;
 
@@ -176,7 +200,7 @@ let create_class_hierarchy files =
       set_parents [cl] cl.class_children
   )
     !classes;
-  !classes
+  !classes, !events
 
 let ocaml_directory = ref "sources"
 let cpp_directory = ref "sources"
@@ -198,7 +222,7 @@ let _ =
 
   let cpp_directory = !cpp_directory in
   let ocaml_directory = !ocaml_directory in
-  let classes = create_class_hierarchy !files in
+  let classes, events = create_class_hierarchy !files in
 
   try
     mkdir cpp_directory;
@@ -208,7 +232,8 @@ let _ =
     GenCplusplus.generate_classes_files cpp_directory classes;
     generate_sources (cpp_directory, ocaml_directory) classes;
     GenOCaml.generate_virtuals_module ocaml_directory "wxVirtuals" classes;
-    GenEvents.generate_events !api_directory (cpp_directory, ocaml_directory) "wxEVT";
+    GenEvents.generate_events !api_directory
+      (cpp_directory, ocaml_directory) classes events;
 
     GenProject.generate_project_files ocaml_directory;
     exit !exit_code

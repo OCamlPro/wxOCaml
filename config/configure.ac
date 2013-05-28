@@ -52,10 +52,11 @@ AC_SUBST(VERSION)
 
 #WX_CONFIG_OPTIONS
 AM_OPTIONS_WXCONFIG
-reqwx=2.8.0
-#WX_CONFIG_CHECK([$reqwx], [wxWin=1],,[all])
-AM_PATH_WXCONFIG([$reqwx], [wxWin=1])
+reqwx=2.9.0
+WX_CONFIG_CHECK([2.9.0], [wxWin=1],[wxWin=0],[all])
 if test "$wxWin" != 1; then
+  AM_PATH_WXCONFIG([2.8.0], [wxWin=1], [wxWin=0], [std,stc])
+  if test "$wxWin" != 1; then
 	AC_MSG_ERROR([
 		wxWidgets must be installed on your system.
  
@@ -65,6 +66,7 @@ if test "$wxWin" != 1; then
 		is in LD_LIBRARY_PATH or equivalent variable and
 		wxWidgets version is $reqwx or above.
 		])
+  fi
 fi
  
 CPPFLAGS="$CPPFLAGS $WX_CPPFLAGS"

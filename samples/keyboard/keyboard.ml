@@ -423,7 +423,7 @@ let myFrame title =
 
         (*connect menu event handlers*)
 
-  BEGIN_EVENT_TABLE2.(wxFrame this frame [
+  WxEVENT_TABLE.(wxFrame this frame [
       EVT_MENU (idQuit,myFrame_OnQuit);
       EVT_MENU(wxID_ABOUT, myFrame_OnAbout);
       EVT_MENU(idClear, myFrame_OnClear);
