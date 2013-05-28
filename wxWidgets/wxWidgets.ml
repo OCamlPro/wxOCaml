@@ -3,7 +3,7 @@ open WxDefs
 open WxMisc
 
 let wxT s = s
-
+let wxEmptyString = ""
 
 let rec version_of_string version =
   try
@@ -132,6 +132,7 @@ let ignore_bool (_ : bool) = ()
 let ignore_option (_ : 'a option) = ()
 
 let ignore_wxStatusBar (_ : wxStatusBar) = ()
+let ignore_wxColour (_ : wxColour) = ()
 
 let wxDefaultPosition = (-1,-1)
 let wxDefaultSize = (-1,-1)

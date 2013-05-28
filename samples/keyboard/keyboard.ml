@@ -458,7 +458,7 @@ let myFrame title =
   frame
 
     (*'Main program' equivalent: the program execution "starts" here *)
-let myApp_OnInit() =
+let myApp_OnInit app =
   (*create the main application window*)
   let _frame = myFrame "Keyboard wxWidgets App" in
 

@@ -2052,7 +2052,7 @@ let myFrame_OnOption frame (event : wxCommandEvent) =
 
 
 
-let _OnInit () =
+let myApp_OnInit _app =
 (* `Main program' equivalent: the program execution "starts" here *)
 
  (* Create the main application window *)
@@ -2106,4 +2106,4 @@ let _OnInit () =
 (* #endif *)
  end
 
-let _ = wxMain _OnInit
+let _ = wxMain myApp_OnInit

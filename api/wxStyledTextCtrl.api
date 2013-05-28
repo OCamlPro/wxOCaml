@@ -127,7 +127,9 @@ EVT_STC_AUTOCOMP_CHAR_DELETED
 
 class wxStyledTextCtrl inherit wxControl begin
  
-   new Create (wxWindow *parent, wxWindowID id=wxID_ANY, const wxPoint &pos=wxDefaultPosition, const wxSize &size=wxDefaultSize, long style=0, const wxString &name=wxSTCNameStr)
+   new Create (wxWindow *parent, wxWindowID id=wxID_ANY, const wxPoint &pos=wxDefaultPosition, const wxSize &size=wxDefaultSize, long style=0)
+ 
+   new CreateAll (wxWindow *parent, wxWindowID id=wxID_ANY, const wxPoint &pos=wxDefaultPosition, const wxSize &size=wxDefaultSize, long style=0, const wxString &name=wxSTCNameStr)
 
 (*
 bool 	Create (wxWindow *parent, wxWindowID id=wxID_ANY, const wxPoint &pos=wxDefaultPosition, const wxSize &size=wxDefaultSize, long style=0, const wxString &name=wxSTCNameStr)
@@ -1962,8 +1964,11 @@ void 	SetLastKeydownProcessed (bool val)
  
 bool 	SaveFile (const wxString &filename)
  	Write the contents of the editor to filename. 
- 
+ *)
+
 bool 	LoadFile (const wxString &filename)
+
+(*
  	Load the contents of filename into the editor. 
  
 wxDragResult 	DoDragOver (wxCoord x, wxCoord y, wxDragResult defaultRes)

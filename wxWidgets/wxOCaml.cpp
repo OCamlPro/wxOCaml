@@ -127,7 +127,8 @@ bool OCamlApp::OnInit (void){
   wxInitAllImageHandlers();
   if(initHandler != NULL){
     value closure_v = initHandler->get();
-    caml_callback(closure_v, Val_unit);
+    caml_callback(closure_v, 
+		  Val_abstract(WXCLASS_wxApp, (wxApp*)this));
   }
   return true; 
 }

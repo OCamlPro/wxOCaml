@@ -1,0 +1,8 @@
+binannot = false
+
+(* enabled = false *)
+
+begin program "stc"
+  requires = [ "wxWidgets"  "wxSamples-resources"  ]
+  files = [    "stc.ml"  ]
+end

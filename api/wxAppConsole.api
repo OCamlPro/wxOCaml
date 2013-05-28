@@ -1,4 +1,112 @@
 
 class wxAppConsole inherit wxEvtHandler (* inherit wxEventFilter *) begin
 
+(*
+virtual 	~wxAppConsole ()
+ 	Destructor. 
+bool 	Yield (bool onlyIfNeeded=false)
+Event-handling
+Note that you should look at wxEvtLoopBase for more event-processing documentation.
+
+virtual int 	MainLoop ()
+ 	Called by wxWidgets on creation of the application. 
+virtual void 	ExitMainLoop ()
+ 	Call this to explicitly exit the main message (event) loop. 
+virtual int 	FilterEvent (wxEvent &event)
+ 	Overridden wxEventFilter method. 
+wxEventLoopBase * 	GetMainLoop () const
+ 	Returns the main event loop instance, i.e. 
+virtual void 	HandleEvent (wxEvtHandler *handler, wxEventFunction func, wxEvent &event) const
+ 	This function simply invokes the given method func of the specified event handler handler with the event as parameter. 
+virtual bool 	UsesEventLoop () const
+ 	Returns true if the application is using an event loop. 
+Pending events
+Pending events are handled by wxAppConsole rather than wxEventLoopBase to allow queuing of events even when there's no event loop (e.g.
+
+in wxAppConsole::OnInit).
+
+virtual void 	ProcessPendingEvents ()
+ 	Process all pending events; it is necessary to call this function to process events posted with wxEvtHandler::QueueEvent or wxEvtHandler::AddPendingEvent. 
+void 	DeletePendingEvents ()
+ 	Deletes the pending events of all wxEvtHandlers of this application. 
+bool 	HasPendingEvents () const
+ 	Returns true if there are pending events on the internal pending event list. 
+void 	SuspendProcessingOfPendingEvents ()
+ 	Temporary suspends processing of the pending events. 
+void 	ResumeProcessingOfPendingEvents ()
+ 	Resume processing of the pending events previously stopped because of a call to SuspendProcessingOfPendingEvents(). 
+void 	ScheduleForDestruction (wxObject *object)
+ 	Delayed objects destruction. 
+bool 	IsScheduledForDestruction (wxObject *object) const
+ 	Check if the object had been scheduled for destruction with ScheduleForDestruction(). 
+Callbacks for application-wide "events"
+virtual void 	OnAssertFailure (const wxChar *file, int line, const wxChar *func, const wxChar *cond, const wxChar *msg)
+ 	This function is called when an assert failure occurs, i.e. 
+virtual bool 	OnCmdLineError (wxCmdLineParser &parser)
+ 	Called when command line parsing fails (i.e. 
+virtual bool 	OnCmdLineHelp (wxCmdLineParser &parser)
+ 	Called when the help option (--help) was specified on the command line. 
+virtual bool 	OnCmdLineParsed (wxCmdLineParser &parser)
+ 	Called after the command line had been successfully parsed. 
+virtual void 	OnEventLoopEnter (wxEventLoopBase *loop)
+ 	Called by wxEventLoopBase::SetActive(): you can override this function and put here the code which needs an active event loop. 
+virtual void 	OnEventLoopExit (wxEventLoopBase *loop)
+ 	Called by wxEventLoopBase::OnExit() for each event loop which is exited. 
+virtual bool 	OnExceptionInMainLoop ()
+ 	This function is called if an unhandled exception occurs inside the main application event loop. 
+virtual int 	OnExit ()
+ 	Override this member function for any processing which needs to be done as the application is about to exit. 
+virtual void 	OnFatalException ()
+ 	This function may be called if something fatal happens: an unhandled exception under Win32 or a fatal signal under Unix, for example. 
+virtual bool 	OnInit ()
+ 	This must be provided by the application, and will usually create the application's main window, optionally calling SetTopWindow(). 
+virtual void 	OnInitCmdLine (wxCmdLineParser &parser)
+ 	Called from OnInit() and may be used to initialize the parser with the command line options for this application. 
+virtual int 	OnRun ()
+ 	This virtual function is where the execution of a program written in wxWidgets starts. 
+virtual void 	OnUnhandledException ()
+ 	This function is called when an unhandled C++ exception occurs in user code called by wxWidgets. 
+Application informations
+wxString 	GetAppDisplayName () const
+ 	Returns the user-readable application name. 
+wxString 	GetAppName () const
+ 	Returns the application name. 
+wxString 	GetClassName () const
+ 	Gets the class name of the application. 
+wxAppTraits * 	GetTraits ()
+ 	Returns a pointer to the wxAppTraits object for the application. 
+*)
+
+
+const wxString & 	GetVendorName () const
+void 	SetAppName (const wxString &name)
+void 	SetClassName (const wxString &name)
+void 	SetVendorName (const wxString &name)
+version 2.9 begin
+  void 	SetVendorDisplayName (const wxString &name)
+  const wxString & 	GetVendorDisplayName () const
+  void 	SetAppDisplayName (const wxString &name)
+end
+
+(*
+Static Public Member Functions
+
+static void 	SetInstance (wxAppConsole *app)
+ 	Allows external code to modify global wxTheApp, but you should really know what you're doing if you call it. 
+static wxAppConsole * 	GetInstance ()
+ 	Returns the one and only global application object. 
+static bool 	IsMainLoopRunning ()
+ 	Returns true if the main event loop is currently running, i.e. 
+Public Attributes
+
+int 	argc
+ 	Number of command line arguments (after environment-specific processing). 
+wxChar ** 	argv
+ 	Command line arguments (after environment-specific processing). 
+Protected Member Functions
+
+virtual wxAppTraits * 	CreateTraits ()
+ 	Creates the wxAppTraits object when GetTraits() needs it for the first time. 
+*)
+
 end

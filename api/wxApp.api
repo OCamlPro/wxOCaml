@@ -2,8 +2,9 @@
 class wxApp inherit wxAppConsole begin
 
   function{ gen_cpp = false }(void, wxEntry)(
-      "('a -> unit)" handler onInit,
+      "(wxApp -> unit)" handler onInit,
       "(string array)" char** argv
   )
-  function{ gen_cpp = false }(void, SetTopWindow)(wxWindow& window)
+  function{ gen_cpp = false }(void, SetTopWindow)(wxWindow& window) 
+  
 end

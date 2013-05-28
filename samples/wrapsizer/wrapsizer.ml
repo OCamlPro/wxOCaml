@@ -5,7 +5,7 @@ open WxDefs
 
 let _ = wx_check_config [2;9]
 
-let onInit () =
+let onInit _app =
 
   let _AddToolBarButton (tb : wxToolBar) label artid =
     let (bm : wxBitmap) =

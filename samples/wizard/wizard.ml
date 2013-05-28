@@ -514,7 +514,7 @@ let myFrame_MyFrame title=
 (*---------------------------------------------------------------------------*)
 
 (* `Main program' equivalent: the program execution "starts" here*)
-let myApp_OnInit() =
+let myApp_OnInit _app =
   let frame = myFrame_MyFrame (wxT("wxWizard Sample")) in
 
   (* and show it (the frames, unlike simple controls, are not shown when*)

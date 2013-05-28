@@ -1,30 +1,44 @@
+open WxClasses
+open WxWidgets
+open WxValues
+open WxDefs
+
+module Edit = WxStyledTextCtrl
+
+
+type appFrame = {
+  m_edit : wxStyledTextCtrl;
+  m_frame : wxFrame;
+}
+
+
 (*
 
-/////////////////////////////////////////////////////////////////////////////
-// Name:        defsext.h extensions
-// Purpose:     STC test declarations
-// Maintainer:  Wyo
-// Created:     2003-09-01
-// RCS-ID:      $Id$
-// Copyright:   (c) wxGuide
-// Licence:     wxWindows licence
-//////////////////////////////////////////////////////////////////////////////
+(*///////////////////////////////////////////////////////////////////////////*)
+(* Name:        defsext.h extensions*)
+(* Purpose:     STC test declarations*)
+(* Maintainer:  Wyo*)
+(* Created:     2003-09-01*)
+(* RCS-ID:      $Id$*)
+(* Copyright:   (c) wxGuide*)
+(* Licence:     wxWindows licence*)
+(*////////////////////////////////////////////////////////////////////////////*)
 
 #ifndef _WX_DEFSEXT_H_
 #define _WX_DEFSEXT_H_
 
-//----------------------------------------------------------------------------
-// headers
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* headers*)
+(*----------------------------------------------------------------------------*)
 
-//! wxWidgets headers
-#include "wx/print.h"    // printing support
-#include "wx/printdlg.h" // printing dialog
+(*! wxWidgets headers*)
+#include "wx/print.h"    (* printing support*)
+#include "wx/printdlg.h" (* printing dialog*)
 
 
-//============================================================================
-// declarations
-//============================================================================
+(*============================================================================*)
+(* declarations*)
+(*============================================================================*)
 
 #define DEFAULT_LANGUAGE "<default>"
 
@@ -35,12 +49,12 @@
 #define STYLE_TYPES_COUNT 32
 
 
-// ----------------------------------------------------------------------------
-// standard IDs
-// ----------------------------------------------------------------------------
+(* ----------------------------------------------------------------------------*)
+(* standard IDs*)
+(* ----------------------------------------------------------------------------*)
 
 enum {
-    // menu IDs
+    (* menu IDs*)
     myID_PROPERTIES = wxID_HIGHEST,
     myID_INDENTINC,
     myID_INDENTRED,
@@ -77,84 +91,84 @@ enum {
     myID_SELECTLINE,
     myID_WINDOW_MINIMAL,
 
-    // other IDs
+    (* other IDs*)
     myID_STATUSBAR,
     myID_TITLEBAR,
     myID_ABOUTTIMER,
     myID_UPDATETIMER,
 
-    // dialog find IDs
+    (* dialog find IDs*)
     myID_DLG_FIND_TEXT,
 
-    // preferences IDs
+    (* preferences IDs*)
     myID_PREFS_LANGUAGE,
     myID_PREFS_STYLETYPE,
     myID_PREFS_KEYWORDS,
 };
 
-// ----------------------------------------------------------------------------
-// global items
-// ----------------------------------------------------------------------------
+(* ----------------------------------------------------------------------------*)
+(* global items*)
+(* ----------------------------------------------------------------------------*)
 
-//! global application name
+(*! global application name*)
 extern wxString *g_appname;
 
 #if wxUSE_PRINTING_ARCHITECTURE
 
-//! global print data, to remember settings during the session
+(*! global print data, to remember settings during the session*)
 extern wxPrintData *g_printData;
 extern wxPageSetupDialogData *g_pageSetupData;
 
-#endif // wxUSE_PRINTING_ARCHITECTURE
+#endif (* wxUSE_PRINTING_ARCHITECTURE*)
 
-#endif // _WX_DEFSEXT_H_
-//////////////////////////////////////////////////////////////////////////////
-// File:        edit.h
-// Purpose:     STC test module
-// Maintainer:  Wyo
-// Created:     2003-09-01
-// RCS-ID:      $Id$
-// Copyright:   (c) wxGuide
-// Licence:     wxWindows licence
-//////////////////////////////////////////////////////////////////////////////
+#endif (* _WX_DEFSEXT_H_*)
+(*////////////////////////////////////////////////////////////////////////////*)
+(* File:        edit.h*)
+(* Purpose:     STC test module*)
+(* Maintainer:  Wyo*)
+(* Created:     2003-09-01*)
+(* RCS-ID:      $Id$*)
+(* Copyright:   (c) wxGuide*)
+(* Licence:     wxWindows licence*)
+(*////////////////////////////////////////////////////////////////////////////*)
 
 #ifndef _EDIT_H_
 #define _EDIT_H_
 
-//----------------------------------------------------------------------------
-// informations
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* informations*)
+(*----------------------------------------------------------------------------*)
 
 
-//----------------------------------------------------------------------------
-// headers
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* headers*)
+(*----------------------------------------------------------------------------*)
 
-//! wxWidgets headers
+(*! wxWidgets headers*)
 
-//! wxWidgets/contrib headers
-#include "wx/stc/stc.h"  // styled text control
+(*! wxWidgets/contrib headers*)
+#include "wx/stc/stc.h"  (* styled text control*)
 
-//! application headers
-#include "prefs.h"       // preferences
+(*! application headers*)
+#include "prefs.h"       (* preferences*)
 
 
-//============================================================================
-// declarations
-//============================================================================
+(*============================================================================*)
+(* declarations*)
+(*============================================================================*)
 
 class EditPrint;
 class EditProperties;
 
 
-//----------------------------------------------------------------------------
-//! Edit
+(*----------------------------------------------------------------------------*)
+(*! Edit*)
 class Edit: public wxStyledTextCtrl {
     friend class EditProperties;
     friend class EditPrint;
 
 public:
-    //! constructor
+    (*! constructor*)
     Edit (wxWindow *parent, wxWindowID id = wxID_ANY,
           const wxPoint &pos = wxDefaultPosition,
           const wxSize &size = wxDefaultSize,
@@ -165,20 +179,20 @@ public:
           wxVSCROLL
          );
 
-    //! destructor
+    (*! destructor*)
     ~Edit ();
 
-    // event handlers
-    // common
+    (* event handlers*)
+    (* common*)
     void OnSize( wxSizeEvent &event );
-    // edit
+    (* edit*)
     void OnEditRedo (wxCommandEvent &event);
     void OnEditUndo (wxCommandEvent &event);
     void OnEditClear (wxCommandEvent &event);
     void OnEditCut (wxCommandEvent &event);
     void OnEditCopy (wxCommandEvent &event);
     void OnEditPaste (wxCommandEvent &event);
-    // find
+    (* find*)
     void OnFind (wxCommandEvent &event);
     void OnFindNext (wxCommandEvent &event);
     void OnReplace (wxCommandEvent &event);
@@ -189,7 +203,7 @@ public:
     void OnEditIndentRed (wxCommandEvent &event);
     void OnEditSelectAll (wxCommandEvent &event);
     void OnEditSelectLine (wxCommandEvent &event);
-    //! view
+    (*! view*)
     void OnHilightLang (wxCommandEvent &event);
     void OnDisplayEOL (wxCommandEvent &event);
     void OnIndentGuide (wxCommandEvent &event);
@@ -201,21 +215,21 @@ public:
     void OnSetReadOnly (wxCommandEvent &event);
     void OnWrapmodeOn (wxCommandEvent &event);
     void OnUseCharset (wxCommandEvent &event);
-    //! extra
+    (*! extra*)
     void OnChangeCase (wxCommandEvent &event);
     void OnConvertEOL (wxCommandEvent &event);
-    // stc
+    (* stc*)
     void OnMarginClick (wxStyledTextEvent &event);
     void OnCharAdded  (wxStyledTextEvent &event);
     void OnKey  (wxStyledTextEvent &event);
 
-    //! language/lexer
+    (*! language/lexer*)
     wxString DeterminePrefs (const wxString &filename);
     bool InitializePrefs (const wxString &filename);
     bool UserSettings (const wxString &filename);
     LanguageInfo const* GetLanguageInfo () {return m_language;};
 
-    //! load/save file
+    (*! load/save file*)
     bool LoadFile ();
     bool LoadFile (const wxString &filename);
     bool SaveFile ();
@@ -225,13 +239,13 @@ public:
     void SetFilename (const wxString &filename) {m_filename = filename;};
 
 private:
-    // file
+    (* file*)
     wxString m_filename;
 
-    // lanugage properties
+    (* lanugage properties*)
     LanguageInfo const* m_language;
 
-    // margin variables
+    (* margin variables*)
     int m_LineNrID;
     int m_LineNrMargin;
     int m_FoldingID;
@@ -241,13 +255,13 @@ private:
     DECLARE_EVENT_TABLE()
 };
 
-//----------------------------------------------------------------------------
-//! EditProperties
+(*----------------------------------------------------------------------------*)
+(*! EditProperties*)
 class EditProperties: public wxDialog {
 
 public:
 
-    //! constructor
+    (*! constructor*)
     EditProperties (Edit *edit, long style = 0);
 
 private:
@@ -256,20 +270,20 @@ private:
 
 #if wxUSE_PRINTING_ARCHITECTURE
 
-//----------------------------------------------------------------------------
-//! EditPrint
+(*----------------------------------------------------------------------------*)
+(*! EditPrint*)
 class EditPrint: public wxPrintout {
 
 public:
 
-    //! constructor
+    (*! constructor*)
     EditPrint (Edit *edit, const wxChar *title = wxT(""));
 
-    //! event handlers
+    (*! event handlers*)
     bool OnPrintPage (int page);
     bool OnBeginDocument (int startPage, int endPage);
 
-    //! print functions
+    (*! print functions*)
     bool HasPage (int page);
     void GetPageInfo (int *minPage, int *maxPage, int *selPageFrom, int *selPageTo);
 
@@ -282,44 +296,44 @@ private:
     bool PrintScaling (wxDC *dc);
 };
 
-#endif // wxUSE_PRINTING_ARCHITECTURE
+#endif (* wxUSE_PRINTING_ARCHITECTURE*)
 
-#endif // _EDIT_H_
-//////////////////////////////////////////////////////////////////////////////
-// File:        prefs.h
-// Purpose:     STC test Preferences initialization
-// Maintainer:  Wyo
-// Created:     2003-09-01
-// RCS-ID:      $Id$
-// Copyright:   (c) wxGuide
-// Licence:     wxWindows licence
-//////////////////////////////////////////////////////////////////////////////
+#endif (* _EDIT_H_*)
+(*////////////////////////////////////////////////////////////////////////////*)
+(* File:        prefs.h*)
+(* Purpose:     STC test Preferences initialization*)
+(* Maintainer:  Wyo*)
+(* Created:     2003-09-01*)
+(* RCS-ID:      $Id$*)
+(* Copyright:   (c) wxGuide*)
+(* Licence:     wxWindows licence*)
+(*////////////////////////////////////////////////////////////////////////////*)
 
 #ifndef _PREFS_H_
 #define _PREFS_H_
 
-//----------------------------------------------------------------------------
-// informations
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* informations*)
+(*----------------------------------------------------------------------------*)
 
 
-//----------------------------------------------------------------------------
-// headers
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* headers*)
+(*----------------------------------------------------------------------------*)
 
-//! wxWidgets headers
+(*! wxWidgets headers*)
 
-//! wxWidgets/contrib headers
-#include "wx/stc/stc.h"  // styled text control
+(*! wxWidgets/contrib headers*)
+#include "wx/stc/stc.h"  (* styled text control*)
 
-//! application headers
+(*! application headers*)
 
 
-//============================================================================
-// declarations
-//============================================================================
+(*============================================================================*)
+(* declarations*)
+(*============================================================================*)
 
-//! general style types
+(*! general style types*)
 #define mySTC_TYPE_DEFAULT 0
 
 #define mySTC_TYPE_WORD1 1
@@ -361,15 +375,15 @@ private:
 
 #define mySTC_TYPE_ERROR 29
 
-//----------------------------------------------------------------------------
-//! style bits types
+(*----------------------------------------------------------------------------*)
+(*! style bits types*)
 #define mySTC_STYLE_BOLD 1
 #define mySTC_STYLE_ITALIC 2
 #define mySTC_STYLE_UNDERL 4
 #define mySTC_STYLE_HIDDEN 8
 
-//----------------------------------------------------------------------------
-//! general folding types
+(*----------------------------------------------------------------------------*)
+(*! general folding types*)
 #define mySTC_FOLD_COMMENT 1
 #define mySTC_FOLD_COMPACT 2
 #define mySTC_FOLD_PREPROC 4
@@ -380,19 +394,19 @@ private:
 #define mySTC_FOLD_COMMENTPY 64
 #define mySTC_FOLD_QUOTESPY 128
 
-//----------------------------------------------------------------------------
-//! flags
+(*----------------------------------------------------------------------------*)
+(*! flags*)
 #define mySTC_FLAG_WRAPMODE 16
 
-//----------------------------------------------------------------------------
-// CommonInfo
+(*----------------------------------------------------------------------------*)
+(* CommonInfo*)
 
 struct CommonInfo {
-    // editor functionality prefs
+    (* editor functionality prefs*)
     bool syntaxEnable;
     bool foldEnable;
     bool indentEnable;
-    // display defaults prefs
+    (* display defaults prefs*)
     bool readOnlyInitial;
     bool overTypeInitial;
     bool wrapModeInitial;
@@ -404,8 +418,8 @@ struct CommonInfo {
 };
 extern const CommonInfo g_CommonPrefs;
 
-//----------------------------------------------------------------------------
-// LanguageInfo
+(*----------------------------------------------------------------------------*)
+(* LanguageInfo*)
 
 struct LanguageInfo {
     const char *name;
@@ -421,8 +435,8 @@ struct LanguageInfo {
 extern const LanguageInfo g_LanguagePrefs[];
 extern const int g_LanguagePrefsSize;
 
-//----------------------------------------------------------------------------
-// StyleInfo
+(*----------------------------------------------------------------------------*)
+(* StyleInfo*)
 struct StyleInfo {
     const wxChar *name;
     const wxChar *foreground;
@@ -436,71 +450,71 @@ struct StyleInfo {
 extern const StyleInfo g_StylePrefs[];
 extern const int g_StylePrefsSize;
 
-#endif // _PREFS_H_
-//////////////////////////////////////////////////////////////////////////////
-// File:        contrib/samples/stc/edit.cpp
-// Purpose:     STC test module
-// Maintainer:  Wyo
-// Created:     2003-09-01
-// RCS-ID:      $Id$
-// Copyright:   (c) wxGuide
-// Licence:     wxWindows licence
-//////////////////////////////////////////////////////////////////////////////
+#endif (* _PREFS_H_*)
+(*////////////////////////////////////////////////////////////////////////////*)
+(* File:        contrib/samples/stc/edit.cpp*)
+(* Purpose:     STC test module*)
+(* Maintainer:  Wyo*)
+(* Created:     2003-09-01*)
+(* RCS-ID:      $Id$*)
+(* Copyright:   (c) wxGuide*)
+(* Licence:     wxWindows licence*)
+(*////////////////////////////////////////////////////////////////////////////*)
 
-//----------------------------------------------------------------------------
-// informations
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* informations*)
+(*----------------------------------------------------------------------------*)
 
 
-//----------------------------------------------------------------------------
-// headers
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* headers*)
+(*----------------------------------------------------------------------------*)
 
-// For compilers that support precompilation, includes "wx/wx.h".
+(* For compilers that support precompilation, includes "wx/wx.h".*)
 #include "wx/wxprec.h"
 
 #ifdef __BORLANDC__
     #pragma hdrstop
 #endif
 
-// for all others, include the necessary headers (this file is usually all you
-// need because it includes almost all 'standard' wxWidgets headers)
+(* for all others, include the necessary headers (this file is usually all you*)
+(* need because it includes almost all 'standard' wxWidgets headers)*)
 #ifndef WX_PRECOMP
     #include "wx/wx.h"
 #endif
 
-//! wxWidgets headers
-#include "wx/file.h"     // raw file io support
-#include "wx/filename.h" // filename support
+(*! wxWidgets headers*)
+#include "wx/file.h"     (* raw file io support*)
+#include "wx/filename.h" (* filename support*)
 
-//! application headers
-#include "defsext.h"     // additional definitions
+(*! application headers*)
+#include "defsext.h"     (* additional definitions*)
 
-#include "edit.h"        // edit module
-
-
-//----------------------------------------------------------------------------
-// resources
-//----------------------------------------------------------------------------
+#include "edit.h"        (* edit module*)
 
 
-//============================================================================
-// declarations
-//============================================================================
+(*----------------------------------------------------------------------------*)
+(* resources*)
+(*----------------------------------------------------------------------------*)
 
 
-//============================================================================
-// implementation
-//============================================================================
+(*============================================================================*)
+(* declarations*)
+(*============================================================================*)
 
-//----------------------------------------------------------------------------
-// Edit
-//----------------------------------------------------------------------------
+
+(*============================================================================*)
+(* implementation*)
+(*============================================================================*)
+
+(*----------------------------------------------------------------------------*)
+(* Edit*)
+(*----------------------------------------------------------------------------*)
 
 BEGIN_EVENT_TABLE (Edit, wxStyledTextCtrl)
-    // common
+    (* common*)
     EVT_SIZE (                         Edit::OnSize)
-    // edit
+    (* edit*)
     EVT_MENU (wxID_CLEAR,              Edit::OnEditClear)
     EVT_MENU (wxID_CUT,                Edit::OnEditCut)
     EVT_MENU (wxID_COPY,               Edit::OnEditCopy)
@@ -511,14 +525,14 @@ BEGIN_EVENT_TABLE (Edit, wxStyledTextCtrl)
     EVT_MENU (myID_SELECTLINE,         Edit::OnEditSelectLine)
     EVT_MENU (wxID_REDO,               Edit::OnEditRedo)
     EVT_MENU (wxID_UNDO,               Edit::OnEditUndo)
-    // find
+    (* find*)
     EVT_MENU (wxID_FIND,               Edit::OnFind)
     EVT_MENU (myID_FINDNEXT,           Edit::OnFindNext)
     EVT_MENU (myID_REPLACE,            Edit::OnReplace)
     EVT_MENU (myID_REPLACENEXT,        Edit::OnReplaceNext)
     EVT_MENU (myID_BRACEMATCH,         Edit::OnBraceMatch)
     EVT_MENU (myID_GOTO,               Edit::OnGoto)
-    // view
+    (* view*)
     EVT_MENU_RANGE (myID_HILIGHTFIRST, myID_HILIGHTLAST,
                                        Edit::OnHilightLang)
     EVT_MENU (myID_DISPLAYEOL,         Edit::OnDisplayEOL)
@@ -532,23 +546,30 @@ BEGIN_EVENT_TABLE (Edit, wxStyledTextCtrl)
     EVT_MENU (myID_WRAPMODEON,         Edit::OnWrapmodeOn)
     EVT_MENU (myID_CHARSETANSI,        Edit::OnUseCharset)
     EVT_MENU (myID_CHARSETMAC,         Edit::OnUseCharset)
-    // extra
+    (* extra*)
     EVT_MENU (myID_CHANGELOWER,        Edit::OnChangeCase)
     EVT_MENU (myID_CHANGEUPPER,        Edit::OnChangeCase)
     EVT_MENU (myID_CONVERTCR,          Edit::OnConvertEOL)
     EVT_MENU (myID_CONVERTCRLF,        Edit::OnConvertEOL)
     EVT_MENU (myID_CONVERTLF,          Edit::OnConvertEOL)
-    // stc
+    (* stc*)
     EVT_STC_MARGINCLICK (wxID_ANY,     Edit::OnMarginClick)
     EVT_STC_CHARADDED (wxID_ANY,       Edit::OnCharAdded)
     EVT_STC_KEY( wxID_ANY , Edit::OnKey )
 END_EVENT_TABLE()
+*)
 
-Edit::Edit (wxWindow *parent, wxWindowID id,
+let new_EditAll parent id pos size style =
+
+(*,
             const wxPoint &pos,
             const wxSize &size,
             long style)
-    : wxStyledTextCtrl (parent, id, pos, size, style) {
+*)
+  let this = WxStyledTextCtrl.create parent id pos size style
+  in
+
+(* {
 
     m_filename = wxEmptyString;
 
@@ -556,10 +577,10 @@ Edit::Edit (wxWindow *parent, wxWindowID id,
     m_DividerID = 1;
     m_FoldingID = 2;
 
-    // initialize language
+    (* initialize language*)
     m_language = NULL;
 
-    // default font for all styles
+    (* default font for all styles*)
     SetViewEOL (g_CommonPrefs.displayEOLEnable);
     SetIndentationGuides (g_CommonPrefs.indentGuideEnable);
     SetEdgeMode (g_CommonPrefs.longLineOnEnable?
@@ -579,12 +600,12 @@ Edit::Edit (wxWindow *parent, wxWindowID id,
     StyleSetForeground(wxSTC_STYLE_INDENTGUIDE, wxColour (wxT("DARK GREY")));
     InitializePrefs (DEFAULT_LANGUAGE);
 
-    // set visibility
+    (* set visibility*)
     SetVisiblePolicy (wxSTC_VISIBLE_STRICT|wxSTC_VISIBLE_SLOP, 1);
     SetXCaretPolicy (wxSTC_CARET_EVEN|wxSTC_VISIBLE_STRICT|wxSTC_CARET_SLOP, 1);
     SetYCaretPolicy (wxSTC_CARET_EVEN|wxSTC_VISIBLE_STRICT|wxSTC_CARET_SLOP, 1);
 
-    // markers
+    (* markers*)
     MarkerDefine (wxSTC_MARKNUM_FOLDER,        wxSTC_MARK_DOTDOTDOT, wxT("BLACK"), wxT("BLACK"));
     MarkerDefine (wxSTC_MARKNUM_FOLDEROPEN,    wxSTC_MARK_ARROWDOWN, wxT("BLACK"), wxT("BLACK"));
     MarkerDefine (wxSTC_MARKNUM_FOLDERSUB,     wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
@@ -593,18 +614,26 @@ Edit::Edit (wxWindow *parent, wxWindowID id,
     MarkerDefine (wxSTC_MARKNUM_FOLDERMIDTAIL, wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
     MarkerDefine (wxSTC_MARKNUM_FOLDERTAIL,    wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
 
-    // miscelaneous
+    (* miscelaneous*)
     m_LineNrMargin = TextWidth (wxSTC_STYLE_LINENUMBER, wxT("_999999"));
     m_FoldingMargin = 16;
-    CmdKeyClear (wxSTC_KEY_TAB, 0); // this is done by the menu accelerator key
+    CmdKeyClear (wxSTC_KEY_TAB, 0); (* this is done by the menu accelerator key*)
     SetLayoutCache (wxSTC_CACHE_PAGE);
 
 }
 
+*)
+  this
+
+let new_Edit parent id =
+    new_EditAll parent id wxDefaultPosition wxDefaultSize wxVSCROLL
+
+
+(*
 Edit::~Edit () {}
 
-//----------------------------------------------------------------------------
-// common event handlers
+(*----------------------------------------------------------------------------*)
+(* common event handlers*)
 void Edit::OnSize( wxSizeEvent& event ) {
     int x = GetClientSize().x +
             (g_CommonPrefs.lineNumberEnable? m_LineNrMargin: 0) +
@@ -613,7 +642,7 @@ void Edit::OnSize( wxSizeEvent& event ) {
     event.Skip();
 }
 
-// edit event handlers
+(* edit event handlers*)
 void Edit::OnEditRedo (wxCommandEvent &WXUNUSED(event)) {
     if (!CanRedo()) return;
     Redo ();
@@ -772,7 +801,7 @@ void Edit::OnConvertEOL (wxCommandEvent &event) {
     SetEOLMode (eolMode);
 }
 
-//! misc
+(*! misc*)
 void Edit::OnMarginClick (wxStyledTextEvent &event) {
     if (event.GetMargin() == 2) {
         int lineClick = LineFromPosition (event.GetPosition());
@@ -786,7 +815,7 @@ void Edit::OnMarginClick (wxStyledTextEvent &event) {
 void Edit::OnCharAdded (wxStyledTextEvent &event) {
     char chr = (char)event.GetKey();
     int currentLine = GetCurrentLine();
-    // Change this if support for mac files with \r is needed
+    (* Change this if support for mac files with \r is needed*)
     if (chr == '\n') {
         int lineInd = 0;
         if (currentLine > 0) {
@@ -799,13 +828,13 @@ void Edit::OnCharAdded (wxStyledTextEvent &event) {
 }
 
 
-//----------------------------------------------------------------------------
-// private functions
+(*----------------------------------------------------------------------------*)
+(* private functions*)
 wxString Edit::DeterminePrefs (const wxString &filename) {
 
     LanguageInfo const* curInfo;
 
-    // determine language from filepatterns
+    (* determine language from filepatterns*)
     int languageNr;
     for (languageNr = 0; languageNr < g_LanguagePrefsSize; languageNr++) {
         curInfo = &g_LanguagePrefs [languageNr];
@@ -827,11 +856,11 @@ wxString Edit::DeterminePrefs (const wxString &filename) {
 
 bool Edit::InitializePrefs (const wxString &name) {
 
-    // initialize styles
+    (* initialize styles*)
     StyleClearAll();
     LanguageInfo const* curInfo = NULL;
 
-    // determine language
+    (* determine language*)
     bool found = false;
     int languageNr;
     for (languageNr = 0; languageNr < g_LanguagePrefsSize; languageNr++) {
@@ -843,28 +872,28 @@ bool Edit::InitializePrefs (const wxString &name) {
     }
     if (!found) return false;
 
-    // set lexer and language
+    (* set lexer and language*)
     SetLexer (curInfo->lexer);
     m_language = curInfo;
 
-    // set margin for line numbers
+    (* set margin for line numbers*)
     SetMarginType (m_LineNrID, wxSTC_MARGIN_NUMBER);
     StyleSetForeground (wxSTC_STYLE_LINENUMBER, wxColour (wxT("DARK GREY")));
     StyleSetBackground (wxSTC_STYLE_LINENUMBER, *wxWHITE);
-    SetMarginWidth (m_LineNrID, 0); // start out not visible
+    SetMarginWidth (m_LineNrID, 0); (* start out not visible*)
 
-    // default fonts for all styles!
+    (* default fonts for all styles!*)
     int Nr;
     for (Nr = 0; Nr < wxSTC_STYLE_LASTPREDEFINED; Nr++) {
         wxFont font (10, wxMODERN, wxNORMAL, wxNORMAL);
         StyleSetFont (Nr, font);
     }
 
-    // set common styles
+    (* set common styles*)
     StyleSetForeground (wxSTC_STYLE_DEFAULT, wxColour (wxT("DARK GREY")));
     StyleSetForeground (wxSTC_STYLE_INDENTGUIDE, wxColour (wxT("DARK GREY")));
 
-    // initialize settings
+    (* initialize settings*)
     if (g_CommonPrefs.syntaxEnable) {
         int keywordnr = 0;
         for (Nr = 0; Nr < STYLE_TYPES_COUNT; Nr++) {
@@ -892,12 +921,12 @@ bool Edit::InitializePrefs (const wxString &name) {
         }
     }
 
-    // set margin as unused
+    (* set margin as unused*)
     SetMarginType (m_DividerID, wxSTC_MARGIN_SYMBOL);
     SetMarginWidth (m_DividerID, 0);
     SetMarginSensitive (m_DividerID, false);
 
-    // folding
+    (* folding*)
     SetMarginType (m_FoldingID, wxSTC_MARGIN_SYMBOL);
     SetMarginMask (m_FoldingID, wxSTC_MASK_FOLDERS);
     StyleSetBackground (m_FoldingID, *wxWHITE);
@@ -925,14 +954,14 @@ bool Edit::InitializePrefs (const wxString &name) {
     SetFoldFlags (wxSTC_FOLDFLAG_LINEBEFORE_CONTRACTED |
                   wxSTC_FOLDFLAG_LINEAFTER_CONTRACTED);
 
-    // set spaces and indention
+    (* set spaces and indention*)
     SetTabWidth (4);
     SetUseTabs (false);
     SetTabIndents (true);
     SetBackSpaceUnIndents (true);
     SetIndent (g_CommonPrefs.indentEnable? 4: 0);
 
-    // others
+    (* others*)
     SetViewEOL (g_CommonPrefs.displayEOLEnable);
     SetIndentationGuides (g_CommonPrefs.indentGuideEnable);
     SetEdgeColumn (80);
@@ -950,7 +979,7 @@ bool Edit::InitializePrefs (const wxString &name) {
 bool Edit::LoadFile ()
 {
 #if wxUSE_FILEDLG
-    // get filname
+    (* get filname*)
     if (!m_filename) {
         wxFileDialog dlg (this, wxT("Open file"), wxEmptyString, wxEmptyString,
                           wxT("Any file ( * )|*"), wxFD_OPEN | wxFD_FILE_MUST_EXIST | wxFD_CHANGE_DIR);
@@ -958,35 +987,35 @@ bool Edit::LoadFile ()
         m_filename = dlg.GetPath();
     }
 
-    // load file
+    (* load file*)
     return LoadFile (m_filename);
 #else
     return false;
-#endif // wxUSE_FILEDLG
+#endif (* wxUSE_FILEDLG*)
 }
 
 bool Edit::LoadFile (const wxString &filename) {
 
-    // load file in edit and clear undo
+    (* load file in edit and clear undo*)
     if (!filename.empty()) m_filename = filename;
-//     wxFile file (m_filename);
-//     if (!file.IsOpened()) return false;
+(*     wxFile file (m_filename);*)
+(*     if (!file.IsOpened()) return false;*)
     ClearAll ();
-//     long lng = file.Length ();
-//     if (lng > 0) {
-//         wxString buf;
-//         wxChar *buff = buf.GetWriteBuf (lng);
-//         file.Read (buff, lng);
-//         buf.UngetWriteBuf ();
-//         InsertText (0, buf);
-//     }
-//     file.Close();
+(*     long lng = file.Length ();*)
+(*     if (lng > 0) {*)
+(*         wxString buf;*)
+(*         wxChar *buff = buf.GetWriteBuf (lng);*)
+(*         file.Read (buff, lng);*)
+(*         buf.UngetWriteBuf ();*)
+(*         InsertText (0, buf);*)
+(*     }*)
+(*     file.Close();*)
 
     wxStyledTextCtrl::LoadFile(m_filename);
 
     EmptyUndoBuffer();
 
-    // determine lexer language
+    (* determine lexer language*)
     wxFileName fname (m_filename);
     InitializePrefs (DeterminePrefs (fname.GetFullName()));
 
@@ -996,10 +1025,10 @@ bool Edit::LoadFile (const wxString &filename) {
 bool Edit::SaveFile ()
 {
 #if wxUSE_FILEDLG
-    // return if no change
+    (* return if no change*)
     if (!Modified()) return true;
 
-    // get filname
+    (* get filname*)
     if (!m_filename) {
         wxFileDialog dlg (this, wxT("Save file"), wxEmptyString, wxEmptyString, wxT("Any file ( * )|*"),
                           wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
@@ -1007,30 +1036,30 @@ bool Edit::SaveFile ()
         m_filename = dlg.GetPath();
     }
 
-    // save file
+    (* save file*)
     return SaveFile (m_filename);
 #else
     return false;
-#endif // wxUSE_FILEDLG
+#endif (* wxUSE_FILEDLG*)
 }
 
 bool Edit::SaveFile (const wxString &filename) {
 
-    // return if no change
+    (* return if no change*)
     if (!Modified()) return true;
 
-//     // save edit in file and clear undo
-//     if (!filename.empty()) m_filename = filename;
-//     wxFile file (m_filename, wxFile::write);
-//     if (!file.IsOpened()) return false;
-//     wxString buf = GetText();
-//     bool okay = file.Write (buf);
-//     file.Close();
-//     if (!okay) return false;
-//     EmptyUndoBuffer();
-//     SetSavePoint();
+(*     // save edit in file and clear undo*)
+(*     if (!filename.empty()) m_filename = filename;*)
+(*     wxFile file (m_filename, wxFile::write);*)
+(*     if (!file.IsOpened()) return false;*)
+(*     wxString buf = GetText();*)
+(*     bool okay = file.Write (buf);*)
+(*     file.Close();*)
+(*     if (!okay) return false;*)
+(*     EmptyUndoBuffer();*)
+(*     SetSavePoint();*)
 
-//     return true;
+(*     return true;*)
 
     return wxStyledTextCtrl::SaveFile(filename);
 
@@ -1038,13 +1067,13 @@ bool Edit::SaveFile (const wxString &filename) {
 
 bool Edit::Modified () {
 
-    // return modified state
+    (* return modified state*)
     return (GetModify() && !GetReadOnly());
 }
 
-//----------------------------------------------------------------------------
-// EditProperties
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* EditProperties*)
+(*----------------------------------------------------------------------------*)
 
 EditProperties::EditProperties (Edit *edit,
                                 long style)
@@ -1052,11 +1081,11 @@ EditProperties::EditProperties (Edit *edit,
                     wxDefaultPosition, wxDefaultSize,
                     style | wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER) {
 
-    // sets the application title
+    (* sets the application title*)
     SetTitle (_("Properties"));
     wxString text;
 
-    // fullname
+    (* fullname*)
     wxBoxSizer *fullname = new wxBoxSizer (wxHORIZONTAL);
     fullname->Add (10, 0);
     fullname->Add (new wxStaticText (this, wxID_ANY, _("Full filename"),
@@ -1065,7 +1094,7 @@ EditProperties::EditProperties (Edit *edit,
     fullname->Add (new wxStaticText (this, wxID_ANY, edit->GetFilename()),
                    0, wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL);
 
-    // text info
+    (* text info*)
     wxGridSizer *textinfo = new wxGridSizer (4, 0, 2);
     textinfo->Add (new wxStaticText (this, wxID_ANY, _("Language"),
                                      wxDefaultPosition, wxSize(80, wxDefaultCoord)),
@@ -1090,14 +1119,14 @@ EditProperties::EditProperties (Edit *edit,
     textinfo->Add (new wxStaticText (this, wxID_ANY, EOLtype),
                    0, wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL|wxRIGHT, 4);
 
-    // text info box
+    (* text info box*)
     wxStaticBoxSizer *textinfos = new wxStaticBoxSizer (
                      new wxStaticBox (this, wxID_ANY, _("Informations")),
                      wxVERTICAL);
     textinfos->Add (textinfo, 0, wxEXPAND);
     textinfos->Add (0, 6);
 
-    // statistic
+    (* statistic*)
     wxGridSizer *statistic = new wxGridSizer (4, 0, 2);
     statistic->Add (new wxStaticText (this, wxID_ANY, _("Total lines"),
                                      wxDefaultPosition, wxSize(80, wxDefaultCoord)),
@@ -1124,14 +1153,14 @@ EditProperties::EditProperties (Edit *edit,
     statistic->Add (new wxStaticText (this, wxID_ANY, text),
                     0, wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL|wxRIGHT, 4);
 
-    // char/line statistics
+    (* char/line statistics*)
     wxStaticBoxSizer *statistics = new wxStaticBoxSizer (
                      new wxStaticBox (this, wxID_ANY, _("Statistics")),
                      wxVERTICAL);
     statistics->Add (statistic, 0, wxEXPAND);
     statistics->Add (0, 6);
 
-    // total pane
+    (* total pane*)
     wxBoxSizer *totalpane = new wxBoxSizer (wxVERTICAL);
     totalpane->Add (fullname, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
     totalpane->Add (0, 6);
@@ -1150,9 +1179,9 @@ EditProperties::EditProperties (Edit *edit,
 
 #if wxUSE_PRINTING_ARCHITECTURE
 
-//----------------------------------------------------------------------------
-// EditPrint
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* EditPrint*)
+(*----------------------------------------------------------------------------*)
 
 EditPrint::EditPrint (Edit *edit, const wxChar *title)
               : wxPrintout(title) {
@@ -1166,10 +1195,10 @@ bool EditPrint::OnPrintPage (int page) {
     wxDC *dc = GetDC();
     if (!dc) return false;
 
-    // scale DC
+    (* scale DC*)
     PrintScaling (dc);
 
-    // print page
+    (* print page*)
     if (page == 1) m_printed = 0;
     m_printed = m_edit->FormatRange (1, m_printed, m_edit->GetLength(),
                                      dc, dc, m_printRect, m_pageRect);
@@ -1188,18 +1217,18 @@ bool EditPrint::OnBeginDocument (int startPage, int endPage) {
 
 void EditPrint::GetPageInfo (int *minPage, int *maxPage, int *selPageFrom, int *selPageTo) {
 
-    // initialize values
+    (* initialize values*)
     *minPage = 0;
     *maxPage = 0;
     *selPageFrom = 0;
     *selPageTo = 0;
 
-    // scale DC if possible
+    (* scale DC if possible*)
     wxDC *dc = GetDC();
     if (!dc) return;
     PrintScaling (dc);
 
-    // get print page informations and convert to printer pixels
+    (* get print page informations and convert to printer pixels*)
     wxSize ppiScr;
     GetPPIScreen (&ppiScr.x, &ppiScr.y);
     wxSize page = g_pageSetupData->GetPaperSize();
@@ -1210,7 +1239,7 @@ void EditPrint::GetPageInfo (int *minPage, int *maxPage, int *selPageFrom, int *
                          page.x,
                          page.y);
 
-    // get margins informations and convert to printer pixels
+    (* get margins informations and convert to printer pixels*)
     wxPoint pt = g_pageSetupData->GetMarginTopLeft();
     int left = pt.x;
     int top = pt.y;
@@ -1228,7 +1257,7 @@ void EditPrint::GetPageInfo (int *minPage, int *maxPage, int *selPageFrom, int *
                           page.x - (left + right),
                           page.y - (top + bottom));
 
-    // count pages
+    (* count pages*)
     while (HasPage ( *maxPage)) {
         m_printed = m_edit->FormatRange (0, m_printed, m_edit->GetLength(),
                                        dc, dc, m_printRect, m_pageRect);
@@ -1246,19 +1275,19 @@ bool EditPrint::HasPage (int WXUNUSED(page)) {
 
 bool EditPrint::PrintScaling (wxDC *dc){
 
-    // check for dc, return if none
+    (* check for dc, return if none*)
     if (!dc) return false;
 
-    // get printer and screen sizing values
+    (* get printer and screen sizing values*)
     wxSize ppiScr;
     GetPPIScreen (&ppiScr.x, &ppiScr.y);
-    if (ppiScr.x == 0) { // most possible guess 96 dpi
+    if (ppiScr.x == 0) { (* most possible guess 96 dpi*)
         ppiScr.x = 96;
         ppiScr.y = 96;
     }
     wxSize ppiPrt;
     GetPPIPrinter (&ppiPrt.x, &ppiPrt.y);
-    if (ppiPrt.x == 0) { // scaling factor to 1
+    if (ppiPrt.x == 0) { (* scaling factor to 1*)
         ppiPrt.x = ppiScr.x;
         ppiPrt.y = ppiScr.y;
     }
@@ -1266,7 +1295,7 @@ bool EditPrint::PrintScaling (wxDC *dc){
     wxSize pageSize;
     GetPageSizePixels (&pageSize.x, &pageSize.y);
 
-    // set user scale
+    (* set user scale*)
     float scale_x = (float)(ppiPrt.x * dcSize.x) /
                     (float)(ppiScr.x * pageSize.x);
     float scale_y = (float)(ppiPrt.y * dcSize.y) /
@@ -1276,68 +1305,68 @@ bool EditPrint::PrintScaling (wxDC *dc){
     return true;
 }
 
-#endif // wxUSE_PRINTING_ARCHITECTURE
-//////////////////////////////////////////////////////////////////////////////
-// File:        contrib/samples/stc/prefs.cpp
-// Purpose:     STC test Preferences initialization
-// Maintainer:  Wyo
-// Created:     2003-09-01
-// RCS-ID:      $Id$
-// Copyright:   (c) wxGuide
-// Licence:     wxWindows licence
-//////////////////////////////////////////////////////////////////////////////
+#endif (* wxUSE_PRINTING_ARCHITECTURE*)
+(*////////////////////////////////////////////////////////////////////////////*)
+(* File:        contrib/samples/stc/prefs.cpp*)
+(* Purpose:     STC test Preferences initialization*)
+(* Maintainer:  Wyo*)
+(* Created:     2003-09-01*)
+(* RCS-ID:      $Id$*)
+(* Copyright:   (c) wxGuide*)
+(* Licence:     wxWindows licence*)
+(*////////////////////////////////////////////////////////////////////////////*)
 
-//----------------------------------------------------------------------------
-// headers
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* headers*)
+(*----------------------------------------------------------------------------*)
 
-// For compilers that support precompilation, includes "wx/wx.h".
+(* For compilers that support precompilation, includes "wx/wx.h".*)
 #include "wx/wxprec.h"
 
 #ifdef __BORLANDC__
     #pragma hdrstop
 #endif
 
-// for all others, include the necessary headers (this file is usually all you
-// need because it includes almost all 'standard' wxWidgets headers)
+(* for all others, include the necessary headers (this file is usually all you*)
+(* need because it includes almost all 'standard' wxWidgets headers)*)
 #ifndef WX_PRECOMP
     #include "wx/wx.h"
 #endif
 
-//! wxWidgets headers
+(*! wxWidgets headers*)
 
-//! wxWidgets/contrib headers
+(*! wxWidgets/contrib headers*)
 
-//! application headers
-#include "defsext.h"     // Additional definitions
-#include "prefs.h"       // Preferences
+(*! application headers*)
+#include "defsext.h"     (* Additional definitions*)
+#include "prefs.h"       (* Preferences*)
 
 
-//============================================================================
-// declarations
-//============================================================================
+(*============================================================================*)
+(* declarations*)
+(*============================================================================*)
 
-//----------------------------------------------------------------------------
-//! language types
+(*----------------------------------------------------------------------------*)
+(*! language types*)
 const CommonInfo g_CommonPrefs = {
-    // editor functionality prefs
-    true,  // syntaxEnable
-    true,  // foldEnable
-    true,  // indentEnable
-    // display defaults prefs
-    false, // overTypeInitial
-    false, // readOnlyInitial
-    false,  // wrapModeInitial
-    false, // displayEOLEnable
-    false, // IndentGuideEnable
-    true,  // lineNumberEnable
-    false, // longLineOnEnable
-    false, // whiteSpaceEnable
+    (* editor functionality prefs*)
+    true,  (* syntaxEnable*)
+    true,  (* foldEnable*)
+    true,  (* indentEnable*)
+    (* display defaults prefs*)
+    false, (* overTypeInitial*)
+    false, (* readOnlyInitial*)
+    false,  (* wrapModeInitial*)
+    false, (* displayEOLEnable*)
+    false, (* IndentGuideEnable*)
+    true,  (* lineNumberEnable*)
+    false, (* longLineOnEnable*)
+    false, (* whiteSpaceEnable*)
 };
 
-//----------------------------------------------------------------------------
-// keywordlists
-// C++
+(*----------------------------------------------------------------------------*)
+(* keywordlists*)
+(* C++*)
 const char* CppWordlist1 =
     "asm auto bool break case catch char class const const_cast "
     "continue default delete do double dynamic_cast else enum explicit "
@@ -1361,7 +1390,7 @@ const char* CppWordlist3 =
     "subsection test throw todo typedef union until var verbatim "
     "verbinclude version warning weakgroup $ @ \"\" & < > # { }";
 
-// Python
+(* Python*)
 const char* PythonWordlist1 =
     "and assert break class continue def del elif else except exec "
     "finally for from global if import in is lambda None not or pass "
@@ -1376,10 +1405,10 @@ const char* PythonWordlist2 =
     "STRINGTABLE STYLE TEXTINCLUDE VALUE VERSION VERSIONINFO VIRTKEY";
 
 
-//----------------------------------------------------------------------------
-//! languages
+(*----------------------------------------------------------------------------*)
+(*! languages*)
 const LanguageInfo g_LanguagePrefs [] = {
-    // C++
+    (* C++*)
     {"C++",
      "*.c;*.cc;*.cpp;*.cxx;*.cs;*.h;*.hh;*.hpp;*.hxx;*.sma",
      wxSTC_LEX_CPP,
@@ -1388,7 +1417,7 @@ const LanguageInfo g_LanguagePrefs [] = {
       {mySTC_TYPE_COMMENT_LINE, NULL},
       {mySTC_TYPE_COMMENT_DOC, NULL},
       {mySTC_TYPE_NUMBER, NULL},
-      {mySTC_TYPE_WORD1, CppWordlist1}, // KEYWORDS
+      {mySTC_TYPE_WORD1, CppWordlist1}, (* KEYWORDS*)
       {mySTC_TYPE_STRING, NULL},
       {mySTC_TYPE_CHARACTER, NULL},
       {mySTC_TYPE_UUID, NULL},
@@ -1396,12 +1425,12 @@ const LanguageInfo g_LanguagePrefs [] = {
       {mySTC_TYPE_OPERATOR, NULL},
       {mySTC_TYPE_IDENTIFIER, NULL},
       {mySTC_TYPE_STRING_EOL, NULL},
-      {mySTC_TYPE_DEFAULT, NULL}, // VERBATIM
+      {mySTC_TYPE_DEFAULT, NULL}, (* VERBATIM*)
       {mySTC_TYPE_REGEX, NULL},
-      {mySTC_TYPE_COMMENT_SPECIAL, NULL}, // DOXY
-      {mySTC_TYPE_WORD2, CppWordlist2}, // EXTRA WORDS
-      {mySTC_TYPE_WORD3, CppWordlist3}, // DOXY KEYWORDS
-      {mySTC_TYPE_ERROR, NULL}, // KEYWORDS ERROR
+      {mySTC_TYPE_COMMENT_SPECIAL, NULL}, (* DOXY*)
+      {mySTC_TYPE_WORD2, CppWordlist2}, (* EXTRA WORDS*)
+      {mySTC_TYPE_WORD3, CppWordlist3}, (* DOXY KEYWORDS*)
+      {mySTC_TYPE_ERROR, NULL}, (* KEYWORDS ERROR*)
       {-1, NULL},
       {-1, NULL},
       {-1, NULL},
@@ -1416,7 +1445,7 @@ const LanguageInfo g_LanguagePrefs [] = {
       {-1, NULL},
       {-1, NULL}},
      mySTC_FOLD_COMMENT | mySTC_FOLD_COMPACT | mySTC_FOLD_PREPROC},
-    // Python
+    (* Python*)
     {"Python",
      "*.py;*.pyw",
      wxSTC_LEX_PYTHON,
@@ -1425,14 +1454,14 @@ const LanguageInfo g_LanguagePrefs [] = {
       {mySTC_TYPE_NUMBER, NULL},
       {mySTC_TYPE_STRING, NULL},
       {mySTC_TYPE_CHARACTER, NULL},
-      {mySTC_TYPE_WORD1, PythonWordlist1}, // KEYWORDS
-      {mySTC_TYPE_DEFAULT, NULL}, // TRIPLE
-      {mySTC_TYPE_DEFAULT, NULL}, // TRIPLEDOUBLE
-      {mySTC_TYPE_DEFAULT, NULL}, // CLASSNAME
-      {mySTC_TYPE_DEFAULT, PythonWordlist2}, // DEFNAME
+      {mySTC_TYPE_WORD1, PythonWordlist1}, (* KEYWORDS*)
+      {mySTC_TYPE_DEFAULT, NULL}, (* TRIPLE*)
+      {mySTC_TYPE_DEFAULT, NULL}, (* TRIPLEDOUBLE*)
+      {mySTC_TYPE_DEFAULT, NULL}, (* CLASSNAME*)
+      {mySTC_TYPE_DEFAULT, PythonWordlist2}, (* DEFNAME*)
       {mySTC_TYPE_OPERATOR, NULL},
       {mySTC_TYPE_IDENTIFIER, NULL},
-      {mySTC_TYPE_DEFAULT, NULL}, // COMMENT_BLOCK
+      {mySTC_TYPE_DEFAULT, NULL}, (* COMMENT_BLOCK*)
       {mySTC_TYPE_STRING_EOL, NULL},
       {-1, NULL},
       {-1, NULL},
@@ -1453,7 +1482,7 @@ const LanguageInfo g_LanguagePrefs [] = {
       {-1, NULL},
       {-1, NULL}},
      mySTC_FOLD_COMMENTPY | mySTC_FOLD_QUOTESPY},
-    // * (any)
+    (* * (any)*)
     {wxTRANSLATE(DEFAULT_LANGUAGE),
      "*.*",
      wxSTC_LEX_PROPERTIES,
@@ -1494,160 +1523,160 @@ const LanguageInfo g_LanguagePrefs [] = {
 
 const int g_LanguagePrefsSize = WXSIZEOF(g_LanguagePrefs);
 
-//----------------------------------------------------------------------------
-//! style types
+(*----------------------------------------------------------------------------*)
+(*! style types*)
 const StyleInfo g_StylePrefs [] = {
-    // mySTC_TYPE_DEFAULT
+    (* mySTC_TYPE_DEFAULT*)
     {wxT("Default"),
      wxT("BLACK"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_WORD1
+    (* mySTC_TYPE_WORD1*)
     {wxT("Keyword1"),
      wxT("BLUE"), wxT("WHITE"),
      wxT(""), 10, mySTC_STYLE_BOLD, 0},
 
-    // mySTC_TYPE_WORD2
+    (* mySTC_TYPE_WORD2*)
     {wxT("Keyword2"),
      wxT("MIDNIGHT BLUE"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_WORD3
+    (* mySTC_TYPE_WORD3*)
     {wxT("Keyword3"),
      wxT("CORNFLOWER BLUE"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_WORD4
+    (* mySTC_TYPE_WORD4*)
     {wxT("Keyword4"),
      wxT("CYAN"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_WORD5
+    (* mySTC_TYPE_WORD5*)
     {wxT("Keyword5"),
      wxT("DARK GREY"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_WORD6
+    (* mySTC_TYPE_WORD6*)
     {wxT("Keyword6"),
      wxT("GREY"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_COMMENT
+    (* mySTC_TYPE_COMMENT*)
     {wxT("Comment"),
      wxT("FOREST GREEN"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_COMMENT_DOC
+    (* mySTC_TYPE_COMMENT_DOC*)
     {wxT("Comment (Doc)"),
      wxT("FOREST GREEN"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_COMMENT_LINE
+    (* mySTC_TYPE_COMMENT_LINE*)
     {wxT("Comment line"),
      wxT("FOREST GREEN"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_COMMENT_SPECIAL
+    (* mySTC_TYPE_COMMENT_SPECIAL*)
     {wxT("Special comment"),
      wxT("FOREST GREEN"), wxT("WHITE"),
      wxT(""), 10, mySTC_STYLE_ITALIC, 0},
 
-    // mySTC_TYPE_CHARACTER
+    (* mySTC_TYPE_CHARACTER*)
     {wxT("Character"),
      wxT("KHAKI"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_CHARACTER_EOL
+    (* mySTC_TYPE_CHARACTER_EOL*)
     {wxT("Character (EOL)"),
      wxT("KHAKI"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_STRING
+    (* mySTC_TYPE_STRING*)
     {wxT("String"),
      wxT("BROWN"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_STRING_EOL
+    (* mySTC_TYPE_STRING_EOL*)
     {wxT("String (EOL)"),
      wxT("BROWN"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_DELIMITER
+    (* mySTC_TYPE_DELIMITER*)
     {wxT("Delimiter"),
      wxT("ORANGE"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_PUNCTUATION
+    (* mySTC_TYPE_PUNCTUATION*)
     {wxT("Punctuation"),
      wxT("ORANGE"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_OPERATOR
+    (* mySTC_TYPE_OPERATOR*)
     {wxT("Operator"),
      wxT("BLACK"), wxT("WHITE"),
      wxT(""), 10, mySTC_STYLE_BOLD, 0},
 
-    // mySTC_TYPE_BRACE
+    (* mySTC_TYPE_BRACE*)
     {wxT("Label"),
      wxT("VIOLET"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_COMMAND
+    (* mySTC_TYPE_COMMAND*)
     {wxT("Command"),
      wxT("BLUE"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_IDENTIFIER
+    (* mySTC_TYPE_IDENTIFIER*)
     {wxT("Identifier"),
      wxT("BLACK"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_LABEL
+    (* mySTC_TYPE_LABEL*)
     {wxT("Label"),
      wxT("VIOLET"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_NUMBER
+    (* mySTC_TYPE_NUMBER*)
     {wxT("Number"),
      wxT("SIENNA"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_PARAMETER
+    (* mySTC_TYPE_PARAMETER*)
     {wxT("Parameter"),
      wxT("VIOLET"), wxT("WHITE"),
      wxT(""), 10, mySTC_STYLE_ITALIC, 0},
 
-    // mySTC_TYPE_REGEX
+    (* mySTC_TYPE_REGEX*)
     {wxT("Regular expression"),
      wxT("ORCHID"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_UUID
+    (* mySTC_TYPE_UUID*)
     {wxT("UUID"),
      wxT("ORCHID"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_VALUE
+    (* mySTC_TYPE_VALUE*)
     {wxT("Value"),
      wxT("ORCHID"), wxT("WHITE"),
      wxT(""), 10, mySTC_STYLE_ITALIC, 0},
 
-    // mySTC_TYPE_PREPROCESSOR
+    (* mySTC_TYPE_PREPROCESSOR*)
     {wxT("Preprocessor"),
      wxT("GREY"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_SCRIPT
+    (* mySTC_TYPE_SCRIPT*)
     {wxT("Script"),
      wxT("DARK GREY"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_ERROR
+    (* mySTC_TYPE_ERROR*)
     {wxT("Error"),
      wxT("RED"), wxT("WHITE"),
      wxT(""), 10, 0, 0},
 
-    // mySTC_TYPE_UNDEFINED
+    (* mySTC_TYPE_UNDEFINED*)
     {wxT("Undefined"),
      wxT("ORANGE"), wxT("WHITE"),
      wxT(""), 10, 0, 0}
@@ -1655,65 +1684,72 @@ const StyleInfo g_StylePrefs [] = {
     };
 
 const int g_StylePrefsSize = WXSIZEOF(g_StylePrefs);
-//////////////////////////////////////////////////////////////////////////////
-// File:        contrib/samples/stc/stctest.cpp
-// Purpose:     STC test application
-// Maintainer:  Otto Wyss
-// Created:     2003-09-01
-// RCS-ID:      $Id$
-// Copyright:   (c) wxGuide
-// Licence:     wxWindows licence
-//////////////////////////////////////////////////////////////////////////////
+(*////////////////////////////////////////////////////////////////////////////*)
+(* File:        contrib/samples/stc/stctest.cpp*)
+(* Purpose:     STC test application*)
+(* Maintainer:  Otto Wyss*)
+(* Created:     2003-09-01*)
+(* RCS-ID:      $Id$*)
+(* Copyright:   (c) wxGuide*)
+(* Licence:     wxWindows licence*)
+(*////////////////////////////////////////////////////////////////////////////*)
 
-//----------------------------------------------------------------------------
-// headers
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* headers*)
+(*----------------------------------------------------------------------------*)
 
-// For compilers that support precompilation, includes "wx/wx.h".
+(* For compilers that support precompilation, includes "wx/wx.h".*)
 #include "wx/wxprec.h"
 
 #ifdef __BORLANDC__
     #pragma hdrstop
 #endif
 
-// for all others, include the necessary headers (this file is usually all you
-// need because it includes almost all 'standard' wxWidgets headers)
+(* for all others, include the necessary headers (this file is usually all you*)
+(* need because it includes almost all 'standard' wxWidgets headers)*)
 #ifndef WX_PRECOMP
     #include "wx/wx.h"
 #endif
 
-//! wxWidgets headers
-#include "wx/config.h"   // configuration support
-#include "wx/filedlg.h"  // file dialog support
-#include "wx/filename.h" // filename support
-#include "wx/notebook.h" // notebook support
-#include "wx/settings.h" // system settings
-#include "wx/string.h"   // strings support
-#include "wx/image.h"    // images support
+(*! wxWidgets headers*)
+#include "wx/config.h"   (* configuration support*)
+#include "wx/filedlg.h"  (* file dialog support*)
+#include "wx/filename.h" (* filename support*)
+#include "wx/notebook.h" (* notebook support*)
+#include "wx/settings.h" (* system settings*)
+#include "wx/string.h"   (* strings support*)
+#include "wx/image.h"    (* images support*)
 
-//! application headers
-#include "defsext.h"     // Additional definitions
-#include "edit.h"        // Edit module
-#include "prefs.h"       // Prefs
+(*! application headers*)
+#include "defsext.h"     (* Additional definitions*)
+#include "edit.h"        (* Edit module*)
+#include "prefs.h"       (* Prefs*)
 
-//----------------------------------------------------------------------------
-// resources
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* resources*)
+(*----------------------------------------------------------------------------*)
 
-// the application icon (under Windows and OS/2 it is in resources)
+(* the application icon (under Windows and OS/2 it is in resources)*)
 #ifndef wxHAS_IMAGES_IN_RESOURCES
     #include "../sample.xpm"
 #endif
+*)
 
-//============================================================================
-// declarations
-//============================================================================
+(*============================================================================*)
+(* declarations*)
+(*============================================================================*)
 
-#define APP_NAME wxT("STC-Test")
+
+let _APP_NAME = wxT("STC-Test")
+
+(*
 #define APP_DESCR _("See http://wxguide.sourceforge.net/")
 
 #define APP_MAINT wxT("Otto Wyss")
-#define APP_VENDOR wxT("wxWidgets")
+*)
+
+let  _APP_VENDOR = wxT("wxWidgets")
+(*
 #define APP_COPYRIGTH wxT("(C) 2003 Otto Wyss")
 #define APP_LICENCE wxT("wxWidgets")
 
@@ -1728,35 +1764,35 @@ const int g_StylePrefsSize = WXSIZEOF(g_StylePrefs);
 class AppBook;
 
 
-//----------------------------------------------------------------------------
-//! global application name
+(*----------------------------------------------------------------------------*)
+(*! global application name*)
 wxString *g_appname = NULL;
 
 #if wxUSE_PRINTING_ARCHITECTURE
 
-//! global print data, to remember settings during the session
+(*! global print data, to remember settings during the session*)
 wxPrintData *g_printData = (wxPrintData* ) NULL;
 wxPageSetupDialogData *g_pageSetupData = (wxPageSetupDialogData* ) NULL;
 
-#endif // wxUSE_PRINTING_ARCHITECTURE
+#endif (* wxUSE_PRINTING_ARCHITECTURE*)
 
 
 class AppFrame;
 
-//----------------------------------------------------------------------------
-//! application APP_VENDOR-APP_NAME.
+(*----------------------------------------------------------------------------*)
+(*! application APP_VENDOR-APP_NAME.*)
 class App: public wxApp {
     friend class AppFrame;
 
 public:
-    //! the main function called durning application start
+    (*! the main function called durning application start*)
     virtual bool OnInit ();
 
-    //! application exit function
+    (*! application exit function*)
     virtual int OnExit ();
 
 private:
-    //! frame window
+    (*! frame window*)
     AppFrame* m_frame;
 
     wxFrame* MinimalEditor();
@@ -1765,30 +1801,30 @@ protected:
     DECLARE_EVENT_TABLE()
 };
 
-// created dynamically by wxWidgets
+(* created dynamically by wxWidgets*)
 DECLARE_APP (App);
 
-//----------------------------------------------------------------------------
-//! frame of the application APP_VENDOR-APP_NAME.
+(*----------------------------------------------------------------------------*)
+(*! frame of the application APP_VENDOR-APP_NAME.*)
 class AppFrame: public wxFrame {
     friend class App;
     friend class AppBook;
     friend class AppAbout;
 
 public:
-    //! constructor
+    (*! constructor*)
     AppFrame (const wxString &title);
 
-    //! destructor
+    (*! destructor*)
     ~AppFrame ();
 
-    //! event handlers
-    //! common
+    (*! event handlers*)
+    (*! common*)
     void OnClose (wxCloseEvent &event);
     void OnAbout (wxCommandEvent &event);
     void OnExit (wxCommandEvent &event);
     void OnTimerEvent (wxTimerEvent &event);
-    //! file
+    (*! file*)
     void OnFileNew (wxCommandEvent &event);
     void OnFileNewFrame (wxCommandEvent &event);
     void OnFileOpen (wxCommandEvent &event);
@@ -1796,131 +1832,96 @@ public:
     void OnFileSave (wxCommandEvent &event);
     void OnFileSaveAs (wxCommandEvent &event);
     void OnFileClose (wxCommandEvent &event);
-    //! properties
+    (*! properties*)
     void OnProperties (wxCommandEvent &event);
-    //! print
+    (*! print*)
     void OnPrintSetup (wxCommandEvent &event);
     void OnPrintPreview (wxCommandEvent &event);
     void OnPrint (wxCommandEvent &event);
-    //! edit events
+    (*! edit events*)
     void OnEdit (wxCommandEvent &event);
 
 private:
-    // edit object
+    (* edit object*)
     Edit *m_edit;
     void FileOpen (wxString fname);
 
-    //! creates the application menu bar
+    (*! creates the application menu bar*)
     wxMenuBar *m_menuBar;
     void CreateMenu ();
 
-    // print preview position and size
+    (* print preview position and size*)
     wxRect DeterminePrintSize ();
 
     DECLARE_EVENT_TABLE()
 };
 
-//----------------------------------------------------------------------------
-//! about box of the application APP_VENDOR-APP_NAME
+(*----------------------------------------------------------------------------*)
+(*! about box of the application APP_VENDOR-APP_NAME*)
 class AppAbout: public wxDialog {
 
 public:
-    //! constructor
+    (*! constructor*)
     AppAbout (wxWindow *parent,
               int milliseconds = 0,
               long style = 0);
 
-    //! destructor
+    (*! destructor*)
     ~AppAbout ();
 
-    // event handlers
+    (* event handlers*)
     void OnTimerEvent (wxTimerEvent &event);
 
 private:
-    // timer
+    (* timer*)
     wxTimer *m_timer;
 
     DECLARE_EVENT_TABLE()
 };
 
 
-//============================================================================
-// implementation
-//============================================================================
+(*============================================================================*)
+(* implementation*)
+(*============================================================================*)
 
 IMPLEMENT_APP (App)
+*)
 
-
-BEGIN_EVENT_TABLE(App, wxApp)
-EVT_MENU(myID_WINDOW_MINIMAL, App::OnMinimalEditor)
-END_EVENT_TABLE()
-
-//----------------------------------------------------------------------------
-// App
-//----------------------------------------------------------------------------
-
-bool App::OnInit () {
-
-    wxInitAllImageHandlers();
-
-    // set application and vendor name
-    SetAppName (APP_NAME);
-    SetVendorName (APP_VENDOR);
-    g_appname = new wxString ();
-    g_appname->Append (APP_VENDOR);
-    g_appname->Append (wxT("-"));
-    g_appname->Append (APP_NAME);
-
-#if wxUSE_PRINTING_ARCHITECTURE
-    // initialize print data and setup
-    g_printData = new wxPrintData;
-    g_pageSetupData = new wxPageSetupDialogData;
-#endif // wxUSE_PRINTING_ARCHITECTURE
-
-    // create application frame
-    m_frame = new AppFrame ( *g_appname);
-
-    // open application frame
-    m_frame->Layout ();
-    m_frame->Show (true);
-
-    return true;
-}
-
+(*
 int App::OnExit () {
 
-    // delete global appname
+    (* delete global appname*)
     delete g_appname;
 
 #if wxUSE_PRINTING_ARCHITECTURE
-    // delete global print data and setup
+    (* delete global print data and setup*)
     if (g_printData) delete g_printData;
     if (g_pageSetupData) delete g_pageSetupData;
-#endif // wxUSE_PRINTING_ARCHITECTURE
+#endif (* wxUSE_PRINTING_ARCHITECTURE*)
 
     return 0;
 }
 
-//----------------------------------------------------------------------------
-// AppFrame
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* AppFrame*)
+(*----------------------------------------------------------------------------*)
 
 BEGIN_EVENT_TABLE (AppFrame, wxFrame)
-    // common
+    (* common*)
     EVT_CLOSE (                      AppFrame::OnClose)
-    // file
+    (* file*)
     EVT_MENU (wxID_OPEN,             AppFrame::OnFileOpen)
     EVT_MENU (wxID_SAVE,             AppFrame::OnFileSave)
     EVT_MENU (wxID_SAVEAS,           AppFrame::OnFileSaveAs)
     EVT_MENU (wxID_CLOSE,            AppFrame::OnFileClose)
-    // properties
+    (* properties*)
     EVT_MENU (myID_PROPERTIES,       AppFrame::OnProperties)
-    // print and exit
+    (* print and exit*)
     EVT_MENU (wxID_PRINT_SETUP,      AppFrame::OnPrintSetup)
     EVT_MENU (wxID_PREVIEW,          AppFrame::OnPrintPreview)
     EVT_MENU (wxID_PRINT,            AppFrame::OnPrint)
     EVT_MENU (wxID_EXIT,             AppFrame::OnExit)
-    // edit
+    (* edit*)
     EVT_MENU (wxID_CLEAR,            AppFrame::OnEdit)
     EVT_MENU (wxID_CUT,              AppFrame::OnEdit)
     EVT_MENU (wxID_COPY,             AppFrame::OnEdit)
@@ -1931,14 +1932,14 @@ BEGIN_EVENT_TABLE (AppFrame, wxFrame)
     EVT_MENU (myID_SELECTLINE,       AppFrame::OnEdit)
     EVT_MENU (wxID_REDO,             AppFrame::OnEdit)
     EVT_MENU (wxID_UNDO,             AppFrame::OnEdit)
-    // find
+    (* find*)
     EVT_MENU (wxID_FIND,             AppFrame::OnEdit)
     EVT_MENU (myID_FINDNEXT,         AppFrame::OnEdit)
     EVT_MENU (myID_REPLACE,          AppFrame::OnEdit)
     EVT_MENU (myID_REPLACENEXT,      AppFrame::OnEdit)
     EVT_MENU (myID_BRACEMATCH,       AppFrame::OnEdit)
     EVT_MENU (myID_GOTO,             AppFrame::OnEdit)
-    // view
+    (* view*)
     EVT_MENU_RANGE (myID_HILIGHTFIRST, myID_HILIGHTLAST,
                                      AppFrame::OnEdit)
     EVT_MENU (myID_DISPLAYEOL,       AppFrame::OnEdit)
@@ -1950,7 +1951,7 @@ BEGIN_EVENT_TABLE (AppFrame, wxFrame)
     EVT_MENU (myID_OVERTYPE,         AppFrame::OnEdit)
     EVT_MENU (myID_READONLY,         AppFrame::OnEdit)
     EVT_MENU (myID_WRAPMODEON,       AppFrame::OnEdit)
-    // extra
+    (* extra*)
     EVT_MENU (myID_CHANGELOWER,      AppFrame::OnEdit)
     EVT_MENU (myID_CHANGEUPPER,      AppFrame::OnEdit)
     EVT_MENU (myID_CONVERTCR,        AppFrame::OnEdit)
@@ -1958,41 +1959,18 @@ BEGIN_EVENT_TABLE (AppFrame, wxFrame)
     EVT_MENU (myID_CONVERTLF,        AppFrame::OnEdit)
     EVT_MENU (myID_CHARSETANSI,      AppFrame::OnEdit)
     EVT_MENU (myID_CHARSETMAC,       AppFrame::OnEdit)
-    // help
+    (* help*)
     EVT_MENU (wxID_ABOUT,            AppFrame::OnAbout)
 END_EVENT_TABLE ()
+*)
 
-AppFrame::AppFrame (const wxString &title)
-        : wxFrame ((wxFrame * )NULL, wxID_ANY, title, wxDefaultPosition, wxSize(750,550),
-                    wxDEFAULT_FRAME_STYLE | wxNO_FULL_REPAINT_ON_RESIZE)
-{
-    SetIcon(wxICON(sample));
+(*
 
-    // initialize important variables
-    m_edit = NULL;
-
-    // set icon and background
-    SetTitle ( *g_appname);
-    SetBackgroundColour (wxT("WHITE"));
-
-    // about box shown for 1 seconds
-    AppAbout dlg(this, 1000);
-
-    // create menu
-    m_menuBar = new wxMenuBar;
-    CreateMenu ();
-
-    // open first page
-    m_edit = new Edit (this, wxID_ANY);
-    m_edit->SetFocus();
-
-    FileOpen (wxT("stctest.cpp"));
-}
 
 AppFrame::~AppFrame () {
 }
 
-// common event handlers
+(* common event handlers*)
 void AppFrame::OnClose (wxCloseEvent &event) {
     wxCommandEvent evt;
     OnFileClose (evt);
@@ -2011,7 +1989,7 @@ void AppFrame::OnExit (wxCommandEvent &WXUNUSED(event)) {
     Close (true);
 }
 
-// file event handlers
+(* file event handlers*)
 void AppFrame::OnFileOpen (wxCommandEvent &WXUNUSED(event)) {
     if (!m_edit) return;
 #if wxUSE_FILEDLG
@@ -2021,7 +1999,7 @@ void AppFrame::OnFileOpen (wxCommandEvent &WXUNUSED(event)) {
     if (dlg.ShowModal() != wxID_OK) return;
     fname = dlg.GetPath ();
     FileOpen (fname);
-#endif // wxUSE_FILEDLG
+#endif (* wxUSE_FILEDLG*)
 }
 
 void AppFrame::OnFileSave (wxCommandEvent &WXUNUSED(event)) {
@@ -2042,7 +2020,7 @@ void AppFrame::OnFileSaveAs (wxCommandEvent &WXUNUSED(event)) {
     if (dlg.ShowModal() != wxID_OK) return;
     filename = dlg.GetPath();
     m_edit->SaveFile (filename);
-#endif // wxUSE_FILEDLG
+#endif (* wxUSE_FILEDLG*)
 }
 
 void AppFrame::OnFileClose (wxCommandEvent &WXUNUSED(event)) {
@@ -2063,13 +2041,13 @@ void AppFrame::OnFileClose (wxCommandEvent &WXUNUSED(event)) {
     m_edit->SetSavePoint();
 }
 
-// properties event handlers
+(* properties event handlers*)
 void AppFrame::OnProperties (wxCommandEvent &WXUNUSED(event)) {
     if (!m_edit) return;
     EditProperties dlg(m_edit, 0);
 }
 
-// print event handlers
+(* print event handlers*)
 void AppFrame::OnPrintSetup (wxCommandEvent &WXUNUSED(event)) {
 #if wxUSE_PRINTING_ARCHITECTURE
     ( *g_pageSetupData) = * g_printData;
@@ -2077,7 +2055,7 @@ void AppFrame::OnPrintSetup (wxCommandEvent &WXUNUSED(event)) {
     pageSetupDialog.ShowModal();
     ( *g_printData) = pageSetupDialog.GetPageSetupData().GetPrintData();
     ( *g_pageSetupData) = pageSetupDialog.GetPageSetupData();
-#endif // wxUSE_PRINTING_ARCHITECTURE
+#endif (* wxUSE_PRINTING_ARCHITECTURE*)
 }
 
 void AppFrame::OnPrintPreview (wxCommandEvent &WXUNUSED(event)) {
@@ -2100,7 +2078,7 @@ void AppFrame::OnPrintPreview (wxCommandEvent &WXUNUSED(event)) {
     frame->Centre(wxBOTH);
     frame->Initialize();
     frame->Show(true);
-#endif // wxUSE_PRINTING_ARCHITECTURE
+#endif (* wxUSE_PRINTING_ARCHITECTURE*)
 }
 
 void AppFrame::OnPrint (wxCommandEvent &WXUNUSED(event)) {
@@ -2117,18 +2095,18 @@ void AppFrame::OnPrint (wxCommandEvent &WXUNUSED(event)) {
         }
     }
     ( *g_printData) = printer.GetPrintDialogData().GetPrintData();
-#endif // wxUSE_PRINTING_ARCHITECTURE
+#endif (* wxUSE_PRINTING_ARCHITECTURE*)
 }
 
-// edit events
+(* edit events*)
 void AppFrame::OnEdit (wxCommandEvent &event) {
     if (m_edit) m_edit->GetEventHandler()->ProcessEvent (event);
 }
 
-// private functions
+(* private functions*)
 void AppFrame::CreateMenu ()
 {
-    // File menu
+    (* File menu*)
     wxMenu *menuFile = new wxMenu;
     menuFile->Append (wxID_OPEN, _("&Open ..\tCtrl+O"));
     menuFile->Append (wxID_SAVE, _("&Save\tCtrl+S"));
@@ -2143,7 +2121,7 @@ void AppFrame::CreateMenu ()
     menuFile->AppendSeparator();
     menuFile->Append (wxID_EXIT, _("&Quit\tCtrl+Q"));
 
-    // Edit menu
+    (* Edit menu*)
     wxMenu *menuEdit = new wxMenu;
     menuEdit->Append (wxID_UNDO, _("&Undo\tCtrl+Z"));
     menuEdit->Append (wxID_REDO, _("&Redo\tCtrl+Shift+Z"));
@@ -2172,7 +2150,7 @@ void AppFrame::CreateMenu ()
     menuEdit->Append (wxID_SELECTALL, _("&Select all\tCtrl+A"));
     menuEdit->Append (myID_SELECTLINE, _("Select &line\tCtrl+L"));
 
-    // hilight submenu
+    (* hilight submenu*)
     wxMenu *menuHilight = new wxMenu;
     int Nr;
     for (Nr = 0; Nr < g_LanguagePrefsSize; Nr++) {
@@ -2180,12 +2158,12 @@ void AppFrame::CreateMenu ()
                              g_LanguagePrefs [Nr].name);
     }
 
-    // charset submenu
+    (* charset submenu*)
     wxMenu *menuCharset = new wxMenu;
     menuCharset->Append (myID_CHARSETANSI, _("&ANSI (Windows)"));
     menuCharset->Append (myID_CHARSETMAC, _("&MAC (Macintosh)"));
 
-    // View menu
+    (* View menu*)
     wxMenu *menuView = new wxMenu;
     menuView->Append (myID_HILIGHTLANG, _("&Hilight language .."), menuHilight);
     menuView->AppendSeparator();
@@ -2201,18 +2179,18 @@ void AppFrame::CreateMenu ()
     menuView->AppendSeparator();
     menuView->Append (myID_USECHARSET, _("Use &code page of .."), menuCharset);
 
-    // change case submenu
+    (* change case submenu*)
     wxMenu *menuChangeCase = new wxMenu;
     menuChangeCase->Append (myID_CHANGEUPPER, _("&Upper case"));
     menuChangeCase->Append (myID_CHANGELOWER, _("&Lower case"));
 
-    // convert EOL submenu
+    (* convert EOL submenu*)
     wxMenu *menuConvertEOL = new wxMenu;
     menuConvertEOL->Append (myID_CONVERTCR, _("CR (&Linux)"));
     menuConvertEOL->Append (myID_CONVERTCRLF, _("CR+LF (&Windows)"));
     menuConvertEOL->Append (myID_CONVERTLF, _("LF (&Macintosh)"));
 
-    // Extra menu
+    (* Extra menu*)
     wxMenu *menuExtra = new wxMenu;
     menuExtra->AppendCheckItem (myID_READONLY, _("&Readonly mode"));
     menuExtra->AppendSeparator();
@@ -2220,17 +2198,17 @@ void AppFrame::CreateMenu ()
     menuExtra->AppendSeparator();
     menuExtra->Append (myID_CONVERTEOL, _("Convert line &endings to .."), menuConvertEOL);
 
-    // Window menu
+    (* Window menu*)
     wxMenu *menuWindow = new wxMenu;
     menuWindow->Append (myID_PAGEPREV, _("&Previous\tCtrl+Shift+Tab"));
     menuWindow->Append (myID_PAGENEXT, _("&Next\tCtrl+Tab"));
     menuWindow->Append(myID_WINDOW_MINIMAL, _("&Minimal editor"));
 
-    // Help menu
+    (* Help menu*)
     wxMenu *menuHelp = new wxMenu;
     menuHelp->Append (wxID_ABOUT, _("&About ..\tShift+F1"));
 
-    // construct menu
+    (* construct menu*)
     m_menuBar->Append (menuFile, _("&File"));
     m_menuBar->Append (menuEdit, _("&Edit"));
     m_menuBar->Append (menuView, _("&View"));
@@ -2239,18 +2217,19 @@ void AppFrame::CreateMenu ()
     m_menuBar->Append (menuHelp, _("&Help"));
     SetMenuBar (m_menuBar);
 }
+*)
 
-void AppFrame::FileOpen (wxString fname)
-{
-    wxFileName w(fname); w.Normalize(); fname = w.GetFullPath();
-    m_edit->LoadFile (fname);
-}
+let appFrame_FileOpen appFrame fname =
+(*    wxFileName w(fname); w.Normalize(); fname = w.GetFullPath(); *)
+    ignore_bool (Edit.loadFile appFrame.m_edit fname)
+
+(*
 
 wxRect AppFrame::DeterminePrintSize () {
 
     wxSize scr = wxGetDisplaySize();
 
-    // determine position and size (shifting 16 left and down)
+    (* determine position and size (shifting 16 left and down)*)
     wxRect rect = GetRect();
     rect.x += 16;
     rect.y += 16;
@@ -2260,33 +2239,37 @@ wxRect AppFrame::DeterminePrintSize () {
     return rect;
 }
 
+*)
 
-//----------------------------------------------------------------------------
-// AppAbout
-//----------------------------------------------------------------------------
+(*----------------------------------------------------------------------------*)
+(* AppAbout*)
+(*----------------------------------------------------------------------------*)
 
+(*
 BEGIN_EVENT_TABLE (AppAbout, wxDialog)
     EVT_TIMER (myID_ABOUTTIMER, AppAbout::OnTimerEvent)
 END_EVENT_TABLE ()
+*)
 
-AppAbout::AppAbout (wxWindow *parent,
-                    int milliseconds,
-                    long style)
-        : wxDialog (parent, wxID_ANY, wxEmptyString,
-                    wxDefaultPosition, wxDefaultSize,
-                    style | wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER) {
+let new_AppAbout parent milliseconds (* =0 *) style (* =0 *) =
+  let this = wxDialog parent wxID_ANY wxEmptyString
+                    wxDefaultPosition wxDefaultSize
+                    (style lor wxDEFAULT_DIALOG_STYLE lor wxRESIZE_BORDER)
+  in
 
-    // set timer if any
+(* TODO
+
+    (* set timer if any*)
     m_timer = NULL;
     if (milliseconds > 0) {
         m_timer = new wxTimer (this, myID_ABOUTTIMER);
         m_timer->Start (milliseconds, wxTIMER_ONE_SHOT);
     }
 
-    // sets the application title
+    (* sets the application title*)
     SetTitle (_("About .."));
 
-    // about info
+    (* about info*)
     wxGridSizer *aboutinfo = new wxGridSizer (2, 0, 2);
     aboutinfo->Add (new wxStaticText(this, wxID_ANY, _("Written by: ")),
                     0, wxALIGN_LEFT);
@@ -2305,7 +2288,7 @@ AppAbout::AppAbout (wxWindow *parent,
     aboutinfo->Add (new wxStaticText(this, wxID_ANY, APP_COPYRIGTH),
                     1, wxEXPAND | wxALIGN_LEFT);
 
-    // about icontitle//info
+    (* about icontitle//info*)
     wxBoxSizer *aboutpane = new wxBoxSizer (wxHORIZONTAL);
     wxBitmap bitmap = wxBitmap(wxICON (sample));
     aboutpane->Add (new wxStaticBitmap (this, wxID_ANY, bitmap),
@@ -2313,7 +2296,7 @@ AppAbout::AppAbout (wxWindow *parent,
     aboutpane->Add (aboutinfo, 1, wxEXPAND);
     aboutpane->Add (60, 0);
 
-    // about complete
+    (* about complete*)
     wxBoxSizer *totalpane = new wxBoxSizer (wxVERTICAL);
     totalpane->Add (0, 20);
     wxStaticText *appname = new wxStaticText(this, wxID_ANY, *g_appname);
@@ -2331,22 +2314,26 @@ AppAbout::AppAbout (wxWindow *parent,
 
     CenterOnScreen();
     ShowModal();
+*)
+  this
+
+(*
 }
 
 AppAbout::~AppAbout () {
     wxDELETE(m_timer);
 }
 
-//----------------------------------------------------------------------------
-// event handlers
+(*----------------------------------------------------------------------------*)
+(* event handlers*)
 void AppAbout::OnTimerEvent (wxTimerEvent &WXUNUSED(event)) {
     wxDELETE(m_timer);
     EndModal (wxID_OK);
 }
 
-/////////////////////////////////////////////////////////////////////////////
-// Minimal editor added by Troels K 2008-04-08
-// Thanks to geralds for SetLexerXml() - http://wxforum.shadonet.com/viewtopic.php?t=7155
+(*///////////////////////////////////////////////////////////////////////////*)
+(* Minimal editor added by Troels K 2008-04-08*)
+(* Thanks to geralds for SetLexerXml() - http://wxforum.shadonet.com/viewtopic.php?t=7155*)
 
 class MinimalEditor : public wxStyledTextCtrl
 {
@@ -2479,3 +2466,80 @@ void App::OnMinimalEditor(wxCommandEvent& WXUNUSED(event))
 }
 
 *)
+
+let new_AppFrame title =
+
+  let this = wxFrameAll None wxID_ANY title wxDefaultPosition (750,550)
+                    (wxDEFAULT_FRAME_STYLE lor wxNO_FULL_REPAINT_ON_RESIZE)
+  in
+  let w_this = WxFrame.wxWindow this in
+
+  WxFrame.setIcon this (WxIcon.createFromXPM Sample_xpm.sample_xpm);
+
+    (* initialize important variables*)
+(*    m_edit = NULL; *)
+
+    (* set icon and background*)
+    WxFrame.setTitle this title;
+    ignore_bool (WxFrame.setBackgroundColour this
+      (WxColour.createName (wxT("WHITE"))));
+
+    (* about box shown for 1 seconds*)
+  let _dlg = new_AppAbout w_this 1000 in
+
+    (* create menu*)
+  MENU_BAR.(wxFrame this [
+      (* TODO: CreateMenu *)
+    ]);
+
+  (* open first page*)
+  let m_edit = new_Edit w_this wxID_ANY in
+  Edit.setFocus m_edit;
+
+  let appFrame = {
+    m_edit; m_frame = this;
+  } in
+
+  appFrame_FileOpen appFrame (wxT("samples/stc/stc.ml"));
+  appFrame
+
+
+(*
+
+BEGIN_EVENT_TABLE(App, wxApp)
+EVT_MENU(myID_WINDOW_MINIMAL, App::OnMinimalEditor)
+END_EVENT_TABLE()
+*)
+
+(*----------------------------------------------------------------------------*)
+(* App*)
+(*----------------------------------------------------------------------------*)
+
+let myApp_OnInit (app : wxApp) =
+
+(*    wxInitAllImageHandlers(); *)
+
+    (* set application and vendor name*)
+    WxApp.setAppName app _APP_NAME;
+    WxApp.setVendorName app _APP_VENDOR;
+
+    let g_appname = _APP_VENDOR ^ "-" ^ _APP_NAME in
+
+(*
+#if wxUSE_PRINTING_ARCHITECTURE
+    (* initialize print data and setup*)
+    g_printData = new wxPrintData;
+    g_pageSetupData = new wxPageSetupDialogData;
+#endif (* wxUSE_PRINTING_ARCHITECTURE*)
+*)
+    (* create application frame*)
+    let app = new_AppFrame g_appname in
+
+    (* open application frame*)
+    WxFrame.layout app.m_frame;
+    ignore_bool (WxFrame.show app.m_frame);
+    ()
+
+
+let _ =
+  wxMain myApp_OnInit
