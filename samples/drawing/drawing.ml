@@ -503,7 +503,7 @@ let myCanvas_DrawTestPoly frame (dc : wxDC) =
   ()
 
 let myCanvas_DrawTestLines frame (x, y, width, dc) =
-  let black = wxColourName "black" in
+  let black = wxColour "black" in
   WxDC.setPen dc ( wxPen black width wxSOLID );
   WxDC.setBrush dc wxRED_BRUSH;
   WxDC.drawText dc (Printf.sprintf "Testing lines of width %d" width)
@@ -587,12 +587,12 @@ let myCanvas_DrawDefault frame (dc :wxDC) =
       if bool then
         begin
           WxMemoryDC.setBrush mdc
-            (wxBrush (wxColour 128 128 0 wxALPHA_OPAQUE) wxBRUSHSTYLE_SOLID);
+            (wxBrush (wxColours 128 128 0 wxALPHA_OPAQUE) wxBRUSHSTYLE_SOLID);
           ignore_bool (WxMemoryDC.floodFill mdc 11 11 c wxFLOOD_SURFACE);
         end
     end;
     WxBitmap.setMask bmp (Some (
-        wxMaskColour bmp ( wxColour 1 1 1 wxALPHA_OPAQUE)));
+        wxMaskColour bmp ( wxColours 1 1 1 wxALPHA_OPAQUE)));
     WxDC.drawBitmap dc bmp (-10) (-10) true;
   end;
 
@@ -754,7 +754,7 @@ let myCanvas_DrawDefault frame (dc :wxDC) =
   WxMemoryDC.selectObject m_memdc  bitmap2 ;
 
   let memdc = WxMemoryDC.wxDC m_memdc in
-  let clr = wxColour(255) ( 255) ( 0) wxALPHA_OPAQUE in
+  let clr = wxColours (255) ( 255) ( 0) wxALPHA_OPAQUE in
   let yellowBrush =  wxBrush(clr) ( wxSOLID) in
   WxDC.setBackground memdc  yellowBrush ;
   WxDC.clear memdc;
@@ -1380,33 +1380,33 @@ let myCanvas_DrawAlpha frame (dc : wxDC) =
  let width_i = iof width in
  let radius = 30. in
 
- WxDC.setPen dc ( wxPen( wxColour 128  0  0  255 ) 12  wxSOLID );
- WxDC.setBrush dc ( wxBrush( wxColour 255  0  0  255 ) wxSOLID );
+ WxDC.setPen dc ( wxPen( wxColours 128  0  0  255 ) 12  wxSOLID );
+ WxDC.setBrush dc ( wxBrush( wxColours 255  0  0  255 ) wxSOLID );
 
  let r = wxRect margin_i (iof (margin +. width*. 0.66)) width_i width_i in
 
  WxDC.drawRoundedRectangle dc ( r.x) ( r.y) ( r.width) ( r.width) radius ;
 
- WxDC.setPen dc ( wxPen( wxColour 0  0  128  255 ) 12  wxSOLID );
- WxDC.setBrush dc ( wxBrush( wxColour 0  0  255  255 ) wxSOLID );
+ WxDC.setPen dc ( wxPen( wxColours 0  0  128  255 ) 12  wxSOLID );
+ WxDC.setBrush dc ( wxBrush( wxColours 0  0  255  255 ) wxSOLID );
 
  wxRectOffset r (iof (width *. 0.8)) (iof ( -. width *. 0.66 )) ;
 
  WxDC.drawRoundedRectangle dc ( r.x) ( r.y) ( r.width) ( r.width) radius ;
 
- WxDC.setPen dc ( wxPen( wxColour 128  128  0  255 ) 12  wxSOLID );
- WxDC.setBrush dc ( wxBrush( wxColour 192  192  0  255 ) wxSOLID );
+ WxDC.setPen dc ( wxPen( wxColours 128  128  0  255 ) 12  wxSOLID );
+ WxDC.setBrush dc ( wxBrush( wxColours 192  192  0  255 ) wxSOLID );
 
  wxRectOffset r (iof (width *. 0.8)) (iof (width *. 0.5 ));
 
  WxDC.drawRoundedRectangle dc ( r.x) ( r.y) ( r.width) ( r.width) radius ;
 
  WxDC.setPen dc wxTRANSPARENT_PEN ;
- WxDC.setBrush dc ( wxBrush( wxColour 255  255  128  128 ) wxBRUSHSTYLE_SOLID );
+ WxDC.setBrush dc ( wxBrush( wxColours 255  255  128  128 ) wxBRUSHSTYLE_SOLID );
  WxDC.drawRoundedRectangle dc 0
   (margin_i + width_i / 2 ) (width_i * 3 ) 100  radius ;
 
- WxDC.setTextForeground dc ( wxColour 255  255  0  128 );
+ WxDC.setTextForeground dc ( wxColours 255  255  0  128 );
  WxDC.setFont dc ( wxFont 40  wxFONTFAMILY_SWISS  wxFONTSTYLE_ITALIC  wxFONTWEIGHT_NORMAL );
  WxDC.drawText dc ( "Hello!") 120  80 ;
  ()
@@ -1598,7 +1598,7 @@ let myCanvas_Draw frame pdc_kind =
 
  if frame.m_textureBackground then begin
   if not (WxBrush.isOk frame.m_backgroundBrush) then begin
-   let clr = wxColour 0 128 0 wxALPHA_OPAQUE in
+   let clr = wxColours 0 128 0 wxALPHA_OPAQUE in
    let b = wxBrush clr wxSOLID in
    WxDC.setBackground dc b
   end

@@ -401,13 +401,12 @@ let myFrame title =
   WxTextCtrl.setFont m_logText font;
 
   (*layout*)
-  SIZER.(wxFrame this true
-        (wxBoxSizer wxVERTICAL,
+  VSIZER.(wxFrame this true
          [
            AddWindow ([Expand], m_inputWin);
            AddWindow([Expand], WxTextCtrl.wxWindow headerText);
            AddWindow([Proportion 1; Expand], WxTextCtrl.wxWindow m_logText);
-         ]));
+         ]);
 
   (*set size and position on screen*)
   WxFrame.setSize this 700 340;

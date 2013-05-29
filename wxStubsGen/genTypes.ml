@@ -29,9 +29,18 @@ and class_descr = {
   mutable class_children : class_descr StringMap.t;
 
   class_methods : prototype list;
-  mutable class_defs : prototype StringMap.t;
+  mutable class_defs : mltype StringMap.t;
   class_includes : string list;
   class_virtuals : (string * must_or_can * version) list;
+}
+
+and mltype = {
+  f_self : (string * string) list;
+  f_cppname : string;
+  f_mlname : string;
+  f_args : (string * string) list;
+  f_ret : string list;
+  f_proto : prototype;
 }
 
 and virtual_or_manifest =

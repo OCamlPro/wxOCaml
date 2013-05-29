@@ -4,11 +4,42 @@ open WxValues
 open WxDefs
 
 module Edit = WxStyledTextCtrl
-
+module EditEvent = WxStyledTextEvent
 
 type appFrame = {
+  m_app : wxApp;
   m_edit : wxStyledTextCtrl;
   m_frame : wxFrame;
+}
+
+
+type commonInfo = {
+    (* editor functionality prefs*)
+    syntaxEnable : bool;
+    foldEnable : bool;
+    indentEnable : bool;
+    (* display defaults prefs*)
+    readOnlyInitial : bool;
+    overTypeInitial : bool;
+    wrapModeInitial : bool;
+    displayEOLEnable : bool;
+    indentGuideEnable : bool;
+    lineNumberEnable : bool;
+    longLineOnEnable : bool;
+    whiteSpaceEnable : bool;
+}
+
+type style = {
+  style_type : int;
+  style_words : string;
+}
+
+type languageInfo = {
+    name : string;
+    filepattern : string;
+    lexer : int;
+    styles : style list; (*  [STYLE_TYPES_COUNT]; *)
+    folds : int;
 }
 
 
@@ -47,15 +78,19 @@ type appFrame = {
 #define PAGE_STYLE_TYPES _("Style types")
 
 #define STYLE_TYPES_COUNT 32
-
+*)
 
 (* ----------------------------------------------------------------------------*)
 (* standard IDs*)
 (* ----------------------------------------------------------------------------*)
 
-enum {
+let create_ids n first =
+  Obj.magic (Array.init n (fun i -> first + i))
+
+let
     (* menu IDs*)
-    myID_PROPERTIES = wxID_HIGHEST,
+    (
+    myID_PROPERTIES,
     myID_INDENTINC,
     myID_INDENTRED,
     myID_FINDNEXT,
@@ -77,8 +112,10 @@ enum {
     myID_CHANGELOWER,
     myID_CHANGEUPPER,
     myID_HILIGHTLANG,
-    myID_HILIGHTFIRST,
-    myID_HILIGHTLAST = myID_HILIGHTFIRST + 99,
+    myID_HILIGHTFIRST ) = create_ids 30 wxID_HIGHEST
+
+let (
+    myID_HILIGHTLAST,
     myID_CONVERTEOL,
     myID_CONVERTCR,
     myID_CONVERTCRLF,
@@ -103,9 +140,12 @@ enum {
     (* preferences IDs*)
     myID_PREFS_LANGUAGE,
     myID_PREFS_STYLETYPE,
-    myID_PREFS_KEYWORDS,
-};
+    myID_PREFS_KEYWORDS
+) = create_ids 30 (myID_HILIGHTFIRST + 99)
 
+
+
+(*
 (* ----------------------------------------------------------------------------*)
 (* global items*)
 (* ----------------------------------------------------------------------------*)
@@ -381,41 +421,27 @@ private:
 #define mySTC_STYLE_ITALIC 2
 #define mySTC_STYLE_UNDERL 4
 #define mySTC_STYLE_HIDDEN 8
+*)
 
 (*----------------------------------------------------------------------------*)
 (*! general folding types*)
-#define mySTC_FOLD_COMMENT 1
-#define mySTC_FOLD_COMPACT 2
-#define mySTC_FOLD_PREPROC 4
+let mySTC_FOLD_COMMENT = 1
+let mySTC_FOLD_COMPACT = 2
+let mySTC_FOLD_PREPROC = 4
 
-#define mySTC_FOLD_HTML 16
-#define mySTC_FOLD_HTMLPREP 32
+let mySTC_FOLD_HTML = 16
+let mySTC_FOLD_HTMLPREP = 32
 
-#define mySTC_FOLD_COMMENTPY 64
-#define mySTC_FOLD_QUOTESPY 128
+let mySTC_FOLD_COMMENTPY = 64
+let mySTC_FOLD_QUOTESPY = 128
 
+(*
 (*----------------------------------------------------------------------------*)
 (*! flags*)
 #define mySTC_FLAG_WRAPMODE 16
 
 (*----------------------------------------------------------------------------*)
 (* CommonInfo*)
-
-struct CommonInfo {
-    (* editor functionality prefs*)
-    bool syntaxEnable;
-    bool foldEnable;
-    bool indentEnable;
-    (* display defaults prefs*)
-    bool readOnlyInitial;
-    bool overTypeInitial;
-    bool wrapModeInitial;
-    bool displayEOLEnable;
-    bool indentGuideEnable;
-    bool lineNumberEnable;
-    bool longLineOnEnable;
-    bool whiteSpaceEnable;
-};
 extern const CommonInfo g_CommonPrefs;
 
 (*----------------------------------------------------------------------------*)
@@ -975,55 +1001,64 @@ bool Edit::InitializePrefs (const wxString &name) {
 
     return true;
 }
+*)
 
-bool Edit::LoadFile ()
-{
-#if wxUSE_FILEDLG
-    (* get filname*)
-    if (!m_filename) {
-        wxFileDialog dlg (this, wxT("Open file"), wxEmptyString, wxEmptyString,
-                          wxT("Any file ( * )|*"), wxFD_OPEN | wxFD_FILE_MUST_EXIST | wxFD_CHANGE_DIR);
-        if (dlg.ShowModal() != wxID_OK) return false;
-        m_filename = dlg.GetPath();
-    }
+let myEdit_LoadFile appFrame maybe_filename =
+  try
+    let m_edit = appFrame.m_edit in
+    let w_edit = WxStyledTextCtrl.wxWindow m_edit in
+    let filename =
+      match maybe_filename with
+        Some filename -> filename
+      | None ->
 
-    (* load file*)
-    return LoadFile (m_filename);
-#else
-    return false;
-#endif (* wxUSE_FILEDLG*)
-}
+        let dlg = WxFileDialog.create w_edit "Open file"
+            wxEmptyString wxEmptyString
+          "Any file ( * )|*"
+            (wxFD_OPEN lor wxFD_FILE_MUST_EXIST lor wxFD_CHANGE_DIR)
+        in
+        if WxFileDialog.showModal dlg <> wxID_OK then raise Exit;
+        WxFileDialog.getPath dlg
+    in
+    Edit.clearAll m_edit;
+    ignore_bool ( Edit.loadFile m_edit filename );
+    Edit.emptyUndoBuffer m_edit;
+(*
+                    InitializePrefs (DeterminePrefs (fname.GetFullName()));
+*)
+    true
+  with Exit -> false
 
-bool Edit::LoadFile (const wxString &filename) {
+(*
 
-    (* load file in edit and clear undo*)
-    if (!filename.empty()) m_filename = filename;
-(*     wxFile file (m_filename);*)
-(*     if (!file.IsOpened()) return false;*)
-    ClearAll ();
-(*     long lng = file.Length ();*)
-(*     if (lng > 0) {*)
-(*         wxString buf;*)
-(*         wxChar *buff = buf.GetWriteBuf (lng);*)
-(*         file.Read (buff, lng);*)
-(*         buf.UngetWriteBuf ();*)
-(*         InsertText (0, buf);*)
-(*     }*)
-(*     file.Close();*)
+                 (* load file in edit and clear undo*)
+                 if (!filename.empty()) m_filename = filename;
+                   (*     wxFile file (m_filename);*)
+                   (*     if (!file.IsOpened()) return false;*)
+                   ClearAll ();
+                   (*     long lng = file.Length ();*)
+                   (*     if (lng > 0) {*)
+                   (*         wxString buf;*)
+                   (*         wxChar *buff = buf.GetWriteBuf (lng);*)
+                   (*         file.Read (buff, lng);*)
+                   (*         buf.UngetWriteBuf ();*)
+                   (*         InsertText (0, buf);*)
+                   (*     }*)
+                   (*     file.Close();*)
 
-    wxStyledTextCtrl::LoadFile(m_filename);
+                   wxStyledTextCtrl::LoadFile(m_filename);
 
-    EmptyUndoBuffer();
+                   EmptyUndoBuffer();
 
-    (* determine lexer language*)
-    wxFileName fname (m_filename);
-    InitializePrefs (DeterminePrefs (fname.GetFullName()));
+                   (* determine lexer language*)
+                   wxFileName fname (m_filename);
+                   InitializePrefs (DeterminePrefs (fname.GetFullName()));
 
-    return true;
+                   return true;
 }
 
 bool Edit::SaveFile ()
-{
+    {
 #if wxUSE_FILEDLG
     (* return if no change*)
     if (!Modified()) return true;
@@ -1406,11 +1441,28 @@ const char* PythonWordlist2 =
 
 
 (*----------------------------------------------------------------------------*)
+*)
+
 (*! languages*)
-const LanguageInfo g_LanguagePrefs [] = {
+let g_LanguagePrefs = [
+  { name = "OCaml";
+    filepattern = "*.ml;*.mli;*.mly;*.mll";
+    lexer = wxSTC_LEX_CAML;
+    styles = [];
+    folds = 0;
+  };
+  { name = "C++" ;
+    filepattern = "*.c;*.cc;*.cpp;*.cxx;*.cs;*.h;*.hh;*.hpp;*.hxx;*.sma";
+    lexer = wxSTC_LEX_CPP;
+    styles = [];
+    folds = mySTC_FOLD_COMMENT lor mySTC_FOLD_COMPACT lor mySTC_FOLD_PREPROC;
+  };
+]
+
+(*
     (* C++*)
     {"C++",
-     "*.c;*.cc;*.cpp;*.cxx;*.cs;*.h;*.hh;*.hpp;*.hxx;*.sma",
+
      wxSTC_LEX_CPP,
      {{mySTC_TYPE_DEFAULT, NULL},
       {mySTC_TYPE_COMMENT, NULL},
@@ -1742,18 +1794,20 @@ const int g_StylePrefsSize = WXSIZEOF(g_StylePrefs);
 
 let _APP_NAME = wxT("STC-Test")
 
-(*
-#define APP_DESCR _("See http://wxguide.sourceforge.net/")
+let _APP_DESCR = "See http://wxguide.sourceforge.net/"
 
-#define APP_MAINT wxT("Otto Wyss")
-*)
+let _APP_MAINT = "Otto Wyss"
 
 let  _APP_VENDOR = wxT("wxWidgets")
-(*
-#define APP_COPYRIGTH wxT("(C) 2003 Otto Wyss")
-#define APP_LICENCE wxT("wxWidgets")
+let g_appname = _APP_VENDOR ^ "-" ^ _APP_NAME
 
-#define APP_VERSION wxT("0.1.alpha")
+
+let _APP_COPYRIGHT =  wxT("(C) 2003 Otto Wyss")
+let _APP_LICENCE = wxT("wxWidgets")
+
+let _APP_VERSION = wxT("0.1.alpha")
+
+(*
 #define APP_BUILD __DATE__
 
 #define APP_WEBSITE wxT("http://www.wxWidgets.org")
@@ -1905,63 +1959,6 @@ int App::OnExit () {
 (*----------------------------------------------------------------------------*)
 (* AppFrame*)
 (*----------------------------------------------------------------------------*)
-
-BEGIN_EVENT_TABLE (AppFrame, wxFrame)
-    (* common*)
-    EVT_CLOSE (                      AppFrame::OnClose)
-    (* file*)
-    EVT_MENU (wxID_OPEN,             AppFrame::OnFileOpen)
-    EVT_MENU (wxID_SAVE,             AppFrame::OnFileSave)
-    EVT_MENU (wxID_SAVEAS,           AppFrame::OnFileSaveAs)
-    EVT_MENU (wxID_CLOSE,            AppFrame::OnFileClose)
-    (* properties*)
-    EVT_MENU (myID_PROPERTIES,       AppFrame::OnProperties)
-    (* print and exit*)
-    EVT_MENU (wxID_PRINT_SETUP,      AppFrame::OnPrintSetup)
-    EVT_MENU (wxID_PREVIEW,          AppFrame::OnPrintPreview)
-    EVT_MENU (wxID_PRINT,            AppFrame::OnPrint)
-    EVT_MENU (wxID_EXIT,             AppFrame::OnExit)
-    (* edit*)
-    EVT_MENU (wxID_CLEAR,            AppFrame::OnEdit)
-    EVT_MENU (wxID_CUT,              AppFrame::OnEdit)
-    EVT_MENU (wxID_COPY,             AppFrame::OnEdit)
-    EVT_MENU (wxID_PASTE,            AppFrame::OnEdit)
-    EVT_MENU (myID_INDENTINC,        AppFrame::OnEdit)
-    EVT_MENU (myID_INDENTRED,        AppFrame::OnEdit)
-    EVT_MENU (wxID_SELECTALL,        AppFrame::OnEdit)
-    EVT_MENU (myID_SELECTLINE,       AppFrame::OnEdit)
-    EVT_MENU (wxID_REDO,             AppFrame::OnEdit)
-    EVT_MENU (wxID_UNDO,             AppFrame::OnEdit)
-    (* find*)
-    EVT_MENU (wxID_FIND,             AppFrame::OnEdit)
-    EVT_MENU (myID_FINDNEXT,         AppFrame::OnEdit)
-    EVT_MENU (myID_REPLACE,          AppFrame::OnEdit)
-    EVT_MENU (myID_REPLACENEXT,      AppFrame::OnEdit)
-    EVT_MENU (myID_BRACEMATCH,       AppFrame::OnEdit)
-    EVT_MENU (myID_GOTO,             AppFrame::OnEdit)
-    (* view*)
-    EVT_MENU_RANGE (myID_HILIGHTFIRST, myID_HILIGHTLAST,
-                                     AppFrame::OnEdit)
-    EVT_MENU (myID_DISPLAYEOL,       AppFrame::OnEdit)
-    EVT_MENU (myID_INDENTGUIDE,      AppFrame::OnEdit)
-    EVT_MENU (myID_LINENUMBER,       AppFrame::OnEdit)
-    EVT_MENU (myID_LONGLINEON,       AppFrame::OnEdit)
-    EVT_MENU (myID_WHITESPACE,       AppFrame::OnEdit)
-    EVT_MENU (myID_FOLDTOGGLE,       AppFrame::OnEdit)
-    EVT_MENU (myID_OVERTYPE,         AppFrame::OnEdit)
-    EVT_MENU (myID_READONLY,         AppFrame::OnEdit)
-    EVT_MENU (myID_WRAPMODEON,       AppFrame::OnEdit)
-    (* extra*)
-    EVT_MENU (myID_CHANGELOWER,      AppFrame::OnEdit)
-    EVT_MENU (myID_CHANGEUPPER,      AppFrame::OnEdit)
-    EVT_MENU (myID_CONVERTCR,        AppFrame::OnEdit)
-    EVT_MENU (myID_CONVERTCRLF,      AppFrame::OnEdit)
-    EVT_MENU (myID_CONVERTLF,        AppFrame::OnEdit)
-    EVT_MENU (myID_CHARSETANSI,      AppFrame::OnEdit)
-    EVT_MENU (myID_CHARSETMAC,       AppFrame::OnEdit)
-    (* help*)
-    EVT_MENU (wxID_ABOUT,            AppFrame::OnAbout)
-END_EVENT_TABLE ()
 *)
 
 (*
@@ -1988,9 +1985,14 @@ void AppFrame::OnAbout (wxCommandEvent &WXUNUSED(event)) {
 void AppFrame::OnExit (wxCommandEvent &WXUNUSED(event)) {
     Close (true);
 }
+*)
 
 (* file event handlers*)
-void AppFrame::OnFileOpen (wxCommandEvent &WXUNUSED(event)) {
+let appFrame_OnFileOpen appFrame event =
+  ignore_bool (myEdit_LoadFile appFrame None)
+
+
+(* (wxCommandEvent &WXUNUSED(event)) {
     if (!m_edit) return;
 #if wxUSE_FILEDLG
     wxString fname;
@@ -2001,6 +2003,7 @@ void AppFrame::OnFileOpen (wxCommandEvent &WXUNUSED(event)) {
     FileOpen (fname);
 #endif (* wxUSE_FILEDLG*)
 }
+
 
 void AppFrame::OnFileSave (wxCommandEvent &WXUNUSED(event)) {
     if (!m_edit) return;
@@ -2102,126 +2105,11 @@ void AppFrame::OnPrint (wxCommandEvent &WXUNUSED(event)) {
 void AppFrame::OnEdit (wxCommandEvent &event) {
     if (m_edit) m_edit->GetEventHandler()->ProcessEvent (event);
 }
-
-(* private functions*)
-void AppFrame::CreateMenu ()
-{
-    (* File menu*)
-    wxMenu *menuFile = new wxMenu;
-    menuFile->Append (wxID_OPEN, _("&Open ..\tCtrl+O"));
-    menuFile->Append (wxID_SAVE, _("&Save\tCtrl+S"));
-    menuFile->Append (wxID_SAVEAS, _("Save &as ..\tCtrl+Shift+S"));
-    menuFile->Append (wxID_CLOSE, _("&Close\tCtrl+W"));
-    menuFile->AppendSeparator();
-    menuFile->Append (myID_PROPERTIES, _("Proper&ties ..\tCtrl+I"));
-    menuFile->AppendSeparator();
-    menuFile->Append (wxID_PRINT_SETUP, _("Print Set&up .."));
-    menuFile->Append (wxID_PREVIEW, _("Print Pre&view\tCtrl+Shift+P"));
-    menuFile->Append (wxID_PRINT, _("&Print ..\tCtrl+P"));
-    menuFile->AppendSeparator();
-    menuFile->Append (wxID_EXIT, _("&Quit\tCtrl+Q"));
-
-    (* Edit menu*)
-    wxMenu *menuEdit = new wxMenu;
-    menuEdit->Append (wxID_UNDO, _("&Undo\tCtrl+Z"));
-    menuEdit->Append (wxID_REDO, _("&Redo\tCtrl+Shift+Z"));
-    menuEdit->AppendSeparator();
-    menuEdit->Append (wxID_CUT, _("Cu&t\tCtrl+X"));
-    menuEdit->Append (wxID_COPY, _("&Copy\tCtrl+C"));
-    menuEdit->Append (wxID_PASTE, _("&Paste\tCtrl+V"));
-    menuEdit->Append (wxID_CLEAR, _("&Delete\tDel"));
-    menuEdit->AppendSeparator();
-    menuEdit->Append (wxID_FIND, _("&Find\tCtrl+F"));
-    menuEdit->Enable (wxID_FIND, false);
-    menuEdit->Append (myID_FINDNEXT, _("Find &next\tF3"));
-    menuEdit->Enable (myID_FINDNEXT, false);
-    menuEdit->Append (myID_REPLACE, _("&Replace\tCtrl+H"));
-    menuEdit->Enable (myID_REPLACE, false);
-    menuEdit->Append (myID_REPLACENEXT, _("Replace &again\tShift+F4"));
-    menuEdit->Enable (myID_REPLACENEXT, false);
-    menuEdit->AppendSeparator();
-    menuEdit->Append (myID_BRACEMATCH, _("&Match brace\tCtrl+M"));
-    menuEdit->Append (myID_GOTO, _("&Goto\tCtrl+G"));
-    menuEdit->Enable (myID_GOTO, false);
-    menuEdit->AppendSeparator();
-    menuEdit->Append (myID_INDENTINC, _("&Indent increase\tTab"));
-    menuEdit->Append (myID_INDENTRED, _("I&ndent reduce\tShift+Tab"));
-    menuEdit->AppendSeparator();
-    menuEdit->Append (wxID_SELECTALL, _("&Select all\tCtrl+A"));
-    menuEdit->Append (myID_SELECTLINE, _("Select &line\tCtrl+L"));
-
-    (* hilight submenu*)
-    wxMenu *menuHilight = new wxMenu;
-    int Nr;
-    for (Nr = 0; Nr < g_LanguagePrefsSize; Nr++) {
-        menuHilight->Append (myID_HILIGHTFIRST + Nr,
-                             g_LanguagePrefs [Nr].name);
-    }
-
-    (* charset submenu*)
-    wxMenu *menuCharset = new wxMenu;
-    menuCharset->Append (myID_CHARSETANSI, _("&ANSI (Windows)"));
-    menuCharset->Append (myID_CHARSETMAC, _("&MAC (Macintosh)"));
-
-    (* View menu*)
-    wxMenu *menuView = new wxMenu;
-    menuView->Append (myID_HILIGHTLANG, _("&Hilight language .."), menuHilight);
-    menuView->AppendSeparator();
-    menuView->AppendCheckItem (myID_FOLDTOGGLE, _("&Toggle current fold\tCtrl+T"));
-    menuView->AppendCheckItem (myID_OVERTYPE, _("&Overwrite mode\tIns"));
-    menuView->AppendCheckItem (myID_WRAPMODEON, _("&Wrap mode\tCtrl+U"));
-    menuView->AppendSeparator();
-    menuView->AppendCheckItem (myID_DISPLAYEOL, _("Show line &endings"));
-    menuView->AppendCheckItem (myID_INDENTGUIDE, _("Show &indent guides"));
-    menuView->AppendCheckItem (myID_LINENUMBER, _("Show line &numbers"));
-    menuView->AppendCheckItem (myID_LONGLINEON, _("Show &long line marker"));
-    menuView->AppendCheckItem (myID_WHITESPACE, _("Show white&space"));
-    menuView->AppendSeparator();
-    menuView->Append (myID_USECHARSET, _("Use &code page of .."), menuCharset);
-
-    (* change case submenu*)
-    wxMenu *menuChangeCase = new wxMenu;
-    menuChangeCase->Append (myID_CHANGEUPPER, _("&Upper case"));
-    menuChangeCase->Append (myID_CHANGELOWER, _("&Lower case"));
-
-    (* convert EOL submenu*)
-    wxMenu *menuConvertEOL = new wxMenu;
-    menuConvertEOL->Append (myID_CONVERTCR, _("CR (&Linux)"));
-    menuConvertEOL->Append (myID_CONVERTCRLF, _("CR+LF (&Windows)"));
-    menuConvertEOL->Append (myID_CONVERTLF, _("LF (&Macintosh)"));
-
-    (* Extra menu*)
-    wxMenu *menuExtra = new wxMenu;
-    menuExtra->AppendCheckItem (myID_READONLY, _("&Readonly mode"));
-    menuExtra->AppendSeparator();
-    menuExtra->Append (myID_CHANGECASE, _("Change &case to .."), menuChangeCase);
-    menuExtra->AppendSeparator();
-    menuExtra->Append (myID_CONVERTEOL, _("Convert line &endings to .."), menuConvertEOL);
-
-    (* Window menu*)
-    wxMenu *menuWindow = new wxMenu;
-    menuWindow->Append (myID_PAGEPREV, _("&Previous\tCtrl+Shift+Tab"));
-    menuWindow->Append (myID_PAGENEXT, _("&Next\tCtrl+Tab"));
-    menuWindow->Append(myID_WINDOW_MINIMAL, _("&Minimal editor"));
-
-    (* Help menu*)
-    wxMenu *menuHelp = new wxMenu;
-    menuHelp->Append (wxID_ABOUT, _("&About ..\tShift+F1"));
-
-    (* construct menu*)
-    m_menuBar->Append (menuFile, _("&File"));
-    m_menuBar->Append (menuEdit, _("&Edit"));
-    m_menuBar->Append (menuView, _("&View"));
-    m_menuBar->Append (menuExtra, _("E&xtra"));
-    m_menuBar->Append (menuWindow, _("&Window"));
-    m_menuBar->Append (menuHelp, _("&Help"));
-    SetMenuBar (m_menuBar);
-}
 *)
 
 let appFrame_FileOpen appFrame fname =
 (*    wxFileName w(fname); w.Normalize(); fname = w.GetFullPath(); *)
-    ignore_bool (Edit.loadFile appFrame.m_edit fname)
+    ignore_bool (myEdit_LoadFile appFrame (Some fname))
 
 (*
 
@@ -2245,251 +2133,363 @@ wxRect AppFrame::DeterminePrintSize () {
 (* AppAbout*)
 (*----------------------------------------------------------------------------*)
 
-(*
-BEGIN_EVENT_TABLE (AppAbout, wxDialog)
-    EVT_TIMER (myID_ABOUTTIMER, AppAbout::OnTimerEvent)
-END_EVENT_TABLE ()
-*)
-
 let new_AppAbout parent milliseconds (* =0 *) style (* =0 *) =
+  Printf.eprintf "new_AppAbout\n%!";
   let this = wxDialog parent wxID_ANY wxEmptyString
-                    wxDefaultPosition wxDefaultSize
-                    (style lor wxDEFAULT_DIALOG_STYLE lor wxRESIZE_BORDER)
+      wxDefaultPosition wxDefaultSize
+      (style lor wxDEFAULT_DIALOG_STYLE lor wxRESIZE_BORDER)
   in
+  let w_this = WxDialog.wxWindow this in
+  Printf.eprintf "new_AppAbout\n%!";
+  (* set timer if any*)
+  let m_timer = ref None in
+  WxEVENT_TABLE.(wxDialog this m_timer [
+      EVT_TIMER (myID_ABOUTTIMER, (fun _ _ ->
+          Printf.eprintf "Timer !\n%!";
+          WxDialog.endModal this wxID_OK;
+(*          WxTimer.delete m_timer *)
+        ))
+    ]);
+  Printf.eprintf "new_AppAbout\n%!";
+  if (milliseconds > 0) then
 
-(* TODO
+    m_timer := begin
+      Printf.eprintf "Setting timer %d\n%!" milliseconds;
+      let m_timer = WxTimer.create
+          (WxDialog.wxEvtHandler this) myID_ABOUTTIMER in
+      ignore_bool (WxTimer.start m_timer milliseconds wxTIMER_ONE_SHOT);
+      Some m_timer
+    end;
+  Printf.eprintf "new_AppAbout\n%!";
+  (* sets the application title*)
+  WxDialog.setTitle this ("About ..");
 
-    (* set timer if any*)
-    m_timer = NULL;
-    if (milliseconds > 0) {
-        m_timer = new wxTimer (this, myID_ABOUTTIMER);
-        m_timer->Start (milliseconds, wxTIMER_ONE_SHOT);
-    }
+  let appdescr = wxStaticText w_this wxID_ANY _APP_DESCR in
+  let okButton = wxButton w_this wxID_OK "OK" in
+  WxButton.setDefault okButton;
 
-    (* sets the application title*)
-    SetTitle (_("About .."));
+  VSIZER.(wxDialog this true
+       [
+         Add2 (0, 20);
+         Text ([
+             Proportion 0; BorderDirSize (wxLEFT lor wxRIGHT, 40);
+             Align wxALIGN_CENTER ], g_appname,
+           WxStaticText.([ SetFont (wxFont 24 wxDEFAULT wxNORMAL wxBOLD)])
+         );
+         Add2 (0, 10);
+         Horizontal ([ Proportion 0; Expand; BorderSize 4],
+           [
 
-    (* about info*)
-    wxGridSizer *aboutinfo = new wxGridSizer (2, 0, 2);
-    aboutinfo->Add (new wxStaticText(this, wxID_ANY, _("Written by: ")),
-                    0, wxALIGN_LEFT);
-    aboutinfo->Add (new wxStaticText(this, wxID_ANY, APP_MAINT),
-                    1, wxEXPAND | wxALIGN_LEFT);
-    aboutinfo->Add (new wxStaticText(this, wxID_ANY, _("Version: ")),
-                    0, wxALIGN_LEFT);
-    aboutinfo->Add (new wxStaticText(this, wxID_ANY, APP_VERSION),
-                    1, wxEXPAND | wxALIGN_LEFT);
-    aboutinfo->Add (new wxStaticText(this, wxID_ANY, _("Licence type: ")),
-                    0, wxALIGN_LEFT);
-    aboutinfo->Add (new wxStaticText(this, wxID_ANY, APP_LICENCE),
-                    1, wxEXPAND | wxALIGN_LEFT);
-    aboutinfo->Add (new wxStaticText(this, wxID_ANY, _("Copyright: ")),
-                    0, wxALIGN_LEFT);
-    aboutinfo->Add (new wxStaticText(this, wxID_ANY, APP_COPYRIGTH),
-                    1, wxEXPAND | wxALIGN_LEFT);
+             AddWindow(
+               [ BorderSize 20;
+                 Flag (wxALIGN_LEFT lor wxALIGN_CENTER_VERTICAL lor
+                     wxLEFT lor wxRIGHT) ],
+               WxStaticBitmap.wxWindow (
+               WxStaticBitmap.create w_this wxID_ANY
+                 (WxBitmap.createFromXPM Sample_xpm.sample_xpm)
+               )
+             );
 
-    (* about icontitle//info*)
-    wxBoxSizer *aboutpane = new wxBoxSizer (wxHORIZONTAL);
-    wxBitmap bitmap = wxBitmap(wxICON (sample));
-    aboutpane->Add (new wxStaticBitmap (this, wxID_ANY, bitmap),
-                    0, wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL|wxLEFT|wxRIGHT, 20);
-    aboutpane->Add (aboutinfo, 1, wxEXPAND);
-    aboutpane->Add (60, 0);
+             AddSizer ([],
+               WxGridSizer.wxSizer (WxGridSizer.create (-1) 2 0 2),
+               [
+                 Text([Align wxALIGN_LEFT], "Written by: ", []);
+                 Text([Proportion 1; Expand; Align wxALIGN_LEFT],
+                   _APP_MAINT, []);
 
-    (* about complete*)
-    wxBoxSizer *totalpane = new wxBoxSizer (wxVERTICAL);
-    totalpane->Add (0, 20);
-    wxStaticText *appname = new wxStaticText(this, wxID_ANY, *g_appname);
-    appname->SetFont (wxFont (24, wxDEFAULT, wxNORMAL, wxBOLD));
-    totalpane->Add (appname, 0, wxALIGN_CENTER | wxLEFT | wxRIGHT, 40);
-    totalpane->Add (0, 10);
-    totalpane->Add (aboutpane, 0, wxEXPAND | wxALL, 4);
-    totalpane->Add (new wxStaticText(this, wxID_ANY, APP_DESCR),
-                    0, wxALIGN_CENTER | wxALL, 10);
-    wxButton *okButton = new wxButton (this, wxID_OK, _("OK"));
-    okButton->SetDefault();
-    totalpane->Add (okButton, 0, wxALIGN_CENTER | wxLEFT | wxRIGHT | wxBOTTOM, 10);
+                 Text([Align wxALIGN_LEFT], "Version: ", []);
+                 Text([Proportion 1; Expand; Align wxALIGN_LEFT],
+                   _APP_VERSION, []);
 
-    SetSizerAndFit (totalpane);
+                 Text([Align wxALIGN_LEFT], "Licence type: ", []);
+                 Text([Proportion 1; Expand; Align wxALIGN_LEFT],
+                   _APP_LICENCE, []);
 
-    CenterOnScreen();
-    ShowModal();
-*)
+                 Text([Align wxALIGN_LEFT], "Copyright: ", []);
+                 Text([Proportion 1; Expand; Align wxALIGN_LEFT],
+                   _APP_COPYRIGHT, []);
+               ]);
+             Add2 (60, 0);
+           ]);
+         AddWindow (
+           [ Proportion 0; BorderSize 10; Align wxALIGN_CENTER],
+           WxStaticText.wxWindow appdescr);
+         AddWindow (
+           [ Proportion 0; BorderSize 10; Align wxALIGN_CENTER;
+             Flag (wxLEFT lor wxRIGHT lor wxBOTTOM)],
+           WxButton.wxWindow okButton);
+       ]);
+
+  WxDialog.centerOnScreen this wxBOTH;
+  ignore_int (WxDialog.showModal this);
   this
-
-(*
-}
-
-AppAbout::~AppAbout () {
-    wxDELETE(m_timer);
-}
-
-(*----------------------------------------------------------------------------*)
-(* event handlers*)
-void AppAbout::OnTimerEvent (wxTimerEvent &WXUNUSED(event)) {
-    wxDELETE(m_timer);
-    EndModal (wxID_OK);
-}
 
 (*///////////////////////////////////////////////////////////////////////////*)
 (* Minimal editor added by Troels K 2008-04-08*)
-(* Thanks to geralds for SetLexerXml() - http://wxforum.shadonet.com/viewtopic.php?t=7155*)
+(* Thanks to geralds for SetLexerXml()
+   - http://wxforum.shadonet.com/viewtopic.php?t=7155*)
 
-class MinimalEditor : public wxStyledTextCtrl
-{
-    enum
-    {
-        margin_id_lineno,
-        margin_id_fold,
-    };
 
-public:
-    MinimalEditor(wxWindow* parent, wxWindowID id = wxID_ANY) : wxStyledTextCtrl(parent, id)
-    {
-        SetLexerXml();
+let margin_id_lineno = 0
+let margin_id_fold = 1
 
-        SetProperty(wxT("fold"), wxT("1"));
-        SetProperty(wxT("fold.comment"), wxT("1"));
-        SetProperty(wxT("fold.compact"), wxT("1"));
-        SetProperty(wxT("fold.preprocessor"), wxT("1"));
-        SetProperty(wxT("fold.html"), wxT("1"));
-        SetProperty(wxT("fold.html.preprocessor"), wxT("1"));
+let myMinimalEditor_SetLexerXml this =
+  WxStyledTextCtrl.setLexer this wxSTC_LEX_XML;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_DEFAULT wxBLACK;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_TAG wxBLUE;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_TAGUNKNOWN wxBLUE;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_ATTRIBUTE wxRED;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_ATTRIBUTEUNKNOWN wxRED;
+  WxStyledTextCtrl.styleSetBold this wxSTC_H_ATTRIBUTEUNKNOWN true;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_NUMBER wxBLACK;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_DOUBLESTRING wxBLACK;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_SINGLESTRING wxBLACK;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_OTHER wxBLUE;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_COMMENT
+    (WxColourDatabase.find
+       (WxColourDatabase.get()) ("GREY"));
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_ENTITY wxRED;
+  WxStyledTextCtrl.styleSetBold this wxSTC_H_ENTITY true;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_TAGEND wxBLUE;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_XMLSTART wxBLUE;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_XMLEND wxBLUE;
+  WxStyledTextCtrl.styleSetForeground this wxSTC_H_CDATA wxRED;
+  ()
 
-        SetMarginType(margin_id_lineno, wxSTC_MARGIN_NUMBER);
-        SetMarginWidth(margin_id_lineno, 32);
 
-        MarkerDefine(wxSTC_MARKNUM_FOLDER,        wxSTC_MARK_BOXPLUS, wxT("WHITE"), wxT("BLACK"));
-        MarkerDefine(wxSTC_MARKNUM_FOLDEROPEN,    wxSTC_MARK_BOXMINUS,  wxT("WHITE"), wxT("BLACK"));
-        MarkerDefine(wxSTC_MARKNUM_FOLDERSUB,     wxSTC_MARK_VLINE,     wxT("WHITE"), wxT("BLACK"));
-        MarkerDefine(wxSTC_MARKNUM_FOLDEREND,     wxSTC_MARK_BOXPLUSCONNECTED, wxT("WHITE"), wxT("BLACK"));
-        MarkerDefine(wxSTC_MARKNUM_FOLDEROPENMID, wxSTC_MARK_BOXMINUSCONNECTED, wxT("WHITE"), wxT("BLACK"));
-        MarkerDefine(wxSTC_MARKNUM_FOLDERMIDTAIL, wxSTC_MARK_TCORNER,     wxT("WHITE"), wxT("BLACK"));
-        MarkerDefine(wxSTC_MARKNUM_FOLDERTAIL,    wxSTC_MARK_LCORNER,     wxT("WHITE"), wxT("BLACK"));
+let myMinimalEditor_OnMarginClick editor event =
+  let margin = EditEvent.getMargin event in
+  if margin = margin_id_fold then
+    let lineClick = Edit.lineFromPosition editor
+        (EditEvent.getPosition event) in
+      let levelClick = Edit.getFoldLevel editor lineClick in
+    if levelClick land wxSTC_FOLDLEVELHEADERFLAG > 0 then
+      Edit.toggleFold editor lineClick
 
-        SetMarginMask(margin_id_fold, wxSTC_MASK_FOLDERS);
-        SetMarginWidth(margin_id_fold, 32);
-        SetMarginSensitive(margin_id_fold, true);
+let myMinimalEditor_OnText editor event =
 
-        SetFoldFlags(wxSTC_FOLDFLAG_LINEBEFORE_CONTRACTED | wxSTC_FOLDFLAG_LINEAFTER_CONTRACTED);
+    WxMisc.wxLogDebug "Modified";
+    EditEvent.skip event true
 
-        SetTabWidth(4);
-        SetUseTabs(false);
-        SetWrapMode(wxSTC_WRAP_WORD);
-        SetWrapVisualFlags(wxSTC_WRAPVISUALFLAG_END);
-    }
+
+let  new_MinimalEditor parent id =
+  let this = WxStyledTextCtrl.create parent id
+      wxDefaultPosition wxDefaultSize 0
+  in
+
+  myMinimalEditor_SetLexerXml this;
+
+  WxStyledTextCtrl.setProperty this ("fold") ("1");
+  WxStyledTextCtrl.setProperty this ("fold.comment") ("1");
+  WxStyledTextCtrl.setProperty this ("fold.compact") ("1");
+  WxStyledTextCtrl.setProperty this ("fold.preprocessor") ("1");
+  WxStyledTextCtrl.setProperty this ("fold.html") ("1");
+  WxStyledTextCtrl.setProperty this ("fold.html.preprocessor") ("1");
+
+  WxStyledTextCtrl.setMarginType this margin_id_lineno wxSTC_MARGIN_NUMBER;
+  WxStyledTextCtrl.setMarginWidth this margin_id_lineno 32;
+
+  WxStyledTextCtrl.markerDefine this wxSTC_MARKNUM_FOLDER
+    wxSTC_MARK_BOXPLUS (wxColour "WHITE") (wxColour "BLACK");
+  WxStyledTextCtrl.markerDefine this wxSTC_MARKNUM_FOLDEROPEN
+    wxSTC_MARK_BOXMINUS (wxColour "WHITE") (wxColour "BLACK");
+  WxStyledTextCtrl.markerDefine this wxSTC_MARKNUM_FOLDERSUB
+    wxSTC_MARK_VLINE (wxColour "WHITE") (wxColour "BLACK");
+  WxStyledTextCtrl.markerDefine this wxSTC_MARKNUM_FOLDEREND
+    wxSTC_MARK_BOXPLUSCONNECTED (wxColour "WHITE") (wxColour "BLACK");
+  WxStyledTextCtrl.markerDefine this wxSTC_MARKNUM_FOLDEROPENMID
+   wxSTC_MARK_BOXMINUSCONNECTED (wxColour "WHITE") (wxColour "BLACK");
+  WxStyledTextCtrl.markerDefine this wxSTC_MARKNUM_FOLDERMIDTAIL
+    wxSTC_MARK_TCORNER (wxColour "WHITE") (wxColour "BLACK");
+  WxStyledTextCtrl.markerDefine this wxSTC_MARKNUM_FOLDERTAIL
+    wxSTC_MARK_LCORNER (wxColour "WHITE") (wxColour "BLACK");
+
+  WxStyledTextCtrl.setMarginMask this margin_id_fold wxSTC_MASK_FOLDERS;
+  WxStyledTextCtrl.setMarginWidth this margin_id_fold 32;
+  WxStyledTextCtrl.setMarginSensitive this margin_id_fold true;
+
+  WxStyledTextCtrl.setFoldFlags this
+    (wxSTC_FOLDFLAG_LINEBEFORE_CONTRACTED lor
+       wxSTC_FOLDFLAG_LINEAFTER_CONTRACTED);
+
+  WxStyledTextCtrl.setTabWidth this (4);
+  WxStyledTextCtrl.setUseTabs this (false);
+  WxStyledTextCtrl.setWrapMode this (wxSTC_WRAP_WORD);
+  WxStyledTextCtrl.setWrapVisualFlags this (wxSTC_WRAPVISUALFLAG_END);
+
+
+  WxEVENT_TABLE.(wxStyledTextCtrl this this [
+      EVT_STC_MARGINCLICK(wxID_ANY, myMinimalEditor_OnMarginClick);
+      EVT_STC_CHANGE(wxID_ANY, myMinimalEditor_OnText)
+    ]);
+
+    this
+
+(* TODO
     virtual bool SetFont(const wxFont& font)
     {
         StyleSetFont(wxSTC_STYLE_DEFAULT, (wxFont&)font);
         return wxStyledTextCtrl::SetFont(font);
     }
-    void SetLexerXml()
-    {
-        SetLexer(wxSTC_LEX_XML);
-        StyleSetForeground(wxSTC_H_DEFAULT, *wxBLACK);
-        StyleSetForeground(wxSTC_H_TAG, *wxBLUE);
-        StyleSetForeground(wxSTC_H_TAGUNKNOWN, *wxBLUE);
-        StyleSetForeground(wxSTC_H_ATTRIBUTE, *wxRED);
-        StyleSetForeground(wxSTC_H_ATTRIBUTEUNKNOWN, *wxRED);
-        StyleSetBold(wxSTC_H_ATTRIBUTEUNKNOWN, true);
-        StyleSetForeground(wxSTC_H_NUMBER, *wxBLACK);
-        StyleSetForeground(wxSTC_H_DOUBLESTRING, *wxBLACK);
-        StyleSetForeground(wxSTC_H_SINGLESTRING, *wxBLACK);
-        StyleSetForeground(wxSTC_H_OTHER, *wxBLUE);
-        StyleSetForeground(wxSTC_H_COMMENT, wxTheColourDatabase->Find(wxT("GREY")));
-        StyleSetForeground(wxSTC_H_ENTITY, *wxRED);
-        StyleSetBold(wxSTC_H_ENTITY, true);
-        StyleSetForeground(wxSTC_H_TAGEND, *wxBLUE);
-        StyleSetForeground(wxSTC_H_XMLSTART, *wxBLUE);
-        StyleSetForeground(wxSTC_H_XMLEND, *wxBLUE);
-        StyleSetForeground(wxSTC_H_CDATA, *wxRED);
-    }
-protected:
-    void OnMarginClick(wxStyledTextEvent&);
-    void OnText(wxStyledTextEvent&);
-    DECLARE_EVENT_TABLE()
-};
-
-BEGIN_EVENT_TABLE(MinimalEditor, wxStyledTextCtrl)
-    EVT_STC_MARGINCLICK(wxID_ANY, MinimalEditor::OnMarginClick)
-    EVT_STC_CHANGE(wxID_ANY, MinimalEditor::OnText)
-END_EVENT_TABLE()
-
-void MinimalEditor::OnMarginClick(wxStyledTextEvent &event)
-{
-    if (event.GetMargin() == margin_id_fold)
-    {
-        int lineClick = LineFromPosition(event.GetPosition());
-        int levelClick = GetFoldLevel(lineClick);
-        if ((levelClick & wxSTC_FOLDLEVELHEADERFLAG) > 0)
-        {
-            ToggleFold(lineClick);
-        }
-    }
-}
-
-void MinimalEditor::OnText(wxStyledTextEvent& event)
-{
-    wxLogDebug(wxT("Modified"));
-    event.Skip();
-}
-
-class MinimalEditorFrame : public wxFrame
-{
-public:
-    MinimalEditorFrame() : wxFrame(NULL, wxID_ANY, _("Minimal Editor"))
-    {
-        MinimalEditor* editor = new MinimalEditor(this);
-        editor->SetFont(wxSystemSettings::GetFont(wxSYS_ANSI_FIXED_FONT));
-        wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
-        sizer->Add(editor, 1, wxEXPAND);
-        SetSizer(sizer);
-        editor->SetText(
-           "<xml>\n"
-           "   <text>\n"
-           "      This is xml with syntax highlighting, line numbers, folding, word wrap and context menu\n"
-           "   </text>\n"
-           "</xml>"
-           );
-    }
-};
-
-wxFrame* App::MinimalEditor()
-{
-    MinimalEditorFrame* frame = new MinimalEditorFrame;
-    frame->Show();
-    return frame;
-}
-
-void App::OnMinimalEditor(wxCommandEvent& WXUNUSED(event))
-{
-    MinimalEditor();
-}
-
 *)
 
-let new_AppFrame title =
+let new_MinimalEditorFrame () =
+  let this = wxFrame None wxID_ANY "Minimal Editor" in
+  let editor = new_MinimalEditor (WxFrame.wxWindow this) wxID_ANY in
+  (* TODO
+          editor->SetFont(wxSystemSettings::GetFont(wxSYS_ANSI_FIXED_FONT));
+  *)
+
+  HSIZER.(wxFrame this false
+       [
+         AddWindow( [Expand; Proportion 100], Edit.wxWindow editor);
+       ]);
+
+  Edit.setText editor
+    (
+      "<xml>\n" ^
+      "   <text>\n" ^
+      "      This is xml with syntax highlighting, line numbers, folding, word wrap and context menu\n" ^
+      "   </text>\n" ^
+      "</xml>"
+    );
+  this
+
+let myApp_MinimalEditor() =
+
+  let frame = new_MinimalEditorFrame () in
+  ignore_wxStatusBar (WxFrame.createStatusBar frame);
+  ignore_bool (WxFrame.show frame);
+  frame
+
+let myApp_OnMinimalEditor appFrame event =
+    ignore_wxFrame (myApp_MinimalEditor())
+
+
+let new_AppFrame m_app title =
 
   let this = wxFrameAll None wxID_ANY title wxDefaultPosition (750,550)
-                    (wxDEFAULT_FRAME_STYLE lor wxNO_FULL_REPAINT_ON_RESIZE)
+      (wxDEFAULT_FRAME_STYLE lor wxNO_FULL_REPAINT_ON_RESIZE)
   in
   let w_this = WxFrame.wxWindow this in
 
   WxFrame.setIcon this (WxIcon.createFromXPM Sample_xpm.sample_xpm);
 
-    (* initialize important variables*)
-(*    m_edit = NULL; *)
+  (* initialize important variables*)
+  (*    m_edit = NULL; *)
 
-    (* set icon and background*)
-    WxFrame.setTitle this title;
-    ignore_bool (WxFrame.setBackgroundColour this
+  (* set icon and background*)
+  WxFrame.setTitle this title;
+  ignore_bool (WxFrame.setBackgroundColour this
       (WxColour.createName (wxT("WHITE"))));
 
-    (* about box shown for 1 seconds*)
-  let _dlg = new_AppAbout w_this 1000 in
+  (* about box shown for 1 seconds*)
+  ignore_wxDialog ( new_AppAbout w_this 1000 0 );
 
-    (* create menu*)
+  (* create menu*)
   MENU_BAR.(wxFrame this [
-      (* TODO: CreateMenu *)
+
+
+      "&File",
+      [
+        Append (wxID_OPEN, wxT("&Open ..\tCtrl+O"));
+        Append (wxID_SAVE, wxT("&Save\tCtrl+S"));
+        Append (wxID_SAVEAS, wxT("Save &as ..\tCtrl+Shift+S"));
+        Append (wxID_CLOSE, wxT("&Close\tCtrl+W"));
+        AppendSeparator();
+        Append (myID_PROPERTIES, wxT("Proper&ties ..\tCtrl+I"));
+        AppendSeparator();
+        Append (wxID_PRINT_SETUP, wxT("Print Set&up .."));
+        Append (wxID_PREVIEW, wxT("Print Pre&view\tCtrl+Shift+P"));
+        Append (wxID_PRINT, wxT("&Print ..\tCtrl+P"));
+        AppendSeparator();
+        Append (wxID_EXIT, wxT("&Quit\tCtrl+Q"));
+      ];
+
+      "&Edit",
+      [
+        Append (wxID_UNDO, wxT("&Undo\tCtrl+Z"));
+        Append (wxID_REDO, wxT("&Redo\tCtrl+Shift+Z"));
+        AppendSeparator();
+        Append (wxID_CUT, wxT("Cu&t\tCtrl+X"));
+        Append (wxID_COPY, wxT("&Copy\tCtrl+C"));
+        Append (wxID_PASTE, wxT("&Paste\tCtrl+V"));
+        Append (wxID_CLEAR, wxT("&Delete\tDel"));
+        AppendSeparator();
+        Append (wxID_FIND, wxT("&Find\tCtrl+F"));
+        Enable (wxID_FIND, false);
+        Append (myID_FINDNEXT, wxT("Find &next\tF3"));
+        Enable (myID_FINDNEXT, false);
+        Append (myID_REPLACE, wxT("&Replace\tCtrl+H"));
+        Enable (myID_REPLACE, false);
+        Append (myID_REPLACENEXT, wxT("Replace &again\tShift+F4"));
+        Enable (myID_REPLACENEXT, false);
+        AppendSeparator();
+        Append (myID_BRACEMATCH, wxT("&Match brace\tCtrl+M"));
+        Append (myID_GOTO, wxT("&Goto\tCtrl+G"));
+        Enable (myID_GOTO, false);
+        AppendSeparator();
+        Append (myID_INDENTINC, wxT("&Indent increase\tTab"));
+        Append (myID_INDENTRED, wxT("I&ndent reduce\tShift+Tab"));
+        AppendSeparator();
+        Append (wxID_SELECTALL, wxT("&Select all\tCtrl+A"));
+        Append (myID_SELECTLINE, wxT("Select &line\tCtrl+L"));
+      ];
+
+      "&View",
+      [
+        AppendSub (myID_HILIGHTLANG, wxT("&Hilight language .."),
+          List.mapi (fun i pref ->
+            (* g_LanguagePrefsSize *)
+            Append (myID_HILIGHTFIRST + i, pref.name))
+            g_LanguagePrefs);
+        AppendSeparator();
+        AppendCheckItem (myID_FOLDTOGGLE, wxT("&Toggle current fold\tCtrl+T"));
+        AppendCheckItem (myID_OVERTYPE, wxT("&Overwrite mode\tIns"));
+        AppendCheckItem (myID_WRAPMODEON, wxT("&Wrap mode\tCtrl+U"));
+        AppendSeparator();
+        AppendCheckItem (myID_DISPLAYEOL, wxT("Show line &endings"));
+        AppendCheckItem (myID_INDENTGUIDE, wxT("Show &indent guides"));
+        AppendCheckItem (myID_LINENUMBER, wxT("Show line &numbers"));
+        AppendCheckItem (myID_LONGLINEON, wxT("Show &long line marker"));
+        AppendCheckItem (myID_WHITESPACE, wxT("Show white&space"));
+        AppendSeparator();
+        AppendSub (myID_USECHARSET, wxT("Use &code page of .."),
+          [
+            Append (myID_CHARSETANSI, wxT("&ANSI (Windows)"));
+            Append (myID_CHARSETMAC, wxT("&MAC (Macintosh)"));
+          ]);
+      ];
+
+      "E&xtra",
+      [
+        AppendCheckItem (myID_READONLY, wxT("&Readonly mode"));
+        AppendSeparator();
+        AppendSub (myID_CHANGECASE, wxT("Change &case to .."),
+          [
+            Append (myID_CHANGEUPPER, wxT("&Upper case"));
+            Append (myID_CHANGELOWER, wxT("&Lower case"));
+          ]);
+        AppendSeparator();
+        AppendSub (myID_CONVERTEOL, wxT("Convert line &endings to .."),
+          [
+            Append (myID_CONVERTCR, wxT("CR (&Linux)"));
+            Append (myID_CONVERTCRLF, wxT("CR+LF (&Windows)"));
+            Append (myID_CONVERTLF, wxT("LF (&Macintosh)"));
+          ]);
+      ];
+
+      "&Window",
+      [
+        Append (myID_PAGEPREV, wxT("&Previous\tCtrl+Shift+Tab"));
+        Append (myID_PAGENEXT, wxT("&Next\tCtrl+Tab"));
+        Append(myID_WINDOW_MINIMAL, wxT("&Minimal editor"));
+      ];
+
+      "&Help",
+      [
+        Append (wxID_ABOUT, wxT("&About ..\tShift+F1"));
+      ]
     ]);
 
   (* open first page*)
@@ -2497,19 +2497,80 @@ let new_AppFrame title =
   Edit.setFocus m_edit;
 
   let appFrame = {
-    m_edit; m_frame = this;
+    m_app; m_edit; m_frame = this;
   } in
+
+  let w_frame = WxFrame.wxWindow this in
+
+
+  WxEVENT_TABLE.(wxFrame this appFrame [
+      (* file*)
+      EVT_MENU (wxID_OPEN, appFrame_OnFileOpen);
+      EVT_MENU (wxID_ABOUT,            (fun _ _ ->
+          ignore (new_AppAbout w_frame 0 0)));
+
+(*
+    (* common*)
+    EVT_CLOSE (                      appFrame_OnClose)
+    (* file*)
+    EVT_MENU (wxID_OPEN,             appFrame_OnFileOpen)
+    EVT_MENU (wxID_SAVE,             appFrame_OnFileSave)
+    EVT_MENU (wxID_SAVEAS,           appFrame_OnFileSaveAs)
+    EVT_MENU (wxID_CLOSE,            appFrame_OnFileClose)
+    (* properties*)
+    EVT_MENU (myID_PROPERTIES,       appFrame_OnProperties)
+    (* print and exit*)
+    EVT_MENU (wxID_PRINT_SETUP,      appFrame_OnPrintSetup)
+    EVT_MENU (wxID_PREVIEW,          appFrame_OnPrintPreview)
+    EVT_MENU (wxID_PRINT,            appFrame_OnPrint)
+    EVT_MENU (wxID_EXIT,             appFrame_OnExit)
+    (* edit*)
+    EVT_MENU (wxID_CLEAR,            appFrame_OnEdit)
+    EVT_MENU (wxID_CUT,              appFrame_OnEdit)
+    EVT_MENU (wxID_COPY,             appFrame_OnEdit)
+    EVT_MENU (wxID_PASTE,            appFrame_OnEdit)
+    EVT_MENU (myID_INDENTINC,        appFrame_OnEdit)
+    EVT_MENU (myID_INDENTRED,        appFrame_OnEdit)
+    EVT_MENU (wxID_SELECTALL,        appFrame_OnEdit)
+    EVT_MENU (myID_SELECTLINE,       appFrame_OnEdit)
+    EVT_MENU (wxID_REDO,             appFrame_OnEdit)
+    EVT_MENU (wxID_UNDO,             appFrame_OnEdit)
+    (* find*)
+    EVT_MENU (wxID_FIND,             appFrame_OnEdit)
+    EVT_MENU (myID_FINDNEXT,         appFrame_OnEdit)
+    EVT_MENU (myID_REPLACE,          appFrame_OnEdit)
+    EVT_MENU (myID_REPLACENEXT,      appFrame_OnEdit)
+    EVT_MENU (myID_BRACEMATCH,       appFrame_OnEdit)
+    EVT_MENU (myID_GOTO,             appFrame_OnEdit)
+    (* view*)
+    EVT_MENU_RANGE (myID_HILIGHTFIRST, myID_HILIGHTLAST,
+                                     appFrame_OnEdit)
+    EVT_MENU (myID_DISPLAYEOL,       appFrame_OnEdit)
+    EVT_MENU (myID_INDENTGUIDE,      appFrame_OnEdit)
+    EVT_MENU (myID_LINENUMBER,       appFrame_OnEdit)
+    EVT_MENU (myID_LONGLINEON,       appFrame_OnEdit)
+    EVT_MENU (myID_WHITESPACE,       appFrame_OnEdit)
+    EVT_MENU (myID_FOLDTOGGLE,       appFrame_OnEdit)
+    EVT_MENU (myID_OVERTYPE,         appFrame_OnEdit)
+    EVT_MENU (myID_READONLY,         appFrame_OnEdit)
+    EVT_MENU (myID_WRAPMODEON,       appFrame_OnEdit)
+    (* extra*)
+    EVT_MENU (myID_CHANGELOWER,      appFrame_OnEdit)
+    EVT_MENU (myID_CHANGEUPPER,      appFrame_OnEdit)
+    EVT_MENU (myID_CONVERTCR,        appFrame_OnEdit)
+    EVT_MENU (myID_CONVERTCRLF,      appFrame_OnEdit)
+    EVT_MENU (myID_CONVERTLF,        appFrame_OnEdit)
+    EVT_MENU (myID_CHARSETANSI,      appFrame_OnEdit)
+    EVT_MENU (myID_CHARSETMAC,       appFrame_OnEdit)
+    (* help*)
+    EVT_MENU (wxID_ABOUT,            appFrame_OnAbout)
+*)
+
+
+    ]);
 
   appFrame_FileOpen appFrame (wxT("samples/stc/stc.ml"));
   appFrame
-
-
-(*
-
-BEGIN_EVENT_TABLE(App, wxApp)
-EVT_MENU(myID_WINDOW_MINIMAL, App::OnMinimalEditor)
-END_EVENT_TABLE()
-*)
 
 (*----------------------------------------------------------------------------*)
 (* App*)
@@ -2517,13 +2578,10 @@ END_EVENT_TABLE()
 
 let myApp_OnInit (app : wxApp) =
 
-(*    wxInitAllImageHandlers(); *)
 
     (* set application and vendor name*)
     WxApp.setAppName app _APP_NAME;
     WxApp.setVendorName app _APP_VENDOR;
-
-    let g_appname = _APP_VENDOR ^ "-" ^ _APP_NAME in
 
 (*
 #if wxUSE_PRINTING_ARCHITECTURE
@@ -2533,11 +2591,18 @@ let myApp_OnInit (app : wxApp) =
 #endif (* wxUSE_PRINTING_ARCHITECTURE*)
 *)
     (* create application frame*)
-    let app = new_AppFrame g_appname in
+    let appFrame = new_AppFrame app g_appname in
 
     (* open application frame*)
-    WxFrame.layout app.m_frame;
-    ignore_bool (WxFrame.show app.m_frame);
+    WxFrame.layout appFrame.m_frame;
+    ignore_wxStatusBar (WxFrame.createStatusBar appFrame.m_frame);
+    ignore_bool (WxFrame.show appFrame.m_frame);
+
+
+    WxEVENT_TABLE.(wxApp app appFrame [
+        EVT_MENU(myID_WINDOW_MINIMAL, myApp_OnMinimalEditor);
+      ]);
+
     ()
 
 

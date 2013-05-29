@@ -1,0 +1,10 @@
+
+class wxColourDatabase begin
+
+  function{ gen_cpp = false }(wxColourDatabase, get)()
+
+  void 	AddColour (const wxString &colourName, const wxColour &colour)
+  wxColour 	Find (const wxString &colourName) const
+  wxString 	FindName (const wxColour &colour) const
+
+end

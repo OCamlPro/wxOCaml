@@ -71,7 +71,118 @@ let fprintf_ml_of_ctype ml_oc ctype =
     raise Exit
 
 
-  let mltype_of_prototype ml_oc cl p =
+let string_of_ctype ctype =
+  try
+    match snd ctype with
+    | Typ_ident wxClass ->
+      let wxClass_equiv = find_ocaml_equiv wxClass in
+      begin match wxClass_equiv with
+          "void" -> "unit"
+        |  "bool" ->  "bool "
+        | "int" | "long" ->  "int"
+        | "int64" ->  "int64"
+        | "int32" ->  "int32"
+        | "float" | "double" ->  "float"
+        | "string" ->  "string"
+        (* This last item should only be allowed for returned values *)
+        | _ when wxClass.[0] = 'w' && wxClass.[1] = 'x' -> wxClass
+        | _ -> raise Not_found
+      end
+    | Typ_reference (_, Typ_ident wxClass) ->
+      begin match wxClass with
+        | "wxPoint"
+        | "wxSize"
+        | "wxRect"
+        | "wxString"
+        | _ ->
+          wxClass
+      end
+
+    | Typ_pointer (_, Typ_ident wxClass)
+      ->
+      begin match wxClass with
+        | "strings" -> "string array"
+        | "wxPoint"
+        | "wxSize"
+        | "wxRect"
+        | "wxString"
+        | _ ->
+          wxClass
+      end
+    | Typ_option (_, Typ_ident wxClass)
+      ->
+      begin match wxClass with
+        | "wxPoint"
+        | "wxSize"
+        | "wxRect"
+        | "ints"
+        | "wxString"
+        | _ ->
+          Printf.sprintf "%s option" wxClass
+      end
+    | Typ_direct -> ""
+
+
+    | ctype -> raise Not_found
+  with Not_found ->
+    Printf.eprintf
+      "Error: unable to print OCaml version of type:\n%s\n%!"
+      (GenCplusplus.string_of_ctype ctype);
+    exit_code := 2;
+    raise Exit
+
+
+let fprintf_mltype ml_oc mlt =
+  List.iter (fun (arg_name, arg_type) ->
+    fprintf ml_oc "%s -> " arg_type
+  ) (mlt.f_self @ mlt.f_args);
+  fprintf ml_oc "%s" (String.concat " * " mlt.f_ret)
+
+
+let mltype_of_prototype cl p =
+  let f_self =
+    match p.proto_kind with
+      ProtoNew -> []
+    | ProtoFunction -> []
+    | ProtoMethod -> [ "self", cl.class_name ]
+    | ProtoValue -> assert false
+  in
+  let f_args = ref [] in
+  let f_ret = ref [] in
+  List.iter (fun arg ->
+    match arg.arg_direction, arg.arg_ocaml with
+    | In, Some s ->
+      f_args := (arg.arg_name, s) :: !f_args
+    | In, None ->
+      let s = string_of_ctype arg.arg_ctype in
+      if s <> "" then
+        f_args := ("ml_" ^ arg.arg_name, s) :: !f_args
+    | Out, _ ->
+      let s = string_of_ctype arg.arg_ctype in
+      f_ret := s :: !f_ret
+  ) p.proto_args;
+  let f_args = List.rev !f_args in
+  let f_ret = List.rev !f_ret in
+  let f_args =
+    if f_self @ f_args = [] then [ "arg", "unit" ] else f_args
+  in
+
+  let proto_ret = match p.proto_ret with
+      None -> MUTABLE, Typ_pointer (MUTABLE, Typ_ident cl.class_name)
+    | Some ctype -> ctype in
+  let f_ret = if snd proto_ret = Typ_ident "void" then f_ret else
+      string_of_ctype proto_ret :: f_ret
+  in
+  let f_ret = if f_ret = [] then [ "unit" ] else f_ret in
+  let f_mlname = ml_function_name cl p in
+  let f_cppname = c_function_name cl p in
+  {
+    f_ret; f_args; f_mlname; f_cppname;
+    f_proto = p; f_self;
+  }
+
+(*
+let mltype_of_prototype ml_oc cl p =
   let self_arg =
     match p.proto_kind with
       ProtoNew -> fprintf ml_oc "\n   "; 0
@@ -133,23 +244,25 @@ let fprintf_ml_of_ctype ml_oc ctype =
     end
   end;
   !at_least_nargs + self_arg
+*)
+
 
 let generate_method_function ml_oc c_name cl p =
-  let ml_name = ml_function_name cl p in
+  let mltype = mltype_of_prototype cl p in
 
 (*  Printf.eprintf "add_defs %s::%s\n%!" cl.class_name p.proto_name; *)
-  cl.class_defs <- StringMap.add p.proto_name p cl.class_defs;
+  cl.class_defs <- StringMap.add p.proto_name mltype cl.class_defs;
 
 
-  fprintf ml_oc "\nexternal %s : " ml_name;
-  let ml_nargs = mltype_of_prototype ml_oc cl p in
+  fprintf ml_oc "\nexternal %s : " mltype.f_mlname;
+  let _ml_nargs = fprintf_mltype ml_oc mltype in
 
   fprintf ml_oc " = ";
-  if ml_nargs > 5 then
+  if List.length mltype.f_args + List.length mltype.f_self > 5 then
     fprintf ml_oc "\"%s_bytecode\" " c_name;
   fprintf ml_oc "%S\n\n" c_name;
 
-  ml_name
+  mltype.f_mlname
 
 let generate_values_stub ml_oc cl values =
   fprintf ml_oc "\nexternal get_VALUES : unit -> (\n   ";
@@ -187,14 +300,20 @@ let generate_class_module source_dirname cl =
 
     in
     let values = ref [] in
-
+    let constructors = ref [] in
+    let methods = ref [] in
     List.iter (fun p ->
       match p.proto_kind with
       | ProtoValue -> values := p :: !values
       | ProtoNew when cl.class_virtual = VIRTUAL -> ()
-      | ProtoNew
+      | ProtoNew ->
+        constructors := p :: !constructors
       | ProtoFunction
       | ProtoMethod ->
+        methods := p :: !methods
+    ) cl.class_methods;
+
+    List.iter (fun p ->
       try
         let c_name = c_function_name cl p in
         let ml_name = generate_method_function ml_oc c_name cl p in
@@ -202,8 +321,18 @@ let generate_class_module source_dirname cl =
       with Exit ->
         Printf.eprintf "while printing OCaml of method %S\n" p.proto_name;
         raise Exit
-    ) cl.class_methods;
+    ) !methods;
 
+
+    List.iter (fun p ->
+      try
+        let c_name = c_function_name cl p in
+        let ml_name = generate_method_function ml_oc c_name cl p in
+        check_ml_name ml_name cl
+      with Exit ->
+        Printf.eprintf "while printing OCaml of method %S\n" p.proto_name;
+        raise Exit
+    ) !constructors;
 
 
     fprintf ml_oc "\n(* Methods inherited from parents, if any *)\n";
@@ -223,6 +352,54 @@ let generate_class_module source_dirname cl =
             raise Exit
       ) pcl.class_methods;
     ) cl.class_parents;
+
+    let properties = ref [] in
+    StringMap.iter (fun cname mlt ->
+      let len = String.length cname in
+      if mlt.f_self <> [] && len > 3 && String.sub cname 0 3 = "Set" then
+        properties := (cname, mlt) :: !properties
+    ) cl.class_defs;
+
+    if !properties <> [] then begin
+      fprintf ml_oc "type property = \n";
+      List.iter (fun (cname, mlt) ->
+        match mlt.f_args with
+          [] ->
+          fprintf ml_oc " | %s\n" mlt.f_proto.proto_name
+        | _ ->
+          fprintf ml_oc " | %s of %s\n" mlt.f_proto.proto_name
+            (String.concat " * " (List.map snd mlt.f_args))
+      ) !properties;
+
+      fprintf ml_oc "let set self props =\n";
+      fprintf ml_oc "  List.iter (function\n";
+      List.iter (fun (cname, mlt) ->
+        match mlt.f_args with
+          [] ->
+          fprintf ml_oc " | %s -> ignore (%s self)\n"
+            mlt.f_proto.proto_name
+            mlt.f_mlname
+        | _ ->
+          fprintf ml_oc " | %s (%s) -> \n" mlt.f_proto.proto_name
+            (String.concat " , " (List.map fst mlt.f_args));
+          fprintf ml_oc "      ignore (%s self %s)\n"
+            mlt.f_mlname
+            (String.concat " " (List.map fst mlt.f_args));
+      ) !properties;
+
+      fprintf ml_oc "  ) props; self\n";
+
+      List.iter (fun p ->
+        try
+          let c_name = c_function_name cl p in
+          let mlt = mltype_of_prototype cl p in
+          ()
+
+        with Exit ->
+          Printf.eprintf "while printing OCaml of method %S\n" p.proto_name;
+          raise Exit
+      ) !constructors;
+    end;
 
     if cl.class_parents <> StringMap.empty then begin
       fprintf ml_oc "\n(* Cast functions to parents *)\n";
@@ -318,9 +495,9 @@ let generate_virtuals_module source_dirname modname classes =
       fprintf ml_oc "  type 'a methods = {\n";
       List.iter (fun (name, must, version) ->
         try
-          let p = StringMap.find name cl.class_defs in
+          let mlt = StringMap.find name cl.class_defs in
           fprintf ml_oc "     %s : ( 'a -> " (String.uncapitalize name);
-          let _ml_nargs = mltype_of_prototype ml_oc cl p in
+          let _ml_nargs = fprintf_mltype ml_oc mlt in
           fprintf ml_oc ") %s;\n"
             (match must with MUST -> "" | CAN -> "option");
         with Not_found ->

@@ -2,127 +2,74 @@
 type wxDragResult = int
 
 class wxStyledTextEvent inherit wxCommandEvent begin
-int 	GetPosition () const
- 
-int 	GetKey () const
- 
-int 	GetModifiers () const
- 
-int 	GetModificationType () const
- 
-wxString 	GetText () const
- 
-int 	GetLength () const
- 
-int 	GetLinesAdded () const
- 
-int 	GetLine () const
- 
-int 	GetFoldLevelNow () const
- 
-int 	GetFoldLevelPrev () const
- 
-int 	GetMargin () const
- 
-int 	GetMessage () const
- 
-int 	GetWParam () const
- 
-int 	GetLParam () const
- 
-int 	GetListType () const
- 
-int 	GetX () const
- 
-int 	GetY () const
- 
-(* 
-
-int 	GetToken () const
- 
-int 	GetAnnotationsLinesAdded () const
-
-int 	GetUpdated () const
+  int 	GetPosition () const
+  int 	GetKey () const
+  int 	GetModifiers () const
+  int 	GetModificationType () const
+  wxString 	GetText () const
+  int 	GetLength () const
+  int 	GetLinesAdded () const
+  int 	GetLine () const
+  int 	GetFoldLevelNow () const
+  int 	GetFoldLevelPrev () const
+  int 	GetMargin () const
+  int 	GetMessage () const
+  int 	GetWParam () const
+  int 	GetLParam () const
+  int 	GetListType () const
+  int 	GetX () const
+  int 	GetY () const
+  (* 
+  int 	GetToken () const
+  int 	GetAnnotationsLinesAdded () const
+  int 	GetUpdated () const
 *)
  
-wxString 	GetDragText ()
+  wxString 	GetDragText ()
+  version 2.9 begin 
+    int 	GetDragFlags ()
+  end
 
-version 2.9 begin 
-  int 	GetDragFlags ()
-end
-
-wxDragResult 	GetDragResult ()
- 
-bool 	GetShift () const
- 
-bool 	GetControl () const
- 
-bool 	GetAlt () const
+  wxDragResult 	GetDragResult ()
+  bool 	GetShift () const
+  bool 	GetControl () const
+  bool 	GetAlt () const
 
 end
 
 
 events wxStyledTextEvent [
 
-EVT_STC_CHANGE
-
-EVT_STC_STYLENEEDED
-
-EVT_STC_CHARADDED
-
-EVT_STC_SAVEPOINTREACHED
-
-EVT_STC_SAVEPOINTLEFT
-
-EVT_STC_ROMODIFYATTEMPT
-
-EVT_STC_KEY
-
-EVT_STC_DOUBLECLICK
-
-EVT_STC_UPDATEUI
-
-EVT_STC_MODIFIED
-
-EVT_STC_MACRORECORD
-
-EVT_STC_MARGINCLICK
-
-EVT_STC_NEEDSHOWN
-
-EVT_STC_PAINTED
-
-EVT_STC_USERLISTSELECTION
-
-EVT_STC_URIDROPPED
-
-EVT_STC_DWELLSTART
-
-EVT_STC_DWELLEND
-
-EVT_STC_START_DRAG
-
-EVT_STC_DRAG_OVER
-
-EVT_STC_DO_DROP
-
-EVT_STC_ZOOM
-
-EVT_STC_HOTSPOT_CLICK
-
-EVT_STC_HOTSPOT_DCLICK
-
-EVT_STC_CALLTIP_CLICK
-
-EVT_STC_AUTOCOMP_SELECTION
-
-EVT_STC_INDICATOR_CLICK
-
-EVT_STC_INDICATOR_RELEASE
-
-EVT_STC_AUTOCOMP_CANCELLED
-
-EVT_STC_AUTOCOMP_CHAR_DELETED
+  EVT_STC_CHANGE
+  EVT_STC_STYLENEEDED
+  EVT_STC_CHARADDED
+  EVT_STC_SAVEPOINTREACHED
+  EVT_STC_SAVEPOINTLEFT
+  EVT_STC_ROMODIFYATTEMPT
+  EVT_STC_KEY
+  EVT_STC_DOUBLECLICK
+  EVT_STC_UPDATEUI
+  EVT_STC_MODIFIED
+  EVT_STC_MACRORECORD
+  EVT_STC_MARGINCLICK
+  EVT_STC_NEEDSHOWN
+  EVT_STC_PAINTED
+  EVT_STC_USERLISTSELECTION
+  EVT_STC_URIDROPPED
+  EVT_STC_DWELLSTART
+  EVT_STC_DWELLEND
+  EVT_STC_START_DRAG
+  EVT_STC_DRAG_OVER
+  EVT_STC_DO_DROP
+  EVT_STC_ZOOM
+  EVT_STC_HOTSPOT_CLICK
+  EVT_STC_HOTSPOT_DCLICK
+  EVT_STC_CALLTIP_CLICK
+  EVT_STC_AUTOCOMP_SELECTION
+  EVT_STC_INDICATOR_CLICK
+  EVT_STC_INDICATOR_RELEASE
+  EVT_STC_AUTOCOMP_CANCELLED
+  EVT_STC_AUTOCOMP_CHAR_DELETED
 ]
 
 class wxStyledTextCtrl inherit wxControl begin
@@ -143,45 +90,22 @@ void 	AddText (const wxString &text)
  
 void 	AddStyledText (const wxMemoryBuffer &data)
  	Add array of cells to document. 
+*)
  
 void 	InsertText (int pos, const wxString &text)
- 	Insert string at a position. 
- 
 void 	ClearAll ()
- 	Delete all text in the document. 
- 
-void 	DeleteRange (int pos, int deleteLength)
- 	Delete a range of text in the document. 
- 
 void 	ClearDocumentStyle ()
- 	Set all style bytes to 0, remove all folding information. 
- 
 int 	GetLength () const
- 	Returns the number of bytes in the document. 
- 
 int 	GetCharAt (int pos) const
- 	Returns the character byte at the position. 
- 
 int 	GetCurrentPos () const
- 	Returns the position of the caret. 
- 
 int 	GetAnchor () const
- 	Returns the position of the opposite end of the selection to the caret. 
- 
 int 	GetStyleAt (int pos) const
- 	Returns the style byte at the position. 
- 
 void 	Redo ()
- 	Redoes the next action on the undo history. 
- 
 void 	SetUndoCollection (bool collectUndo)
- 	Choose between collecting actions into the undo history and discarding them. 
- 
 void 	SelectAll ()
- 	Select all the text in the document. 
- 
 void 	SetSavePoint ()
- 	Remember the current position in the undo history as the position at which the document was saved. 
+
+(*
  
 wxMemoryBuffer 	GetStyledText (int startPos, int endPos)
  	Retrieve a buffer of cells. 
@@ -245,17 +169,15 @@ bool 	GetBufferedDraw () const
  
 void 	SetBufferedDraw (bool buffered)
  	If drawing is buffered then each line of text is drawn into a bitmap buffer before drawing it to the screen to avoid flicker. 
- 
+ *)
+
 void 	SetTabWidth (int tabWidth)
- 	Change the visible size of a tab to be a multiple of the width of a space character. 
- 
 int 	GetTabWidth () const
- 	Retrieve the visible size of a tab. 
- 
 void 	SetCodePage (int codePage)
- 	Set the code page used to interpret the bytes of the document as characters. 
- 
+
 void 	MarkerDefine (int markerNumber, int markerSymbol, const wxColour &foreground=wxNullColour, const wxColour &background=wxNullColour)
+
+(*
  	Set the symbol used for a particular marker number, and optionally the fore and background colours. 
  
 void 	MarkerSetForeground (int markerNumber, const wxColour &fore)
@@ -296,32 +218,18 @@ void 	MarkerAddSet (int line, int set)
  
 void 	MarkerSetAlpha (int markerNumber, int alpha)
  	Set the alpha used for a marker that is drawn in the text area, not the margin. 
- 
+ *)
+
 void 	SetMarginType (int margin, int marginType)
- 	Set a margin to be either numeric or symbolic. 
- 
 int 	GetMarginType (int margin) const
- 	Retrieve the type of a margin. 
- 
 void 	SetMarginWidth (int margin, int pixelWidth)
- 	Set the width of a margin to a width expressed in pixels. 
- 
 int 	GetMarginWidth (int margin) const
- 	Retrieve the width of a margin in pixels. 
- 
 void 	SetMarginMask (int margin, int mask)
- 	Set a mask that determines which markers are displayed in a margin. 
- 
 int 	GetMarginMask (int margin) const
- 	Retrieve the marker mask of a margin. 
- 
 void 	SetMarginSensitive (int margin, bool sensitive)
- 	Make a margin sensitive or insensitive to mouse clicks. 
- 
 bool 	GetMarginSensitive (int margin) const
- 	Retrieve the mouse click sensitivity of a margin. 
- 
-void 	SetMarginCursor (int margin, int cursor)
+
+(*
  	Set the cursor shown when the mouse is inside a margin. 
  
 int 	GetMarginCursor (int margin) const
@@ -329,14 +237,13 @@ int 	GetMarginCursor (int margin) const
  
 void 	StyleClearAll ()
  	Clear all the styles and make equivalent to the global default style. 
- 
+ *)
+
 void 	StyleSetForeground (int style, const wxColour &fore)
- 	Set the foreground colour of a style. 
- 
 void 	StyleSetBackground (int style, const wxColour &back)
- 	Set the background colour of a style. 
- 
 void 	StyleSetBold (int style, bool bold)
+
+(*
  	Set a style to be bold or not. 
  
 void 	StyleSetItalic (int style, bool italic)
@@ -614,32 +521,18 @@ void 	AutoCompSetMaxHeight (int rowCount)
  
 int 	AutoCompGetMaxHeight () const
  	Set the maximum height, in rows, of auto-completion and user lists. 
+*)
  
 void 	SetIndent (int indentSize)
- 	Set the number of spaces used for one level of indentation. 
- 
 int 	GetIndent () const
- 	Retrieve indentation size. 
- 
 void 	SetUseTabs (bool useTabs)
- 	Indentation will only use space characters if useTabs is false, otherwise it will use a combination of tabs and spaces. 
- 
 bool 	GetUseTabs () const
- 	Retrieve whether tabs will be used in indentation. 
- 
 void 	SetLineIndentation (int line, int indentSize)
- 	Change the indentation of a line to a number of columns. 
- 
 int 	GetLineIndentation (int line) const
- 	Retrieve the number of columns that a line is indented. 
- 
 int 	GetLineIndentPosition (int line) const
- 	Retrieve the position before the first non indentation character on a line. 
- 
 int 	GetColumn (int pos) const
- 	Retrieve the column number of a position, taking tab width into account. 
- 
-int 	CountCharacters (int startPos, int endPos)
+
+(*
  	Count characters between two positions. 
  
 void 	SetUseHorizontalScrollBar (bool show)
@@ -741,59 +634,29 @@ wxString 	GetTextRange (int startPos, int endPos)
 void 	HideSelection (bool normal)
  	Draw the selection in normal style or with selection highlighted. 
  
+*)
+
 int 	LineFromPosition (int pos) const
- 	Retrieve the line containing a position. 
- 
 int 	PositionFromLine (int line) const
- 	Retrieve the position at the start of a line. 
- 
 void 	LineScroll (int columns, int lines)
- 	Scroll horizontally and vertically. 
- 
 void 	EnsureCaretVisible ()
- 	Ensure the caret is visible. 
- 
 void 	ReplaceSelection (const wxString &text)
- 	Replace the selected text with the argument text. 
- 
 void 	SetReadOnly (bool readOnly)
- 	Set to read only or read write. 
- 
 bool 	CanPaste () const
- 	Will a paste succeed? 
- 
 bool 	CanUndo () const
- 	Are there any undoable actions in the undo history? 
- 
 void 	EmptyUndoBuffer ()
- 	Delete the undo history. 
  
 void 	Undo ()
- 	Undo one action in the undo history. 
- 
 void 	Cut ()
- 	Cut the selection to the clipboard. 
- 
 void 	Copy ()
- 	Copy the selection to the clipboard. 
- 
 void 	Paste ()
- 	Paste the contents of the clipboard into the document replacing the selection. 
- 
 void 	Clear ()
- 	Clear the selection. 
- 
 void 	SetText (const wxString &text)
- 	Replace the contents of the document with the argument text. 
- 
 wxString 	GetText () const
- 	Retrieve all the text in the document. 
- 
 int 	GetTextLength () const
- 	Retrieve the number of characters in the document. 
- 
 void 	SetOvertype (bool overtype)
- 	Set to overtype (true) or insert mode. 
+
+(*
  
 bool 	GetOvertype () const
  	Returns true if overtype mode is active otherwise false is returned. 
@@ -866,89 +729,39 @@ int 	VisibleFromDocLine (int line)
  
 int 	DocLineFromVisible (int lineDisplay)
  	Find the document line of a display line taking hidden lines into account. 
+
+*)
  
 int 	WrapCount (int line)
- 	The number of display lines needed to wrap a document line. 
- 
 void 	SetFoldLevel (int line, int level)
- 	Set the fold level of a line. 
- 
 int 	GetFoldLevel (int line) const
- 	Retrieve the fold level of a line. 
- 
 int 	GetLastChild (int line, int level) const
- 	Find the last child line of a header line. 
- 
 int 	GetFoldParent (int line) const
- 	Find the parent line of a child line. 
- 
 void 	ShowLines (int lineStart, int lineEnd)
- 	Make a range of lines visible. 
- 
 void 	HideLines (int lineStart, int lineEnd)
- 	Make a range of lines invisible. 
- 
 bool 	GetLineVisible (int line) const
- 	Is a line visible? 
- 
-bool 	GetAllLinesVisible () const
- 	Are all lines visible? 
- 
 void 	SetFoldExpanded (int line, bool expanded)
- 	Show the children of a header line. 
- 
 bool 	GetFoldExpanded (int line) const
- 	Is a header line expanded? 
- 
 void 	ToggleFold (int line)
- 	Switch a header line between expanded and contracted. 
- 
 void 	EnsureVisible (int line)
- 	Ensure a particular line is visible by expanding any header line hiding it. 
- 
+
 void 	SetFoldFlags (int flags)
- 	Set some style options for folding. 
- 
 void 	EnsureVisibleEnforcePolicy (int line)
- 	Ensure a particular line is visible by expanding any header line hiding it. 
- 
 void 	SetTabIndents (bool tabIndents)
- 	Sets whether a tab pressed when caret is within indentation indents. 
- 
 bool 	GetTabIndents () const
- 	Does a tab pressed when caret is within indentation indent? 
- 
 void 	SetBackSpaceUnIndents (bool bsUnIndents)
- 	Sets whether a backspace pressed when caret is within indentation unindents. 
- 
 bool 	GetBackSpaceUnIndents () const
- 	Does a backspace pressed when caret is within indentation unindent? 
- 
 void 	SetMouseDwellTime (int periodMilliseconds)
- 	Sets the time the mouse must sit still to generate a mouse dwell event. 
- 
 int 	GetMouseDwellTime () const
- 	Retrieve the time the mouse must sit still to generate a mouse dwell event. 
- 
 int 	WordStartPosition (int pos, bool onlyWordCharacters)
- 	Get position of start of word. 
- 
 int 	WordEndPosition (int pos, bool onlyWordCharacters)
- 	Get position of end of word. 
- 
 void 	SetWrapMode (int mode)
- 	Sets whether text is word wrapped. 
- 
 int 	GetWrapMode () const
- 	Retrieve whether text is word wrapped. 
- 
 void 	SetWrapVisualFlags (int wrapVisualFlags)
- 	Set the display mode of visual flags for wrapped lines. 
- 
 int 	GetWrapVisualFlags () const
- 	Retrive the display mode of visual flags for wrapped lines. 
- 
 void 	SetWrapVisualFlagsLocation (int wrapVisualFlagsLocation)
+
+(*
  	Set the location of visual flags for wrapped lines. 
  
 int 	GetWrapVisualFlagsLocation () const
@@ -1864,17 +1677,25 @@ void 	StartRecord ()
  
 void 	StopRecord ()
  	Stop notifying the container of all key presses and commands. 
- 
+ *)
+
 void 	SetLexer (int lexer)
+
+(*
  	Set the lexing language of the document. 
+
  
 int 	GetLexer () const
  	Retrieve the lexing language of the document. 
  
 void 	Colourise (int start, int end)
  	Colourise a segment of the document using the current lexing language. 
- 
+ *)
+
 void 	SetProperty (const wxString &key, const wxString &value)
+
+
+(*
  	Set up a value that may be used by a lexer for some optional feature. 
  
 void 	SetKeyWords (int keywordSet, const wxString &keyWords)
@@ -2067,12 +1888,15 @@ virtual void 	ShowPosition (long pos)
 virtual wxTextCtrlHitTestResult 	HitTest (const wxPoint &pt, long *pos) const
  
 virtual wxTextCtrlHitTestResult 	HitTest (const wxPoint &pt, wxTextCoord *col, wxTextCoord *row) const
- 
- Public Member Functions inherited from wxControl
- Public Member Functions inherited from wxWindow
- Public Member Functions inherited from wxEvtHandler
- Public Member Functions inherited from wxObject
- Public Member Functions inherited from wxTextEntry
-*)
+ *)
+
+
+version 2.9 begin
+  void 	SetMarginCursor (int margin, int cursor)
+  bool 	GetAllLinesVisible () const
+  void 	DeleteRange (int pos, int deleteLength)
+  int 	CountCharacters (int startPos, int endPos)
+end
+
 end
 

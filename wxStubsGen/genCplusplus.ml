@@ -580,7 +580,8 @@ let generate_virtual_class oc cl =
       List.iter (fun (name, must, version) ->
         incr method_slot;
         try
-          let p = StringMap.find name cl.class_defs in
+          let mlt = StringMap.find name cl.class_defs in
+          let p = mlt.f_proto in
           match p.proto_kind with
             ProtoMethod ->
             fprintf oc "     /* %s */\n    " name;

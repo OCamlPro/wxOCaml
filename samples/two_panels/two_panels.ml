@@ -45,11 +45,12 @@ let _ =
     let plus_id = wxID () in
     let minus_id = wxID () in
     let _m_plus =
-        wxButton (WxPanel.wxWindow m_lp) plus_id "+" (10, 10) (-1, -1) 0
+        WxButton.createAll
+          (WxPanel.wxWindow m_lp) plus_id "+" (10, 10) (-1, -1) 0
     in
 
     let _m_minus =
-      wxButton (WxPanel.wxWindow m_lp) minus_id "-" (10, 60) (-1,-1) 0
+      WxButton.createAll (WxPanel.wxWindow m_lp) minus_id "-" (10, 60) (-1,-1) 0
     in
 
     let m_rp =
@@ -59,7 +60,7 @@ let _ =
     in
 
     let m_text =
-      wxStaticText (WxPanel.wxWindow m_rp)
+      WxStaticText.createAll (WxPanel.wxWindow m_rp)
         WxID.any "0" (40, 60) (-1,-1) 0  in
 
     let counter = ref 0 in

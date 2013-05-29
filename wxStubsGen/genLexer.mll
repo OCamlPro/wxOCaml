@@ -82,7 +82,7 @@ rule token = parse
   | "virtuals" { VIRTUALS }
   | "static"  { STATIC }
   | "events"  { EVENTS }
-  | ['0'-'9']+ { INT(int_of_string (Lexing.lexeme lexbuf)) }
+  | '-'? ['0'-'9']+ { INT(int_of_string (Lexing.lexeme lexbuf)) }
   | '_' { UNDERSCORE }
   | ident "::" ident { IDENT (Lexing.lexeme lexbuf) }
   | ident { IDENT (Lexing.lexeme lexbuf) }

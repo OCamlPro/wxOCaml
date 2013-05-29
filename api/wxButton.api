@@ -1,6 +1,8 @@
 class wxButton inherit wxAnyButton begin
 
-  new(Create)(wxWindow* _prt,int _id, wxString& _txt, 
+  new(Create)(wxWindow* _prt,int _id, wxString& _txt)
+
+  new(CreateAll)(wxWindow* _prt,int _id, wxString& _txt, 
      wxPoint& pos, wxSize& sz, int _stl, _ "wxDefaultValidator")
 
   method(void,SetDefault)()

@@ -227,7 +227,7 @@ let _ =
     let date_string = Printf.sprintf "Selected date: %s" today in
 
     let m_date = wxStaticText (WxPanel.wxWindow m_panel)
-        wxID_ANY date_string (-1,-1) (-1,-1) 0 in
+        wxID_ANY date_string in
     let m_calendar =  doCreateCalendar m_panel date
         (wxCAL_MONDAY_FIRST lor wxCAL_SHOW_HOLIDAYS)
         m_frame
@@ -482,7 +482,7 @@ let _ =
               wxDefaultDateTime wxDefaultPosition wxDefaultSize
               0 "time picker"
           in
-          let m_timeText = WxOCP.wxStaticText w_this "" in
+          let m_timeText = wxStaticText w_this wxID_ANY "" in
           let w_timePicker = WxTimePickerCtrl.wxWindow m_timePicker in
           let w_timeText = WxStaticText.wxWindow m_timeText in
 
@@ -492,8 +492,8 @@ let _ =
 
           let sizerMain = wxFlexGridSizer 0 2 0 0 in
           let s_sizerMain = WxFlexGridSizer.wxSizer sizerMain in
-          let m_text1 = WxOCP.wxStaticText w_this "Enter &time:" in
-          let m_text2 = WxOCP.wxStaticText w_this "Time in ISO format:" in
+          let m_text1 = wxStaticText w_this wxID_ANY "Enter &time:" in
+          let m_text2 = wxStaticText w_this wxID_ANY "Time in ISO format:" in
           let w_text1 = WxStaticText.wxWindow m_text1 in
           let w_text2 = WxStaticText.wxWindow m_text2 in
 
@@ -599,7 +599,7 @@ let _ =
           let w_datePicker = WxDatePickerCtrl.wxWindow m_datePicker in
 
           let w_this = WxDialog.wxWindow this in
-          let m_dateText = WxOCP.wxStaticText w_this "" in
+          let m_dateText = wxStaticText w_this wxID_ANY "" in
           let w_dateText = WxStaticText.wxWindow m_dateText in
 
           let flags = wxALIGN_CENTER lor wxALL in
@@ -608,8 +608,8 @@ let _ =
 
           let sizerMain = wxFlexGridSizer 0 2 0 0 in
           let s_sizerMain = WxFlexGridSizer.wxSizer sizerMain in
-          let m_text1 = WxOCP.wxStaticText w_this "Enter &date:" in
-          let m_text2 = WxOCP.wxStaticText w_this "Date in ISO format:" in
+          let m_text1 = wxStaticText w_this wxID_ANY "Enter &date:" in
+          let m_text2 = wxStaticText w_this wxID_ANY "Date in ISO format:" in
           let w_text1 = WxStaticText.wxWindow m_text1 in
           let w_text2 = WxStaticText.wxWindow m_text2 in
 

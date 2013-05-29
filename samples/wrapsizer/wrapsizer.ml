@@ -192,7 +192,6 @@ let onInit _app =
     WxSizerFlags.addWindow sizerRoot (
       WxButton.wxWindow (
         wxButton w_panel wxID_OK ""
-         wxDefaultPosition wxDefaultSize 0
       )) [ Centre; DoubleBorder ];
 
     let  onButton _ =

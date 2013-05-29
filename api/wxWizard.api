@@ -27,8 +27,8 @@ class wxWizardPageSimple inherit wxWizardPage begin
                 wxWizardPage? next,  (*= NULL *)
                 const wxBitmap& bitmap (*  = wxNullBitmap *)
                 (* wxChar* resource = NULL *))
-   method(void, SetPrev)(wxWizardPage* prev)
-   method(void, SetNext)(wxWizardPage* next)
+   void SetPrev(wxWizardPage* prev)
+   void SetNext(wxWizardPage* next)
 
    function(void, wxWizardPageSimple::Chain)
       (wxWizardPageSimple *first, wxWizardPageSimple *second)

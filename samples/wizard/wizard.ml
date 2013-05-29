@@ -350,8 +350,8 @@ let myWizard_MyWizard frame useSizer =
     (* a wizard page may be either an object of predefined class*)
     let m_page1 = wxWizardPageSimple (Some wizard) in
     let m_page1 = WxWizardPageSimple.wxWizardPage m_page1 in
-
 (*
+
     let methods = WxVirtuals.WxOCamlWizardPage.({
         getPrev = (fun state this ->
           Printf.eprintf "getPrev\n%!";
@@ -369,10 +369,12 @@ let myWizard_MyWizard frame useSizer =
       }) in
     let m_page1 = WxOCamlWizardPage.create methods "m_page1" (Some wizard)
         wxNullBitmap in
+
     let m_page1 = WxOCamlWizardPage.wxWizardPage m_page1 in
+
 *)
 
-    let _text =  wxStaticText (WxWizardPage.wxWindow m_page1)
+    let _text =  WxStaticText.createAll (WxWizardPage.wxWindow m_page1)
         wxID_ANY
         ("This wizard doesn't help you\nto do anything at all.\n" ^
              "\n" ^

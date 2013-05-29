@@ -331,4 +331,17 @@ value wxOCaml_init_ml(value unit_v)
     return Val_abstract(dest_id, ptr2);
   }
 
+
+value wxColourDatabase_get_c()
+{
+  CAMLparam0();
+  CAMLlocal1(ret_v);
+  wxColourDatabase *ret_c = wxTheColourDatabase;
+  ret_v = Val_abstract(WXCLASS_wxColourDatabase, (wxColourDatabase*)  ret_c);
+  CAMLreturn(ret_v);
 }
+
+
+}
+
+

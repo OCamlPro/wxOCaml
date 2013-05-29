@@ -81,8 +81,8 @@ let wxClientDC = WxClientDC.create
 let wxPaintDC = WxPaintDC.create
 let wxGCDC = WxGCDC.create
 let wxGCDCEmpty = WxGCDC.createEmpty
-let wxColour = WxColour.create
-let wxColourName = WxColour.createName
+let wxColour = WxColour.createName
+let wxColours = WxColour.create
 let wxRegion = WxRegion.create
 let wxFont = WxFont.create
 let wxFontAll = WxFont.createAll
@@ -133,6 +133,8 @@ let ignore_option (_ : 'a option) = ()
 
 let ignore_wxStatusBar (_ : wxStatusBar) = ()
 let ignore_wxColour (_ : wxColour) = ()
+let ignore_wxFrame (_ : wxFrame) = ()
+let ignore_wxDialog (_ : wxDialog) = ()
 
 let wxDefaultPosition = (-1,-1)
 let wxDefaultSize = (-1,-1)
@@ -140,10 +142,8 @@ let wxDefaultDateTime = WxDateTime.createEmpty ()
 
 
 module WxOCP = struct
-  let wxStaticText win txt =
-    wxStaticText win wxID_ANY txt wxDefaultPosition wxDefaultSize 0
   let wxButton win id =
-    wxButton win id "" wxDefaultPosition wxDefaultSize 0
+    wxButton win id ""
 
   let wxGetSingleChoiceIndex msg caption choices =
     let array = WxArrayString.create () in
@@ -171,8 +171,9 @@ type wxSizerFlags =
   | Right
   | Bottom
   | Border
-  | Border1 of int
-  | Border2 of int * int
+  | BorderDir of int
+  | BorderSize of int
+  | BorderDirSize of int * int
   | DoubleBorder
   | TripleBorder
   | HorzBorder
@@ -180,6 +181,7 @@ type wxSizerFlags =
   | Shaped
   | FixedMinSize
   | ReserveSpaceEvenIfHidden
+  | Flag of int
 
 module WxSizerFlags = struct
 
@@ -201,14 +203,16 @@ module WxSizerFlags = struct
       | Proportion n -> m_proportion := n
       | Expand -> flag wxEXPAND
       | Align alignment -> align alignment
+      | Flag f -> flag f
       | Centre | Center -> align  wxALIGN_CENTRE
       | Top -> unflag (wxALIGN_BOTTOM lor wxALIGN_CENTRE_VERTICAL)
       | Left -> unflag (wxALIGN_RIGHT lor wxALIGN_CENTRE_HORIZONTAL);
       | Right -> unflag wxALIGN_CENTRE_HORIZONTAL; flag wxALIGN_RIGHT
       | Bottom -> unflag wxALIGN_CENTRE_VERTICAL; flag wxALIGN_BOTTOM
       | Border -> border wxALL defaultBorder
-      | Border1 dir -> border dir defaultBorder
-      | Border2 (dir, size) -> border dir size
+      | BorderDir dir -> border dir defaultBorder
+      | BorderSize size -> border wxALL size
+      | BorderDirSize (dir, size) -> border dir size
       | DoubleBorder -> border wxALL (2 * defaultBorder)
       | TripleBorder -> border wxALL (3 * defaultBorder)
       | HorzBorder -> border (wxLEFT lor wxRIGHT) defaultBorder
@@ -240,25 +244,34 @@ module MENU_BAR = struct
     | AppendCheckItem of int * string
     | AppendCheckItem2 of int * string * string
     | Check of int * bool
+    | Enable of int * bool
+    | AppendSub of int * string * menu_item list
+    | AppendSubHelp of int * string * menu_item list * string
 
-  let make_wxMenu items =
-    let menuFile = wxMenu "" 0 in
+  let rec make_wxMenu items =
+    let menu = wxMenu "" 0 in
     List.iter (fun option ->
       match option with
         Append (id, txt) ->
-        WxMenu.append menuFile id txt "" wxITEM_NORMAL
+        WxMenu.append menu id txt "" wxITEM_NORMAL
       | Append2 (id, t1, t2) ->
-        WxMenu.append menuFile id t1 t2 wxITEM_NORMAL
+        WxMenu.append menu id t1 t2 wxITEM_NORMAL
       | AppendSeparator _ ->
-        WxMenu.appendSeparator menuFile
+        WxMenu.appendSeparator menu
       | AppendCheckItem (id, t1) ->
-        WxMenu.appendCheckItem menuFile id t1 ""
+        WxMenu.appendCheckItem menu id t1 ""
       | AppendCheckItem2 (id, t1, t2) ->
-        WxMenu.appendCheckItem menuFile id t1 t2
+        WxMenu.appendCheckItem menu id t1 t2
       | Check (id, bool) ->
-        WxMenu.check menuFile id bool
+        WxMenu.check menu id bool
+      | Enable (id, bool) ->
+        WxMenu.enable menu id bool
+      | AppendSub (id, name, items) ->
+        WxMenu.appendSub menu id name (make_wxMenu items) ""
+      | AppendSubHelp (id, name, items, help) ->
+        WxMenu.appendSub menu id name (make_wxMenu items) help
     ) items;
-    menuFile
+    menu
 
   let wxFrame frame menus =
     (* now append the freshly created menu to the menu bar... *)
@@ -270,11 +283,17 @@ module MENU_BAR = struct
 end
 
 
-module SIZER = struct
+module MakeSIZER(S : sig
+      val dir : int
+    end) = struct
 
   type sizer = (wxSizer * sizer_content list)
   and sizer_content =
     | AddWindow of  wxSizerFlags list * wxWindow
+    | Add2 of int * int
+    | Add3 of int * int * int
+    | Add4 of int * int * int * int
+    | Add5 of int * int * int * int * int
     | Add of int * int * int * int * int * wxObject option
     | AddSpacer of int
     | AddSizer of  wxSizerFlags list * wxSizer * sizer_content list
@@ -283,22 +302,39 @@ module SIZER = struct
     | AddStaticBoxSizer of
         wxSizerFlags list * wxStaticBoxSizer * sizer_content list
 
+    | Vertical of wxSizerFlags list * sizer_content list
+    | Horizontal of wxSizerFlags list * sizer_content list
+    | Text of wxSizerFlags list * string * WxStaticText.property list
+
   let wxBoxSizer v = WxBoxSizer.wxSizer (wxBoxSizer v)
   let wxStaticBoxSizer x y = WxStaticBoxSizer.wxSizer (wxStaticBoxSizer x y)
   let wxStaticBoxSizerEx x y z = WxStaticBoxSizer.wxSizer (wxStaticBoxSizerEx x y z)
   let wxWrapSizer x y = WxWrapSizer.wxSizer (wxWrapSizer x y)
 
-  let wxWindow m_panel fit (sizer, items) =
+  let wxWindow m_panel fit items =
+    let sizer = WxBoxSizer.create S.dir in
+    let sizer = WxBoxSizer.wxSizer sizer in
     let rec add_items sizer items =
       match items with
       [] -> ()
       | item :: items ->
-        begin
+        add_item sizer item;
+        add_items sizer items
+
+    and add_item sizer item =
           match item with
           | AddWindow (flags, window) ->
             WxSizerFlags.addWindow sizer window flags
           | AddSpacer space ->
             WxSizer.addSpacer sizer space
+          | Add2 (a,b) ->
+            WxSizer.add sizer a b 0 0 0 None
+          | Add3 (a,b,c) ->
+            WxSizer.add sizer a b c 0 0 None
+          | Add4 (a,b,c,d) ->
+            WxSizer.add sizer a b c d 0 None
+          | Add5 (a,b,c,d,e) ->
+            WxSizer.add sizer a b c d e None
           | Add (a,b,c,d,e,f) ->
             WxSizer.add sizer a b c d e f
           | AddSizer (flags, sizer_in, items_in) ->
@@ -316,9 +352,22 @@ module SIZER = struct
             let sizer_in = WxStaticBoxSizer.wxSizer sizer_in in
             add_items sizer_in items_in;
             WxSizerFlags.addSizer sizer sizer_in flags
-
-        end;
-        add_items sizer items
+          | Text (flags, text, properties) ->
+            WxSizerFlags.addWindow sizer
+              (WxStaticText.wxWindow (
+                 (WxStaticText.set
+                    (WxStaticText.create m_panel wxID_ANY text)
+                    properties))) flags
+          | Vertical (flags, items_in) ->
+            let sizer_in = WxBoxSizer.create wxVERTICAL in
+            let sizer_in = WxBoxSizer.wxSizer sizer_in in
+            add_items sizer_in items_in;
+            WxSizerFlags.addSizer sizer sizer_in flags
+          | Horizontal (flags, items_in) ->
+            let sizer_in = WxBoxSizer.create wxHORIZONTAL in
+            let sizer_in = WxBoxSizer.wxSizer sizer_in in
+            add_items sizer_in items_in;
+            WxSizerFlags.addSizer sizer sizer_in flags
     in
     add_items sizer items;
     if fit then
@@ -326,10 +375,15 @@ module SIZER = struct
     else
       WxWindow.setSizer m_panel sizer
 
+  let wxDialog m_panel fit sizers =
+    wxWindow (WxDialog.wxWindow m_panel) fit sizers
   let wxPanel m_panel fit sizers =
     wxWindow (WxPanel.wxWindow m_panel) fit sizers
   let wxFrame m_panel fit sizers =
     wxWindow (WxFrame.wxWindow m_panel) fit sizers
 end
+
+module HSIZER = MakeSIZER(struct let dir = wxHORIZONTAL end)
+module VSIZER = MakeSIZER(struct let dir = wxVERTICAL end)
 
 let wxSWISS_FONT () = WxStockGDI.getFont wxStockGDI_FONT_SWISS
