@@ -40,7 +40,7 @@ type commonInfo = {
     overTypeInitial : bool;
     wrapModeInitial : bool;
     displayEOLEnable : bool;
-    indentGuideEnable : bool;
+    indentGuideEnable : int;
     lineNumberEnable : bool;
     longLineOnEnable : bool;
     whiteSpaceEnable : bool;
@@ -97,7 +97,7 @@ let g_CommonPrefs = {
     readOnlyInitial = false;
     wrapModeInitial = false;
     displayEOLEnable = false;
-    indentGuideEnable = false;
+    indentGuideEnable = 0;
     lineNumberEnable = true;
     longLineOnEnable = false;
     whiteSpaceEnable = false;
@@ -506,28 +506,28 @@ let myEdit_InitializePrefs edi lang =
     match lang with
     | None -> ()
     | Some curInfo ->
-    (* set lexer and language*)
+      (* set lexer and language*)
       setLexer e curInfo.lexer;
       edi.m_language <- Some curInfo;
 
-    (* set margin for line numbers*)
+      (* set margin for line numbers*)
       setMarginType e edi.m_LineNrID wxSTC_MARGIN_NUMBER;
       styleSetForeground e wxSTC_STYLE_LINENUMBER (wxColour "DARK GREY");
       styleSetBackground e wxSTC_STYLE_LINENUMBER wxWHITE;
-    setMarginWidth e edi.m_LineNrID 0; (* start out not visible*)
+      setMarginWidth e edi.m_LineNrID 0; (* start out not visible*)
 
-    (* default fonts for all styles!*)
-    for nr = 0 to wxSTC_STYLE_LASTPREDEFINED - 1 do
+      (* default fonts for all styles!*)
+      for nr = 0 to wxSTC_STYLE_LASTPREDEFINED - 1 do
         styleSetFont e nr (wxFont 10 wxMODERN wxNORMAL wxNORMAL);
-    done;
+      done;
 
-    (* set common styles*)
-    styleSetForeground e wxSTC_STYLE_DEFAULT (wxColour "DARK GREY");
-    styleSetForeground e wxSTC_STYLE_INDENTGUIDE (wxColour "DARK GREY");
+      (* set common styles*)
+      styleSetForeground e wxSTC_STYLE_DEFAULT (wxColour "DARK GREY");
+      styleSetForeground e wxSTC_STYLE_INDENTGUIDE (wxColour "DARK GREY");
 
+      (* initialize settings*)
+      if g_CommonPrefs.syntaxEnable then begin
 (*
-    (* initialize settings*)
-    if (g_CommonPrefs.syntaxEnable) {
         int keywordnr = 0;
         for (Nr = 0; Nr < STYLE_TYPES_COUNT; Nr++) {
             if (curInfo->styles[Nr].type == -1) continue;
@@ -553,64 +553,79 @@ let myEdit_InitializePrefs edi lang =
             }
         }
     }
-
-    (* set margin as unused*)
-    SetMarginType (m_DividerID, wxSTC_MARGIN_SYMBOL);
-    SetMarginWidth (m_DividerID, 0);
-    SetMarginSensitive (m_DividerID, false);
-
-    (* folding*)
-    SetMarginType (m_FoldingID, wxSTC_MARGIN_SYMBOL);
-    SetMarginMask (m_FoldingID, wxSTC_MASK_FOLDERS);
-    StyleSetBackground (m_FoldingID, *wxWHITE);
-    SetMarginWidth (m_FoldingID, 0);
-    SetMarginSensitive (m_FoldingID, false);
-    if (g_CommonPrefs.foldEnable) {
-        SetMarginWidth (m_FoldingID, curInfo->folds != 0? m_FoldingMargin: 0);
-        SetMarginSensitive (m_FoldingID, curInfo->folds != 0);
-        SetProperty (wxT("fold"), curInfo->folds != 0? wxT("1"): wxT("0"));
-        SetProperty (wxT("fold.comment"),
-                     (curInfo->folds & mySTC_FOLD_COMMENT) > 0? wxT("1"): wxT("0"));
-        SetProperty (wxT("fold.compact"),
-                     (curInfo->folds & mySTC_FOLD_COMPACT) > 0? wxT("1"): wxT("0"));
-        SetProperty (wxT("fold.preprocessor"),
-                     (curInfo->folds & mySTC_FOLD_PREPROC) > 0? wxT("1"): wxT("0"));
-        SetProperty (wxT("fold.html"),
-                     (curInfo->folds & mySTC_FOLD_HTML) > 0? wxT("1"): wxT("0"));
-        SetProperty (wxT("fold.html.preprocessor"),
-                     (curInfo->folds & mySTC_FOLD_HTMLPREP) > 0? wxT("1"): wxT("0"));
-        SetProperty (wxT("fold.comment.python"),
-                     (curInfo->folds & mySTC_FOLD_COMMENTPY) > 0? wxT("1"): wxT("0"));
-        SetProperty (wxT("fold.quotes.python"),
-                     (curInfo->folds & mySTC_FOLD_QUOTESPY) > 0? wxT("1"): wxT("0"));
-    }
-    SetFoldFlags (wxSTC_FOLDFLAG_LINEBEFORE_CONTRACTED |
-                  wxSTC_FOLDFLAG_LINEAFTER_CONTRACTED);
-
-    (* set spaces and indention*)
-    SetTabWidth (4);
-    SetUseTabs (false);
-    SetTabIndents (true);
-    SetBackSpaceUnIndents (true);
-    SetIndent (g_CommonPrefs.indentEnable? 4: 0);
-
-    (* others*)
-    SetViewEOL (g_CommonPrefs.displayEOLEnable);
-    SetIndentationGuides (g_CommonPrefs.indentGuideEnable);
-    SetEdgeColumn (80);
-    SetEdgeMode (g_CommonPrefs.longLineOnEnable? wxSTC_EDGE_LINE: wxSTC_EDGE_NONE);
-    SetViewWhiteSpace (g_CommonPrefs.whiteSpaceEnable?
-                       wxSTC_WS_VISIBLEALWAYS: wxSTC_WS_INVISIBLE);
-    SetOvertype (g_CommonPrefs.overTypeInitial);
-    SetReadOnly (g_CommonPrefs.readOnlyInitial);
-    SetWrapMode (g_CommonPrefs.wrapModeInitial?
-                 wxSTC_WRAP_WORD: wxSTC_WRAP_NONE);
-
-    return true;
 *)
+      end;
 
+      (* set margin as unused*)
+      ignore (set e [
+        SetMarginType (edi.m_DividerID, wxSTC_MARGIN_SYMBOL);
+        SetMarginWidth (edi.m_DividerID, 0);
+        SetMarginSensitive (edi.m_DividerID, false);
+
+        (* folding*)
+        SetMarginType (edi.m_FoldingID, wxSTC_MARGIN_SYMBOL);
+        SetMarginMask (edi.m_FoldingID, wxSTC_MASK_FOLDERS);
+        StyleSetBackground (edi.m_FoldingID, wxWHITE);
+        SetMarginWidth (edi.m_FoldingID, 0);
+        SetMarginSensitive (edi.m_FoldingID, false);
+      ]);
+
+      if g_CommonPrefs.foldEnable then
+        ignore (set e [
+          SetMarginWidth (edi.m_FoldingID,
+            if curInfo.folds <> 0 then  edi.m_FoldingMargin else  0);
+          SetMarginSensitive (edi.m_FoldingID, curInfo.folds <> 0);
+          SetProperty (wxT("fold"),
+            if curInfo.folds <> 0 then  wxT("1") else  wxT("0"));
+          SetProperty (wxT("fold.comment"),
+            if (curInfo.folds land mySTC_FOLD_COMMENT) > 0 then
+              wxT("1") else  wxT("0"));
+          SetProperty (wxT("fold.compact"),
+            if (curInfo.folds land mySTC_FOLD_COMPACT) > 0 then
+              wxT("1") else  wxT("0"));
+          SetProperty (wxT("fold.preprocessor"),
+            if (curInfo.folds land mySTC_FOLD_PREPROC) > 0 then
+              wxT("1") else  wxT("0"));
+          SetProperty (wxT("fold.html"),
+            if (curInfo.folds land mySTC_FOLD_HTML) > 0 then
+              wxT("1") else  wxT("0"));
+          SetProperty (wxT("fold.html.preprocessor"),
+            if (curInfo.folds land mySTC_FOLD_HTMLPREP) > 0 then
+              wxT("1") else  wxT("0"));
+          SetProperty (wxT("fold.comment.python"),
+            if (curInfo.folds land mySTC_FOLD_COMMENTPY) > 0 then
+              wxT("1") else  wxT("0"));
+          SetProperty (wxT("fold.quotes.python"),
+            if (curInfo.folds land mySTC_FOLD_QUOTESPY) > 0 then
+              wxT("1") else  wxT("0"));
+        ]);
+
+      ignore (set e [
+        SetFoldFlags (wxSTC_FOLDFLAG_LINEBEFORE_CONTRACTED lor
+                      wxSTC_FOLDFLAG_LINEAFTER_CONTRACTED);
+
+        (* set spaces and indention*)
+        SetTabWidth (4);
+        SetUseTabs (false);
+        SetTabIndents (true);
+        SetBackSpaceUnIndents (true);
+        SetIndent (if g_CommonPrefs.indentEnable then 4 else 0);
+
+        (* others*)
+        SetViewEOL (g_CommonPrefs.displayEOLEnable);
+        SetIndentationGuides (g_CommonPrefs.indentGuideEnable);
+        SetEdgeColumn (80);
+        SetEdgeMode (if g_CommonPrefs.longLineOnEnable then
+            wxSTC_EDGE_LINE else wxSTC_EDGE_NONE);
+        SetViewWhiteSpace (if g_CommonPrefs.whiteSpaceEnable then
+            wxSTC_WS_VISIBLEALWAYS else wxSTC_WS_INVISIBLE);
+        SetOvertype (g_CommonPrefs.overTypeInitial);
+        SetReadOnly (g_CommonPrefs.readOnlyInitial);
+        SetWrapMode (if g_CommonPrefs.wrapModeInitial then
+            wxSTC_WRAP_WORD else wxSTC_WRAP_NONE);
+      ]);
+      ()
   )
-
 
 let myEdit_OnHilightLang  edi event =
     myEdit_InitializePrefs edi
@@ -629,16 +644,16 @@ let myEdit_OnIndentGuide { m_edit = e } _ =
 
 let myEdit_OnLineNumber { m_edit = e } _ =
     SetMarginWidth (m_LineNrID,
-                    GetMarginWidth (m_LineNrID) == 0? m_LineNrMargin: 0);
+                    GetMarginWidth (m_LineNrID) == 0 then  m_LineNrMargin else  0);
 }
 
 let myEdit_OnLongLineOn { m_edit = e } _ =
-    SetEdgeMode (GetEdgeMode() == 0? wxSTC_EDGE_LINE: wxSTC_EDGE_NONE);
+    SetEdgeMode (GetEdgeMode() == 0 then  wxSTC_EDGE_LINE else  wxSTC_EDGE_NONE);
 }
 
 let myEdit_OnWhiteSpace { m_edit = e } _ =
-    SetViewWhiteSpace (GetViewWhiteSpace() == 0?
-                       wxSTC_WS_VISIBLEALWAYS: wxSTC_WS_INVISIBLE);
+    SetViewWhiteSpace (GetViewWhiteSpace() == 0 then
+                       wxSTC_WS_VISIBLEALWAYS else  wxSTC_WS_INVISIBLE);
 }
 
 let myEdit_OnFoldToggle { m_edit = e } _ =
@@ -654,7 +669,7 @@ let myEdit_OnSetReadOnly { m_edit = e } _ =
 }
 
 let myEdit_OnWrapmodeOn { m_edit = e } _ =
-    SetWrapMode (GetWrapMode() == 0? wxSTC_WRAP_WORD: wxSTC_WRAP_NONE);
+    SetWrapMode (GetWrapMode() == 0 then  wxSTC_WRAP_WORD else  wxSTC_WRAP_NONE);
 }
 
 let myEdit_OnUseCharset (wxCommandEvent &event) {
@@ -840,13 +855,13 @@ let new_EditAll appFrame id pos size style =
     (* default font for all styles*)
     SetViewEOL (g_CommonPrefs.displayEOLEnable);
     SetIndentationGuides (g_CommonPrefs.indentGuideEnable);
-    SetEdgeMode (g_CommonPrefs.longLineOnEnable?
+    SetEdgeMode (g_CommonPrefs.longLineOnEnable then
                  wxSTC_EDGE_LINE: wxSTC_EDGE_NONE);
-    SetViewWhiteSpace (g_CommonPrefs.whiteSpaceEnable?
+    SetViewWhiteSpace (g_CommonPrefs.whiteSpaceEnable then
                        wxSTC_WS_VISIBLEALWAYS: wxSTC_WS_INVISIBLE);
     SetOvertype (g_CommonPrefs.overTypeInitial);
     SetReadOnly (g_CommonPrefs.readOnlyInitial);
-    SetWrapMode (g_CommonPrefs.wrapModeInitial?
+    SetWrapMode (g_CommonPrefs.wrapModeInitial then
                  wxSTC_WRAP_WORD: wxSTC_WRAP_NONE);
 *)
     ])

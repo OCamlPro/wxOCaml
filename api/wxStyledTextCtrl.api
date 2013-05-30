@@ -82,10 +82,21 @@ class wxStyledTextCtrl inherit wxControl begin
  
 void 	AddText (const wxString &text)
 
-(*
+(*******************************************************************
+
 void 	AddStyledText (const wxMemoryBuffer &data)
- 	Add array of cells to document. 
-*)
+ 	Add array of cells to document.  
+wxMemoryBuffer 	GetStyledText (int startPos, int endPos)
+ 	Retrieve a buffer of cells. 
+wxString 	GetCurLine (int *linePos=NULL)
+ 	Retrieve the text of the line containing the caret. 
+void 	SetStyleBytes (int length, char *styleBytes)
+ 	Set the styles for a segment of the document. 
+int 	FormatRange (bool doDraw, int startPos, int endPos, 
+            wxDC *draw, wxDC *target, wxRect renderRect, wxRect pageRect)
+
+
+********************************************************************)
  
 void 	InsertText (int pos, const wxString &text)
 void 	ClearAll ()
@@ -99,13 +110,6 @@ void 	Redo ()
 void 	SetUndoCollection (bool collectUndo)
 void 	SelectAll ()
 void 	SetSavePoint ()
-
-(*
- 
-wxMemoryBuffer 	GetStyledText (int startPos, int endPos)
- 	Retrieve a buffer of cells. 
-*)
- 
 bool 	CanRedo () const
 int 	MarkerLineFromHandle (int handle)
 void 	MarkerDeleteHandle (int handle)
@@ -117,12 +121,6 @@ int 	PositionFromPointClose (int x, int y)
 void 	GotoLine (int line)
 void 	GotoPos (int pos)
 void 	SetAnchor (int posAnchor)
-
-(*
-wxString 	GetCurLine (int *linePos=NULL)
- 	Retrieve the text of the line containing the caret. 
-*)
- 
 int 	GetEndStyled () const
 void 	ConvertEOLs (int eolMode)
 int 	GetEOLMode () const
@@ -136,50 +134,21 @@ void 	SetTabWidth (int tabWidth)
 int 	GetTabWidth () const
 void 	SetCodePage (int codePage)
 
-void 	MarkerDefine (int markerNumber, int markerSymbol, const wxColour &foreground=wxNullColour, const wxColour &background=wxNullColour)
+void 	MarkerDefine (int markerNumber, int markerSymbol, 
+              const wxColour &foreground=wxNullColour, 
+              const wxColour &background=wxNullColour)
 
-(*
- 	Set the symbol used for a particular marker number, and optionally the fore and background colours. 
- 
 void 	MarkerSetForeground (int markerNumber, const wxColour &fore)
- 	Set the foreground colour used for a particular marker number. 
- 
 void 	MarkerSetBackground (int markerNumber, const wxColour &back)
- 	Set the background colour used for a particular marker number. 
- 
-void 	MarkerSetBackgroundSelected (int markerNumber, const wxColour &back)
- 	Set the background colour used for a particular marker number when its folding block is selected. 
- 
-void 	MarkerEnableHighlight (bool enabled)
- 	Enable/disable highlight for current folding bloc (smallest one that contains the caret) 
- 
 int 	MarkerAdd (int line, int markerNumber)
- 	Add a marker to a line, returning an ID which can be used to find or delete the marker. 
- 
 void 	MarkerDelete (int line, int markerNumber)
- 	Delete a marker from a line. 
- 
 void 	MarkerDeleteAll (int markerNumber)
- 	Delete all markers with a particular number from all lines. 
- 
 int 	MarkerGet (int line)
- 	Get a bit mask of all the markers set on a line. 
- 
 int 	MarkerNext (int lineStart, int markerMask)
- 	Find the next line at or after lineStart that includes a marker in mask. 
- 
 int 	MarkerPrevious (int lineStart, int markerMask)
- 	Find the previous line before lineStart that includes a marker in mask. 
- 
 void 	MarkerDefineBitmap (int markerNumber, const wxBitmap &bmp)
- 	Define a marker from a bitmap. 
- 
 void 	MarkerAddSet (int line, int set)
- 	Add a set of markers to a line. 
- 
 void 	MarkerSetAlpha (int markerNumber, int alpha)
- 	Set the alpha used for a marker that is drawn in the text area, not the margin. 
- *)
 
 void 	SetMarginType (int margin, int marginType)
 int 	GetMarginType (int margin) const
@@ -193,285 +162,76 @@ void 	StyleClearAll ()
 void 	StyleSetForeground (int style, const wxColour &fore)
 void 	StyleSetBackground (int style, const wxColour &back)
 void 	StyleSetBold (int style, bool bold)
-
-(*
- 	Set a style to be bold or not. 
- 
 void 	StyleSetItalic (int style, bool italic)
- 	Set a style to be italic or not. 
- 
 void 	StyleSetSize (int style, int sizePoints)
- 	Set the size of characters of a style. 
- 
 void 	StyleSetFaceName (int style, const wxString &fontName)
- 	Set the font of a style. 
- 
-void 	StyleSetEOLFilled (int style, bool filled)
- 	Set a style to have its end of line filled or not. 
- 
 void 	StyleResetDefault ()
- 	Reset the default style to its state at startup. 
- 
 void 	StyleSetUnderline (int style, bool underline)
- 	Set a style to be underlined or not. 
- 
-wxColour 	StyleGetForeground (int style) const
- 	Get the foreground colour of a style. 
- 
-wxColour 	StyleGetBackground (int style) const
- 	Get the background colour of a style. 
- 
-bool 	StyleGetBold (int style) const
- 	Get is a style bold or not. 
- 
-bool 	StyleGetItalic (int style) const
- 	Get is a style italic or not. 
- 
-int 	StyleGetSize (int style) const
- 	Get the size of characters of a style. 
- 
-wxString 	StyleGetFaceName (int style)
- 	Get the font facename of a style. 
- 
-bool 	StyleGetEOLFilled (int style) const
- 	Get is a style to have its end of line filled or not. 
- 
-bool 	StyleGetUnderline (int style) const
- 	Get is a style underlined or not. 
- 
-int 	StyleGetCase (int style) const
- 	Get is a style mixed case, or to force upper or lower case. 
- 
-int 	StyleGetCharacterSet (int style) const
- 	Get the character set of the font in a style. 
- 
-bool 	StyleGetVisible (int style) const
- 	Get is a style visible or not. 
- 
-bool 	StyleGetChangeable (int style) const
- 	Get is a style changeable or not (read only). 
- 
-bool 	StyleGetHotSpot (int style) const
- 	Get is a style a hotspot or not. 
- 
 void 	StyleSetCase (int style, int caseForce)
- 	Set a style to be mixed case, or to force upper or lower case. 
- 
-void 	StyleSetSizeFractional (int style, int caseForce)
- 	Set the size of characters of a style. 
- 
-int 	StyleGetSizeFractional (int style) const
- 	Get the size of characters of a style in points multiplied by 100. 
- 
-void 	StyleSetWeight (int style, int weight)
- 	Set the weight of characters of a style. 
- 
-int 	StyleGetWeight (int style) const
- 	Get the weight of characters of a style. 
- 
 void 	StyleSetHotSpot (int style, bool hotspot)
- 	Set a style to be a hotspot or not. 
- 
 void 	SetSelForeground (bool useSetting, const wxColour &fore)
- 	Set the foreground colour of the main and additional selections and whether to use this setting. 
- 
 void 	SetSelBackground (bool useSetting, const wxColour &back)
- 	Set the background colour of the main and additional selections and whether to use this setting. 
- 
 int 	GetSelAlpha () const
- 	Get the alpha of the selection. 
- 
 void 	SetSelAlpha (int alpha)
- 	Set the alpha of the selection. 
- 
-bool 	GetSelEOLFilled () const
- 	Is the selection end of line filled? 
- 
-void 	SetSelEOLFilled (bool filled)
- 	Set the selection to have its end of line filled or not. 
- 
 void 	SetCaretForeground (const wxColour &fore)
- 	Set the foreground colour of the caret. 
- 
 void 	CmdKeyAssign (int key, int modifiers, int cmd)
- 	When key+modifier combination km is pressed perform msg. 
- 
 void 	CmdKeyClear (int key, int modifiers)
- 	When key+modifier combination km is pressed do nothing. 
- 
 void 	CmdKeyClearAll ()
- 	Drop all key mappings. 
- 
-void 	SetStyleBytes (int length, char *styleBytes)
- 	Set the styles for a segment of the document. 
- 
 void 	StyleSetVisible (int style, bool visible)
- 	Set a style to be visible or not. 
- 
 int 	GetCaretPeriod () const
- 	Get the time in milliseconds that the caret is on and off. 
- 
 void 	SetCaretPeriod (int periodMilliseconds)
- 	Get the time in milliseconds that the caret is on and off. 
- 
 void 	SetWordChars (const wxString &characters)
- 	Set the set of characters making up words for when moving or selecting by word. 
- 
-wxString 	GetWordChars () const
- 	Get the set of characters making up words for when moving or selecting by word. 
- *)
-
 void 	BeginUndoAction ()
 void 	EndUndoAction ()
 
-(* 
+
 void 	IndicatorSetStyle (int indic, int style)
- 	Set an indicator to plain, squiggle or TT. 
- 
 int 	IndicatorGetStyle (int indic) const
- 	Retrieve the style of an indicator. 
- 
 void 	IndicatorSetForeground (int indic, const wxColour &fore)
- 	Set the foreground colour of an indicator. 
- 
 wxColour 	IndicatorGetForeground (int indic) const
- 	Retrieve the foreground colour of an indicator. 
- 
-void 	IndicatorSetUnder (int indic, bool under)
- 	Set an indicator to draw under text or over(default). 
- 
-bool 	IndicatorGetUnder (int indic) const
- 	Retrieve whether indicator drawn under or over text. 
- 
+
 void 	SetWhitespaceForeground (bool useSetting, const wxColour &fore)
- 	Set the foreground colour of all whitespace and whether to use this setting. 
- 
 void 	SetWhitespaceBackground (bool useSetting, const wxColour &back)
- 	Set the background colour of all whitespace and whether to use this setting. 
- 
-void 	SetWhitespaceSize (int size)
- 	Set the size of the dots used to mark space characters. 
- 
-int 	GetWhitespaceSize () const
- 	Get the size of the dots used to mark space characters. 
- 
 void 	SetStyleBits (int bits)
- 	Divide each styling byte into lexical class bits (default: 5) and indicator bits (default: 3). 
- 
 int 	GetStyleBits () const
- 	Retrieve number of bits in style bytes used to hold the lexical state. 
- 
 void 	SetLineState (int line, int state)
- 	Used to hold extra styling information for each line. 
- 
 int 	GetLineState (int line) const
- 	Retrieve the extra styling information for a line. 
- 
 int 	GetMaxLineState () const
- 	Retrieve the last line number that has line state. 
  
 bool 	GetCaretLineVisible () const
- 	Is the background of the line containing the caret in a different colour? 
- 
 void 	SetCaretLineVisible (bool show)
- 	Display the background of the line containing the caret in a different colour. 
- 
 wxColour 	GetCaretLineBackground () const
- 	Get the colour of the background of the line containing the caret. 
- 
 void 	SetCaretLineBackground (const wxColour &back)
- 	Set the colour of the background of the line containing the caret. 
- 
 void 	StyleSetChangeable (int style, bool changeable)
- 	Set a style to be changeable or not (read only). 
- 
 void 	AutoCompShow (int lenEntered, const wxString &itemList)
- 	Display a auto-completion list. 
- 
 void 	AutoCompCancel ()
- 	Remove the auto-completion list from the screen. 
- 
 bool 	AutoCompActive ()
- 	Is there an auto-completion list visible? 
- 
 int 	AutoCompPosStart ()
- 	Retrieve the position of the caret when the auto-completion list was displayed. 
- 
 void 	AutoCompComplete ()
- 	User has selected an item so remove the list and insert the selection. 
- 
 void 	AutoCompStops (const wxString &characterSet)
- 	Define a set of character that when typed cancel the auto-completion list. 
- 
 void 	AutoCompSetSeparator (int separatorCharacter)
- 	Change the separator character in the string setting up an auto-completion list. 
- 
 int 	AutoCompGetSeparator () const
- 	Retrieve the auto-completion list separator character. 
- 
 void 	AutoCompSelect (const wxString &text)
- 	Select the item in the auto-completion list that starts with a string. 
- 
 void 	AutoCompSetCancelAtStart (bool cancel)
- 	Should the auto-completion list be cancelled if the user backspaces to a position before where the box was created. 
- 
 bool 	AutoCompGetCancelAtStart () const
- 	Retrieve whether auto-completion cancelled by backspacing before start. 
- 
 void 	AutoCompSetFillUps (const wxString &characterSet)
- 	Define a set of characters that when typed will cause the autocompletion to choose the selected item. 
- 
 void 	AutoCompSetChooseSingle (bool chooseSingle)
- 	Should a single item auto-completion list automatically choose the item. 
- 
 bool 	AutoCompGetChooseSingle () const
- 	Retrieve whether a single item auto-completion list automatically choose the item. 
- 
 void 	AutoCompSetIgnoreCase (bool ignoreCase)
- 	Set whether case is significant when performing auto-completion searches. 
- 
 bool 	AutoCompGetIgnoreCase () const
- 	Retrieve state of ignore case flag. 
- 
 void 	UserListShow (int listType, const wxString &itemList)
- 	Display a list of strings and send notification when user chooses one. 
- 
 void 	AutoCompSetAutoHide (bool autoHide)
- 	Set whether or not autocompletion is hidden automatically when nothing matches. 
- 
 bool 	AutoCompGetAutoHide () const
- 	Retrieve whether or not autocompletion is hidden automatically when nothing matches. 
- 
 void 	AutoCompSetDropRestOfWord (bool dropRestOfWord)
- 	Set whether or not autocompletion deletes any word characters after the inserted text upon completion. 
- 
 bool 	AutoCompGetDropRestOfWord () const
- 	Retrieve whether or not autocompletion deletes any word characters after the inserted text upon completion. 
- 
 void 	RegisterImage (int type, const wxBitmap &bmp)
- 	Register an image for use in autocompletion lists. 
- 
 void 	ClearRegisteredImages ()
- 	Clear all the registered images. 
- 
 int 	AutoCompGetTypeSeparator () const
- 	Retrieve the auto-completion list type-separator character. 
- 
 void 	AutoCompSetTypeSeparator (int separatorCharacter)
- 	Change the type-separator character in the string setting up an auto-completion list. 
- 
 void 	AutoCompSetMaxWidth (int characterCount)
- 	Set the maximum width, in characters, of auto-completion and user lists. 
- 
 int 	AutoCompGetMaxWidth () const
- 	Get the maximum width, in characters, of auto-completion and user lists. 
- 
 void 	AutoCompSetMaxHeight (int rowCount)
- 	Set the maximum height, in rows, of auto-completion and user lists. 
- 
 int 	AutoCompGetMaxHeight () const
- 	Set the maximum height, in rows, of auto-completion and user lists. 
-*)
  
 void 	SetIndent (int indentSize)
 int 	GetIndent () const
@@ -481,37 +241,17 @@ void 	SetLineIndentation (int line, int indentSize)
 int 	GetLineIndentation (int line) const
 int 	GetLineIndentPosition (int line) const
 int 	GetColumn (int pos) const
-
-(*
- 	Count characters between two positions. 
- 
 void 	SetUseHorizontalScrollBar (bool show)
- 	Show or hide the horizontal scroll bar. 
- 
 bool 	GetUseHorizontalScrollBar () const
- 	Is the horizontal scroll bar visible? 
- 
 void 	SetIndentationGuides (int indentView)
- 	Show or hide indentation guides. 
- 
 int 	GetIndentationGuides () const
- 	Are the indentation guides visible? 
- 
+
 void 	SetHighlightGuide (int column)
- 	Set the highlighted indentation guide column. 
- 
 int 	GetHighlightGuide () const
- 	Get the highlighted indentation guide column. 
- 
 int 	GetLineEndPosition (int line) const
- 	Get the position after the last visible characters on a line. 
- 
 int 	GetCodePage () const
- 	Get the code page used to interpret the bytes of the document as characters. 
- 
 wxColour 	GetCaretForeground () const
- 	Get the foreground colour of the caret. 
- *)
+
 
 bool 	GetReadOnly () const 
 void 	SetCurrentPos (int pos)
@@ -520,50 +260,19 @@ int 	GetSelectionStart () const
 void 	SetSelectionEnd (int pos)
 int 	GetSelectionEnd () const
 
-(*
- 
-void 	SetEmptySelection (int pos)
- 	Set caret to a position, while removing any existing selection. 
- 
 void 	SetPrintMagnification (int magnification)
- 	Sets the print magnification added to the point size of each style for printing. 
- 
 int 	GetPrintMagnification () const
- 	Returns the print magnification. 
- 
 void 	SetPrintColourMode (int mode)
- 	Modify colours when printing for clearer printed text. 
- 
 int 	GetPrintColourMode () const
- 	Returns the print colour mode. 
- 
 int 	FindText (int minPos, int maxPos, const wxString &text, int flags=0)
- 	Find some text in the document. 
- 
-int 	FormatRange (bool doDraw, int startPos, int endPos, wxDC *draw, wxDC *target, wxRect renderRect, wxRect pageRect)
- 	On Windows, will draw the document into a display context such as a printer. 
- 
+
 int 	GetFirstVisibleLine () const
- 	Retrieve the display line at the top of the display. 
- 
 wxString 	GetLine (int line) const
- 	Retrieve the contents of a line. 
- 
 int 	GetLineCount () const
- 	Returns the number of lines in the document. 
- 
 void 	SetMarginLeft (int pixelWidth)
- 	Sets the size in pixels of the left margin. 
- 
 int 	GetMarginLeft () const
- 	Returns the size in pixels of the left margin. 
- 
 void 	SetMarginRight (int pixelWidth)
- 	Sets the size in pixels of the right margin. 
- 
 int 	GetMarginRight () const
- 	Returns the size in pixels of the right margin. 
- *)
 
 bool 	GetModify () const
 wxString 	GetSelectedText ()
@@ -590,81 +299,31 @@ wxString 	GetText () const
 int 	GetTextLength () const
 void 	SetOvertype (bool overtype)
 
-(*
- 
 bool 	GetOvertype () const
- 	Returns true if overtype mode is active otherwise false is returned. 
- 
 void 	SetCaretWidth (int pixelWidth)
- 	Set the width of the insert mode caret. 
- 
 int 	GetCaretWidth () const
- 	Returns the width of the insert mode caret. 
- 
 void 	SetTargetStart (int pos)
- 	Sets the position that starts the target which is used for updating the document without affecting the scroll position. 
- 
 int 	GetTargetStart () const
- 	Get the position that starts the target. 
- 
 void 	SetTargetEnd (int pos)
- 	Sets the position that ends the target which is used for updating the document without affecting the scroll position. 
- 
 int 	GetTargetEnd () const
- 	Get the position that ends the target. 
- 
 int 	ReplaceTarget (const wxString &text)
- 	Replace the target text with the argument text. 
- 
 int 	ReplaceTargetRE (const wxString &text)
- 	Replace the target text with the argument text after processing. 
- 
 int 	SearchInTarget (const wxString &text)
- 	Search for a counted string in the target and set the target to the found range. 
- 
 void 	SetSearchFlags (int flags)
- 	Set the search flags used by SearchInTarget. 
- 
 int 	GetSearchFlags () const
- 	Get the search flags used by SearchInTarget. 
- 
 void 	CallTipShow (int pos, const wxString &definition)
- 	Show a call tip containing a definition near position pos. 
- 
-void 	CallTipCancel ()
- 	Remove the call tip from the screen. 
- 
-bool 	CallTipActive ()
- 	Is there an active call tip? 
- 
-int 	CallTipPosAtStart ()
- 	Retrieve the position where the caret was before displaying the call tip. 
- 
-void 	CallTipSetHighlight (int start, int end)
- 	Highlight a segment of the definition. 
- 
-void 	CallTipSetBackground (const wxColour &back)
- 	Set the background colour for the call tip. 
- 
-void 	CallTipSetForeground (const wxColour &fore)
- 	Set the foreground colour for the call tip. 
- 
-void 	CallTipSetForegroundHighlight (const wxColour &fore)
- 	Set the foreground colour for the highlighted part of the call tip. 
- 
-void 	CallTipUseStyle (int tabSize)
- 	Enable use of STYLE_CALLTIP and set call tip tab size in pixels. 
- 
-void 	CallTipSetPosition (bool above)
- 	Set position of calltip, above or below text. 
- 
-int 	VisibleFromDocLine (int line)
- 	Find the display line of a document line taking hidden lines into account. 
- 
-int 	DocLineFromVisible (int lineDisplay)
- 	Find the document line of a display line taking hidden lines into account. 
 
-*)
+void 	CallTipCancel ()
+bool 	CallTipActive ()
+int 	CallTipPosAtStart ()
+void 	CallTipSetHighlight (int start, int end)
+void 	CallTipSetBackground (const wxColour &back)
+void 	CallTipSetForeground (const wxColour &fore)
+void 	CallTipSetForegroundHighlight (const wxColour &fore)
+void 	CallTipUseStyle (int tabSize)
+int 	VisibleFromDocLine (int line)
+int 	DocLineFromVisible (int lineDisplay)
+
  
 int 	WrapCount (int line)
 void 	SetFoldLevel (int line, int level)
@@ -695,30 +354,11 @@ void 	SetWrapVisualFlags (int wrapVisualFlags)
 int 	GetWrapVisualFlags () const
 void 	SetWrapVisualFlagsLocation (int wrapVisualFlagsLocation)
 
-(*
- 	Set the location of visual flags for wrapped lines. 
- 
 int 	GetWrapVisualFlagsLocation () const
- 	Retrive the location of visual flags for wrapped lines. 
- 
 void 	SetWrapStartIndent (int indent)
- 	Set the start indent for wrapped lines. 
- 
 int 	GetWrapStartIndent () const
- 	Retrive the start indent for wrapped lines. 
- 
-void 	SetWrapIndentMode (int mode)
- 	Sets how wrapped sublines are placed. 
- 
-int 	GetWrapIndentMode () const
- 	Retrieve how wrapped sublines are placed. 
- 
 void 	SetLayoutCache (int mode)
- 	Sets the degree of caching of layout information. 
- 
 int 	GetLayoutCache () const
- 	Retrieve the degree of caching of layout information. 
- *)
 
 void 	SetScrollWidth (int pixelWidth)
 int 	GetScrollWidth () const
@@ -744,159 +384,58 @@ void 	CharLeft ()
 void 	CharLeftExtend ()
 
 
-(*
- 
 void 	CharRight ()
- 	Move caret right one character. 
- 
 void 	CharRightExtend ()
- 	Move caret right one character extending selection to new caret position. 
- 
-void 	WordLeft ()
- 	Move caret left one word. 
- 
+void 	WordLeft () 
 void 	WordLeftExtend ()
- 	Move caret left one word extending selection to new caret position. 
- 
 void 	WordRight ()
- 	Move caret right one word. 
- 
 void 	WordRightExtend ()
- 	Move caret right one word extending selection to new caret position. 
- 
 void 	Home ()
- 	Move caret to first position on line. 
- 
 void 	HomeExtend ()
- 	Move caret to first position on line extending selection to new caret position. 
- 
 void 	LineEnd ()
- 	Move caret to last position on line. 
- 
 void 	LineEndExtend ()
- 	Move caret to last position on line extending selection to new caret position. 
- 
 void 	DocumentStart ()
- 	Move caret to first position in document. 
- 
 void 	DocumentStartExtend ()
- 	Move caret to first position in document extending selection to new caret position. 
- 
 void 	DocumentEnd ()
- 	Move caret to last position in document. 
- 
 void 	DocumentEndExtend ()
- 	Move caret to last position in document extending selection to new caret position. 
- 
 void 	PageUp ()
- 	Move caret one page up. 
- 
 void 	PageUpExtend ()
- 	Move caret one page up extending selection to new caret position. 
- 
 void 	PageDown ()
- 	Move caret one page down. 
- 
 void 	PageDownExtend ()
- 	Move caret one page down extending selection to new caret position. 
- 
 void 	EditToggleOvertype ()
- 	Switch from insert to overtype mode or the reverse. 
- 
 void 	Cancel ()
- 	Cancel any modes such as call tip or auto-completion list display. 
- 
 void 	DeleteBack ()
- 	Delete the selection or if no selection, the character before the caret. 
- 
 void 	Tab ()
- 	If selection is empty or all on one line replace the selection with a tab character. 
- 
 void 	BackTab ()
- 	Dedent the selected lines. 
- 
 void 	NewLine ()
- 	Insert a new line, may use a CRLF, CR or LF depending on EOL mode. 
- 
 void 	FormFeed ()
- 	Insert a Form Feed character. 
- 
 void 	VCHome ()
- 	Move caret to before first visible character on line. 
- 
 void 	VCHomeExtend ()
- 	Like VCHome but extending selection to new caret position. 
- 
 void 	ZoomIn ()
- 	Magnify the displayed text by increasing the sizes by 1 point. 
- 
 void 	ZoomOut ()
- 	Make the displayed text smaller by decreasing the sizes by 1 point. 
- 
 void 	DelWordLeft ()
- 	Delete the word to the left of the caret. 
- 
 void 	DelWordRight ()
- 	Delete the word to the right of the caret. 
- 
-void 	DelWordRightEnd ()
- 	Delete the word to the right of the caret, but not the trailing non-word characters. 
- 
 void 	LineCut ()
- 	Cut the line containing the caret. 
- 
 void 	LineDelete ()
- 	Delete the line containing the caret. 
- 
 void 	LineTranspose ()
- 	Switch the current line with the previous. 
- 
 void 	LineDuplicate ()
- 	Duplicate the current line. 
- 
 void 	LowerCase ()
- 	Transform the selection to lower case. 
- 
 void 	UpperCase ()
- 	Transform the selection to upper case. 
- 
 void 	LineScrollDown ()
- 	Scroll the document down, keeping the caret visible. 
- 
 void 	LineScrollUp ()
- 	Scroll the document up, keeping the caret visible. 
- 
 void 	DeleteBackNotLine ()
- 	Delete the selection or if no selection, the character before the caret. 
- 
 void 	HomeDisplay ()
- 	Move caret to first position on display line. 
- 
 void 	HomeDisplayExtend ()
- 	Move caret to first position on display line extending selection to new caret position. 
- 
 void 	LineEndDisplay ()
- 	Move caret to last position on display line. 
- 
 void 	LineEndDisplayExtend ()
- 	Move caret to last position on display line extending selection to new caret position. 
- 
+
 void 	HomeWrap ()
- 	These are like their namesakes Home(Extend)?, LineEnd(Extend)?, VCHome(Extend)? except they behave differently when word-wrap is enabled: They go first to the start / end of the display line, like (Home|LineEnd)Display The difference is that, the cursor is already at the point, it goes on to the start or end of the document line, as appropriate for (Home|LineEnd|VCHome)(Extend)?. 
- 
 void 	HomeWrapExtend ()
- 
 void 	LineEndWrap ()
- 
 void 	LineEndWrapExtend ()
- 
 void 	VCHomeWrap ()
- 
 void 	VCHomeWrapExtend ()
- 
 void 	LineCopy ()
- 	Copy the line containing the caret. 
-*)
  
 void 	MoveCaretInsideView ()
 int 	LineLength (int line) const
@@ -907,172 +446,70 @@ bool 	GetViewEOL () const
 void 	SetViewEOL (bool visible)
 
 (*
- 
 void * 	GetDocPointer ()
  	Retrieve a pointer to the document object. 
  
 void 	SetDocPointer (void *docPointer)
  	Change the document object used. 
+*)
  
 void 	SetModEventMask (int mask)
- 	Set which document modification events are sent to the container. 
- 
 int 	GetEdgeColumn () const
- 	Retrieve the column number which text should be kept within. 
- 
 void 	SetEdgeColumn (int column)
- 	Set the column number of the edge. 
- 
 int 	GetEdgeMode () const
- 	Retrieve the edge highlight mode. 
- 
 void 	SetEdgeMode (int mode)
- 	The edge may be displayed by a line (EDGE_LINE) or by highlighting text that goes beyond it (EDGE_BACKGROUND) or not displayed at all (EDGE_NONE). 
- 
+
 wxColour 	GetEdgeColour () const
- 	Retrieve the colour used in edge indication. 
- 
 void 	SetEdgeColour (const wxColour &edgeColour)
- 	Change the colour used in edge indication. 
- 
 void 	SearchAnchor ()
- 	Sets the current caret position to be the search anchor. 
- 
 int 	SearchNext (int flags, const wxString &text)
- 	Find some text starting at the search anchor. 
- 
 int 	SearchPrev (int flags, const wxString &text)
- 	Find some text starting at the search anchor and moving backwards. 
- 
 int 	LinesOnScreen () const
- 	Retrieves the number of lines completely visible. 
- 
 void 	UsePopUp (bool allowPopUp)
- 	Set whether a pop up menu is displayed automatically when the user presses the wrong mouse button. 
- 
 bool 	SelectionIsRectangle () const
- 	Is the selection rectangular? The alternative is the more common stream selection. 
- 
 void 	SetZoom (int zoom)
- 	Set the zoom level. 
- 
 int 	GetZoom () const
- 	Retrieve the zoom level. 
- 
+
+(*
 void * 	CreateDocument ()
- 	Create a new document object. 
- 
 void 	AddRefDocument (void *docPointer)
- 	Extend life of document. 
- 
 void 	ReleaseDocument (void *docPointer)
- 	Release a reference to the document, deleting document if it fades to black. 
- 
+*)
+
 int 	GetModEventMask () const
- 	Get which document modification events are sent to the container. 
- 
 void 	SetSTCFocus (bool focus)
- 	Change internal focus flag. 
- 
 bool 	GetSTCFocus () const
- 	Get internal focus flag. 
- 
 void 	SetStatus (int statusCode)
- 	Change error status - 0 = OK. 
- 
 int 	GetStatus () const
- 	Get error status. 
- 
 void 	SetMouseDownCaptures (bool captures)
- 	Set whether the mouse is captured when its button is pressed. 
- 
 bool 	GetMouseDownCaptures () const
- 	Get whether mouse gets captured. 
- 
 void 	SetSTCCursor (int cursorType)
- 	Sets the cursor to one of the SC_CURSOR* values. 
- 
 int 	GetSTCCursor () const
- 	Get cursor type. 
- 
 void 	SetControlCharSymbol (int symbol)
- 	Change the way control characters are displayed: If symbol is < 32, keep the drawn way, else, use the given character. 
- 
 int 	GetControlCharSymbol () const
- 	Get the way control characters are displayed. 
- 
 void 	WordPartLeft ()
- 	Move to the previous change in capitalisation. 
- 
 void 	WordPartLeftExtend ()
- 	Move to the previous change in capitalisation extending selection to new caret position. 
- 
 void 	WordPartRight ()
- 	Move to the change next in capitalisation. 
- 
 void 	WordPartRightExtend ()
- 	Move to the next change in capitalisation extending selection to new caret position. 
- 
 void 	SetVisiblePolicy (int visiblePolicy, int visibleSlop)
- 	Set the way the display area is determined when a particular line is to be moved to by Find, FindNext, GotoLine, etc. 
- 
 void 	DelLineLeft ()
- 	Delete back from the current position to the start of the line. 
- 
 void 	DelLineRight ()
- 	Delete forwards from the current position to the end of the line. 
- 
 void 	SetXOffset (int newOffset)
- 	Get and Set the xOffset (ie, horizontal scroll position). 
- 
 int 	GetXOffset () const
- 
 void 	ChooseCaretX ()
- 	Set the last x chosen value to be the caret x position. 
+
  
 void 	SetXCaretPolicy (int caretPolicy, int caretSlop)
- 	Set the way the caret is kept visible when going sideways. 
- 
 void 	SetYCaretPolicy (int caretPolicy, int caretSlop)
- 	Set the way the line the caret is on is kept visible. 
- 
 void 	SetPrintWrapMode (int mode)
- 	Set printing to line wrapped (SC_WRAP_WORD) or not line wrapped (SC_WRAP_NONE). 
- 
 int 	GetPrintWrapMode () const
- 	Is printing line wrapped? 
- 
-void 	SetHotspotActiveForeground (bool useSetting, const wxColour &fore)
- 	Set a fore colour for active hotspots. 
- 
-wxColour 	GetHotspotActiveForeground () const
- 	Get the fore colour for active hotspots. 
- 
 void 	SetHotspotActiveBackground (bool useSetting, const wxColour &back)
- 	Set a back colour for active hotspots. 
- 
-wxColour 	GetHotspotActiveBackground () const
- 	Get the back colour for active hotspots. 
- 
-void 	SetHotspotActiveUnderline (bool underline)
- 	Enable / Disable underlining active hotspots. 
- 
-bool 	GetHotspotActiveUnderline () const
- 	Get whether underlining for active hotspots. 
- 
-void 	SetHotspotSingleLine (bool singleLine)
- 	Limit hotspots to single line so hotspots on two lines don't merge. 
- 
-bool 	GetHotspotSingleLine () const
- 	Get the HotspotSingleLine property. 
- 
 void 	ParaDown ()
- 	Move caret between paragraphs (delimited by empty lines). 
- 
 void 	ParaDownExtend ()
- 
 void 	ParaUp ()
- 
+
+
+(* 
 void 	ParaUpExtend ()
  
 int 	PositionBefore (int pos)
@@ -1748,6 +1185,50 @@ version 2.9 begin
   void 	BraceBadLightIndicator (bool useBraceBadLightIndicator, int indicator)
   int 	GetMarginCursor (int margin) const
   wxFont 	StyleGetFont (int style)
+
+  void 	MarkerSetBackgroundSelected (int markerNumber, const wxColour &back)
+  void 	MarkerEnableHighlight (bool enabled)
+
+  int 	StyleGetWeight (int style) const
+  void 	StyleSetEOLFilled (int style, bool filled)
+  bool 	GetSelEOLFilled () const
+  wxColour 	StyleGetBackground (int style) const
+  void 	StyleSetSizeFractional (int style, int caseForce)
+  int 	StyleGetSizeFractional (int style) const
+wxColour 	StyleGetForeground (int style) const
+  void 	StyleSetWeight (int style, int weight)
+
+bool 	StyleGetBold (int style) const
+bool 	StyleGetItalic (int style) const
+int 	StyleGetSize (int style) const
+wxString 	StyleGetFaceName (int style)
+bool 	StyleGetEOLFilled (int style) const
+bool 	StyleGetUnderline (int style) const
+int 	StyleGetCase (int style) const
+int 	StyleGetCharacterSet (int style) const
+bool 	StyleGetVisible (int style) const
+bool 	StyleGetChangeable (int style) const
+bool 	StyleGetHotSpot (int style) const
+wxString 	GetWordChars () const
+void 	SetSelEOLFilled (bool filled)
+void 	IndicatorSetUnder (int indic, bool under)
+bool 	IndicatorGetUnder (int indic) const
+void 	SetWhitespaceSize (int size)
+int 	GetWhitespaceSize () const
+void 	SetEmptySelection (int pos)
+void 	CallTipSetPosition (bool above)
+void 	SetWrapIndentMode (int mode)
+int 	GetWrapIndentMode () const
+void 	DelWordRightEnd ()
+
+wxColour 	GetHotspotActiveBackground () const
+void 	SetHotspotSingleLine (bool singleLine)
+bool 	GetHotspotSingleLine () const
+void 	SetHotspotActiveUnderline (bool underline)
+bool 	GetHotspotActiveUnderline () const
+void 	SetHotspotActiveForeground (bool useSetting, const wxColour &fore)
+wxColour 	GetHotspotActiveForeground () const
+  
 end
 
 end

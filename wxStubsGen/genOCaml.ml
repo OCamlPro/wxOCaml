@@ -280,6 +280,11 @@ let generate_values_stub ml_oc cl values =
   ) values;
   fprintf ml_oc "      ()) = get_VALUES()\n"
 
+let starts_with s prefix =
+  let len = String.length s in
+  let len_prefix = String.length prefix in
+  len > len_prefix && String.sub s 0 len_prefix = prefix
+
 let generate_class_module source_dirname cl =
   try
     let basename = add_ocaml_source (cl.class_name ^ ".ml") in
@@ -356,11 +361,14 @@ let generate_class_module source_dirname cl =
     let properties = ref [] in
     StringMap.iter (fun cname mlt ->
       let len = String.length cname in
-      if mlt.f_self <> [] && len > 3 && String.sub cname 0 3 = "Set" then
+      if mlt.f_self <> [] && (
+           starts_with cname "Set" || starts_with cname "StyleSet"
+         ) then
         properties := (cname, mlt) :: !properties
     ) cl.class_defs;
 
     if !properties <> [] then begin
+      assert ( List.length !properties < 230 );
       fprintf ml_oc "type property = \n";
       List.iter (fun (cname, mlt) ->
         match mlt.f_args with
