@@ -1,0 +1,15 @@
+
+
+class wxCloseEvent inherit wxEvent begin 
+   bool 	CanVeto () const
+   bool 	GetLoggingOff () const
+   void 	SetCanVeto (bool canVeto)
+   void 	SetLoggingOff (bool loggingOff)
+   void 	Veto (bool veto=true)
+end
+
+events wxCloseEvent [
+   EVT_CLOSE_WINDOW (EVT_CLOSE)
+   EVT_END_SESSION
+   EVT_QUERY_END_SESSION
+]

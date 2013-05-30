@@ -1,0 +1,26 @@
+
+events wxTimerEvent [
+  EVT_TIMER
+]
+
+class wxTimerEvent inherit wxEvent begin
+    int 	GetInterval () const
+  version 2.9 begin
+    wxTimer & 	GetTimer () const
+  end
+end
+
+class wxTimer inherit wxEvtHandler begin
+
+ 	new Create (wxEvtHandler *owner, int id =-1 )
+int 	GetId () const
+int 	GetInterval () const
+wxEvtHandler * 	GetOwner () const
+bool 	IsOneShot () const
+bool 	IsRunning () const
+virtual void 	Notify ()
+void 	SetOwner (wxEvtHandler *owner, int id=-1)
+virtual bool 	Start (int milliseconds=-1, bool oneShot=false)
+virtual void 	Stop ()
+
+end

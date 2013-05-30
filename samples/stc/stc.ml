@@ -1,3 +1,12 @@
+(*////////////////////////////////////////////////////////////////////////////*)
+(* File:        stc.ml *)
+(* Purpose:     STC test module*)
+(* Maintainer:  Fabrice Le Fessant (inspired from WxWidgets STC sample) *)
+(* Created:     2013-05-28*)
+(* Copyright:   (c) wxGuide*)
+(* Licence:     wxWindows licence*)
+(*////////////////////////////////////////////////////////////////////////////*)
+
 open WxClasses
 open WxWidgets
 open WxValues
@@ -6,12 +15,20 @@ open WxDefs
 module Edit = WxStyledTextCtrl
 module EditEvent = WxStyledTextEvent
 
-type appFrame = {
-  m_app : wxApp;
-  m_edit : wxStyledTextCtrl;
-  m_frame : wxFrame;
-}
+exception OK of bool
 
+(*----------------------------------------------------------------------------*)
+(* StyleInfo*)
+
+type styleInfo = {
+    name : string;
+    foreground : string;
+    background : string;
+    fontname : string;
+    fontsize : int;
+    fontstyle : int;
+    lettercase : int;
+}
 
 type commonInfo = {
     (* editor functionality prefs*)
@@ -34,55 +51,67 @@ type style = {
   style_words : string;
 }
 
+(*----------------------------------------------------------------------------*)
+(* LanguageInfo*)
+
 type languageInfo = {
     name : string;
-    filepattern : string;
+    filepatterns : string list;
     lexer : int;
     styles : style list; (*  [STYLE_TYPES_COUNT]; *)
     folds : int;
 }
 
+type appFrame = {
+  m_app : wxApp;
+  m_frame : wxFrame;
+  w_frame : wxWindow;
+}
 
-(*
+type edit = {
+  (* file*)
+  mutable m_filename : string option;
 
-(*///////////////////////////////////////////////////////////////////////////*)
-(* Name:        defsext.h extensions*)
-(* Purpose:     STC test declarations*)
-(* Maintainer:  Wyo*)
-(* Created:     2003-09-01*)
-(* RCS-ID:      $Id$*)
-(* Copyright:   (c) wxGuide*)
-(* Licence:     wxWindows licence*)
-(*////////////////////////////////////////////////////////////////////////////*)
+  (* lanugage properties*)
+  mutable m_language : languageInfo option;
 
-#ifndef _WX_DEFSEXT_H_
-#define _WX_DEFSEXT_H_
+  (* margin variables*)
+  mutable m_LineNrID : int;
+  mutable m_LineNrMargin : int;
+  mutable m_FoldingID : int;
+  mutable m_FoldingMargin : int;
+  mutable m_DividerID : int;
 
-(*----------------------------------------------------------------------------*)
-(* headers*)
-(*----------------------------------------------------------------------------*)
+  m_edit : wxStyledTextCtrl;
+  w_edit : wxWindow;
+  m_up : appFrame;
+}
+
+let g_CommonPrefs = {
+    (* editor functionality prefs*)
+    syntaxEnable =  true;
+    foldEnable = true;
+    indentEnable = true;
+    (* display defaults prefs*)
+    overTypeInitial = false;
+    readOnlyInitial = false;
+    wrapModeInitial = false;
+    displayEOLEnable = false;
+    indentGuideEnable = false;
+    lineNumberEnable = true;
+    longLineOnEnable = false;
+    whiteSpaceEnable = false;
+}
 
 (*! wxWidgets headers*)
+(*
 #include "wx/print.h"    (* printing support*)
 #include "wx/printdlg.h" (* printing dialog*)
-
-
-(*============================================================================*)
-(* declarations*)
-(*============================================================================*)
-
-#define DEFAULT_LANGUAGE "<default>"
-
-#define PAGE_COMMON _("Common")
-#define PAGE_LANGUAGES _("Languages")
-#define PAGE_STYLE_TYPES _("Style types")
-
-#define STYLE_TYPES_COUNT 32
 *)
 
-(* ----------------------------------------------------------------------------*)
+(*-------------------------------------------------------------------------*)
 (* standard IDs*)
-(* ----------------------------------------------------------------------------*)
+(*-------------------------------------------------------------------------*)
 
 let create_ids n first =
   Obj.magic (Array.init n (fun i -> first + i))
@@ -145,6 +174,7 @@ let (
 
 
 
+
 (*
 (* ----------------------------------------------------------------------------*)
 (* global items*)
@@ -162,43 +192,6 @@ extern wxPageSetupDialogData *g_pageSetupData;
 #endif (* wxUSE_PRINTING_ARCHITECTURE*)
 
 #endif (* _WX_DEFSEXT_H_*)
-(*////////////////////////////////////////////////////////////////////////////*)
-(* File:        edit.h*)
-(* Purpose:     STC test module*)
-(* Maintainer:  Wyo*)
-(* Created:     2003-09-01*)
-(* RCS-ID:      $Id$*)
-(* Copyright:   (c) wxGuide*)
-(* Licence:     wxWindows licence*)
-(*////////////////////////////////////////////////////////////////////////////*)
-
-#ifndef _EDIT_H_
-#define _EDIT_H_
-
-(*----------------------------------------------------------------------------*)
-(* informations*)
-(*----------------------------------------------------------------------------*)
-
-
-(*----------------------------------------------------------------------------*)
-(* headers*)
-(*----------------------------------------------------------------------------*)
-
-(*! wxWidgets headers*)
-
-(*! wxWidgets/contrib headers*)
-#include "wx/stc/stc.h"  (* styled text control*)
-
-(*! application headers*)
-#include "prefs.h"       (* preferences*)
-
-
-(*============================================================================*)
-(* declarations*)
-(*============================================================================*)
-
-class EditPrint;
-class EditProperties;
 
 
 (*----------------------------------------------------------------------------*)
@@ -278,21 +271,6 @@ public:
     wxString GetFilename () {return m_filename;};
     void SetFilename (const wxString &filename) {m_filename = filename;};
 
-private:
-    (* file*)
-    wxString m_filename;
-
-    (* lanugage properties*)
-    LanguageInfo const* m_language;
-
-    (* margin variables*)
-    int m_LineNrID;
-    int m_LineNrMargin;
-    int m_FoldingID;
-    int m_FoldingMargin;
-    int m_DividerID;
-
-    DECLARE_EVENT_TABLE()
 };
 
 (*----------------------------------------------------------------------------*)
@@ -337,94 +315,65 @@ private:
 };
 
 #endif (* wxUSE_PRINTING_ARCHITECTURE*)
-
-#endif (* _EDIT_H_*)
-(*////////////////////////////////////////////////////////////////////////////*)
-(* File:        prefs.h*)
-(* Purpose:     STC test Preferences initialization*)
-(* Maintainer:  Wyo*)
-(* Created:     2003-09-01*)
-(* RCS-ID:      $Id$*)
-(* Copyright:   (c) wxGuide*)
-(* Licence:     wxWindows licence*)
-(*////////////////////////////////////////////////////////////////////////////*)
-
-#ifndef _PREFS_H_
-#define _PREFS_H_
-
-(*----------------------------------------------------------------------------*)
-(* informations*)
-(*----------------------------------------------------------------------------*)
-
-
-(*----------------------------------------------------------------------------*)
-(* headers*)
-(*----------------------------------------------------------------------------*)
-
-(*! wxWidgets headers*)
-
-(*! wxWidgets/contrib headers*)
-#include "wx/stc/stc.h"  (* styled text control*)
-
-(*! application headers*)
-
+*)
 
 (*============================================================================*)
 (* declarations*)
 (*============================================================================*)
 
+let (
 (*! general style types*)
-#define mySTC_TYPE_DEFAULT 0
+  mySTC_TYPE_DEFAULT
+    , mySTC_TYPE_WORD1
+    , mySTC_TYPE_WORD2
+    , mySTC_TYPE_WORD3
+    , mySTC_TYPE_WORD4
+    , mySTC_TYPE_WORD5
+    , mySTC_TYPE_WORD6
 
-#define mySTC_TYPE_WORD1 1
-#define mySTC_TYPE_WORD2 2
-#define mySTC_TYPE_WORD3 3
-#define mySTC_TYPE_WORD4 4
-#define mySTC_TYPE_WORD5 5
-#define mySTC_TYPE_WORD6 6
+    , mySTC_TYPE_COMMENT
+    , mySTC_TYPE_COMMENT_DOC
+    , mySTC_TYPE_COMMENT_LINE
+    , mySTC_TYPE_COMMENT_SPECIAL
 
-#define mySTC_TYPE_COMMENT 7
-#define mySTC_TYPE_COMMENT_DOC 8
-#define mySTC_TYPE_COMMENT_LINE 9
-#define mySTC_TYPE_COMMENT_SPECIAL 10
+    , mySTC_TYPE_CHARACTER
+    , mySTC_TYPE_CHARACTER_EOL
+    , mySTC_TYPE_STRING
+    , mySTC_TYPE_STRING_EOL
 
-#define mySTC_TYPE_CHARACTER 11
-#define mySTC_TYPE_CHARACTER_EOL 12
-#define mySTC_TYPE_STRING 13
-#define mySTC_TYPE_STRING_EOL 14
+    , mySTC_TYPE_DELIMITER
+    , mySTC_TYPE_PUNCTUATION
+    , mySTC_TYPE_OPERATOR
+    , mySTC_TYPE_BRACE
 
-#define mySTC_TYPE_DELIMITER 15
+    , mySTC_TYPE_COMMAND
+    , mySTC_TYPE_IDENTIFIER
+    , mySTC_TYPE_LABEL
+    , mySTC_TYPE_NUMBER
+    , mySTC_TYPE_PARAMETER
+    , mySTC_TYPE_REGEX
+    , mySTC_TYPE_UUID
+    , mySTC_TYPE_VALUE
 
-#define mySTC_TYPE_PUNCTUATION 16
+    , mySTC_TYPE_PREPROCESSOR
+    , mySTC_TYPE_SCRIPT
 
-#define mySTC_TYPE_OPERATOR 17
-
-#define mySTC_TYPE_BRACE 18
-
-#define mySTC_TYPE_COMMAND 19
-#define mySTC_TYPE_IDENTIFIER 20
-#define mySTC_TYPE_LABEL 21
-#define mySTC_TYPE_NUMBER 22
-#define mySTC_TYPE_PARAMETER 23
-#define mySTC_TYPE_REGEX 24
-#define mySTC_TYPE_UUID 25
-#define mySTC_TYPE_VALUE 26
-
-#define mySTC_TYPE_PREPROCESSOR 27
-#define mySTC_TYPE_SCRIPT 28
-
-#define mySTC_TYPE_ERROR 29
+    , mySTC_TYPE_ERROR
+) = create_ids 30 0
 
 (*----------------------------------------------------------------------------*)
 (*! style bits types*)
-#define mySTC_STYLE_BOLD 1
-#define mySTC_STYLE_ITALIC 2
-#define mySTC_STYLE_UNDERL 4
-#define mySTC_STYLE_HIDDEN 8
-*)
+
+let (
+  mySTC_STYLE_BOLD,
+ mySTC_STYLE_ITALIC,
+ mySTC_STYLE_UNDERL,
+ mySTC_STYLE_HIDDEN) = create_ids 5 1
 
 (*----------------------------------------------------------------------------*)
 (*! general folding types*)
+
+
 let mySTC_FOLD_COMMENT = 1
 let mySTC_FOLD_COMPACT = 2
 let mySTC_FOLD_PREPROC = 4
@@ -435,490 +384,148 @@ let mySTC_FOLD_HTMLPREP = 32
 let mySTC_FOLD_COMMENTPY = 64
 let mySTC_FOLD_QUOTESPY = 128
 
-(*
 (*----------------------------------------------------------------------------*)
 (*! flags*)
-#define mySTC_FLAG_WRAPMODE 16
-
-(*----------------------------------------------------------------------------*)
-(* CommonInfo*)
-extern const CommonInfo g_CommonPrefs;
-
-(*----------------------------------------------------------------------------*)
-(* LanguageInfo*)
-
-struct LanguageInfo {
-    const char *name;
-    const char *filepattern;
-    int lexer;
-    struct {
-        int type;
-        const char *words;
-    } styles [STYLE_TYPES_COUNT];
-    int folds;
-};
-
-extern const LanguageInfo g_LanguagePrefs[];
-extern const int g_LanguagePrefsSize;
-
-(*----------------------------------------------------------------------------*)
-(* StyleInfo*)
-struct StyleInfo {
-    const wxChar *name;
-    const wxChar *foreground;
-    const wxChar *background;
-    const wxChar *fontname;
-    int fontsize;
-    int fontstyle;
-    int lettercase;
-};
-
-extern const StyleInfo g_StylePrefs[];
-extern const int g_StylePrefsSize;
-
-#endif (* _PREFS_H_*)
-(*////////////////////////////////////////////////////////////////////////////*)
-(* File:        contrib/samples/stc/edit.cpp*)
-(* Purpose:     STC test module*)
-(* Maintainer:  Wyo*)
-(* Created:     2003-09-01*)
-(* RCS-ID:      $Id$*)
-(* Copyright:   (c) wxGuide*)
-(* Licence:     wxWindows licence*)
-(*////////////////////////////////////////////////////////////////////////////*)
-
-(*----------------------------------------------------------------------------*)
-(* informations*)
-(*----------------------------------------------------------------------------*)
+let mySTC_FLAG_WRAPMODE = 16
 
 
-(*----------------------------------------------------------------------------*)
-(* headers*)
-(*----------------------------------------------------------------------------*)
 
-(* For compilers that support precompilation, includes "wx/wx.h".*)
-#include "wx/wxprec.h"
+(*! languages*)
+let g_LanguagePrefs = [|
+  { name = "OCaml";
+    filepatterns = [ ".ml"; ".mli"; ".mly"; ".mll" ];
+    lexer = wxSTC_LEX_CAML;
+    styles = [];
+    folds = 0;
+  };
+  { name = "C++" ;
+    filepatterns = [ ".c"; ".cc"; ".cpp"; ".cxx"; ".cs"; ".h";
+                    ".hh"; ".hpp"; ".hxx"; ".sma" ];
+    lexer = wxSTC_LEX_CPP;
+    styles = [];
+    folds = mySTC_FOLD_COMMENT lor mySTC_FOLD_COMPACT lor mySTC_FOLD_PREPROC;
+  };
+|]
 
-#ifdef __BORLANDC__
-    #pragma hdrstop
-#endif
-
-(* for all others, include the necessary headers (this file is usually all you*)
-(* need because it includes almost all 'standard' wxWidgets headers)*)
-#ifndef WX_PRECOMP
-    #include "wx/wx.h"
-#endif
-
-(*! wxWidgets headers*)
-#include "wx/file.h"     (* raw file io support*)
-#include "wx/filename.h" (* filename support*)
-
-(*! application headers*)
-#include "defsext.h"     (* additional definitions*)
-
-#include "edit.h"        (* edit module*)
-
-
-(*----------------------------------------------------------------------------*)
-(* resources*)
-(*----------------------------------------------------------------------------*)
-
-
-(*============================================================================*)
-(* declarations*)
-(*============================================================================*)
-
-
-(*============================================================================*)
-(* implementation*)
-(*============================================================================*)
-
-(*----------------------------------------------------------------------------*)
-(* Edit*)
-(*----------------------------------------------------------------------------*)
-
-BEGIN_EVENT_TABLE (Edit, wxStyledTextCtrl)
-    (* common*)
-    EVT_SIZE (                         Edit::OnSize)
-    (* edit*)
-    EVT_MENU (wxID_CLEAR,              Edit::OnEditClear)
-    EVT_MENU (wxID_CUT,                Edit::OnEditCut)
-    EVT_MENU (wxID_COPY,               Edit::OnEditCopy)
-    EVT_MENU (wxID_PASTE,              Edit::OnEditPaste)
-    EVT_MENU (myID_INDENTINC,          Edit::OnEditIndentInc)
-    EVT_MENU (myID_INDENTRED,          Edit::OnEditIndentRed)
-    EVT_MENU (wxID_SELECTALL,          Edit::OnEditSelectAll)
-    EVT_MENU (myID_SELECTLINE,         Edit::OnEditSelectLine)
-    EVT_MENU (wxID_REDO,               Edit::OnEditRedo)
-    EVT_MENU (wxID_UNDO,               Edit::OnEditUndo)
-    (* find*)
-    EVT_MENU (wxID_FIND,               Edit::OnFind)
-    EVT_MENU (myID_FINDNEXT,           Edit::OnFindNext)
-    EVT_MENU (myID_REPLACE,            Edit::OnReplace)
-    EVT_MENU (myID_REPLACENEXT,        Edit::OnReplaceNext)
-    EVT_MENU (myID_BRACEMATCH,         Edit::OnBraceMatch)
-    EVT_MENU (myID_GOTO,               Edit::OnGoto)
-    (* view*)
-    EVT_MENU_RANGE (myID_HILIGHTFIRST, myID_HILIGHTLAST,
-                                       Edit::OnHilightLang)
-    EVT_MENU (myID_DISPLAYEOL,         Edit::OnDisplayEOL)
-    EVT_MENU (myID_INDENTGUIDE,        Edit::OnIndentGuide)
-    EVT_MENU (myID_LINENUMBER,         Edit::OnLineNumber)
-    EVT_MENU (myID_LONGLINEON,         Edit::OnLongLineOn)
-    EVT_MENU (myID_WHITESPACE,         Edit::OnWhiteSpace)
-    EVT_MENU (myID_FOLDTOGGLE,         Edit::OnFoldToggle)
-    EVT_MENU (myID_OVERTYPE,           Edit::OnSetOverType)
-    EVT_MENU (myID_READONLY,           Edit::OnSetReadOnly)
-    EVT_MENU (myID_WRAPMODEON,         Edit::OnWrapmodeOn)
-    EVT_MENU (myID_CHARSETANSI,        Edit::OnUseCharset)
-    EVT_MENU (myID_CHARSETMAC,         Edit::OnUseCharset)
-    (* extra*)
-    EVT_MENU (myID_CHANGELOWER,        Edit::OnChangeCase)
-    EVT_MENU (myID_CHANGEUPPER,        Edit::OnChangeCase)
-    EVT_MENU (myID_CONVERTCR,          Edit::OnConvertEOL)
-    EVT_MENU (myID_CONVERTCRLF,        Edit::OnConvertEOL)
-    EVT_MENU (myID_CONVERTLF,          Edit::OnConvertEOL)
-    (* stc*)
-    EVT_STC_MARGINCLICK (wxID_ANY,     Edit::OnMarginClick)
-    EVT_STC_CHARADDED (wxID_ANY,       Edit::OnCharAdded)
-    EVT_STC_KEY( wxID_ANY , Edit::OnKey )
-END_EVENT_TABLE()
-*)
-
-let new_EditAll parent id pos size style =
-
-(*,
-            const wxPoint &pos,
-            const wxSize &size,
-            long style)
-*)
-  let this = WxStyledTextCtrl.create parent id pos size style
-  in
-
-(* {
-
-    m_filename = wxEmptyString;
-
-    m_LineNrID = 0;
-    m_DividerID = 1;
-    m_FoldingID = 2;
-
-    (* initialize language*)
-    m_language = NULL;
-
-    (* default font for all styles*)
-    SetViewEOL (g_CommonPrefs.displayEOLEnable);
-    SetIndentationGuides (g_CommonPrefs.indentGuideEnable);
-    SetEdgeMode (g_CommonPrefs.longLineOnEnable?
-                 wxSTC_EDGE_LINE: wxSTC_EDGE_NONE);
-    SetViewWhiteSpace (g_CommonPrefs.whiteSpaceEnable?
-                       wxSTC_WS_VISIBLEALWAYS: wxSTC_WS_INVISIBLE);
-    SetOvertype (g_CommonPrefs.overTypeInitial);
-    SetReadOnly (g_CommonPrefs.readOnlyInitial);
-    SetWrapMode (g_CommonPrefs.wrapModeInitial?
-                 wxSTC_WRAP_WORD: wxSTC_WRAP_NONE);
-    wxFont font (10, wxMODERN, wxNORMAL, wxNORMAL);
-    StyleSetFont (wxSTC_STYLE_DEFAULT, font);
-    StyleSetForeground (wxSTC_STYLE_DEFAULT, *wxBLACK);
-    StyleSetBackground (wxSTC_STYLE_DEFAULT, *wxWHITE);
-    StyleSetForeground (wxSTC_STYLE_LINENUMBER, wxColour (wxT("DARK GREY")));
-    StyleSetBackground (wxSTC_STYLE_LINENUMBER, *wxWHITE);
-    StyleSetForeground(wxSTC_STYLE_INDENTGUIDE, wxColour (wxT("DARK GREY")));
-    InitializePrefs (DEFAULT_LANGUAGE);
-
-    (* set visibility*)
-    SetVisiblePolicy (wxSTC_VISIBLE_STRICT|wxSTC_VISIBLE_SLOP, 1);
-    SetXCaretPolicy (wxSTC_CARET_EVEN|wxSTC_VISIBLE_STRICT|wxSTC_CARET_SLOP, 1);
-    SetYCaretPolicy (wxSTC_CARET_EVEN|wxSTC_VISIBLE_STRICT|wxSTC_CARET_SLOP, 1);
-
-    (* markers*)
-    MarkerDefine (wxSTC_MARKNUM_FOLDER,        wxSTC_MARK_DOTDOTDOT, wxT("BLACK"), wxT("BLACK"));
-    MarkerDefine (wxSTC_MARKNUM_FOLDEROPEN,    wxSTC_MARK_ARROWDOWN, wxT("BLACK"), wxT("BLACK"));
-    MarkerDefine (wxSTC_MARKNUM_FOLDERSUB,     wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
-    MarkerDefine (wxSTC_MARKNUM_FOLDEREND,     wxSTC_MARK_DOTDOTDOT, wxT("BLACK"), wxT("WHITE"));
-    MarkerDefine (wxSTC_MARKNUM_FOLDEROPENMID, wxSTC_MARK_ARROWDOWN, wxT("BLACK"), wxT("WHITE"));
-    MarkerDefine (wxSTC_MARKNUM_FOLDERMIDTAIL, wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
-    MarkerDefine (wxSTC_MARKNUM_FOLDERTAIL,    wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
-
-    (* miscelaneous*)
-    m_LineNrMargin = TextWidth (wxSTC_STYLE_LINENUMBER, wxT("_999999"));
-    m_FoldingMargin = 16;
-    CmdKeyClear (wxSTC_KEY_TAB, 0); (* this is done by the menu accelerator key*)
-    SetLayoutCache (wxSTC_CACHE_PAGE);
-
-}
-
-*)
-  this
-
-let new_Edit parent id =
-    new_EditAll parent id wxDefaultPosition wxDefaultSize wxVSCROLL
-
-
-(*
-Edit::~Edit () {}
 
 (*----------------------------------------------------------------------------*)
 (* common event handlers*)
-void Edit::OnSize( wxSizeEvent& event ) {
-    int x = GetClientSize().x +
-            (g_CommonPrefs.lineNumberEnable? m_LineNrMargin: 0) +
-            (g_CommonPrefs.foldEnable? m_FoldingMargin: 0);
-    if (x > 0) SetScrollWidth (x);
-    event.Skip();
-}
+let myEdit_OnSize edi ( event : wxSizeEvent ) =
+  let (size_x, _) = WxStyledTextCtrl.getClientSize edi.m_edit in
+  let x = size_x +
+      (if g_CommonPrefs.lineNumberEnable then edi.m_LineNrMargin else 0) +
+            (if g_CommonPrefs.foldEnable then edi.m_FoldingMargin else 0)
+  in
+  if x > 0 then WxStyledTextCtrl.setScrollWidth edi.m_edit x;
+  WxSizeEvent.skip event true
 
 (* edit event handlers*)
-void Edit::OnEditRedo (wxCommandEvent &WXUNUSED(event)) {
-    if (!CanRedo()) return;
-    Redo ();
-}
+let myEdit_OnEditRedo edi _ =
+  Edit.(if canRedo edi.m_edit then redo edi.m_edit)
 
-void Edit::OnEditUndo (wxCommandEvent &WXUNUSED(event)) {
-    if (!CanUndo()) return;
-    Undo ();
-}
+let myEdit_OnEditUndo edi _ =
+  Edit.(if canUndo edi.m_edit then undo edi.m_edit)
 
-void Edit::OnEditClear (wxCommandEvent &WXUNUSED(event)) {
-    if (GetReadOnly()) return;
-    Clear ();
-}
+let myEdit_OnEditClear edi _ =
+ Edit.(if not (getReadOnly edi.m_edit) then clear edi.m_edit)
 
-void Edit::OnKey (wxStyledTextEvent &WXUNUSED(event))
-{
-    wxMessageBox("OnKey");
-}
+let myEdit_OnKey edi _ =
+  WxMisc.wxMessageBox "OnKey" ""
 
-void Edit::OnEditCut (wxCommandEvent &WXUNUSED(event)) {
-    if (GetReadOnly() || (GetSelectionEnd()-GetSelectionStart() <= 0)) return;
-    Cut ();
-}
+let myEdit_OnEditCut edi _ =
+  let e = edi.m_edit in
+  Edit.(
+    if not (getReadOnly e || (getSelectionEnd e) - (getSelectionStart e) <= 0)
+    then cut e
+  )
 
-void Edit::OnEditCopy (wxCommandEvent &WXUNUSED(event)) {
-    if (GetSelectionEnd()-GetSelectionStart() <= 0) return;
-    Copy ();
-}
+let myEdit_OnEditCopy edi _ =
+  let e = edi.m_edit in
+  Edit. (
+    if (getSelectionEnd e)- (getSelectionStart e) <= 0 then () else
+    copy e)
 
-void Edit::OnEditPaste (wxCommandEvent &WXUNUSED(event)) {
-    if (!CanPaste()) return;
-    Paste ();
-}
+let myEdit_OnEditPaste edi _ =
+  let e = edi.m_edit in
+    Edit.(
+      if canPaste e then paste e
+    )
 
-void Edit::OnFind (wxCommandEvent &WXUNUSED(event)) {
-}
+let myEdit_OnFind { m_edit = e } _ =
+ ()
 
-void Edit::OnFindNext (wxCommandEvent &WXUNUSED(event)) {
-}
+let myEdit_OnFindNext { m_edit = e } _ =
+  ()
 
-void Edit::OnReplace (wxCommandEvent &WXUNUSED(event)) {
-}
+let myEdit_OnReplace { m_edit = e } _ =
+ ()
 
-void Edit::OnReplaceNext (wxCommandEvent &WXUNUSED(event)) {
-}
+let myEdit_OnReplaceNext { m_edit = e } _ =
+ ()
 
-void Edit::OnBraceMatch (wxCommandEvent &WXUNUSED(event)) {
-    int min = GetCurrentPos ();
-    int max = BraceMatch (min);
-    if (max > (min+1)) {
-        BraceHighlight (min+1, max);
-        SetSelection (min+1, max);
-    }else{
-        BraceBadLight (min);
-    }
-}
+let myEdit_OnBraceMatch { m_edit = e } _ =
+  Edit.(
+    let min = getCurrentPos e in
+    let max = braceMatch e min in
+    if (max > (min+1)) then begin
+      braceHighlight e (min+1) max;
+      setSelection e (min+1) max
+    end else
+      braceBadLight e (min)
+  )
 
-void Edit::OnGoto (wxCommandEvent &WXUNUSED(event)) {
-}
+let myEdit_OnGoto { m_edit = e } _ =
+  ()
 
-void Edit::OnEditIndentInc (wxCommandEvent &WXUNUSED(event)) {
-    CmdKeyExecute (wxSTC_CMD_TAB);
-}
+let myEdit_OnEditIndentInc { m_edit = e } _ =
+    Edit.cmdKeyExecute e wxSTC_CMD_TAB
 
-void Edit::OnEditIndentRed (wxCommandEvent &WXUNUSED(event)) {
-    CmdKeyExecute (wxSTC_CMD_DELETEBACK);
-}
+let myEdit_OnEditIndentRed  { m_edit = e } _ =
+    Edit.cmdKeyExecute e wxSTC_CMD_DELETEBACK
 
-void Edit::OnEditSelectAll (wxCommandEvent &WXUNUSED(event)) {
-    SetSelection (0, GetTextLength ());
-}
+let myEdit_OnEditSelectAll { m_edit = e } _ =
+    Edit.setSelection e 0 (Edit.getTextLength e)
 
-void Edit::OnEditSelectLine (wxCommandEvent &WXUNUSED(event)) {
-    int lineStart = PositionFromLine (GetCurrentLine());
-    int lineEnd = PositionFromLine (GetCurrentLine() + 1);
-    SetSelection (lineStart, lineEnd);
-}
-
-void Edit::OnHilightLang (wxCommandEvent &event) {
-    InitializePrefs (g_LanguagePrefs [event.GetId() - myID_HILIGHTFIRST].name);
-}
-
-void Edit::OnDisplayEOL (wxCommandEvent &WXUNUSED(event)) {
-    SetViewEOL (!GetViewEOL());
-}
-
-void Edit::OnIndentGuide (wxCommandEvent &WXUNUSED(event)) {
-    SetIndentationGuides (!GetIndentationGuides());
-}
-
-void Edit::OnLineNumber (wxCommandEvent &WXUNUSED(event)) {
-    SetMarginWidth (m_LineNrID,
-                    GetMarginWidth (m_LineNrID) == 0? m_LineNrMargin: 0);
-}
-
-void Edit::OnLongLineOn (wxCommandEvent &WXUNUSED(event)) {
-    SetEdgeMode (GetEdgeMode() == 0? wxSTC_EDGE_LINE: wxSTC_EDGE_NONE);
-}
-
-void Edit::OnWhiteSpace (wxCommandEvent &WXUNUSED(event)) {
-    SetViewWhiteSpace (GetViewWhiteSpace() == 0?
-                       wxSTC_WS_VISIBLEALWAYS: wxSTC_WS_INVISIBLE);
-}
-
-void Edit::OnFoldToggle (wxCommandEvent &WXUNUSED(event)) {
-    ToggleFold (GetFoldParent(GetCurrentLine()));
-}
-
-void Edit::OnSetOverType (wxCommandEvent &WXUNUSED(event)) {
-    SetOvertype (!GetOvertype());
-}
-
-void Edit::OnSetReadOnly (wxCommandEvent &WXUNUSED(event)) {
-    SetReadOnly (!GetReadOnly());
-}
-
-void Edit::OnWrapmodeOn (wxCommandEvent &WXUNUSED(event)) {
-    SetWrapMode (GetWrapMode() == 0? wxSTC_WRAP_WORD: wxSTC_WRAP_NONE);
-}
-
-void Edit::OnUseCharset (wxCommandEvent &event) {
-    int Nr;
-    int charset = GetCodePage();
-    switch (event.GetId()) {
-        case myID_CHARSETANSI: {charset = wxSTC_CHARSET_ANSI; break;}
-        case myID_CHARSETMAC: {charset = wxSTC_CHARSET_ANSI; break;}
-    }
-    for (Nr = 0; Nr < wxSTC_STYLE_LASTPREDEFINED; Nr++) {
-        StyleSetCharacterSet (Nr, charset);
-    }
-    SetCodePage (charset);
-}
-
-void Edit::OnChangeCase (wxCommandEvent &event) {
-    switch (event.GetId()) {
-        case myID_CHANGELOWER: {
-            CmdKeyExecute (wxSTC_CMD_LOWERCASE);
-            break;
-        }
-        case myID_CHANGEUPPER: {
-            CmdKeyExecute (wxSTC_CMD_UPPERCASE);
-            break;
-        }
-    }
-}
-
-void Edit::OnConvertEOL (wxCommandEvent &event) {
-    int eolMode = GetEOLMode();
-    switch (event.GetId()) {
-        case myID_CONVERTCR: { eolMode = wxSTC_EOL_CR; break;}
-        case myID_CONVERTCRLF: { eolMode = wxSTC_EOL_CRLF; break;}
-        case myID_CONVERTLF: { eolMode = wxSTC_EOL_LF; break;}
-    }
-    ConvertEOLs (eolMode);
-    SetEOLMode (eolMode);
-}
-
-(*! misc*)
-void Edit::OnMarginClick (wxStyledTextEvent &event) {
-    if (event.GetMargin() == 2) {
-        int lineClick = LineFromPosition (event.GetPosition());
-        int levelClick = GetFoldLevel (lineClick);
-        if ((levelClick & wxSTC_FOLDLEVELHEADERFLAG) > 0) {
-            ToggleFold (lineClick);
-        }
-    }
-}
-
-void Edit::OnCharAdded (wxStyledTextEvent &event) {
-    char chr = (char)event.GetKey();
-    int currentLine = GetCurrentLine();
-    (* Change this if support for mac files with \r is needed*)
-    if (chr == '\n') {
-        int lineInd = 0;
-        if (currentLine > 0) {
-            lineInd = GetLineIndentation(currentLine - 1);
-        }
-        if (lineInd == 0) return;
-        SetLineIndentation (currentLine, lineInd);
-        GotoPos(PositionFromLine (currentLine) + lineInd);
-    }
-}
+let myEdit_OnEditSelectLine { m_edit = e } _ =
+  Edit.(
+    let lineStart = positionFromLine e (getCurrentLine e) in
+    let lineEnd = positionFromLine e (getCurrentLine e + 1) in
+    setSelection e lineStart lineEnd
+  )
 
 
-(*----------------------------------------------------------------------------*)
-(* private functions*)
-wxString Edit::DeterminePrefs (const wxString &filename) {
 
-    LanguageInfo const* curInfo;
 
-    (* determine language from filepatterns*)
-    int languageNr;
-    for (languageNr = 0; languageNr < g_LanguagePrefsSize; languageNr++) {
-        curInfo = &g_LanguagePrefs [languageNr];
-        wxString filepattern = curInfo->filepattern;
-        filepattern.Lower();
-        while (!filepattern.empty()) {
-            wxString cur = filepattern.BeforeFirst (';');
-            if ((cur == filename) ||
-                (cur == (filename.BeforeLast ('.') + wxT(".*"))) ||
-                (cur == (wxT("*.") + filename.AfterLast ('.')))) {
-                return curInfo->name;
-            }
-            filepattern = filepattern.AfterFirst (';');
-        }
-    }
-    return wxEmptyString;
-
-}
-
-bool Edit::InitializePrefs (const wxString &name) {
-
+let myEdit_InitializePrefs edi lang =
+  let e = edi.m_edit in
+  Edit.(
     (* initialize styles*)
-    StyleClearAll();
-    LanguageInfo const* curInfo = NULL;
+    styleClearAll e;
+    edi.m_language <- None;
 
-    (* determine language*)
-    bool found = false;
-    int languageNr;
-    for (languageNr = 0; languageNr < g_LanguagePrefsSize; languageNr++) {
-        curInfo = &g_LanguagePrefs [languageNr];
-        if (curInfo->name == name) {
-            found = true;
-            break;
-        }
-    }
-    if (!found) return false;
-
+    match lang with
+    | None -> ()
+    | Some curInfo ->
     (* set lexer and language*)
-    SetLexer (curInfo->lexer);
-    m_language = curInfo;
+      setLexer e curInfo.lexer;
+      edi.m_language <- Some curInfo;
 
     (* set margin for line numbers*)
-    SetMarginType (m_LineNrID, wxSTC_MARGIN_NUMBER);
-    StyleSetForeground (wxSTC_STYLE_LINENUMBER, wxColour (wxT("DARK GREY")));
-    StyleSetBackground (wxSTC_STYLE_LINENUMBER, *wxWHITE);
-    SetMarginWidth (m_LineNrID, 0); (* start out not visible*)
+      setMarginType e edi.m_LineNrID wxSTC_MARGIN_NUMBER;
+      styleSetForeground e wxSTC_STYLE_LINENUMBER (wxColour "DARK GREY");
+      styleSetBackground e wxSTC_STYLE_LINENUMBER wxWHITE;
+    setMarginWidth e edi.m_LineNrID 0; (* start out not visible*)
 
     (* default fonts for all styles!*)
-    int Nr;
-    for (Nr = 0; Nr < wxSTC_STYLE_LASTPREDEFINED; Nr++) {
-        wxFont font (10, wxMODERN, wxNORMAL, wxNORMAL);
-        StyleSetFont (Nr, font);
-    }
+    for nr = 0 to wxSTC_STYLE_LASTPREDEFINED - 1 do
+        styleSetFont e nr (wxFont 10 wxMODERN wxNORMAL wxNORMAL);
+    done;
 
     (* set common styles*)
-    StyleSetForeground (wxSTC_STYLE_DEFAULT, wxColour (wxT("DARK GREY")));
-    StyleSetForeground (wxSTC_STYLE_INDENTGUIDE, wxColour (wxT("DARK GREY")));
+    styleSetForeground e wxSTC_STYLE_DEFAULT (wxColour "DARK GREY");
+    styleSetForeground e wxSTC_STYLE_INDENTGUIDE (wxColour "DARK GREY");
 
+(*
     (* initialize settings*)
     if (g_CommonPrefs.syntaxEnable) {
         int keywordnr = 0;
@@ -1000,12 +607,149 @@ bool Edit::InitializePrefs (const wxString &name) {
                  wxSTC_WRAP_WORD: wxSTC_WRAP_NONE);
 
     return true;
+*)
+
+  )
+
+
+let myEdit_OnHilightLang  edi event =
+    myEdit_InitializePrefs edi
+      (Some g_LanguagePrefs.(WxCommandEvent.getId event - myID_HILIGHTFIRST))
+
+
+(*
+
+let myEdit_OnDisplayEOL { m_edit = e } _ =
+    SetViewEOL (!GetViewEOL());
+}
+
+let myEdit_OnIndentGuide { m_edit = e } _ =
+    SetIndentationGuides (!GetIndentationGuides());
+}
+
+let myEdit_OnLineNumber { m_edit = e } _ =
+    SetMarginWidth (m_LineNrID,
+                    GetMarginWidth (m_LineNrID) == 0? m_LineNrMargin: 0);
+}
+
+let myEdit_OnLongLineOn { m_edit = e } _ =
+    SetEdgeMode (GetEdgeMode() == 0? wxSTC_EDGE_LINE: wxSTC_EDGE_NONE);
+}
+
+let myEdit_OnWhiteSpace { m_edit = e } _ =
+    SetViewWhiteSpace (GetViewWhiteSpace() == 0?
+                       wxSTC_WS_VISIBLEALWAYS: wxSTC_WS_INVISIBLE);
+}
+
+let myEdit_OnFoldToggle { m_edit = e } _ =
+    ToggleFold (GetFoldParent(GetCurrentLine()));
+}
+
+let myEdit_OnSetOverType { m_edit = e } _ =
+    SetOvertype (!GetOvertype());
+}
+
+let myEdit_OnSetReadOnly { m_edit = e } _ =
+    SetReadOnly (!GetReadOnly());
+}
+
+let myEdit_OnWrapmodeOn { m_edit = e } _ =
+    SetWrapMode (GetWrapMode() == 0? wxSTC_WRAP_WORD: wxSTC_WRAP_NONE);
+}
+
+let myEdit_OnUseCharset (wxCommandEvent &event) {
+    int Nr;
+    int charset = GetCodePage();
+    switch (event.GetId()) {
+        case myID_CHARSETANSI: {charset = wxSTC_CHARSET_ANSI; break;}
+        case myID_CHARSETMAC: {charset = wxSTC_CHARSET_ANSI; break;}
+    }
+    for (Nr = 0; Nr < wxSTC_STYLE_LASTPREDEFINED; Nr++) {
+        StyleSetCharacterSet (Nr, charset);
+    }
+    SetCodePage (charset);
+}
+
+let myEdit_OnChangeCase (wxCommandEvent &event) {
+    switch (event.GetId()) {
+        case myID_CHANGELOWER: {
+            CmdKeyExecute (wxSTC_CMD_LOWERCASE);
+            break;
+        }
+        case myID_CHANGEUPPER: {
+            CmdKeyExecute (wxSTC_CMD_UPPERCASE);
+            break;
+        }
+    }
+}
+
+let myEdit_OnConvertEOL (wxCommandEvent &event) {
+    int eolMode = GetEOLMode();
+    switch (event.GetId()) {
+        case myID_CONVERTCR: { eolMode = wxSTC_EOL_CR; break;}
+        case myID_CONVERTCRLF: { eolMode = wxSTC_EOL_CRLF; break;}
+        case myID_CONVERTLF: { eolMode = wxSTC_EOL_LF; break;}
+    }
+    ConvertEOLs (eolMode);
+    SetEOLMode (eolMode);
+}
+
+(*! misc*)
+let myEdit_OnMarginClick (wxStyledTextEvent &event) {
+    if (event.GetMargin() == 2) {
+        int lineClick = LineFromPosition (event.GetPosition());
+        int levelClick = GetFoldLevel (lineClick);
+        if ((levelClick & wxSTC_FOLDLEVELHEADERFLAG) > 0) {
+            ToggleFold (lineClick);
+        }
+    }
+}
+
+let myEdit_OnCharAdded (wxStyledTextEvent &event) {
+    char chr = (char)event.GetKey();
+    int currentLine = GetCurrentLine();
+    (* Change this if support for mac files with \r is needed*)
+    if (chr == '\n') {
+        int lineInd = 0;
+        if (currentLine > 0) {
+            lineInd = GetLineIndentation(currentLine - 1);
+        }
+        if (lineInd == 0) return;
+        SetLineIndentation (currentLine, lineInd);
+        GotoPos(PositionFromLine (currentLine) + lineInd);
+    }
 }
 *)
 
-let myEdit_LoadFile appFrame maybe_filename =
+(*----------------------------------------------------------------------------*)
+
+let ends_with s suffix =
+  let len = String.length s in
+  let len_suffix = String.length suffix in
+  len > len_suffix && String.sub s (len - len_suffix) len_suffix = suffix
+
+(* private functions*)
+let myEdit_DeterminePrefs filename =
+
+  let rec iter i =
+    if i = Array.length g_LanguagePrefs then None
+    else
+      iter_list i g_LanguagePrefs.(i).filepatterns
+
+  and iter_list i list =
+    match list with
+      [] -> iter (i+1)
+    | ext :: tail ->
+      if ends_with filename ext then
+        Some g_LanguagePrefs.(i)
+      else
+        iter_list i tail
+  in
+  iter 0
+
+let myEdit_LoadFile edi maybe_filename =
   try
-    let m_edit = appFrame.m_edit in
+    let m_edit = edi.m_edit in
     let w_edit = WxStyledTextCtrl.wxWindow m_edit in
     let filename =
       match maybe_filename with
@@ -1023,9 +767,7 @@ let myEdit_LoadFile appFrame maybe_filename =
     Edit.clearAll m_edit;
     ignore_bool ( Edit.loadFile m_edit filename );
     Edit.emptyUndoBuffer m_edit;
-(*
-                    InitializePrefs (DeterminePrefs (fname.GetFullName()));
-*)
+    myEdit_InitializePrefs edi (myEdit_DeterminePrefs filename);
     true
   with Exit -> false
 
@@ -1056,56 +798,166 @@ let myEdit_LoadFile appFrame maybe_filename =
 
                    return true;
 }
+*)
 
-bool Edit::SaveFile ()
-    {
-#if wxUSE_FILEDLG
-    (* return if no change*)
-    if (!Modified()) return true;
 
-    (* get filname*)
-    if (!m_filename) {
-        wxFileDialog dlg (this, wxT("Save file"), wxEmptyString, wxEmptyString, wxT("Any file ( * )|*"),
-                          wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
-        if (dlg.ShowModal() != wxID_OK) return false;
-        m_filename = dlg.GetPath();
-    }
-
-    (* save file*)
-    return SaveFile (m_filename);
-#else
-    return false;
-#endif (* wxUSE_FILEDLG*)
-}
-
-bool Edit::SaveFile (const wxString &filename) {
-
-    (* return if no change*)
-    if (!Modified()) return true;
-
-(*     // save edit in file and clear undo*)
-(*     if (!filename.empty()) m_filename = filename;*)
-(*     wxFile file (m_filename, wxFile::write);*)
-(*     if (!file.IsOpened()) return false;*)
-(*     wxString buf = GetText();*)
-(*     bool okay = file.Write (buf);*)
-(*     file.Close();*)
-(*     if (!okay) return false;*)
-(*     EmptyUndoBuffer();*)
-(*     SetSavePoint();*)
-
-(*     return true;*)
-
-    return wxStyledTextCtrl::SaveFile(filename);
-
-}
-
-bool Edit::Modified () {
+let myEdit_Modified edi =
 
     (* return modified state*)
-    return (GetModify() && !GetReadOnly());
-}
+  let c = edi.m_edit in
+    WxStyledTextCtrl.(getModify c && not (getReadOnly c))
 
+let myEdit_SaveFile edi filename =
+  try
+    let filename = match filename with
+        Some filename -> filename
+      | None ->
+        (* return if no change*)
+
+        match edi.m_filename with
+        | Some filename ->
+          if not (myEdit_Modified edi) then raise (OK true);
+          filename
+        | None ->
+          (* get filname*)
+          let dlg = WxFileDialog.create edi.w_edit "Save file"
+              wxEmptyString wxEmptyString
+              "Any file ( * )|*"
+              (wxFD_SAVE lor wxFD_OVERWRITE_PROMPT)
+          in
+          if WxFileDialog.showModal dlg <> wxID_OK then raise (OK false);
+          WxFileDialog.getPath dlg
+    in
+
+    WxStyledTextCtrl.saveFile edi.m_edit filename
+
+  with OK b -> b
+
+let new_EditAll appFrame id pos size style =
+  let this =
+  WxStyledTextCtrl.(set (create appFrame.w_frame id pos size style) [
+(* TODO
+    (* default font for all styles*)
+    SetViewEOL (g_CommonPrefs.displayEOLEnable);
+    SetIndentationGuides (g_CommonPrefs.indentGuideEnable);
+    SetEdgeMode (g_CommonPrefs.longLineOnEnable?
+                 wxSTC_EDGE_LINE: wxSTC_EDGE_NONE);
+    SetViewWhiteSpace (g_CommonPrefs.whiteSpaceEnable?
+                       wxSTC_WS_VISIBLEALWAYS: wxSTC_WS_INVISIBLE);
+    SetOvertype (g_CommonPrefs.overTypeInitial);
+    SetReadOnly (g_CommonPrefs.readOnlyInitial);
+    SetWrapMode (g_CommonPrefs.wrapModeInitial?
+                 wxSTC_WRAP_WORD: wxSTC_WRAP_NONE);
+*)
+    ])
+  in
+  let w_this = Edit.wxWindow this in
+
+(* TODO
+    wxFont font (10, wxMODERN, wxNORMAL, wxNORMAL);
+    StyleSetFont (wxSTC_STYLE_DEFAULT, font);
+    StyleSetForeground (wxSTC_STYLE_DEFAULT, *wxBLACK);
+    StyleSetBackground (wxSTC_STYLE_DEFAULT, *wxWHITE);
+    StyleSetForeground (wxSTC_STYLE_LINENUMBER, wxColour (wxT("DARK GREY")));
+    StyleSetBackground (wxSTC_STYLE_LINENUMBER, *wxWHITE);
+    StyleSetForeground(wxSTC_STYLE_INDENTGUIDE, wxColour (wxT("DARK GREY")));
+    InitializePrefs (DEFAULT_LANGUAGE);
+
+    (* set visibility*)
+    SetVisiblePolicy (wxSTC_VISIBLE_STRICT|wxSTC_VISIBLE_SLOP, 1);
+    SetXCaretPolicy (wxSTC_CARET_EVEN|wxSTC_VISIBLE_STRICT|wxSTC_CARET_SLOP, 1);
+    SetYCaretPolicy (wxSTC_CARET_EVEN|wxSTC_VISIBLE_STRICT|wxSTC_CARET_SLOP, 1);
+
+    (* markers*)
+    MarkerDefine (wxSTC_MARKNUM_FOLDER,        wxSTC_MARK_DOTDOTDOT, wxT("BLACK"), wxT("BLACK"));
+    MarkerDefine (wxSTC_MARKNUM_FOLDEROPEN,    wxSTC_MARK_ARROWDOWN, wxT("BLACK"), wxT("BLACK"));
+    MarkerDefine (wxSTC_MARKNUM_FOLDERSUB,     wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
+    MarkerDefine (wxSTC_MARKNUM_FOLDEREND,     wxSTC_MARK_DOTDOTDOT, wxT("BLACK"), wxT("WHITE"));
+    MarkerDefine (wxSTC_MARKNUM_FOLDEROPENMID, wxSTC_MARK_ARROWDOWN, wxT("BLACK"), wxT("WHITE"));
+    MarkerDefine (wxSTC_MARKNUM_FOLDERMIDTAIL, wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
+    MarkerDefine (wxSTC_MARKNUM_FOLDERTAIL,    wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
+*)
+
+  let edi = {
+    m_edit = this;
+    w_edit = w_this;
+
+    m_filename = None;
+    m_language = None;
+
+    m_LineNrID = 0;
+    m_DividerID = 1;
+    m_FoldingID = 2;
+    m_LineNrMargin =
+      WxStyledTextCtrl.textWidth this wxSTC_STYLE_LINENUMBER "_999999";
+    m_FoldingMargin = 16;
+
+    m_up = appFrame;
+  }
+  in
+(* TODO
+CmdKeyClear (wxSTC_KEY_TAB, 0); (* this is done by the menu accelerator key*)
+    SetLayoutCache (wxSTC_CACHE_PAGE);
+
+*)
+
+  WxEVENT_TABLE.(wxStyledTextCtrl this edi [
+    (* common*)
+    EVT_SIZE (                         myEdit_OnSize);
+    (* edit*)
+    EVT_MENU (wxID_CLEAR,              myEdit_OnEditClear);
+    EVT_MENU (wxID_CUT,                myEdit_OnEditCut);
+    EVT_MENU (wxID_COPY,               myEdit_OnEditCopy);
+    EVT_MENU (wxID_PASTE,              myEdit_OnEditPaste);
+    EVT_MENU (myID_INDENTINC,          myEdit_OnEditIndentInc);
+    EVT_MENU (myID_INDENTRED,          myEdit_OnEditIndentRed);
+    EVT_MENU (wxID_SELECTALL,          myEdit_OnEditSelectAll);
+    EVT_MENU (myID_SELECTLINE,         myEdit_OnEditSelectLine);
+    EVT_MENU (wxID_REDO,               myEdit_OnEditRedo);
+    EVT_MENU (wxID_UNDO,               myEdit_OnEditUndo);
+    (* find*)
+    EVT_MENU (wxID_FIND,               myEdit_OnFind);
+    EVT_MENU (myID_FINDNEXT,           myEdit_OnFindNext);
+    EVT_MENU (myID_REPLACE,            myEdit_OnReplace);
+    EVT_MENU (myID_REPLACENEXT,        myEdit_OnReplaceNext);
+    EVT_MENU (myID_BRACEMATCH,         myEdit_OnBraceMatch);
+    EVT_MENU (myID_GOTO,               myEdit_OnGoto);
+    (* view*)
+(*
+    EVT_MENU_RANGE (myID_HILIGHTFIRST, myID_HILIGHTLAST,
+                                       myEdit_OnHilightLang);
+    EVT_MENU (myID_DISPLAYEOL,         myEdit_OnDisplayEOL);
+    EVT_MENU (myID_INDENTGUIDE,        myEdit_OnIndentGuide);
+    EVT_MENU (myID_LINENUMBER,         myEdit_OnLineNumber);
+    EVT_MENU (myID_LONGLINEON,         myEdit_OnLongLineOn);
+    EVT_MENU (myID_WHITESPACE,         myEdit_OnWhiteSpace);
+    EVT_MENU (myID_FOLDTOGGLE,         myEdit_OnFoldToggle);
+    EVT_MENU (myID_OVERTYPE,           myEdit_OnSetOverType);
+    EVT_MENU (myID_READONLY,           myEdit_OnSetReadOnly);
+    EVT_MENU (myID_WRAPMODEON,         myEdit_OnWrapmodeOn);
+    EVT_MENU (myID_CHARSETANSI,        myEdit_OnUseCharset);
+    EVT_MENU (myID_CHARSETMAC,         myEdit_OnUseCharset);
+    (* extra*)
+    EVT_MENU (myID_CHANGELOWER,        myEdit_OnChangeCase);
+    EVT_MENU (myID_CHANGEUPPER,        myEdit_OnChangeCase);
+    EVT_MENU (myID_CONVERTCR,          myEdit_OnConvertEOL);
+    EVT_MENU (myID_CONVERTCRLF,        myEdit_OnConvertEOL);
+    EVT_MENU (myID_CONVERTLF,          myEdit_OnConvertEOL);
+    (* stc*)
+    EVT_STC_MARGINCLICK (wxID_ANY,     myEdit_OnMarginClick);
+    EVT_STC_CHARADDED (wxID_ANY,       myEdit_OnCharAdded);
+    EVT_STC_KEY( wxID_ANY , myEdit_OnKey );
+*)
+    ]);
+
+
+  edi
+
+let new_Edit parent id =
+    new_EditAll parent id wxDefaultPosition wxDefaultSize wxVSCROLL
+
+
+(*
 (*----------------------------------------------------------------------------*)
 (* EditProperties*)
 (*----------------------------------------------------------------------------*)
@@ -1250,7 +1102,7 @@ bool EditPrint::OnBeginDocument (int startPage, int endPage) {
     return true;
 }
 
-void EditPrint::GetPageInfo (int *minPage, int *maxPage, int *selPageFrom, int *selPageTo) {
+let EditPrint::GetPageInfo (int *minPage, int *maxPage, int *selPageFrom, int *selPageTo) {
 
     (* initialize values*)
     *minPage = 0;
@@ -1383,21 +1235,6 @@ bool EditPrint::PrintScaling (wxDC *dc){
 
 (*----------------------------------------------------------------------------*)
 (*! language types*)
-const CommonInfo g_CommonPrefs = {
-    (* editor functionality prefs*)
-    true,  (* syntaxEnable*)
-    true,  (* foldEnable*)
-    true,  (* indentEnable*)
-    (* display defaults prefs*)
-    false, (* overTypeInitial*)
-    false, (* readOnlyInitial*)
-    false,  (* wrapModeInitial*)
-    false, (* displayEOLEnable*)
-    false, (* IndentGuideEnable*)
-    true,  (* lineNumberEnable*)
-    false, (* longLineOnEnable*)
-    false, (* whiteSpaceEnable*)
-};
 
 (*----------------------------------------------------------------------------*)
 (* keywordlists*)
@@ -1409,7 +1246,7 @@ const char* CppWordlist1 =
     "mutable namespace new operator private protected public register "
     "reinterpret_cast return short signed sizeof static static_cast "
     "struct switch template this throw true try typedef typeid "
-    "typename union unsigned using virtual void volatile wchar_t "
+    "typename union unsigned using virtual let volatile wchar_t "
     "while";
 const char* CppWordlist2 =
     "file";
@@ -1439,27 +1276,6 @@ const char* PythonWordlist2 =
     "RADIOBUTTON RCDATA RTEXT SCROLLBAR SEPARATOR SHIFT STATE3 "
     "STRINGTABLE STYLE TEXTINCLUDE VALUE VERSION VERSIONINFO VIRTKEY";
 
-
-(*----------------------------------------------------------------------------*)
-*)
-
-(*! languages*)
-let g_LanguagePrefs = [
-  { name = "OCaml";
-    filepattern = "*.ml;*.mli;*.mly;*.mll";
-    lexer = wxSTC_LEX_CAML;
-    styles = [];
-    folds = 0;
-  };
-  { name = "C++" ;
-    filepattern = "*.c;*.cc;*.cpp;*.cxx;*.cs;*.h;*.hh;*.hpp;*.hxx;*.sma";
-    lexer = wxSTC_LEX_CPP;
-    styles = [];
-    folds = mySTC_FOLD_COMMENT lor mySTC_FOLD_COMPACT lor mySTC_FOLD_PREPROC;
-  };
-]
-
-(*
     (* C++*)
     {"C++",
 
@@ -1734,57 +1550,6 @@ const StyleInfo g_StylePrefs [] = {
      wxT(""), 10, 0, 0}
 
     };
-
-const int g_StylePrefsSize = WXSIZEOF(g_StylePrefs);
-(*////////////////////////////////////////////////////////////////////////////*)
-(* File:        contrib/samples/stc/stctest.cpp*)
-(* Purpose:     STC test application*)
-(* Maintainer:  Otto Wyss*)
-(* Created:     2003-09-01*)
-(* RCS-ID:      $Id$*)
-(* Copyright:   (c) wxGuide*)
-(* Licence:     wxWindows licence*)
-(*////////////////////////////////////////////////////////////////////////////*)
-
-(*----------------------------------------------------------------------------*)
-(* headers*)
-(*----------------------------------------------------------------------------*)
-
-(* For compilers that support precompilation, includes "wx/wx.h".*)
-#include "wx/wxprec.h"
-
-#ifdef __BORLANDC__
-    #pragma hdrstop
-#endif
-
-(* for all others, include the necessary headers (this file is usually all you*)
-(* need because it includes almost all 'standard' wxWidgets headers)*)
-#ifndef WX_PRECOMP
-    #include "wx/wx.h"
-#endif
-
-(*! wxWidgets headers*)
-#include "wx/config.h"   (* configuration support*)
-#include "wx/filedlg.h"  (* file dialog support*)
-#include "wx/filename.h" (* filename support*)
-#include "wx/notebook.h" (* notebook support*)
-#include "wx/settings.h" (* system settings*)
-#include "wx/string.h"   (* strings support*)
-#include "wx/image.h"    (* images support*)
-
-(*! application headers*)
-#include "defsext.h"     (* Additional definitions*)
-#include "edit.h"        (* Edit module*)
-#include "prefs.h"       (* Prefs*)
-
-(*----------------------------------------------------------------------------*)
-(* resources*)
-(*----------------------------------------------------------------------------*)
-
-(* the application icon (under Windows and OS/2 it is in resources)*)
-#ifndef wxHAS_IMAGES_IN_RESOURCES
-    #include "../sample.xpm"
-#endif
 *)
 
 (*============================================================================*)
@@ -1851,7 +1616,7 @@ private:
 
     wxFrame* MinimalEditor();
 protected:
-    void OnMinimalEditor(wxCommandEvent&);
+    let OnMinimalEditor(wxCommandEvent&);
     DECLARE_EVENT_TABLE()
 };
 
@@ -1874,35 +1639,35 @@ public:
 
     (*! event handlers*)
     (*! common*)
-    void OnClose (wxCloseEvent &event);
-    void OnAbout (wxCommandEvent &event);
-    void OnExit (wxCommandEvent &event);
-    void OnTimerEvent (wxTimerEvent &event);
+    let OnClose (wxCloseEvent &event);
+    let OnAbout (wxCommandEvent &event);
+    let OnExit (wxCommandEvent &event);
+    let OnTimerEvent (wxTimerEvent &event);
     (*! file*)
-    void OnFileNew (wxCommandEvent &event);
-    void OnFileNewFrame (wxCommandEvent &event);
-    void OnFileOpen (wxCommandEvent &event);
-    void OnFileOpenFrame (wxCommandEvent &event);
-    void OnFileSave (wxCommandEvent &event);
-    void OnFileSaveAs (wxCommandEvent &event);
-    void OnFileClose (wxCommandEvent &event);
+    let OnFileNew (wxCommandEvent &event);
+    let OnFileNewFrame (wxCommandEvent &event);
+    let OnFileOpen (wxCommandEvent &event);
+    let OnFileOpenFrame (wxCommandEvent &event);
+    let OnFileSave (wxCommandEvent &event);
+    let OnFileSaveAs (wxCommandEvent &event);
+    let OnFileClose (wxCommandEvent &event);
     (*! properties*)
-    void OnProperties (wxCommandEvent &event);
+    let OnProperties (wxCommandEvent &event);
     (*! print*)
-    void OnPrintSetup (wxCommandEvent &event);
-    void OnPrintPreview (wxCommandEvent &event);
-    void OnPrint (wxCommandEvent &event);
+    let OnPrintSetup (wxCommandEvent &event);
+    let OnPrintPreview (wxCommandEvent &event);
+    let OnPrint (wxCommandEvent &event);
     (*! edit events*)
-    void OnEdit (wxCommandEvent &event);
+    let OnEdit (wxCommandEvent &event);
 
 private:
     (* edit object*)
     Edit *m_edit;
-    void FileOpen (wxString fname);
+    let FileOpen (wxString fname);
 
     (*! creates the application menu bar*)
     wxMenuBar *m_menuBar;
-    void CreateMenu ();
+    let CreateMenu ();
 
     (* print preview position and size*)
     wxRect DeterminePrintSize ();
@@ -1924,7 +1689,7 @@ public:
     ~AppAbout ();
 
     (* event handlers*)
-    void OnTimerEvent (wxTimerEvent &event);
+    let OnTimerEvent (wxTimerEvent &event);
 
 private:
     (* timer*)
@@ -1941,226 +1706,40 @@ private:
 IMPLEMENT_APP (App)
 *)
 
-(*
-int App::OnExit () {
 
-    (* delete global appname*)
-    delete g_appname;
-
-#if wxUSE_PRINTING_ARCHITECTURE
-    (* delete global print data and setup*)
-    if (g_printData) delete g_printData;
-    if (g_pageSetupData) delete g_pageSetupData;
-#endif (* wxUSE_PRINTING_ARCHITECTURE*)
-
-    return 0;
-}
-
-(*----------------------------------------------------------------------------*)
-(* AppFrame*)
-(*----------------------------------------------------------------------------*)
-*)
-
-(*
-
-
-AppFrame::~AppFrame () {
-}
-
-(* common event handlers*)
-void AppFrame::OnClose (wxCloseEvent &event) {
-    wxCommandEvent evt;
-    OnFileClose (evt);
-    if (m_edit && m_edit->Modified()) {
-        if (event.CanVeto()) event.Veto (true);
-        return;
-    }
-    Destroy();
-}
-
-void AppFrame::OnAbout (wxCommandEvent &WXUNUSED(event)) {
-    AppAbout dlg(this);
-}
-
-void AppFrame::OnExit (wxCommandEvent &WXUNUSED(event)) {
-    Close (true);
-}
-*)
-
-(* file event handlers*)
-let appFrame_OnFileOpen appFrame event =
-  ignore_bool (myEdit_LoadFile appFrame None)
-
-
-(* (wxCommandEvent &WXUNUSED(event)) {
-    if (!m_edit) return;
-#if wxUSE_FILEDLG
-    wxString fname;
-    wxFileDialog dlg (this, wxT("Open file"), wxEmptyString, wxEmptyString, wxT("Any file ( * )|*"),
-                      wxFD_OPEN | wxFD_FILE_MUST_EXIST | wxFD_CHANGE_DIR);
-    if (dlg.ShowModal() != wxID_OK) return;
-    fname = dlg.GetPath ();
-    FileOpen (fname);
-#endif (* wxUSE_FILEDLG*)
-}
-
-
-void AppFrame::OnFileSave (wxCommandEvent &WXUNUSED(event)) {
-    if (!m_edit) return;
-    if (!m_edit->Modified()) {
-        wxMessageBox (_("There is nothing to save!"), _("Save file"),
-                      wxOK | wxICON_EXCLAMATION);
-        return;
-    }
-    m_edit->SaveFile ();
-}
-
-void AppFrame::OnFileSaveAs (wxCommandEvent &WXUNUSED(event)) {
-    if (!m_edit) return;
-#if wxUSE_FILEDLG
-    wxString filename = wxEmptyString;
-    wxFileDialog dlg (this, wxT("Save file"), wxEmptyString, wxEmptyString, wxT("Any file ( * )|*"), wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
-    if (dlg.ShowModal() != wxID_OK) return;
-    filename = dlg.GetPath();
-    m_edit->SaveFile (filename);
-#endif (* wxUSE_FILEDLG*)
-}
-
-void AppFrame::OnFileClose (wxCommandEvent &WXUNUSED(event)) {
-    if (!m_edit) return;
-    if (m_edit->Modified()) {
-        if (wxMessageBox (_("Text is not saved, save before closing?"), _("Close"),
-                          wxYES_NO | wxICON_QUESTION) == wxYES) {
-            m_edit->SaveFile();
-            if (m_edit->Modified()) {
-                wxMessageBox (_("Text could not be saved!"), _("Close abort"),
-                              wxOK | wxICON_EXCLAMATION);
-                return;
-            }
-        }
-    }
-    m_edit->SetFilename (wxEmptyString);
-    m_edit->ClearAll();
-    m_edit->SetSavePoint();
-}
-
-(* properties event handlers*)
-void AppFrame::OnProperties (wxCommandEvent &WXUNUSED(event)) {
-    if (!m_edit) return;
-    EditProperties dlg(m_edit, 0);
-}
-
-(* print event handlers*)
-void AppFrame::OnPrintSetup (wxCommandEvent &WXUNUSED(event)) {
-#if wxUSE_PRINTING_ARCHITECTURE
-    ( *g_pageSetupData) = * g_printData;
-    wxPageSetupDialog pageSetupDialog(this, g_pageSetupData);
-    pageSetupDialog.ShowModal();
-    ( *g_printData) = pageSetupDialog.GetPageSetupData().GetPrintData();
-    ( *g_pageSetupData) = pageSetupDialog.GetPageSetupData();
-#endif (* wxUSE_PRINTING_ARCHITECTURE*)
-}
-
-void AppFrame::OnPrintPreview (wxCommandEvent &WXUNUSED(event)) {
-#if wxUSE_PRINTING_ARCHITECTURE
-    wxPrintDialogData printDialogData( *g_printData);
-    wxPrintPreview *preview =
-        new wxPrintPreview (new EditPrint (m_edit),
-                            new EditPrint (m_edit),
-                            &printDialogData);
-    if (!preview->IsOk()) {
-        delete preview;
-        wxMessageBox (_("There was a problem with previewing.\n\
-                         Perhaps your current printer is not correctly?"),
-                      _("Previewing"), wxOK);
-        return;
-    }
-    wxRect rect = DeterminePrintSize();
-    wxPreviewFrame *frame = new wxPreviewFrame (preview, this, _("Print Preview"));
-    frame->SetSize (rect);
-    frame->Centre(wxBOTH);
-    frame->Initialize();
-    frame->Show(true);
-#endif (* wxUSE_PRINTING_ARCHITECTURE*)
-}
-
-void AppFrame::OnPrint (wxCommandEvent &WXUNUSED(event)) {
-#if wxUSE_PRINTING_ARCHITECTURE
-    wxPrintDialogData printDialogData( *g_printData);
-    wxPrinter printer (&printDialogData);
-    EditPrint printout (m_edit);
-    if (!printer.Print (this, &printout, true)) {
-        if (wxPrinter::GetLastError() == wxPRINTER_ERROR) {
-        wxMessageBox (_("There was a problem with printing.\n\
-                         Perhaps your current printer is not correctly?"),
-                      _("Previewing"), wxOK);
-            return;
-        }
-    }
-    ( *g_printData) = printer.GetPrintDialogData().GetPrintData();
-#endif (* wxUSE_PRINTING_ARCHITECTURE*)
-}
-
-(* edit events*)
-void AppFrame::OnEdit (wxCommandEvent &event) {
-    if (m_edit) m_edit->GetEventHandler()->ProcessEvent (event);
-}
-*)
-
-let appFrame_FileOpen appFrame fname =
-(*    wxFileName w(fname); w.Normalize(); fname = w.GetFullPath(); *)
-    ignore_bool (myEdit_LoadFile appFrame (Some fname))
-
-(*
-
-wxRect AppFrame::DeterminePrintSize () {
-
-    wxSize scr = wxGetDisplaySize();
-
-    (* determine position and size (shifting 16 left and down)*)
-    wxRect rect = GetRect();
-    rect.x += 16;
-    rect.y += 16;
-    rect.width = wxMin (rect.width, (scr.x - rect.x));
-    rect.height = wxMin (rect.height, (scr.x - rect.y));
-
-    return rect;
-}
-
-*)
 
 (*----------------------------------------------------------------------------*)
 (* AppAbout*)
 (*----------------------------------------------------------------------------*)
 
 let new_AppAbout parent milliseconds (* =0 *) style (* =0 *) =
-  Printf.eprintf "new_AppAbout\n%!";
+(*  Printf.eprintf "new_AppAbout\n%!"; *)
   let this = wxDialog parent wxID_ANY wxEmptyString
       wxDefaultPosition wxDefaultSize
       (style lor wxDEFAULT_DIALOG_STYLE lor wxRESIZE_BORDER)
   in
   let w_this = WxDialog.wxWindow this in
-  Printf.eprintf "new_AppAbout\n%!";
+(*  Printf.eprintf "new_AppAbout\n%!"; *)
   (* set timer if any*)
   let m_timer = ref None in
   WxEVENT_TABLE.(wxDialog this m_timer [
       EVT_TIMER (myID_ABOUTTIMER, (fun _ _ ->
-          Printf.eprintf "Timer !\n%!";
+(*          Printf.eprintf "Timer !\n%!"; *)
           WxDialog.endModal this wxID_OK;
 (*          WxTimer.delete m_timer *)
         ))
     ]);
-  Printf.eprintf "new_AppAbout\n%!";
+(*  Printf.eprintf "new_AppAbout\n%!"; *)
   if (milliseconds > 0) then
 
     m_timer := begin
-      Printf.eprintf "Setting timer %d\n%!" milliseconds;
+(*      Printf.eprintf "Setting timer %d\n%!" milliseconds; *)
       let m_timer = WxTimer.create
           (WxDialog.wxEvtHandler this) myID_ABOUTTIMER in
       ignore_bool (WxTimer.start m_timer milliseconds wxTIMER_ONE_SHOT);
       Some m_timer
     end;
-  Printf.eprintf "new_AppAbout\n%!";
+(*  Printf.eprintf "new_AppAbout\n%!"; *)
   (* sets the application title*)
   WxDialog.setTitle this ("About ..");
 
@@ -2223,6 +1802,172 @@ let new_AppAbout parent milliseconds (* =0 *) style (* =0 *) =
   WxDialog.centerOnScreen this wxBOTH;
   ignore_int (WxDialog.showModal this);
   this
+
+let myApp_OnExit appFrame _ =
+
+(*
+    (* delete global appname*)
+    delete g_appname;
+
+#if wxUSE_PRINTING_ARCHITECTURE
+    (* delete global print data and setup*)
+    if (g_printData) delete g_printData;
+    if (g_pageSetupData) delete g_pageSetupData;
+#endif (* wxUSE_PRINTING_ARCHITECTURE*)
+
+    return 0;
+*)
+  Printf.eprintf "myApp_OnExit\n%!";
+  ignore_bool (WxFrame.close appFrame.m_frame true)
+
+(*----------------------------------------------------------------------------*)
+(* AppFrame*)
+(*----------------------------------------------------------------------------*)
+
+let appFrame_OnFileClose edi _ =
+(*
+    if (!m_edit) return;
+    if (m_edit->Modified()) {
+        if (wxMessageBox (_("Text is not saved, save before closing?"), _("Close"),
+                          wxYES_NO | wxICON_QUESTION) == wxYES) {
+            m_edit->SaveFile();
+            if (m_edit->Modified()) {
+                wxMessageBox (_("Text could not be saved!"), _("Close abort"),
+                              wxOK | wxICON_EXCLAMATION);
+                return;
+            }
+        }
+    }
+    m_edit->SetFilename (wxEmptyString);
+    m_edit->ClearAll();
+    m_edit->SetSavePoint();
+*)
+  ()
+
+(* common event handlers*)
+let appFrame_OnClose edi event =
+  appFrame_OnFileClose edi ();
+  if myEdit_Modified edi then begin
+        if WxCloseEvent.canVeto event then
+          WxCloseEvent.veto event true
+  end
+  else
+    ignore_bool (WxFrame.destroy edi.m_up.m_frame)
+
+let appFrame_OnAbout edi _ =
+ignore (new_AppAbout edi.m_up.w_frame 0 0)
+
+let appFrame_OnExit edi _ =
+  Printf.eprintf "appFrame_OnExit\n%!";
+  WxFrame.close edi.m_up.m_frame true
+
+(* file event handlers*)
+let appFrame_OnFileOpen edi _ =
+  ignore_bool (myEdit_LoadFile edi None)
+
+let appFrame_OnFileSave edi event =
+(*    if (!m_edit) return; *)
+  if myEdit_Modified edi then
+    ignore_int (WxMisc.wxMessageBoxAll
+        ("There is nothing to save!") ("Save file")
+        (wxOK lor wxICON_EXCLAMATION) None (-1) (-1))
+  else
+    ignore_bool (myEdit_SaveFile edi None)
+
+let appFrame_OnFileSaveAs edi _ =
+    let dlg = WxFileDialog.create edi.w_edit "Save file"
+        wxEmptyString wxEmptyString
+        "Any file ( * )|*"
+        (wxFD_SAVE lor wxFD_OVERWRITE_PROMPT)
+    in
+    if WxFileDialog.showModal dlg = wxID_OK then
+      ignore_bool (myEdit_SaveFile edi (Some (WxFileDialog.getPath dlg)))
+
+(*
+(* properties event handlers*)
+let appFrame_OnProperties { m_edit = e } _ =
+    if (!m_edit) return;
+    EditProperties dlg(m_edit, 0);
+}
+
+(* print event handlers*)
+let appFrame_OnPrintSetup { m_edit = e } _ =
+#if wxUSE_PRINTING_ARCHITECTURE
+    ( *g_pageSetupData) = * g_printData;
+    wxPageSetupDialog pageSetupDialog(this, g_pageSetupData);
+    pageSetupDialog.ShowModal();
+    ( *g_printData) = pageSetupDialog.GetPageSetupData().GetPrintData();
+    ( *g_pageSetupData) = pageSetupDialog.GetPageSetupData();
+#endif (* wxUSE_PRINTING_ARCHITECTURE*)
+}
+
+let appFrame_OnPrintPreview { m_edit = e } _ =
+#if wxUSE_PRINTING_ARCHITECTURE
+    wxPrintDialogData printDialogData( *g_printData);
+    wxPrintPreview *preview =
+        new wxPrintPreview (new EditPrint (m_edit),
+                            new EditPrint (m_edit),
+                            &printDialogData);
+    if (!preview->IsOk()) {
+        delete preview;
+        wxMessageBox (_("There was a problem with previewing.\n\
+                         Perhaps your current printer is not correctly?"),
+                      _("Previewing"), wxOK);
+        return;
+    }
+    wxRect rect = DeterminePrintSize();
+    wxPreviewFrame *frame = new wxPreviewFrame (preview, this, _("Print Preview"));
+    frame->SetSize (rect);
+    frame->Centre(wxBOTH);
+    frame->Initialize();
+    frame->Show(true);
+#endif (* wxUSE_PRINTING_ARCHITECTURE*)
+}
+
+let appFrame_OnPrint { m_edit = e } _ =
+#if wxUSE_PRINTING_ARCHITECTURE
+    wxPrintDialogData printDialogData( *g_printData);
+    wxPrinter printer (&printDialogData);
+    EditPrint printout (m_edit);
+    if (!printer.Print (this, &printout, true)) {
+        if (wxPrinter::GetLastError() == wxPRINTER_ERROR) {
+        wxMessageBox (_("There was a problem with printing.\n\
+                         Perhaps your current printer is not correctly?"),
+                      _("Previewing"), wxOK);
+            return;
+        }
+    }
+    ( *g_printData) = printer.GetPrintDialogData().GetPrintData();
+#endif (* wxUSE_PRINTING_ARCHITECTURE*)
+}
+
+(* edit events*)
+let appFrame_OnEdit (wxCommandEvent &event) {
+    if (m_edit) m_edit->GetEventHandler()->ProcessEvent (event);
+}
+*)
+
+let appFrame_FileOpen appFrame fname =
+(*    wxFileName w(fname); w.Normalize(); fname = w.GetFullPath(); *)
+    ignore_bool (myEdit_LoadFile appFrame (Some fname))
+
+(*
+
+wxRect appFrame_DeterminePrintSize () {
+
+    wxSize scr = wxGetDisplaySize();
+
+    (* determine position and size (shifting 16 left and down)*)
+    wxRect rect = GetRect();
+    rect.x += 16;
+    rect.y += 16;
+    rect.width = wxMin (rect.width, (scr.x - rect.x));
+    rect.height = wxMin (rect.height, (scr.x - rect.y));
+
+    return rect;
+}
+
+*)
 
 (*///////////////////////////////////////////////////////////////////////////*)
 (* Minimal editor added by Troels K 2008-04-08*)
@@ -2442,7 +2187,7 @@ let new_AppFrame m_app title =
           List.mapi (fun i pref ->
             (* g_LanguagePrefsSize *)
             Append (myID_HILIGHTFIRST + i, pref.name))
-            g_LanguagePrefs);
+            (Array.to_list g_LanguagePrefs));
         AppendSeparator();
         AppendCheckItem (myID_FOLDTOGGLE, wxT("&Toggle current fold\tCtrl+T"));
         AppendCheckItem (myID_OVERTYPE, wxT("&Overwrite mode\tIns"));
@@ -2492,84 +2237,77 @@ let new_AppFrame m_app title =
       ]
     ]);
 
-  (* open first page*)
-  let m_edit = new_Edit w_this wxID_ANY in
-  Edit.setFocus m_edit;
-
   let appFrame = {
-    m_app; m_edit; m_frame = this;
+    m_app; m_frame = this; w_frame = w_this;
   } in
 
-  let w_frame = WxFrame.wxWindow this in
+  (* open first page*)
+  let edi = new_Edit appFrame wxID_ANY in
+  Edit.setFocus edi.m_edit;
 
-
-  WxEVENT_TABLE.(wxFrame this appFrame [
+  WxEVENT_TABLE.(wxFrame this edi [
+    (* common*)
+    EVT_CLOSE (                      appFrame_OnClose);
       (* file*)
       EVT_MENU (wxID_OPEN, appFrame_OnFileOpen);
-      EVT_MENU (wxID_ABOUT,            (fun _ _ ->
-          ignore (new_AppAbout w_frame 0 0)));
+
+    (* file*)
+    EVT_MENU (wxID_SAVE,             appFrame_OnFileSave);
+    EVT_MENU (wxID_SAVEAS,           appFrame_OnFileSaveAs);
+    EVT_MENU (wxID_CLOSE,            appFrame_OnFileClose);
 
 (*
-    (* common*)
-    EVT_CLOSE (                      appFrame_OnClose)
-    (* file*)
-    EVT_MENU (wxID_OPEN,             appFrame_OnFileOpen)
-    EVT_MENU (wxID_SAVE,             appFrame_OnFileSave)
-    EVT_MENU (wxID_SAVEAS,           appFrame_OnFileSaveAs)
-    EVT_MENU (wxID_CLOSE,            appFrame_OnFileClose)
     (* properties*)
-    EVT_MENU (myID_PROPERTIES,       appFrame_OnProperties)
+    EVT_MENU (myID_PROPERTIES,       appFrame_OnProperties);
     (* print and exit*)
-    EVT_MENU (wxID_PRINT_SETUP,      appFrame_OnPrintSetup)
-    EVT_MENU (wxID_PREVIEW,          appFrame_OnPrintPreview)
-    EVT_MENU (wxID_PRINT,            appFrame_OnPrint)
-    EVT_MENU (wxID_EXIT,             appFrame_OnExit)
+    EVT_MENU (wxID_PRINT_SETUP,      appFrame_OnPrintSetup);
+    EVT_MENU (wxID_PREVIEW,          appFrame_OnPrintPreview);
+    EVT_MENU (wxID_PRINT,            appFrame_OnPrint);
+    EVT_MENU (wxID_EXIT,             appFrame_OnExit);
     (* edit*)
-    EVT_MENU (wxID_CLEAR,            appFrame_OnEdit)
-    EVT_MENU (wxID_CUT,              appFrame_OnEdit)
-    EVT_MENU (wxID_COPY,             appFrame_OnEdit)
-    EVT_MENU (wxID_PASTE,            appFrame_OnEdit)
-    EVT_MENU (myID_INDENTINC,        appFrame_OnEdit)
-    EVT_MENU (myID_INDENTRED,        appFrame_OnEdit)
-    EVT_MENU (wxID_SELECTALL,        appFrame_OnEdit)
-    EVT_MENU (myID_SELECTLINE,       appFrame_OnEdit)
-    EVT_MENU (wxID_REDO,             appFrame_OnEdit)
-    EVT_MENU (wxID_UNDO,             appFrame_OnEdit)
+    EVT_MENU (wxID_CLEAR,            appFrame_OnEdit);
+    EVT_MENU (wxID_CUT,              appFrame_OnEdit);
+    EVT_MENU (wxID_COPY,             appFrame_OnEdit);
+    EVT_MENU (wxID_PASTE,            appFrame_OnEdit);
+    EVT_MENU (myID_INDENTINC,        appFrame_OnEdit);
+    EVT_MENU (myID_INDENTRED,        appFrame_OnEdit);
+    EVT_MENU (wxID_SELECTALL,        appFrame_OnEdit);
+    EVT_MENU (myID_SELECTLINE,       appFrame_OnEdit);
+    EVT_MENU (wxID_REDO,             appFrame_OnEdit);
+    EVT_MENU (wxID_UNDO,             appFrame_OnEdit);
     (* find*)
-    EVT_MENU (wxID_FIND,             appFrame_OnEdit)
-    EVT_MENU (myID_FINDNEXT,         appFrame_OnEdit)
-    EVT_MENU (myID_REPLACE,          appFrame_OnEdit)
-    EVT_MENU (myID_REPLACENEXT,      appFrame_OnEdit)
-    EVT_MENU (myID_BRACEMATCH,       appFrame_OnEdit)
-    EVT_MENU (myID_GOTO,             appFrame_OnEdit)
+    EVT_MENU (wxID_FIND,             appFrame_OnEdit);
+    EVT_MENU (myID_FINDNEXT,         appFrame_OnEdit);
+    EVT_MENU (myID_REPLACE,          appFrame_OnEdit);
+    EVT_MENU (myID_REPLACENEXT,      appFrame_OnEdit);
+    EVT_MENU (myID_BRACEMATCH,       appFrame_OnEdit);
+    EVT_MENU (myID_GOTO,             appFrame_OnEdit);
     (* view*)
     EVT_MENU_RANGE (myID_HILIGHTFIRST, myID_HILIGHTLAST,
-                                     appFrame_OnEdit)
-    EVT_MENU (myID_DISPLAYEOL,       appFrame_OnEdit)
-    EVT_MENU (myID_INDENTGUIDE,      appFrame_OnEdit)
-    EVT_MENU (myID_LINENUMBER,       appFrame_OnEdit)
-    EVT_MENU (myID_LONGLINEON,       appFrame_OnEdit)
-    EVT_MENU (myID_WHITESPACE,       appFrame_OnEdit)
-    EVT_MENU (myID_FOLDTOGGLE,       appFrame_OnEdit)
-    EVT_MENU (myID_OVERTYPE,         appFrame_OnEdit)
-    EVT_MENU (myID_READONLY,         appFrame_OnEdit)
-    EVT_MENU (myID_WRAPMODEON,       appFrame_OnEdit)
+                                     appFrame_OnEdit);
+    EVT_MENU (myID_DISPLAYEOL,       appFrame_OnEdit);
+    EVT_MENU (myID_INDENTGUIDE,      appFrame_OnEdit);
+    EVT_MENU (myID_LINENUMBER,       appFrame_OnEdit);
+    EVT_MENU (myID_LONGLINEON,       appFrame_OnEdit);
+    EVT_MENU (myID_WHITESPACE,       appFrame_OnEdit);
+    EVT_MENU (myID_FOLDTOGGLE,       appFrame_OnEdit);
+    EVT_MENU (myID_OVERTYPE,         appFrame_OnEdit);
+    EVT_MENU (myID_READONLY,         appFrame_OnEdit);
+    EVT_MENU (myID_WRAPMODEON,       appFrame_OnEdit);
     (* extra*)
-    EVT_MENU (myID_CHANGELOWER,      appFrame_OnEdit)
-    EVT_MENU (myID_CHANGEUPPER,      appFrame_OnEdit)
-    EVT_MENU (myID_CONVERTCR,        appFrame_OnEdit)
-    EVT_MENU (myID_CONVERTCRLF,      appFrame_OnEdit)
-    EVT_MENU (myID_CONVERTLF,        appFrame_OnEdit)
-    EVT_MENU (myID_CHARSETANSI,      appFrame_OnEdit)
-    EVT_MENU (myID_CHARSETMAC,       appFrame_OnEdit)
-    (* help*)
-    EVT_MENU (wxID_ABOUT,            appFrame_OnAbout)
+    EVT_MENU (myID_CHANGELOWER,      appFrame_OnEdit);
+    EVT_MENU (myID_CHANGEUPPER,      appFrame_OnEdit);
+    EVT_MENU (myID_CONVERTCR,        appFrame_OnEdit);
+    EVT_MENU (myID_CONVERTCRLF,      appFrame_OnEdit);
+    EVT_MENU (myID_CONVERTLF,        appFrame_OnEdit);
+    EVT_MENU (myID_CHARSETANSI,      appFrame_OnEdit);
+    EVT_MENU (myID_CHARSETMAC,       appFrame_OnEdit);
 *)
-
-
+    (* help*)
+    EVT_MENU (wxID_ABOUT,            appFrame_OnAbout);
     ]);
 
-  appFrame_FileOpen appFrame (wxT("samples/stc/stc.ml"));
+  appFrame_FileOpen edi (wxT("samples/stc/stc.ml"));
   appFrame
 
 (*----------------------------------------------------------------------------*)
@@ -2601,6 +2339,7 @@ let myApp_OnInit (app : wxApp) =
 
     WxEVENT_TABLE.(wxApp app appFrame [
         EVT_MENU(myID_WINDOW_MINIMAL, myApp_OnMinimalEditor);
+        EVT_MENU (wxID_EXIT,             myApp_OnExit);
       ]);
 
     ()

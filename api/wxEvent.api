@@ -61,7 +61,6 @@ int 	StopPropagation ()
 class wxActivateEvent inherit wxEvent begin end
 class wxChildFocusEvent inherit wxEvent begin end
 class wxClipboardTextEvent inherit wxEvent begin end
-class wxCloseEvent inherit wxEvent begin end
 
 class wxCommandEvent inherit wxEvent begin
 
@@ -340,12 +339,6 @@ events wxScrollWinEvent [
    EVT_SCROLLWIN_THUMBRELEASE
 ]
 
-events wxCloseEvent [
-   EVT_CLOSE_WINDOW
-   EVT_END_SESSION
-   EVT_QUERY_END_SESSION
-]
-
 events wxActivateEvent [
    EVT_ACTIVATE_APP
    EVT_ACTIVATE
@@ -393,7 +386,7 @@ events wxIdleEvent [
 ]
 
 events wxSizeEvent [
-   EVT_SIZE
+   EVT_SIZE (EVT_SIZE)
    EVT_SIZING
 ]
 

@@ -19,15 +19,13 @@ class wxStyledTextEvent inherit wxCommandEvent begin
   int 	GetListType () const
   int 	GetX () const
   int 	GetY () const
-  (* 
-  int 	GetToken () const
-  int 	GetAnnotationsLinesAdded () const
-  int 	GetUpdated () const
-*)
  
   wxString 	GetDragText ()
   version 2.9 begin 
     int 	GetDragFlags ()
+    int 	GetToken () const
+    int 	GetAnnotationsLinesAdded () const
+    int 	GetUpdated () const
   end
 
   wxDragResult 	GetDragResult ()
@@ -74,20 +72,17 @@ events wxStyledTextEvent [
 
 class wxStyledTextCtrl inherit wxControl begin
  
-   new Create (wxWindow *parent, wxWindowID id=wxID_ANY, const wxPoint &pos=wxDefaultPosition, const wxSize &size=wxDefaultSize, long style=0)
+   new Create (wxWindow *parent, wxWindowID id=wxID_ANY, 
+               const wxPoint &pos=wxDefaultPosition, 
+               const wxSize &size=wxDefaultSize, long style=0)
  
-   new CreateAll (wxWindow *parent, wxWindowID id=wxID_ANY, const wxPoint &pos=wxDefaultPosition, const wxSize &size=wxDefaultSize, long style=0, const wxString &name=wxSTCNameStr)
-
-(*
-bool 	Create (wxWindow *parent, wxWindowID id=wxID_ANY, const wxPoint &pos=wxDefaultPosition, const wxSize &size=wxDefaultSize, long style=0, const wxString &name=wxSTCNameStr)
- 	Create the UI elements for a STC that was created with the default ctor. 
-*)
+   new CreateAll (wxWindow *parent, wxWindowID id=wxID_ANY, 
+         const wxPoint &pos=wxDefaultPosition, const wxSize &size=wxDefaultSize, 
+         long style=0, const wxString &name=wxSTCNameStr)
  
 void 	AddText (const wxString &text)
 
 (*
- 	Add text to the document at current position. 
- 
 void 	AddStyledText (const wxMemoryBuffer &data)
  	Add array of cells to document. 
 *)
@@ -109,67 +104,33 @@ void 	SetSavePoint ()
  
 wxMemoryBuffer 	GetStyledText (int startPos, int endPos)
  	Retrieve a buffer of cells. 
+*)
  
 bool 	CanRedo () const
- 	Are there any redoable actions in the undo history? 
- 
 int 	MarkerLineFromHandle (int handle)
- 	Retrieve the line number at which a particular marker is located. 
- 
 void 	MarkerDeleteHandle (int handle)
- 	Delete a marker. 
- 
 bool 	GetUndoCollection () const
- 	Is undo history being collected? 
- 
 int 	GetViewWhiteSpace () const
- 	Are white space characters currently visible? Returns one of SCWS_* constants. 
- 
 void 	SetViewWhiteSpace (int viewWS)
- 	Make white space characters invisible, always visible or visible outside indentation. 
- 
-int 	PositionFromPoint (wxPoint pt) const
- 	Find the position from a point within the window. 
- 
+int 	PositionFromPoint (wxPoint& pt) const
 int 	PositionFromPointClose (int x, int y)
- 	Find the position from a point within the window but return INVALID_POSITION if not close to text. 
- 
 void 	GotoLine (int line)
- 	Set caret to start of a line and ensure it is visible. 
- 
 void 	GotoPos (int pos)
- 	Set caret to a position and ensure it is visible. 
- 
 void 	SetAnchor (int posAnchor)
- 	Set the selection anchor to a position. 
- 
+
+(*
 wxString 	GetCurLine (int *linePos=NULL)
  	Retrieve the text of the line containing the caret. 
+*)
  
 int 	GetEndStyled () const
- 	Retrieve the position of the last correctly styled character. 
- 
 void 	ConvertEOLs (int eolMode)
- 	Convert all line endings in the document to one mode. 
- 
 int 	GetEOLMode () const
- 	Retrieve the current end of line mode - one of CRLF, CR, or LF. 
- 
 void 	SetEOLMode (int eolMode)
- 	Set the current end of line mode. 
- 
 void 	StartStyling (int pos, int mask)
- 	Set the current styling position to pos and the styling mask to mask. 
- 
 void 	SetStyling (int length, int style)
- 	Change style from current styling position for length characters to a style and move the current styling position to after this newly styled segment. 
- 
 bool 	GetBufferedDraw () const
- 	Is drawing done first into a buffer or direct to the screen? 
- 
 void 	SetBufferedDraw (bool buffered)
- 	If drawing is buffered then each line of text is drawn into a bitmap buffer before drawing it to the screen to avoid flicker. 
- *)
 
 void 	SetTabWidth (int tabWidth)
 int 	GetTabWidth () const
@@ -228,17 +189,7 @@ void 	SetMarginMask (int margin, int mask)
 int 	GetMarginMask (int margin) const
 void 	SetMarginSensitive (int margin, bool sensitive)
 bool 	GetMarginSensitive (int margin) const
-
-(*
- 	Set the cursor shown when the mouse is inside a margin. 
- 
-int 	GetMarginCursor (int margin) const
- 	Retrieve the cursor shown in a margin. 
- 
 void 	StyleClearAll ()
- 	Clear all the styles and make equivalent to the global default style. 
- *)
-
 void 	StyleSetForeground (int style, const wxColour &fore)
 void 	StyleSetBackground (int style, const wxColour &back)
 void 	StyleSetBold (int style, bool bold)
@@ -368,13 +319,12 @@ void 	SetWordChars (const wxString &characters)
  
 wxString 	GetWordChars () const
  	Get the set of characters making up words for when moving or selecting by word. 
- 
+ *)
+
 void 	BeginUndoAction ()
- 	Start a sequence of actions that is undone and redone as a unit. 
- 
 void 	EndUndoAction ()
- 	End a sequence of actions that is undone and redone as a unit. 
- 
+
+(* 
 void 	IndicatorSetStyle (int indic, int style)
  	Set an indicator to plain, squiggle or TT. 
  
@@ -561,24 +511,16 @@ int 	GetCodePage () const
  
 wxColour 	GetCaretForeground () const
  	Get the foreground colour of the caret. 
- 
-bool 	GetReadOnly () const
- 	In read-only mode? 
- 
+ *)
+
+bool 	GetReadOnly () const 
 void 	SetCurrentPos (int pos)
- 	Sets the position of the caret. 
- 
 void 	SetSelectionStart (int pos)
- 	Sets the position that starts the selection - this becomes the anchor. 
- 
 int 	GetSelectionStart () const
- 	Returns the position at the start of the selection. 
- 
 void 	SetSelectionEnd (int pos)
- 	Sets the position that ends the selection - this becomes the currentPosition. 
- 
 int 	GetSelectionEnd () const
- 	Returns the position at the end of the selection. 
+
+(*
  
 void 	SetEmptySelection (int pos)
  	Set caret to a position, while removing any existing selection. 
@@ -621,20 +563,12 @@ void 	SetMarginRight (int pixelWidth)
  
 int 	GetMarginRight () const
  	Returns the size in pixels of the right margin. 
- 
+ *)
+
 bool 	GetModify () const
- 	Is the document different from when it was last saved? 
- 
 wxString 	GetSelectedText ()
- 	Retrieve the selected text. 
- 
 wxString 	GetTextRange (int startPos, int endPos)
- 	Retrieve a range of text. 
- 
 void 	HideSelection (bool normal)
- 	Draw the selection in normal style or with selection highlighted. 
- 
-*)
 
 int 	LineFromPosition (int pos) const
 int 	PositionFromLine (int line) const
@@ -784,89 +718,33 @@ void 	SetLayoutCache (int mode)
  
 int 	GetLayoutCache () const
  	Retrieve the degree of caching of layout information. 
- 
+ *)
+
 void 	SetScrollWidth (int pixelWidth)
- 	Sets the document width assumed for scrolling. 
- 
 int 	GetScrollWidth () const
- 	Retrieve the document width assumed for scrolling. 
- 
-void 	SetScrollWidthTracking (bool tracking)
- 	Sets whether the maximum width line displayed is used to set scroll width. 
- 
-bool 	GetScrollWidthTracking () const
- 	Retrieve whether the scroll width tracks wide lines. 
- 
 int 	TextWidth (int style, const wxString &text)
- 	Measure the pixel width of some text in a particular style. 
- 
 void 	SetEndAtLastLine (bool endAtLastLine)
- 	Sets the scroll range so that maximum scroll position has the last line at the bottom of the view (default). 
- 
 bool 	GetEndAtLastLine () const
- 	Retrieve whether the maximum scroll position has the last line at the bottom of the view. 
- 
 int 	TextHeight (int line)
- 	Retrieve the height of a particular line of text in pixels. 
- 
 void 	SetUseVerticalScrollBar (bool show)
- 	Show or hide the vertical scroll bar. 
- 
 bool 	GetUseVerticalScrollBar () const
- 	Is the vertical scroll bar visible? 
- 
 void 	AppendText (const wxString &text)
- 	Append a string to the end of the document without changing the selection. 
- 
 bool 	GetTwoPhaseDraw () const
- 	Is drawing done in two phases with backgrounds drawn before foregrounds? 
- 
 void 	SetTwoPhaseDraw (bool twoPhase)
- 	In twoPhaseDraw mode, drawing is performed in two phases, first the background and then the foreground. 
- 
-void 	SetFirstVisibleLine (int lineDisplay)
- 	Scroll so that a display line is at the top of the display. 
- 
-void 	SetMultiPaste (int multiPaste)
- 	Change the effect of pasting when there are multiple selections. 
- 
-int 	GetMultiPaste () const
- 	Retrieve the effect of pasting when there are multiple selections. 
- 
-wxString 	GetTag (int tagNumber) const
- 	Retrieve the value of a tag from a regular expression search. 
- 
 void 	TargetFromSelection ()
- 	Make the target range start and end be the same as the selection range start and end. 
- 
 void 	LinesJoin ()
- 	Join the lines in the target. 
- 
 void 	LinesSplit (int pixelWidth)
- 	Split the lines in the target into lines that are less wide than pixelWidth where possible. 
- 
 void 	SetFoldMarginColour (bool useSetting, const wxColour &back)
- 	Set the colours used as a chequerboard pattern in the fold margin. 
- 
 void 	SetFoldMarginHiColour (bool useSetting, const wxColour &fore)
- 
 void 	LineDown ()
- 	Move caret down one line. 
- 
 void 	LineDownExtend ()
- 	Move caret down one line extending selection to new caret position. 
- 
 void 	LineUp ()
- 	Move caret up one line. 
- 
 void 	LineUpExtend ()
- 	Move caret up one line extending selection to new caret position. 
- 
 void 	CharLeft ()
- 	Move caret left one character. 
- 
 void 	CharLeftExtend ()
- 	Move caret left one character extending selection to new caret position. 
+
+
+(*
  
 void 	CharRight ()
  	Move caret right one character. 
@@ -1018,33 +896,17 @@ void 	VCHomeWrapExtend ()
  
 void 	LineCopy ()
  	Copy the line containing the caret. 
+*)
  
 void 	MoveCaretInsideView ()
- 	Move the caret inside current view if it's not there already. 
- 
 int 	LineLength (int line) const
- 	How many characters are on a line, including end of line characters? 
- 
 void 	BraceHighlight (int pos1, int pos2)
- 	Highlight the characters at two positions. 
- 
-void 	BraceHighlightIndicator (bool useBraceHighlightIndicator, int indicator)
- 	Use specified indicator to highlight matching braces instead of changing their style. 
- 
 void 	BraceBadLight (int pos)
- 	Highlight the character at a position indicating there is no matching brace. 
- 
-void 	BraceBadLightIndicator (bool useBraceBadLightIndicator, int indicator)
- 	Use specified indicator to highlight non matching brace instead of changing its style. 
- 
 int 	BraceMatch (int pos)
- 	Find the position of a matching brace or INVALID_POSITION if no match. 
- 
 bool 	GetViewEOL () const
- 	Are the end of line characters visible? 
- 
 void 	SetViewEOL (bool visible)
- 	Make the end of line characters visible or invisible. 
+
+(*
  
 void * 	GetDocPointer ()
  	Retrieve a pointer to the document object. 
@@ -1732,18 +1594,14 @@ wxString 	DescribeProperty (const wxString &name) const
 wxString 	DescribeKeyWordSets () const
  	Retrieve a '
 ' separated list of descriptions of the keyword sets understood by the current lexer. 
- 
+ *)
+
 int 	GetCurrentLine ()
- 	Returns the line number of the line with the caret. 
- 
+
 void 	StyleSetSpec (int styleNum, const wxString &spec)
- 	Extract style settings from a spec-string which is composed of one or more of the following comma separated elements: 
- 
-wxFont 	StyleGetFont (int style)
- 	Get the font of a style. 
- 
 void 	StyleSetFont (int styleNum, wxFont &font)
- 	Set style size, face, bold, italic, and underline attributes from a wxFont's attributes. 
+
+(*
  
 void 	StyleSetFontAttr (int styleNum, int size, const wxString &faceName, bool bold, bool italic, bool underline, wxFontEncoding encoding=wxFONTENCODING_DEFAULT)
  	Set all font style attributes at once. 
@@ -1753,15 +1611,13 @@ void 	StyleSetCharacterSet (int style, int characterSet)
  
 void 	StyleSetFontEncoding (int style, wxFontEncoding encoding)
  	Set the font encoding to be used by a style. 
- 
+ *)
+
 void 	CmdKeyExecute (int cmd)
- 	Perform one of the operations defined by the wxSTC_CMD_* constants. 
- 
 void 	SetMargins (int left, int right)
- 	Set the left and right margin in the edit area, measured in pixels. 
- 
 wxPoint 	PointFromPosition (int pos)
- 	Retrieve the point in the window where a position is displayed. 
+
+(*
  
 void 	ScrollToLine (int line)
  	Scroll enough to make the given line visible. 
@@ -1782,11 +1638,9 @@ bool 	GetLastKeydownProcessed ()
  	Can be used to prevent the EVT_CHAR handler from adding the char. 
  
 void 	SetLastKeydownProcessed (bool val)
+*)
  
 bool 	SaveFile (const wxString &filename)
- 	Write the contents of the editor to filename. 
- *)
-
 bool 	LoadFile (const wxString &filename)
 
 (*
@@ -1845,34 +1699,13 @@ virtual long 	GetInsertionPoint () const
  
 virtual long 	GetLastPosition () const
  	Returns the zero based index of the last position in the text control, which is equal to the number of characters in the control. 
- 
-virtual void 	SetSelection (long from, long to)
- 	Selects the text starting at the first position up to (but not including) the character at the last position. 
- 
-virtual void 	SelectNone ()
- 	Deselects selected text in the control. 
- 
-virtual void 	GetSelection (long *from, long *to) const
- 	Gets the current selection span. 
- 
-virtual bool 	IsEditable () const
- 	Returns true if the controls contents may be edited by user (note that it always can be changed by the program). 
- 
-virtual void 	SetEditable (bool editable)
- 	Makes the text item editable or read-only, overriding the wxTE_READONLY flag. 
- 
-virtual int 	GetLineLength (long n) const
- 
-virtual wxString 	GetLineText (long n) const
- 
-virtual int 	GetNumberOfLines () const
- 
-virtual bool 	IsModified () const
- 
-virtual void 	MarkDirty ()
- 
-virtual void 	DiscardEdits ()
- 
+ *)
+
+virtual void 	SetSelection (int from, long to)
+virtual void 	GetSelection (int <- from, int <- to) const
+
+
+(*
 virtual bool 	SetStyle (long start, long end, const wxTextAttr &style)
  
 virtual bool 	GetStyle (long position, wxTextAttr &style)
@@ -1896,6 +1729,25 @@ version 2.9 begin
   bool 	GetAllLinesVisible () const
   void 	DeleteRange (int pos, int deleteLength)
   int 	CountCharacters (int startPos, int endPos)
+  void 	SetMultiPaste (int multiPaste)
+  int 	GetMultiPaste () const
+  void 	SetFirstVisibleLine (int lineDisplay)
+  wxString 	GetTag (int tagNumber) const
+  bool 	GetScrollWidthTracking () const
+  void 	SetScrollWidthTracking (bool tracking)
+  virtual void 	MarkDirty ()
+  virtual bool 	IsModified () const
+  virtual void 	DiscardEdits ()
+  virtual int 	GetLineLength (long n) const
+  virtual bool 	IsEditable () const
+  virtual void 	SetEditable (bool editable)
+  virtual int 	GetNumberOfLines () const
+  virtual void 	SelectNone ()
+  virtual wxString 	GetLineText (long n) const
+  void 	BraceHighlightIndicator (bool useBraceHighlightIndicator, int indicator)
+  void 	BraceBadLightIndicator (bool useBraceBadLightIndicator, int indicator)
+  int 	GetMarginCursor (int margin) const
+  wxFont 	StyleGetFont (int style)
 end
 
 end
