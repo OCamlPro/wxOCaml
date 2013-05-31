@@ -367,48 +367,6 @@ let generate_class_module source_dirname cl =
         properties := (cname, mlt) :: !properties
     ) cl.class_defs;
 
-    if !properties <> [] then begin
-      assert ( List.length !properties < 230 );
-      fprintf ml_oc "type property = \n";
-      List.iter (fun (cname, mlt) ->
-        match mlt.f_args with
-          [] ->
-          fprintf ml_oc " | %s\n" mlt.f_proto.proto_name
-        | _ ->
-          fprintf ml_oc " | %s of %s\n" mlt.f_proto.proto_name
-            (String.concat " * " (List.map snd mlt.f_args))
-      ) !properties;
-
-      fprintf ml_oc "let set self props =\n";
-      fprintf ml_oc "  List.iter (function\n";
-      List.iter (fun (cname, mlt) ->
-        match mlt.f_args with
-          [] ->
-          fprintf ml_oc " | %s -> ignore (%s self)\n"
-            mlt.f_proto.proto_name
-            mlt.f_mlname
-        | _ ->
-          fprintf ml_oc " | %s (%s) -> \n" mlt.f_proto.proto_name
-            (String.concat " , " (List.map fst mlt.f_args));
-          fprintf ml_oc "      ignore (%s self %s)\n"
-            mlt.f_mlname
-            (String.concat " " (List.map fst mlt.f_args));
-      ) !properties;
-
-      fprintf ml_oc "  ) props; self\n";
-
-      List.iter (fun p ->
-        try
-          let c_name = c_function_name cl p in
-          let mlt = mltype_of_prototype cl p in
-          ()
-
-        with Exit ->
-          Printf.eprintf "while printing OCaml of method %S\n" p.proto_name;
-          raise Exit
-      ) !constructors;
-    end;
-
     if cl.class_parents <> StringMap.empty then begin
       fprintf ml_oc "\n(* Cast functions to parents *)\n";
       StringMap.iter (fun _ pcl ->
@@ -424,6 +382,51 @@ let generate_class_module source_dirname cl =
         "%identity"
     ) cl.class_parents;
     end;
+
+
+    if !properties <> [] then begin
+      assert ( List.length !properties < 230 );
+      fprintf ml_oc "type property = \n";
+      List.iter (fun (cname, mlt) ->
+        match mlt.f_args with
+          [] ->
+          fprintf ml_oc " | %s\n" mlt.f_proto.proto_name
+        | _ ->
+          fprintf ml_oc " | %s of %s\n" mlt.f_proto.proto_name
+            (String.concat " * " (List.map snd mlt.f_args))
+      ) !properties;
+
+      fprintf ml_oc "let set_ self props =\n";
+      fprintf ml_oc "  List.iter (function\n";
+      List.iter (fun (cname, mlt) ->
+        match mlt.f_args with
+          [] ->
+          fprintf ml_oc " | %s -> ignore (%s self)\n"
+            mlt.f_proto.proto_name
+            mlt.f_mlname
+        | _ ->
+          fprintf ml_oc " | %s (%s) -> \n" mlt.f_proto.proto_name
+            (String.concat " , " (List.map fst mlt.f_args));
+          fprintf ml_oc "      ignore (%s self %s)\n"
+            mlt.f_mlname
+            (String.concat " " (List.map fst mlt.f_args));
+      ) !properties;
+
+      fprintf ml_oc "  ) props\n";
+      fprintf ml_oc "let set self props = set_ self props; self\n";
+
+      List.iter (fun p ->
+        try
+          let c_name = c_function_name cl p in
+          let mlt = mltype_of_prototype cl p in
+          ()
+
+        with Exit ->
+          Printf.eprintf "while printing OCaml of method %S\n" p.proto_name;
+          raise Exit
+      ) !constructors;
+    end;
+
 
     if cl.class_children <> StringMap.empty then begin
       fprintf ml_oc "module Unsafe = struct\n";

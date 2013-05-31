@@ -94,6 +94,27 @@ void 	SetStyleBytes (int length, char *styleBytes)
  	Set the styles for a segment of the document. 
 int 	FormatRange (bool doDraw, int startPos, int endPos, 
             wxDC *draw, wxDC *target, wxRect renderRect, wxRect pageRect)
+wxIntPtr 	SendMsg (int msg, wxUIntPtr wp=0, wxIntPtr lp=0) const
+void 	SetVScrollBar (wxScrollBar *bar)
+void 	SetHScrollBar (wxScrollBar *bar)
+void 	MarkerDefineRGBAImage (int markerNumber, const unsigned char *pixels)
+void 	RegisterRGBAImage (int type, const unsigned char *pixels)
+
+void * 	PrivateLexerCall (int operation, void *pointer)
+ 	For private communication between an application and a known lexer. 
+void * 	GetDocPointer ()
+ 	Retrieve a pointer to the document object.  
+void 	SetDocPointer (void *docPointer)
+ 	Change the document object used. 
+void * 	CreateDocument ()
+void 	AddRefDocument (void *docPointer)
+void 	ReleaseDocument (void *docPointer)
+const char * 	GetCharacterPointer () const
+ 	Compact the document buffer and return a read-only pointer to the characters in the document. 
+ 
+const char * 	GetRangePointer (int position, int rangeLength) const
+ 	Return a read-only pointer to a range of characters in the document. 
+void * 	CreateLoader (int bytes) const 
 
 
 ********************************************************************)
@@ -444,14 +465,6 @@ void 	BraceBadLight (int pos)
 int 	BraceMatch (int pos)
 bool 	GetViewEOL () const
 void 	SetViewEOL (bool visible)
-
-(*
-void * 	GetDocPointer ()
- 	Retrieve a pointer to the document object. 
- 
-void 	SetDocPointer (void *docPointer)
- 	Change the document object used. 
-*)
  
 void 	SetModEventMask (int mask)
 int 	GetEdgeColumn () const
@@ -469,12 +482,6 @@ void 	UsePopUp (bool allowPopUp)
 bool 	SelectionIsRectangle () const
 void 	SetZoom (int zoom)
 int 	GetZoom () const
-
-(*
-void * 	CreateDocument ()
-void 	AddRefDocument (void *docPointer)
-void 	ReleaseDocument (void *docPointer)
-*)
 
 int 	GetModEventMask () const
 void 	SetSTCFocus (bool focus)
@@ -509,652 +516,211 @@ void 	ParaDownExtend ()
 void 	ParaUp ()
 
 
-(* 
 void 	ParaUpExtend ()
- 
 int 	PositionBefore (int pos)
- 	Given a valid document position, return the previous position taking code page into account. 
- 
 int 	PositionAfter (int pos)
- 	Given a valid document position, return the next position taking code page into account. 
- 
 void 	CopyRange (int start, int end)
- 	Copy a range of text to the clipboard. 
- 
 void 	CopyText (int length, const wxString &text)
- 	Copy argument text to the clipboard. 
- 
 void 	SetSelectionMode (int mode)
- 	Set the selection mode to stream (SC_SEL_STREAM) or rectangular (SC_SEL_RECTANGLE/SC_SEL_THIN) or by lines (SC_SEL_LINES). 
- 
 int 	GetSelectionMode () const
- 	Get the mode of the current selection. 
- 
 int 	GetLineSelStartPosition (int line)
- 	Retrieve the position of the start of the selection at the given line (INVALID_POSITION if no selection on this line). 
- 
 int 	GetLineSelEndPosition (int line)
- 	Retrieve the position of the end of the selection at the given line (INVALID_POSITION if no selection on this line). 
- 
 void 	LineDownRectExtend ()
- 	Move caret down one line, extending rectangular selection to new caret position. 
- 
 void 	LineUpRectExtend ()
- 	Move caret up one line, extending rectangular selection to new caret position. 
- 
 void 	CharLeftRectExtend ()
- 	Move caret left one character, extending rectangular selection to new caret position. 
- 
 void 	CharRightRectExtend ()
- 	Move caret right one character, extending rectangular selection to new caret position. 
- 
 void 	HomeRectExtend ()
- 	Move caret to first position on line, extending rectangular selection to new caret position. 
- 
 void 	VCHomeRectExtend ()
- 	Move caret to before first visible character on line. 
- 
 void 	LineEndRectExtend ()
- 	Move caret to last position on line, extending rectangular selection to new caret position. 
- 
 void 	PageUpRectExtend ()
- 	Move caret one page up, extending rectangular selection to new caret position. 
- 
 void 	PageDownRectExtend ()
- 	Move caret one page down, extending rectangular selection to new caret position. 
- 
 void 	StutteredPageUp ()
- 	Move caret to top of page, or one page up if already at top of page. 
- 
 void 	StutteredPageUpExtend ()
- 	Move caret to top of page, or one page up if already at top of page, extending selection to new caret position. 
- 
 void 	StutteredPageDown ()
- 	Move caret to bottom of page, or one page down if already at bottom of page. 
- 
 void 	StutteredPageDownExtend ()
- 	Move caret to bottom of page, or one page down if already at bottom of page, extending selection to new caret position. 
- 
 void 	WordLeftEnd ()
- 	Move caret left one word, position cursor at end of word. 
- 
 void 	WordLeftEndExtend ()
- 	Move caret left one word, position cursor at end of word, extending selection to new caret position. 
- 
 void 	WordRightEnd ()
- 	Move caret right one word, position cursor at end of word. 
- 
 void 	WordRightEndExtend ()
- 	Move caret right one word, position cursor at end of word, extending selection to new caret position. 
- 
+
 void 	SetWhitespaceChars (const wxString &characters)
- 	Set the set of characters making up whitespace for when moving or selecting by word. 
- 
-wxString 	GetWhitespaceChars () const
- 	Get the set of characters making up whitespace for when moving or selecting by word. 
- 
-void 	SetPunctuationChars (const wxString &characters)
- 	Set the set of characters making up punctuation characters Should be called after SetWordChars. 
- 
-wxString 	GetPunctuationChars () const
- 	Get the set of characters making up punctuation characters. 
- 
 void 	SetCharsDefault ()
- 	Reset the set of characters for whitespace and word characters to the defaults. 
- 
 int 	AutoCompGetCurrent () const
- 	Get currently selected item position in the auto-completion list. 
- 
-void 	AutoCompSetCaseInsensitiveBehaviour (int behaviour)
- 	Set auto-completion case insensitive behaviour to either prefer case-sensitive matches or have no preference. 
- 
-int 	AutoCompGetCaseInsensitiveBehaviour () const
- 	Get auto-completion case insensitive behaviour. 
- 
 void 	Allocate (int bytes)
- 	Enlarge the document to a particular size of text bytes. 
- 
 int 	FindColumn (int line, int column)
- 	Find the position of a column on a line taking into account tabs and multi-byte characters. 
- 
 int 	GetCaretSticky () const
- 	Can the caret preferred x position only be changed by explicit movement commands? 
- 
 void 	SetCaretSticky (int useCaretStickyBehaviour)
- 	Stop the caret preferred x position changing when the user types. 
- 
 void 	ToggleCaretSticky ()
- 	Switch between sticky and non-sticky: meant to be bound to a key. 
- 
 void 	SetPasteConvertEndings (bool convert)
- 	Enable/Disable convert-on-paste for line endings. 
- 
 bool 	GetPasteConvertEndings () const
- 	Get convert-on-paste setting. 
- 
 void 	SelectionDuplicate ()
- 	Duplicate the selection. 
- 
 void 	SetCaretLineBackAlpha (int alpha)
- 	Set background alpha of the caret line. 
- 
 int 	GetCaretLineBackAlpha () const
- 	Get the background alpha of the caret line. 
- 
-void 	SetCaretStyle (int caretStyle)
- 	Set the style of the caret to be drawn. 
- 
-int 	GetCaretStyle () const
- 	Returns the current style of the caret. 
- 
-void 	SetIndicatorCurrent (int indicator)
- 	Set the indicator used for IndicatorFillRange and IndicatorClearRange. 
- 
-int 	GetIndicatorCurrent () const
- 	Get the current indicator. 
- 
-void 	SetIndicatorValue (int value)
- 	Set the value used for IndicatorFillRange. 
- 
-int 	GetIndicatorValue () const
- 	Get the current indicator value. 
- 
-void 	IndicatorFillRange (int position, int fillLength)
- 	Turn a indicator on over a range. 
- 
-void 	IndicatorClearRange (int position, int clearLength)
- 	Turn a indicator off over a range. 
- 
-int 	IndicatorAllOnFor (int position)
- 	Are any indicators present at position? 
- 
-int 	IndicatorValueAt (int indicator, int position)
- 	What value does a particular indicator have at at a position? 
- 
-int 	IndicatorStart (int indicator, int position)
- 	Where does a particular indicator start? 
- 
-int 	IndicatorEnd (int indicator, int position)
- 	Where does a particular indicator end? 
- 
-void 	SetPositionCacheSize (int size)
- 	Set number of entries in position cache. 
- 
-int 	GetPositionCacheSize () const
- 	How many entries are allocated to the position cache? 
- 
-void 	CopyAllowLine ()
- 	Copy the selection, if selection empty copy the line with the caret. 
- 
-const char * 	GetCharacterPointer () const
- 	Compact the document buffer and return a read-only pointer to the characters in the document. 
- 
-const char * 	GetRangePointer (int position, int rangeLength) const
- 	Return a read-only pointer to a range of characters in the document. 
- 
-int 	GetGapPosition () const
- 	Return a position which, to avoid performance costs, should not be within the range of a call to GetRangePointer. 
- 
-void 	SetKeysUnicode (bool keysUnicode)
- 	Always interpret keyboard input as Unicode. 
- 
-bool 	GetKeysUnicode () const
- 	Are keys always interpreted as Unicode? 
- 
-void 	IndicatorSetAlpha (int indicator, int alpha)
- 	Set the alpha fill colour of the given indicator. 
- 
-int 	IndicatorGetAlpha (int indicator) const
- 	Get the alpha fill colour of the given indicator. 
- 
-void 	IndicatorSetOutlineAlpha (int indicator, int alpha)
- 	Set the alpha outline colour of the given indicator. 
- 
-int 	IndicatorGetOutlineAlpha (int indicator) const
- 	Get the alpha outline colour of the given indicator. 
- 
-void 	SetExtraAscent (int extraAscent)
- 	Set extra ascent for each line. 
- 
-int 	GetExtraAscent () const
- 	Get extra ascent for each line. 
- 
-void 	SetExtraDescent (int extraDescent)
- 	Set extra descent for each line. 
- 
-int 	GetExtraDescent () const
- 	Get extra descent for each line. 
- 
-int 	GetMarkerSymbolDefined (int markerNumber)
- 	Which symbol was defined for markerNumber with MarkerDefine. 
- 
-void 	MarginSetText (int line, const wxString &text)
- 	Set the text in the text margin for a line. 
- 
-wxString 	MarginGetText (int line) const
- 	Get the text in the text margin for a line. 
- 
-void 	MarginSetStyle (int line, int style)
- 	Set the style number for the text margin for a line. 
- 
-int 	MarginGetStyle (int line) const
- 	Get the style number for the text margin for a line. 
- 
-void 	MarginSetStyles (int line, const wxString &styles)
- 	Set the style in the text margin for a line. 
- 
-wxString 	MarginGetStyles (int line) const
- 	Get the styles in the text margin for a line. 
- 
-void 	MarginTextClearAll ()
- 	Clear the margin text on all lines. 
- 
-void 	MarginSetStyleOffset (int style)
- 	Get the start of the range of style numbers used for margin text. 
- 
-int 	MarginGetStyleOffset () const
- 	Get the start of the range of style numbers used for margin text. 
- 
-void 	SetMarginOptions (int marginOptions)
- 	Set the margin options. 
- 
-int 	GetMarginOptions () const
- 	Get the margin options. 
- 
+
+(*
 void 	AnnotationSetText (int line, const wxString &text)
- 	Set the annotation text for a line. 
- 
 wxString 	AnnotationGetText (int line) const
- 	Get the annotation text for a line. 
- 
 void 	AnnotationSetStyle (int line, int style)
- 	Set the style number for the annotations for a line. 
- 
 int 	AnnotationGetStyle (int line) const
- 	Get the style number for the annotations for a line. 
- 
 void 	AnnotationSetStyles (int line, const wxString &styles)
- 	Set the annotation styles for a line. 
- 
 wxString 	AnnotationGetStyles (int line) const
- 	Get the annotation styles for a line. 
- 
 int 	AnnotationGetLines (int line) const
- 	Get the number of annotation lines for a line. 
- 
 void 	AnnotationClearAll ()
- 	Clear the annotations from all lines. 
- 
 void 	AnnotationSetVisible (int visible)
- 	Set the visibility for the annotations for a view. 
- 
 int 	AnnotationGetVisible () const
- 	Get the visibility for the annotations for a view. 
- 
 void 	AnnotationSetStyleOffset (int style)
- 	Get the start of the range of style numbers used for annotations. 
- 
 int 	AnnotationGetStyleOffset () const
- 	Get the start of the range of style numbers used for annotations. 
- 
+*)
+
+(*
 void 	AddUndoAction (int token, int flags)
- 	Add a container action to the undo stack. 
- 
 int 	CharPositionFromPoint (int x, int y)
- 	Find the position of a character from a point within the window. 
- 
 int 	CharPositionFromPointClose (int x, int y)
- 	Find the position of a character from a point within the window. 
- 
 void 	SetMultipleSelection (bool multipleSelection)
- 	Set whether multiple selections can be made. 
- 
 bool 	GetMultipleSelection () const
- 	Whether multiple selections can be made. 
- 
 void 	SetAdditionalSelectionTyping (bool additionalSelectionTyping)
- 	Set whether typing can be performed into multiple selections. 
- 
 bool 	GetAdditionalSelectionTyping () const
- 	Whether typing can be performed into multiple selections. 
- 
 void 	SetAdditionalCaretsBlink (bool additionalCaretsBlink)
- 	Set whether additional carets will blink. 
- 
 bool 	GetAdditionalCaretsBlink () const
- 	Whether additional carets will blink. 
- 
 void 	SetAdditionalCaretsVisible (bool additionalCaretsBlink)
- 	Set whether additional carets are visible. 
- 
 bool 	GetAdditionalCaretsVisible () const
- 	Whether additional carets are visible. 
- 
 int 	GetSelections () const
- 	How many selections are there? 
- 
 void 	ClearSelections ()
- 	Clear selections to a single empty stream selection. 
- 
 int 	AddSelection (int caret, int anchor)
- 	Add a selection. 
- 
 void 	SetMainSelection (int selection)
- 	Set the main selection. 
- 
 int 	GetMainSelection () const
- 	Which selection is the main selection. 
- 
+*)
+
+(*
 void 	SetSelectionNCaret (int selection, int pos)
- 
 int 	GetSelectionNCaret (int selection) const
- 
 void 	SetSelectionNAnchor (int selection, int posAnchor)
- 
 int 	GetSelectionNAnchor (int selection) const
- 
 void 	SetSelectionNCaretVirtualSpace (int selection, int space)
- 
 int 	GetSelectionNCaretVirtualSpace (int selection) const
- 
 void 	SetSelectionNAnchorVirtualSpace (int selection, int space)
- 
 int 	GetSelectionNAnchorVirtualSpace (int selection) const
- 
 void 	SetSelectionNStart (int selection, int pos)
- 	Sets the position that starts the selection - this becomes the anchor. 
- 
 int 	GetSelectionNStart (int selection) const
- 	Returns the position at the start of the selection. 
- 
 void 	SetSelectionNEnd (int selection, int pos)
- 	Sets the position that ends the selection - this becomes the currentPosition. 
- 
 int 	GetSelectionNEnd (int selection) const
- 	Returns the position at the end of the selection. 
- 
+*)
+
+(*
 void 	SetRectangularSelectionCaret (int pos)
- 
 int 	GetRectangularSelectionCaret () const
- 
 void 	SetRectangularSelectionAnchor (int posAnchor)
- 
 int 	GetRectangularSelectionAnchor () const
- 
 void 	SetRectangularSelectionCaretVirtualSpace (int space)
- 
 int 	GetRectangularSelectionCaretVirtualSpace () const
- 
 void 	SetRectangularSelectionAnchorVirtualSpace (int space)
- 
 int 	GetRectangularSelectionAnchorVirtualSpace () const
- 
+*)
+
+(*
 void 	SetVirtualSpaceOptions (int virtualSpaceOptions)
- 
 int 	GetVirtualSpaceOptions () const
- 
 void 	SetRectangularSelectionModifier (int modifier)
- 	On GTK+, allow selecting the modifier key to use for mouse-based rectangular selection. 
- 
 int 	GetRectangularSelectionModifier () const
- 	Get the modifier key used for rectangular selection. 
- 
 void 	SetAdditionalSelForeground (const wxColour &fore)
- 	Set the foreground colour of additional selections. 
- 
 void 	SetAdditionalSelBackground (const wxColour &back)
- 	Set the background colour of additional selections. 
- 
 void 	SetAdditionalSelAlpha (int alpha)
- 	Set the alpha of the selection. 
- 
 int 	GetAdditionalSelAlpha () const
- 	Get the alpha of the selection. 
- 
 void 	SetAdditionalCaretForeground (const wxColour &fore)
- 	Set the foreground colour of additional carets. 
- 
 wxColour 	GetAdditionalCaretForeground () const
- 	Get the foreground colour of additional carets. 
- 
+*)
+
+
+(*
 void 	RotateSelection ()
- 	Set the main selection to the next selection. 
- 
 void 	SwapMainAnchorCaret ()
- 	Swap that caret and anchor of the main selection. 
- 
 int 	ChangeLexerState (int start, int end)
- 	Indicate that the internal state of a lexer has changed over a range and therefore there may be a need to redraw. 
- 
 int 	ContractedFoldNext (int lineStart)
- 	Find the next line at or after lineStart that is a contracted fold header line. 
- 
 void 	VerticalCentreCaret ()
- 	Centre current line in window. 
- 
 void 	MoveSelectedLinesUp ()
- 	Move the selected lines up one line, shifting the line above after the selection. 
- 
 void 	MoveSelectedLinesDown ()
- 	Move the selected lines down one line, shifting the line below before the selection. 
- 
 void 	SetIdentifier (int identifier)
- 	Set the identifier reported as idFrom in notification messages. 
- 
 int 	GetIdentifier () const
- 	Get the identifier. 
- 
 void 	RGBAImageSetWidth (int width)
- 	Set the width for future RGBA image data. 
- 
 void 	RGBAImageSetHeight (int height)
- 	Set the height for future RGBA image data. 
- 
-void 	MarkerDefineRGBAImage (int markerNumber, const unsigned char *pixels)
- 	Define a marker from RGBA data. 
- 
-void 	RegisterRGBAImage (int type, const unsigned char *pixels)
- 	Register an RGBA image for use in autocompletion lists. 
- 
-void 	ScrollToStart ()
- 	Scroll to start of document. 
- 
-void 	ScrollToEnd ()
- 	Scroll to end of document. 
- 
-void 	SetTechnology (int technology)
- 	Set the technology used. 
- 
-int 	GetTechnology () const
- 	Get the tech. 
- 
-void * 	CreateLoader (int bytes) const
- 	Create an ILoader*. 
- 
+*)
+
+
+
 void 	StartRecord ()
- 	Start notifying the container of all key presses and commands. 
- 
 void 	StopRecord ()
- 	Stop notifying the container of all key presses and commands. 
- *)
 
 void 	SetLexer (int lexer)
-
-(*
- 	Set the lexing language of the document. 
-
- 
 int 	GetLexer () const
- 	Retrieve the lexing language of the document. 
- 
 void 	Colourise (int start, int end)
- 	Colourise a segment of the document using the current lexing language. 
- *)
-
 void 	SetProperty (const wxString &key, const wxString &value)
-
-
-(*
- 	Set up a value that may be used by a lexer for some optional feature. 
- 
 void 	SetKeyWords (int keywordSet, const wxString &keyWords)
- 	Set up the key words used by the lexer. 
- 
 void 	SetLexerLanguage (const wxString &language)
- 	Set the lexing language of the document based on string name. 
- 
 wxString 	GetProperty (const wxString &key)
- 	Retrieve a 'property' value previously set with SetProperty. 
- 
 wxString 	GetPropertyExpanded (const wxString &key)
- 	Retrieve a 'property' value previously set with SetProperty, with '$()' variable replacement on returned buffer. 
- 
 int 	GetPropertyInt (const wxString &key) const
- 	Retrieve a 'property' value previously set with SetProperty, interpreted as an int AFTER any '$()' variable replacement. 
- 
 int 	GetStyleBitsNeeded () const
- 	Retrieve the number of bits the current lexer needs for styling. 
- 
-void * 	PrivateLexerCall (int operation, void *pointer)
- 	For private communication between an application and a known lexer. 
- 
-wxString 	PropertyNames () const
- 	Retrieve a '
-' separated list of properties understood by the current lexer. 
- 
-int 	PropertyType (const wxString &name)
- 	Retrieve the type of a property. 
- 
-wxString 	DescribeProperty (const wxString &name) const
- 	Describe a property. 
- 
-wxString 	DescribeKeyWordSets () const
- 	Retrieve a '
-' separated list of descriptions of the keyword sets understood by the current lexer. 
- *)
+
 
 int 	GetCurrentLine ()
-
 void 	StyleSetSpec (int styleNum, const wxString &spec)
 void 	StyleSetFont (int styleNum, wxFont &font)
 
-(*
- 
-void 	StyleSetFontAttr (int styleNum, int size, const wxString &faceName, bool bold, bool italic, bool underline, wxFontEncoding encoding=wxFONTENCODING_DEFAULT)
- 	Set all font style attributes at once. 
- 
+void 	StyleSetFontAttr (int styleNum, int size, const wxString &faceName, 
+          bool bold, bool italic, bool underline, 
+          wxFontEncoding encoding=wxFONTENCODING_DEFAULT)
 void 	StyleSetCharacterSet (int style, int characterSet)
- 	Set the character set of the font in a style. 
- 
 void 	StyleSetFontEncoding (int style, wxFontEncoding encoding)
- 	Set the font encoding to be used by a style. 
- *)
 
 void 	CmdKeyExecute (int cmd)
 void 	SetMargins (int left, int right)
 wxPoint 	PointFromPosition (int pos)
 
-(*
- 
 void 	ScrollToLine (int line)
- 	Scroll enough to make the given line visible. 
- 
 void 	ScrollToColumn (int column)
- 	Scroll enough to make the given column visible. 
- 
-wxIntPtr 	SendMsg (int msg, wxUIntPtr wp=0, wxIntPtr lp=0) const
- 	Send a message to Scintilla. 
- 
-void 	SetVScrollBar (wxScrollBar *bar)
- 	Set the vertical scrollbar to use instead of the ont that's built-in. 
- 
-void 	SetHScrollBar (wxScrollBar *bar)
- 	Set the horizontal scrollbar to use instead of the ont that's built-in. 
- 
 bool 	GetLastKeydownProcessed ()
- 	Can be used to prevent the EVT_CHAR handler from adding the char. 
- 
 void 	SetLastKeydownProcessed (bool val)
-*)
- 
+
 bool 	SaveFile (const wxString &filename)
 bool 	LoadFile (const wxString &filename)
 
 (*
- 	Load the contents of filename into the editor. 
- 
 wxDragResult 	DoDragOver (wxCoord x, wxCoord y, wxDragResult defaultRes)
  	Allow for simulating a DnD DragOver. 
+*)
  
 bool 	DoDropText (long x, long y, const wxString &data)
- 	Allow for simulating a DnD DropText. 
- 
-void 	AnnotationClearLine (int line)
- 	Clear annotations from the given line. 
- 
+(*
 void 	AddTextRaw (const char *text, int length=-1)
- 	Add text to the document at current position. 
- 
 void 	InsertTextRaw (int pos, const char *text)
- 	Insert string at a position. 
- 
 wxCharBuffer 	GetCurLineRaw (int *linePos=NULL)
- 	Retrieve the text of the line containing the caret. 
- 
 wxCharBuffer 	GetLineRaw (int line)
- 	Retrieve the contents of a line. 
- 
 wxCharBuffer 	GetSelectedTextRaw ()
- 	Retrieve the selected text. 
- 
 wxCharBuffer 	GetTextRangeRaw (int startPos, int endPos)
- 	Retrieve a range of text. 
- 
 void 	SetTextRaw (const char *text)
- 	Replace the contents of the document with the argument text. 
- 
 wxCharBuffer 	GetTextRaw ()
- 	Retrieve all the text in the document. 
- 
 void 	AppendTextRaw (const char *text, int length=-1)
- 	Append a string to the end of the document without changing the selection. 
- 
+*)
+
+(*
 virtual void 	WriteText (const wxString &text)
- 	Writes the text into the text control at the current insertion position. 
- 
 virtual void 	Remove (long from, long to)
- 	Removes the text starting at the first given position up to (but not including) the character at the last position. 
- 
 virtual void 	Replace (long from, long to, const wxString &text)
- 	Replaces the text starting at the first position up to (but not including) the character at the last position with the given text. 
- 
 virtual void 	SetInsertionPoint (long pos)
- 	Sets the insertion point at the given position. 
- 
 virtual long 	GetInsertionPoint () const
- 	Returns the insertion point, or cursor, position. 
- 
 virtual long 	GetLastPosition () const
- 	Returns the zero based index of the last position in the text control, which is equal to the number of characters in the control. 
- *)
+*)
 
 virtual void 	SetSelection (int from, long to)
 virtual void 	GetSelection (int <- from, int <- to) const
 
-
 (*
 virtual bool 	SetStyle (long start, long end, const wxTextAttr &style)
- 
 virtual bool 	GetStyle (long position, wxTextAttr &style)
- 
 virtual bool 	SetDefaultStyle (const wxTextAttr &style)
+*)
  
-virtual long 	XYToPosition (long x, long y) const
- 
-virtual bool 	PositionToXY (long pos, long *x, long *y) const
- 
-virtual void 	ShowPosition (long pos)
- 
+(* 
 virtual wxTextCtrlHitTestResult 	HitTest (const wxPoint &pt, long *pos) const
  
 virtual wxTextCtrlHitTestResult 	HitTest (const wxPoint &pt, wxTextCoord *col, wxTextCoord *row) const
@@ -1228,6 +794,66 @@ void 	SetHotspotActiveUnderline (bool underline)
 bool 	GetHotspotActiveUnderline () const
 void 	SetHotspotActiveForeground (bool useSetting, const wxColour &fore)
 wxColour 	GetHotspotActiveForeground () const
+
+void 	SetPunctuationChars (const wxString &characters)
+void 	SetPositionCacheSize (int size)
+void 	SetIndicatorValue (int value)
+void 	SetIndicatorCurrent (int indicator)
+void 	AutoCompSetCaseInsensitiveBehaviour (int behaviour)
+int 	AutoCompGetCaseInsensitiveBehaviour () const
+int 	GetIndicatorCurrent () const
+int 	GetIndicatorValue () const
+
+
+ wxString 	GetWhitespaceChars () const 
+wxString 	GetPunctuationChars () const
+ void 	SetCaretStyle (int caretStyle) 
+ int 	GetCaretStyle () const 
+ void 	IndicatorFillRange (int position, int fillLength) 
+ void 	IndicatorClearRange (int position, int clearLength) 
+int 	IndicatorAllOnFor (int position) 
+ int 	IndicatorValueAt (int indicator, int position) 
+ int 	IndicatorStart (int indicator, int position) 
+ int 	IndicatorEnd (int indicator, int position) 
+ int 	GetPositionCacheSize () const 
+ void 	CopyAllowLine () 
+int 	GetGapPosition () const
+void 	SetKeysUnicode (bool keysUnicode)
+bool 	GetKeysUnicode () const
+void 	IndicatorSetAlpha (int indicator, int alpha)
+int 	IndicatorGetAlpha (int indicator) const
+
+void 	IndicatorSetOutlineAlpha (int indicator, int alpha)
+int 	IndicatorGetOutlineAlpha (int indicator) const
+void 	SetExtraAscent (int extraAscent)
+int 	GetExtraAscent () const
+void 	SetExtraDescent (int extraDescent)
+int 	GetExtraDescent () const
+ int 	GetMarkerSymbolDefined (int markerNumber) 
+void 	SetMarginOptions (int marginOptions)
+int 	GetMarginOptions () const
+wxString 	MarginGetText (int line) const
+void 	MarginSetText (int line, const wxString &text)
+void 	MarginSetStyle (int line, int style)
+int 	MarginGetStyle (int line) const
+void 	MarginSetStyles (int line, const wxString &styles)
+wxString 	MarginGetStyles (int line) const
+void 	MarginTextClearAll ()
+void 	MarginSetStyleOffset (int style)
+int 	MarginGetStyleOffset () const
+void 	ScrollToStart ()
+void 	ScrollToEnd ()
+void 	SetTechnology (int technology)
+int 	GetTechnology () const
+
+wxString 	PropertyNames () const
+int 	PropertyType (const wxString &name)
+wxString 	DescribeProperty (const wxString &name) const
+wxString 	DescribeKeyWordSets () const
+virtual long 	XYToPosition (long x, long y) const
+virtual bool 	PositionToXY (long pos, long <-x, long <-y) const
+ virtual void 	ShowPosition (long pos)
+void 	AnnotationClearLine (int line)
   
 end
 

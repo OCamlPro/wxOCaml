@@ -21,7 +21,7 @@ exception OK of bool
 (* StyleInfo*)
 
 type styleInfo = {
-    name : string;
+    style_name : string;
     foreground : string;
     background : string;
     fontname : string;
@@ -46,19 +46,16 @@ type commonInfo = {
     whiteSpaceEnable : bool;
 }
 
-type style = {
-  style_type : int;
-  style_words : string;
-}
-
 (*----------------------------------------------------------------------------*)
 (* LanguageInfo*)
+module IntMap = Map.Make(struct type t = int let compare = compare end)
 
 type languageInfo = {
     name : string;
     filepatterns : string list;
     lexer : int;
-    styles : style list; (*  [STYLE_TYPES_COUNT]; *)
+    styles : int list;
+    keywords : (int * string) list;
     folds : int;
 }
 
@@ -102,6 +99,8 @@ let g_CommonPrefs = {
     longLineOnEnable = false;
     whiteSpaceEnable = false;
 }
+
+
 
 (*! wxWidgets headers*)
 (*
@@ -389,24 +388,301 @@ let mySTC_FOLD_QUOTESPY = 128
 let mySTC_FLAG_WRAPMODE = 16
 
 
+let g_StylePrefs =
+  Array.map (fun (style_name, foreground, background,
+    fontname, fontsize, fontstyle, lettercase) ->
+    { style_name; foreground; background;
+      fontname; fontsize; fontstyle; lettercase })
+    [|
+    (* mySTC_TYPE_DEFAULT*)
+    (wxT("Default"),
+     wxT("BLACK"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_WORD1*)
+    (wxT("Keyword1"),
+     wxT("BLUE"), wxT("WHITE"),
+     wxT(""), 10, mySTC_STYLE_BOLD, 0);
+
+    (* mySTC_TYPE_WORD2*)
+    (wxT("Keyword2"),
+     wxT("MIDNIGHT BLUE"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_WORD3*)
+    (wxT("Keyword3"),
+     wxT("CORNFLOWER BLUE"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_WORD4*)
+    (wxT("Keyword4"),
+     wxT("CYAN"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_WORD5*)
+    (wxT("Keyword5"),
+     wxT("DARK GREY"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_WORD6*)
+    (wxT("Keyword6"),
+     wxT("GREY"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_COMMENT*)
+    (wxT("Comment"),
+     wxT("FOREST GREEN"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_COMMENT_DOC*)
+    (wxT("Comment (Doc)"),
+     wxT("FOREST GREEN"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_COMMENT_LINE*)
+    (wxT("Comment line"),
+     wxT("FOREST GREEN"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_COMMENT_SPECIAL*)
+    (wxT("Special comment"),
+     wxT("FOREST GREEN"), wxT("WHITE"),
+     wxT(""), 10, mySTC_STYLE_ITALIC, 0);
+
+    (* mySTC_TYPE_CHARACTER*)
+    (wxT("Character"),
+     wxT("KHAKI"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_CHARACTER_EOL*)
+    (wxT("Character (EOL)"),
+     wxT("KHAKI"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_STRING*)
+    (wxT("String"),
+     wxT("BROWN"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_STRING_EOL*)
+    (wxT("String (EOL)"),
+     wxT("BROWN"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_DELIMITER*)
+    (wxT("Delimiter"),
+     wxT("ORANGE"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_PUNCTUATION*)
+    (wxT("Punctuation"),
+     wxT("ORANGE"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_OPERATOR*)
+    (wxT("Operator"),
+     wxT("BLACK"), wxT("WHITE"),
+     wxT(""), 10, mySTC_STYLE_BOLD, 0);
+
+    (* mySTC_TYPE_BRACE*)
+    (wxT("Label"),
+     wxT("VIOLET"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_COMMAND*)
+    (wxT("Command"),
+     wxT("BLUE"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_IDENTIFIER*)
+    (wxT("Identifier"),
+     wxT("BLACK"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_LABEL*)
+    (wxT("Label"),
+     wxT("VIOLET"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_NUMBER*)
+    (wxT("Number"),
+     wxT("SIENNA"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_PARAMETER*)
+    (wxT("Parameter"),
+     wxT("VIOLET"), wxT("WHITE"),
+     wxT(""), 10, mySTC_STYLE_ITALIC, 0);
+
+    (* mySTC_TYPE_REGEX*)
+    (wxT("Regular expression"),
+     wxT("ORCHID"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_UUID*)
+    (wxT("UUID"),
+     wxT("ORCHID"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_VALUE*)
+    (wxT("Value"),
+     wxT("ORCHID"), wxT("WHITE"),
+     wxT(""), 10, mySTC_STYLE_ITALIC, 0);
+
+    (* mySTC_TYPE_PREPROCESSOR*)
+    (wxT("Preprocessor"),
+     wxT("GREY"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_SCRIPT*)
+    (wxT("Script"),
+     wxT("DARK GREY"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_ERROR*)
+    (wxT("Error"),
+     wxT("RED"), wxT("WHITE"),
+     wxT(""), 10, 0, 0);
+
+    (* mySTC_TYPE_UNDEFINED*)
+    (wxT("Undefined"),
+     wxT("ORANGE"), wxT("WHITE"),
+     wxT(""), 10, 0, 0)
+|]
+
+let default_language = {
+  name = "Default";
+  filepatterns = [];
+  lexer = wxSTC_LEX_PROPERTIES;
+  styles =  [mySTC_TYPE_DEFAULT;
+             mySTC_TYPE_DEFAULT;
+             mySTC_TYPE_DEFAULT;
+             mySTC_TYPE_DEFAULT;
+             mySTC_TYPE_DEFAULT
+            ];
+  keywords = [];
+  folds = 0;
+}
 
 (*! languages*)
 let g_LanguagePrefs = [|
   { name = "OCaml";
     filepatterns = [ ".ml"; ".mli"; ".mly"; ".mll" ];
     lexer = wxSTC_LEX_CAML;
-    styles = [];
+    styles = [
+       mySTC_TYPE_DEFAULT;
+       mySTC_TYPE_COMMENT;
+       mySTC_TYPE_COMMENT_LINE;
+       mySTC_TYPE_COMMENT_DOC;
+       mySTC_TYPE_NUMBER;
+       mySTC_TYPE_WORD1;
+       mySTC_TYPE_STRING;
+       mySTC_TYPE_CHARACTER;
+       mySTC_TYPE_UUID;
+       mySTC_TYPE_PREPROCESSOR;
+       mySTC_TYPE_OPERATOR;
+       mySTC_TYPE_IDENTIFIER;
+       mySTC_TYPE_STRING_EOL;
+       mySTC_TYPE_DEFAULT;
+       mySTC_TYPE_REGEX;
+       mySTC_TYPE_COMMENT_SPECIAL;
+       mySTC_TYPE_WORD2;
+       mySTC_TYPE_WORD3;
+       mySTC_TYPE_ERROR;
+    ];
+    keywords = [
+      (0, "let in");
+    ];
     folds = 0;
   };
   { name = "C++" ;
     filepatterns = [ ".c"; ".cc"; ".cpp"; ".cxx"; ".cs"; ".h";
                     ".hh"; ".hpp"; ".hxx"; ".sma" ];
     lexer = wxSTC_LEX_CPP;
-    styles = [];
+    styles = [
+       mySTC_TYPE_DEFAULT;
+       mySTC_TYPE_COMMENT;
+       mySTC_TYPE_COMMENT_LINE;
+       mySTC_TYPE_COMMENT_DOC;
+       mySTC_TYPE_NUMBER;
+       mySTC_TYPE_WORD1;
+       mySTC_TYPE_STRING;
+       mySTC_TYPE_CHARACTER;
+       mySTC_TYPE_UUID;
+       mySTC_TYPE_PREPROCESSOR;
+       mySTC_TYPE_OPERATOR;
+       mySTC_TYPE_IDENTIFIER;
+       mySTC_TYPE_STRING_EOL;
+       mySTC_TYPE_DEFAULT;
+       mySTC_TYPE_REGEX;
+       mySTC_TYPE_COMMENT_SPECIAL;
+       mySTC_TYPE_WORD2;
+       mySTC_TYPE_WORD3;
+       mySTC_TYPE_ERROR;
+    ];
+    keywords = [
+      (0,
+    "asm auto bool break case catch char class const const_cast " ^
+    "continue default delete do double dynamic_cast else enum explicit " ^
+    "export extern false float for friend goto if inline int long " ^
+    "mutable namespace new operator private protected public register " ^
+    "reinterpret_cast return short signed sizeof static static_cast " ^
+    "struct switch template this throw true try typedef typeid " ^
+    "typename union unsigned using virtual let volatile wchar_t " ^
+    "while");
+      (1, "file");
+      (2,
+       "a addindex addtogroup anchor arg attention author b brief bug c " ^
+    "class code date def defgroup deprecated dontinclude e em endcode " ^
+    "endhtmlonly endif endlatexonly endlink endverbatim enum example " ^
+    "exception f$ f[ f] file fn hideinitializer htmlinclude " ^
+    "htmlonly if image include ingroup internal invariant interface " ^
+    "latexonly li line link mainpage name namespace nosubgrouping note " ^
+    "overload p page par param post pre ref relates remarks return " ^
+    "retval sa section see showinitializer since skip skipline struct " ^
+    "subsection test throw todo typedef union until var verbatim " ^
+    "verbinclude version warning weakgroup $ @ \"\" & < > # { }");
+    ];
     folds = mySTC_FOLD_COMMENT lor mySTC_FOLD_COMPACT lor mySTC_FOLD_PREPROC;
   };
-|]
 
+    { name = "Python";
+     filepatterns = [ ".py" ;".pyw"];
+     lexer = wxSTC_LEX_PYTHON;
+      keywords = [
+        (0,
+         "and assert break class continue def del elif else except exec " ^
+         "finally for from global if import in is lambda None not or pass " ^
+         "print raise return try while yield"
+        );
+        (1,
+         "ACCELERATORS ALT AUTO3STATE AUTOCHECKBOX AUTORADIOBUTTON BEGIN " ^
+         "BITMAP BLOCK BUTTON CAPTION CHARACTERISTICS CHECKBOX CLASS " ^
+         "COMBOBOX CONTROL CTEXT CURSOR DEFPUSHBUTTON DIALOG DIALOGEX " ^
+         "DISCARDABLE EDITTEXT END EXSTYLE FONT GROUPBOX ICON LANGUAGE " ^
+         "LISTBOX LTEXT MENU MENUEX MENUITEM MESSAGETABLE POPUP PUSHBUTTON " ^
+         "RADIOBUTTON RCDATA RTEXT SCROLLBAR SEPARATOR SHIFT STATE3 " ^
+         "STRINGTABLE STYLE TEXTINCLUDE VALUE VERSION VERSIONINFO VIRTKEY")
+      ];
+      styles = [
+        mySTC_TYPE_DEFAULT;
+      mySTC_TYPE_COMMENT_LINE;
+      mySTC_TYPE_NUMBER;
+      mySTC_TYPE_STRING;
+      mySTC_TYPE_CHARACTER;
+      mySTC_TYPE_WORD1; (* KEYWORDS*)
+      mySTC_TYPE_DEFAULT; (* TRIPLE*)
+      mySTC_TYPE_DEFAULT; (* TRIPLEDOUBLE*)
+      mySTC_TYPE_DEFAULT; (* CLASSNAME*)
+      mySTC_TYPE_DEFAULT; (* DEFNAME*)
+      mySTC_TYPE_OPERATOR;
+      mySTC_TYPE_IDENTIFIER;
+      mySTC_TYPE_DEFAULT; (* COMMENT_BLOCK*)
+      mySTC_TYPE_STRING_EOL;
+      ];
+     folds = mySTC_FOLD_COMMENTPY lor mySTC_FOLD_QUOTESPY;
+}
+|]
 
 (*----------------------------------------------------------------------------*)
 (* common event handlers*)
@@ -430,7 +706,7 @@ let myEdit_OnEditClear edi _ =
  Edit.(if not (getReadOnly edi.m_edit) then clear edi.m_edit)
 
 let myEdit_OnKey edi _ =
-  WxMisc.wxMessageBox "OnKey" ""
+  ignore_int (WxMisc.wxMessageBox "OnKey" "")
 
 let myEdit_OnEditCut edi _ =
   let e = edi.m_edit in
@@ -527,33 +803,27 @@ let myEdit_InitializePrefs edi lang =
 
       (* initialize settings*)
       if g_CommonPrefs.syntaxEnable then begin
-(*
-        int keywordnr = 0;
-        for (Nr = 0; Nr < STYLE_TYPES_COUNT; Nr++) {
-            if (curInfo->styles[Nr].type == -1) continue;
-            const StyleInfo &curType = g_StylePrefs [curInfo->styles[Nr].type];
-            wxFont font (curType.fontsize, wxMODERN, wxNORMAL, wxNORMAL, false,
-                         curType.fontname);
-            StyleSetFont (Nr, font);
-            if (curType.foreground) {
-                StyleSetForeground (Nr, wxColour (curType.foreground));
-            }
-            if (curType.background) {
-                StyleSetBackground (Nr, wxColour (curType.background));
-            }
-            StyleSetBold (Nr, (curType.fontstyle & mySTC_STYLE_BOLD) > 0);
-            StyleSetItalic (Nr, (curType.fontstyle & mySTC_STYLE_ITALIC) > 0);
-            StyleSetUnderline (Nr, (curType.fontstyle & mySTC_STYLE_UNDERL) > 0);
-            StyleSetVisible (Nr, (curType.fontstyle & mySTC_STYLE_HIDDEN) == 0);
-            StyleSetCase (Nr, curType.lettercase);
-            const char *pwords = curInfo->styles[Nr].words;
-            if (pwords) {
-                SetKeyWords (keywordnr, pwords);
-                keywordnr += 1;
-            }
-        }
-    }
-*)
+        List.iteri (fun _Nr style ->
+          let curType = g_StylePrefs.(style) in
+
+          let font = WxFont.createAll
+              curType.fontsize wxMODERN wxNORMAL wxNORMAL false
+                         curType.fontname wxFONTENCODING_DEFAULT
+          in
+          set_ e [
+            StyleSetFont (_Nr, font);
+            StyleSetForeground (_Nr, wxColour (curType.foreground));
+            StyleSetBackground (_Nr, wxColour (curType.background));
+            StyleSetBold (_Nr, (curType.fontstyle land mySTC_STYLE_BOLD) > 0);
+            StyleSetItalic (_Nr, (curType.fontstyle land mySTC_STYLE_ITALIC) > 0);
+            StyleSetUnderline (_Nr, (curType.fontstyle land mySTC_STYLE_UNDERL) > 0);
+            StyleSetVisible (_Nr, (curType.fontstyle land mySTC_STYLE_HIDDEN) = 0);
+            StyleSetCase (_Nr, curType.lettercase);
+          ];
+        ) curInfo.styles;
+        List.iter (fun (numSet, keywords) ->
+          setKeyWords e numSet keywords
+        ) curInfo.keywords;
       end;
 
       (* set margin as unused*)
@@ -631,110 +901,110 @@ let myEdit_OnHilightLang  edi event =
     myEdit_InitializePrefs edi
       (Some g_LanguagePrefs.(WxCommandEvent.getId event - myID_HILIGHTFIRST))
 
-
-(*
-
 let myEdit_OnDisplayEOL { m_edit = e } _ =
-    SetViewEOL (!GetViewEOL());
-}
+    Edit.(setViewEOL e (not (getViewEOL e)))
 
 let myEdit_OnIndentGuide { m_edit = e } _ =
-    SetIndentationGuides (!GetIndentationGuides());
-}
+    Edit.(
+      setIndentationGuides e (if getIndentationGuides e <> 0 then 0 else 1))
 
-let myEdit_OnLineNumber { m_edit = e } _ =
-    SetMarginWidth (m_LineNrID,
-                    GetMarginWidth (m_LineNrID) == 0 then  m_LineNrMargin else  0);
-}
+let myEdit_OnLineNumber edi _ =
+  let e = edi.m_edit in
+    Edit.(
+      setMarginWidth e edi.m_LineNrID
+        (if getMarginWidth e edi.m_LineNrID = 0 then
+           edi.m_LineNrMargin else  0))
 
 let myEdit_OnLongLineOn { m_edit = e } _ =
-    SetEdgeMode (GetEdgeMode() == 0 then  wxSTC_EDGE_LINE else  wxSTC_EDGE_NONE);
-}
+   Edit.(
+     setEdgeMode e (if getEdgeMode e = 0 then  wxSTC_EDGE_LINE
+       else  wxSTC_EDGE_NONE)
+   )
 
 let myEdit_OnWhiteSpace { m_edit = e } _ =
-    SetViewWhiteSpace (GetViewWhiteSpace() == 0 then
-                       wxSTC_WS_VISIBLEALWAYS else  wxSTC_WS_INVISIBLE);
-}
+    Edit.(
+      setViewWhiteSpace e (
+        if getViewWhiteSpace e = 0 then
+          wxSTC_WS_VISIBLEALWAYS else  wxSTC_WS_INVISIBLE)
+    )
 
 let myEdit_OnFoldToggle { m_edit = e } _ =
-    ToggleFold (GetFoldParent(GetCurrentLine()));
-}
+    Edit.(
+      toggleFold e (getFoldParent e(getCurrentLine e))
+    )
 
 let myEdit_OnSetOverType { m_edit = e } _ =
-    SetOvertype (!GetOvertype());
-}
+    Edit.( setOvertype e (not (getOvertype e)))
 
 let myEdit_OnSetReadOnly { m_edit = e } _ =
-    SetReadOnly (!GetReadOnly());
-}
+    Edit.(setReadOnly e (not (getReadOnly e)))
 
 let myEdit_OnWrapmodeOn { m_edit = e } _ =
-    SetWrapMode (GetWrapMode() == 0 then  wxSTC_WRAP_WORD else  wxSTC_WRAP_NONE);
-}
+    Edit.(
+      setWrapMode e (if getWrapMode e = 0 then  wxSTC_WRAP_WORD else
+          wxSTC_WRAP_NONE))
 
-let myEdit_OnUseCharset (wxCommandEvent &event) {
-    int Nr;
-    int charset = GetCodePage();
-    switch (event.GetId()) {
-        case myID_CHARSETANSI: {charset = wxSTC_CHARSET_ANSI; break;}
-        case myID_CHARSETMAC: {charset = wxSTC_CHARSET_ANSI; break;}
-    }
-    for (Nr = 0; Nr < wxSTC_STYLE_LASTPREDEFINED; Nr++) {
-        StyleSetCharacterSet (Nr, charset);
-    }
-    SetCodePage (charset);
-}
 
-let myEdit_OnChangeCase (wxCommandEvent &event) {
-    switch (event.GetId()) {
-        case myID_CHANGELOWER: {
-            CmdKeyExecute (wxSTC_CMD_LOWERCASE);
-            break;
-        }
-        case myID_CHANGEUPPER: {
-            CmdKeyExecute (wxSTC_CMD_UPPERCASE);
-            break;
-        }
-    }
-}
+let myEdit_OnUseCharset { m_edit = e } event =
+  let id = WxCommandEvent.getId event in
+  let charset =
+    if id = myID_CHARSETANSI then wxSTC_CHARSET_ANSI else
+    if id = myID_CHARSETMAC then wxSTC_CHARSET_ANSI else
+      Edit.getCodePage e
+  in
+  for i = 0 to wxSTC_STYLE_LASTPREDEFINED - 1 do
+        Edit.styleSetCharacterSet e i charset
+  done;
+  Edit.setCodePage e charset
 
-let myEdit_OnConvertEOL (wxCommandEvent &event) {
-    int eolMode = GetEOLMode();
-    switch (event.GetId()) {
-        case myID_CONVERTCR: { eolMode = wxSTC_EOL_CR; break;}
-        case myID_CONVERTCRLF: { eolMode = wxSTC_EOL_CRLF; break;}
-        case myID_CONVERTLF: { eolMode = wxSTC_EOL_LF; break;}
-    }
-    ConvertEOLs (eolMode);
-    SetEOLMode (eolMode);
-}
+
+let myEdit_OnChangeCase { m_edit = e } event =
+  let id = WxCommandEvent.getId event in
+  if id =  myID_CHANGELOWER then
+    Edit.cmdKeyExecute e wxSTC_CMD_LOWERCASE
+  else
+  if id =  myID_CHANGEUPPER then
+    Edit.cmdKeyExecute e wxSTC_CMD_UPPERCASE
+
+let myEdit_OnConvertEOL { m_edit = e } event =
+  let id = WxCommandEvent.getId event in
+  Edit.(
+    let eolMode =
+      if id = myID_CONVERTCR then wxSTC_EOL_CR else
+      if id =  myID_CONVERTCRLF then wxSTC_EOL_CRLF else
+       if id =  myID_CONVERTLF then wxSTC_EOL_LF else
+         getEOLMode e
+    in
+    convertEOLs e eolMode;
+    setEOLMode e eolMode;
+  )
 
 (*! misc*)
-let myEdit_OnMarginClick (wxStyledTextEvent &event) {
-    if (event.GetMargin() == 2) {
-        int lineClick = LineFromPosition (event.GetPosition());
-        int levelClick = GetFoldLevel (lineClick);
-        if ((levelClick & wxSTC_FOLDLEVELHEADERFLAG) > 0) {
-            ToggleFold (lineClick);
-        }
-    }
-}
+let myEdit_OnMarginClick { m_edit = e } event =
+  let margin = WxStyledTextEvent.getMargin event in
+  Edit.(
+    if margin = 2 then
+      let pos = WxStyledTextEvent.getPosition event in
+      let lineClick = lineFromPosition e pos in
+      let levelClick = getFoldLevel e lineClick in
+      if levelClick land wxSTC_FOLDLEVELHEADERFLAG > 0 then
+        toggleFold e lineClick
+  )
 
-let myEdit_OnCharAdded (wxStyledTextEvent &event) {
-    char chr = (char)event.GetKey();
-    int currentLine = GetCurrentLine();
+let myEdit_OnCharAdded { m_edit = e } event =
+Edit.(
+  let chr = WxStyledTextEvent.getKey event in
+  let currentLine = getCurrentLine e in
     (* Change this if support for mac files with \r is needed*)
-    if (chr == '\n') {
-        int lineInd = 0;
-        if (currentLine > 0) {
-            lineInd = GetLineIndentation(currentLine - 1);
-        }
-        if (lineInd == 0) return;
-        SetLineIndentation (currentLine, lineInd);
-        GotoPos(PositionFromLine (currentLine) + lineInd);
-    }
-}
-*)
+  if chr = Char.code '\n' then
+    let lineInd =
+    if currentLine > 0 then
+      getLineIndentation e (currentLine - 1)
+    else 0 in
+    if lineInd <> 0 then
+        setLineIndentation e currentLine lineInd;
+        gotoPos e ((positionFromLine e currentLine) + lineInd)
+)
 
 (*----------------------------------------------------------------------------*)
 
@@ -747,7 +1017,8 @@ let ends_with s suffix =
 let myEdit_DeterminePrefs filename =
 
   let rec iter i =
-    if i = Array.length g_LanguagePrefs then None
+    if i = Array.length g_LanguagePrefs then
+      Some default_language
     else
       iter_list i g_LanguagePrefs.(i).filepatterns
 
@@ -786,36 +1057,6 @@ let myEdit_LoadFile edi maybe_filename =
     true
   with Exit -> false
 
-(*
-
-                 (* load file in edit and clear undo*)
-                 if (!filename.empty()) m_filename = filename;
-                   (*     wxFile file (m_filename);*)
-                   (*     if (!file.IsOpened()) return false;*)
-                   ClearAll ();
-                   (*     long lng = file.Length ();*)
-                   (*     if (lng > 0) {*)
-                   (*         wxString buf;*)
-                   (*         wxChar *buff = buf.GetWriteBuf (lng);*)
-                   (*         file.Read (buff, lng);*)
-                   (*         buf.UngetWriteBuf ();*)
-                   (*         InsertText (0, buf);*)
-                   (*     }*)
-                   (*     file.Close();*)
-
-                   wxStyledTextCtrl::LoadFile(m_filename);
-
-                   EmptyUndoBuffer();
-
-                   (* determine lexer language*)
-                   wxFileName fname (m_filename);
-                   InitializePrefs (DeterminePrefs (fname.GetFullName()));
-
-                   return true;
-}
-*)
-
-
 let myEdit_Modified edi =
 
     (* return modified state*)
@@ -851,47 +1092,31 @@ let myEdit_SaveFile edi filename =
 let new_EditAll appFrame id pos size style =
   let this =
   WxStyledTextCtrl.(set (create appFrame.w_frame id pos size style) [
-(* TODO
     (* default font for all styles*)
     SetViewEOL (g_CommonPrefs.displayEOLEnable);
     SetIndentationGuides (g_CommonPrefs.indentGuideEnable);
-    SetEdgeMode (g_CommonPrefs.longLineOnEnable then
-                 wxSTC_EDGE_LINE: wxSTC_EDGE_NONE);
-    SetViewWhiteSpace (g_CommonPrefs.whiteSpaceEnable then
-                       wxSTC_WS_VISIBLEALWAYS: wxSTC_WS_INVISIBLE);
+    SetEdgeMode (if g_CommonPrefs.longLineOnEnable then
+                 wxSTC_EDGE_LINE else wxSTC_EDGE_NONE);
+    SetViewWhiteSpace (if g_CommonPrefs.whiteSpaceEnable then
+                       wxSTC_WS_VISIBLEALWAYS else wxSTC_WS_INVISIBLE);
     SetOvertype (g_CommonPrefs.overTypeInitial);
     SetReadOnly (g_CommonPrefs.readOnlyInitial);
-    SetWrapMode (g_CommonPrefs.wrapModeInitial then
-                 wxSTC_WRAP_WORD: wxSTC_WRAP_NONE);
-*)
+    SetWrapMode (if g_CommonPrefs.wrapModeInitial then
+                 wxSTC_WRAP_WORD else wxSTC_WRAP_NONE);
     ])
   in
   let w_this = Edit.wxWindow this in
 
-(* TODO
-    wxFont font (10, wxMODERN, wxNORMAL, wxNORMAL);
+
+  let font = wxFont 10 wxMODERN wxNORMAL wxNORMAL in
+  Edit.(set_ this [
     StyleSetFont (wxSTC_STYLE_DEFAULT, font);
-    StyleSetForeground (wxSTC_STYLE_DEFAULT, *wxBLACK);
-    StyleSetBackground (wxSTC_STYLE_DEFAULT, *wxWHITE);
+    StyleSetForeground (wxSTC_STYLE_DEFAULT, wxBLACK);
+    StyleSetBackground (wxSTC_STYLE_DEFAULT, wxWHITE);
     StyleSetForeground (wxSTC_STYLE_LINENUMBER, wxColour (wxT("DARK GREY")));
-    StyleSetBackground (wxSTC_STYLE_LINENUMBER, *wxWHITE);
+    StyleSetBackground (wxSTC_STYLE_LINENUMBER, wxWHITE);
     StyleSetForeground(wxSTC_STYLE_INDENTGUIDE, wxColour (wxT("DARK GREY")));
-    InitializePrefs (DEFAULT_LANGUAGE);
-
-    (* set visibility*)
-    SetVisiblePolicy (wxSTC_VISIBLE_STRICT|wxSTC_VISIBLE_SLOP, 1);
-    SetXCaretPolicy (wxSTC_CARET_EVEN|wxSTC_VISIBLE_STRICT|wxSTC_CARET_SLOP, 1);
-    SetYCaretPolicy (wxSTC_CARET_EVEN|wxSTC_VISIBLE_STRICT|wxSTC_CARET_SLOP, 1);
-
-    (* markers*)
-    MarkerDefine (wxSTC_MARKNUM_FOLDER,        wxSTC_MARK_DOTDOTDOT, wxT("BLACK"), wxT("BLACK"));
-    MarkerDefine (wxSTC_MARKNUM_FOLDEROPEN,    wxSTC_MARK_ARROWDOWN, wxT("BLACK"), wxT("BLACK"));
-    MarkerDefine (wxSTC_MARKNUM_FOLDERSUB,     wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
-    MarkerDefine (wxSTC_MARKNUM_FOLDEREND,     wxSTC_MARK_DOTDOTDOT, wxT("BLACK"), wxT("WHITE"));
-    MarkerDefine (wxSTC_MARKNUM_FOLDEROPENMID, wxSTC_MARK_ARROWDOWN, wxT("BLACK"), wxT("WHITE"));
-    MarkerDefine (wxSTC_MARKNUM_FOLDERMIDTAIL, wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
-    MarkerDefine (wxSTC_MARKNUM_FOLDERTAIL,    wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
-*)
+  ]);
 
   let edi = {
     m_edit = this;
@@ -910,11 +1135,31 @@ let new_EditAll appFrame id pos size style =
     m_up = appFrame;
   }
   in
-(* TODO
-CmdKeyClear (wxSTC_KEY_TAB, 0); (* this is done by the menu accelerator key*)
-    SetLayoutCache (wxSTC_CACHE_PAGE);
 
+  myEdit_InitializePrefs edi None;
+
+(* TODO
+  Edit.( set_ this
+    (* set visibility*)
+      [
+        SetVisiblePolicy (wxSTC_VISIBLE_STRICT lor wxSTC_VISIBLE_SLOP, 1);
+        SetXCaretPolicy (wxSTC_CARET_EVEN lor wxSTC_VISIBLE lor STRICT lor wxSTC_CARET_SLOP, 1);
+        SetYCaretPolicy (wxSTC_CARET_EVEN lor wxSTC_VISIBLE_STRICT lor wxSTC_CARET_SLOP, 1);
+      ];
+
+    (* markers*)
+    markerDefine this (wxSTC_MARKNUM_FOLDER,        wxSTC_MARK_DOTDOTDOT, wxT("BLACK"), wxT("BLACK"));
+    markerDefine this (wxSTC_MARKNUM_FOLDEROPEN,    wxSTC_MARK_ARROWDOWN, wxT("BLACK"), wxT("BLACK"));
+    markerDefine this (wxSTC_MARKNUM_FOLDERSUB,     wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
+    markerDefine this (wxSTC_MARKNUM_FOLDEREND,     wxSTC_MARK_DOTDOTDOT, wxT("BLACK"), wxT("WHITE"));
+    markerDefine this (wxSTC_MARKNUM_FOLDEROPENMID, wxSTC_MARK_ARROWDOWN, wxT("BLACK"), wxT("WHITE"));
+    markerDefine this (wxSTC_MARKNUM_FOLDERMIDTAIL, wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
+    markerDefine this (wxSTC_MARKNUM_FOLDERTAIL,    wxSTC_MARK_EMPTY,     wxT("BLACK"), wxT("BLACK"));
+  );
 *)
+
+  Edit.cmdKeyClear this wxSTC_KEY_TAB 0;
+  Edit.setLayoutCache this wxSTC_CACHE_PAGE;
 
   WxEVENT_TABLE.(wxStyledTextCtrl this edi [
     (* common*)
@@ -938,7 +1183,6 @@ CmdKeyClear (wxSTC_KEY_TAB, 0); (* this is done by the menu accelerator key*)
     EVT_MENU (myID_BRACEMATCH,         myEdit_OnBraceMatch);
     EVT_MENU (myID_GOTO,               myEdit_OnGoto);
     (* view*)
-(*
     EVT_MENU_RANGE (myID_HILIGHTFIRST, myID_HILIGHTLAST,
                                        myEdit_OnHilightLang);
     EVT_MENU (myID_DISPLAYEOL,         myEdit_OnDisplayEOL);
@@ -962,7 +1206,6 @@ CmdKeyClear (wxSTC_KEY_TAB, 0); (* this is done by the menu accelerator key*)
     EVT_STC_MARGINCLICK (wxID_ANY,     myEdit_OnMarginClick);
     EVT_STC_CHARADDED (wxID_ANY,       myEdit_OnCharAdded);
     EVT_STC_KEY( wxID_ANY , myEdit_OnKey );
-*)
     ]);
 
 
@@ -1208,363 +1451,6 @@ bool EditPrint::PrintScaling (wxDC *dc){
 }
 
 #endif (* wxUSE_PRINTING_ARCHITECTURE*)
-(*////////////////////////////////////////////////////////////////////////////*)
-(* File:        contrib/samples/stc/prefs.cpp*)
-(* Purpose:     STC test Preferences initialization*)
-(* Maintainer:  Wyo*)
-(* Created:     2003-09-01*)
-(* RCS-ID:      $Id$*)
-(* Copyright:   (c) wxGuide*)
-(* Licence:     wxWindows licence*)
-(*////////////////////////////////////////////////////////////////////////////*)
-
-(*----------------------------------------------------------------------------*)
-(* headers*)
-(*----------------------------------------------------------------------------*)
-
-(* For compilers that support precompilation, includes "wx/wx.h".*)
-#include "wx/wxprec.h"
-
-#ifdef __BORLANDC__
-    #pragma hdrstop
-#endif
-
-(* for all others, include the necessary headers (this file is usually all you*)
-(* need because it includes almost all 'standard' wxWidgets headers)*)
-#ifndef WX_PRECOMP
-    #include "wx/wx.h"
-#endif
-
-(*! wxWidgets headers*)
-
-(*! wxWidgets/contrib headers*)
-
-(*! application headers*)
-#include "defsext.h"     (* Additional definitions*)
-#include "prefs.h"       (* Preferences*)
-
-
-(*============================================================================*)
-(* declarations*)
-(*============================================================================*)
-
-(*----------------------------------------------------------------------------*)
-(*! language types*)
-
-(*----------------------------------------------------------------------------*)
-(* keywordlists*)
-(* C++*)
-const char* CppWordlist1 =
-    "asm auto bool break case catch char class const const_cast "
-    "continue default delete do double dynamic_cast else enum explicit "
-    "export extern false float for friend goto if inline int long "
-    "mutable namespace new operator private protected public register "
-    "reinterpret_cast return short signed sizeof static static_cast "
-    "struct switch template this throw true try typedef typeid "
-    "typename union unsigned using virtual let volatile wchar_t "
-    "while";
-const char* CppWordlist2 =
-    "file";
-const char* CppWordlist3 =
-    "a addindex addtogroup anchor arg attention author b brief bug c "
-    "class code date def defgroup deprecated dontinclude e em endcode "
-    "endhtmlonly endif endlatexonly endlink endverbatim enum example "
-    "exception f$ f[ f] file fn hideinitializer htmlinclude "
-    "htmlonly if image include ingroup internal invariant interface "
-    "latexonly li line link mainpage name namespace nosubgrouping note "
-    "overload p page par param post pre ref relates remarks return "
-    "retval sa section see showinitializer since skip skipline struct "
-    "subsection test throw todo typedef union until var verbatim "
-    "verbinclude version warning weakgroup $ @ \"\" & < > # { }";
-
-(* Python*)
-const char* PythonWordlist1 =
-    "and assert break class continue def del elif else except exec "
-    "finally for from global if import in is lambda None not or pass "
-    "print raise return try while yield";
-const char* PythonWordlist2 =
-    "ACCELERATORS ALT AUTO3STATE AUTOCHECKBOX AUTORADIOBUTTON BEGIN "
-    "BITMAP BLOCK BUTTON CAPTION CHARACTERISTICS CHECKBOX CLASS "
-    "COMBOBOX CONTROL CTEXT CURSOR DEFPUSHBUTTON DIALOG DIALOGEX "
-    "DISCARDABLE EDITTEXT END EXSTYLE FONT GROUPBOX ICON LANGUAGE "
-    "LISTBOX LTEXT MENU MENUEX MENUITEM MESSAGETABLE POPUP PUSHBUTTON "
-    "RADIOBUTTON RCDATA RTEXT SCROLLBAR SEPARATOR SHIFT STATE3 "
-    "STRINGTABLE STYLE TEXTINCLUDE VALUE VERSION VERSIONINFO VIRTKEY";
-
-    (* C++*)
-    {"C++",
-
-     wxSTC_LEX_CPP,
-     {{mySTC_TYPE_DEFAULT, NULL},
-      {mySTC_TYPE_COMMENT, NULL},
-      {mySTC_TYPE_COMMENT_LINE, NULL},
-      {mySTC_TYPE_COMMENT_DOC, NULL},
-      {mySTC_TYPE_NUMBER, NULL},
-      {mySTC_TYPE_WORD1, CppWordlist1}, (* KEYWORDS*)
-      {mySTC_TYPE_STRING, NULL},
-      {mySTC_TYPE_CHARACTER, NULL},
-      {mySTC_TYPE_UUID, NULL},
-      {mySTC_TYPE_PREPROCESSOR, NULL},
-      {mySTC_TYPE_OPERATOR, NULL},
-      {mySTC_TYPE_IDENTIFIER, NULL},
-      {mySTC_TYPE_STRING_EOL, NULL},
-      {mySTC_TYPE_DEFAULT, NULL}, (* VERBATIM*)
-      {mySTC_TYPE_REGEX, NULL},
-      {mySTC_TYPE_COMMENT_SPECIAL, NULL}, (* DOXY*)
-      {mySTC_TYPE_WORD2, CppWordlist2}, (* EXTRA WORDS*)
-      {mySTC_TYPE_WORD3, CppWordlist3}, (* DOXY KEYWORDS*)
-      {mySTC_TYPE_ERROR, NULL}, (* KEYWORDS ERROR*)
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL}},
-     mySTC_FOLD_COMMENT | mySTC_FOLD_COMPACT | mySTC_FOLD_PREPROC},
-    (* Python*)
-    {"Python",
-     "*.py;*.pyw",
-     wxSTC_LEX_PYTHON,
-     {{mySTC_TYPE_DEFAULT, NULL},
-      {mySTC_TYPE_COMMENT_LINE, NULL},
-      {mySTC_TYPE_NUMBER, NULL},
-      {mySTC_TYPE_STRING, NULL},
-      {mySTC_TYPE_CHARACTER, NULL},
-      {mySTC_TYPE_WORD1, PythonWordlist1}, (* KEYWORDS*)
-      {mySTC_TYPE_DEFAULT, NULL}, (* TRIPLE*)
-      {mySTC_TYPE_DEFAULT, NULL}, (* TRIPLEDOUBLE*)
-      {mySTC_TYPE_DEFAULT, NULL}, (* CLASSNAME*)
-      {mySTC_TYPE_DEFAULT, PythonWordlist2}, (* DEFNAME*)
-      {mySTC_TYPE_OPERATOR, NULL},
-      {mySTC_TYPE_IDENTIFIER, NULL},
-      {mySTC_TYPE_DEFAULT, NULL}, (* COMMENT_BLOCK*)
-      {mySTC_TYPE_STRING_EOL, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL}},
-     mySTC_FOLD_COMMENTPY | mySTC_FOLD_QUOTESPY},
-    (* * (any)*)
-    {wxTRANSLATE(DEFAULT_LANGUAGE),
-     "*.*",
-     wxSTC_LEX_PROPERTIES,
-     {{mySTC_TYPE_DEFAULT, NULL},
-      {mySTC_TYPE_DEFAULT, NULL},
-      {mySTC_TYPE_DEFAULT, NULL},
-      {mySTC_TYPE_DEFAULT, NULL},
-      {mySTC_TYPE_DEFAULT, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL},
-      {-1, NULL}},
-     0},
-    };
-
-const int g_LanguagePrefsSize = WXSIZEOF(g_LanguagePrefs);
-
-(*----------------------------------------------------------------------------*)
-(*! style types*)
-const StyleInfo g_StylePrefs [] = {
-    (* mySTC_TYPE_DEFAULT*)
-    {wxT("Default"),
-     wxT("BLACK"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_WORD1*)
-    {wxT("Keyword1"),
-     wxT("BLUE"), wxT("WHITE"),
-     wxT(""), 10, mySTC_STYLE_BOLD, 0},
-
-    (* mySTC_TYPE_WORD2*)
-    {wxT("Keyword2"),
-     wxT("MIDNIGHT BLUE"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_WORD3*)
-    {wxT("Keyword3"),
-     wxT("CORNFLOWER BLUE"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_WORD4*)
-    {wxT("Keyword4"),
-     wxT("CYAN"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_WORD5*)
-    {wxT("Keyword5"),
-     wxT("DARK GREY"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_WORD6*)
-    {wxT("Keyword6"),
-     wxT("GREY"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_COMMENT*)
-    {wxT("Comment"),
-     wxT("FOREST GREEN"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_COMMENT_DOC*)
-    {wxT("Comment (Doc)"),
-     wxT("FOREST GREEN"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_COMMENT_LINE*)
-    {wxT("Comment line"),
-     wxT("FOREST GREEN"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_COMMENT_SPECIAL*)
-    {wxT("Special comment"),
-     wxT("FOREST GREEN"), wxT("WHITE"),
-     wxT(""), 10, mySTC_STYLE_ITALIC, 0},
-
-    (* mySTC_TYPE_CHARACTER*)
-    {wxT("Character"),
-     wxT("KHAKI"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_CHARACTER_EOL*)
-    {wxT("Character (EOL)"),
-     wxT("KHAKI"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_STRING*)
-    {wxT("String"),
-     wxT("BROWN"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_STRING_EOL*)
-    {wxT("String (EOL)"),
-     wxT("BROWN"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_DELIMITER*)
-    {wxT("Delimiter"),
-     wxT("ORANGE"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_PUNCTUATION*)
-    {wxT("Punctuation"),
-     wxT("ORANGE"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_OPERATOR*)
-    {wxT("Operator"),
-     wxT("BLACK"), wxT("WHITE"),
-     wxT(""), 10, mySTC_STYLE_BOLD, 0},
-
-    (* mySTC_TYPE_BRACE*)
-    {wxT("Label"),
-     wxT("VIOLET"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_COMMAND*)
-    {wxT("Command"),
-     wxT("BLUE"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_IDENTIFIER*)
-    {wxT("Identifier"),
-     wxT("BLACK"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_LABEL*)
-    {wxT("Label"),
-     wxT("VIOLET"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_NUMBER*)
-    {wxT("Number"),
-     wxT("SIENNA"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_PARAMETER*)
-    {wxT("Parameter"),
-     wxT("VIOLET"), wxT("WHITE"),
-     wxT(""), 10, mySTC_STYLE_ITALIC, 0},
-
-    (* mySTC_TYPE_REGEX*)
-    {wxT("Regular expression"),
-     wxT("ORCHID"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_UUID*)
-    {wxT("UUID"),
-     wxT("ORCHID"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_VALUE*)
-    {wxT("Value"),
-     wxT("ORCHID"), wxT("WHITE"),
-     wxT(""), 10, mySTC_STYLE_ITALIC, 0},
-
-    (* mySTC_TYPE_PREPROCESSOR*)
-    {wxT("Preprocessor"),
-     wxT("GREY"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_SCRIPT*)
-    {wxT("Script"),
-     wxT("DARK GREY"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_ERROR*)
-    {wxT("Error"),
-     wxT("RED"), wxT("WHITE"),
-     wxT(""), 10, 0, 0},
-
-    (* mySTC_TYPE_UNDEFINED*)
-    {wxT("Undefined"),
-     wxT("ORANGE"), wxT("WHITE"),
-     wxT(""), 10, 0, 0}
-
-    };
 *)
 
 (*============================================================================*)
@@ -1874,7 +1760,7 @@ ignore (new_AppAbout edi.m_up.w_frame 0 0)
 
 let appFrame_OnExit edi _ =
   Printf.eprintf "appFrame_OnExit\n%!";
-  WxFrame.close edi.m_up.m_frame true
+  ignore_bool (WxFrame.close edi.m_up.m_frame true)
 
 (* file event handlers*)
 let appFrame_OnFileOpen edi _ =
@@ -1898,15 +1784,17 @@ let appFrame_OnFileSaveAs edi _ =
     if WxFileDialog.showModal dlg = wxID_OK then
       ignore_bool (myEdit_SaveFile edi (Some (WxFileDialog.getPath dlg)))
 
-(*
 (* properties event handlers*)
 let appFrame_OnProperties { m_edit = e } _ =
+(*
     if (!m_edit) return;
     EditProperties dlg(m_edit, 0);
-}
+*)
+()
 
 (* print event handlers*)
 let appFrame_OnPrintSetup { m_edit = e } _ =
+(*
 #if wxUSE_PRINTING_ARCHITECTURE
     ( *g_pageSetupData) = * g_printData;
     wxPageSetupDialog pageSetupDialog(this, g_pageSetupData);
@@ -1915,8 +1803,11 @@ let appFrame_OnPrintSetup { m_edit = e } _ =
     ( *g_pageSetupData) = pageSetupDialog.GetPageSetupData();
 #endif (* wxUSE_PRINTING_ARCHITECTURE*)
 }
+*)
+()
 
 let appFrame_OnPrintPreview { m_edit = e } _ =
+(*
 #if wxUSE_PRINTING_ARCHITECTURE
     wxPrintDialogData printDialogData( *g_printData);
     wxPrintPreview *preview =
@@ -1938,8 +1829,11 @@ let appFrame_OnPrintPreview { m_edit = e } _ =
     frame->Show(true);
 #endif (* wxUSE_PRINTING_ARCHITECTURE*)
 }
+*)
+()
 
 let appFrame_OnPrint { m_edit = e } _ =
+(*
 #if wxUSE_PRINTING_ARCHITECTURE
     wxPrintDialogData printDialogData( *g_printData);
     wxPrinter printer (&printDialogData);
@@ -1954,13 +1848,16 @@ let appFrame_OnPrint { m_edit = e } _ =
     }
     ( *g_printData) = printer.GetPrintDialogData().GetPrintData();
 #endif (* wxUSE_PRINTING_ARCHITECTURE*)
-}
+*)
+()
 
 (* edit events*)
-let appFrame_OnEdit (wxCommandEvent &event) {
-    if (m_edit) m_edit->GetEventHandler()->ProcessEvent (event);
-}
-*)
+let appFrame_OnEdit { m_edit = e } event =
+  match Edit.getEventHandler e with
+    None -> ()
+  | Some evt ->
+    ignore_bool (WxEvtHandler.processEvent evt
+        (WxCommandEvent.wxEvent event))
 
 let appFrame_FileOpen appFrame fname =
 (*    wxFileName w(fname); w.Normalize(); fname = w.GetFullPath(); *)
@@ -2096,9 +1993,8 @@ let  new_MinimalEditor parent id =
 let new_MinimalEditorFrame () =
   let this = wxFrame None wxID_ANY "Minimal Editor" in
   let editor = new_MinimalEditor (WxFrame.wxWindow this) wxID_ANY in
-  (* TODO
-          editor->SetFont(wxSystemSettings::GetFont(wxSYS_ANSI_FIXED_FONT));
-  *)
+  let font = WxSystemSettings.getFont wxSYS_ANSI_FIXED_FONT in
+  Edit.(setFont editor font);
 
   HSIZER.(wxFrame this false
        [
@@ -2271,7 +2167,6 @@ let new_AppFrame m_app title =
     EVT_MENU (wxID_SAVEAS,           appFrame_OnFileSaveAs);
     EVT_MENU (wxID_CLOSE,            appFrame_OnFileClose);
 
-(*
     (* properties*)
     EVT_MENU (myID_PROPERTIES,       appFrame_OnProperties);
     (* print and exit*)
@@ -2317,7 +2212,7 @@ let new_AppFrame m_app title =
     EVT_MENU (myID_CONVERTLF,        appFrame_OnEdit);
     EVT_MENU (myID_CHARSETANSI,      appFrame_OnEdit);
     EVT_MENU (myID_CHARSETMAC,       appFrame_OnEdit);
-*)
+
     (* help*)
     EVT_MENU (wxID_ABOUT,            appFrame_OnAbout);
     ]);

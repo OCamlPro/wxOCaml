@@ -10,7 +10,7 @@ class wxFont inherit wxObject begin
  new(CreateAll)(int pointSize, wxFontFamily family, wxFontStyle style, 
        wxFontWeight weight, bool underline (* =false *),
        wxString &faceName (* =wxEmptyString *), 
-       wxFontEncoding encoding (* =wxFONTENCODING_DEFAULT *) )
+       wxFontEncoding encoding (* = wxFONTENCODING_DEFAULT *) )
  new(Create)(int pointSize, wxFontFamily family, wxFontStyle style, 
        wxFontWeight weight)
  new(CreateDefault)()
