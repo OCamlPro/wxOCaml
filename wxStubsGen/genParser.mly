@@ -143,6 +143,7 @@ meth:
       proto_options = $2;
       proto_version = [];
       proto_const = MUTABLE;
+      proto_enabled = true;
     }
   }
 | METHOD options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN LPAREN arguments rparen_and_const
@@ -155,6 +156,7 @@ meth:
       proto_options = $2;
       proto_version = [];
       proto_const = $11;
+      proto_enabled = true;
     }
   }
 | FUNCTION options_maybe LPAREN ctype COMMA genident maybe_mlname RPAREN LPAREN arguments rparen_and_const
@@ -167,6 +169,7 @@ meth:
       proto_options = $2;
       proto_version = [];
       proto_const = $11;
+      proto_enabled = true;
     }
   }
 | VALUE options_maybe LPAREN ctype COMMA genident_or_string maybe_mlname RPAREN
@@ -179,6 +182,7 @@ meth:
       proto_options = $2;
       proto_version = [];
       proto_const = MUTABLE;
+      proto_enabled = true;
     }
   }
 
@@ -193,6 +197,7 @@ meth:
       proto_options = $2;
       proto_version = [];
       proto_const = $8;
+      proto_enabled = true;
     }
   }
 | NEW options_maybe genident LPAREN arguments RPAREN
@@ -205,6 +210,7 @@ meth:
       proto_options = $2;
       proto_version = [];
       proto_const = MUTABLE;
+      proto_enabled = true;
     }
   }
 ;

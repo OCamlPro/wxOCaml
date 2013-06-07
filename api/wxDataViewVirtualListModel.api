@@ -1,0 +1,9 @@
+
+class wxDataViewVirtualListModel inherit wxDataViewIndexListModel begin
+
+(*
+ 	wxDataViewVirtualListModel (unsigned int initial_size=0)
+ 	Constructor. 
+*)
+
+end

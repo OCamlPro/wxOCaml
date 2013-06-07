@@ -1,0 +1,35 @@
+
+class wxDataViewModel inherit wxRefCounter begin
+
+(*
+ 	new Create ()
+void 	AddNotifier (wxDataViewModelNotifier *notifier)
+bool 	ChangeValue (const wxVariant &variant, const wxDataViewItem &item, unsigned int col)
+
+
+virtual bool 	Cleared ()
+virtual int 	Compare (const wxDataViewItem &item1, const wxDataViewItem &item2, unsigned int column, bool ascending) const
+virtual bool 	GetAttr (const wxDataViewItem &item, unsigned int col, wxDataViewItemAttr &attr) const
+virtual bool 	IsEnabled (const wxDataViewItem &item, unsigned int col) const
+virtual unsigned int 	GetChildren (const wxDataViewItem &item, wxDataViewItemArray &children) const =0
+virtual unsigned int 	GetColumnCount () const =0
+virtual wxString 	GetColumnType (unsigned int col) const =0
+virtual wxDataViewItem 	GetParent (const wxDataViewItem &item) const =0
+virtual void 	GetValue (wxVariant &variant, const wxDataViewItem &item, unsigned int col) const =0
+virtual bool 	HasContainerColumns (const wxDataViewItem &item) const
+virtual bool 	HasDefaultCompare () const
+bool 	HasValue (const wxDataViewItem &item, unsigned col) const
+virtual bool 	IsContainer (const wxDataViewItem &item) const =0
+bool 	ItemAdded (const wxDataViewItem &parent, const wxDataViewItem &item)
+bool 	ItemChanged (const wxDataViewItem &item)
+bool 	ItemDeleted (const wxDataViewItem &parent, const wxDataViewItem &item)
+bool 	ItemsAdded (const wxDataViewItem &parent, const wxDataViewItemArray &items)
+bool 	ItemsChanged (const wxDataViewItemArray &items)
+bool 	ItemsDeleted (const wxDataViewItem &parent, const wxDataViewItemArray &items)
+void 	RemoveNotifier (wxDataViewModelNotifier *notifier)
+virtual void 	Resort ()
+virtual bool 	SetValue (const wxVariant &variant, const wxDataViewItem &item, unsigned int col)=0
+virtual bool 	ValueChanged (const wxDataViewItem &item, unsigned int col)
+*)
+
+end

@@ -451,7 +451,9 @@ let generate_method_stub oc cl p =
   fprintf oc "  CAMLparam0();\n";
   fprintf oc "  CAMLlocal1(ret_v);\n";
 
-  if p.proto_version <= wx_version then
+  if p.proto_version <= wx_version &&
+     p.proto_enabled && cl.class_enabled
+then
     generate_method_stub_body oc cl p !out_nargs
   else begin
     fprintf oc "  caml_failwith(\"";
@@ -809,7 +811,9 @@ let generate_classes_files source_dirname classes =
   Printf.fprintf oc.oc "  if( ptr == NULL) return ptr;\n";
   Printf.fprintf oc.oc "  switch(dest_id * %d + src_id){\n" !nclasses;
   StringMap.iter (fun _ src ->
+    if src.class_enabled then
     StringMap.iter (fun _ dest ->
+      if dest.class_enabled then
       Printf.fprintf oc.oc "  case %d : return (%s*)(%s*)ptr;\n"
         (dest.class_num * !nclasses + src.class_num)
         dest.class_name src.class_name

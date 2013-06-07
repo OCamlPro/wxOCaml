@@ -5,7 +5,15 @@ TOOLS=$(ROOT)/tools
 
 XPM2ML=$(OBUILD)/xpm2ml/xpm2ml.asm
 
-GENERATED_SOURCES= sample_xpm.ml smile_xpm.ml wiztest_xpm.ml wiztest2_xpm.ml
+GENERATED_SOURCES= \
+   sample_xpm.ml \
+   smile_xpm.ml \
+   wiztest_xpm.ml \
+   wiztest2_xpm.ml \
+   wx_small_xpm.ml \
+   null_xpm.ml \
+
+
 TARGET=wxSamples-resources
 LIBRARY=$(OBUILD)/$(TARGET)/$(TARGET).cmxa
 

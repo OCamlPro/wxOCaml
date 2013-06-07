@@ -37,3 +37,6 @@ api/new_sources/libwxOCaml_api.so
 DEVELOPMENT
 wxDefsGen/gen_wxDefs
 wxDefsGen/gen_wxDefs.cpp
+wxWidgets/wxHAS.ml
+wxWidgets/wxOCamlConfig.h
+wxWidgets/wxUSE.ml

@@ -1,0 +1,44 @@
+
+class wxDataViewListStore inherit wxDataViewIndexListModel begin
+
+(*
+
+
+ 	wxDataViewListStore ()
+ 	Constructor. 
+ 	~wxDataViewListStore ()
+ 	Destructor. 
+void 	PrependColumn (const wxString &varianttype)
+ 	Prepends a data column. 
+void 	InsertColumn (unsigned int pos, const wxString &varianttype)
+ 	Inserts a data column before pos. 
+void 	AppendColumn (const wxString &varianttype)
+ 	Appends a data column. 
+void 	AppendItem (const wxVector< wxVariant > &values, wxUIntPtr data=NULL)
+ 	Appends an item (=row) and fills it with values. 
+void 	PrependItem (const wxVector< wxVariant > &values, wxUIntPtr data=NULL)
+ 	Prepends an item (=row) and fills it with values. 
+void 	InsertItem (unsigned int row, const wxVector< wxVariant > &values, wxUIntPtr data=NULL)
+ 	Inserts an item (=row) and fills it with values. 
+void 	DeleteItem (unsigned pos)
+ 	Delete the item (=row) at position pos. 
+void 	DeleteAllItems ()
+ 	Delete all item (=all rows) in the store. 
+unsigned int 	GetItemCount () const
+ 	Returns the number of items (=rows) in the control. 
+wxUIntPtr 	GetItemData (const wxDataViewItem &item) const
+ 	Returns the client data associated with the item. 
+virtual unsigned int 	GetColumnCount () const
+ 	Overridden from wxDataViewModel. 
+virtual wxString 	GetColumnType (unsigned int col) const
+ 	Overridden from wxDataViewModel. 
+void 	SetItemData (const wxDataViewItem &item, wxUIntPtr data)
+ 	Sets the client data associated with the item. 
+virtual void 	GetValueByRow (wxVariant &value, unsigned int row, unsigned int col) const
+ 	Overridden from wxDataViewIndexListModel. 
+virtual bool 	SetValueByRow (const wxVariant &value, unsigned int row, unsigned int col)
+ 	Overridden from wxDataViewIndexListModel. 
+
+*)
+
+end

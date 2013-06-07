@@ -1,6 +1,7 @@
 #ifndef __WXOCAML_H
 #define __WXOCAML_H
 
+#include "wxOCamlConfig.h"
 
 /* MSC: disable warning about int-to-bool conversion (just affects performance) */
 #pragma warning(disable: 4800)
@@ -57,6 +58,8 @@ typedef int intptr_t;
 #include <wx/dragimag.h>
 #include <wx/dcgraph.h>
 #include <wx/dcprint.h>
+#include <wx/object.h>
+#include <wx/dataview.h>
 
 #if wxUSE_DATEPICKCTRL
 #include "wx/datectrl.h"
@@ -66,16 +69,15 @@ typedef int intptr_t;
 #include "wx/timectrl.h"
 #endif
 
-// TODO: we should test in the configure for this
-// #if wxUSE_STC
+#if WXOCAML_HAS_STC
 #include "wx/stc/stc.h"
+#endif
 
-
-// #endif
+#if WXOCAML_HAS_WRAPSIZER
+#include "wx/wrapsizer.h"
+#endif
 
 #if wxCHECK_VERSION(2, 9, 0)
-
-#include "wx/wrapsizer.h"
 
 #else
 

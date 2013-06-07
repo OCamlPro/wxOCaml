@@ -164,7 +164,7 @@ let _ =
     ignore_bool (WxMenuBar.append m_menuBar menuCal "&Calendar");
 
 
-    if wxUSE_DATEPICKCTRL then begin
+    if WxUSE._DATEPICKCTRL then begin
       let menuDate = wxMenu "" 0 in
       WxMenu.appendCheckItem menuDate id_Calendar_DatePicker_ShowCentury
         "Al&ways show century"
@@ -186,7 +186,7 @@ let _ =
       ignore_bool (WxMenuBar.append m_menuBar menuDate "&Date picker");
     end;
 
-    if wxUSE_TIMEPICKCTRL then begin
+    if WxUSE._TIMEPICKCTRL then begin
       let menuTime = wxMenu "" 0 in
 (*
       if wxUSE_TIMEPICKCTRL_GENERIC then begin
@@ -206,7 +206,7 @@ let _ =
     WxMenuBar.check m_menuBar id_Calendar_Cal_Month true;
     WxMenuBar.check m_menuBar id_Calendar_Cal_LimitDates false;
 
-    if wxUSE_DATEPICKCTRL then begin
+    if WxUSE._DATEPICKCTRL then begin
       WxMenuBar.check m_menuBar id_Calendar_DatePicker_ShowCentury true;
     end;
 
@@ -220,7 +220,7 @@ let _ =
     let m_panel = wxPanel (WxSplitterWindow.wxWindow splitter)
         wxID_ANY       (-1,-1) (-1,-1) 0 "" in
 
-    m_usingGeneric := not wxHAS_NATIVE_CALENDARCTRL;
+    m_usingGeneric := not WxHAS._NATIVE_CALENDARCTRL;
 
     let date = WxDateTime.today () in
     let today  = WxDateTime.formatISODate date in

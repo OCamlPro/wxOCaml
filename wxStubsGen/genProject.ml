@@ -38,6 +38,7 @@ let generate_project_files dirname =
   ) !generated_ocaml_sources;
   Printf.fprintf ocp_oc.oc "  %S\n" "wxWidgets.ml";
   Printf.fprintf ocp_oc.oc "  ]\n";
+  Printf.fprintf ocp_oc.oc "  requires = [ %S ]\n" "wxConfig";
   Printf.fprintf ocp_oc.oc "end";
   close_out ocp_oc;
 

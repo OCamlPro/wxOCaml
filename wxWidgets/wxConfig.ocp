@@ -1,0 +1,4 @@
+
+begin library "wxConfig"
+  files = [ "wxUSE.ml" "wxHAS.ml" ]
+end

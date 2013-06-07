@@ -19,19 +19,21 @@ class wxStyledTextEvent inherit wxCommandEvent begin
   int 	GetListType () const
   int 	GetX () const
   int 	GetY () const
- 
-  wxString 	GetDragText ()
-  version 2.9 begin 
-    int 	GetDragFlags ()
-    int 	GetToken () const
-    int 	GetAnnotationsLinesAdded () const
-    int 	GetUpdated () const
-  end
-
   wxDragResult 	GetDragResult ()
   bool 	GetShift () const
   bool 	GetControl () const
   bool 	GetAlt () const
+ 
+  wxString 	GetDragText ()
+  version 2.9 begin 
+    int 	GetDragFlags ()
+  end
+
+  version 2.9.5 begin
+    int 	GetUpdated () const
+    int 	GetToken () const
+    int 	GetAnnotationsLinesAdded () const
+  end
 
 end
 
@@ -702,15 +704,12 @@ wxCharBuffer 	GetTextRaw ()
 void 	AppendTextRaw (const char *text, int length=-1)
 *)
 
-(*
 virtual void 	WriteText (const wxString &text)
 virtual void 	Remove (long from, long to)
 virtual void 	Replace (long from, long to, const wxString &text)
 virtual void 	SetInsertionPoint (long pos)
 virtual long 	GetInsertionPoint () const
 virtual long 	GetLastPosition () const
-*)
-
 virtual void 	SetSelection (int from, long to)
 virtual void 	GetSelection (int <- from, int <- to) const
 
@@ -728,14 +727,7 @@ virtual wxTextCtrlHitTestResult 	HitTest (const wxPoint &pt, wxTextCoord *col, w
 
 
 version 2.9 begin
-  void 	SetMarginCursor (int margin, int cursor)
-  bool 	GetAllLinesVisible () const
-  void 	DeleteRange (int pos, int deleteLength)
-  int 	CountCharacters (int startPos, int endPos)
-  void 	SetMultiPaste (int multiPaste)
-  int 	GetMultiPaste () const
   void 	SetFirstVisibleLine (int lineDisplay)
-  wxString 	GetTag (int tagNumber) const
   bool 	GetScrollWidthTracking () const
   void 	SetScrollWidthTracking (bool tracking)
   virtual void 	MarkDirty ()
@@ -745,24 +737,14 @@ version 2.9 begin
   virtual bool 	IsEditable () const
   virtual void 	SetEditable (bool editable)
   virtual int 	GetNumberOfLines () const
-  virtual void 	SelectNone ()
   virtual wxString 	GetLineText (long n) const
-  void 	BraceHighlightIndicator (bool useBraceHighlightIndicator, int indicator)
-  void 	BraceBadLightIndicator (bool useBraceBadLightIndicator, int indicator)
-  int 	GetMarginCursor (int margin) const
   wxFont 	StyleGetFont (int style)
 
-  void 	MarkerSetBackgroundSelected (int markerNumber, const wxColour &back)
-  void 	MarkerEnableHighlight (bool enabled)
 
-  int 	StyleGetWeight (int style) const
   void 	StyleSetEOLFilled (int style, bool filled)
   bool 	GetSelEOLFilled () const
   wxColour 	StyleGetBackground (int style) const
-  void 	StyleSetSizeFractional (int style, int caseForce)
-  int 	StyleGetSizeFractional (int style) const
 wxColour 	StyleGetForeground (int style) const
-  void 	StyleSetWeight (int style, int weight)
 
 bool 	StyleGetBold (int style) const
 bool 	StyleGetItalic (int style) const
@@ -775,14 +757,11 @@ int 	StyleGetCharacterSet (int style) const
 bool 	StyleGetVisible (int style) const
 bool 	StyleGetChangeable (int style) const
 bool 	StyleGetHotSpot (int style) const
-wxString 	GetWordChars () const
 void 	SetSelEOLFilled (bool filled)
 void 	IndicatorSetUnder (int indic, bool under)
 bool 	IndicatorGetUnder (int indic) const
 void 	SetWhitespaceSize (int size)
 int 	GetWhitespaceSize () const
-void 	SetEmptySelection (int pos)
-void 	CallTipSetPosition (bool above)
 void 	SetWrapIndentMode (int mode)
 int 	GetWrapIndentMode () const
 void 	DelWordRightEnd ()
@@ -795,18 +774,13 @@ bool 	GetHotspotActiveUnderline () const
 void 	SetHotspotActiveForeground (bool useSetting, const wxColour &fore)
 wxColour 	GetHotspotActiveForeground () const
 
-void 	SetPunctuationChars (const wxString &characters)
 void 	SetPositionCacheSize (int size)
 void 	SetIndicatorValue (int value)
 void 	SetIndicatorCurrent (int indicator)
-void 	AutoCompSetCaseInsensitiveBehaviour (int behaviour)
-int 	AutoCompGetCaseInsensitiveBehaviour () const
 int 	GetIndicatorCurrent () const
 int 	GetIndicatorValue () const
 
 
- wxString 	GetWhitespaceChars () const 
-wxString 	GetPunctuationChars () const
  void 	SetCaretStyle (int caretStyle) 
  int 	GetCaretStyle () const 
  void 	IndicatorFillRange (int position, int fillLength) 
@@ -817,21 +791,16 @@ int 	IndicatorAllOnFor (int position)
  int 	IndicatorEnd (int indicator, int position) 
  int 	GetPositionCacheSize () const 
  void 	CopyAllowLine () 
-int 	GetGapPosition () const
 void 	SetKeysUnicode (bool keysUnicode)
 bool 	GetKeysUnicode () const
 void 	IndicatorSetAlpha (int indicator, int alpha)
 int 	IndicatorGetAlpha (int indicator) const
 
-void 	IndicatorSetOutlineAlpha (int indicator, int alpha)
-int 	IndicatorGetOutlineAlpha (int indicator) const
 void 	SetExtraAscent (int extraAscent)
 int 	GetExtraAscent () const
 void 	SetExtraDescent (int extraDescent)
 int 	GetExtraDescent () const
  int 	GetMarkerSymbolDefined (int markerNumber) 
-void 	SetMarginOptions (int marginOptions)
-int 	GetMarginOptions () const
 wxString 	MarginGetText (int line) const
 void 	MarginSetText (int line, const wxString &text)
 void 	MarginSetStyle (int line, int style)
@@ -841,21 +810,58 @@ wxString 	MarginGetStyles (int line) const
 void 	MarginTextClearAll ()
 void 	MarginSetStyleOffset (int style)
 int 	MarginGetStyleOffset () const
-void 	ScrollToStart ()
-void 	ScrollToEnd ()
-void 	SetTechnology (int technology)
-int 	GetTechnology () const
 
-wxString 	PropertyNames () const
-int 	PropertyType (const wxString &name)
-wxString 	DescribeProperty (const wxString &name) const
-wxString 	DescribeKeyWordSets () const
 virtual long 	XYToPosition (long x, long y) const
 virtual bool 	PositionToXY (long pos, long <-x, long <-y) const
  virtual void 	ShowPosition (long pos)
-void 	AnnotationClearLine (int line)
   
 end
+
+
+  (* They don't appear in 2.9.4, maybe just after ? *)
+  version 2.9.5 begin
+    void 	StyleSetWeight (int style, int weight)
+    void 	StyleSetSizeFractional (int style, int caseForce)
+    int 	StyleGetSizeFractional (int style) const
+    void 	SetPunctuationChars (const wxString &characters)
+    void 	SetTechnology (int technology)
+    void 	SetMultiPaste (int multiPaste)
+    int 	GetMultiPaste () const
+    int 	StyleGetWeight (int style) const
+    void 	SetMarginOptions (int marginOptions)
+    void 	SetMarginCursor (int margin, int cursor)
+    void 	SetEmptySelection (int pos)
+    virtual void 	SelectNone ()
+    void 	ScrollToStart ()
+    void 	ScrollToEnd ()
+    int 	GetTechnology () const
+    wxString 	PropertyNames () const
+    int 	PropertyType (const wxString &name)
+    void 	MarkerSetBackgroundSelected (int markerNumber, const wxColour &back)
+    void 	MarkerEnableHighlight (bool enabled)
+    wxString 	GetWordChars () const
+    wxString 	GetTag (int tagNumber) const
+    void 	IndicatorSetOutlineAlpha (int indicator, int alpha)
+    int 	IndicatorGetOutlineAlpha (int indicator) const
+    wxString 	GetWhitespaceChars () const 
+    wxString 	GetPunctuationChars () const
+    int 	GetMarginOptions () const
+    int 	GetMarginCursor (int margin) const
+    int 	GetGapPosition () const
+    bool 	GetAllLinesVisible () const
+    void 	DeleteRange (int pos, int deleteLength)
+    int 	CountCharacters (int startPos, int endPos)
+    wxString 	DescribeProperty (const wxString &name) const
+    wxString 	DescribeKeyWordSets () const
+    void 	CallTipSetPosition (bool above)
+    void 	BraceHighlightIndicator (bool useBraceHighlightIndicator, int indicator)
+    void 	BraceBadLightIndicator (bool useBraceBadLightIndicator, int indicator)
+    void 	AutoCompSetCaseInsensitiveBehaviour (int behaviour)
+    int 	AutoCompGetCaseInsensitiveBehaviour () const
+    void 	AnnotationClearLine (int line)
+  end
+
+
 
 end
 

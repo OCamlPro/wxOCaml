@@ -14,4 +14,4 @@
 
 m4_include([m4/ax_compare_version.m4])
 m4_include([m4/ocaml.m4])
-m4_include([m4/wxwin_29.m4])
+m4_include([m4/wxwin.m4])

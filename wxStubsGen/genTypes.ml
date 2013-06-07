@@ -32,6 +32,7 @@ and class_descr = {
   mutable class_defs : mltype StringMap.t;
   class_includes : string list;
   class_virtuals : (string * must_or_can * version) list;
+  mutable class_enabled : bool;
 }
 
 and mltype = {
@@ -59,6 +60,7 @@ and prototype = {
   proto_options : proto_options;
   proto_version : version;
   proto_const : const;
+  proto_enabled : bool;
 }
 
 (* We should probably use a version range, instead *)
@@ -157,4 +159,5 @@ let new_class class_name class_inherit class_methods
     class_includes = [];
     class_num = new_class_id ();
     class_virtuals;
+    class_enabled = true;
   }

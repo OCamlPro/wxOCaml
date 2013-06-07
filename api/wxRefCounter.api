@@ -1,0 +1,14 @@
+
+class wxRefCounter begin
+
+version 2.9 begin
+
+ 	new Create ()
+void 	DecRef ()
+int 	GetRefCount () const
+void 	IncRef ()
+
+end
+
+end
+

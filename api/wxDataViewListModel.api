@@ -1,0 +1,41 @@
+
+class wxDataViewListModel inherit wxDataViewModel begin
+
+(*
+
+int 	Compare (const wxDataViewItem &item1, const wxDataViewItem &item2, unsigned int column, bool ascending) const
+ 	Compare method that sorts the items by their index. 
+virtual bool 	GetAttrByRow (unsigned int row, unsigned int col, wxDataViewItemAttr &attr) const
+ 	Override this to indicate that the row has special font attributes. 
+virtual bool 	IsEnabledByRow (unsigned int row, unsigned int col) const
+ 	Override this if you want to disable specific items. 
+unsigned int 	GetCount () const
+ 	Returns the number of items (or rows) in the list. 
+wxDataViewItem 	GetItem (unsigned int row) const
+ 	Returns the wxDataViewItem at the given row. 
+unsigned int 	GetRow (const wxDataViewItem &item) const
+ 	Returns the position of given item. 
+virtual void 	GetValueByRow (wxVariant &variant, unsigned int row, unsigned int col) const =0
+ 	Override this to allow getting values from the model. 
+void 	Reset (unsigned int new_size)
+ 	Call this after if the data has to be read again from the model. 
+void 	RowAppended ()
+ 	Call this after a row has been appended to the model. 
+void 	RowChanged (unsigned int row)
+ 	Call this after a row has been changed. 
+void 	RowDeleted (unsigned int row)
+ 	Call this after a row has been deleted. 
+void 	RowInserted (unsigned int before)
+ 	Call this after a row has been inserted at the given position. 
+void 	RowPrepended ()
+ 	Call this after a row has been prepended to the model. 
+void 	RowValueChanged (unsigned int row, unsigned int col)
+ 	Call this after a value has been changed. 
+void 	RowsDeleted (const wxArrayInt &rows)
+ 	Call this after rows have been deleted. 
+virtual bool 	SetValueByRow (const wxVariant &variant, unsigned int row, unsigned int col)=0
+ 	Called in order to set a value in the model. 
+
+*)
+
+end

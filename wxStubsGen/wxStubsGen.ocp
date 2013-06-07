@@ -18,5 +18,5 @@ begin program "wxStubsGen"
     "genMain.ml"
   ]
 
-  requires = [ "unix" ]
+  requires = [ "unix" "wxConfig" ]
 end
