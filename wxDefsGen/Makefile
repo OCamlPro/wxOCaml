@@ -1,3 +1,14 @@
+#*******************************************************************#
+#*                                                                 *#
+#*                            wxOCaml                              *#
+#*                                                                 *#
+#*                       Fabrice LE FESSANT                        *#
+#*                                                                 *#
+#*                 Copyright 2013, INRIA/OCamlPro.                 *#
+#*            Licence LGPL v3.0 with linking exception.            *#
+#*                                                                 *#
+#*******************************************************************#
+
 include ../config/Makefile
 
 SRC=wxWidgets
@@ -54,5 +65,5 @@ $(WXCONFIG_GENGEN): genWxConfig.ml
 
 clean:
 	rm -f *~ gen_wxDefs gen_wxDefs.cpp gen.o *.cm? \
-             genWxHAS.cpp genWxUSE.cpp genWxConfig
+             genWxHAS.cpp genWxUSE.cpp genWxConfig genWxUSE genWxHAS
 

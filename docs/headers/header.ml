@@ -8,17 +8,3 @@
 (*            Licence LGPL v3.0 with linking exception.            *)
 (*                                                                 *)
 (*******************************************************************)
-
-binannot = false
-
-begin program "gen_wxDefs"
-  files = [ "gen_wxDefs.ml" ]
-end
-
-begin program "genWxConfig"
-  files = [ "genWxConfig.ml" ]
-end
-
-begin program "getDefines"
-  files = [ "define.mll" "getDefines.ml" ]
-end

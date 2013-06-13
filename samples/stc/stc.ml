@@ -1,3 +1,19 @@
+(*******************************************************************)
+(*                                                                 *)
+(*                            wxOCaml                              *)
+(*                                                                 *)
+(*                       Fabrice LE FESSANT                        *)
+(*                                                                 *)
+(*                 Copyright 2013, INRIA/OCamlPro.                 *)
+(*            Licence LGPL v3.0 with linking exception.            *)
+(*                                                                 *)
+(*******************************************************************)
+
+open WxClasses
+open WxWidgets
+open WxValues
+open WxDefs
+
 (*////////////////////////////////////////////////////////////////////////////*)
 (* File:        stc.ml *)
 (* Purpose:     STC test module*)
@@ -6,11 +22,6 @@
 (* Copyright:   (c) wxGuide*)
 (* Licence:     wxWindows licence*)
 (*////////////////////////////////////////////////////////////////////////////*)
-
-open WxClasses
-open WxWidgets
-open WxValues
-open WxDefs
 
 module Edit = WxStyledTextCtrl
 module EditEvent = WxStyledTextEvent
@@ -1671,7 +1682,7 @@ let new_AppAbout parent milliseconds (* =0 *) style (* =0 *) =
              );
 
              AddSizer ([],
-               WxGridSizer.wxSizer (WxGridSizer.create (-1) 2 0 2),
+               WxGridSizer.wxSizer (WxGridSizer.create 0 2 0 2),
                [
                  Text([Align wxALIGN_LEFT], "Written by: ", []);
                  Text([Proportion 1; Expand; Align wxALIGN_LEFT],

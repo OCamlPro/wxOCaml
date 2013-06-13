@@ -1,3 +1,14 @@
+(*******************************************************************)
+(*                                                                 *)
+(*                            wxOCaml                              *)
+(*                                                                 *)
+(*                       Fabrice LE FESSANT                        *)
+(*                                                                 *)
+(*                 Copyright 2013, INRIA/OCamlPro.                 *)
+(*            Licence LGPL v3.0 with linking exception.            *)
+(*                                                                 *)
+(*******************************************************************)
+
 begin program "wxStubsGen"
 
    files = [
@@ -5,6 +16,7 @@ begin program "wxStubsGen"
 
     "genMisc.ml"
     "genTypes.ml";
+    "genGlobals.ml";
 
 
     "genLexer.mll";

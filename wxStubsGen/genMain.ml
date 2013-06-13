@@ -1,3 +1,15 @@
+(*******************************************************************)
+(*                                                                 *)
+(*                            wxOCaml                              *)
+(*                                                                 *)
+(*                       Fabrice LE FESSANT                        *)
+(*                                                                 *)
+(*                 Copyright 2013, INRIA/OCamlPro.                 *)
+(*            Licence LGPL v3.0 with linking exception.            *)
+(*                                                                 *)
+(*******************************************************************)
+
+
 (* We have a specific behavior for:
  - wxPoint
  - wxSize
@@ -12,6 +24,7 @@ TODO:
 
 open GenMisc
 open GenTypes
+open GenGlobals
 
 let print_location filename lexbuf =
   Printf.eprintf "File %S, characters %d-%d\nSyntax error\n%!"

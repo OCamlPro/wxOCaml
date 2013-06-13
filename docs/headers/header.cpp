@@ -8,6 +8,3 @@
 /*            Licence LGPL v3.0 with linking exception.            */
 /*                                                                 */
 /*******************************************************************/
-
-#define WXOCAML_HAS_STC @WXOCAML_HAS_STC@
-#define WXOCAML_HAS_WRAPSIZER @WXOCAML_HAS_WRAPSIZER@

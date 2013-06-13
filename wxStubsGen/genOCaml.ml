@@ -1,6 +1,17 @@
+(*******************************************************************)
+(*                                                                 *)
+(*                            wxOCaml                              *)
+(*                                                                 *)
+(*                       Fabrice LE FESSANT                        *)
+(*                                                                 *)
+(*                 Copyright 2013, INRIA/OCamlPro.                 *)
+(*            Licence LGPL v3.0 with linking exception.            *)
+(*                                                                 *)
+(*******************************************************************)
 
 open GenProject
 open GenTypes
+open GenGlobals
 open GenMisc
 
 let ml_function_name cl p =
@@ -360,7 +371,7 @@ let generate_class_module source_dirname cl =
 
     let properties = ref [] in
     StringMap.iter (fun cname mlt ->
-      let len = String.length cname in
+      let _len = String.length cname in
       if mlt.f_self <> [] && (
            starts_with cname "Set" || starts_with cname "StyleSet"
          ) then
@@ -417,8 +428,8 @@ let generate_class_module source_dirname cl =
 
       List.iter (fun p ->
         try
-          let c_name = c_function_name cl p in
-          let mlt = mltype_of_prototype cl p in
+          let _c_name = c_function_name cl p in
+          let _mlt = mltype_of_prototype cl p in
           ()
 
         with Exit ->

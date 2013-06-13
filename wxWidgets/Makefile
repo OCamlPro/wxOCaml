@@ -1,3 +1,13 @@
+#*******************************************************************#
+#*                                                                 *#
+#*                            wxOCaml                              *#
+#*                                                                 *#
+#*                       Fabrice LE FESSANT                        *#
+#*                                                                 *#
+#*                 Copyright 2013, INRIA/OCamlPro.                 *#
+#*            Licence LGPL v3.0 with linking exception.            *#
+#*                                                                 *#
+#*******************************************************************#
 
 # Generated sources cannot be linked, since they have dependencies towards
 # the OCaml runtime :-(
@@ -32,7 +42,9 @@ lib$(NAME).a: $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -O1 -fPIC -c $< -o $@
 
 clean:
-	rm -f *.so *.o *~ generated $(GENERATED_CPP_SOURCES) $(GENERATED_OCAML_SOURCES) lib$(NAME).a wxWidgets.ocp Makefile.project
+	rm -f *.so *.o *~ generated $(GENERATED_CPP_SOURCES) \
+           $(GENERATED_OCAML_SOURCES) lib$(NAME).a wxWidgets.ocp \
+           Makefile.project wxClasses.h  wxHAS.ml wxUSE.ml
 
 test: hello.cpp
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -Wl,--hash-size=31 -Wl,--reduce-memory-overheads -DwxcREFUSE_MEDIACTRL -fPIC hello.cpp -o test $(LIBS)

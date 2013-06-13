@@ -1,3 +1,13 @@
+(*******************************************************************)
+(*                                                                 *)
+(*                            wxOCaml                              *)
+(*                                                                 *)
+(*                       Fabrice LE FESSANT                        *)
+(*                                                                 *)
+(*                 Copyright 2013, INRIA/OCamlPro.                 *)
+(*            Licence LGPL v3.0 with linking exception.            *)
+(*                                                                 *)
+(*******************************************************************)
 
 open GenProject
 open GenTypes
@@ -26,6 +36,8 @@ let generate_events api_directory (cpp_directory, ocaml_directory) classes
 
     Array.iteri (fun i (ev_name, _, range) ->
       match range with
+      | Some (event,_) when event = ev_name ->
+        fprintf c_oc "  Field(array_v, %d) = Val_int(wxEVT%s);\n" i ev_name;
       | Some _ -> ()
       | None ->
         fprintf c_oc "  Field(array_v, %d) = Val_int(wxEVT%s);\n" i ev_name;

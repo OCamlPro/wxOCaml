@@ -1,3 +1,14 @@
+/*******************************************************************/
+/*                                                                 */
+/*                            wxOCaml                              */
+/*                                                                 */
+/*                       Fabrice LE FESSANT                        */
+/*                                                                 */
+/*                 Copyright 2013, INRIA/OCamlPro.                 */
+/*            Licence LGPL v3.0 with linking exception.            */
+/*                                                                 */
+/*******************************************************************/
+
 #ifndef __WXOCAML_H
 #define __WXOCAML_H
 

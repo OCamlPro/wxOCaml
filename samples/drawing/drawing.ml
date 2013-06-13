@@ -1,3 +1,25 @@
+(*******************************************************************)
+(*                                                                 *)
+(*                            wxOCaml                              *)
+(*                                                                 *)
+(*                       Fabrice LE FESSANT                        *)
+(*                                                                 *)
+(*                 Copyright 2013, INRIA/OCamlPro.                 *)
+(*            Licence LGPL v3.0 with linking exception.            *)
+(*                                                                 *)
+(*******************************************************************)
+
+let (+=) a b = a := !a + b
+
+open WxMisc
+open WxWidgets
+open WxDefs
+open WxClasses
+open WxID
+open WxValues
+
+let debug = false
+
 (* //////////////////////////////////////////////////////////////////////// *)
 (* Name:    samples/drawing/drawing.cpp *)
 (* Purpose:   shows and tests wxDC features *)
@@ -8,16 +30,6 @@
 (* Copyright:  c Robert Roebling *)
 (* Licence:   wxWindows licence *)
 (* //////////////////////////////////////////////////////////////////////// *)
-
-let (+=) a b = a := !a + b
-
-
-open WxMisc
-open WxWidgets
-open WxDefs
-open WxClasses
-open WxID
-open WxValues
 
 (* TODO: the class wxscrolledwindow does not work properly. I need to
    understand if this is related to the fact that wxscrolledwindow is
@@ -568,6 +580,7 @@ let myCanvas_DrawTestLines frame (x, y, width, dc) =
 
 
 let myCanvas_DrawDefault frame (dc :wxDC) =
+  if debug then Printf.eprintf "myCanvas_DrawDefault\n%!";
   (* Draw circle centered at the origin, then flood fill it with a different *)
   (* color. Done with a wxMemoryDC because Blit (used by generic *)
   (* wxDoFloodFill) from a window that is being painted gives unpredictable *)
@@ -1559,6 +1572,8 @@ let rec switch2 id x y list =
   if id = id2 then handler x y else switch2 id x y tail
 
 let myCanvas_Draw frame pdc_kind =
+  if debug then Printf.eprintf "myCanvas_Draw\n%!";
+
  let gdc = wxGCDCEmpty () in
  let renderer = match WxGraphicsRenderer.getCairoRenderer ()with
    None -> WxGraphicsRenderer.getDefaultRenderer ()
@@ -1655,12 +1670,13 @@ let myCanvas_Draw frame pdc_kind =
 
 
 let myCanvas_OnPaint frame (event : wxPaintEvent) =
+  if debug then Printf.eprintf "myCanvas_OnPaint\n%!";
  let pdc = wxPaintDC frame.canvas.w_canvas in
  myCanvas_Draw frame (WxPaintDC pdc)
 
 
 let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
-(* Printf.eprintf "myCanvas_OnMouseMove\n%!"; *)
+ if debug then Printf.eprintf "myCanvas_OnMouseMove\n%!";
  let canvas = frame.canvas in
  let m_canvas = canvas.m_canvas in
  let w_canvas = WxScrolledWindow.wxWindow m_canvas in
@@ -1676,7 +1692,7 @@ let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
 
   let str = Printf.sprintf "Current mouse position: %d,%d" x y in
   WxFrame.setStatusText frame.m_frame str 0;
-(*  Printf.eprintf "(%d,%d) -> (%d,%d)\n%!" (fst pos) (snd pos) x y; *)
+(*  if debug then Printf.eprintf "(%d,%d) -> (%d,%d)\n%!" (fst pos) (snd pos) x y; *)
  end;
 
  if canvas.m_rubberBand then begin
@@ -1687,7 +1703,7 @@ let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
   canvas.m_currentpoint <- ( xx , yy ) ;
   let newrect = wxRectPoints canvas.m_anchorpoint canvas.m_currentpoint in
 
-(*  Printf.eprintf "m_rubberBand (%d,%d) (%d,%d)\n%!"
+(*  if debug then Printf.eprintf "m_rubberBand (%d,%d) (%d,%d)\n%!"
    ( fst canvas.m_anchorpoint ) ( snd canvas.m_anchorpoint )
    ( fst canvas.m_currentpoint ) ( snd canvas.m_currentpoint )
  ;
@@ -1715,7 +1731,7 @@ let myCanvas_OnMouseMove frame (event : wxMouseEvent) =
  ()
 
 let myCanvas_OnMouseDown frame(event : wxMouseEvent) =
-(* Printf.eprintf "myCanvas_OnMouseDown\n%!"; *)
+ if debug then Printf.eprintf "myCanvas_OnMouseDown\n%!";
  let canvas = frame.canvas in
  let (x,y) = WxMouseEvent.getPosition event in
  let (xx,yy) = WxScrolledWindow.calcUnscrolledPosition frame.canvas.m_canvas
@@ -1953,7 +1969,9 @@ let myFrame_OnSave frame (event : wxCommandEvent) =
     end
 
 let myFrame_OnShow frame (event :wxCommandEvent) =
- myCanvas_ToShow frame.canvas (WxCommandEvent.getId event)
+  let id = WxCommandEvent.getId event in
+  if debug then Printf.eprintf "myFrame_OnShow %d\n%!" id;
+  myCanvas_ToShow frame.canvas id
 
 
 let myFrame_SelectColour frame =
@@ -1968,6 +1986,7 @@ let myFrame_SelectColour frame =
 
 let myFrame_OnOption frame (event : wxCommandEvent) =
  let id = WxCommandEvent.getId event in
+ if debug then Printf.eprintf "myFrame_OnOption %d\n%!" id;
 
  if id = _MapMode_Text then
   frame.m_mapMode <- wxMM_TEXT

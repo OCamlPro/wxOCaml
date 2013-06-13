@@ -1,5 +1,17 @@
+/*******************************************************************/
+/*                                                                 */
+/*                            wxOCaml                              */
+/*                                                                 */
+/*                       Fabrice LE FESSANT                        */
+/*                                                                 */
+/*                 Copyright 2013, INRIA/OCamlPro.                 */
+/*            Licence LGPL v3.0 with linking exception.            */
+/*                                                                 */
+/*******************************************************************/
+
 %{
 open GenTypes
+open GenGlobals
 
 let default_options = { fopt_gen_cpp = true; fopt_others = () }
 
