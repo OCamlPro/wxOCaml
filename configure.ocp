@@ -1,0 +1,40 @@
+
+
+begin rules "wxOCaml_configure"
+
+  build_rules = [
+
+    "config.ocpgen" (
+      sources = [
+        "config/configure"
+      ];
+      commands = [
+        { "./configure" } (chdir = "config")
+      ]
+    );
+
+    "config/configure" (
+      sources = [ "config/configure.ac" ];
+      commands = [ { "autoconf" } (chdir = "config" ) ]
+    )
+
+  ]
+
+
+end
+
+
+if include "config.ocpgen" then {} else {
+
+begin config "link-with-wxOCaml"
+end
+
+begin config "compile-c-with-wxWidget"
+end
+
+cxx="g++"
+cxxflags = []
+cppflags = []
+libs = []
+
+}

@@ -44,7 +44,7 @@ clean:
 
 distclean: clean
 	rm -rf config/autom4te.cache config/config.status config/config.log
-	rm -f config.ocp config/Makefile 
+	rm -f config.ocpgen config/Makefile 
 	rm -f ocp-build.root*
 
 configure: config/configure.ac config/m4/*

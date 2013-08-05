@@ -1,0 +1,94 @@
+(*******************************************************************)
+(*                                                                 *)
+(*                            wxOCaml                              *)
+(*                                                                 *)
+(*                       Fabrice LE FESSANT                        *)
+(*                                                                 *)
+(*                 Copyright 2013, INRIA/OCamlPro.                 *)
+(*            Licence LGPL v3.0 with linking exception.            *)
+(*                                                                 *)
+(*******************************************************************)
+
+binannot = false
+
+begin program "gen_wxDefs"
+  files = [ "gen_wxDefs.ml" ]
+
+
+
+  wxOCaml_includes =  [
+    "%{wxWidgetsDir_FULL_SRC_DIR}%/wxOCaml.h"
+    "%{wxWidgetsDir_FULL_SRC_DIR}%/wxOCamlConfig.h"
+  ]
+
+  rule_id = %uniq ()
+
+
+  build_rules = [
+    "gen_wxDefs.bin" (
+      sources = [
+        wxOCaml_includes
+        "%{wxApiDir_FULL_SRC_DIR}%/wxDefs.dsc"
+
+        "gen_wxDefs.cpp"
+      ]
+      commands = [
+        { cxx cxxflags cppflags "-g" "-fPIC" "-o" "gen_wxDefs.bin" "gen_wxDefs.cpp" libs }
+      ]
+    );
+
+    "gen_wxDefs.cpp" (
+      sources = [
+        %asm_exe( p = "gen_wxDefs" )
+      ]
+      commands = [
+        { %asm_exe( p = "gen_wxDefs" ) }
+      ]
+      build_target = true
+    );
+
+    "genWxUSE.bin" (
+      sources = [
+        wxOCaml_includes
+        "genWxUSE.cpp"
+      ];
+      commands = [
+        { cxx cxxflags cppflags "-g" "-fPIC" "-o" "genWxUSE.bin" "genWxUSE.cpp" libs }
+      ];
+      build_target = true
+    );
+
+    "genWxHAS.bin" (
+      sources = [
+        wxOCaml_includes
+        "genWxHAS.cpp"
+      ];
+      commands = [
+        { cxx cxxflags cppflags "-g" "-fPIC" "-o" "genWxHAS.bin" "genWxHAS.cpp" libs }
+      ];
+      build_target = true
+    );
+
+    ["genWxUSE.cpp" "genWxHAS.cpp" ](
+      uniq_rule = rule_id;
+      sources = [
+        %asm_exe( p = "genWxConfig" )
+          "%{wxApiDir_FULL_SRC_DIR}%/wxUSE.dsc"
+          "%{wxApiDir_FULL_SRC_DIR}%/wxHAS.dsc"
+      ];
+      commands = [ { %asm_exe( p ="genWxConfig" ) } ];
+    )
+  ]
+
+
+  requires = [ "wxApiDir" "wxWidgetsDir" "genWxConfig" ]
+
+end
+
+begin program "genWxConfig"
+  files = [ "genWxConfig.ml" ]
+end
+
+begin program "getDefines"
+  files = [ "define.mll" "getDefines.ml" ]
+end

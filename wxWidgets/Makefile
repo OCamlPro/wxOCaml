@@ -43,7 +43,7 @@ lib$(NAME).a: $(OBJECTS)
 
 clean:
 	rm -f *.so *.o *~ generated $(GENERATED_CPP_SOURCES) \
-           $(GENERATED_OCAML_SOURCES) lib$(NAME).a wxWidgets.ocp \
+           $(GENERATED_OCAML_SOURCES) lib$(NAME).a wxWidgets.ocpgen \
            Makefile.project wxClasses.h  wxHAS.ml wxUSE.ml
 
 test: hello.cpp

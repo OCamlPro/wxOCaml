@@ -577,7 +577,7 @@ typedef int wxImageResizeQuality;
 
 #endif
 
-#include "wxClasses.h"
+// #include "wxClasses.h"
 
 extern "C" {
 

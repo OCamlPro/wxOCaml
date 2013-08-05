@@ -1,0 +1,62 @@
+
+begin rules "wxApiDir"
+
+end
+
+
+
+api_files = [
+"classes.api"		      "wxDataViewListModel.api"	      "wxLayoutConstraints.api"  "wxSizerItem.api"
+"dragimage.api"		      "wxDataViewListStore.api"	      "wxListBox.api"	       "wxSplitterWindow.api"
+"wxAcceleratorTable.api"	      "wxDataViewModel.api"	      "wxListCtrl.api"	       "wxStaticBitmap.api"
+"wxAnyButton.api"		      "wxDataViewVirtualListModel.api"  "wxLog.api"		       "wxStaticBox.api"
+"wxApp.api"		      "wxDatePickerCtrl.api"	      "wxMask.api"	       "wxStaticBoxSizer.api"
+"wxAppConsole.api"	      "wxDateTime.api"		      "wxMemoryDC.api"	       "wxStaticText.api"
+"wxArrayString.api"	      "wxDC.api"			      "wxMenu.api"	       "wxStatusBar.api"
+"wxArtProvider.api"	      "wxDCOverlay.api"		      "wxMenuBar.api"	       "wxStdDialogButtonSizer.api"
+"wxBitmap.api"		      "wxDialog.api"		      "wxMenuItem.api"	       "wxStockGDI.api"
+"wxBitmapButton.api"	      "wxDropTarget.api"		      "wxMisc.api"	       "wxStyledTextCtrl.api"
+"wxBoxSizer.api"		      "wxEvent.api"		      "wxNotebookSizer.api"      "wxSystemSettings.api"
+"wxBrush.api"		      "wxEvtHandler.api"		      "wxObject.api"	       "wxTextCtrl.api"
+"wxButton.api"		      "wxFileDialog.api"		      "wxOverlay.api"	       "wxTextEntry.api"
+"wxCalendarCtrl.api"	      "wxFlexGridSizer.api"	      "wxPaintDC.api"	       "wxTimePickerCtrl.api"
+"wxCalendarDateAttr.api"	      "wxFont.api"		      "wxPalette.api"	       "wxTimer.api"
+"wxCaret.api"		      "wxFrame.api"		      "wxPanel.api"	       "wxToolBar.api"
+"wxCheckBox.api"		      "wxGCDC.api"		      "wxPen.api"		       "wxToolTip.api"
+"wxClientDC.api"		      "wxGraphicsContext.api"	      "wxPNGHandler.api"	       "wxTopLevelWindow.api"
+"wxCloseEvent.api"	      "wxGraphicsObject.api"	      "wxPrintData.api"	       "wxTreeCtrl.api"
+"wxColour.api"		      "wxGraphicsRenderer.api"	      "wxPrinterDC.api"	       "wxTreeItemId.api"
+"wxColourData.api"	      "wxGridSizer.api"		      "wxRadioBox.api"	       "wxValidator.api"
+"wxColourDatabase.api"	      "wxIcon.api"		      "wxRefCounter.api"	       "wxValues.api"
+"wxColourDialog.api"	      "wxIconBundle.api"		      "wxRegion.api"	       "wxWindow.api"
+"wxControl.api"		      "wxImage.api"		      "wxScrolledWindow.api"     "wxWindowDC.api"
+"wxControlWithItems.api"	      "wxImageHandler.api"	      "wxScrollHelper.api"       "wxWizard.api"
+"wxCursor.api"		      "wxItemContainer.api"	      "wxScrollHelperBase.api"   "wxWrapSizer.api"
+"wxDataViewIndexListModel.api"  "wxItemContainerImmutable.api"    "wxSizer.api"
+
+]
+
+
+begin rules "wxGenerateStubs"
+
+  build_rules = [
+    "%{wxWidgetsDir_FULL_SRC_DIR}%/wxWidgets.ocpgen" (
+
+      uniq_rule = "wxGenerateStubs"
+      sources = [ "%{wxStubsGen_FULL_DST_DIR}%/wxStubsGen.asm" api_files ];
+      commands = [
+        {
+          "%{wxStubsGen_FULL_DST_DIR}%/wxStubsGen.asm"
+            "-api" "%{wxApiDir_FULL_SRC_DIR}%"
+            "-cpp" "%{wxWidgetsDir_FULL_SRC_DIR}%"
+            "-ocaml" "%{wxWidgetsDir_FULL_SRC_DIR}%"
+            api_files
+        }
+      ]
+
+    )
+  ]
+
+  requires = [ "wxStubsGen" "wxApiDir" "wxWidgetsDir" ]
+end
+

@@ -1,4 +1,4 @@
-# ocplib-wxOCaml
+# wxOCaml
 
 A binding to wxWidgets
 
@@ -106,3 +106,7 @@ module that can be used to translate WxSizerFlags classes.
 * Bind more methods per class !
 * Generate OCaml stubs to call superclass methods (useful when overloading
     virtual methods from OCaml)
+
+## Authors
+
+* Fabrice LE FESSANT (Fabrice.Le_Fessant@inria.fr) INRIA/OCamlPro

@@ -797,69 +797,6 @@ let generate_class_stubs source_dirname cl includes =
 
   ()
 
-let generate_classes_files source_dirname classes =
-  let filename = Filename.concat source_dirname
-      (add_cplusplus_header "wxClasses.h") in
-  let oc = open_out filename in
-  StringMap.iter (fun _ cl ->
-    Printf.fprintf oc.oc "#define WXCLASS_%s %d\n" cl.class_name
-      cl.class_num;
-    if cl.class_virtuals <> [] then
-      fprintf oc "class %s;\n" cl.class_name
-  ) classes;
-  close_out oc;
-
-  let filename = Filename.concat source_dirname
-      (add_cplusplus_source "wxClasses_ml.cpp") in
-  let oc = open_out filename in
-
-  Printf.fprintf oc.oc "#include %S\n" "wxOCaml.h";
-  Printf.fprintf oc.oc "extern %S {\n" "C";
-  Printf.fprintf oc.oc "void* wxOCaml_cast(int dest_id, int src_id, void* ptr)\n";
-  Printf.fprintf oc.oc "{\n";
-  Printf.fprintf oc.oc "  if( dest_id == src_id) return ptr;\n";
-(* TODO: We should print a warning in this case, no ? *)
-  Printf.fprintf oc.oc "  if( ptr == NULL) return ptr;\n";
-  Printf.fprintf oc.oc "  switch(dest_id * %d + src_id){\n" !nclasses;
-  StringMap.iter (fun _ src ->
-    if src.class_enabled then
-    StringMap.iter (fun _ dest ->
-      if dest.class_enabled then
-      Printf.fprintf oc.oc "  case %d : return (%s*)(%s*)ptr;\n"
-        (dest.class_num * !nclasses + src.class_num)
-        dest.class_name src.class_name
-    ) src.class_parents
-  ) classes;
-
-  StringMap.iter (fun _ dest ->
-    StringMap.iter (fun _ src ->
-
-      Printf.fprintf oc.oc "  case %d : return (%s*)(%s*)ptr;\n"
-        (dest.class_num * !nclasses + src.class_num)
-        dest.class_name src.class_name
-
-(* TODO; use this code when we will be able to conditionnally define
-  the inheritance between classes.
-      Printf.fprintf oc.oc "  case %d : {\n"
-        (dest.class_num * !nclasses + src.class_num);
-      Printf.fprintf oc.oc "    %s* ptr2 = dynamic_cast<%s*>((%s)ptr);\n"
-        dest.class_name dest.class_name src.class_name;
-      Printf.fprintf oc.oc "    if( ptr2 == NULL ) caml_failwith(\"mlcast %s -> %s\")\n;" src.class_name dest.class_name;
-      Printf.fprintf oc.oc "    return ptr2;\n";
-      Printf.fprintf oc.oc "  }\n";
-*)
-    ) dest.class_parents
-  ) classes;
-
-(* TODO: we should issue a warning here too, this is probably not
-an authorized case ! *)
-  Printf.fprintf oc.oc "    default: return ptr;\n";
-  Printf.fprintf oc.oc "  }\n";
-
-  Printf.fprintf oc.oc "}\n";
-  Printf.fprintf oc.oc "}\n";
-  close_out oc
-
 
 open GenMisc
 open GenTypes
@@ -1649,6 +1586,7 @@ let generate_class_stubs source_dirname cl includes =
 
   ()
 
+(*
 let generate_classes_files source_dirname classes =
   let filename = Filename.concat source_dirname
       (add_cplusplus_header "wxClasses.h") in
@@ -1666,6 +1604,74 @@ let generate_classes_files source_dirname classes =
   let oc = open_out filename in
 
   Printf.fprintf oc.oc "#include %S\n" "wxOCaml.h";
+  Printf.fprintf oc.oc "#include %S\n" "wxClasses.h";
+
+  Printf.fprintf oc.oc "extern %S {\n" "C";
+  Printf.fprintf oc.oc "void* wxOCaml_cast(int dest_id, int src_id, void* ptr)\n";
+  Printf.fprintf oc.oc "{\n";
+  Printf.fprintf oc.oc "  if( dest_id == src_id) return ptr;\n";
+(* TODO: We should print a warning in this case, no ? *)
+  Printf.fprintf oc.oc "  if( ptr == NULL) return ptr;\n";
+  Printf.fprintf oc.oc "  switch(dest_id * %d + src_id){\n" !nclasses;
+  StringMap.iter (fun _ src ->
+    if src.class_enabled then
+    StringMap.iter (fun _ dest ->
+      if dest.class_enabled then
+      Printf.fprintf oc.oc "  case %d : return (%s* )(%s* )ptr;\n"
+        (dest.class_num * !nclasses + src.class_num)
+        dest.class_name src.class_name
+    ) src.class_parents
+  ) classes;
+
+  StringMap.iter (fun _ dest ->
+    StringMap.iter (fun _ src ->
+
+      Printf.fprintf oc.oc "  case %d : return (%s* )(%s* )ptr;\n"
+        (dest.class_num * !nclasses + src.class_num)
+        dest.class_name src.class_name
+
+(* TODO; use this code when we will be able to conditionnally define
+  the inheritance between classes.
+      Printf.fprintf oc.oc "  case %d : {\n"
+        (dest.class_num * !nclasses + src.class_num);
+      Printf.fprintf oc.oc "    %s* ptr2 = dynamic_cast<%s*>((%s)ptr);\n"
+        dest.class_name dest.class_name src.class_name;
+      Printf.fprintf oc.oc "    if( ptr2 == NULL ) caml_failwith(\"mlcast %s -> %s\")\n;" src.class_name dest.class_name;
+      Printf.fprintf oc.oc "    return ptr2;\n";
+      Printf.fprintf oc.oc "  }\n";
+*)
+    ) dest.class_parents
+  ) classes;
+
+(* TODO: we should issue a warning here too, this is probably not
+an authorized case ! *)
+  Printf.fprintf oc.oc "    default: return ptr;\n";
+  Printf.fprintf oc.oc "  }\n";
+
+  Printf.fprintf oc.oc "}\n";
+  Printf.fprintf oc.oc "}\n";
+  close_out oc
+  *)
+
+
+let generate_classes_files source_dirname classes =
+  let filename = Filename.concat source_dirname
+      (add_cplusplus_header "wxClasses.h") in
+  let oc = open_out filename in
+  StringMap.iter (fun _ cl ->
+    Printf.fprintf oc.oc "#define WXCLASS_%s %d\n" cl.class_name
+      cl.class_num;
+    if cl.class_virtuals <> [] then
+      fprintf oc "class %s;\n" cl.class_name
+  ) classes;
+  close_out oc;
+
+  let filename = Filename.concat source_dirname
+      (add_cplusplus_source "wxClasses_ml.cpp") in
+  let oc = open_out filename in
+
+  Printf.fprintf oc.oc "#include %S\n" "wxOCaml.h";
+  Printf.fprintf oc.oc "#include %S\n" "wxClasses.h";
   Printf.fprintf oc.oc "extern %S {\n" "C";
   Printf.fprintf oc.oc "void* wxOCaml_cast(int dest_id, int src_id, void* ptr)\n";
   Printf.fprintf oc.oc "{\n";
@@ -1711,4 +1717,3 @@ an authorized case ! *)
   Printf.fprintf oc.oc "}\n";
   Printf.fprintf oc.oc "}\n";
   close_out oc
-

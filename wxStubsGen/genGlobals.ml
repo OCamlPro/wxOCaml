@@ -73,3 +73,11 @@ let new_class class_name class_inherit class_methods
     class_virtuals;
     class_enabled = true;
   }
+
+
+let flags =
+  let map = ref StringMap.empty in
+  List.iter (fun (s,bool) ->
+    map := StringMap.add s bool !map
+  ) (WxUSE.flags @ WxHAS.flags);
+  !map

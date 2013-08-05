@@ -90,7 +90,7 @@ AC_SUBST(WXOCAML_HAS_WRAPSIZER)
 
 AC_CONFIG_FILES(
   Makefile \
-  ../config.ocp \
+  ../config.ocpgen \
   ../wxWidgets/wxOCamlConfig.h \
 )
 AC_OUTPUT

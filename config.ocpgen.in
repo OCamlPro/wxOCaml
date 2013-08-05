@@ -22,3 +22,9 @@ end
 begin config "compile-c-with-wxWidget"
   ccopt = [ "@CXXFLAGS@" "@CPPFLAGS@" ]
 end
+
+cxx = %split_simplify ( s = "@CXX@" )
+cxxflags = %split_simplify ( s = "@CXXFLAGS@" )
+cppflags = %split_simplify ( s = "@CPPFLAGS@" )
+libs = %split_simplify ( s = "@LIBS@" )
+

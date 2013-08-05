@@ -1,3 +1,4 @@
+
 type wxBrushStyle = int
 
 class wxBrush inherit wxObject begin
@@ -30,3 +31,4 @@ virtual 	~wxBrush ()
    end
 
 end
+

@@ -1,0 +1,67 @@
+
+begin rules "wxWidgetsDir"
+
+end
+
+if include "wxWidgets.ocpgen" then {
+} else {
+  generated_ocaml_sources = []
+  generated_cpp_sources = []
+}
+
+begin library "wxWidgets"
+  use "link-with-wxOCaml"
+  sort = true
+  files = [   "wxVersion.ml" (ocp2ml=true env_strings = [ "wx_version" ])
+  "wxDefs.ml"
+  "wxID.ml"
+  generated_ocaml_sources
+  "wxWidgets.ml"
+  ]
+
+  cclib = [ "-lwxOCaml_api" ]
+  stub_lib = "libwxOCaml_api.a"
+
+  cpp_sources = [ generated_cpp_sources "wxOCaml.cpp" ]
+  cpp_objects = %subst_ext( files = cpp_sources;
+      from_ext = ".cpp" to_ext = ".o" )
+
+  build_rules = [
+
+   [ generated_ocaml_sources generated_cpp_sources ]
+      (
+      uniq_rule = "wxGenerateStubs"
+    )
+
+    "wxDefs.ml" (
+      sources = [ "%{gen_wxDefs_FULL_SRC_DIR}%/gen_wxDefs.bin" ];
+      commands = [{
+                   "%{gen_wxDefs_FULL_SRC_DIR}%/gen_wxDefs.bin"
+                 } (stdout = "wxDefs.ml")
+                 ]
+    );
+
+    "%{wxWidgets_FULL_DST_DIR}%/libwxOCaml_api.a" (
+      sources = cpp_objects;
+      commands = [
+        { "ar" "rc" "%{wxWidgets_FULL_DST_DIR}%/libwxOCaml_api.a" cpp_objects }
+        { "ranlib" "%{wxWidgets_FULL_DST_DIR}%/libwxOCaml_api.a" }
+      ]
+      build_target = true
+    )
+
+   cpp_objects (
+      sources = [ "%{basename}%.cpp" ];
+      commands = [
+        {
+          cxx cxxflags cppflags "-g" "-fPIC" "-c"
+            "-o" "%{file}%" "%{basename}%.cpp"
+        }
+      ];
+    )
+
+
+  ]
+
+  requires = [ "wxConfig" "wxStubsGen" "wxGenerateStubs" "gen_wxDefs" ]
+end
