@@ -18,9 +18,8 @@ begin library "wxWidgets"
   generated_ocaml_sources
   "wxWidgets.ml"
   ]
-
-  cclib = [ "-lwxOCaml_api" ]
-  stub_lib = "libwxOCaml_api.a"
+  libstubs = "%{wxWidgets_FULL_DST_DIR}%/libwxOCaml_api.a"
+  stubarchive = "wxOCaml_api"
 
   cpp_sources = [ generated_cpp_sources "wxOCaml.cpp" ]
   cpp_objects = %subst_ext( files = cpp_sources;
