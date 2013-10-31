@@ -4,7 +4,7 @@ A binding to wxWidgets
 
 ## Dependencies
 
-* OCaml: 'ocp-build' (from GitHub)
+* OCaml: 'ocp-build' (from GitHub, branch "next" )
 * External: WxWidgets 2.8 or 2.9
     compiled with --enable-graphics-context
 
@@ -19,8 +19,10 @@ A binding to wxWidgets
 
 ## How to compile
 
-    ./configure
-    make
+Just call `ocp-build`, it will build everything, including calling
+ the ./configure script.
+
+    ocp-build
 
  To run examples:
 
