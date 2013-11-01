@@ -108,4 +108,14 @@ class wxValues begin
   value(wxArtID, "*new wxString( wxART_UNDO)", wxART_UNDO)
   value(wxArtID, "*new wxString( wxART_WARNING)", wxART_WARNING)
 
+
+  (* TODO: everything from wxDefs.dsc should be moved here, so that
+   we can control in which versions are available. *)
+  (* TODO: extend versions to handle refinements and intervals *)
+  (*
+  version 2.9.4 begin
+    value(int, wxSTC_FS_ASM)
+  end
+  *)
+
 end
