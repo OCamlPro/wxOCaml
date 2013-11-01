@@ -1,6 +1,5 @@
 
 begin rules "wxWidgetsDir"
-
 end
 
 if include "wxWidgets.ocpgen" then {
@@ -26,6 +25,12 @@ begin library "wxWidgets"
       from_ext = ".cpp" to_ext = ".o" )
 
   build_rules = [
+    "wxOCamlConfig.h" (
+      uniq_rule = "configure"
+    )
+  ]
+
+  build_rules += [
 
    [ generated_ocaml_sources generated_cpp_sources ]
       (

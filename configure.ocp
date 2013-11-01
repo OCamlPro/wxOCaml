@@ -5,6 +5,7 @@ begin rules "wxOCaml_configure"
   build_rules = [
 
     "config.ocpgen" (
+      uniq_rule = "configure"
       sources = [
         "config/configure"
       ];
