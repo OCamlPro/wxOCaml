@@ -25,4 +25,7 @@ distclean: clean
 	rm -f wxWidgets/wxWidgets.ocpgen
 	rm -f config.ocpgen config/Makefile 
 	rm -f ocp-build.root*
-
+	rm -f wxConfig/gen_wxDefs
+	rm -f wxConfig/gen_wxDefs.bin
+	rm -f wxConfig/gen_wxDefs.cpp
+	rm -f wxConfig/wxUSE.ml	wxConfig/wxHAS.ml

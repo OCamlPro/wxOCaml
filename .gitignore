@@ -40,3 +40,8 @@ wxDefsGen/gen_wxDefs.cpp
 wxWidgets/wxHAS.ml
 wxWidgets/wxOCamlConfig.h
 wxWidgets/wxUSE.ml
+config.ocpgen
+wxConfig/gen_wxDefs.bin
+wxConfig/gen_wxDefs.cpp
+wxConfig/wxHAS.ml
+wxConfig/wxUSE.ml
