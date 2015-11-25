@@ -9,6 +9,7 @@
 #*                                                                 *#
 #*******************************************************************#
 
+include config/Makefile
 NJOBS=-j 10
 
 # The new version of ocp-build will fail to build because some warnings have
@@ -60,3 +61,25 @@ configure: config/configure.ac config/m4/*
 	cd config; \
 		aclocal -I m4; \
 		autoconf	
+
+ML_CFG=wxConfig
+ML_SRC=wxWidgets_cpp
+
+DSTDIR=$(shell dirname $(OCAMLLIB))/wxOCaml
+
+install:
+	mkdir -p $(DSTDIR)
+	cp -f _obuild/wxConfig/*.cma $(DSTDIR)
+	cp -f _obuild/wxConfig/*.cmxa $(DSTDIR)
+	cp -f _obuild/wxConfig/*.a $(DSTDIR)
+	cp -f _obuild/wxConfig/*.cmxs $(DSTDIR)
+	cp -f _obuild/wxConfig/*.cmi $(DSTDIR)
+	cp -f _obuild/wxConfig/*.cmx $(DSTDIR)
+	cp -f _obuild/wxOCaml/*.cma $(DSTDIR)
+	cp -f _obuild/wxOCaml/*.cmxa $(DSTDIR)
+	cp -f _obuild/wxOCaml/*.a $(DSTDIR)
+	cp -f _obuild/wxOCaml/*.cmxs $(DSTDIR)
+	cp -f _obuild/wxOCaml/*.cmi $(DSTDIR)
+	cp -f _obuild/wxOCaml/*.cmx $(DSTDIR)
+	cp -f wxWidgets_cpp/*.a $(DSTDIR)
+	cp -f META $(DSTDIR)

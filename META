@@ -1,0 +1,13 @@
+description = "wxWidgets binding"
+requires = "wxOCaml.config"
+version = "1.0"
+archive(byte) = "wxOCaml.cma"
+archive(native) = "wxOCaml.cmxa"
+
+package "config" (
+  requires = ""
+  version = "1.0"
+  description = ""
+  archive(byte) = "wxConfig.cma"
+  archive(native) = "wxConfig.cmxa"
+)

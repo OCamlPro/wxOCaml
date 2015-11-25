@@ -31,7 +31,7 @@ let add_cplusplus_header basename =
 let generate_project_files (cpp_dirname, ml_dirname) =
 
   let ocp_oc = open_out (Filename.concat ml_dirname "build.ocp") in
-  Printf.fprintf ocp_oc.oc "begin library %S\n" "wxWidgets";
+  Printf.fprintf ocp_oc.oc "begin library %S\n" "wxOCaml";
   Printf.fprintf ocp_oc.oc "  use \"link-with-wxOCaml\"\n";
   Printf.fprintf ocp_oc.oc "  sort = true\n";
   Printf.fprintf ocp_oc.oc "  files = [ ";

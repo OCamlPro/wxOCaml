@@ -3,6 +3,6 @@ binannot = false
 (* enabled = false *)
 
 begin program "drawing"
-  requires = [ "wxWidgets"  "wxSamples-resources" ]
+  requires = [ "wxOCaml"  "wxSamples-resources" ]
   files = [    "drawing.ml"  ]
 end

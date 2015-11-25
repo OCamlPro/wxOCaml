@@ -43,6 +43,7 @@ AC_SUBST(OCAML_MAJOR_VERSION)
 AC_SUBST(OCAML_MINOR_VERSION)
 AC_SUBST(OCAML_POINT_VERSION)
 AC_SUBST(VERSION)
+AC_SUBST(OCAMLLIB)
 
 #####################################################################
 

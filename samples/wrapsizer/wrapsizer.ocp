@@ -3,7 +3,7 @@ binannot = false
 (* enabled = false *)
 
 begin program "wrapsizer"
-  requires = [ "wxWidgets"  "wxSamples-resources"  ]
+  requires = [ "wxOCaml"  "wxSamples-resources"  ]
   link += [ "-ccopt" "-g" ]
   files = [    "wrapsizer.ml"  ]
 end

@@ -3,6 +3,6 @@ binannot = false
 (* enabled = false *)
 
 begin program "keyboard"
-  requires = [ "wxWidgets"  "wxSamples-resources"  ]
+  requires = [ "wxOCaml"  "wxSamples-resources"  ]
   files = [    "keyboard.ml"  ]
 end
