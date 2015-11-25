@@ -16,6 +16,7 @@ NJOBS=-j 10
 # apply the -no-color switch to use the old behavior.
 
 all:
+	ocp-build init
 	$(MAKE) -C wxDefsGen
 	$(MAKE) -C wxStubsGen
 	$(MAKE) -C  wxWidgets $(NJOBS)
@@ -33,14 +34,14 @@ opt:
 	ocp-build -asm
 
 partialclean:
-	ocp-build -clean
+	ocp-build clean
 
 clean:
 	rm -f *~
 	$(MAKE) -C wxDefsGen clean
 	$(MAKE) -C wxStubsGen clean
 	$(MAKE) -C wxWidgets clean
-	ocp-build -clean
+	ocp-build clean
 
 distclean: clean
 	rm -rf config/autom4te.cache config/config.status config/config.log

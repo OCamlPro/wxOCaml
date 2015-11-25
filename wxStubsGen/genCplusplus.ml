@@ -814,6 +814,7 @@ let generate_classes_files source_dirname classes =
   let oc = open_out filename in
 
   Printf.fprintf oc.oc "#include %S\n" "wxOCaml.h";
+  Printf.fprintf oc.oc "#include %S\n" "wxClasses.h";
   Printf.fprintf oc.oc "extern %S {\n" "C";
   Printf.fprintf oc.oc "void* wxOCaml_cast(int dest_id, int src_id, void* ptr)\n";
   Printf.fprintf oc.oc "{\n";
@@ -1607,6 +1608,7 @@ let generate_class_stubs source_dirname cl includes =
   let oc = open_out filename in
 
   fprintf oc "#include %S\n" "wxOCaml.h";
+  fprintf oc "#include %S\n" "wxClasses.h";
 
   (* Includes first *)
   List.iter (fun s ->
@@ -1711,4 +1713,3 @@ an authorized case ! *)
   Printf.fprintf oc.oc "}\n";
   Printf.fprintf oc.oc "}\n";
   close_out oc
-
