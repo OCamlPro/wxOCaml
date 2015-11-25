@@ -16,7 +16,7 @@ wx_version = "@WX_VERSION@"
 begin config "link-with-wxOCaml"
   custom = true
   bytelink += [ "-custom" ]
-  link += [ "-cclib" "-lwxOCaml_api @LIBS@ -lstdc++ " "-cclib" "-L wxWidgets" ]
+  link += [ "-cclib" "-lwxOCaml_api @LIBS@ -lstdc++ " "-cclib" "-L wxWidgets_cpp" ]
 end
 
 begin config "compile-c-with-wxWidget"

@@ -30,7 +30,7 @@ let _ =
 
   let oc = open_out "genWxUSE.cpp" in
 
-  Printf.fprintf oc "#include %S\n" "../wxWidgets/wxOCaml.h";
+  Printf.fprintf oc "#include %S\n" "../wxWidgets_cpp/wxOCaml.h";
 
   Printf.fprintf oc "int main(){\n";
   List.iter (fun wxUSE ->
@@ -62,7 +62,7 @@ let _ =
   let wxHAS_list = lines_of_file  "../api/wxHAS.dsc" in
   let oc = open_out "genWxHAS.cpp" in
 
-  Printf.fprintf oc "#include %S\n" "../wxWidgets/wxOCaml.h";
+  Printf.fprintf oc "#include %S\n" "../wxWidgets_cpp/wxOCaml.h";
 
   Printf.fprintf oc "int main(){\n";
   List.iter (fun wxUSE ->
@@ -83,4 +83,3 @@ let _ =
   Printf.fprintf oc "printf(\"  ];\\n\");\n";
 
   Printf.fprintf oc "  return 0;\n}\n"
-

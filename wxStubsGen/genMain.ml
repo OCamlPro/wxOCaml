@@ -248,7 +248,8 @@ let _ =
     GenEvents.generate_events !api_directory
       (cpp_directory, ocaml_directory) classes events;
 
-    GenProject.generate_project_files ocaml_directory;
+    GenProject.generate_project_files
+      (cpp_directory, ocaml_directory);
     exit !exit_code
   with Exit ->
     exit !exit_code

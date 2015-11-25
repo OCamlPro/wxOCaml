@@ -17,11 +17,17 @@ NJOBS=-j 10
 
 all:
 	ocp-build init
+	$(MAKE) -C wxConfig
 	$(MAKE) -C wxDefsGen
 	$(MAKE) -C wxStubsGen
-	$(MAKE) -C  wxWidgets $(NJOBS)
+	$(MAKE) cpp ocaml $(NJOBS)
 	$(MAKE) -C samples/wxSamples-resources
 	ocp-build
+
+cpp:
+	$(MAKE) -C  wxWidgets_cpp
+ocaml:
+	$(MAKE) -C  wxWidgets_ml
 
 debug:
 	$(MAKE) -C wxWidgets $(NJOBS)
@@ -38,9 +44,11 @@ partialclean:
 
 clean:
 	rm -f *~
+	$(MAKE) -C wxConfig clean
 	$(MAKE) -C wxDefsGen clean
 	$(MAKE) -C wxStubsGen clean
-	$(MAKE) -C wxWidgets clean
+	$(MAKE) -C wxWidgets_ml clean
+	$(MAKE) -C wxWidgets_cpp clean
 	ocp-build clean
 
 distclean: clean

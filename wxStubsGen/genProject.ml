@@ -28,9 +28,9 @@ let add_cplusplus_header basename =
   generated_cplusplus_headers := basename :: !generated_cplusplus_headers;
   basename
 
-let generate_project_files dirname =
+let generate_project_files (cpp_dirname, ml_dirname) =
 
-  let ocp_oc = open_out (Filename.concat dirname "wxWidgets.ocp") in
+  let ocp_oc = open_out (Filename.concat ml_dirname "build.ocp") in
   Printf.fprintf ocp_oc.oc "begin library %S\n" "wxWidgets";
   Printf.fprintf ocp_oc.oc "  use \"link-with-wxOCaml\"\n";
   Printf.fprintf ocp_oc.oc "  sort = true\n";
@@ -41,7 +41,7 @@ let generate_project_files dirname =
 
 
   fprintf ocp_oc "  %S\n" "wxDefs.ml";
-(*  fprintf ocp_oc "  %S\n" "wxVirtuals.ml"; *)
+  (*  fprintf ocp_oc "  %S\n" "wxVirtuals.ml"; *)
   Printf.fprintf ocp_oc.oc "  %S\n" "wxID.ml";
   List.iter (fun file ->
     Printf.fprintf ocp_oc.oc "  %S\n" file
@@ -53,7 +53,7 @@ let generate_project_files dirname =
   close_out ocp_oc;
 
 
-  let ocp_oc = open_out (Filename.concat dirname "Makefile.project") in
+  let ocp_oc = open_out (Filename.concat cpp_dirname "Makefile.project") in
   fprintf ocp_oc "GENERATED_CPP_SOURCES = \\\n";
   List.iter (fun file ->
     fprintf ocp_oc "    %s  \\\n" file
@@ -64,6 +64,9 @@ let generate_project_files dirname =
     fprintf ocp_oc "    %s  \\\n" file
   ) !generated_cplusplus_headers;
   fprintf ocp_oc "\n";
+  close_out ocp_oc;
+
+  let ocp_oc = open_out (Filename.concat ml_dirname "Makefile.project") in
   fprintf ocp_oc "GENERATED_OCAML_SOURCES = \\\n";
   List.iter (fun file ->
     fprintf ocp_oc "    %s  \\\n" file
@@ -73,20 +76,28 @@ let generate_project_files dirname =
   fprintf ocp_oc "\n";
   close_out ocp_oc;
 
+    let ocp_oc = open_out (Filename.concat cpp_dirname ".gitignore") in
+    List.iter (fun file ->
+      fprintf ocp_oc "%s\n" file
+    ) (
+      !generated_cplusplus_sources @
+        !generated_cplusplus_headers @
+        [
+          "Makefile.project";
+          "wxOCamlConfig.h";
+          ".gitignore"
+        ]);
+    close_out ocp_oc;
 
-  let ocp_oc = open_out (Filename.concat dirname ".gitignore") in
-  List.iter (fun file ->
-    fprintf ocp_oc "%s\n" file
-  ) (
-    !generated_cplusplus_sources @
-    !generated_cplusplus_headers @
-    !generated_ocaml_sources @ [
-      "wxEVT.ml";
-      "wxDefs.ml";
-      "Makefile.project";
-      "wxWidgets.ocp";
-      ".gitignore"
-    ]);
-  close_out ocp_oc;
-
-
+    let ocp_oc = open_out (Filename.concat ml_dirname ".gitignore") in
+    List.iter (fun file ->
+      fprintf ocp_oc "%s\n" file
+    ) (
+        !generated_ocaml_sources @ [
+          "wxEVT.ml";
+          "wxDefs.ml";
+          "Makefile.project";
+          "build.ocp";
+          ".gitignore"
+        ]);
+    close_out ocp_oc;

@@ -1,0 +1,147 @@
+digraph G {
+# ratio="fill";
+ size="8.0,11.6!";
+
+#  fixedwidth = true;
+
+  node [
+    shape="box",
+    style="rounded",
+    penwidth = 1,
+    width=2.0,
+    fontname = "Arial",
+    fontsize = 12
+  ];
+
+  edge [
+    color="#142b30",
+    arrowhead="vee",
+    arrowsize=0.75,
+    penwidth = 2,
+  ];
+  
+  subgraph cluster_wxConfig_dir {
+    label = "wxConfig/"
+
+    genWxConfig_ml [ label = "genWxConfig.ml" penwidth=5 ]
+    exec_genWxConfig [ label = "exec genWxConfig" ]
+    genWxConfig [ label = "<obuild>/genWxConfig" ]
+
+    genWxUSE_cpp [ label = "genWxUSE.cpp" ]
+    genWxUSE [ label = "genWxUSE" ]
+    exec_genWxUSE [ label = "exec genWxUSE" ]
+    genWxHAS_cpp [ label = "genWxHAS.cpp" ]
+    genWxHAS [ label = "genWxHAS" ]
+    exec_genWxHAS [ label = "exec genWxHAS" ]
+    wxUSE_ml [ label = "wxUSE.ml" ]
+    wxHAS_ml [ label = "wxHAS.ml" ]
+ }
+
+  subgraph cluster_wxStubsGen_dir {
+    label = "wxStubsGen/"
+    wxStubsGen_sources [ label = "*.ml,*.mly,*.mll" penwidth=5 ]
+    exec_wxStubsGen [ label = "exec wxStubsGen" ]
+    wxStubsGen [ label = "<obuild>/wxStubsGen" ]
+ }
+  
+  subgraph cluster_wxWidgets_ml_dir {
+    label = "wxWidgets_ml/"
+    wxID_ml [ label = "wxID.ml" penwidth=5 ]
+    wxWidgets_ml [ label = "wxWidgets.ml" penwidth=5 ]
+    wxDefs_ml [ label = "wxDefs.ml" ]
+    Makefile_ml_project [ label = "Makefile.project" ]
+    WXCLASS_ml [ label = "<CLASS>.ml" ]
+    wxEVENT_TABLE_ml [ label = "wxEVENT_TABLE.ml" ]
+    wxEVT_ml [ label = "wxEVT.ml" ]
+    wxVirtuals_ml [ label = "wxVirtuals.ml" ]
+    wxVersion_ml [ label = "wxVersion.ml" ]
+ }
+
+  subgraph cluster_wxWidgets_cpp_dir {
+    label = "wxWidgets_cpp/"
+    wxOCaml_h [ label = "wxOCaml.h" penwidth=5 ]
+    wxOCaml_cpp [ label = "wxOCaml.cpp" penwidth=5 ]
+    Makefile_cpp_project [ label = "Makefile.project" ]
+    wxClasses_h [ label = "wxClasses.h" ]
+    wxClasses_ml_cpp [ label = "wxClasses_ml.cpp" ]
+    WXCLASS_ml_cpp [ label = "<CLASS>_ml.cpp" ]
+ }
+
+  subgraph cluster_api_dir {
+    label = "api/"
+    wxDefs_dsc [ label = "wxDefs.dsc" penwidth=5 ]
+    WXCLASS_api [ label = "<CLASS>.api" penwidth=5 ]
+    wxUSE_dsc [ label = "wxUSE.dsc" penwidth=5 ]
+    wxHAS_dsc [ label = "wxHAS.dsc" penwidth=5 ]
+ }
+
+  subgraph cluster_wxDefsGen_dir {
+    label = "wxDefsGen/"
+    wxDefsGen [ label = "wxDefsGen" ]
+    exec_wxDefsGen [ label = "exec wxDefsGen" ]
+    wxDefsGen_cpp [ label = "wxDefsGen.cpp" penwidth=5 ]
+  }
+
+#  subgraph cluster_TARGETS {
+#    label = "TARGETS"
+    libwxOCaml_api_a [ label = "wxWidgets_cpp/libwxOCaml_api.a" ]
+    wxWidgets_cxma [ label = "<obuild>/wxWidgets.cxma" ]
+    wxConfig_cmxa [ label = "<obuild>/wxConfig.cmxa" ]
+#  }
+
+#  { rank = same; B3; B4; B5; B6; }
+
+  genWxConfig_ml -> genWxConfig
+  genWxConfig -> exec_genWxConfig
+  wxUSE_dsc -> exec_genWxConfig
+  wxHAS_dsc -> exec_genWxConfig
+  exec_genWxConfig -> genWxUSE_cpp
+  exec_genWxConfig -> genWxHAS_cpp
+  genWxUSE_cpp -> genWxUSE
+  genWxUSE -> exec_genWxUSE
+  genWxHAS_cpp -> genWxHAS
+  genWxHAS -> exec_genWxHAS
+  exec_genWxUSE -> wxUSE_ml
+  exec_genWxHAS -> wxHAS_ml
+
+  wxConfig_cmxa -> wxStubsGen
+  wxStubsGen_sources -> wxStubsGen
+  WXCLASS_api -> exec_wxStubsGen
+  wxStubsGen -> exec_wxStubsGen
+  exec_wxStubsGen -> Makefile_ml_project
+  exec_wxStubsGen -> Makefile_cpp_project
+    exec_wxStubsGen -> WXCLASS_ml
+    exec_wxStubsGen -> wxEVENT_TABLE_ml
+    exec_wxStubsGen -> wxEVT_ml
+    exec_wxStubsGen -> wxVirtuals_ml
+    exec_wxStubsGen -> wxVersion_ml
+
+  exec_wxStubsGen -> WXCLASS_ml_cpp
+  exec_wxStubsGen -> WXCLASS_ml
+  exec_wxStubsGen -> wxClasses_h
+  exec_wxStubsGen -> wxClasses_ml_cpp
+
+  wxUSE_ml -> wxConfig_cmxa
+  wxHAS_ml -> wxConfig_cmxa
+
+wxOCaml_h -> wxDefsGen
+  wxDefsGen_cpp -> wxDefsGen
+  wxDefsGen -> exec_wxDefsGen
+  wxDefs_dsc -> exec_wxDefsGen
+  exec_wxDefsGen -> wxDefs_ml;
+
+  wxOCaml_h -> libwxOCaml_api_a
+    wxOCaml_cpp -> libwxOCaml_api_a
+    wxClasses_h -> libwxOCaml_api_a
+    wxClasses_ml_cpp -> libwxOCaml_api_a
+    WXCLASS_ml_cpp -> libwxOCaml_api_a
+
+  wxID_ml -> wxWidgets_cxma
+    wxWidgets_ml -> wxWidgets_cxma
+    wxDefs_ml -> wxWidgets_cxma
+    WXCLASS_ml -> wxWidgets_cxma
+    wxEVENT_TABLE_ml -> wxWidgets_cxma
+    wxEVT_ml -> wxWidgets_cxma
+    wxVirtuals_ml -> wxWidgets_cxma
+    wxVersion_ml -> wxWidgets_cxma
+}

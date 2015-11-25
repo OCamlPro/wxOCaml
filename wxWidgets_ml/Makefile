@@ -9,25 +9,18 @@
 #*                                                                 *#
 #*******************************************************************#
 
+# Generated sources cannot be linked, since they have dependencies towards
+# the OCaml runtime :-(
+
+include Makefile.project
+
 include ../config/Makefile
 
-SRC=wxWidgets_cpp
-ML_SRC=wxWidgets_ml
-ML_CFG=wxConfig
-DEFSGEN=./gen_wxDefs
-TARGETS=../$(ML_SRC)/wxDefs.ml
-H_DEPS=../$(SRC)/wxOCaml.h ../$(SRC)/wxOCamlConfig.h
 
-all: $(TARGETS) $(DEFSGEN)
-
-../$(ML_SRC)/wxDefs.ml: $(DEFSGEN)
-	$(DEFSGEN) > ../$(ML_SRC)/wxDefs.ml
-	ocamlc -c ../$(ML_SRC)/wxDefs.ml
-	rm -f ../$(ML_SRC)/wxDefs.cm?
-
-$(DEFSGEN): gen_wxDefs.cpp ../api/wxDefs.dsc  $(H_DEPS)
-	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -fPIC -o gen_wxDefs  gen_wxDefs.cpp $(LIBS)
+all: 
 
 clean:
-	rm -f *~ gen_wxDefs gen.o *.cm? 
+	rm -f *.o *~ generated \
+           $(GENERATED_OCAML_SOURCES) wxWidgets.ocp \
+           Makefile.project  wxHAS.ml wxUSE.ml
 

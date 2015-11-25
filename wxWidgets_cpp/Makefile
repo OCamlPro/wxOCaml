@@ -43,8 +43,8 @@ lib$(NAME).a: $(OBJECTS)
 
 clean:
 	rm -f *.so *.o *~ generated $(GENERATED_CPP_SOURCES) \
-           $(GENERATED_OCAML_SOURCES) lib$(NAME).a wxWidgets.ocp \
-           Makefile.project wxClasses.h  wxHAS.ml wxUSE.ml
+           lib$(NAME).a wxWidgets.ocp \
+           Makefile.project wxClasses.h 
 
 test: hello.cpp
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -Wl,--hash-size=31 -Wl,--reduce-memory-overheads -DwxcREFUSE_MEDIACTRL -fPIC hello.cpp -o test $(LIBS)
