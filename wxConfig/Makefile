@@ -24,15 +24,15 @@ WXUSE_GEN=./genWxUSE
 WXHAS_GEN=./genWxHAS
 WXCONFIG_GENGEN=../_obuild/genWxConfig/genWxConfig.asm
 
-../$(ML_CFG)/wxUSE.ml: $(WXUSE_GEN)
-	$(WXUSE_GEN) > ../$(ML_CFG)/wxUSE.ml
-	ocamlc -c ../$(ML_CFG)/wxUSE.ml
-	rm -f ../$(ML_CFG)/wxUSE.cm?
+wxUSE.ml: $(WXUSE_GEN)
+	$(WXUSE_GEN) > wxUSE.ml
+	ocamlc -c wxUSE.ml
+	rm -f wxUSE.cm?
 
-../$(ML_CFG)/wxHAS.ml: $(WXHAS_GEN)
-	$(WXHAS_GEN) > ../$(ML_CFG)/wxHAS.ml
-	ocamlc -c ../$(ML_CFG)/wxHAS.ml
-	rm -f ../$(ML_CFG)/wxHAS.cm?
+wxHAS.ml: $(WXHAS_GEN)
+	$(WXHAS_GEN) > wxHAS.ml
+	ocamlc -c wxHAS.ml
+	rm -f wxHAS.cm?
 
 $(WXUSE_GEN): genWxUSE.cpp $(H_DEPS)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -fPIC -o genWxUSE  genWxUSE.cpp $(LIBS)
