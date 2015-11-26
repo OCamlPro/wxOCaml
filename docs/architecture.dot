@@ -1,6 +1,6 @@
 digraph G {
 # ratio="fill";
- size="8.0,11.6!";
+# size="8.0,11.6!";
 
 #  fixedwidth = true;
 
@@ -26,6 +26,7 @@ digraph G {
     genWxConfig_ml [ label = "genWxConfig.ml" penwidth=5 ]
     exec_genWxConfig [ label = "exec genWxConfig" ]
     genWxConfig [ label = "<obuild>/genWxConfig" ]
+    wxOCaml_h [ label = "wxOCaml.h" penwidth=5 ]
 
     genWxUSE_cpp [ label = "genWxUSE.cpp" ]
     genWxUSE [ label = "genWxUSE" ]
@@ -35,6 +36,10 @@ digraph G {
     exec_genWxHAS [ label = "exec genWxHAS" ]
     wxUSE_ml [ label = "wxUSE.ml" ]
     wxHAS_ml [ label = "wxHAS.ml" ]
+    wxDefs_ml [ label = "wxDefs.ml" ]
+    wxDefsGen [ label = "wxDefsGen" ]
+    exec_wxDefsGen [ label = "exec wxDefsGen" ]
+    wxDefsGen_cpp [ label = "wxDefsGen.cpp" penwidth=5 ]
  }
 
   subgraph cluster_wxStubsGen_dir {
@@ -48,7 +53,6 @@ digraph G {
     label = "wxWidgets_ml/"
     wxID_ml [ label = "wxID.ml" penwidth=5 ]
     wxWidgets_ml [ label = "wxWidgets.ml" penwidth=5 ]
-    wxDefs_ml [ label = "wxDefs.ml" ]
     Makefile_ml_project [ label = "Makefile.project" ]
     WXCLASS_ml [ label = "<CLASS>.ml" ]
     wxEVENT_TABLE_ml [ label = "wxEVENT_TABLE.ml" ]
@@ -59,7 +63,6 @@ digraph G {
 
   subgraph cluster_wxWidgets_cpp_dir {
     label = "wxWidgets_cpp/"
-    wxOCaml_h [ label = "wxOCaml.h" penwidth=5 ]
     wxOCaml_cpp [ label = "wxOCaml.cpp" penwidth=5 ]
     Makefile_cpp_project [ label = "Makefile.project" ]
     wxClasses_h [ label = "wxClasses.h" ]
@@ -75,22 +78,21 @@ digraph G {
     wxHAS_dsc [ label = "wxHAS.dsc" penwidth=5 ]
  }
 
-  subgraph cluster_wxDefsGen_dir {
-    label = "wxDefsGen/"
-    wxDefsGen [ label = "wxDefsGen" ]
-    exec_wxDefsGen [ label = "exec wxDefsGen" ]
-    wxDefsGen_cpp [ label = "wxDefsGen.cpp" penwidth=5 ]
-  }
-
 #  subgraph cluster_TARGETS {
 #    label = "TARGETS"
-    libwxOCaml_api_a [ label = "wxWidgets_cpp/libwxOCaml_api.a" ]
-    wxWidgets_cxma [ label = "<obuild>/wxWidgets.cxma" ]
-    wxConfig_cmxa [ label = "<obuild>/wxConfig.cmxa" ]
+    libwxOCaml_api_a [ label = "wxWidgets_cpp/libwxOCaml_api.a"
+                     color="#ff0000" penwidth=5 ]
+    wxWidgets_cxma [ label = "<obuild>/wxWidgets.cxma"
+                     color="#ff0000" penwidth=5 ]
+    wxConfig_cmxa [ label = "<obuild>/wxConfig.cmxa"
+                     color="#ff0000" penwidth=5 ]
 #  }
 
 #  { rank = same; B3; B4; B5; B6; }
 
+
+  libwxOCaml_api_a -> wxWidgets_cxma
+  
   genWxConfig_ml -> genWxConfig
   genWxConfig -> exec_genWxConfig
   wxUSE_dsc -> exec_genWxConfig
@@ -123,6 +125,7 @@ digraph G {
 
   wxUSE_ml -> wxConfig_cmxa
   wxHAS_ml -> wxConfig_cmxa
+  wxDefs_ml -> wxConfig_cmxa 
 
 wxOCaml_h -> wxDefsGen
   wxDefsGen_cpp -> wxDefsGen
@@ -138,7 +141,6 @@ wxOCaml_h -> wxDefsGen
 
   wxID_ml -> wxWidgets_cxma
     wxWidgets_ml -> wxWidgets_cxma
-    wxDefs_ml -> wxWidgets_cxma
     WXCLASS_ml -> wxWidgets_cxma
     wxEVENT_TABLE_ml -> wxWidgets_cxma
     wxEVT_ml -> wxWidgets_cxma

@@ -3,3 +3,4 @@ wxUSE.ml
 wxDefs.ml
 genWxHAS.cpp
 genWxUSE.cpp
+wxOCamlConfig.h

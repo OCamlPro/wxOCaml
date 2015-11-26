@@ -20,15 +20,6 @@ all:
 	ocp-build init
 	ocp-build wxOCaml
 
-cpp:
-	$(MAKE) -C  wxWidgets_cpp
-ocaml:
-	$(MAKE) -C  wxWidgets_ml
-
-debug:
-	$(MAKE) -C wxWidgets $(NJOBS)
-	ocp-build
-
 byte:
 	ocp-build -byte
 
@@ -40,6 +31,7 @@ partialclean:
 
 clean:
 	rm -f *~
+	$(MAKE) -C examples clean
 	$(MAKE) -C wxConfig clean
 	$(MAKE) -C wxStubsGen clean
 	$(MAKE) -C wxWidgets_ml clean

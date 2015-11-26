@@ -1,0 +1,22 @@
+
+begin library "wxSamples-resources"
+  files = [
+    "sample_xpm.ml" "smile_xpm.ml" "wiztest_xpm.ml" "wiztest2_xpm.ml"
+  ]
+    requires = [ "xpm2ml" ]
+    build_rules = [
+      files (
+        sources = [ "%{basename}%.xpm"
+                      "%{xpm2ml_FULL_DST_DIR}%/xpm2ml.asm" ]
+          commands = [
+            {
+              "%{xpm2ml_FULL_DST_DIR}%/xpm2ml.asm"
+              "%{basename}%.xpm"
+              "%{basename}%"
+              "%{basename}%.ml"
+            }
+          ]
+      )
+
+    ]
+end

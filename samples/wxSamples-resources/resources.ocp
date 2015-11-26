@@ -1,6 +1,0 @@
-
-begin library "wxSamples-resources"
-  files = [
-    "sample_xpm.ml" "smile_xpm.ml" "wiztest_xpm.ml" "wiztest2_xpm.ml"
-  ]
-end

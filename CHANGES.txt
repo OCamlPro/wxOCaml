@@ -1,0 +1,20 @@
+2015-11-27: release version 1.0.1
+
+2015-11-26:
+* Use ocp-build for building everything
+* Fix hidden dependency towards an system-based installation of OCaml for
+    caml/mlvalues.h and other header files (thx Cagdas Bozman/OCamlPro)
+* Complete transition to ocp-build
+* Rename samples/ to examples/
+* Rename tools/ to examples/tools/
+* Improved "make clean" rules
+
+2015-11-25: release version 1.0
+
+2015-11-25:
+* Tested on wxWidgets 3.0
+* Improved architecture
+* Architecture documented in docs/architecture.pdf
+
+2014-: prehistory :-)
+* Works with wxWidgets 2.9
