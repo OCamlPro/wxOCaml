@@ -20,7 +20,7 @@ begin config "link-with-wxOCaml"
 end
 
 begin config "compile-c-with-wxWidget"
-  ccopt = [ "@CXXFLAGS@" "@CPPFLAGS@" ]
+  ccopt = [ "@CXXFLAGS@" "@CPPFLAGS@ -I @OCAMLLIB@" ]
 end
 
 cxx = "@CXX@"
