@@ -9,6 +9,10 @@
 (*                                                                 *)
 (*******************************************************************)
 
+(* This "rules" package is just there to be able to reference this
+   directory symbolically from other directories. *)
+begin rules "wxConfig_dir" end
+
 begin program "genWxConfig"
   files = [ "genWxConfig.ml" ]
 end
@@ -21,8 +25,8 @@ begin library "wxConfig"
       "%{wxConfig_FULL_DST_DIR}%/genWxUSE" (
         sources = [
           "genWxUSE.cpp"
-            "%{wxWidgets_cpp_dir_FULL_SRC_DIR}%/wxOCaml.h"
-            "%{wxWidgets_cpp_dir_FULL_SRC_DIR}%/wxOCamlConfig.h"
+            "wxOCaml.h"
+            "wxOCamlConfig.h"
         ]
         commands = [
           { cxx cxxflags cppflags "-g" "-fPIC" "-o" "%{wxConfig_FULL_DST_DIR}%/genWxUSE"  "genWxUSE.cpp" cxxlibs }
@@ -52,8 +56,8 @@ begin library "wxConfig"
       "%{wxConfig_FULL_DST_DIR}%/genWxHAS" (
         sources = [
           "genWxHAS.cpp"
-            "%{wxWidgets_cpp_dir_FULL_SRC_DIR}%/wxOCaml.h"
-            "%{wxWidgets_cpp_dir_FULL_SRC_DIR}%/wxOCamlConfig.h"
+            "wxOCaml.h"
+            "wxOCamlConfig.h"
         ]
         commands = [
           { cxx cxxflags cppflags "-g" "-fPIC" "-o" "%{wxConfig_FULL_DST_DIR}%/genWxHAS"  "genWxHAS.cpp" cxxlibs }
@@ -78,7 +82,7 @@ begin library "wxConfig"
       "%{wxConfig_FULL_DST_DIR}%/genWxDefs" (
         sources = [
           "genWxDefs.cpp"
-            "%{wxWidgets_cpp_dir_FULL_SRC_DIR}%/wxOCaml.h"
+            "wxOCaml.h"
             "%{api_dir_FULL_SRC_DIR}%/wxDefs.dsc"
         ]
         commands = [

@@ -6872,7 +6872,7 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
 
-ac_config_files="$ac_config_files Makefile ../config.ocp ../wxWidgets_cpp/wxOCamlConfig.h"
+ac_config_files="$ac_config_files Makefile ../config.ocp ../wxConfig/wxOCamlConfig.h"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -7582,7 +7582,7 @@ do
   case $ac_config_target in
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "../config.ocp") CONFIG_FILES="$CONFIG_FILES ../config.ocp" ;;
-    "../wxWidgets_cpp/wxOCamlConfig.h") CONFIG_FILES="$CONFIG_FILES ../wxWidgets_cpp/wxOCamlConfig.h" ;;
+    "../wxConfig/wxOCamlConfig.h") CONFIG_FILES="$CONFIG_FILES ../wxConfig/wxOCamlConfig.h" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

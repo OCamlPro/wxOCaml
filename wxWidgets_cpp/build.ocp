@@ -10,14 +10,17 @@
       SOURCES = [ GENERATED_CPP_SOURCES "wxOCaml.cpp" ]
       OBJECTS = %subst_ext( files = SOURCES to_ext = ".o" )
 
-      requires = [ ]
+      requires = [ "wxConfig_dir" ]
 
       build_rules = [
         OBJECTS (
           commands = [
             { cxx cxxflags cppflags "-c" "-g" "-fPIC" "%{basename}%.cpp" }
           ]
-          sources = [ "%{basename}%.cpp" ]
+            sources = [ "%{basename}%.cpp"
+                          "%{wxConfig_dir_FULL_SRC_DIR}%/wxOCaml.h"
+                          "%{wxConfig_dir_FULL_SRC_DIR}%/wxOCamlConfig.h"
+                      ]
         )
 
           "libwxOCaml_api.a" (
