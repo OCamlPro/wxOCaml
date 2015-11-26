@@ -1,8 +1,10 @@
+2015-11-27: release version 1.0.1
 
 2015-11-26:
 * Use ocp-build for building everything
 * Fix hidden dependency towards an system-based installation of OCaml for
     caml/mlvalues.h and other header files (thx Cagdas Bozman/OCamlPro)
+* Complete transition to ocp-build
 
 2015-11-25: release version 1.0
 
