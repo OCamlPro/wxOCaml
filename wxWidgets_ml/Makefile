@@ -9,7 +9,18 @@
 #*                                                                 *#
 #*******************************************************************#
 
+# Generated sources cannot be linked, since they have dependencies towards
+# the OCaml runtime :-(
+
+include Makefile.project
+
+include ../config/Makefile
+
+
 all: 
 
 clean:
-	rm -f *~
+	rm -f *.o *~ generated \
+           $(GENERATED_OCAML_SOURCES) build.ocpgen \
+           Makefile.project  wxHAS.ml wxUSE.ml
+

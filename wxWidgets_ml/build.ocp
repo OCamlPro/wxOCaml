@@ -1,0 +1,24 @@
+
+if include "build.ocpgen" then {} else {
+  GENERATED_OCAML_SOURCES = []
+}
+
+  begin rules "wxWidgets_ml_dir"
+  end
+
+begin library "wxOCaml"
+  use "link-with-wxOCaml"
+  sort = true
+  files = [   "wxVersion.ml" (ocp2ml=true env_strings = [ "wx_version" ])
+              "wxID.ml"
+              GENERATED_OCAML_SOURCES
+
+(* Since we have no way to specify that we must wait for libwxOCaml_api.a
+  before linking (missing "link_deps" option), we put the dependency on
+   the last file... *)
+
+              "wxWidgets.ml" (
+                rule_sources = "%{libwxOCaml_api_FULL_SRC_DIR}%/libwxOCaml_api.a" )
+          ]
+  requires = [ "wxConfig" "libwxOCaml_api" ]
+end

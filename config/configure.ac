@@ -43,6 +43,7 @@ AC_SUBST(OCAML_MAJOR_VERSION)
 AC_SUBST(OCAML_MINOR_VERSION)
 AC_SUBST(OCAML_POINT_VERSION)
 AC_SUBST(VERSION)
+AC_SUBST(OCAMLLIB)
 
 #####################################################################
 
@@ -91,7 +92,7 @@ AC_SUBST(WXOCAML_HAS_WRAPSIZER)
 AC_CONFIG_FILES(
   Makefile \
   ../config.ocp \
-  ../wxWidgets/wxOCamlConfig.h \
+  ../wxWidgets_cpp/wxOCamlConfig.h \
 )
 AC_OUTPUT
 

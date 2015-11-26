@@ -13,6 +13,6 @@
 binannot = false
 
 begin program "two_panels"
-  requires = [ "wxWidgets" "wxSamples-resources" ]
+  requires = [ "wxOCaml" "wxSamples-resources" ]
   files = [    "two_panels.ml"  ]
 end

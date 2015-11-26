@@ -233,6 +233,13 @@ let _ =
   ]
     read  " ";
 
+  let api_files = Sys.readdir !api_directory in
+  Array.iter (fun file ->
+    if Filename.check_suffix file ".api" then
+      let filename = Filename.concat !api_directory file in
+      read filename
+  ) api_files;
+
   let cpp_directory = !cpp_directory in
   let ocaml_directory = !ocaml_directory in
   let classes, events = create_class_hierarchy !files in
@@ -248,7 +255,8 @@ let _ =
     GenEvents.generate_events !api_directory
       (cpp_directory, ocaml_directory) classes events;
 
-    GenProject.generate_project_files ocaml_directory;
+    GenProject.generate_project_files
+      (cpp_directory, ocaml_directory);
     exit !exit_code
   with Exit ->
     exit !exit_code

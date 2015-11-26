@@ -1,0 +1,5 @@
+
+Look at the architecture.pdf file for a global view.
+Large borders indicate source files, while other files are generated.
+Files wxConfig.cmxa, wxWidgets.cmxa and libwxOCaml_api.a are the
+final targets of the build process.

@@ -16,9 +16,14 @@ wx_version = "@WX_VERSION@"
 begin config "link-with-wxOCaml"
   custom = true
   bytelink += [ "-custom" ]
-  link += [ "-cclib" "-lwxOCaml_api @LIBS@ -lstdc++ " "-cclib" "-L wxWidgets" ]
+  link += [ "-cclib" "-lwxOCaml_api @LIBS@ -lstdc++ " "-cclib" "-L wxWidgets_cpp" ]
 end
 
 begin config "compile-c-with-wxWidget"
   ccopt = [ "@CXXFLAGS@" "@CPPFLAGS@ -I @OCAMLLIB@" ]
 end
+
+cxx = "@CXX@"
+cppflags = %split_simplify( s = "@CPPFLAGS@" )
+cxxflags = %split_simplify( s = "@CXXFLAGS@" )
+cxxlibs = %split_simplify(s = "@LIBS@" )

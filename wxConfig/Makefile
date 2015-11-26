@@ -9,7 +9,9 @@
 #*                                                                 *#
 #*******************************************************************#
 
-all: 
+all: $(TARGETS)
 
 clean:
-	rm -f *~
+	rm -f *~ gen_wxDefs gen_wxDefs.cpp gen.o *.cm? \
+             genWxHAS.cpp genWxUSE.cpp wxUSE.ml wxDefs.ml wxHAS.ml
+
