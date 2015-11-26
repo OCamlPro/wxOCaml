@@ -2228,7 +2228,7 @@ let new_AppFrame m_app title =
     EVT_MENU (wxID_ABOUT,            appFrame_OnAbout);
     ]);
 
-  appFrame_FileOpen edi (wxT("samples/stc/stc.ml"));
+  appFrame_FileOpen edi (wxT("examples/stc/stc.ml"));
   appFrame
 
 (*----------------------------------------------------------------------------*)

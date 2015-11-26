@@ -334,7 +334,7 @@ let myApp_LoadImages app =
       ".";
       "..";
       "../..";
-      "samples/drawing";
+      "examples/drawing";
     ] in
     let path_pat4 = find_in_path path "pat4.bmp" in
     let path = Filename.dirname path_pat4 in
