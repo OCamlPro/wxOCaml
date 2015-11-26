@@ -18,7 +18,7 @@ NJOBS=-j 10
 
 all:
 	ocp-build init
-	ocp-build wxOCaml
+	ocp-build
 
 byte:
 	ocp-build -byte
