@@ -5,6 +5,9 @@
 * Fix hidden dependency towards an system-based installation of OCaml for
     caml/mlvalues.h and other header files (thx Cagdas Bozman/OCamlPro)
 * Complete transition to ocp-build
+* Rename samples/ to examples/
+* Rename tools/ to examples/tools/
+* Improved "make clean" rules
 
 2015-11-25: release version 1.0
 

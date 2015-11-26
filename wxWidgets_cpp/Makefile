@@ -12,7 +12,7 @@
 # Generated sources cannot be linked, since they have dependencies towards
 # the OCaml runtime :-(
 
-include Makefile.project
+-include Makefile.project
 
 SOURCES= \
     wxOCaml.cpp  \
