@@ -13,6 +13,11 @@ binannot = false
 
 wx_version = "@WX_VERSION@"
 
+cxx = "@CXX@"
+cppflags = [ %split_simplify( s = "@CPPFLAGS@" ) "-I" "@OCAMLLIB@" ]
+cxxflags = %split_simplify( s = "@CXXFLAGS@" )
+cxxlibs = %split_simplify(s = "@LIBS@" )
+
 begin config "link-with-wxOCaml"
   custom = true
   bytelink += [ "-custom" ]
@@ -20,10 +25,5 @@ begin config "link-with-wxOCaml"
 end
 
 begin config "compile-c-with-wxWidget"
-  ccopt = [ "@CXXFLAGS@" "@CPPFLAGS@ -I @OCAMLLIB@" ]
+  ccopt = [ cxxflags cppflags ]
 end
-
-cxx = "@CXX@"
-cppflags = %split_simplify( s = "@CPPFLAGS@" )
-cxxflags = %split_simplify( s = "@CXXFLAGS@" )
-cxxlibs = %split_simplify(s = "@LIBS@" )
