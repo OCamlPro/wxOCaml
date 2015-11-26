@@ -30,5 +30,24 @@ begin program "wxStubsGen"
     "genMain.ml"
   ]
 
-  requires = [ "unix" "wxConfig" ]
+    requires = [ "unix" "wxConfig"
+                   "wxWidgets_ml_dir"  "wxWidgets_cpp_dir" ]
+
+    build_rules = [
+      [
+        "%{wxWidgets_ml_dir_FULL_SRC_DIR}%/build.ocpgen"
+          "%{wxWidgets_cpp_dir_FULL_SRC_DIR}%/build.ocpgen"
+      ]
+        (
+        uniq_rule = "build.ocpgen"
+        sources = [ "%{wxStubsGen_FULL_DST_DIR}%/wxStubsGen.asm" ]
+          commands = [
+            { "%{wxStubsGen_FULL_DST_DIR}%/wxStubsGen.asm"
+                "-api"; "../api";
+              "-cpp"; "../wxWidgets_cpp";
+              "-ocaml"; "../wxWidgets_ml";
+            }
+          ]
+      )
+    ]
 end

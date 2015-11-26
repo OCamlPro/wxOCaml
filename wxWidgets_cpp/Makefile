@@ -32,18 +32,14 @@ include ../config/Makefile
 
 NAME=wxOCaml_api
 
-all: lib$(NAME).a
-
-lib$(NAME).a: $(OBJECTS) 
-	ar rc  lib$(NAME).a $(OBJECTS)
-	ranlib lib$(NAME).a
+all:
 
 .cpp.o:
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -g -O1 -fPIC -c $< -o $@
 
 clean:
 	rm -f *.so *.o *~ generated $(GENERATED_CPP_SOURCES) \
-           lib$(NAME).a wxWidgets.ocp \
+           lib$(NAME).a build.ocpgen \
            Makefile.project wxClasses.h 
 
 test: hello.cpp

@@ -1,2 +1,5 @@
 wxHAS.ml
 wxUSE.ml
+wxDefs.ml
+genWxHAS.cpp
+genWxUSE.cpp

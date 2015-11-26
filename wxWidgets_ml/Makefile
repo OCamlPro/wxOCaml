@@ -21,6 +21,6 @@ all:
 
 clean:
 	rm -f *.o *~ generated \
-           $(GENERATED_OCAML_SOURCES) wxWidgets.ocp \
+           $(GENERATED_OCAML_SOURCES) build.ocpgen \
            Makefile.project  wxHAS.ml wxUSE.ml
 

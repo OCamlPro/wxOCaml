@@ -14,5 +14,78 @@ begin program "genWxConfig"
 end
 
 begin library "wxConfig"
-  files = [ "wxUSE.ml" "wxHAS.ml" ]
+    files = [ "wxUSE.ml" "wxHAS.ml" "wxDefs.ml" ]
+    requires = [ "wxWidgets_cpp" "api_dir" "genWxConfig" ]
+    build_rules = [
+
+      "%{wxConfig_FULL_DST_DIR}%/genWxUSE" (
+        sources = [
+          "genWxUSE.cpp"
+            "%{wxWidgets_cpp_FULL_SRC_DIR}%/wxOCaml.h"
+            "%{wxWidgets_cpp_FULL_SRC_DIR}%/wxOCamlConfig.h"
+        ]
+        commands = [
+          { cxx cxxflags cppflags "-g" "-fPIC" "-o" "%{wxConfig_FULL_DST_DIR}%/genWxUSE"  "genWxUSE.cpp" cxxlibs }
+        ]
+      )
+
+      "wxUSE.ml" (
+        commands = [
+            { "%{wxConfig_FULL_DST_DIR}%/genWxUSE" } (stdout = "wxUSE.ml")
+        ]
+        sources = [ "%{wxConfig_FULL_DST_DIR}%/genWxUSE" ]
+      )
+
+        [ "genWxUSE.cpp" "genWxHAS.cpp" ] (
+          uniq_rule = "genWxHAS.cpp"
+            sources = [
+              "%{api_dir_FULL_SRC_DIR}%/wxUSE.dsc"
+                "%{api_dir_FULL_SRC_DIR}%/wxHAS.dsc"
+                "%{genWxConfig_FULL_DST_DIR}%/genWxConfig.asm"
+            ]
+            commands = [
+               { "%{genWxConfig_FULL_DST_DIR}%/genWxConfig.asm" }
+            ]
+        )
+
+
+      "%{wxConfig_FULL_DST_DIR}%/genWxHAS" (
+        sources = [
+          "genWxHAS.cpp"
+            "%{wxWidgets_cpp_FULL_SRC_DIR}%/wxOCaml.h"
+            "%{wxWidgets_cpp_FULL_SRC_DIR}%/wxOCamlConfig.h"
+        ]
+        commands = [
+          { cxx cxxflags cppflags "-g" "-fPIC" "-o" "%{wxConfig_FULL_DST_DIR}%/genWxHAS"  "genWxHAS.cpp" cxxlibs }
+        ]
+      )
+
+      "wxHAS.ml" (
+        commands = [
+            { "%{wxConfig_FULL_DST_DIR}%/genWxHAS" } (stdout = "wxHAS.ml")
+        ]
+        sources = [ "%{wxConfig_FULL_DST_DIR}%/genWxHAS" ]
+      )
+
+
+      "wxDefs.ml" (
+        commands = [
+            { "%{wxConfig_FULL_DST_DIR}%/genWxDefs" } (stdout = "wxDefs.ml")
+        ]
+        sources = [ "%{wxConfig_FULL_DST_DIR}%/genWxDefs" ]
+      )
+
+      "%{wxConfig_FULL_DST_DIR}%/genWxDefs" (
+        sources = [
+          "genWxDefs.cpp"
+            "%{wxWidgets_cpp_FULL_SRC_DIR}%/wxOCaml.h"
+            "%{api_dir_FULL_SRC_DIR}%/wxDefs.dsc"
+        ]
+        commands = [
+          { cxx cxxflags cppflags "-g" "-fPIC" "-o" "%{wxConfig_FULL_DST_DIR}%/genWxDefs"  "genWxDefs.cpp" cxxlibs }
+        ]
+      )
+
+
+    ]
 end
