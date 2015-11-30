@@ -167,6 +167,7 @@ extern "C" {
   value wxApp_SetTopWindow_c(value window_v){
     wxWindow* window_c = (wxWindow*) Abstract_val(WXCLASS_wxWindow, window_v);
     wxGetApp().SetTopWindow (window_c);
+    return Val_unit;
   }
 
   value wxApp_wxEntry_c(value onInit_v, value argv_v){
@@ -176,8 +177,8 @@ extern "C" {
     initHandler = new OCamlCallback(onInit_v);
     terminating = 0;
 #ifdef _WIN32
-    wxhInstance = GetModuleHandle(NULL);
-    wxEntry(wxhInstance, NULL, argv_c, SW_SHOWNORMAL);
+    HINSTANCE wxhInstance = GetModuleHandle(NULL);
+    wxEntry(wxhInstance, NULL, NULL /* argv_c DOES NOT WORK  */, SW_SHOWNORMAL);
 #else
     wxEntry(argc, argv_c);
 #endif
@@ -331,6 +332,7 @@ value wxOCaml_init_ml(value unit_v)
   /* Set up the hooks */
   prev_scan_roots_hook = scan_roots_hook;
   scan_roots_hook = ocaml_wx_scan_roots;
+  return Val_unit;
 }
 
   value wxOCaml_cast_ml(value dest_id_v, value src_id_v, value ptr_v)

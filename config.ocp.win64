@@ -12,24 +12,35 @@
 if system = "win32" || system = "win64" then {
   x = [ %disp( env = [ system "WINDOWS !" ]) ]
   exe_ext = ".exe"
+  obj_ext = ".obj"
+  lib_ext = ".lib"
 } else {
   x = [ %disp( env = [ system "NOT WINDOWS !" ]) ]
   exe_ext = ""
+  obj_ext = ".o"
+  lib_ext = ".a"
 }
 
 binannot = false
 
-wx_version = "@WX_VERSION@"
-
-cxx = "@CXX@"
-cppflags = [ %split_simplify( s = "@CPPFLAGS@" ) "-I" "@OCAMLLIB@" "-I" "../wxConfig" ]
-cxxflags = %split_simplify( s = "@CXXFLAGS@" )
-cxxlibs = %split_simplify(s = "@LIBS@" )
+wx_version = "3.0.2"
+ (* You must rename vc90_x64_dll to vc_x64_dll *)
+cxx = [ "cl" "/nologo"
+      ]
+cppflags = [
+     "-I" "C:/Users/LeFessant/GIT/ocplib-wxOCaml/wxMSW-3.0.2/include/msvc"
+     "-I" "C:/Users/LeFessant/GIT/ocplib-wxOCaml/wxMSW-3.0.2/include"
+     "-I" "C:/Users/LeFessant/AppData/Roaming/OCamlPro/OCPWin64/lib"
+     "-D_FILE_OFFSET_BITS=64" "-DWXUSINGDLL" "-D_UNICODE"
+     "/EHsc"
+      "-I" "../wxConfig" ] (* @CPPFLAGS *)
+cxxflags = [] (* @CXXFLAGS *)
+cxxlibs = [ "/link" "/LIBPATH:C:/Users/LeFessant/GIT/ocplib-wxOCaml/wxMSW-3.0.2/lib/vc_x64_dll" ] (* @LIBS *)
 
 begin config "link-with-wxOCaml"
   custom = true
   bytelink += [ "-custom" ]
-  link += [ "-cclib" "-lwxOCaml_api @LIBS@ -lstdc++ " "-cclib" "-L wxWidgets_cpp" ]
+  link += [ "-verbose" "-cclib" "-llibwxOCaml_api" "-I" "C:/Users/LeFessant/GIT/ocplib-wxOCaml/wxMSW-3.0.2/lib/vc_x64_dll" (* @LIBS *) ]
 end
 
 begin config "compile-c-with-wxWidget"

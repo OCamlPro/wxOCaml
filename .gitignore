@@ -40,3 +40,6 @@ wxDefsGen/gen_wxDefs.cpp
 wxWidgets/wxHAS.ml
 wxWidgets/wxOCamlConfig.h
 wxWidgets/wxUSE.ml
+*.obj
+*.exe
+*.lib

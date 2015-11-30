@@ -40,7 +40,8 @@ begin program "wxStubsGen"
       ]
         (
         uniq_rule = "build.ocpgen"
-        sources = [ "%{wxStubsGen_FULL_DST_DIR}%/wxStubsGen.asm" ]
+        sources = [
+	 %string( strings = [ "%{wxStubsGen_FULL_DST_DIR}%/wxStubsGen.asm" exe_ext ])]
           commands = [
             { "%{wxStubsGen_FULL_DST_DIR}%/wxStubsGen.asm"
                 "-api"; "../api";

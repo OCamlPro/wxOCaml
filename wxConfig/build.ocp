@@ -9,6 +9,14 @@
 (*                                                                 *)
 (*******************************************************************)
 
+if system = "win32" || system = "win64" then {
+  x = [ %disp( env = [ system "WINDOWS !" ]) ]
+  exe_ext = ".exe"
+} else {
+  x = [ %disp( env = [ system "NOT WINDOWS !" ]) ]
+  exe_ext = ""
+}
+
 (* This "rules" package is just there to be able to reference this
    directory symbolically from other directories. *)
 begin rules "wxConfig_dir" end
@@ -20,9 +28,22 @@ end
 begin library "wxConfig"
     files = [ "wxUSE.ml" "wxHAS.ml" "wxDefs.ml" ]
     requires = [ "wxWidgets_cpp_dir" "api_dir" "genWxConfig" ]
+
+    genWxUSE_exe = %string( strings = [
+      "%{wxConfig_FULL_DST_DIR}%/genWxUSE" exe_ext
+    ])
+
+    genWxHAS_exe = %string( strings = [
+      "%{wxConfig_FULL_DST_DIR}%/genWxHAS" exe_ext
+    ])
+
+    genWxDefs_exe = %string( strings = [
+      "%{wxConfig_FULL_DST_DIR}%/genWxDefs" exe_ext
+    ])
+
     build_rules = [
 
-      "%{wxConfig_FULL_DST_DIR}%/genWxUSE" (
+      genWxUSE_exe (
         sources = [
           "genWxUSE.cpp"
             "wxOCaml.h"
@@ -35,9 +56,9 @@ begin library "wxConfig"
 
       "wxUSE.ml" (
         commands = [
-            { "%{wxConfig_FULL_DST_DIR}%/genWxUSE" } (stdout = "wxUSE.ml")
+            { genWxUSE_exe } (stdout = "wxUSE.ml")
         ]
-        sources = [ "%{wxConfig_FULL_DST_DIR}%/genWxUSE" ]
+        sources = [ genWxUSE_exe ]
       )
 
         [ "genWxUSE.cpp" "genWxHAS.cpp" ] (
@@ -45,7 +66,8 @@ begin library "wxConfig"
             sources = [
               "%{api_dir_FULL_SRC_DIR}%/wxUSE.dsc"
                 "%{api_dir_FULL_SRC_DIR}%/wxHAS.dsc"
-                "%{genWxConfig_FULL_DST_DIR}%/genWxConfig.asm"
+		%string( strings = [
+                   "%{genWxConfig_FULL_DST_DIR}%/genWxConfig.asm" exe_ext ])
             ]
             commands = [
                { "%{genWxConfig_FULL_DST_DIR}%/genWxConfig.asm" }
@@ -53,7 +75,7 @@ begin library "wxConfig"
         )
 
 
-      "%{wxConfig_FULL_DST_DIR}%/genWxHAS" (
+      genWxHAS_exe (
         sources = [
           "genWxHAS.cpp"
             "wxOCaml.h"
@@ -68,7 +90,7 @@ begin library "wxConfig"
         commands = [
             { "%{wxConfig_FULL_DST_DIR}%/genWxHAS" } (stdout = "wxHAS.ml")
         ]
-        sources = [ "%{wxConfig_FULL_DST_DIR}%/genWxHAS" ]
+        sources = [ genWxHAS_exe ]
       )
 
 
@@ -76,10 +98,10 @@ begin library "wxConfig"
         commands = [
             { "%{wxConfig_FULL_DST_DIR}%/genWxDefs" } (stdout = "wxDefs.ml")
         ]
-        sources = [ "%{wxConfig_FULL_DST_DIR}%/genWxDefs" ]
+        sources = [ genWxDefs_exe ]
       )
 
-      "%{wxConfig_FULL_DST_DIR}%/genWxDefs" (
+      genWxDefs_exe (
         sources = [
           "genWxDefs.cpp"
             "wxOCaml.h"

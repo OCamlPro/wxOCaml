@@ -8,10 +8,11 @@
 
       begin rules "libwxOCaml_api"
       SOURCES = [ GENERATED_CPP_SOURCES "wxOCaml.cpp" ]
-      OBJECTS = %subst_ext( files = SOURCES to_ext = ".o" )
+      OBJECTS = %subst_ext( files = SOURCES to_ext = obj_ext )
 
       requires = [ "wxConfig_dir" ]
 
+      libwxOCaml_api_a = %string( strings = [ "libwxOCaml_api" lib_ext ])
       build_rules = [
         OBJECTS (
           commands = [
@@ -23,12 +24,22 @@
                       ]
         )
 
-          "libwxOCaml_api.a" (
+	
+
+          libwxOCaml_api_a (
             build_target = true
+if system = "win32" || system = "win64" then {
               commands = [
-                { "ar" "rc" "libwxOCaml_api.a" OBJECTS }
-                { "ranlib" "libwxOCaml_api.a" }
+                { "link" "/lib" "/machine:AMD64" 
+		%string( strings = ["/out:" libwxOCaml_api_a])
+		 OBJECTS }
               ]
+} else {
+              commands = [
+                { "ar" "rc" libwxOCaml_api_a OBJECTS }
+                { "ranlib" libwxOCaml_api_a }
+              ]
+}
               sources = OBJECTS
           )
 

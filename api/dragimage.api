@@ -14,7 +14,7 @@ class wxDragImage inherit wxObject begin
       (wxPoint& point, wxWindow? window, bool fullScreen,wxRect? rect)
   method(bool,BeginDrag)
       (wxPoint &point, wxWindow? window, wxWindow? boundingWindow)
-  method(bool,DoDrawImage)(wxDC& dc,wxPoint& point)
+(*  method(bool,DoDrawImage)(wxDC& dc,wxPoint& point) NOT SUPPORTED ON WINDOWS *)
   method(bool,EndDrag)()
   method(bool,Hide)()
   method(bool,Move)(wxPoint& point)
@@ -22,6 +22,7 @@ class wxDragImage inherit wxObject begin
 
 end
 
+(*
 class wxGenericDragImage inherit wxObject begin
 
   new(CreateFromCursor)(wxCursor& cursor)
@@ -38,4 +39,5 @@ class wxGenericDragImage inherit wxObject begin
                      wxRect& dest_rect)
 
 end
+*)
 

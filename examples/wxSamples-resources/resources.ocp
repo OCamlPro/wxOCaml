@@ -7,13 +7,14 @@ begin library "wxSamples-resources"
     build_rules = [
       files (
         sources = [ "%{basename}%.xpm"
-                      "%{xpm2ml_FULL_DST_DIR}%/xpm2ml.asm" ]
+                     %string( strings = [ "%{xpm2ml_FULL_DST_DIR}%/xpm2ml.asm" exe_ext ])]
           commands = [
             {
               "%{xpm2ml_FULL_DST_DIR}%/xpm2ml.asm"
               "%{basename}%.xpm"
               "%{basename}%"
               "%{basename}%.ml"
+	      cxx
             }
           ]
       )
