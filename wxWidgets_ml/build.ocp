@@ -12,6 +12,8 @@ begin library "wxOCaml"
   libwxOCaml_api_src_a = %string( strings = [ "%{libwxOCaml_api_FULL_SRC_DIR}%/libwxOCaml_api" lib_ext ])
   libwxOCaml_api_dst_a = %string( strings = [ "%{wxOCaml_FULL_DST_DIR}%/libwxOCaml_api" lib_ext ])
 
+  cmxs_plugin = false
+
   files = [   "wxVersion.ml" (ocp2ml=true env_strings = [ "wx_version" ])
               "wxID.ml"
               GENERATED_OCAML_SOURCES
