@@ -4,6 +4,5 @@ binannot = false
 
 begin program "wrapsizer"
   requires = [ "wxOCaml"  "wxSamples-resources"  ]
-  link += [ "-ccopt" "-g" ]
   files = [    "wrapsizer.ml"  ]
 end
