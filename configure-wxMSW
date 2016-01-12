@@ -1,5 +1,5 @@
 #!/bin/sh
 
-ocaml ./config/config-wxMSW.ml $(ocamlc -version) $*
+ocaml ./config/config-wxMSW.ml $*
 
 

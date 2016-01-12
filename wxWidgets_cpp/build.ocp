@@ -16,7 +16,7 @@
       build_rules = [
         OBJECTS (
           commands = [
-            { cxx cxxflags cppflags "-c" "-g" "-fPIC" "%{basename}%.cpp" }
+            { cxx cxxflags cppflags "-c" "%{basename}%.cpp" }
           ]
             sources = [ "%{basename}%.cpp"
                           "%{wxConfig_dir_FULL_SRC_DIR}%/wxOCaml.h"

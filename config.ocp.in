@@ -22,7 +22,7 @@ binannot = false
 wx_version = "@WX_VERSION@"
 
 cxx = "@CXX@"
-cppflags = [ %split_simplify( s = "@CPPFLAGS@" ) "-I" "@OCAMLLIB@" "-I" "../wxConfig" ]
+cppflags = [ %split_simplify( s = "@CPPFLAGS@" ) "-I" "@OCAMLLIB@" "-I" "../wxConfig" "-g" "-fPIC" ]
 cxxflags = %split_simplify( s = "@CXXFLAGS@" )
 cxxlibs = %split_simplify(s = "@LIBS@" )
 

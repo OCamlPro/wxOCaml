@@ -1,94 +1,41 @@
+Building ocplib-wxOCaml on Windows
+==================================
 
-* You need a version of libasmrun.a compiled under the same MSVC, and also
-   of flexdll_ocaml_msvc64.obj with /GS-
-* You need :
-  * wxMSW-3.0.2/ containing: 
+Requirements:
+=============
+* You need:
+  * a recent ocpwin install (2016-)
+  * Some directory wxMSW-3.0.2/ containing: 
      include/: header files
      lib/: library files, i.e. both Dev files and Release files
+  * A visual studio install, with version matching your wxMSW dlls.
+  * We advise to use Windows GIT, and the "git bash" shell to run all this.
 
-* Start by creating and calling:
-  echo "" > toto.c
-  export OCPWIN_MSVC=export:9.0
-  ocamlc -c toto.c
-  This should create a file 'vcvars.sh'
-  Now, use:
-  . ./vcvars.sh
-  This should allow you to run "cl" directly from the command line.
+Building:
+=========
 
-* ocp-build init
-* ocp-build
+* Configure: do not use ./configure but ./configure-wxMSW
+  On Git Bash:
+     ./configure-wxMSW -wx-dir c:/wxMSW-3.0.2 -msvc 11.0 -arch x64
+     where c:/wxMSW-3.0.2 is the directory containg your wx install
+           11.0 is your MSVC version
+           x64 is your architecture (x86 otherwise)
+* Start the build, by using to ocpwin to specify the environment for MSVC:
+  ocpwin -msvc 11.0 -msvc-exec ocp-build
 
-==========================================================================
-config.ocp:
+Examples:
+=========
+There are some examples in the distribution. They are compiled by default,
+and available in _obuild:
 
-(*******************************************************************)
-(*                                                                 *)
-(*                            wxOCaml                              *)
-(*                                                                 *)
-(*                       Fabrice LE FESSANT                        *)
-(*                                                                 *)
-(*                 Copyright 2013, INRIA/OCamlPro.                 *)
-(*            Licence LGPL v3.0 with linking exception.            *)
-(*                                                                 *)
-(*******************************************************************)
+For example, you can call "./_obuild/two-panels/two-panels.asm
 
-if system = "win32" || system = "win64" then {
-  x = [ %disp( env = [ system "WINDOWS !" ]) ]
-  exe_ext = ".exe"
-  obj_ext = ".obj"
-  lib_ext = ".lib"
-} else {
-  x = [ %disp( env = [ system "NOT WINDOWS !" ]) ]
-  exe_ext = ""
-  obj_ext = ".o"
-  lib_ext = ".a"
-}
+Before calling them, you might need to have MSVC and WX dlls in the PATH.
+For that, the following script might be useful:
 
-binannot = false
-
-wx_version = "3.0.2"
- (* You must rename vc90_x64_dll to vc_x64_dll *)
-cxx = [ "cl" "/nologo" "/MD"
-      ]
-cppflags = [
-     "-I" "C:/Users/LeFessant/GIT/ocplib-wxOCaml/wxMSW-3.0.2/include/msvc"
-     "-I" "C:/Users/LeFessant/GIT/ocplib-wxOCaml/wxMSW-3.0.2/include"
-     "-I" "C:/Users/LeFessant/AppData/Roaming/OCamlPro/OCPWin64/lib"
-     "-D_FILE_OFFSET_BITS=64" "-DWXUSINGDLL" "-D_UNICODE"
-     "/EHsc"
-      "-I" "../wxConfig" ] (* @CPPFLAGS *)
-cxxflags = [] (* @CXXFLAGS *)
-cxxlibs = [ "/link" "/LIBPATH:C:/Users/LeFessant/GIT/ocplib-wxOCaml/wxMSW-3.0.2/lib/vc_x64_dll" ] (* @LIBS *)
-
-begin config "link-with-wxOCaml"
-  custom = true
-  bytelink += [ "-custom" ]
-  link += [ "-verbose" "-cclib" "-llibwxOCaml_api" "-I" "C:/Users/LeFessant/GIT/ocplib-wxOCaml/wxMSW-3.0.2/lib/vc_x64_dll" (* @LIBS *) ]
-end
-
-begin config "compile-c-with-wxWidget"
-  ccopt = [ cxxflags cppflags ]
-end
-
-==========================================================================
-wxConfig/wxOCamlConfig.h
-/*******************************************************************/
-/*                                                                 */
-/*                            wxOCaml                              */
-/*                                                                 */
-/*                       Fabrice LE FESSANT                        */
-/*                                                                 */
-/*                 Copyright 2013, INRIA/OCamlPro.                 */
-/*            Licence LGPL v3.0 with linking exception.            */
-/*                                                                 */
-/*******************************************************************/
-
-#define WXOCAML_HAS_STC 1
-#define WXOCAML_HAS_WRAPSIZER 1
-==========================================================================
 vcredist.sh (useful to run the generated application)
 
 export PATH="/c/Program Files (x86)/Microsoft Visual Studio 9.0/VC/redist/amd64/Microsoft.VC90.CRT:$PATH"
-export PATH="/c/Users/LeFessant/GIT/ocplib-wxOCaml/wxMSW-3.0.2/lib/vc_x64_dll:$PATH"
+export PATH="/c/wxMSW-3.0.2/lib/vc110_x64_dll:$PATH"
 
 

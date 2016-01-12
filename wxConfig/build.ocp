@@ -10,10 +10,8 @@
 (*******************************************************************)
 
 if system = "win32" || system = "win64" then {
-  x = [ %disp( env = [ system "WINDOWS !" ]) ]
   exe_ext = ".exe"
 } else {
-  x = [ %disp( env = [ system "NOT WINDOWS !" ]) ]
   exe_ext = ""
 }
 
@@ -50,7 +48,7 @@ begin library "wxConfig"
             "wxOCamlConfig.h"
         ]
         commands = [
-          { cxx cxxflags cppflags "-g" "-fPIC" "-o" "%{wxConfig_FULL_DST_DIR}%/genWxUSE"  "genWxUSE.cpp" cxxlibs }
+          { cxx cxxflags cppflags "-o" "%{wxConfig_FULL_DST_DIR}%/genWxUSE"  "genWxUSE.cpp" cxxlibs }
         ]
       )
 
@@ -82,7 +80,7 @@ begin library "wxConfig"
             "wxOCamlConfig.h"
         ]
         commands = [
-          { cxx cxxflags cppflags "-g" "-fPIC" "-o" "%{wxConfig_FULL_DST_DIR}%/genWxHAS"  "genWxHAS.cpp" cxxlibs }
+          { cxx cxxflags cppflags "-o" "%{wxConfig_FULL_DST_DIR}%/genWxHAS"  "genWxHAS.cpp" cxxlibs }
         ]
       )
 
@@ -108,7 +106,7 @@ begin library "wxConfig"
             "%{api_dir_FULL_SRC_DIR}%/wxDefs.dsc"
         ]
         commands = [
-          { cxx cxxflags cppflags "-g" "-fPIC" "-o" "%{wxConfig_FULL_DST_DIR}%/genWxDefs"  "genWxDefs.cpp" cxxlibs }
+          { cxx cxxflags cppflags "-o" "%{wxConfig_FULL_DST_DIR}%/genWxDefs"  "genWxDefs.cpp" cxxlibs }
         ]
       )
 
