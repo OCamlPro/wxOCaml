@@ -1,4 +1,3 @@
 
-begin rules "api_dir"
-
-end
+(* Only here to allow other projects to reference this directory *)
+begin rules "api_dir" end

@@ -9,13 +9,9 @@
 (*                                                                 *)
 (*******************************************************************)
 
-if system = "win32" || system = "win64" then {
-  x = [ %disp( env = [ system "WINDOWS !" ]) ]
-  exe_ext = ".exe"
-} else {
-  x = [ %disp( env = [ system "NOT WINDOWS !" ]) ]
-  exe_ext = ""
-}
+exe_ext = ""
+obj_ext = ".o"
+lib_ext = ".a"
 
 binannot = false
 

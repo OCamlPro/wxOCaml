@@ -6,7 +6,7 @@ let cc = Sys.argv.(4)  (* toto.ml *)
 
 let _ =
   let filename_c = Printf.sprintf "%s_xpm2ml_c.c" pixmap_name in
-  let filename_exe = Printf.sprintf "%s_xpm2ml_c%s" pixmap_name 
+  let filename_exe = Printf.sprintf "%s_xpm2ml_c%s" pixmap_name
       (if cc = "cl" then ".exe" else "")
   in
   let oc = open_out filename_c in
@@ -34,10 +34,10 @@ let _ =
      "{";
      Printf.sprintf "  const char * const *cursor = %s;" pixmap_name;
      "  int ncols, nlines, ncolors;";
-     "  sscanf( *cursor, \"%%d %%d %%d \", &ncols, &nlines, &ncolors);";
+     "  sscanf( *cursor, \"%d %d %d \", &ncols, &nlines, &ncolors);";
      "  nlines += ncolors+1;";
      Printf.sprintf "  printf(\"let %s = [|\\n\");" pixmap_name;
-     "  for(;nlines>0;nlines--) printf(\"\\\"%%s\\\";\\n\", *cursor++);";
+     "  for(;nlines>0;nlines--) printf(\"\\\"%s\\\";\\n\", *cursor++);";
      "  printf(\"|]\\n\");";
      "  return 0;";
      "}";
