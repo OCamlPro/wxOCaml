@@ -13,7 +13,7 @@
 binannot = false
 
 
-begin program "hello_world2"
+begin program "hello_world"
   requires = [ "wxOCaml" ]
   files = [    "hello.ml"  ]
 end
