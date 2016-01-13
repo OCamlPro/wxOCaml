@@ -151,6 +151,10 @@ let () =
       @ [
         "]";
         "cxxflags = []";
+	(if arch = "x64" then 
+	    "linkflags = [ \"/machine:AMD64\" ] "
+	    else
+	    "linkflags = [] ");
         "cxxlibs = [ ";
       ]
       @ escape_args "" [

@@ -30,7 +30,7 @@
             build_target = true
 if system = "win32" || system = "win64" then {
               commands = [
-                { "link" "/lib" "/machine:AMD64" 
+                { "link" "/lib" linkflags
 		%string( strings = ["/out:" libwxOCaml_api_a])
 		 OBJECTS }
               ]
