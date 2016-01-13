@@ -1,0 +1,6 @@
+
+Here is a list of known issues for ocplib-wxOCaml on 32 bit platforms:
+
+* WxDefs.wxVSCROLL is not correctly initialized. This is a problem with
+   OCaml 31 bit integers, with which wxVSCROLL value 0x80000000 cannot
+   be represented.
