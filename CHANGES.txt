@@ -1,3 +1,8 @@
+2016-06-02:
+* Use Travis for CI on Github
+* Generate autoconf/configure.ac with ocp-autoconf
+* Compatibility 4.03.0
+
 2015-11-27: release version 1.0.1
 
 2015-11-26:

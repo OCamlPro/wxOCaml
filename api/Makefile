@@ -1,5 +1,5 @@
 
-include ../config/Makefile
+include ../autoconf/Makefile.config
 
 all:
 	ocp-build -asm wxStubsGen

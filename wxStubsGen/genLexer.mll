@@ -57,13 +57,16 @@ rule token = parse
   | ',' { COMMA }
   | '=' { EQUAL }
   | '.' { DOT }
-  | '/' { SLASH }
+          | '/' { SLASH }
+          | '!' { BANG }
   | '&' { AMPERSAND }
   | "<-" { LESSMINUS }
   | "<>" { LESSGREATER }
   | "include" { INCLUDE }
   | "class"   { CLASS }
   | "inherit" { INHERIT }
+  | "if"   { IF }
+  | "then"   { THEN }
   | "begin"   { BEGIN }
   | "end"     { END   }
   | "new"     { NEW }
@@ -80,7 +83,7 @@ rule token = parse
   | "virtuals" { VIRTUALS }
   | "static"  { STATIC }
   | "events"  { EVENTS }
-  | '-'? ['0'-'9']+ { INT(int_of_string (Lexing.lexeme lexbuf)) }
+  | '-'? ['0'-'9']+ { INT(GenMisc.int_of_string (Lexing.lexeme lexbuf)) }
   | '_' { UNDERSCORE }
   | ident "::" ident { IDENT (Lexing.lexeme lexbuf) }
   | ident { IDENT (Lexing.lexeme lexbuf) }
@@ -139,6 +142,8 @@ let string_of_token token = match token with
   | QUESTION -> "QUESTION"
   | AMPERSAND -> "AMPERSAND"
   | UNDERSCORE -> "UNDERSCORE"
+  | IF -> "IF"
+  | THEN -> "THEN"
   | BEGIN -> "BEGIN"
   | END -> "END"
   | INCLUDE -> "INCLUDE"
@@ -166,6 +171,7 @@ let string_of_token token = match token with
   | SLASH -> "SLASH"
   | STATIC -> "STATIC"
   | EVENTS -> "EVENTS"
+  | BANG -> "BANG"
 
   let token lexbuf =
     let token = token lexbuf in

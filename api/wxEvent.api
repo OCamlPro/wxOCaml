@@ -175,8 +175,8 @@ class wxKeyEvent inherit wxEvent inherit wxKeyboardState begin
 
 
   method(int, 	GetKeyCode) () 
-  method(int32, GetRawKeyCode) () 
-  method(int32, GetRawKeyFlags) () 
+  method(uint32_t, GetRawKeyCode) () 
+  method(uint32_t, GetRawKeyFlags) () 
   method(wxCoord, GetX) () 
   method(wxCoord, GetY) () 
   method(void, 	GetPosition) (long <-x, long <-y) 

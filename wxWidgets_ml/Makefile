@@ -14,7 +14,7 @@
 
 -include Makefile.project
 
-include ../config/Makefile
+include ../autoconf/Makefile.config
 
 
 all: 

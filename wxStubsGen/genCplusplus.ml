@@ -66,7 +66,7 @@ let rec fprintf_ctype oc (mut, ctype) var =
 
 
 let direct_return_types = [
-  "int"; "char"; "bool"; "int64"; "int32"; "double"; "float"; "value";
+  "int"; "char"; "bool"; "int64"; "int32"; "double"; "float"; "value"; "uint32_t"; "uint64_t";
 
   (* Allocate them on the stack, and make a copy later *)
   "wxRect"; "wxPoint"; "wxSize"; "wxString";
@@ -85,8 +85,8 @@ let find_return_conversion ctyp =
       |  "wxString" -> "Val_wxString(&"
       |  ("int" | "long") -> "Val_int("
       |  "bool" -> "Val_bool("
-      |  "int64" -> "caml_copy_int64("
-      |  "int32" -> "caml_copy_int32("
+      |  "int64" | "uint64_t" -> "caml_copy_int64("
+      |  "int32" | "uint32_t" -> "caml_copy_int32("
       | ("double" | "float") -> "caml_copy_double("
       | _ when
           wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->
@@ -500,8 +500,8 @@ let find_value_conversion ctyp =
       |  "wxSize" ->  "Val_wxSize("
       |  "wxString" -> "Val_wxString("
       |  ("int" | "long") -> "Val_int(*"
-      |  "int64" -> "caml_copy_int64(*"
-      |  "int32" -> "caml_copy_int32(*"
+      |  "int64" | "uint64_t" -> "caml_copy_int64(*"
+      |  "int32" | "uint32_t" -> "caml_copy_int32(*"
       | _ when
           wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->
         val_abstract wxClass
@@ -515,8 +515,8 @@ let find_value_conversion ctyp =
       |  "wxSize" ->  "Val_wxSize(&", ")"
       |  "wxString" -> "Val_wxString(&", ")"
       |  ("int" | "long") -> "Val_int(", ")"
-      |  "int64" -> "caml_copy_int64(", ")"
-      |  "int32" -> "caml_copy_int32(", ")"
+      |  "int64" | "uint64_t" -> "caml_copy_int64(", ")"
+      |  "int32" | "uint32_t" -> "caml_copy_int32(", ")"
       |  "string" -> "caml_copy_string(", ")"
       | _ when
           wxClass_equiv.[0] = 'w' && wxClass_equiv.[1] = 'x' ->

@@ -9,5 +9,5 @@
 /*                                                                 */
 /*******************************************************************/
 
-#define WXOCAML_HAS_STC @WXOCAML_HAS_STC@
-#define WXOCAML_HAS_WRAPSIZER @WXOCAML_HAS_WRAPSIZER@
+#define wxHAS_INCLUDE_STC @wxHAS_INCLUDE_STC@
+#define wxHAS_INCLUDE_WRAPSIZER @wxHAS_INCLUDE_WRAPSIZER@

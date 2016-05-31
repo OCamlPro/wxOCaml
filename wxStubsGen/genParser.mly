@@ -61,6 +61,10 @@ let default_options = { fopt_gen_cpp = true; fopt_others = () }
 %token VERSION
 %token STATIC
 %token EVENTS
+%token IF
+%token THEN
+
+%token BANG
 
 %start file
 %type <GenTypes.file> file
@@ -75,6 +79,7 @@ components:
 ;
 
 component:
+  | IF condition THEN BEGIN components END  { Comp_if($2, $5) }
   | INCLUDE STRING                          { Comp_include $2 }
   | CLASS IDENT ancestors BEGIN
     methods
@@ -95,6 +100,11 @@ component:
                                                 type_ctype = $5;
                                               } }
   | EVENTS genident LBRACKET events RBRACKET { Comp_events ($2, $4) }
+;
+
+condition:
+  | IDENT { Cond_var $1 }
+  | BANG condition { Cond_not $2 }
 ;
 
 events:
@@ -358,5 +368,6 @@ genident:
 | VERSION { "version" }
 | VIRTUALS { "virtuals" }
 | EVENTS  { "events" }
+| IF  { "if" }
+| THEN  { "then" }
 ;
-

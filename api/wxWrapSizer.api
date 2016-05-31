@@ -1,3 +1,4 @@
+if wxHAS_INCLUDE_WRAPSIZER then begin
 
 class wxWrapSizer inherit wxBoxSizer begin
 
@@ -5,4 +6,12 @@ class wxWrapSizer inherit wxBoxSizer begin
      new(Create) (int orient (* =wxHORIZONTAL *), 
                int flags )
   end
+end
+
+end
+
+if !wxHAS_INCLUDE_WRAPSIZER then begin
+
+class wxWrapSizer begin end
+
 end
