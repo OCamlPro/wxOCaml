@@ -29,3 +29,26 @@ cc="@CC@"
 wx_version="@WX_VERSION@"
 wxocaml_has_wrapsizer="@WXOCAML_HAS_WRAPSIZER@"
 wxocaml_has_stc="@WXOCAML_HAS_STC@"
+ocaml_use_binannot = @OCAML_USE_BINANNOT@
+autoconf_dir = "@PACKAGE_NAME@-autoconf-dir"
+
+
+if ocaml_use_bin_annot && ocaml_version >= "4.00" then {
+  comp += [ "-bin-annot" ]
+}
+
+autoconf_cflags = [ "-I" "autoconf" ]
+
+if ocaml_version = "4.01.0+ocp1" || ocaml_version = "4.02.1+ocp1" then {
+  string_compat = [];
+  ocp_pp = [];
+} else {
+  string_compat = [ "ocplib-compat" ]
+  ocp_pp = [ "ocp-pp" ];
+}
+
+if ocaml_version < "4.01" then {
+  compiler_libs_compat = [  "compiler-libs.compat" ]
+} else {
+  compiler_libs_compat = []
+}
