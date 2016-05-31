@@ -9,7 +9,9 @@
 #*                                                                 *#
 #*******************************************************************#
 
-include config/Makefile
+include autoconf/Makefile.config
+CPPFLAGS=$(CPPFLAGS) -I $(OCAMLLIB)
+
 NJOBS=-j 10
 
 # The new version of ocp-build will fail to build because some warnings have
