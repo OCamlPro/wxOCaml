@@ -78,6 +78,18 @@ AC_DEFUN([AC_PROG_OCAML],
 
   # checking for ocamldep
   AC_CHECK_TOOL([OCAMLDEP],[ocamldep],[no])
+  
+  if test "$OCAMLDEP" != "no" ; then
+     AC_CHECK_TOOL([OCAMLDEPDOTOPT],[ocamldep.opt],[no])
+	if test "$OCAMLDEPDOTOPT" != "no"; then
+	   TMPVERSION=`$OCAMLDEPDOTOPT -version | sed -n -e 's|.*version* *\(.*\)$|\1|p' `
+	   if test "$TMPVERSION" != "$OCAMLVERSION" ; then
+	      AC_MSG_RESULT([version differs from ocamlc; ocamldep.opt discarded.])
+	   else
+	      OCAMLDEP=$OCAMLDEPDOTOPT
+	   fi
+        fi
+     fi
 
   # checking for ocamlmktop
   AC_CHECK_TOOL([OCAMLMKTOP],[ocamlmktop],[no])

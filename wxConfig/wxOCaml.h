@@ -174,6 +174,13 @@ typedef int wxImageResizeQuality;
 #define wxWIZARD_HALIGN_RIGHT     0x20
 #define wxWIZARD_TILE             0x40
 
+#endif
+
+#if WXOCAML_HAS_STC
+//#warning "WXOCAML_HAS_STC"
+#else
+#warning "Defining missing STC variables"
+
 // From stc.h
 #define wxSTC_LEX_D 79
 #define wxSTC_LEX_CMAKE 80

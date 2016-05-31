@@ -7,11 +7,7 @@
 *.cmx
 *.cmxs
 *.cmxa
-Makefile.config
 _obuild/
-config.log
-config.ocp
-config.status
 defs/gen
 defs/wxdefs.ml
 elj/libwxc.so
