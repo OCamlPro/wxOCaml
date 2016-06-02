@@ -1,6 +1,9 @@
 #!/bin/sh
 
-cd config; ./configure $*
-cd ..
-echo Creating file ocp-build.root
-touch ocp-build.root
+if ! test -e ./autoconf/configure; then
+    echo ./autoconf/configure not present: running ocp-autoconf
+    ocp-autoconf
+fi
+
+cd autoconf
+./configure $*

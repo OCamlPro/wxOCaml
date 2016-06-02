@@ -13,6 +13,17 @@ open WxClasses
 open WxDefs
 open WxMisc
 
+
+module WxWrapSizer = struct
+
+  let create x y = failwith "WxWrapSizer.create: class unavailable"
+  let wxSizer _ = failwith "WxWrapSizer.wxSizer: class unavailable"
+
+  include WxWrapSizer
+
+end
+
+
 let wxT s = s
 let wxEmptyString = ""
 

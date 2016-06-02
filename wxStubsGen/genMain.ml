@@ -63,6 +63,26 @@ let generate_sources (cpp_directory, ocaml_directory) classes =
 let ocaml_class_name name =
   "wxOCaml" ^ String.sub name 2 (String.length name - 2)
 
+let condition_variables =
+  lazy (
+    let map = ref StringMap.empty in
+    List.iter (fun vars ->
+        List.iter (fun (var,v) ->
+            map := StringMap.add var v !map
+          ) vars;
+      ) [WxHAS.flags; WxUSE.flags];
+    !map)
+
+let rec check_condition cond =
+  match cond with
+  | Cond_not cond -> not (check_condition cond)
+  | Cond_var var ->
+    try
+      StringMap.find var (Lazy.force condition_variables)
+    with Not_found ->
+      Printf.eprintf "Warning: condition %s not found. Disabling\n%!" var;
+      false
+
 let create_class_hierarchy files =
   let classes = ref StringMap.empty in
   let events = ref StringMap.empty in
@@ -112,9 +132,13 @@ let create_class_hierarchy files =
   in
 
   List.iter (fun (filename, components) ->
-    let includes = ref [] in
-    List.iter (fun comp ->
-      match comp with
+      let includes = ref [] in
+      let rec iter_component comp =
+        match comp with
+        | Comp_if (condition, components) ->
+          if check_condition condition then
+            iter_components components
+
       | Comp_class cl ->
         declare_class { cl with class_virtuals = [] } includes;
         if cl.class_virtuals <> [] then begin
@@ -177,8 +201,10 @@ let create_class_hierarchy files =
           then
             declare_names [ev_name] event_class None;
         ) event_names
-
-    ) components;
+      and iter_components components =
+        List.iter iter_component components
+      in
+      iter_components components;
   ) files;
 
   StringMap.iter (fun _ cl ->

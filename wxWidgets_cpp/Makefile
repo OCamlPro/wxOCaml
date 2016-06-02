@@ -28,7 +28,7 @@ NOT_SOURCES= \
 
 OBJECTS=$(SOURCES:.cpp=.o)
 
-include ../config/Makefile
+include ../autoconf/Makefile.config
 
 NAME=wxOCaml_api
 

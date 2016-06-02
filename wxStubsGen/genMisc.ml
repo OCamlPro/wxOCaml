@@ -84,6 +84,11 @@ let method_name name =
     String.sub name (pos+1) (len-pos-1)
   with Not_found -> name
 
+let int_of_string s =
+  try
+    int_of_string s
+  with _ ->
+    Printf.kprintf failwith "int_of_string(%s)" s
 
 let rec version_of_string version =
   try

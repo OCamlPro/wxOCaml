@@ -29,8 +29,8 @@ let fprintf_ml_of_ctype ml_oc ctype =
           "void" -> fprintf ml_oc "unit"; true
         |  "bool" -> fprintf ml_oc "bool "; true
         | "int" | "long" -> fprintf ml_oc "int"; true
-        | "int64" -> fprintf ml_oc "int64"; true
-        | "int32" -> fprintf ml_oc "int32"; true
+        | "int64" | "uint64_t" -> fprintf ml_oc "int64"; true
+        | "int32" | "uint32_t" -> fprintf ml_oc "int32"; true
         | "float" | "double" -> fprintf ml_oc "float"; true
         | "string" -> fprintf ml_oc "string"; true
         (* This last item should only be allowed for returned values *)
@@ -91,8 +91,8 @@ let string_of_ctype ctype =
           "void" -> "unit"
         |  "bool" ->  "bool "
         | "int" | "long" ->  "int"
-        | "int64" ->  "int64"
-        | "int32" ->  "int32"
+        | "int64" | "uint64_t" ->  "int64"
+        | "int32" | "uint32_t" ->  "int32"
         | "float" | "double" ->  "float"
         | "string" ->  "string"
         (* This last item should only be allowed for returned values *)
@@ -530,4 +530,3 @@ let generate_virtuals_module source_dirname modname classes =
     end
   ) classes;
   close_out ml_oc
-

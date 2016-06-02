@@ -74,12 +74,25 @@ let _ =
     Printf.fprintf oc "#endif\n";
   ) wxHAS_list;
 
+  let wxINCLUDE_list = lines_of_file  "../api/wxINCLUDE.dsc" in
+  List.iter (fun wxUSE ->
+    Printf.fprintf oc "printf(\"let %s = \");\n" (chop_prefix wxUSE "wxHAS");
+    Printf.fprintf oc "#if %s\n" wxUSE;
+    Printf.fprintf oc "printf(\"true\\n\");\n";
+    Printf.fprintf oc "#else\n";
+    Printf.fprintf oc "printf(\"false\\n\");\n";
+    Printf.fprintf oc "#endif\n";
+  ) wxINCLUDE_list;
 
   Printf.fprintf oc "printf(\"let flags = [\\n\");\n";
   List.iter (fun wxUSE ->
     Printf.fprintf oc "printf(\"   \\\"%s\\\", %s;\\n\");\n" wxUSE
       (chop_prefix wxUSE "wxHAS");
   ) wxHAS_list;
+  List.iter (fun wxUSE ->
+    Printf.fprintf oc "printf(\"   \\\"%s\\\", %s;\\n\");\n" wxUSE
+      (chop_prefix wxUSE "wxHAS");
+  ) wxINCLUDE_list;
   Printf.fprintf oc "printf(\"  ];\\n\");\n";
 
   Printf.fprintf oc "  return 0;\n}\n"

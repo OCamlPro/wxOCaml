@@ -1,4 +1,6 @@
 
+if wxHAS_INCLUDE_STC then begin
+
 type wxDragResult = int
 
 class wxStyledTextEvent inherit wxCommandEvent begin
@@ -865,3 +867,4 @@ end
 
 end
 
+end

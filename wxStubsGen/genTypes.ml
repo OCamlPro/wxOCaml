@@ -17,6 +17,7 @@ type event_range = RANGE_ANY | RANGE_ONE | RANGE_TWO
 type file = component list
 
 and component =
+  | Comp_if of condition * component list
   | Comp_include of string
   | Comp_class of class_descr
   | Comp_type of type_descr
@@ -26,6 +27,10 @@ and component =
          * string list      (* event catchers *)
          * string list      (* range catchers *)
         ) list
+
+and condition =
+  | Cond_var of string
+  | Cond_not of condition
 
 and type_descr = {
   type_name : string;
@@ -111,4 +116,3 @@ and ctype_descr =
   | Typ_reference of ctype
   | Typ_direct
   | Typ_option of ctype
-

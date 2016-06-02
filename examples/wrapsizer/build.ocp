@@ -2,7 +2,11 @@ binannot = false
 
 (* enabled = false *)
 
+if wxhas_include_wrapsizer then {
+
 begin program "wrapsizer"
   requires = [ "wxOCaml"  "wxSamples-resources"  ]
   files = [    "wrapsizer.ml"  ]
 end
+
+}

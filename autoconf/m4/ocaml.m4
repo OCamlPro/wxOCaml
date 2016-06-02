@@ -78,6 +78,18 @@ AC_DEFUN([AC_PROG_OCAML],
 
   # checking for ocamldep
   AC_CHECK_TOOL([OCAMLDEP],[ocamldep],[no])
+  
+  if test "$OCAMLDEP" != "no" ; then
+     AC_CHECK_TOOL([OCAMLDEPDOTOPT],[ocamldep.opt],[no])
+	if test "$OCAMLDEPDOTOPT" != "no"; then
+	   TMPVERSION=`$OCAMLDEPDOTOPT -version | sed -n -e 's|.*version* *\(.*\)$|\1|p' `
+	   if test "$TMPVERSION" != "$OCAMLVERSION" ; then
+	      AC_MSG_RESULT([version differs from ocamlc; ocamldep.opt discarded.])
+	   else
+	      OCAMLDEP=$OCAMLDEPDOTOPT
+	   fi
+        fi
+     fi
 
   # checking for ocamlmktop
   AC_CHECK_TOOL([OCAMLMKTOP],[ocamlmktop],[no])
@@ -172,8 +184,11 @@ AC_DEFUN([AC_CHECK_OCAML_PKG],
   found=no
   for pkg in $1 $2 ; do
     if $OCAMLFIND query $pkg >/dev/null 2>/dev/null; then
-      AC_MSG_RESULT([found])
       AS_TR_SH([OCAML_PKG_$1])=$pkg
+      ocaml_pkg_version=$($OCAMLFIND query -l $pkg|grep version: | awk '{ print $[]2}')
+      AS_TR_SH([OCAML_PKG_$1_VERSION])=$ocaml_pkg_version
+
+      AC_MSG_RESULT([$ocaml_pkg_version])
       found=yes
       break
     fi

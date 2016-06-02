@@ -9,23 +9,37 @@
 (*                                                                 *)
 (*******************************************************************)
 
+if include "autoconf/config.ocpgen" then {} else {
+  wx_version = "@WX_VERSION@";
+  cxx = "@CXX";
+  cppflags = "@CPPFLAGS@";
+  cxxflags = "@CXXFLAGS@";
+  ocamllib = "@OCAMLLIB@";
+  libs = "@LIBS@"
+}
+
 exe_ext = ""
 obj_ext = ".o"
 lib_ext = ".a"
 
-binannot = false
+binannot = false;
 
-wx_version = "@WX_VERSION@"
+wx_version = conf_wx_version
+cxx = conf_cxx;
+cppflags = conf_cppflags;
+ocamllib = conf_ocamllib;
+cxxflags = conf_cxxflags;
+libs = conf_libs;
 
-cxx = "@CXX@"
-cppflags = [ %split_simplify( s = "@CPPFLAGS@" ) "-I" "@OCAMLLIB@" "-I" "../wxConfig" "-g" "-fPIC" ]
-cxxflags = %split_simplify( s = "@CXXFLAGS@" )
-cxxlibs = %split_simplify(s = "@LIBS@" )
+cxx = [ cxx  "-std=c++11" ]
+cppflags = [ %split_simplify( s = cppflags ) "-I" ocamllib "-I" "../wxConfig" "-g" "-fPIC" ]
+cxxflags = %split_simplify( s = cxxflags )
+cxxlibs = %split_simplify(s = libs )
 
 begin config "link-with-wxOCaml"
   custom = true
   bytelink += [ "-custom" ]
-  link += [ "-cclib" "-lwxOCaml_api @LIBS@ -lstdc++ " "-cclib" "-L wxWidgets_cpp" ]
+  link += [ "-cclib" "-lwxOCaml_api" "-cclib" libs "-cclib" "-lstdc++" "-cclib" "-L wxWidgets_cpp" ]
 end
 
 begin config "compile-c-with-wxWidget"

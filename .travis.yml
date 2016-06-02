@@ -1,0 +1,36 @@
+language: c
+sudo: required
+addons:
+  apt:
+    sources:
+    - avsm
+    - ubuntu-toolchain-r-test
+    packages:
+    - libconfig++8-dev
+    - gcc-4.9
+    - g++-4.9
+    - gcc-4.9-multilib
+    - g++-4.9-multilib
+    - gcc-multilib
+    - g++-multilib
+    - ocaml
+    - opam
+    - ocaml-native-compilers
+    - wx3.0-headers
+    - libgtk2.0-dev
+install: sh -ex .travis-install.sh
+cache:
+  directories:
+  - ${HOME}/.opam
+script: sh -ex .travis-ci.sh
+matrix:
+  include:
+  - env: OCAML_VERSION=system
+  - env: OCAML_VERSION=3.12.1
+  - env: OCAML_VERSION=4.00.0
+  - env: OCAML_VERSION=4.01.0
+  - env: OCAML_VERSION=4.02.3
+  - env: OCAML_VERSION=4.03.0
+#  allow_failures:
+#  - env: OCAML_VERSION=system
+#  - env: OCAML_VERSION=4.02.3

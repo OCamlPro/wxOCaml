@@ -1,0 +1,37 @@
+
+autoconf/Makefile.config: autoconf/configure
+	./configure $(CONFIGURE_ARGS)
+
+autoconf/configure: ocp-autoconf.config ocp-autoconf.ac
+	ocp-autoconf || touch autoconf/configure
+
+ocp-build-build:
+	ocp-build init
+	ocp-build
+
+ocp-build-install:
+	ocp-build init
+	ocp-build install \
+		 -install-bin $(bindir) \
+		 -install-lib $(ocamldir) \
+		 -install-meta $(metadir)
+
+ocp-build-clean:
+	ocp-build init
+	ocp-build clean
+
+ocp-build-distclean:
+	rm -rf _obuild
+
+ocp-lint-distclean:
+	rm -rf _olint
+
+ocp-autoconf-distclean:
+	rm -f autoconf/Makefile.config
+	rm -f autoconf/config.ocpgen
+	rm -f autoconf/config.status
+	rm -f autoconf/config.log
+	rm -f autoconf/ocaml-config.h
+	rm -rf autoconf/autom4te.cache/
+
+ocp-distclean: ocp-autoconf-distclean ocp-build-distclean ocp-lint-distclean
